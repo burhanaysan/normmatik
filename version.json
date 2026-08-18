@@ -1,0 +1,16 @@
+{
+  "system": "NormMatik™",
+  "version": "2026.1.0",
+  "releaseDate": "2026-08-19",
+  "rulesHash": "sha256-nm2026v1-meb-norm-engine-stable",
+  "minAppVersion": "1.0.0",
+  "changelog": [
+    "Türkiye Yüzyılı Maarif Modeli 9 ve 10. sınıf müfredat parametreleri eklendi.",
+    "69 Meslek Alanı ÇÖP ders saatleri ve atölye grup baremleri güncellendi.",
+    "Ortaokul 5, 6, 7 ve 8. sınıf e-Okul otomatik ithalat motoru aktif edildi.",
+    "ECDSA P-256 Asimetrik Kriptografik Lisanslama motoru entegre edildi."
+  ],
+  "downloadUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json",
+  "developer": "Burhan AYSAN",
+  "officialDomain": "https://www.normmatik.com.tr"
+}

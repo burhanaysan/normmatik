@@ -1,0 +1,1371 @@
+// NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi - Ana Uygulama Koordinatörü (app.js)
+import { dbService } from './database.js';
+import { curriculumEngine } from './curriculumEngine.js';
+import { normEngine } from './normEngine.js';
+import { appState } from './state.js';
+import { UIComponentManager } from './uiComponents.js';
+
+class MebNormApplication {
+    constructor() {
+        this.ui = new UIComponentManager(dbService, appState, normEngine, curriculumEngine);
+        this.activeGradeFilter = "ALL";
+        this.searchQuery = "";
+        this.isResizingLeft = false;
+        this.isResizingRight = false;
+    }
+
+    async init() {
+        try {
+            console.log("Uygulama başlatılıyor...");
+            this.initTheme();
+            if (typeof window !== 'undefined' && window.licenseManager) {
+                await window.licenseManager.init();
+            }
+            await dbService.loadDatabase();
+
+            normEngine.setBranchMatrix(dbService.getBranchMatrix());
+
+            appState.loadLayout();
+            const hasSavedState = appState.loadFromStorage();
+
+            if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
+                this.ui.openSchoolSetupModal();
+            }
+
+            appState.subscribe(() => this.render());
+
+            this.bindResizers();
+            this.bindKeyboardShortcuts();
+
+            this.render();
+            console.log("Uygulama başarıyla hazır!");
+        } catch (e) {
+            console.error("Uygulama başlatma hatası:", e);
+            alert("Uygulama başlatılamadı: " + e.message);
+        }
+    }
+
+    initTheme() {
+        let savedTheme = "light";
+        try {
+            savedTheme = localStorage.getItem("meb_norm_theme") || "light";
+        } catch (e) {}
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+
+    toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        try {
+            localStorage.setItem("meb_norm_theme", newTheme);
+        } catch (e) {}
+        this.renderHeader();
+        this.ui.showToast(`${newTheme === 'dark' ? '🌙 Koyu (Gece)' : '☀️ Açık (Gündüz)'} temaya geçildi.`, "success");
+    }
+
+    bindKeyboardShortcuts() {
+        window.addEventListener("keydown", (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") {
+                if (e.shiftKey) {
+                    appState.redo();
+                } else {
+                    appState.undo();
+                }
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y") {
+                appState.redo();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "p") {
+                e.preventDefault();
+                this.ui.openReportsModal("GRID");
+            }
+        });
+    }
+
+    bindResizers() {
+        const resizerLeft = document.getElementById("resizer-left");
+        const resizerRight = document.getElementById("resizer-right");
+
+        resizerLeft?.addEventListener("mousedown", (e) => {
+            this.isResizingLeft = true;
+            resizerLeft.classList.add("resizing");
+            document.body.style.cursor = "col-resize";
+        });
+
+        resizerRight?.addEventListener("mousedown", (e) => {
+            this.isResizingRight = true;
+            resizerRight.classList.add("resizing");
+            document.body.style.cursor = "col-resize";
+        });
+
+        window.addEventListener("mousemove", (e) => {
+            if (this.isResizingLeft) {
+                const newWidth = Math.max(180, Math.min(550, e.clientX));
+                appState.setLayout({ leftWidth: newWidth });
+                const leftEl = document.getElementById("sidebar-left");
+                if (leftEl) leftEl.style.width = `${newWidth}px`;
+            } else if (this.isResizingRight) {
+                const newWidth = Math.max(220, Math.min(650, window.innerWidth - e.clientX));
+                appState.setLayout({ rightWidth: newWidth });
+                const rightEl = document.getElementById("sidebar-right");
+                if (rightEl) rightEl.style.width = `${newWidth}px`;
+            }
+        });
+
+        window.addEventListener("mouseup", () => {
+            if (this.isResizingLeft || this.isResizingRight) {
+                this.isResizingLeft = false;
+                this.isResizingRight = false;
+                resizerLeft?.classList.remove("resizing");
+                resizerRight?.classList.remove("resizing");
+                document.body.style.cursor = "default";
+            }
+        });
+    }
+
+    render() {
+        this.renderHeader();
+        this.renderLeftSidebar();
+        this.renderMiddleCanvas();
+        this.renderRightNormPanel();
+        this.applyLayoutStyles();
+    }
+
+    applyLayoutStyles() {
+        const layout = appState.layout;
+        const leftEl = document.getElementById("sidebar-left");
+        const rightEl = document.getElementById("sidebar-right");
+        const resizerLeft = document.getElementById("resizer-left");
+        const resizerRight = document.getElementById("resizer-right");
+        const expandLeft = document.getElementById("btn-expand-left");
+        const expandRight = document.getElementById("btn-expand-right");
+
+        if (leftEl) {
+            leftEl.style.width = `${layout.leftWidth || 290}px`;
+            if (layout.leftCollapsed) {
+                leftEl.classList.add("collapsed");
+                if (resizerLeft) resizerLeft.style.display = "none";
+                if (expandLeft) expandLeft.style.display = "flex";
+            } else {
+                leftEl.classList.remove("collapsed");
+                if (resizerLeft) resizerLeft.style.display = "flex";
+                if (expandLeft) expandLeft.style.display = "none";
+            }
+        }
+
+        if (rightEl) {
+            rightEl.style.width = `${layout.rightWidth || 335}px`;
+            if (layout.rightCollapsed) {
+                rightEl.classList.add("collapsed");
+                if (resizerRight) resizerRight.style.display = "none";
+                if (expandRight) expandRight.style.display = "flex";
+            } else {
+                rightEl.classList.remove("collapsed");
+                if (resizerRight) resizerRight.style.display = "flex";
+                if (expandRight) expandRight.style.display = "none";
+            }
+        }
+    }
+
+    // --- 1. ÜST BAŞLIK (EXECUTIVE MARKET TERMINAL HEADER) RENDER ---
+    renderHeader() {
+        const headerEl = document.getElementById("app-header");
+        if (!headerEl) return;
+
+        const info = appState.state.okulBilgisi;
+        const schoolTypes = dbService.getSchoolTypes();
+        const currentType = schoolTypes.find(t => t.id === info.okulTuru) || { name: "Okul Türü Seçilmedi" };
+
+        const seasons = ["2024-2025", "2025-2026", "2026-2027", "2027-2028", "2028-2029", "2029-2030"];
+        const seasonOptionsHtml = seasons.map(s => `
+            <option value="${s}" ${info.sezon === s ? 'selected' : ''}>${s}</option>
+        `).join("");
+
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+        const themeBtnText = currentTheme === "dark" ? "☀️" : "🌙";
+
+        const schoolType = info.okulTuru || "";
+        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || (appState.state.subeler || []).some(s => s.alanId);
+        const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
+        const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
+        const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
+
+        headerEl.innerHTML = `
+            <!-- 1. BÖLÜM: SİSTEM BAŞLIĞI (LOGOSUZ VE SADE) -->
+            <div class="header-section-module section-logo">
+                <div class="logo-badge-executive" style="padding-left: 0.35rem;">
+                    <div class="logo-text-executive">
+                        <span class="logo-brand-title">MEB NORM</span>
+                        <span class="logo-brand-sub">DERS YÜKÜ & KADRO SİSTEMİ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-terminal-divider"></div>
+
+            <!-- 2. BÖLÜM: OKUL BİLGİLERİ -->
+            <div class="header-section-module section-school-info">
+                <div class="school-executive-cluster">
+                    <div class="school-title-row">
+                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Adını Değiştirin">
+                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi} <span class="edit-pen-icon">✏️</span>
+                        </span>
+                    </div>
+                    <div class="school-meta-pills">
+                        <div class="season-pill-box" title="Eğitim-Öğretim Sezonunu Değiştirin (Sınıf Atlatma & Sezon Devri)">
+                            <span class="season-pill-icon">📅</span>
+                            <select class="season-pill-select" id="season-selector">
+                                ${seasonOptionsHtml}
+                            </select>
+                        </div>
+                        <span class="school-type-tag" title="Okul türü kilitlidir. Değiştirmek için sıfırlayınız.">
+                            📜 ${currentType.category || 'MEB'} • ${currentType.name}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-terminal-divider"></div>
+
+            <!-- 3. BÖLÜM: KADRO YÖNETİMİ + RAPOR MERKEZİ -->
+            <div class="header-section-module section-management-reports">
+                <!-- Temiz Dairesel Geri / İleri Butonları (Yazısız) -->
+                <div class="history-controls-minimal">
+                    <button class="btn-history-circle" id="btn-undo" title="Son İşlemi Geri Al (Ctrl+Z)">
+                        <span>↶</span>
+                    </button>
+                    <button class="btn-history-circle" id="btn-redo" title="Geri Alınan İşlemi Yinele (Ctrl+Y)">
+                        <span>↷</span>
+                    </button>
+                </div>
+
+                <button class="btn btn-sm ${headerStaffClass} btn-header-elevated" id="btn-header-staff" title="${headerStaffTitle}">
+                    ${headerStaffText}
+                </button>
+                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="MEB Norm Kadro & Ders Yükü Raporlama Merkezi (Master Grid, Yönetici İcmali, Norm Cetvelleri)">
+                    🖨️ Raporlar
+                </button>
+            </div>
+
+            <div class="header-terminal-divider"></div>
+
+            <!-- 4. BÖLÜM: DİĞER KOMPONENTLER / SİSTEM ARAÇLARI -->
+            <div class="header-section-module section-tools">
+                <div class="header-toolbar-group">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.15); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Durumu ve Aktivasyon">
+                        🔑 Lisans
+                    </button>
+                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi Bilgisayarına JSON Olarak İndir">
+                        💾 İndir
+                    </button>
+                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Kayıtlı Proje Dosyasını Aç">
+                        📂 Yükle
+                    </button>
+                    <input type="file" id="file-import-json" accept=".json" style="display:none;">
+                    <button class="btn btn-sm btn-header-tool" id="btn-update-db" title="Yeni Yıl MEB Veri Tabanı Dosyası Yükle (Müfredat Güncelle)">
+                        📚 DB
+                    </button>
+                    <input type="file" id="file-import-db" accept=".json" style="display:none;">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği">
+                        ⚖️ KVKK
+                    </button>
+                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Açık / Koyu Tema Geçişi">
+                        ${themeBtnText}
+                    </button>
+                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" title="Okulu Sıfırla ve Yeniden Başlat">
+                        🔄 Sıfırla
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.getElementById("btn-open-license")?.addEventListener("click", () => {
+            this.ui.openLicenseModal();
+        });
+
+        document.getElementById("btn-header-staff")?.addEventListener("click", () => {
+            this.ui.openTeacherStaffModal();
+        });
+
+        document.getElementById("btn-open-reports")?.addEventListener("click", () => {
+            this.ui.openReportsModal("GRID");
+        });
+
+        document.getElementById("btn-open-kvkk")?.addEventListener("click", () => {
+            this.ui.openKvkkModal("AYDINLATMA");
+        });
+
+        document.getElementById("btn-theme-toggle")?.addEventListener("click", () => this.toggleTheme());
+
+        document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
+            this.ui.openEditSchoolNameModal();
+        });
+
+        document.getElementById("season-selector")?.addEventListener("change", (e) => {
+            const newSeason = e.target.value;
+            this.ui.openSeasonRolloverModal(newSeason);
+        });
+
+        document.getElementById("btn-undo")?.addEventListener("click", () => appState.undo());
+        document.getElementById("btn-redo")?.addEventListener("click", () => appState.redo());
+        document.getElementById("btn-reset-school")?.addEventListener("click", () => this.ui.openResetSchoolConfirmModal());
+
+        document.getElementById("btn-export-json")?.addEventListener("click", () => {
+            const jsonStr = appState.exportProjectJSON();
+            const blob = new Blob([jsonStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${info.okulAdi.replace(/\s+/g, '_')}_norm_plani_${info.sezon}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            this.ui.showToast("Proje JSON dosyası indirildi.", "success");
+        });
+
+        const fileInput = document.getElementById("file-import-json");
+        document.getElementById("btn-import-json")?.addEventListener("click", () => fileInput.click());
+        fileInput?.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const ok = appState.importProjectJSON(event.target.result);
+                if (ok) {
+                    this.ui.showToast("Proje başarıyla yüklendi!", "success");
+                } else {
+                    alert("Geçersiz proje dosyası.");
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        const dbFileInput = document.getElementById("file-import-db");
+        document.getElementById("btn-update-db")?.addEventListener("click", () => dbFileInput.click());
+        dbFileInput?.addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const ok = dbService.updateDatabaseFromJSON(event.target.result);
+                if (ok) {
+                    normEngine.setBranchMatrix(dbService.getBranchMatrix());
+                    this.render();
+                    this.ui.showToast("Yeni MEB Veri Tabanı başarıyla yüklendi ve güncellendi!", "success");
+                } else {
+                    alert("Geçersiz MEB veri tabanı JSON dosyası.");
+                }
+            };
+            reader.readAsText(file);
+        });
+    }
+
+    getTargetWeeklyHours(section, schoolType) {
+        if (section?.isSpecialEdu || (section?.subeAdi && section.subeAdi.includes("Özel Eğt")) || section?.alanId === "ozel_egitim") {
+            return 30; // MEB Özel Eğitim Hizmetleri Yön. Md. 28 Haftalık Standart Yük
+        }
+        return dbService.getOfficialTargetHours(schoolType, section?.sinifSeviyesi, section?.alanId);
+    }
+
+    // --- 2. SOL PANEL (ŞUBE LİSTESİ) RENDER ---
+    renderLeftSidebar() {
+        const sidebarEl = document.getElementById("sidebar-left");
+        if (!sidebarEl) return;
+
+        // Kaydırma (Scroll) ve Arama Odağı (Focus) Konumunu Koru
+        const currentListEl = sidebarEl.querySelector(".sections-list");
+        const prevScrollTop = currentListEl ? currentListEl.scrollTop : (this.lastSidebarScrollTop || 0);
+
+        const searchInput = document.getElementById("section-search-input");
+        const hadSearchFocus = document.activeElement === searchInput;
+        const cursorStart = searchInput?.selectionStart;
+        const cursorEnd = searchInput?.selectionEnd;
+
+        const subeler = appState.state.subeler || [];
+        const aktifId = appState.state.aktifSubeId;
+        const schoolType = appState.state.okulBilgisi.okulTuru;
+
+        let filtered = subeler;
+        if (this.activeGradeFilter !== "ALL") {
+            filtered = filtered.filter(s => s.sinifSeviyesi === this.activeGradeFilter);
+        }
+        if (this.searchQuery) {
+            const q = this.searchQuery.toLowerCase();
+            filtered = filtered.filter(s => s.subeAdi.toLowerCase().includes(q) || (s.dalAdi && s.dalAdi.toLowerCase().includes(q)));
+        }
+
+        const sectionsHtml = filtered.map(s => {
+            const totalHours = [...s.zorunluDersler, ...s.secmeliDersler].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+            const targetHours = this.getTargetWeeklyHours(s, schoolType);
+            const isActive = s.id === aktifId;
+            const hourStatus = totalHours === targetHours ? 'status-ok' : (totalHours > targetHours ? 'status-over' : 'status-under');
+            const isSpecialEdu = !!s.isSpecialEdu || (s.subeAdi && s.subeAdi.includes("Özel Eğt")) || (s.dalAdi && s.dalAdi.includes("Özel Eğit")) || s.alanId === "ozel_egitim";
+            
+            let dalText = "";
+            if (isSpecialEdu) {
+                dalText = "🟣 Özel Eğitim Sınıfı";
+            } else {
+                const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
+                const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";
+                if (s.dalAdi && areaName) {
+                    dalText = `${areaName} • ${s.dalAdi}`;
+                } else if (s.dalAdi) {
+                    dalText = s.dalAdi;
+                } else if (areaName) {
+                    dalText = areaName;
+                } else {
+                    dalText = String(s.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık Sınıfı' : s.sinifSeviyesi + '. Sınıf (Genel)';
+                }
+            }
+
+            const gradeClass = isSpecialEdu ? 'card-grade-special-edu' : ('card-grade-' + String(s.sinifSeviyesi || '').toLowerCase());
+            return `
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''}" data-id="${s.id}">
+                    <div class="sec-card-header">
+                        <div class="sec-card-title-wrap">
+                            <span class="sec-card-name">${s.subeAdi}</span>
+                        </div>
+                        <span class="sec-chip-badge student-chip">${s.ogrenciSayisi} Öğr</span>
+                    </div>
+                    <div class="sec-card-subline">
+                        <span class="sec-chip-badge dal-chip" title="${dalText}">${dalText}</span>
+                    </div>
+                    <div class="sec-chips-bottom">
+                        <span class="sec-chip-badge hour-chip ${hourStatus}" title="Haftalık Ders Saati Durumu">
+                            <span class="chip-pulse-dot"></span> ${totalHours} / ${targetHours} Saat
+                        </span>
+                        <div class="sec-action-chips">
+                            <button class="sec-action-btn btn-edit-sec" data-id="${s.id}" title="Şubeyi Düzenle">✏️</button>
+                            <button class="sec-action-btn split btn-split-sec" data-id="${s.id}" title="Şubeyi 2 veya 3'e Böl">✂️</button>
+                            <button class="sec-action-btn btn-duplicate-sec" data-id="${s.id}" title="Şubeyi Kopyala">📋</button>
+                            <button class="sec-action-btn delete btn-delete-sec" data-id="${s.id}" title="Şubeyi Sil">🗑️</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        const types = dbService.getSchoolTypes();
+        const typeInfo = types.find(t => t.id === schoolType) || { gradeLevels: ["9", "10", "11", "12"] };
+        const gradeLevels = typeInfo.gradeLevels || ["9", "10", "11", "12"];
+
+        const gradeTabsHtml = `
+            <button class="grade-tab-btn ${this.activeGradeFilter === 'ALL' ? 'active' : ''}" data-grade="ALL">Tümü</button>
+            ${gradeLevels.map(g => `
+                <button class="grade-tab-btn ${this.activeGradeFilter === g ? 'active' : ''}" data-grade="${g}">
+                    ${g === 'hazirlik' ? 'Hazırlık' : g + '. Sınıf'}
+                </button>
+            `).join('')}
+        `;
+
+        sidebarEl.innerHTML = `
+            <div class="sidebar-header">
+                <div class="sidebar-title-row">
+                    <span class="sidebar-title">📋 Şubeler (${subeler.length})</span>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                        <button class="btn btn-sm btn-primary" id="btn-open-single-add" title="Tek Şube Ekle (Manuel İsim/Alan)">+ Şube</button>
+                        <button class="btn btn-sm btn-outline" id="btn-open-bulk-wizard" title="Toplu Şube Üretici">⚡ Toplu</button>
+                        <button class="btn btn-sm btn-success" id="btn-open-eokul-import" title="e-Okul Excel'den Otomatik Yükle" style="background: #059669; color: #fff; border: none; font-weight: 600; padding: 0.25rem 0.5rem; font-size: 0.78rem;">📥 e-Okul</button>
+                        <button class="btn-panel-toggle" id="btn-collapse-left" title="Sol Şube Panelini Kapat (Sola Gizle)">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="11 17 6 12 11 7"></polyline>
+                                <polyline points="18 17 13 12 18 7"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="grade-tabs-container">
+                    ${gradeTabsHtml}
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="section-search-input" placeholder="Şube veya alan ara..." value="${this.searchQuery}">
+                </div>
+            </div>
+            <div class="sections-list">
+                ${sectionsHtml.length > 0 ? sectionsHtml : '<div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem;">Henüz şube eklenmedi. "+ Şube" veya "📥 e-Okul" butonuna basarak ekleyebilirsiniz.</div>'}
+            </div>
+        `;
+
+        // Kaydırma Konumunu (Scroll Position) Anında Geri Yükle & Kaydet
+        const newListEl = sidebarEl.querySelector(".sections-list");
+        if (newListEl) {
+            if (prevScrollTop > 0) {
+                newListEl.scrollTop = prevScrollTop;
+            }
+            newListEl.addEventListener("scroll", () => {
+                this.lastSidebarScrollTop = newListEl.scrollTop;
+            }, { passive: true });
+        }
+
+        // Arama Kutusu Odağını Geri Yükle
+        if (hadSearchFocus) {
+            const newSearchInput = document.getElementById("section-search-input");
+            if (newSearchInput) {
+                newSearchInput.focus();
+                if (cursorStart !== undefined && cursorEnd !== undefined) {
+                    newSearchInput.setSelectionRange(cursorStart, cursorEnd);
+                }
+            }
+        }
+
+        document.getElementById("btn-open-single-add")?.addEventListener("click", () => this.ui.openAddSectionModal());
+        document.getElementById("btn-open-bulk-wizard")?.addEventListener("click", () => this.ui.openBulkSectionWizard());
+        document.getElementById("btn-open-eokul-import")?.addEventListener("click", () => this.ui.openEOkulImportModal());
+        document.getElementById("btn-collapse-left")?.addEventListener("click", () => {
+            appState.setLayout({ leftCollapsed: true });
+            this.applyLayoutStyles();
+        });
+
+        document.querySelectorAll(".grade-tab-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                this.activeGradeFilter = e.currentTarget.dataset.grade;
+                this.renderLeftSidebar();
+            });
+        });
+
+        document.getElementById("section-search-input")?.addEventListener("input", (e) => {
+            this.searchQuery = e.target.value;
+            this.renderLeftSidebar();
+        });
+
+        document.querySelectorAll(".section-card").forEach(card => {
+            card.addEventListener("click", (e) => {
+                if (e.target.closest("button")) return;
+                const id = card.dataset.id;
+                // Kart tıklandığında mevcut scroll konumunu garantiye al
+                if (newListEl) {
+                    this.lastSidebarScrollTop = newListEl.scrollTop;
+                }
+                appState.setActiveSection(id);
+            });
+        });
+
+        document.querySelectorAll(".btn-edit-sec").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const sec = subeler.find(s => s.id === btn.dataset.id);
+                if (sec) this.ui.openAddSectionModal(sec);
+            });
+        });
+
+        document.querySelectorAll(".btn-split-sec").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const sec = subeler.find(s => s.id === btn.dataset.id);
+                if (sec) this.ui.openSplitSectionModal(sec);
+            });
+        });
+
+        document.querySelectorAll(".btn-duplicate-sec").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                appState.duplicateSection(btn.dataset.id);
+            });
+        });
+
+        document.querySelectorAll(".btn-delete-sec").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (confirm("Bu şubeyi silmek istediğinizden emin misiniz?")) {
+                    appState.deleteSection(btn.dataset.id);
+                }
+            });
+        });
+    }
+
+    // --- 3. ORTA PANEL (PRIMARY FOCUS CANVAS - ROWSPAN İLE DİKEY KATEGORİLİ TEK TABLO) ---
+    renderMiddleCanvas() {
+        const canvasEl = document.getElementById("middle-canvas");
+        if (!canvasEl) return;
+
+        const activeSec = appState.getActiveSection();
+
+        if (!activeSec) {
+            canvasEl.innerHTML = `
+                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; color:var(--text-muted); gap: 1rem; text-align: center; padding: 2rem;">
+                    <span style="font-size: 3.5rem;">📚</span>
+                    <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-main, #0f172a);">Lütfen sol panelden bir şube seçin veya yeni şube ekleyin.</div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); max-width: 450px;">
+                        e-Okul Excel dosyanız varsa tek tıkla tüm okulu kurabilir veya manuel ekleme yapabilirsiniz.
+                    </div>
+                    <div style="display:flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+                        <button class="btn btn-primary" id="btn-empty-add-single">+ Tek Şube Ekle</button>
+                        <button class="btn btn-outline" id="btn-empty-add-wizard">⚡ Toplu Şube Sihirbazı</button>
+                        <button class="btn btn-success" id="btn-empty-add-eokul" style="background: #059669; color: #fff; border: none; font-weight: 600; padding: 0.5rem 1rem;">📥 e-Okul Excel'den Otomatik Kur</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById("btn-empty-add-single")?.addEventListener("click", () => this.ui.openAddSectionModal());
+            document.getElementById("btn-empty-add-wizard")?.addEventListener("click", () => this.ui.openBulkSectionWizard());
+            document.getElementById("btn-empty-add-eokul")?.addEventListener("click", () => this.ui.openEOkulImportModal());
+            return;
+        }
+
+        const schoolType = appState.state.okulBilgisi.okulTuru;
+        const targetHours = this.getTargetWeeklyHours(activeSec, schoolType);
+
+        let zorunluList = activeSec.zorunluDersler || [];
+        const secmeliList = activeSec.secmeliDersler || [];
+        const branches = dbService.getAllBranches();
+
+        // Mükerrer Rehberlik engelleme & tekil liste (Türkçe küçük harf kontrolü)
+        let seenRehberlik = false;
+        zorunluList = zorunluList.filter(d => {
+            const name = String(d.ders || d.ders_adi || "").toLowerCase();
+            if (name.includes("rehberlik") || name.includes("rehberlık")) {
+                if (seenRehberlik) return false;
+                seenRehberlik = true;
+                d.ders = "Rehberlik ve Yönlendirme";
+                d.saat = 1;
+                return true;
+            }
+            return true;
+        });
+        activeSec.zorunluDersler = zorunluList;
+
+        // Dersleri Kategorilerine Göre Grupla
+        const isRehberlikCourse = (c) => {
+            const name = String(c.ders || c.ders_adi || "").toLowerCase();
+            return name.includes("rehberlik") || name.includes("rehberlık");
+        };
+
+        const isMeslekCourse = (c) => {
+            if (isRehberlikCourse(c)) return false;
+            const rawKat = (c.kategori || "").toUpperCase();
+            return rawKat.includes("ALAN") || rawKat.includes("MESLEK") || rawKat.includes("DAL") || c.isAtolye;
+        };
+
+        const ortakCourses = zorunluList.filter(d => !isMeslekCourse(d) && !isRehberlikCourse(d));
+        const meslekCourses = zorunluList.filter(d => isMeslekCourse(d));
+        const secmeliCourses = secmeliList.map(d => ({ ...d, isElective: true }));
+        const rehberlikCourses = zorunluList.filter(d => isRehberlikCourse(d));
+
+        const totalHours = [...ortakCourses, ...meslekCourses, ...secmeliCourses, ...rehberlikCourses].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+        const ortakHours = ortakCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+        const meslekHours = meslekCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+        const secmeliHours = secmeliCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+        const rehberlikHours = rehberlikCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+
+        let statusState = "success";
+        let statusHoursText = `${totalHours} / ${targetHours} Saat`;
+        let statusBadgeTitle = "Tamamlandı";
+        let statusBadgeSub = "Haftalık Yük Tam";
+
+        if (totalHours < targetHours) {
+            statusState = "warning";
+            statusHoursText = `${totalHours} / ${targetHours} Saat`;
+            statusBadgeTitle = `${targetHours - totalHours} Saat Eksik`;
+            statusBadgeSub = "Seçmeli Ders";
+        } else if (totalHours > targetHours) {
+            statusState = "danger";
+            statusHoursText = `${totalHours} / ${targetHours} Saat`;
+            statusBadgeTitle = `+${totalHours - targetHours} Saat Fazla`;
+            statusBadgeSub = "Ders Yükü Aşımı";
+        }
+
+        const currentCategoryFilter = this.activeCategoryFilter || "ALL";
+
+        // 4 Kategori Grubu
+        const categoryGroups = [
+            { type: "ortak", icon: "📘", title: "Zorunlu Ortak Dersler", shortTitle: "ORTAK", hours: ortakHours, list: ortakCourses, isElective: false },
+            { type: "meslek", icon: "🟣", title: "Alan ve Dal Meslek Dersleri", shortTitle: "MESLEK", hours: meslekHours, list: meslekCourses, isElective: false },
+            { type: "secmeli", icon: "📙", title: "Seçmeli Dersler", shortTitle: "SEÇMELİ", hours: secmeliHours, list: secmeliCourses, isElective: true },
+            { type: "rehberlik", icon: "🧭", title: "Rehberlik ve Yönlendirme", shortTitle: "REHBERLİK", hours: rehberlikHours, list: rehberlikCourses, isElective: false }
+        ];
+
+        // Segmented Tabs Toolbar
+        const filterTabsHtml = `
+            <button class="category-filter-btn tab-all ${currentCategoryFilter === 'ALL' ? 'active' : ''}" data-filter="ALL">
+                <span class="tab-icon">📋</span> Tüm Dersler <span class="tab-hour-badge">${totalHours}</span>
+            </button>
+            <button class="category-filter-btn tab-ortak ${currentCategoryFilter === 'ortak' ? 'active' : ''}" data-filter="ortak">
+                <span class="tab-icon">📘</span> Ortak <span class="tab-hour-badge">${ortakHours}</span>
+            </button>
+            ${meslekHours > 0 ? `
+                <button class="category-filter-btn tab-meslek ${currentCategoryFilter === 'meslek' ? 'active' : ''}" data-filter="meslek">
+                    <span class="tab-icon">🟣</span> Meslek <span class="tab-hour-badge">${meslekHours}</span>
+                </button>
+            ` : ''}
+            <button class="category-filter-btn tab-secmeli ${currentCategoryFilter === 'secmeli' ? 'active' : ''}" data-filter="secmeli">
+                <span class="tab-icon">📙</span> Seçmeli <span class="tab-hour-badge">${secmeliHours}</span>
+            </button>
+            <button class="category-filter-btn tab-rehberlik ${currentCategoryFilter === 'rehberlik' ? 'active' : ''}" data-filter="rehberlik">
+                <span class="tab-icon">🧭</span> Rehberlik <span class="tab-hour-badge">${rehberlikHours}</span>
+            </button>
+        `;
+
+        let tableBodyRowsHtml = "";
+        const isFilteringAll = currentCategoryFilter === "ALL";
+        let courseSequenceNumber = 0;
+
+        categoryGroups.forEach(grp => {
+            const hasCourses = grp.list.length > 0;
+            const isSecmeli = grp.type === "secmeli";
+            const isRelevant = hasCourses || (isSecmeli && (isFilteringAll || currentCategoryFilter === "secmeli"));
+
+            if (isRelevant) {
+                if (isFilteringAll || currentCategoryFilter === grp.type) {
+                    if (isFilteringAll || (!hasCourses && currentCategoryFilter === grp.type)) {
+                        let targetHintHtml = "";
+                        if (isSecmeli) {
+                            const expectedElectiveHours = Math.max(0, targetHours - ortakHours - meslekHours - rehberlikHours);
+                            if (expectedElectiveHours > 0 || secmeliHours > 0) {
+                                targetHintHtml = `<span class="category-target-badge ${secmeliHours >= expectedElectiveHours && expectedElectiveHours > 0 ? 'badge-complete' : (expectedElectiveHours === 0 ? 'badge-complete' : 'badge-pending')}">Seçilen: ${secmeliHours} / Hedef: ${expectedElectiveHours} Saat</span>`;
+                            }
+                        }
+
+                        tableBodyRowsHtml += `
+                            <tr class="category-divider-row cat-${grp.type}">
+                                <td colspan="6">
+                                    <div class="category-divider-content">
+                                        <div class="category-divider-left">
+                                            <span class="category-divider-icon">${grp.icon}</span>
+                                            <span class="category-divider-title">${grp.title.toUpperCase()}</span>
+                                        </div>
+                                        <div class="category-divider-right">
+                                            ${targetHintHtml}
+                                            <span class="category-divider-hours">${grp.hours} Saat</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    }
+
+                    if (hasCourses) {
+                        grp.list.forEach((c, idx) => {
+                            const isFirstInGroup = (idx === 0);
+                            courseSequenceNumber++;
+                            tableBodyRowsHtml += this.renderCourseRow(c, activeSec, branches, grp.isElective, schoolType, isFirstInGroup, grp, courseSequenceNumber);
+                        });
+                    } else if (isSecmeli) {
+                        tableBodyRowsHtml += `
+                            <tr class="empty-category-row">
+                                <td colspan="6" style="text-align: center; padding: 0.65rem 1rem; background: rgba(245, 158, 11, 0.03); border-left: 3.5px dashed #f59e0b; color: var(--text-muted); font-size: 0.78rem;">
+                                    <span>Bu şube için henüz seçmeli ders seçilmedi.</span>
+                                    <button class="btn btn-sm btn-primary inline-open-elective-btn" style="margin-left: 0.75rem; font-size: 0.72rem; padding: 0.15rem 0.55rem; border-radius: 6px;">
+                                        ✨ + Seçmeli Ders Ekle
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                }
+            }
+        });
+
+        const activeAreaObj = activeSec.alanId ? dbService.getVocationalAreas().find(a => a.id === activeSec.alanId) : null;
+        const activeAreaName = activeAreaObj ? activeAreaObj.name.replace(/ Alanı$/i, '') : "";
+
+        const schoolTypeMap = {
+            'mesleki_ve_teknik_anadolu_lisesi': 'MTAL (AMP)',
+            'anadolu_lisesi': 'Anadolu Lisesi',
+            'fen_lisesi': 'Fen Lisesi',
+            'imam_hatip_lisesi': 'İmam Hatip Lisesi',
+            'mesleki_egitim_merkezi': 'MESEM',
+            'guzel_sanatlar_lisesi': 'Güzel Sanatlar Lisesi',
+            'spor_lisesi': 'Spor Lisesi',
+            'sosyal_bilimler_lisesi': 'Sosyal Bilimler Lisesi',
+            'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu'
+        };
+        const schoolTypeShort = schoolTypeMap[schoolType] || 'Ortaöğretim';
+        const gradeDisplay = String(activeSec.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık' : `${activeSec.sinifSeviyesi}. Sınıf`;
+        const isSpecialEduSec = !!activeSec.isSpecialEdu || (activeSec.subeAdi && activeSec.subeAdi.includes("Özel Eğt")) || (activeSec.dalAdi && activeSec.dalAdi.includes("Özel Eğit")) || activeSec.alanId === "ozel_egitim";
+
+        canvasEl.innerHTML = `
+            <!-- SABİT KART BAŞLIĞI: 2 KATMANLI MASTER HERO BANNER & KONTROL TOOLBARI -->
+            <div class="canvas-hero-wrapper">
+                <!-- 1. KATMAN: ŞUBE KİMLİĞİ, HİYERARŞİK YOL & TELEMETRİ HUD -->
+                <div class="section-hero-banner">
+                    <!-- SOL: BÜYÜK AVATAR + BAŞLIK + HİYERARŞİK KURUMSAL YOL -->
+                    <div class="hero-identity-main">
+                        <div class="hero-avatar-box" title="${activeSec.subeAdi} - ${gradeDisplay}">
+                            <span class="hero-avatar-icon">🏫</span>
+                            <span class="hero-grade-tag">${gradeDisplay}</span>
+                        </div>
+                        <div class="hero-identity-details">
+                            <div class="hero-title-row">
+                                <h1 class="hero-section-title" title="${activeSec.subeAdi}">${activeSec.subeAdi}</h1>
+                                <span class="hero-student-pill" title="Şube Mevcudu: ${activeSec.ogrenciSayisi} Öğrenci">
+                                    👥 <strong>${activeSec.ogrenciSayisi}</strong> Öğr
+                                </span>
+                                <div class="hero-title-btn-group">
+                                    <button class="hero-btn-pill" id="btn-edit-active-sec" title="Şube ve Dal Bilgilerini Düzenle">
+                                        <span>✏️ Düzenle</span>
+                                    </button>
+                                    <button class="hero-btn-pill split" id="btn-split-active-sec" title="Şubeyi 2 veya 3'e Böl (Mevcut/Dal Bölünmesi)">
+                                        <span>✂️ Böl</span>
+                                    </button>
+                                    <button class="hero-btn-pill copy" id="btn-duplicate-active-sec" title="Şubeyi Birebir Kopyala">
+                                        <span>📋 Kopyala</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- HİYERARŞİK KURUMSAL YOL (BREADCRUMB) -->
+                            <div class="hero-hierarchy-path">
+                                <span class="path-badge school" title="Okul Türü">${schoolTypeShort}</span>
+                                <span class="path-divider">/</span>
+                                <span class="path-badge grade">${gradeDisplay}</span>
+                                ${isSpecialEduSec ? `
+                                    <span class="path-divider">/</span>
+                                    <span class="path-badge special" title="Özel Eğitim Sınıfı">
+                                        <span class="path-icon">🟣</span> Özel Eğitim (Md. 17/1-c)
+                                    </span>
+                                ` : ''}
+                                ${activeAreaName ? `
+                                    <span class="path-divider">/</span>
+                                    <span class="path-badge area" title="Meslek Alanı: ${activeAreaName}">
+                                        <span class="path-icon">🏛️</span> <strong>Alan:</strong> ${activeAreaName}
+                                    </span>
+                                ` : ''}
+                                ${activeSec.dalAdi ? `
+                                    <span class="path-divider">➔</span>
+                                    <span class="path-badge dal" title="Meslek Dalı: ${activeSec.dalAdi}">
+                                        <span class="path-icon">⚙️</span> <strong>Dal:</strong> ${activeSec.dalAdi}
+                                    </span>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SAĞ: TELEMETRİ KARTI & SEÇMELİ DERS BUTONU -->
+                    <div class="hero-telemetry-block">
+                        <div class="neon-status-card ${statusState}" title="Haftalık Toplam Ders Saati: ${totalHours} / ${targetHours} Saat (${statusBadgeTitle} - ${statusBadgeSub})">
+                            <div class="neon-status-left">
+                                <div class="neon-status-header">
+                                    <span class="neon-status-dot ${statusState}"></span>
+                                    <span class="neon-status-title">Haftalık Yük</span>
+                                </div>
+                                <div class="metric-value">⏱️ ${statusHoursText}</div>
+                            </div>
+                            <div class="metric-badge-stacked ${statusState}">
+                                <span class="badge-row-top">${statusBadgeTitle}</span>
+                                <span class="badge-row-sub">${statusBadgeSub}</span>
+                            </div>
+                        </div>
+                        <button class="neon-action-btn" id="btn-open-elective-drawer" title="Şubeye Yeni Seçmeli Ders Ekle">
+                            <span class="action-btn-sparkle">✨</span>
+                            <span>+ Seçmeli Ders</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. KATMAN: KATEGORİ FİLTRE SEKMELERİ (TEK VE KOMPAKT SATIR) -->
+                <div class="unified-card-toolbar">
+                    <div class="category-filter-tabs">
+                        ${filterTabsHtml}
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCROLLABLE TABLO GÖVDESİ -->
+            <div class="canvas-content-scroll">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 44px; min-width: 44px; max-width: 48px; text-align: center;">No</th>
+                            <th style="width: 36%;">Ders Adı</th>
+                            <th style="width: 15%; text-align: center;">Haftalık Saat</th>
+                            <th style="width: 24%;">Atanan Branş</th>
+                            <th style="width: 14%; text-align: center;">Sınıf Birleştirme</th>
+                            <th style="width: 7%; text-align: center;">İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableBodyRowsHtml.length > 0 ? tableBodyRowsHtml : `
+                            <tr>
+                                <td colspan="6" style="text-align:center; padding: 2.5rem; color: var(--text-muted);">
+                                    Bu kategoride ders bulunmuyor.
+                                </td>
+                            </tr>
+                        `}
+                    </tbody>
+                </table>
+            </div>
+        `;
+
+        document.querySelectorAll(".category-filter-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                this.activeCategoryFilter = e.currentTarget.dataset.filter;
+                this.renderMiddleCanvas();
+            });
+        });
+
+        document.getElementById("btn-edit-active-sec")?.addEventListener("click", () => {
+            this.ui.openAddSectionModal(activeSec);
+        });
+
+        document.getElementById("btn-split-active-sec")?.addEventListener("click", () => {
+            this.ui.openSplitSectionModal(activeSec);
+        });
+
+        document.getElementById("btn-duplicate-active-sec")?.addEventListener("click", () => {
+            appState.duplicateSection(activeSec.id);
+            this.ui.showToast(`📋 ${activeSec.subeAdi} şubesi başarıyla kopyalandı!`, "success");
+            this.renderAll();
+        });
+
+        document.getElementById("btn-open-elective-drawer")?.addEventListener("click", () => {
+            this.ui.openElectiveCourseDrawer(activeSec);
+        });
+
+        document.querySelectorAll(".inline-open-elective-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                this.ui.openElectiveCourseDrawer(activeSec);
+            });
+        });
+
+        document.querySelectorAll(".branch-select").forEach(select => {
+            select.addEventListener("change", (e) => {
+                const cName = e.currentTarget.dataset.course;
+                const newBranch = e.currentTarget.value;
+                appState.updateCourseBranch(activeSec.id, cName, newBranch);
+                this.ui.showToast(`🎯 "${cName}" branşı "${newBranch || 'Atanmadı'}" olarak güncellendi.`, "success");
+            });
+        });
+
+        document.querySelectorAll(".btn-open-merge-modal").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const cName = e.currentTarget.dataset.course;
+                this.ui.openCourseMergeModal(activeSec, cName);
+            });
+        });
+
+        document.querySelectorAll(".btn-remove-elective").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const cName = e.currentTarget.dataset.course;
+                appState.removeElectiveCourse(activeSec.id, cName);
+                this.ui.showToast(`🗑️ "${cName}" seçmeli dersi şubeden kaldırıldı.`, "success");
+            });
+        });
+    }
+
+    renderCourseRow(course, section, branches, isElective = false, schoolType = "", isFirstInGroup = false, grp = null, rowNumber = 1) {
+        const rawCName = course.ders || course.ders_adi;
+        const hours = parseInt(course.saat || course.ders_saati || 0, 10);
+        
+        let cName = rawCName;
+        let assignedBranch = course.atananBrans;
+
+        if (window.curriculumEngine && typeof window.curriculumEngine.getCanonicalCourseAndBranch === 'function') {
+            const resolved = window.curriculumEngine.getCanonicalCourseAndBranch(rawCName, assignedBranch, section.alanId || section.alanAdi, course.kategori);
+            cName = resolved.courseName;
+            assignedBranch = resolved.branchName;
+        } else if (window.curriculumEngine && typeof window.curriculumEngine.toTurkishTitleCase === 'function') {
+            cName = window.curriculumEngine.toTurkishTitleCase(rawCName);
+        }
+        
+        if (assignedBranch === "— Branş Atanmadı —" || assignedBranch === "Diğer" || assignedBranch === "") {
+            assignedBranch = "";
+        }
+
+        const isUnassigned = !assignedBranch || assignedBranch.trim() === "";
+        const isBaraj = !!course.baraj_ders;
+
+        const mergedList = course.birlesikSubeler || [];
+        const isMerged = mergedList.length > 0;
+
+        const normAssigned = (assignedBranch || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+
+        let hasSelectedOption = false;
+        const optionsList = branches.map(b => {
+            const bNorm = b.brans_adi.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            const isMatch = !isUnassigned && (
+                assignedBranch === b.brans_adi || 
+                normAssigned === bNorm || 
+                (normAssigned.includes("rehberlik") && bNorm === "rehberlik") ||
+                (normAssigned.includes("bilisim") && bNorm.includes("bilisim")) ||
+                (normAssigned.includes("elektrik") && bNorm.includes("elektrik")) ||
+                (normAssigned.includes("makine") && bNorm.includes("makine")) ||
+                (normAssigned.includes("turkdili") && bNorm.includes("turkdili"))
+            );
+            if (isMatch && !hasSelectedOption) {
+                hasSelectedOption = true;
+                return `<option value="${b.brans_adi}" selected>${b.brans_adi}</option>`;
+            }
+            return `<option value="${b.brans_adi}">${b.brans_adi}</option>`;
+        }).join("");
+
+        const branchOptionsHtml = `
+            <option value="" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
+            ${optionsList}
+        `;
+
+        const mergedSectionsNames = mergedList.map(id => {
+            const sec = appState.state.subeler.find(s => s.id === id);
+            return sec ? sec.subeAdi : "";
+        }).filter(Boolean).join(", ");
+
+        const mult = normEngine.evaluateCourseMultiplier(course, section.ogrenciSayisi || 30, schoolType);
+        
+        let loadInfoHtml = "";
+        let badgeHtml = "";
+
+        if (isUnassigned) {
+            loadInfoHtml = `
+                <div class="course-hours-wrapper">
+                    <span class="course-hours-unassigned">${hours} Saat</span>
+                </div>
+            `;
+            badgeHtml = `
+                <span class="unassigned-badge" title="Bu derse henüz branş atanmadı.">
+                    ⚪ Branş Atanmadı
+                </span>
+            `;
+        } else {
+            loadInfoHtml = mult.groupCount > 1 ? `
+                <div class="course-hours-wrapper">
+                    <span class="course-hours-value">${hours} Saat</span>
+                    <span class="group-multiplier-pill" title="${mult.note}">(${mult.groupCount} Grup)</span>
+                </div>
+            ` : `
+                <div class="course-hours-wrapper">
+                    <span class="course-hours-value">${hours} Saat</span>
+                </div>
+            `;
+        }
+
+        let electiveThemeBadgeHtml = "";
+        if (isElective && this.ui && typeof this.ui.getElectiveThemeInfo === 'function') {
+            const tInfo = this.ui.getElectiveThemeInfo({
+                ders: cName,
+                isVocational: !!(course.isVocational || course.isElectiveVocational || (course.kategori || '').includes('MESLEK')),
+                grup: course.grup || course.kategori
+            });
+            if (tInfo) {
+                electiveThemeBadgeHtml = `<span class="${tInfo.badgeClass}" style="font-size: 0.65rem; font-weight: 700; padding: 0.08rem 0.4rem; border-radius: var(--radius-full);">${tInfo.badge}</span>`;
+            }
+        }
+
+        const badgeCategoryClass = isElective ? 'badge-secmeli' : ((course.kategori || '').includes('MESLEK') || course.isVocational ? 'badge-meslek' : 'badge-ortak');
+
+        return `
+            <tr class="course-row ${isElective ? 'is-elective-row' : ''}">
+                <td class="course-index-cell">
+                    <span class="course-index-badge ${badgeCategoryClass}">${rowNumber}</span>
+                </td>
+                <td class="course-name-cell">
+                    <div class="course-name-wrapper">
+                        <span class="course-title">${cName}</span>
+                        ${electiveThemeBadgeHtml}
+                        ${isBaraj ? '<span class="baraj-pill" title="Baraj Ders (Sınıf Geçme Şartı)">BARAJ</span>' : ''}
+                        ${badgeHtml}
+                    </div>
+                </td>
+                <td class="course-hours-cell">
+                    ${loadInfoHtml}
+                </td>
+                <td class="course-branch-cell">
+                    <div class="course-branch-wrapper">
+                        <select class="branch-select" data-course="${cName}">
+                            ${branchOptionsHtml}
+                        </select>
+                    </div>
+                </td>
+                <td class="course-merge-cell">
+                    <div class="course-merge-wrapper">
+                        <button class="merge-btn ${isMerged ? 'active' : ''} btn-open-merge-modal" data-course="${cName}" title="${isMerged ? `Birleştirilen Şubeler: ${mergedSectionsNames}` : 'Bu dersi diğer şubelerle birleştir'}">
+                            🔗 ${isMerged ? `<span class="merge-text">Birleşti: <strong>${mergedSectionsNames}</strong></span>` : 'Birleştir'}
+                        </button>
+                    </div>
+                </td>
+                <td class="course-action-cell" style="text-align: center;">
+                    <div class="course-action-wrapper">
+                        ${isElective ? `
+                            <button class="btn-delete-course btn-remove-elective" data-course="${cName}" title="Bu Seçmeli Dersi Kaldır">
+                                🗑️
+                            </button>
+                        ` : '<span class="dash-muted">—</span>'}
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    // --- 4. SAĞ PANEL (KOMPAKT NORM TABLOSU VE İNTERAKTİF SOHBET BALONU) ---
+    renderRightNormPanel() {
+        const panelEl = document.getElementById("sidebar-right");
+        if (!panelEl) return;
+
+        const subeler = appState.state.subeler || [];
+        const existingTeachers = appState.state.mevcutOgretmenler || {};
+        const schoolType = appState.state.okulBilgisi.okulTuru || "";
+        const coordinatorMap = appState.state.koordinatorlukYukleri || {};
+
+        const normResult = normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
+
+        const rowsHtml = normResult.branchReport.map(b => {
+            return `
+                <tr class="norm-row" data-branch="${b.branchName}">
+                    <td>
+                        <span class="norm-branch-text">${b.branchName}</span>
+                    </td>
+                    <td style="text-align: center;">
+                        <span class="norm-chip-load">${b.totalHours}</span>
+                    </td>
+                    <td style="text-align: center;">
+                        <div class="norm-dual-chip" title="Norm / Mevcut Kadro">
+                            <span class="chip-norm">${b.calculatedNorm}</span>
+                            <span class="chip-slash">/</span>
+                            <span class="chip-mev">${b.currentTeachers}</span>
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <span class="norm-status-chip ${b.statusType}">${b.statusBadge}</span>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+
+        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || subeler.some(s => s.alanId);
+        const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve 12. Sınıf Koordinatörlük Yüklerini Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
+
+        panelEl.innerHTML = `
+            <div class="norm-panel-header">
+                <div style="display:flex; align-items:center; justify-content:space-between;">
+                    <span style="font-size: 0.95rem; font-weight: 800;">Norm Kadro</span>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                        <button class="btn-panel-toggle" id="btn-collapse-right" title="Sağ Norm Panelini Kapat (Sağa Gizle)">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="13 17 18 12 13 7"></polyline>
+                                <polyline points="6 17 11 12 6 7"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="norm-kpi-grid">
+                    <div class="kpi-card kpi-card-amber kpi-card-full" title="Okulun Tüm Branşlar ve Şubeler Dahil Toplam Haftalık Ders Yükü">
+                        <div class="kpi-load-wrapper">
+                            <div class="kpi-load-left">
+                                <span class="kpi-load-icon">⏱️</span>
+                                <span class="kpi-label">Toplam Okul Yükü</span>
+                            </div>
+                            <span class="kpi-val amber">${normResult.totalHours} <span class="kpi-unit">Saat</span></span>
+                        </div>
+                    </div>
+                    <div class="kpi-card kpi-card-blue">
+                        <span class="kpi-label">Hesaplanan Norm</span>
+                        <span class="kpi-val blue">${normResult.totalCalculatedNorm}</span>
+                    </div>
+                    <div class="kpi-card kpi-card-slate">
+                        <span class="kpi-label">Mevcut Öğretmen</span>
+                        <span class="kpi-val">${normResult.totalCurrentTeachers}</span>
+                    </div>
+                    <div class="kpi-card kpi-card-purple">
+                        <span class="kpi-label">Toplam İhtiyaç</span>
+                        <span class="kpi-val purple">${normResult.totalNeeded > 0 ? '-' + normResult.totalNeeded : '0'}</span>
+                    </div>
+                    <div class="kpi-card kpi-card-red">
+                        <span class="kpi-label">Toplam Fazla</span>
+                        <span class="kpi-val red">${normResult.totalSurplus > 0 ? '+' + normResult.totalSurplus : '0'}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="norm-table-container">
+                <table class="norm-table">
+                    <thead>
+                        <tr>
+                            <th>Branş</th>
+                            <th style="text-align: center;">Yük</th>
+                            <th style="text-align: center;">Norm/Mev.</th>
+                            <th style="text-align: center;">Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rowsHtml.length > 0 ? rowsHtml : '<tr><td colspan="4" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz ders yükü hesaplanmadı.</td></tr>'}
+                    </tbody>
+                </table>
+            </div>
+            <div class="sidebar-right-footer">
+                <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
+                    🛡️ <strong>KVKK & Gizlilik</strong>
+                </button>
+                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • Burhan Aysan">
+                    ⚡ Mimari & Tasarım: <strong>burhanaysan</strong>
+                </span>
+            </div>
+        `;
+
+        document.getElementById("btn-footer-kvkk")?.addEventListener("click", () => {
+            this.ui.openKvkkModal("AYDINLATMA");
+        });
+
+        // Global Speech Bubble Tooltip Bağlantısı (Kırpılma engelli Portal Tooltip)
+        let bubble = document.getElementById("global-speech-bubble");
+        if (!bubble) {
+            bubble = document.createElement("div");
+            bubble.id = "global-speech-bubble";
+            bubble.className = "global-speech-bubble";
+            document.body.appendChild(bubble);
+        }
+
+        let activeRow = null;
+        let hideTimeout = null;
+
+        const showBubble = (row) => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            activeRow = row;
+            document.querySelectorAll(".norm-row").forEach(r => r.classList.remove("active-popover-row"));
+            row.classList.add("active-popover-row");
+
+            const branchName = row.dataset.branch;
+            const bData = normResult.branchReport.find(b => b.branchName === branchName);
+            if (!bData) return;
+
+            const bubbleCoursesHtml = bData.courses.map(c => `
+                <div class="bubble-section-chip-card ${c.isCoordinator ? 'bubble-coord-card' : ''}">
+                    <div class="bubble-chip-top">
+                        <span class="bubble-sec-badge">🏫 ${c.sectionName}</span>
+                        <span class="bubble-hour-badge ${c.isCoordinator ? 'coord' : ''}">${c.isCoordinator ? '🏢 +' : '⏱️ '}${c.calculatedLoad} Saat</span>
+                    </div>
+                    <div class="bubble-course-name">${c.courseName}</div>
+                    ${c.note ? `<div class="bubble-chip-note">👥 ${c.note}</div>` : ''}
+                </div>
+            `).join("");
+
+            bubble.innerHTML = `
+                <div class="bubble-title">
+                    <span>⚖️ ${bData.branchName}</span>
+                    <span class="bubble-sec-count-badge">${bData.courses.length} Şube/Ders</span>
+                </div>
+                <div class="bubble-body">
+                    <div class="bubble-chips-container">
+                        ${bubbleCoursesHtml.length > 0 ? bubbleCoursesHtml : '<div class="bubble-empty">Bu branşa atanmış ders yükü bulunmuyor.</div>'}
+                    </div>
+                    <div class="bubble-footer">
+                        <div>📊 Toplam Ders Yükü: <strong class="bubble-total-val">${bData.totalHours} Saat</strong></div>
+                        ${bData.coordinatorHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🏢 12. Sınıf İşletme Koordinatörlüğü: +${bData.coordinatorHours}s (OÖKY Md.88)</div>` : ''}
+                        <div>📜 <strong>${bData.formulaExplanation}</strong></div>
+                    </div>
+                </div>
+            `;
+
+            // Akıllı Görünürlük ve Viewport Sığdırma Motoru
+            const rect = row.getBoundingClientRect();
+            const bubbleWidth = 360;
+
+            bubble.style.visibility = "hidden";
+            bubble.classList.add("active");
+
+            // Render edilen yüksekliği ölç
+            const bubbleHeight = bubble.offsetHeight || 280;
+            const viewportHeight = window.innerHeight;
+
+            let targetTop = rect.top + (rect.height / 2) - (bubbleHeight / 2);
+            const minTop = 16;
+            const maxTop = Math.max(16, viewportHeight - bubbleHeight - 16);
+            if (targetTop < minTop) targetTop = minTop;
+            if (targetTop > maxTop) targetTop = maxTop;
+
+            const targetLeft = Math.max(16, rect.left - bubbleWidth - 14);
+
+            bubble.style.top = `${targetTop}px`;
+            bubble.style.left = `${targetLeft}px`;
+            bubble.style.visibility = "visible";
+        };
+
+        const scheduleHide = () => {
+            if (hideTimeout) clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
+                bubble.classList.remove("active");
+                if (activeRow) {
+                    activeRow.classList.remove("active-popover-row");
+                    activeRow = null;
+                }
+            }, 200);
+        };
+
+        const cancelHide = () => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+        };
+
+        document.querySelectorAll(".norm-row").forEach(row => {
+            // TIKLAYINCA OLUŞSUN (Click to open)
+            row.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (activeRow === row && bubble.classList.contains("active")) {
+                    scheduleHide();
+                } else {
+                    showBubble(row);
+                }
+            });
+
+            // MOUSE'I ÜSTÜNDEN ÇEKİNCE 2. BİR TIKLAMAYA GEREK KALMADAN ANİMASYONLA KAYBOLSUN
+            row.addEventListener("mouseleave", () => {
+                scheduleHide();
+            });
+
+            row.addEventListener("mouseenter", () => {
+                if (activeRow === row) {
+                    cancelHide();
+                }
+            });
+        });
+
+        // Baloncuk üzerine gidildiğinde açık kalsın (kullanıcı tüm şubeleri kaydırabilsin)
+        bubble.addEventListener("mouseenter", () => {
+            cancelHide();
+        });
+
+        // Baloncuk üzerinden mouse çekilince animasyonla otomatik kaybolsun
+        bubble.addEventListener("mouseleave", () => {
+            scheduleHide();
+        });
+
+        // Dışarıya tıklandığında kapansın
+        document.addEventListener("click", (e) => {
+            if (!bubble.contains(e.target) && !e.target.closest(".norm-row")) {
+                bubble.classList.remove("active");
+                if (activeRow) {
+                    activeRow.classList.remove("active-popover-row");
+                    activeRow = null;
+                }
+            }
+        });
+
+        document.getElementById("btn-collapse-right")?.addEventListener("click", () => {
+            appState.setLayout({ rightCollapsed: true });
+            this.applyLayoutStyles();
+        });
+
+        document.getElementById("btn-open-staff-modal")?.addEventListener("click", () => this.ui.openTeacherStaffModal());
+    }
+}
+
+// Uygulamayı Başlat (Hem DOMContentLoaded hem de Hazır DOM desteği ile)
+function startMebNormApp() {
+    if (window._mebNormAppStarted) return;
+    window._mebNormAppStarted = true;
+
+    const app = new MebNormApplication();
+    window.app = app;
+    window.dbService = dbService;
+    window.appState = appState;
+    window.normEngine = normEngine;
+    window.uiComponents = app.ui;
+    app.init();
+
+    document.getElementById("btn-expand-left")?.addEventListener("click", () => {
+        appState.setLayout({ leftCollapsed: false });
+        app.applyLayoutStyles();
+    });
+
+    document.getElementById("btn-expand-right")?.addEventListener("click", () => {
+        appState.setLayout({ rightCollapsed: false });
+        app.applyLayoutStyles();
+    });
+}
+
+if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startMebNormApp);
+    } else {
+        startMebNormApp();
+    }
+}

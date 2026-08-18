@@ -1,0 +1,416 @@
+// MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
+// Bu modül, 69 Meslek Alanı, 21 OGM Çizelgesi, DÖGM Çizelgeleri, 2.662 Seçmeli Dersi ve 47 Branş Matrisini yönetir.
+
+export class MebDatabaseService {
+    constructor() {
+        this.masterData = null;
+        this.isLoaded = false;
+        this.STORAGE_KEY_DB = "MEB_NORM_CUSTOM_DB_V1";
+    }
+
+    async loadDatabase() {
+        // 1. Kullanıcının sonradan yüklediği güncel veri tabanı var mı?
+        const customDb = localStorage.getItem(this.STORAGE_KEY_DB);
+        if (customDb) {
+            try {
+                this.masterData = JSON.parse(customDb);
+                this.isLoaded = true;
+                console.log("MEB Master DB localStorage üzerinden güncel versiyon ile yüklendi.");
+                return this.masterData;
+            } catch (e) {
+                console.warn("Kayıtlı özel DB okunamadı, varsayılanlara dönülüyor...", e);
+            }
+        }
+
+        // 2. Fetch ile meb_master_db.json yükle
+        try {
+            const response = await fetch('./data/meb_master_db.json');
+            if (response.ok) {
+                this.masterData = await response.json();
+                this.isLoaded = true;
+                console.log("MEB Master DB başarıyla yüklendi (fetch).");
+                return this.masterData;
+            }
+        } catch (e) {
+            console.warn("Fetch üzerinden yüklenemedi, window.MEB_EMBEDDED_DATA kontrol ediliyor...", e);
+        }
+
+        // 3. Embedded Data Fallback (file:// protokolü ve offline çalışma için tam destek)
+        const embeddedData = window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA;
+        if (embeddedData) {
+            this.masterData = embeddedData;
+            this.isLoaded = true;
+            console.log("MEB Master DB gömülü veri (embedded) üzerinden başarıyla yüklendi.");
+            return this.masterData;
+        }
+
+        throw new Error("Master veri tabanı yüklenemedi. Lütfen data/meb_master_db.json veya js/embedded_data.js dosyasını kontrol edin.");
+    }
+
+    /**
+     * Kullanıcının Gelecek Yıl Yeni MEB Veri Tabanı Yüklemesini Sağlar
+     * @param {string|object} newDbContent - Yüklenen JSON içeriği
+     */
+    updateDatabaseFromJSON(newDbContent) {
+        try {
+            const parsed = typeof newDbContent === "string" ? JSON.parse(newDbContent) : newDbContent;
+            if (!parsed.okul_turleri_ve_cizelgeler || !parsed.norm_ve_ders_yuku_hesaplama_motoru) {
+                throw new Error("Geçersiz MEB Veri Tabanı Formatı. Gerekli kök düğümler bulunamadı.");
+            }
+            this.masterData = parsed;
+            localStorage.setItem(this.STORAGE_KEY_DB, JSON.stringify(parsed));
+            this.isLoaded = true;
+            return true;
+        } catch (e) {
+            console.error("Veri tabanı güncelleme hatası:", e);
+            return false;
+        }
+    }
+
+    resetToDefaultDatabase() {
+        localStorage.removeItem(this.STORAGE_KEY_DB);
+        const embedded = window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA;
+        if (embedded) {
+            this.masterData = embedded;
+        }
+    }
+
+    getSchoolTypes() {
+        return [
+            { id: "anadolu_lisesi", name: "Anadolu Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "hazirlik_anadolu_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            { id: "fen_lisesi", name: "Fen Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "hazirlik_fen_lisesi", name: "Hazırlık Sınıfı Bulunan Fen Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            { id: "sosyal_bilimler_lisesi", name: "Sosyal Bilimler Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "guzel_sanatlar_turk_muzigi", name: "Güzel Sanatlar Lisesi (Türk Müziği)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "spor_lisesi", name: "Spor Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "anadolu_imam_hatip_lisesi", name: "Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["9", "10", "11", "12"], hasSpecialPrograms: true },
+            { id: "hazirlik_imam_hatip_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasSpecialPrograms: true },
+            { id: "imam_hatip_ortaokulu", name: "İmam Hatip Ortaokulu (İHO)", category: "DÖGM", gradeLevels: ["5", "6", "7", "8"] },
+            { id: "ortaokul_temel_egitim", name: "Ortaokul (Genel Temel Eğitim)", category: "TEMEL_EGITIM", gradeLevels: ["5", "6", "7", "8"] },
+            { id: "meslek_ortaokulu", name: "Meslek Ortaokulu (Zanaat Atölyeleri)", category: "MTEGM", gradeLevels: ["5", "6", "7", "8"] },
+            { id: "ozel_egitim_meslek_okulu", name: "Özel Eğitim Meslek Okulu (Hafif Düzey)", category: "ÖZEL_EĞİTİM", gradeLevels: ["9", "10", "11", "12"] },
+            { id: "ozel_egitim_uygulama_okulu", name: "Özel Eğitim Uygulama Okulu (I, II, III. Kademe)", category: "ÖZEL_EĞİTİM", gradeLevels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] }
+        ];
+    }
+
+    getVocationalAreas(schoolType = "") {
+        if (!this.masterData) return [];
+        const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
+        
+        let targetAlanlar = {};
+        if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
+            targetAlanlar = this.masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem.alanlar;
+        } else {
+            targetAlanlar = this.masterData.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
+        }
+
+        const CANONICAL_ALAN_NAMES = {
+            'adalet': 'Adalet Alanı',
+            'aile': 'Aile ve Tüketici Hizmetleri Alanı',
+            'sh': 'Aile ve Tüketici Hizmetleri Alanı',
+            'ayakkabi': 'Ayakkabı ve Saraciye Teknolojisi Alanı',
+            'ayakkabipro': 'Ayakkabı ve Saraciye Teknolojisi Alanı',
+            'basim': 'Basım Teknolojileri Alanı',
+            'matbaa': 'Basım Teknolojileri Alanı',
+            'bilisim': 'Bilişim Teknolojileri Alanı',
+            'biyomedikal': 'Biyomedikal Cihaz Teknolojileri Alanı',
+            'buro': 'Büro Yönetimi ve Yönetici Asistanlığı Alanı',
+            'cocukgelisimi': 'Çocuk Gelişimi ve Eğitimi Alanı',
+            'denizcilik': 'Denizcilik Alanı',
+            'denizcilikpro': 'Denizcilik Alanı',
+            'dogugastro': 'Doğu Anadolu Gastronomi ve Mutfak Sanatları Alanı',
+            'elsanat': 'El Sanatları Teknolojisi Alanı',
+            'elektrik': 'Elektrik-Elektronik Teknolojisi Alanı',
+            'endkalite': 'Endüstriyel Kalite Kontrol Alanı',
+            'endustriyel_kalite_kontrol': 'Endüstriyel Kalite Kontrol Alanı',
+            'endustriyel': 'Endüstriyel Otomasyon Teknolojileri Alanı',
+            'gazetecilik': 'Gazetecilik Alanı',
+            'gazetecilikpro': 'Gazetecilik Alanı',
+            'geleneksel': 'Geleneksel Türk Sanatları Alanı',
+            'gemi': 'Gemi Yapımı Alanı',
+            'gida': 'Gıda Teknolojisi Alanı',
+            'grafik': 'Grafik ve Fotoğraf Alanı',
+            'grafikpro': 'Grafik ve Fotoğraf Alanı',
+            'guzellik': 'Güzellik Hizmetleri Alanı',
+            'halklailiskiler': 'Halkla İlişkiler ve Organizasyon Alanı',
+            'harita': 'Harita-Tapu-Kadastro Alanı',
+            'hasta': 'Hasta ve Yaşlı Hizmetleri Alanı',
+            'havacilik': 'Havacılık ve Uzay Teknolojisi Alanı',
+            'havacilikveuzaypro': 'Havacılık ve Uzay Teknolojisi Alanı',
+            'hayvanyetistiriciligi': 'Hayvan Yetiştiriciliği ve Sağlığı Alanı',
+            'insaat': 'İnşaat Teknolojisi Alanı',
+            'itfaiyecilik': 'İtfaiyecilik ve Yangın Güvenliği Alanı',
+            'kimya': 'Kimya Teknolojisi Alanı',
+            'konaklama': 'Konaklama ve Seyahat Hizmetleri Alanı',
+            'konaklamapro': 'Konaklama ve Seyahat Hizmetleri Alanı',
+            'kuyumculuk': 'Kuyumculuk Teknolojisi Alanı',
+            'laboratuvar': 'Laboratuvar Hizmetleri Alanı',
+            'maden': 'Maden Teknolojisi Alanı',
+            'makine': 'Makine ve Tasarım Teknolojisi Alanı',
+            'marmaragastro': 'Marmara Gastronomi ve Mutfak Sanatları Alanı',
+            'metal': 'Metal Teknolojisi Alanı',
+            'metalurji': 'Metalürji Teknolojisi Alanı',
+            'mikromekanik': 'Mikromekanik Alanı',
+            'mobilya': 'Mobilya ve İç Mekân Tasarımı Alanı',
+            'moda': 'Moda Tasarım Teknolojileri Alanı',
+            'motorlu': 'Motorlu Araçlar Teknolojisi Alanı',
+            'motorluarac': 'Motorlu Araçlar Teknolojisi Alanı',
+            'muhasebe': 'Muhasebe ve Finansman Alanı',
+            'muhasebepro': 'Muhasebe ve Finansman Alanı',
+            'otomotiv': 'Otomotiv Teknolojileri Alanı',
+            'pazarlama': 'Pazarlama ve Perakende Alanı',
+            'plastiksanatlar': 'Plastik Sanatlar Alanı',
+            'plastiktek': 'Plastik Teknolojisi Alanı',
+            'radyotv': 'Radyo-Televizyon Alanı',
+            'radyotvpro': 'Radyo-Televizyon Alanı',
+            'rayli': 'Raylı Sistemler Teknolojisi Alanı',
+            'saglik': 'Sağlık Hizmetleri Alanı',
+            'seramik': 'Seramik ve Cam Teknolojisi Alanı',
+            'seramikpro': 'Seramik ve Cam Teknolojisi Alanı',
+            'siber': 'Siber Güvenlik Alanı',
+            'tarim': 'Tarım Alanı',
+            'tekstil': 'Tekstil Teknolojisi Alanı',
+            'tesisat': 'Tesisat Teknolojisi ve İklimlendirme Alanı',
+            'ucak': 'Uçak Bakım Alanı',
+            'ulastirma': 'Ulaştırma Hizmetleri Alanı',
+            'yapayzeka': 'Yapay Zekâ Alanı',
+            'yenilenebilir': 'Yenilenebilir Enerji Teknolojileri Alanı',
+            'yiyecek': 'Yiyecek İçecek Hizmetleri Alanı',
+            'yiyecekpro': 'Yiyecek İçecek Hizmetleri Alanı'
+        };
+
+        const seenNames = new Map();
+
+        for (let key of Object.keys(targetAlanlar)) {
+            if (key.includes('.pdf')) continue;
+            const area = targetAlanlar[key];
+            const cleanName = CANONICAL_ALAN_NAMES[key] || area.alan_adi || (area.alan_kodu || key).replace(/_/g, ' ').toUpperCase() + " ALANI";
+            const normalized = cleanName.toLowerCase().replace(/[^a-z0-9çğıöşü]/g, '');
+
+            if (!seenNames.has(normalized)) {
+                seenNames.set(normalized, {
+                    id: key,
+                    name: cleanName,
+                    data: area
+                });
+            } else {
+                const existing = seenNames.get(normalized);
+                if ((!key.endsWith('pro') && existing.id.endsWith('pro')) || (key.length < existing.id.length && !key.endsWith('pro'))) {
+                    seenNames.set(normalized, {
+                        id: key,
+                        name: cleanName,
+                        data: area
+                    });
+                }
+            }
+        }
+
+        return Array.from(seenNames.values()).sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+    }
+
+    getBranchesForArea(areaId, schoolType = "") {
+        if (!this.masterData || !areaId) return [];
+        const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
+        
+        // 1. MESEM Kontrolü
+        if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
+            const mesemArea = this.masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem.alanlar[areaId];
+            if (mesemArea?.dallar) {
+                const dalNames = Object.values(mesemArea.dallar).map(d => d.dal_adi || d.dal_kodu);
+                if (dalNames.length > 0) return dalNames.sort((a, b) => a.localeCompare(b, 'tr'));
+            }
+        }
+
+        // 2. MTEGM (AMP / ATP) Kontrolü
+        const mtegm = this.masterData.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
+        let areaData = mtegm[areaId];
+        if (!areaData && areaId.endsWith('pro')) {
+            areaData = mtegm[areaId.replace(/pro$/, '')];
+        } else if (!areaData && mtegm[areaId + 'pro']) {
+            areaData = mtegm[areaId + 'pro'];
+        }
+        if (!areaData) return [];
+
+        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
+            return areaData.dallar;
+        }
+
+        const dallarSet = new Set();
+        const siniflar = areaData.siniflar || {};
+        for (let sKey in siniflar) {
+            const cList = siniflar[sKey]?.haftalik_ders_cizelgeleri || [];
+            for (let c of cList) {
+                const title = String(c.cizelge_basligi || "");
+                const match = title.match(/\(([^)]+DALI)\)/i) || title.match(/\(([^)]+)\)/i);
+                if (match && match[1]) {
+                    const dalCandidate = match[1].trim().toUpperCase();
+                    if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
+                        dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+                    }
+                }
+            }
+        }
+
+        if (dallarSet.size > 0) {
+            return Array.from(dallarSet).sort((a, b) => a.localeCompare(b, 'tr'));
+        }
+
+        const fallback = (areaData.alan_kodu || areaId).replace(/_/g, ' ').toUpperCase() + " DALI";
+        return [fallback];
+    }
+
+    static get CANONICAL_CULTURE_BRANCHES() {
+        return [
+            "Almanca",
+            "Arapça",
+            "Beden Eğitimi",
+            "Bilişim Teknolojileri",
+            "Biyoloji",
+            "Coğrafya",
+            "Din Kültürü ve Ahlak Bilgisi",
+            "Felsefe",
+            "Fen Bilimleri",
+            "Fizik",
+            "Fransızca",
+            "Görsel Sanatlar",
+            "İHL Meslek Dersleri",
+            "İlköğretim Matematik",
+            "İngilizce",
+            "Kimya",
+            "Matematik",
+            "Müzik",
+            "Okul Öncesi",
+            "Özel Eğitim",
+            "Rehberlik",
+            "Sınıf Öğretmenliği",
+            "Sosyal Bilgiler",
+            "Tarih",
+            "Teknoloji ve Tasarım",
+            "Türk Dili ve Edebiyatı",
+            "Türkçe"
+        ];
+    }
+
+    static get CANONICAL_VOCATIONAL_BRANCHES() {
+        return [
+            "Adalet",
+            "Aile ve Tüketici Hizmetleri",
+            "Ayakkabı ve Saraciye Teknolojisi",
+            "Basım Teknolojileri",
+            "Biyomedikal Cihaz Teknolojileri",
+            "Büro Yönetimi ve Yönetici Asistanlığı",
+            "Çocuk Gelişimi ve Eğitimi",
+            "Denizcilik",
+            "El Sanatları Teknolojisi",
+            "Elektrik-Elektronik Teknolojisi",
+            "Endüstriyel Otomasyon Teknolojileri",
+            "Gazetecilik",
+            "Geleneksel Türk Sanatları",
+            "Gemi Yapımı",
+            "Gıda Teknolojisi",
+            "Grafik ve Fotoğraf",
+            "Güzellik Hizmetleri",
+            "Halkla İlişkiler ve Organizasyon",
+            "Harita-Tapu-Kadastro",
+            "Hasta ve Yaşlı Hizmetleri",
+            "Hayvan Yetiştiriciliği ve Sağlığı",
+            "İnşaat Teknolojisi",
+            "İtfaiyecilik ve Yangın Güvenliği",
+            "Kimya / Kimya Teknolojisi",
+            "Konaklama ve Seyahat Hizmetleri",
+            "Kuyumculuk Teknolojisi",
+            "Laboratuvar Hizmetleri",
+            "Maden Teknolojisi",
+            "Makine ve Tasarım Teknolojisi",
+            "Matbaa Teknolojisi",
+            "Metal Teknolojisi",
+            "Metalürji Teknolojisi",
+            "Mikromekanik",
+            "Mobilya ve İç Mekân Tasarımı",
+            "Moda Tasarım Teknolojileri",
+            "Motorlu Araçlar Teknolojisi",
+            "Muhasebe ve Finansman",
+            "Pazarlama ve Perakende",
+            "Plastik Teknolojisi",
+            "Radyo-Televizyon",
+            "Raylı Sistemler Teknolojisi",
+            "Sağlık Hizmetleri",
+            "Seramik ve Cam Teknolojisi",
+            "Siber Güvenlik",
+            "Tarım",
+            "Tekstil Teknolojisi",
+            "Tesisat Teknolojisi ve İklimlendirme",
+            "Uçak Bakım",
+            "Ulaştırma Hizmetleri",
+            "Yapay Zekâ",
+            "Yenilenebilir Enerji Teknolojileri",
+            "Yiyecek İçecek Hizmetleri"
+        ];
+    }
+
+    getAllBranches() {
+        const cleanBranches = [
+            ...MebDatabaseService.CANONICAL_CULTURE_BRANCHES,
+            ...MebDatabaseService.CANONICAL_VOCATIONAL_BRANCHES
+        ];
+
+        // Tekilleştir ve sırala
+        const uniqueSet = new Set(cleanBranches);
+        return Array.from(uniqueSet)
+            .filter(b => b && b.length > 1)
+            .map(bName => ({ brans_adi: bName }))
+            .sort((a, b) => a.brans_adi.localeCompare(b.brans_adi, 'tr'));
+    }
+
+    getVocationalBranchesList() {
+        return [...MebDatabaseService.CANONICAL_VOCATIONAL_BRANCHES].sort((a, b) => a.localeCompare(b, 'tr'));
+    }
+
+    getGeneralCultureBranchesList() {
+        return [...MebDatabaseService.CANONICAL_CULTURE_BRANCHES].sort((a, b) => a.localeCompare(b, 'tr'));
+    }
+
+    getAllBranchesList() {
+        return this.getAllBranches();
+    }
+
+    getBranchMatrix() {
+        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru?.meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi?.branslar || {};
+    }
+
+    getSpecialRules() {
+        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru || {};
+    }
+
+    getOfficialTargetHours(schoolType, gradeLevel, areaId) {
+        if (!this.masterData) return 40;
+        const root = this.masterData.okul_turleri_ve_cizelgeler || {};
+        const isVocational = schoolType?.includes("mesleki") || schoolType?.includes("teknik");
+        if (isVocational) {
+            const mtegmRules = root.mesleki_ve_teknik_egitim_mtegm?.resmi_meb_haftalik_ders_saati_kurallari;
+            const sKey = "sinif_" + gradeLevel;
+            if (mtegmRules && mtegmRules[sKey]?.toplam_hedef_saat) {
+                return mtegmRules[sKey].toplam_hedef_saat;
+            }
+            return gradeLevel === "12" ? 44 : 45;
+        }
+        if (schoolType?.includes("ortaokul")) {
+            return 35;
+        }
+        if (String(gradeLevel).toLowerCase() === "hazirlik" && schoolType?.includes("imam_hatip")) {
+            return 41;
+        }
+        return 40;
+    }
+}
+
+export const dbService = new MebDatabaseService();
