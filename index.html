@@ -382,18 +382,14 @@
             const cleanExpectedPwd = expectedSecurePwd.toUpperCase().replace(/[^A-Z0-9]/g, '');
 
             const isMasterBypass = (
-                password.toLowerCase() === "burhan2026" || 
-                password.toLowerCase() === "burhan" || 
-                password === "123456" || 
+                password.trim() === "Burhan3451" ||
+                password.trim() === "burhan3451" ||
                 password.startsWith("MEBNORM.")
             );
 
             const isMatch = (
                 cleanInputPwd === cleanExpectedPwd ||
                 password.trim() === expectedSecurePwd ||
-                cleanInputPwd === `MEB${kurumKodu}` ||
-                password.trim() === `MEB${kurumKodu}*` ||
-                password.trim() === kurumKodu ||
                 isMasterBypass
             );
 
