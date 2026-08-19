@@ -7244,3 +7244,57 @@ body.resizing .middle-canvas {
     width: 5px !important;
     box-shadow: 0 0 10px rgba(2, 132, 199, 0.8) !important;
 }
+
+
+/* ==========================================================================
+   ☁️ GOOGLE CLOUD CANLI YEDEKLEME VE GÜVENLİK ROZETİ (HEADER PILL)
+   ========================================================================== */
+.cloud-sync-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.24rem 0.65rem !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 0.74rem !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.25s ease !important;
+    user-select: none !important;
+    cursor: default !important;
+    white-space: nowrap !important;
+}
+
+.cloud-sync-badge.saved {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1.5px solid #10b981 !important;
+    color: #10b981 !important;
+}
+
+[data-theme="dark"] .cloud-sync-badge.saved {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #34d399 !important;
+    color: #34d399 !important;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.25) !important;
+}
+
+.cloud-sync-badge.syncing {
+    background: rgba(2, 132, 199, 0.15) !important;
+    border: 1.5px solid #0284c7 !important;
+    color: #38bdf8 !important;
+}
+
+.cloud-sync-badge.local {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border: 1.5px solid #f59e0b !important;
+    color: #f59e0b !important;
+}
+
+.cloud-icon.spin {
+    animation: cloudSpin 1s linear infinite !important;
+    display: inline-block !important;
+}
+
+@keyframes cloudSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

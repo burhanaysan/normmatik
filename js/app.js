@@ -1,3 +1,4 @@
+import { NormMatikCloudSyncEngine } from "./cloudSyncEngine.js";
 // NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi - Ana Uygulama Koordinatörü (app.js)
 import { dbService } from './database.js';
 import { curriculumEngine } from './curriculumEngine.js';
@@ -27,6 +28,12 @@ class MebNormApplication {
 
             appState.loadLayout();
             const hasSavedState = appState.loadFromStorage();
+
+            // ☁️ Google Cloud Senkronizasyon Motorunu Başlat
+            if (typeof window !== 'undefined') {
+                window.cloudSync = new NormMatikCloudSyncEngine(dbService, curriculumEngine);
+                await window.cloudSync.checkAndRestoreFromCloud(appState, true);
+            }
 
             const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
             if (!hasSeenOnboarding) {
@@ -279,6 +286,11 @@ class MebNormApplication {
                         <span class="school-type-tag" title="${currentType.name}">
                             📜 ${currentType.name}
                         </span>
+                        <!-- ☁️ GOOGLE CLOUD OTOMATİK YEDEKLEME ROZETİ -->
+                        <div class="cloud-sync-badge saved" id="cloud-sync-badge" title="Tüm değişiklikler Google Cloud üzerinde anında yedeklenir.">
+                            <span class="cloud-icon">☁️</span>
+                            <span class="cloud-text">Buluta Kaydedildi</span>
+                        </div>
                     </div>
                 </div>
             </div>

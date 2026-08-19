@@ -4959,6 +4959,10 @@ class AppStateService {
         if (typeof localStorage === 'undefined') return;
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
+            // ☁️ Google Cloud Otomatik Senkronizasyon (Sıfır Veri Kaybı)
+            if (typeof window !== 'undefined' && window.cloudSync) {
+                window.cloudSync.scheduleAutoSave(this.state);
+            }
         } catch (e) {
             console.error("State localStorage üzerine kaydedilemedi:", e);
         }
@@ -10448,6 +10452,12 @@ class MebNormApplication {
             appState.loadLayout();
             const hasSavedState = appState.loadFromStorage();
 
+            // ☁️ Google Cloud Senkronizasyon Motorunu Başlat
+            if (typeof window !== 'undefined') {
+                window.cloudSync = new NormMatikCloudSyncEngine(dbService, curriculumEngine);
+                await window.cloudSync.checkAndRestoreFromCloud(appState, true);
+            }
+
             const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
             if (!hasSeenOnboarding) {
                 this.ui.openOnboardingWelcomeModal(() => {
@@ -10699,6 +10709,11 @@ class MebNormApplication {
                         <span class="school-type-tag" title="${currentType.name}">
                             📜 ${currentType.name}
                         </span>
+                        <!-- ☁️ GOOGLE CLOUD OTOMATİK YEDEKLEME ROZETİ -->
+                        <div class="cloud-sync-badge saved" id="cloud-sync-badge" title="Tüm değişiklikler Google Cloud üzerinde anında yedeklenir.">
+                            <span class="cloud-icon">☁️</span>
+                            <span class="cloud-text">Buluta Kaydedildi</span>
+                        </div>
                     </div>
                 </div>
             </div>
