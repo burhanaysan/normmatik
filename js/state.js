@@ -54,6 +54,25 @@ export class AppStateService {
         };
     }
 
+        setLayout(newLayout) {
+        this.layout = { ...this.layout, ...newLayout };
+        try {
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
+            }
+        } catch (e) {}
+    }
+
+    loadLayout() {
+        try {
+            if (typeof localStorage !== 'undefined') {
+                const l = localStorage.getItem(this.LAYOUT_KEY);
+                if (l) this.layout = { ...this.getDefaultLayout(), ...JSON.parse(l) };
+            }
+        } catch (e) {}
+        return this.layout;
+    }
+
     getDefaultLayout() {
         return {
             leftWidth: 290,

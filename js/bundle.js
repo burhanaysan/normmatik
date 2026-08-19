@@ -4164,6 +4164,25 @@ class AppStateService {
         };
     }
 
+        setLayout(newLayout) {
+        this.layout = { ...this.layout, ...newLayout };
+        try {
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
+            }
+        } catch (e) {}
+    }
+
+    loadLayout() {
+        try {
+            if (typeof localStorage !== 'undefined') {
+                const l = localStorage.getItem(this.LAYOUT_KEY);
+                if (l) this.layout = { ...this.getDefaultLayout(), ...JSON.parse(l) };
+            }
+        } catch (e) {}
+        return this.layout;
+    }
+
     getDefaultLayout() {
         return {
             leftWidth: 290,
@@ -10496,78 +10515,87 @@ class MebNormApplication {
     bindResizers() {
         const resizerLeft = document.getElementById("resizer-left");
         const resizerRight = document.getElementById("resizer-right");
+        const leftEl = document.getElementById("sidebar-left");
+        const rightEl = document.getElementById("sidebar-right");
 
-        const startResizeLeft = (e) => {
+        let activeResizer = null;
+
+        const onStartLeft = (e) => {
             e.preventDefault();
-            this.isResizingLeft = true;
+            activeResizer = "left";
+            document.body.classList.add("resizing");
+            document.body.style.cursor = "col-resize";
+            document.body.style.userSelect = "none";
             resizerLeft?.classList.add("resizing");
-            document.body.style.cursor = "col-resize";
-            document.body.style.userSelect = "none";
         };
 
-        const startResizeRight = (e) => {
+        const onStartRight = (e) => {
             e.preventDefault();
-            this.isResizingRight = true;
-            resizerRight?.classList.add("resizing");
+            activeResizer = "right";
+            document.body.classList.add("resizing");
             document.body.style.cursor = "col-resize";
             document.body.style.userSelect = "none";
+            resizerRight?.classList.add("resizing");
         };
 
-        const handleMove = (clientX) => {
-            if (this.isResizingLeft) {
-                const ws = document.querySelector(".main-workspace") || document.querySelector(".workspace-layout");
-                const offsetLeft = ws ? ws.getBoundingClientRect().left : 0;
-                const newWidth = Math.max(180, Math.min(550, clientX - offsetLeft));
+        const onMove = (clientX) => {
+            if (!activeResizer) return;
+            const ws = document.querySelector(".main-workspace") || document.querySelector(".workspace-layout");
+            const rect = ws ? ws.getBoundingClientRect() : { left: 0, right: window.innerWidth };
+
+            if (activeResizer === "left") {
+                const newWidth = Math.max(200, Math.min(550, clientX - rect.left));
+                if (leftEl) {
+                    leftEl.style.width = `${newWidth}px`;
+                    leftEl.style.flexBasis = `${newWidth}px`;
+                }
                 appState.setLayout({ leftWidth: newWidth });
-                const leftEl = document.getElementById("sidebar-left");
-                if (leftEl) leftEl.style.width = `${newWidth}px`;
-            } else if (this.isResizingRight) {
-                const ws = document.querySelector(".main-workspace") || document.querySelector(".workspace-layout");
-                const offsetRight = ws ? ws.getBoundingClientRect().right : window.innerWidth;
-                const newWidth = Math.max(220, Math.min(650, offsetRight - clientX));
+            } else if (activeResizer === "right") {
+                const newWidth = Math.max(240, Math.min(650, rect.right - clientX));
+                if (rightEl) {
+                    rightEl.style.width = `${newWidth}px`;
+                    rightEl.style.flexBasis = `${newWidth}px`;
+                }
                 appState.setLayout({ rightWidth: newWidth });
-                const rightEl = document.getElementById("sidebar-right");
-                if (rightEl) rightEl.style.width = `${newWidth}px`;
             }
         };
 
-        const stopResize = () => {
-            if (this.isResizingLeft || this.isResizingRight) {
-                this.isResizingLeft = false;
-                this.isResizingRight = false;
+        const onEnd = () => {
+            if (activeResizer) {
+                activeResizer = null;
+                document.body.classList.remove("resizing");
+                document.body.style.cursor = "";
+                document.body.style.userSelect = "";
                 resizerLeft?.classList.remove("resizing");
                 resizerRight?.classList.remove("resizing");
-                document.body.style.cursor = "default";
-                document.body.style.userSelect = "";
             }
         };
 
-        // Pointer & Mouse Events
-        resizerLeft?.addEventListener("pointerdown", startResizeLeft);
-        resizerRight?.addEventListener("pointerdown", startResizeRight);
-        resizerLeft?.addEventListener("mousedown", startResizeLeft);
-        resizerRight?.addEventListener("mousedown", startResizeRight);
-
-        window.addEventListener("pointermove", (e) => handleMove(e.clientX));
-        window.addEventListener("mousemove", (e) => handleMove(e.clientX));
-        window.addEventListener("pointerup", stopResize);
-        window.addEventListener("mouseup", stopResize);
-        window.addEventListener("pointercancel", stopResize);
-
-        // Touch Events
+        // Resizer Left Events
+        resizerLeft?.addEventListener("mousedown", onStartLeft);
+        resizerLeft?.addEventListener("pointerdown", onStartLeft);
         resizerLeft?.addEventListener("touchstart", (e) => {
-            if (e.touches.length > 0) startResizeLeft(e);
-        }, { passive: false });
-        resizerRight?.addEventListener("touchstart", (e) => {
-            if (e.touches.length > 0) startResizeRight(e);
+            if (e.touches.length > 0) onStartLeft(e);
         }, { passive: false });
 
+        // Resizer Right Events
+        resizerRight?.addEventListener("mousedown", onStartRight);
+        resizerRight?.addEventListener("pointerdown", onStartRight);
+        resizerRight?.addEventListener("touchstart", (e) => {
+            if (e.touches.length > 0) onStartRight(e);
+        }, { passive: false });
+
+        // Window Move & Up Events
+        window.addEventListener("mousemove", (e) => onMove(e.clientX));
+        window.addEventListener("pointermove", (e) => onMove(e.clientX));
         window.addEventListener("touchmove", (e) => {
-            if ((this.isResizingLeft || this.isResizingRight) && e.touches.length > 0) {
-                handleMove(e.touches[0].clientX);
-            }
+            if (activeResizer && e.touches.length > 0) onMove(e.touches[0].clientX);
         }, { passive: true });
-        window.addEventListener("touchend", stopResize);
+
+        window.addEventListener("mouseup", onEnd);
+        window.addEventListener("pointerup", onEnd);
+        window.addEventListener("touchend", onEnd);
+        window.addEventListener("pointercancel", onEnd);
     }
 
     render() {
