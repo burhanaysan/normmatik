@@ -536,6 +536,13 @@ class MebNormApplication {
                     this.lastSidebarScrollTop = newListEl.scrollTop;
                 }
                 appState.setActiveSection(id);
+                // Mobilde şube tıklandığında otomatik Orta Panel Dersler sekmesine geç
+                if (window.innerWidth <= 768) {
+                    document.body.setAttribute('data-mobile-tab', 'courses');
+                    document.querySelectorAll('.mobile-nav-btn').forEach(b => {
+                        b.classList.toggle('active', b.getAttribute('data-target-tab') === 'courses');
+                    });
+                }
             });
         });
 

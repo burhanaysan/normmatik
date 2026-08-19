@@ -6623,56 +6623,54 @@ body {
     }
 }
 
-/* Mobil Telefon Ekranı (< 768px) - KUSURSUZ DOKUNMATİK SCROLL & FLUID DÜZEN */
-@media (max-width: 768px) {
-    html {
-        height: 100% !important;
-        overflow: hidden !important;
-    }
 
-    body {
+/* Mobil Telefon Ekranı (< 768px) - KUSURSUZ DOKUNMATİK VE 3-SEKMELİ MİMARİ */
+@media (max-width: 768px) {
+    html, body {
         height: 100% !important;
+        max-height: 100% !important;
         overflow: hidden !important;
         touch-action: pan-y !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
     .app-header {
-        height: 56px !important;
-        min-height: 56px !important;
-        max-height: 56px !important;
+        height: 52px !important;
+        min-height: 52px !important;
+        max-height: 52px !important;
         padding: 0 0.5rem !important;
-        margin: 0.25rem 0.35rem !important;
+        margin: 0.2rem 0.25rem !important;
         flex-shrink: 0 !important;
     }
     
-    .school-type-tag {
-        display: none !important;
-    }
-
+    .school-type-tag,
     .header-terminal-divider {
         display: none !important;
     }
 
     .header-toolbar-group button:not(#btn-theme-toggle):not(#btn-open-reports) {
-        display: none !important; /* Mobilde ikincil butonları gizle, alanı ferahlat */
+        display: none !important;
     }
-    
+
     .main-workspace {
+        display: flex !important;
         flex-direction: column !important;
-        height: calc(100vh - 56px - 58px - 0.75rem) !important;
-        max-height: calc(100vh - 56px - 58px - 0.75rem) !important;
-        padding: 0.25rem 0.35rem !important;
+        height: calc(100dvh - 54px - 56px) !important;
+        max-height: calc(100dvh - 54px - 56px) !important;
+        padding: 0.25rem !important;
         margin: 0 !important;
         gap: 0 !important;
         overflow: hidden !important;
+        position: relative !important;
     }
     
-    .resizer-divider {
+    .resizer-divider,
+    .btn-floating-expand {
         display: none !important;
         pointer-events: none !important;
     }
-    
+
+    /* 3 PANELİN MOBİL TAB YÖNETİMİ */
     .sidebar-left,
     .sidebar-right,
     .middle-canvas {
@@ -6682,41 +6680,39 @@ body {
         height: 100% !important;
         max-height: 100% !important;
         min-height: 0 !important;
-        border-radius: 14px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        overflow: hidden !important;
+        border-radius: 12px !important;
         box-sizing: border-box !important;
     }
-    
-    /* Mobilde Aktif Tab'a Göre Görünüm */
+
+    /* TAB 1: ŞUBELER (Sol Panel) */
+    body[data-mobile-tab="sections"] .sidebar-left {
+        display: flex !important;
+    }
     body[data-mobile-tab="sections"] .middle-canvas,
     body[data-mobile-tab="sections"] .sidebar-right {
         display: none !important;
     }
-    body[data-mobile-tab="sections"] .sidebar-left {
+
+    /* TAB 2: DERSLER & ÇİZELGE (Orta Panel) */
+    body[data-mobile-tab="courses"] .middle-canvas {
         display: flex !important;
     }
-    
     body[data-mobile-tab="courses"] .sidebar-left,
     body[data-mobile-tab="courses"] .sidebar-right {
         display: none !important;
     }
-    body[data-mobile-tab="courses"] .middle-canvas {
+
+    /* TAB 3: NORMLAR (Sağ Panel) */
+    body[data-mobile-tab="norms"] .sidebar-right {
         display: flex !important;
     }
-    
     body[data-mobile-tab="norms"] .sidebar-left,
     body[data-mobile-tab="norms"] .middle-canvas {
         display: none !important;
     }
-    body[data-mobile-tab="norms"] .sidebar-right {
-        display: flex !important;
-    }
 
-    /* MOBİLDE TÜM İÇ PANELLER İÇİN %100 ÇALIŞAN DOKUNMATİK SCROLL MOTORU */
+    /* İÇ KAYDIRMA ALANLARI */
     .sections-list,
-    .canvas-content-scroll,
     .norm-table-container {
         flex: 1 1 auto !important;
         height: auto !important;
@@ -6726,19 +6722,39 @@ body {
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
         touch-action: pan-y !important;
-        overscroll-behavior-y: contain !important;
         padding-bottom: 2rem !important;
     }
 
-    /* Orta Panel Tablo Alanı Yatay Kaydırma Desteği */
     .canvas-content-scroll {
+        flex: 1 1 auto !important;
+        height: auto !important;
+        max-height: 100% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
         overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
         touch-action: pan-x pan-y !important;
+        padding-bottom: 2.5rem !important;
     }
 
+    /* ORTA PANEL DERS TABLOSU - MOBİLDE SIKIŞMAYAN AKICI TİPOGRAFİ */
     .modern-table {
-        min-width: 520px !important; /* Tablo mobilde sıkışmasın, yana akıcı kaysın */
+        min-width: 620px !important;
         width: 100% !important;
+        font-size: 0.76rem !important;
+    }
+
+    .modern-table th,
+    .modern-table td {
+        padding: 0.35rem 0.45rem !important;
+        font-size: 0.76rem !important;
+    }
+
+    .modern-table select,
+    .modern-table input {
+        font-size: 0.75rem !important;
+        height: 28px !important;
+        padding: 2px 4px !important;
     }
 
     .section-hero-banner {
@@ -6750,29 +6766,59 @@ body {
         flex-wrap: wrap !important;
         gap: 0.35rem !important;
     }
-    
+
+    /* MODALLARDA MOBİL KAYDIRMA */
+    .modal-overlay,
+    .modal-backdrop {
+        align-items: flex-start !important;
+        padding: 0.5rem 0.5rem 3rem 0.5rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+    }
+
+    .modal-box,
+    .modal-dialog {
+        max-height: none !important;
+        height: auto !important;
+        margin: auto 0 !important;
+        width: 100% !important;
+        overflow: visible !important;
+        border-radius: 14px !important;
+    }
+
+    .modal-body {
+        overflow-y: visible !important;
+        max-height: none !important;
+        padding: 0.85rem 0.75rem !important;
+    }
+
+    /* Sadece modal form kutuları 15px */
+    .modal-box input:not(.modern-table input),
+    .modal-box select:not(.modern-table select) {
+        font-size: 14px !important;
+    }
+
     /* Mobil Alt Gezinme Çubuğu (Bottom Navigation Bar) */
     .mobile-bottom-nav {
         display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 54px !important;
+        background: var(--bg-card) !important;
+        border-top: 1.5px solid var(--border-main) !important;
+        z-index: 1000 !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+        padding: 0 0.5rem !important;
+        box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.12) !important;
     }
 }
 
-/* Mobil Alt Gezinme Çubuğu Stilleri */
 .mobile-bottom-nav {
     display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 54px;
-    background: var(--bg-card);
-    border-top: 1.5px solid var(--border-main);
-    z-index: 1000;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 0.5rem;
-    box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.12);
-    touch-action: none;
 }
 
 .mobile-nav-btn {
@@ -6805,7 +6851,6 @@ body {
     transition: transform 0.15s ease;
 }
 
-
 /* LİSANSSIZ DEMO YAZDIRMA VE PDF FİLİGRANI */
 .demo-print-watermark {
     display: none;
@@ -6830,67 +6875,5 @@ body {
         z-index: 99999 !important;
         pointer-events: none !important;
         background: rgba(254, 226, 226, 0.15) !important;
-    }
-}
-
-
-/* ==========================================================================
-   📱 ANDROID & MOBİL DOKUNMATİK KAYDIRMA VE MÜKEMMEL SCROLL MOTORU (v2.0)
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* Modal ve Açılır Pencerelerde Android Kaydırma Kilidini Çöz */
-    .modal-overlay,
-    .modal-backdrop {
-        align-items: flex-start !important;
-        padding: 0.65rem 0.5rem 2rem 0.5rem !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-    }
-
-    .modal-box,
-    .modal-dialog {
-        max-height: none !important;
-        height: auto !important;
-        margin: auto 0 !important;
-        width: 100% !important;
-        overflow: visible !important;
-        border-radius: 14px !important;
-    }
-
-    .modal-body {
-        overflow-y: visible !important;
-        max-height: none !important;
-        padding: 0.85rem 0.75rem !important;
-    }
-
-    /* Ana Çalışma Alanı ve Paneller */
-    .main-workspace {
-        height: calc(100dvh - 56px - 58px) !important;
-        max-height: calc(100dvh - 56px - 58px) !important;
-    }
-
-    .sidebar-left,
-    .sidebar-right,
-    .middle-canvas {
-        height: 100% !important;
-        max-height: 100% !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-    }
-
-    .sections-list,
-    .canvas-content-scroll,
-    .norm-table-container {
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        touch-action: pan-y !important;
-        flex: 1 1 auto !important;
-    }
-
-    /* Girdi Kutuları Odaklandığında Android Klavye Uyumu */
-    input, select, textarea {
-        font-size: 16px !important; /* iOS ve Android'de istemsiz zoom yapmasını engeller */
     }
 }
