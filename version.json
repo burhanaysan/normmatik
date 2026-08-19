@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,7 +11,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Buluta Kaydedildi rozeti sağ üst araç çubuğuna taşınarak okul türü çipinin ferahlığı sağlandı.",
-    "Kompakt 28px mikro-rozet tasarımı uygulandı."
+    "Bulut depolama rozeti ve arka plan servisi devre dışı bırakıldı.",
+    "Sağ üst araç çubuğundaki tüm butonların (Lisans, Rehber, İndir, Yükle, KVKK, Tema, Sıfırla) eksiksiz ve ferah görünümü sağlandı."
   ]
 }

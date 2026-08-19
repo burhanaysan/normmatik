@@ -849,10 +849,6 @@ export class AppStateService {
         if (typeof localStorage === 'undefined') return;
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
-            // ☁️ Google Cloud Otomatik Senkronizasyon (Sıfır Veri Kaybı)
-            if (typeof window !== 'undefined' && window.cloudSync) {
-                window.cloudSync.scheduleAutoSave(this.state);
-            }
         } catch (e) {
             console.error("State localStorage üzerine kaydedilemedi:", e);
         }

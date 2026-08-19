@@ -1,4 +1,3 @@
-import { NormMatikCloudSyncEngine } from "./cloudSyncEngine.js";
 // NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi - Ana Uygulama Koordinatörü (app.js)
 import { dbService } from './database.js';
 import { curriculumEngine } from './curriculumEngine.js';
@@ -29,11 +28,7 @@ class MebNormApplication {
             appState.loadLayout();
             const hasSavedState = appState.loadFromStorage();
 
-            // ☁️ Google Cloud Senkronizasyon Motorunu Başlat
-            if (typeof window !== 'undefined') {
-                window.cloudSync = new NormMatikCloudSyncEngine(dbService, curriculumEngine);
-                await window.cloudSync.checkAndRestoreFromCloud(appState, true);
-            }
+
 
             const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
             if (!hasSeenOnboarding) {
@@ -312,11 +307,6 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <!-- ☁️ KOMPAKT BULUT YEDEKLEME ROZETİ (SAĞ ÜST KÖŞE) -->
-                    <div class="cloud-sync-badge-compact saved" id="cloud-sync-badge" title="Google Cloud otomatik yedekleme aktif. Verileriniz güvendedir.">
-                        <span class="cloud-icon">☁️</span>
-                        <span class="cloud-text">Buluta Kaydedildi</span>
-                    </div>
                     <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
                         🔑 Lisans
                     </button>
