@@ -4724,7 +4724,7 @@ export class UIComponentManager {
                                     490 ₺ <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-decoration: line-through;">1.500 ₺</span> <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ 1 Yıllık Okul Lisansı</span>
                                 </div>
                                 <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.1rem;">
-                                    ✨ Sınırsız şube, okul içi tüm cihazlarda (PC/Telefon) serbest kullanım, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî çıktılar.
+                                    ✨ Sınırsız şube, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî teslimat çıktıları.
                                 </div>
                             </div>
                         </div>
@@ -4762,7 +4762,7 @@ export class UIComponentManager {
 
                             <div style="margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
                                 <span>🖥️ Cihaz Kimliği (HWID): <strong id="disp-hwid" style="font-family: monospace; color: var(--primary);">Hesaplanıyor...</strong></span>
-                                <span style="color: #10b981; font-weight: 700;">✓ Okul İçi Tüm Cihazlar Serbest</span>
+                                <span style="color: #0284c7; font-weight: 800;">🔒 Cihaza Özel Lisans (HWID Mühürlü)</span>
                             </div>
                         </div>
 
