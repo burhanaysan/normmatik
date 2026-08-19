@@ -4098,46 +4098,43 @@ export class UIComponentManager {
                     <div class="kvkk-article">
                         <div class="kvkk-badge-headline">
                             <span class="kvkk-law-badge">6698 SAYILI KANUN m. 10</span>
-                            <span class="kvkk-date-badge">Son Güncelleme: 17 Ağustos 2026</span>
+                            <span class="kvkk-date-badge">Son Güncelleme: 19 Ağustos 2026</span>
                         </div>
-                        <h3 class="kvkk-sec-title">MEB NORM KADRO VE DERS YÜKÜ YÖNETİM SİSTEMİ<br>KİŞİSEL VERİLERİN KORUNMASI AYDINLATMA METNİ</h3>
+                        <h3 class="kvkk-sec-title">MEB NORM KADRO VE DERS YÜKÜ YÖNETİM SİSTEMİ<br>KİŞİSEL VERİLERİN KORUNMASI VE BULUT GÜVENLİĞİ AYDINLATMA METNİ</h3>
                         
                         <div class="kvkk-alert-card info">
-                            <div class="kvkk-alert-icon">💡</div>
+                            <div class="kvkk-alert-icon">🛡️</div>
                             <div class="kvkk-alert-text">
-                                <strong>Özet Beyan:</strong> İşbu yazılım, <strong>"Privacy by Design (Tasarım İtibarıyla Gizlilik)"</strong> ve <strong>"Zero-Knowledge (Sıfır Bilgi)"</strong> prensibiyle %100 İstemci Taraflı (Client-Side) olarak geliştirilmiştir. Girdiğiniz hiçbir veri harici bir sunucuya veya üçüncü kişiye <strong>kesinlikle gönderilmemektedir</strong>.
+                                <strong>Özet Taahhüt:</strong> İşbu yazılım, <strong>"Privacy by Design (Tasarım İtibarıyla Gizlilik)"</strong> ve <strong>"Zero-Personal Data (Sıfır Kişisel Veri)"</strong> prensibiyle çalışır. Sistemde öğrenci veya öğretmenlere ait hiçbir T.C. Kimlik No, isim, soyisim, sicil no veya iletişim bilgisi <strong>KESİNLİKLE İŞLENMEZ VE DEPOLANMAZ.</strong>
                             </div>
                         </div>
 
-                        <h4 class="kvkk-sub-heading">1. Veri Sorumlusu ve Hizmet Sağlayıcı</h4>
+                        <h4 class="kvkk-sub-heading">1. Veri Sorumlusu ve Sistem Mimarı</h4>
                         <p class="kvkk-p">
-                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</strong> (“Uygulama”) kapsamında işlenen veriler bakımından veri sorumlusu ve bağımsız sistem mimarı <strong>Burhan AYSAN</strong>’dır.
+                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</strong> kapsamında işlenen teknik ve kurumsal veriler bakımından veri sorumlusu ve bağımsız sistem mimarı <strong>Burhan AYSAN</strong>’dır.
                         </p>
 
-                        <h4 class="kvkk-sub-heading">2. İşlenen Veri Kategorileri ve Kapsamı</h4>
-                        <p class="kvkk-p">Uygulama aracılığıyla yalnızca okul norm kadro ve haftalık ders yükü planlamasını gerçekleştirmek üzere aşağıdaki sınırlı veri kategorileri yerel olarak işlenmektedir:</p>
+                        <h4 class="kvkk-sub-heading">2. İşlenen Veri Kategorileri ve Kesin Sınırları</h4>
+                        <p class="kvkk-p">Uygulama aracılığıyla yalnızca Millî Eğitim Bakanlığı mevzuatına uygun norm kadro ve ders yükü planlamasını gerçekleştirmek üzere aşağıdaki <strong>münhasıran kurumsal/teknik veriler</strong> işlenmektedir:</p>
                         <ul class="kvkk-list">
-                            <li><strong>Kurum Kimlik Bilgileri:</strong> Kurum/Okul Adı, Eğitim-Öğretim Sezon Yılı, Okul Türü (Anadolu Lisesi, Fen Lisesi, MTAL vb.), İl/İlçe bilgisi.</li>
-                            <li><strong>Şube ve Öğrenci Dağılım Verileri:</strong> Şube adları (9-A, 10-B vb.), sınıf seviyeleri, şube öğrenci mevcutları, mesleki alan ve dal tercihleri.</li>
-                            <li><strong>Ders Yükü ve Kadro Dağılım Verileri:</strong> Şubelere atanan haftalık zorunlu ve seçmeli ders saatleri, branş eşleştirmeleri, mevcut kadrolu öğretmen sayıları, atölye grup sayıları ve 12. sınıf işletmelerde mesleki eğitim koordinatörlük saatleri.</li>
+                            <li><strong>Kurumsal Tanıtım Bilgileri:</strong> MEB Kurum Kodu, Resmî Okul Adı, Okul Türü (Anadolu Lisesi, Fen Lisesi, MTAL vb.), İl ve İlçe bilgisi, Eğitim-Öğretim Sezon Yılı.</li>
+                            <li><strong>Şube ve Sayısal Dağılım Verileri:</strong> Şube kodları (9-A, 10-B vb.), sınıf seviyeleri, şubedeki toplam öğrenci sayıları, mesleki alan ve dal adları.</li>
+                            <li><strong>Ders Yükü ve Branş Norm Dağılımı:</strong> Şubelerin haftalık ders saatleri, TTKB çizelge dersleri, branşlar bazında kadrolu öğretmen sayıları ve 12. sınıf işletmelerde koordinatörlük saatleri.</li>
+                            <li><strong>ÖZEL GÜVENCE (İŞLENMEYEN VERİLER):</strong> Öğrenci T.C. Kimlik Numaraları, Öğrenci İsim/Soyisimleri, Öğretmen Kimlik/Sicil Bilgileri, İletişim Bilgileri veya Özel Nitelikli Kişisel Veriler (Din, Sağlık vb.) sisteme KESİNLİKLE ALINMAZ, İŞLENMEZ VE DEPOLANMAZ.</li>
                         </ul>
 
-                        <h4 class="kvkk-sub-heading">3. Kişisel Verilerin İşlenme Amaçları</h4>
-                        <p class="kvkk-p">Toplanan teknik veriler münhasıran;</p>
-                        <ul class="kvkk-list">
-                            <li>Millî Eğitim Bakanlığı Norm Kadro Yönetmeliği ve TTKB Haftalık Ders Çizelgeleri doğrultusunda kurumun toplam ders yükünün hatasız hesaplanması,</li>
-                            <li>Kültür ve meslek branşları bazında norm kadro ihtiyaç ve fazlalık simülasyonlarının oluşturulması,</li>
-                            <li>Okul idarecileri için resmi formatta Yönetici İcmali, Master Ders Dağıtım Matrisi ve Branş Dağılım Çizelgelerinin üretilmesi amaçlarıyla işlenir.</li>
-                        </ul>
-
-                        <h4 class="kvkk-sub-heading">4. Verilerin Aktarımı (Üçüncü Şahıslara Aktarım Yasağı)</h4>
+                        <h4 class="kvkk-sub-heading">3. Google Cloud Bulut Yedekleme ve Sıfır Veri Kaybı Mimarisi</h4>
                         <p class="kvkk-p">
-                            Kullanıcı tarafından sisteme girilen veriler; <strong>yurt içinde veya yurt dışında hiçbir sunucuya, bulut depolama hizmetine, reklam ağına, analitik takipçisine veya üçüncü tüzel/gerçek kişilere AKTARILMAMAKTADIR.</strong> Tüm işlem ve hesaplamalar doğrudan kullanıcının kendi bilgisayarının işlemcisi ve tarayıcısı üzerinde gerçekleşmektedir.
+                            Kullanıcıların (Okul Yöneticileri) tarayıcı temizliği, bilgisayar arızası, cihaz değişimi veya formatlama gibi durumlarda emek ve veri kaybı yaşamalarını önlemek amacıyla; kurumsal çalışma verileri (okul adı, şubeler ve ders dağıtımı), <strong>Google Cloud (Firebase Enterprise Realtime Cloud Cluster)</strong> şifreli altyapısında ilgili kurum kodu (<code>/schools/{kurumKodu}.json</code>) altında teknik yedekleme olarak barındırılır.
                         </p>
+                        <ul class="kvkk-list">
+                            <li><strong>Şifreleme:</strong> Tüm veri trafiği 256-Bit SSL/TLS (HTTPS) kriptografik güvenlik protokolü ile korunur.</li>
+                            <li><strong>Ticari Gizlilik:</strong> Veriler hiçbir şekilde üçüncü şahıslara, reklam ağlarına veya veri simsarlarına aktarılmaz, ticari amaçla satılamaz veya profilleme yapılamaz.</li>
+                        </ul>
 
-                        <h4 class="kvkk-sub-heading">5. Kişisel Veri Toplamanın Hukuki Sebebi</h4>
+                        <h4 class="kvkk-sub-heading">4. Veri İşlemenin Hukuki Sebebi</h4>
                         <p class="kvkk-p">
-                            Söz konusu veriler, KVKK m. 5/2-f uyarınca <em>"İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması"</em> hukuki sebebine ve kullanıcının kendi iradesiyle yerel tarayıcısına veri girmesine dayalı olarak işlenmektedir.
+                            Söz konusu veriler, 6698 sayılı KVKK m. 5/2-c (Sözleşmenin ifası ve lisans hizmetinin tesisi) ile KVKK m. 5/2-f (İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması) hukuki sebeplerine dayalı olarak işlenmektedir.
                         </p>
                     </div>
                 `;
@@ -4145,34 +4142,34 @@ export class UIComponentManager {
                 tabHtml = `
                     <div class="kvkk-article">
                         <div class="kvkk-badge-headline">
-                            <span class="kvkk-law-badge">SIFIR BİLGİ & ÇEVRİMDIŞI MİMARİ</span>
+                            <span class="kvkk-law-badge">ÇİFT KATMANLI HİBRİT GÜVENLİK</span>
                         </div>
-                        <h3 class="kvkk-sec-title">🔒 %100 İSTEMCİ TARAFLI (CLIENT-SIDE) VE ÇEVRİMDIŞI ÇALIŞMA GÜVENCESİ</h3>
+                        <h3 class="kvkk-sec-title">🔒 YEREL İŞLEMCİ VE GOOGLE CLOUD FELAKET KURTARMA MİMARİSİ</h3>
 
                         <div class="kvkk-architecture-diagram">
                             <div class="arch-box local">
                                 <span class="arch-icon">💻</span>
-                                <strong>Kullanıcı Cihazı & Tarayıcısı</strong>
-                                <p>Tüm hesaplamalar, şube verileri, öğrenci sayıları ve norm analizleri cihazınızın RAM ve LocalStorage alanında çalışır.</p>
-                                <span class="arch-status ok">✅ %100 Güvenli & Yerel</span>
+                                <strong>Kullanıcı Cihazı (Yerel Tarayıcı)</strong>
+                                <p>Tüm hesaplamalar, şube optimizasyonları ve çizelge çıktıları cihazınızın RAM ve LocalStorage alanında anlık üretilir.</p>
+                                <span class="arch-status ok">✅ 0.1 sn Hızlı & Yerel</span>
                             </div>
                             <div class="arch-arrow">
-                                <span class="arch-arrow-icon">🚫</span>
-                                <span class="arch-arrow-label">Hiçbir Veri İletilmez (Zero Transmission)</span>
+                                <span class="arch-arrow-icon">🔄</span>
+                                <span class="arch-arrow-label">256-Bit SSL Şifreli Yedekleme</span>
                             </div>
                             <div class="arch-box cloud">
                                 <span class="arch-icon">☁️</span>
-                                <strong>Harici Bulut / Sunucu</strong>
-                                <p>Sistemde hiçbir merkezi sunucu, veritabanı veya kullanıcı takip mekanizması bulunmaz.</p>
-                                <span class="arch-status secure">🔒 Sıfır Kayıt & Sıfır Log</span>
+                                <strong>Google Cloud Güvenli Depo</strong>
+                                <p>Cihaz arızası veya çerez temizliğinde okulu kurtarmak üzere sadece kurum kodu bazlı şifreli proje yedeği tutulur.</p>
+                                <span class="arch-status secure">🛡️ Sıfır Veri Kaybı Güvencesi</span>
                             </div>
                         </div>
 
                         <h4 class="kvkk-sub-heading">Teknik ve İdari Güvenlik Tedbirleri (KVKK m. 12)</h4>
                         <ul class="kvkk-list">
-                            <li><strong>Çevrimdışı (Offline) Tam Destek:</strong> Uygulama bir kez yüklendikten sonra bilgisayarınızın internet bağlantısını kesseniz dahi eksiksiz çalışmaya devam eder. Bu durum verilerinizin dışarı sızamayacağının en somut teknik kanıtıdır.</li>
-                            <li><strong>Yedekleme Güvenliği:</strong> Proje indirme (<code>💾 İndir</code>) ve yükleme (<code>📂 Yükle</code>) işlemleri doğrudan kullanıcının kendi sabit diskine <code>.json</code> formatında kaydedilir.</li>
-                            <li><strong>Yetkisiz Erişim Koruması:</strong> Başka hiçbir kullanıcı veya üçüncü taraf sizin tarayıcınızda kayıtlı projenize uzaktan erişemez.</li>
+                            <li><strong>Kör Üzerine Yazma (Blind Overwrite) Koruması:</strong> Tarayıcı çerezleri silinse dahi, sistem boş bir ekranla buluttaki zengin yedeği asla ezmez; aksine buluttaki okulu anında geri çağırarak kurtarır.</li>
+                            <li><strong>İzolasyon:</strong> Her okulun verisi sadece kendi Kurum Kodu altında izole edilir; bir okulun diğerinin verisine erişmesi teknik olarak imkansızdır.</li>
+                            <li><strong>Tam Çevrimdışı Çalışabilirlik:</strong> İnternet bağlantısı kopsa dahi uygulama kesintisiz çalışır; bağlantı sağlandığında bulut otomatik senkronize olur.</li>
                         </ul>
                     </div>
                 `;
@@ -4180,37 +4177,43 @@ export class UIComponentManager {
                 tabHtml = `
                     <div class="kvkk-article">
                         <div class="kvkk-badge-headline">
-                            <span class="kvkk-law-badge">ÇEREZ & YEREL DEPOLAMA POLİTİKASI</span>
+                            <span class="kvkk-law-badge">ÇEREZ & TEKNİK SAKLAMA POLİTİKASI</span>
                         </div>
-                        <h3 class="kvkk-sec-title">🍪 ÇEREZLER VE TARAYICI YEREL DEPOLAMA (LOCALSTORAGE) AYDINLATMASI</h3>
+                        <h3 class="kvkk-sec-title">🍪 ÇEREZLER VE YEREL VERİ DEPOLAMA ŞEFFAFLIĞI</h3>
 
                         <p class="kvkk-p">
-                            Uygulamamızda kullanıcı deneyimini takip eden, reklam hedeflemesi yapan veya kişisel profilleme çıkaran <strong>üçüncü taraf takip çerezleri (Third-Party Cookies) KESİNLİKLE KULLANILMAMAKTADIR.</strong>
+                            Uygulamamızda kullanıcıları takip eden, pazarlama yapan veya reklam hedefleyen <strong>üçüncü taraf takip çerezleri (Tracking Cookies) KESİNLİKLE KULLANILMAMAKTADIR.</strong>
                         </p>
 
-                        <h4 class="kvkk-sub-heading">Kullanılan Teknik ve Zorunlu Yerel Depolama Anahtarları</h4>
+                        <h4 class="kvkk-sub-heading">Kullanılan Teknik ve Zorunlu Depolama Bileşenleri</h4>
                         <div class="kvkk-table-responsive">
                             <table class="kvkk-table">
                                 <thead>
                                     <tr>
-                                        <th>Anahtar (Key)</th>
+                                        <th>Depolama Katmanı</th>
                                         <th>Kullanım Amacı</th>
-                                        <th>Depolama Türü</th>
-                                        <th>Saklama Süresi</th>
+                                        <th>Konum</th>
+                                        <th>Güvenlik</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><code>meb_norm_app_state_v3</code></td>
-                                        <td>Kullanıcının oluşturduğu okul, şube, öğrenci ve ders dağıtım verilerinin tarayıcı kapatıldığında kaybolmaması için yerel olarak saklanması.</td>
+                                        <td><code>MEB_NORM_KADRO_STATE_V1</code></td>
+                                        <td>Okul, şube ve ders dağıtım verilerinin yerel oturumda anlık hatırlanması.</td>
                                         <td>Tarayıcı LocalStorage</td>
-                                        <td>Kullanıcı "Sıfırla" diyene kadar veya tarayıcı geçmişini silene kadar.</td>
+                                        <td>Kullanıcıya Özel Yerel Depo</td>
                                     </tr>
                                     <tr>
-                                        <td><code>meb_norm_theme</code></td>
-                                        <td>Kullanıcının tercih ettiği görsel tema modunun (Açık / Koyu) hatırlanması.</td>
+                                        <td><code>MEB_NORM_KADRO_LAYOUT_V1</code></td>
+                                        <td>Panel genişlikleri ve arayüz yerleşim tercihlerinin korunması.</td>
                                         <td>Tarayıcı LocalStorage</td>
-                                        <td>Kalıcı (Yerel)</td>
+                                        <td>Kullanıcıya Özel Yerel Depo</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>Google Cloud /schools/{kurumKodu}</code></td>
+                                        <td>Bilgisayar formatı veya çerez temizliğinde projeyi tek tıkla kurtarma.</td>
+                                        <td>Google Cloud Firebase (Şifreli)</td>
+                                        <td>256-Bit SSL/TLS + Kurum İzolasyonu</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,8 +11,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Google Cloud / Firebase Canlı Bulut Senkronizasyonu (Cloud Auto-Save) entegre edildi.",
-    "Kör Üzerine Yazma (Blind Overwrite) Koruması ile çerezler silinse bile okulu otomatik kurtarma sağlandı.",
-    "Üst başlığa '☁️ Buluta Kaydedildi' canlı durum rozeti eklendi."
+    "6698 Sayılı KVKK Aydınlatma Metni Google Cloud altyapısı ve Sıfır Kişisel Veri güvencesiyle güncellendi.",
+    "Veri Sorumlusu (Burhan AYSAN) ve teknik güvenlik taahhütleri yasal metne işlendi."
   ]
 }
