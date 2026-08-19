@@ -1801,6 +1801,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -1836,6 +1842,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -4099,6 +4111,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -4134,6 +4152,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -5821,6 +5845,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -5856,6 +5886,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -9229,6 +9265,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -9264,6 +9306,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -9303,6 +9351,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -9338,6 +9392,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -10300,6 +10360,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -11505,6 +11571,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -13264,6 +13336,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -13301,6 +13379,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -13336,6 +13420,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -17359,6 +17449,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -21764,6 +21860,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -21799,6 +21901,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -21838,6 +21946,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -21875,6 +21989,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -21910,6 +22030,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -23547,7 +23673,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ - - 3 İŞLETMELERDE MESLEKİ EĞİTİM",
+            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -23598,6 +23730,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -23633,6 +23771,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -25144,6 +25288,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -26046,7 +26196,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HABER FOTOĞRAFÇILIĞI - 3 - DİJİTAL GÖRSEL DÜZENLEME - 4 - YAYIN TÜRÜNE GÖRE GAZETECİLİK- 6 - REDAKSİYON - - 2 HABER ÇEKİMİ VE KURGUSU - - 5 DİJİTAL MEDYADA HABERCİLİK - - 4 MİZANPAJ- - 6 İŞLETMELERDE MESLEKİ EĞİTİM",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -27380,6 +27530,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -29868,6 +30024,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -29905,6 +30067,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -29940,6 +30108,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -30842,6 +31016,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -32589,6 +32769,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -32624,6 +32810,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -33123,10 +33315,22 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ RESİM - 2 - CİLT BAKIM UYGULAMALARI ATÖLYESİ",
+            "ders": "MESLEKİ RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -33224,6 +33428,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -33368,10 +33578,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ RESİM - 2 - CİLT BAKIM UYGULAMALARI ATÖLYESİ",
+            "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 5,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -33441,6 +33657,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
+            "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33490,6 +33712,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -33886,7 +34114,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI 2 - - HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
+            "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -33989,7 +34217,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI 2 - - HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
+            "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -34092,7 +34320,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI 2 - - HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
+            "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -34392,6 +34620,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -36073,6 +36307,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -36108,6 +36348,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -37028,6 +37274,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -38608,6 +38860,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -42479,6 +42737,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -42514,6 +42778,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -42553,6 +42823,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -42588,6 +42864,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -42627,6 +42909,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -42662,6 +42950,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -43528,6 +43822,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -44434,7 +44734,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KİMYADA MESLEKİ HESAPLAMALAR 2 - - KİMYASAL KİNETİK",
+            "ders": "KİMYASAL KİNETİK",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -45449,13 +45749,25 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ORGANİK KİMYA - - 5 NİCEL ANALİZ",
-            "saat": 9,
+            "ders": "ORGANİK KİMYA",
+            "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
-            "ders": "ENSTRÜMANTAL ANALİZ - - 3 İŞLETMELERDE MESLEKİ EĞİTİM",
+            "ders": "NİCEL ANALİZ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENSTRÜMANTAL ANALİZ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -45944,6 +46256,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -45981,6 +46299,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -46016,6 +46340,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -48245,6 +48575,18 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ANADOLU KÜLTÜRÜ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48636,6 +48978,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48673,6 +49021,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48708,6 +49062,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -48936,7 +49296,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -48960,7 +49320,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖN BÜRODA REZERVASYON - 2 - KONUK GİRİŞ ÇIKIŞ İŞLEMLERİ",
+            "ders": "ÖN BÜRODA REZERVASYON",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KONUK GİRİŞ ÇIKIŞ İŞLEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -49021,7 +49387,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49100,7 +49466,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49193,7 +49559,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49284,7 +49656,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49369,7 +49747,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49474,7 +49858,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49577,7 +49961,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -49674,7 +50058,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -50588,6 +50972,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -51324,6 +51714,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "GIDA ANALİZLERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -51446,6 +51842,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -52390,6 +52792,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -54326,7 +54734,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ - 3 - BİLGİSAYAR DESTEKLİ ÇİZİM",
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -54423,7 +54837,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ - 3 - BİLGİSAYAR DESTEKLİ ÇİZİM",
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -55659,7 +56079,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "KALIP İMALATI UYGULAMALARI - 4 - TIBBİ CİHAZ ÜRETİM TERMİNOLOJİSİ",
+            "ders": "KALIP İMALATI UYGULAMALARI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TIBBİ CİHAZ ÜRETİM TERMİNOLOJİSİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -58766,6 +59192,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -58801,6 +59233,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -58840,6 +59278,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -58875,6 +59319,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -58914,6 +59364,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -58949,6 +59405,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -58988,6 +59450,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -59023,6 +59491,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -61134,6 +61608,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -61169,6 +61649,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -62916,6 +63402,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -62951,6 +63443,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -63616,7 +64114,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI - - 5 YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
+            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
             "saat": 4,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -63823,6 +64327,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -65576,6 +66086,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -65611,6 +66127,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -66280,7 +66802,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL ANALİZİ VE MODEL GELİŞTİRME 2 - - - GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
+            "ders": "GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
             "saat": 11,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -66840,7 +67362,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL ANALİZİ VE MODEL GELİŞTİRME 2 - - - GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
+            "ders": "GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
             "saat": 14,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -67274,6 +67796,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -67309,6 +67837,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -69152,6 +69686,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69186,6 +69726,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -69363,6 +69909,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69537,6 +70089,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -73241,6 +73799,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73276,6 +73840,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -73315,6 +73885,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73352,6 +73928,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73387,6 +73969,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -75302,6 +75890,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -75337,6 +75931,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -76235,6 +76835,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -76629,6 +77235,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "PLASTİK KALIP ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -76898,10 +77510,10 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "PLASTİK KALIP ATÖLYESİ- 9 - PLASTİK TEKNOLOJİSİNDE 3 BOYUTLU MODELLEME",
+            "ders": "PLASTİK TEKNOLOJİSİNDE 3 BOYUTLU MODELLEME",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
+            "baraj_ders": false
           },
           {
             "ders": "CAM (CNC) PROGRAMLAMA",
@@ -77099,6 +77711,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -77995,6 +78613,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -80611,7 +81235,19 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA DEVRE DİZAYNI - - 2 ENDÜSTRİYEL ELEKTRONİK - - 3 KENT İÇİ RAYLI SİSTEMLER 3 İŞLETMELERDE MESLEKİ EĞİTİM",
+            "ders": "BİLGİSAYARLA DEVRE DİZAYNI",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL ELEKTRONİK",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
@@ -80887,6 +81523,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -80924,6 +81566,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -80959,6 +81607,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -84044,6 +84698,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -84081,6 +84741,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -84116,6 +84782,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -85662,6 +86334,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -86183,7 +86861,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ - 2 - ÖRTÜ ALTI YETİŞTİRİCİLİK SİSTEMLERİ",
+            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖRTÜ ALTI YETİŞTİRİCİLİK SİSTEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -86604,6 +87288,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -90760,6 +91450,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90795,6 +91491,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -90834,6 +91536,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90871,6 +91579,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90906,6 +91620,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -92617,6 +93337,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -92652,6 +93378,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -93925,6 +94657,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -93960,6 +94698,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -95779,6 +96523,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -95814,6 +96564,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -96896,6 +97652,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -97061,7 +97823,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -97142,7 +97904,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -97235,7 +98003,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -98415,6 +99183,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -98450,6 +99224,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "TOPLAM DERS SAATİ",
@@ -98494,7 +99274,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -98512,7 +99292,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI 2 - - EKONOMİ",
+            "ders": "EKONOMİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -98587,7 +99367,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -98686,7 +99472,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE - - 3 BİRİNCİ YABANCI DİL (İNGİLİZCE",
+            "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
