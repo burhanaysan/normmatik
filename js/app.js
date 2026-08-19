@@ -20,6 +20,16 @@ class MebNormApplication {
         try {
             console.log("Uygulama başlatılıyor...");
             this.initTheme();
+
+            const session = (typeof authService !== 'undefined') ? authService.getSession() : null;
+
+            if (typeof window !== 'undefined' && window.location.pathname.endsWith("app.html")) {
+                if (!session) {
+                    window.location.href = "index.html";
+                    return;
+                }
+            }
+
             if (typeof window !== 'undefined' && window.licenseManager) {
                 await window.licenseManager.init();
             }
@@ -30,20 +40,20 @@ class MebNormApplication {
             appState.loadLayout();
             const hasSavedState = appState.loadFromStorage();
 
-
-
             // 🔒 Lisanslı Kurum Güvenliği: Asla Okul Kurulum/Değiştirme Modalı Açma!
             if (session && !session.isDemo) {
                 localStorage.setItem("normmatik_onboarding_seen", "true");
-                // Lisanslı okul her zaman kilitlidir
                 appState.state.okulBilgisi.okulTuruKilitli = true;
-                if (!appState.state.okulBilgisi.okulTuru) {
-                    appState.state.okulBilgisi.okulTuru = session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
+                if (session.okulTuru) {
+                    appState.state.okulBilgisi.okulTuru = session.okulTuru;
                 }
-                if (!appState.state.okulBilgisi.okulAdi || appState.state.okulBilgisi.okulAdi.includes("Atatürk Anadolu")) {
-                    appState.state.okulBilgisi.okulAdi = session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
+                if (session.okulAdi) {
+                    appState.state.okulBilgisi.okulAdi = session.okulAdi;
                 }
-                appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
+                if (session.kurumKodu) {
+                    appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
+                }
+                appState.state.okulBilgisi.isDemo = false;
             } else if (session && session.isDemo) {
                 const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
                 if (!hasSeenOnboarding) {
@@ -58,6 +68,7 @@ class MebNormApplication {
 
             this.render();
             console.log("Uygulama başarıyla hazır!");
+            
             // Canlı Güvenlik & Lisans Telemetrisi
             if (typeof window !== 'undefined' && window.telemetryClient && window.licenseManager) {
                 window.telemetryClient.sendHeartbeat(appState.state.okulBilgisi, window.licenseManager.licenseStatus);
