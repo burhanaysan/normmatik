@@ -391,23 +391,28 @@ export class MebDatabaseService {
         return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru || {};
     }
 
-    getOfficialTargetHours(schoolType, gradeLevel, areaId) {
-        if (!this.masterData) return 40;
-        const root = this.masterData.okul_turleri_ve_cizelgeler || {};
-        const isVocational = schoolType?.includes("mesleki") || schoolType?.includes("teknik");
-        if (isVocational) {
-            const mtegmRules = root.mesleki_ve_teknik_egitim_mtegm?.resmi_meb_haftalik_ders_saati_kurallari;
-            const sKey = "sinif_" + gradeLevel;
-            if (mtegmRules && mtegmRules[sKey]?.toplam_hedef_saat) {
-                return mtegmRules[sKey].toplam_hedef_saat;
-            }
-            return gradeLevel === "12" ? 44 : 45;
+        getOfficialTargetHours(schoolType, gradeLevel, areaId) {
+        const sType = String(schoolType || "").toLowerCase();
+        const gStr = String(gradeLevel || "");
+        
+        if (sType.includes("meslek") || sType.includes("teknik") || sType.includes("mtegm") || areaId) {
+            if (gStr === "9") return 44;
+            return 45;
         }
-        if (schoolType?.includes("ortaokul")) {
+        if (sType.includes("ortaokul") && !sType.includes("imam_hatip")) {
             return 35;
         }
-        if (String(gradeLevel).toLowerCase() === "hazirlik" && schoolType?.includes("imam_hatip")) {
-            return 41;
+        if (sType.includes("imam_hatip_ortaokulu") || sType.includes("iho")) {
+            return 36;
+        }
+        if (sType.includes("fen_lisesi") || sType.includes("sosyal_bilimler") || sType.includes("anadolu")) {
+            return 40;
+        }
+        if (sType.includes("imam_hatip") || sType.includes("aihl")) {
+            return 40;
+        }
+        if (sType.includes("ozel_egitim")) {
+            return 30;
         }
         return 40;
     }

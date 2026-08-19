@@ -314601,9 +314601,10 @@
         "sinif_12": {
           "ortak": 10,
           "isletmelerde_mesleki_egitim": 24,
-          "rehberlik": 1,
-          "secmeli_meslek": 9,
-          "toplam_hedef_saat": 44
+          "rehberlik": 0,
+          "secmeli_meslek": 7,
+          "secmeli": 4,
+          "toplam_hedef_saat": 45
         }
       }
     },
