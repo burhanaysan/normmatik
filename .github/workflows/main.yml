@@ -19,6 +19,9 @@ jobs:
           python-version: '3.11'
 
       - name: 🔍 Mevzuat Nöbetçi Robotunu Çalıştır
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python 07_bulut_ve_otomasyon/mevzuat_nobetci_bot.py
 
