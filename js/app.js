@@ -96,41 +96,77 @@ class MebNormApplication {
         const resizerLeft = document.getElementById("resizer-left");
         const resizerRight = document.getElementById("resizer-right");
 
-        resizerLeft?.addEventListener("mousedown", (e) => {
+        const startResizeLeft = (e) => {
+            e.preventDefault();
             this.isResizingLeft = true;
-            resizerLeft.classList.add("resizing");
+            resizerLeft?.classList.add("resizing");
             document.body.style.cursor = "col-resize";
-        });
+            document.body.style.userSelect = "none";
+        };
 
-        resizerRight?.addEventListener("mousedown", (e) => {
+        const startResizeRight = (e) => {
+            e.preventDefault();
             this.isResizingRight = true;
-            resizerRight.classList.add("resizing");
+            resizerRight?.classList.add("resizing");
             document.body.style.cursor = "col-resize";
-        });
+            document.body.style.userSelect = "none";
+        };
 
-        window.addEventListener("mousemove", (e) => {
+        const handleMove = (clientX) => {
             if (this.isResizingLeft) {
-                const newWidth = Math.max(180, Math.min(550, e.clientX));
+                const ws = document.querySelector(".main-workspace") || document.querySelector(".workspace-layout");
+                const offsetLeft = ws ? ws.getBoundingClientRect().left : 0;
+                const newWidth = Math.max(180, Math.min(550, clientX - offsetLeft));
                 appState.setLayout({ leftWidth: newWidth });
                 const leftEl = document.getElementById("sidebar-left");
                 if (leftEl) leftEl.style.width = `${newWidth}px`;
             } else if (this.isResizingRight) {
-                const newWidth = Math.max(220, Math.min(650, window.innerWidth - e.clientX));
+                const ws = document.querySelector(".main-workspace") || document.querySelector(".workspace-layout");
+                const offsetRight = ws ? ws.getBoundingClientRect().right : window.innerWidth;
+                const newWidth = Math.max(220, Math.min(650, offsetRight - clientX));
                 appState.setLayout({ rightWidth: newWidth });
                 const rightEl = document.getElementById("sidebar-right");
                 if (rightEl) rightEl.style.width = `${newWidth}px`;
             }
-        });
+        };
 
-        window.addEventListener("mouseup", () => {
+        const stopResize = () => {
             if (this.isResizingLeft || this.isResizingRight) {
                 this.isResizingLeft = false;
                 this.isResizingRight = false;
                 resizerLeft?.classList.remove("resizing");
                 resizerRight?.classList.remove("resizing");
                 document.body.style.cursor = "default";
+                document.body.style.userSelect = "";
             }
-        });
+        };
+
+        // Pointer & Mouse Events
+        resizerLeft?.addEventListener("pointerdown", startResizeLeft);
+        resizerRight?.addEventListener("pointerdown", startResizeRight);
+        resizerLeft?.addEventListener("mousedown", startResizeLeft);
+        resizerRight?.addEventListener("mousedown", startResizeRight);
+
+        window.addEventListener("pointermove", (e) => handleMove(e.clientX));
+        window.addEventListener("mousemove", (e) => handleMove(e.clientX));
+        window.addEventListener("pointerup", stopResize);
+        window.addEventListener("mouseup", stopResize);
+        window.addEventListener("pointercancel", stopResize);
+
+        // Touch Events
+        resizerLeft?.addEventListener("touchstart", (e) => {
+            if (e.touches.length > 0) startResizeLeft(e);
+        }, { passive: false });
+        resizerRight?.addEventListener("touchstart", (e) => {
+            if (e.touches.length > 0) startResizeRight(e);
+        }, { passive: false });
+
+        window.addEventListener("touchmove", (e) => {
+            if ((this.isResizingLeft || this.isResizingRight) && e.touches.length > 0) {
+                handleMove(e.touches[0].clientX);
+            }
+        }, { passive: true });
+        window.addEventListener("touchend", stopResize);
     }
 
     render() {
@@ -492,15 +528,15 @@ class MebNormApplication {
                 <div class="sidebar-action-grid">
                     <button class="btn-sec-act btn-sec-add" id="btn-open-single-add" title="Tek Tek Manuel Şube Ekle">
                         <span class="act-icon">➕</span>
-                        <span class="act-text">Şube Ekle</span>
+                        <span class="act-text">Şube</span>
                     </button>
-                    <button class="btn-sec-act btn-sec-bulk" id="btn-open-bulk-wizard" title="Hızlı Çoklu Sınıf ve Şube Oluşturucu">
+                    <button class="btn-sec-act btn-sec-bulk" id="btn-open-bulk-wizard" title="Otomatik Çoklu Sınıf ve Şube Oluşturucu">
                         <span class="act-icon">⚡</span>
-                        <span class="act-text">Çoklu Kur</span>
+                        <span class="act-text">Çoklu</span>
                     </button>
                     <button class="btn-sec-act btn-sec-eokul" id="btn-open-eokul-import" title="e-Okul Excel Dosyasından Tüm Şubeleri Otomatik İçe Aktar">
                         <span class="act-icon">📥</span>
-                        <span class="act-text">e-Okul'dan Aktar</span>
+                        <span class="act-text">e-Okul</span>
                     </button>
                 </div>
 

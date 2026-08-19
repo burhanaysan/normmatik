@@ -672,17 +672,18 @@ body {
 }
 
 .resizer-divider {
-    width: 6.5px;
-    background: transparent;
-    cursor: col-resize;
-    user-select: none;
-    z-index: 10;
-    transition: all 0.2s ease;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 10px !important;
+    background: transparent !important;
+    cursor: col-resize !important;
+    user-select: none !important;
+    touch-action: none !important;
+    z-index: 50 !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
 }
 
 .resizer-divider::after {
@@ -7055,8 +7056,9 @@ html, body {
 /* 3'LÜ KURUMSAL AKSİYON BUTONLARI */
 .sidebar-action-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1.3fr !important;
-    gap: 0.35rem !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.28rem !important;
+    width: 100% !important;
 }
 
 .btn-sec-act {

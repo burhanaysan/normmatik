@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,8 +11,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Sol Şube Paneli başlığı kurumsal ve ferah executive tasarıma kavuşturuldu.",
-    "Metin kırılmaları giderildi; '+ Şube Ekle', '⚡ Çoklu Kur', '📥 e-Okul\\'dan Aktar' butonları netleştirildi.",
-    "Sınıf kademe filtreleri şık segmented pill düzenine dönüştürüldü."
+    "Sol panel butonları kompakt eşit genişlikli grid'e dönüştürüldü (taşma ve kırılma sıfırlandı).",
+    "Panel ayırıcılarına (resizers) Pointer + Touch + Mouse desteği eklenerek dinamik genişletme/daraltma onarıldı."
   ]
 }
