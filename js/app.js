@@ -28,7 +28,14 @@ class MebNormApplication {
             appState.loadLayout();
             const hasSavedState = appState.loadFromStorage();
 
-            if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
+            const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
+            if (!hasSeenOnboarding) {
+                this.ui.openOnboardingWelcomeModal(() => {
+                    if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
+                        this.ui.openSchoolSetupModal();
+                    }
+                });
+            } else if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
                 this.ui.openSchoolSetupModal();
             }
 
@@ -251,6 +258,9 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: DİĞER KOMPONENTLER / SİSTEM ARAÇLARI -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1.5px solid #10b981; color: #10b981; font-weight: 800;" title="Sistemi Tanıtan Rehber Turunu Başlat">
+                        ❓ Nasıl Çalışır?
+                    </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.15); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Durumu ve Aktivasyon">
                         🔑 Lisans
                     </button>
@@ -277,6 +287,10 @@ class MebNormApplication {
                 </div>
             </div>
         `;
+
+        document.getElementById("btn-open-onboarding")?.addEventListener("click", () => {
+            this.ui.openOnboardingWelcomeModal();
+        });
 
         document.getElementById("btn-open-license")?.addEventListener("click", () => {
             this.ui.openLicenseModal();
@@ -1166,6 +1180,14 @@ class MebNormApplication {
                         <span class="kpi-label">Toplam Fazla</span>
                         <span class="kpi-val red">${normResult.totalSurplus > 0 ? '+' + normResult.totalSurplus : '0'}</span>
                     </div>
+                </div>
+            </div>
+                        <div class="sidebar-right-disclaimer" style="margin: 0.5rem 0.65rem 0.25rem 0.65rem; background: rgba(245, 158, 11, 0.08); border: 1.5px dashed #f59e0b; border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.72rem; color: var(--text-main); line-height: 1.4;">
+                <div style="font-weight: 800; color: #b45309; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.2rem;">
+                    <span>⚠️</span> Yasal Uyarı & Bölge Normu Hatırlatması
+                </div>
+                <div style="color: var(--text-muted);">
+                    Bu hesaplamalar <strong>karar destek ve ön planlama</strong> amaçlıdır; resmî MEBBİS kayıtları yerine geçmez. <strong>Bölge Normu:</strong> Okulunuzda 33 saat derse bağımsız olarak 2 norm çıksa dahi; eğitim bölgesindeki artık saatler havuzuna göre okulunuza 1 norm takdir edilebilir. Nihai yetki MEB komisyonlarındadır.
                 </div>
             </div>
             <div class="norm-table-container">

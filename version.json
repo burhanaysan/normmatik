@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.0.9",
+  "version": "1.1.2",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,6 +11,6 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Google SEO, robots.txt, sitemap.xml ve Schema.org Structured Data indeksleme motoru entegre edildi."
+    "Bölge Normu yasal uyarısı ve 33 saat örneği mevzuat standartlarına göre birebir güncellendi."
   ]
 }

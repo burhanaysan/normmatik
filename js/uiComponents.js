@@ -311,6 +311,203 @@ export class UIComponentManager {
         }, 2600);
     }
 
+    // --- 🌟 İLK GİRİŞ KARŞILAMA VE PROFESYONEL TANITIM TURU (ONBOARDING SHOWCASE) ---
+    openOnboardingWelcomeModal(onFinishCallback = null) {
+        let currentSlide = 0;
+        const slides = [
+            {
+                badge: "👑 TÜRKİYE'NİN İLK VE TEK MEB NORM PLATFORMU",
+                title: "NormMatik™ Dünyasına Hoş Geldiniz!",
+                subtitle: "Günlerce süren karmaşık Excel tabloları, hesaplama hataları ve norm fazlası risklerine son!",
+                icon: "🚀",
+                contentHtml: `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.25rem 0;">
+                        <div style="background: rgba(2, 132, 199, 0.08); border: 1.5px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 1rem; text-align: left;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">⚡</div>
+                            <div style="font-weight: 800; font-size: 0.92rem; color: var(--text-main);">Dakikalar İçinde Tam Hesaplama</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">Tüm şubelerinizin ders yükünü ve öğretmen normlarını saniyeler içinde hesaplayın.</div>
+                        </div>
+                        <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 1rem; text-align: left;">
+                            <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">📜</div>
+                            <div style="font-weight: 800; font-size: 0.92rem; color: var(--text-main);">%100 TTKB & Mevzuat Uyumu</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">2026-2027 Haftalık Ders Çizelgeleri ve 9 Sayılı Kurul Kararı kuralları tam entegre.</div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                badge: "📥 1 TIKLA SIFIR VERİ GİRİŞİ",
+                title: "e-Okul Excel Listesini Sürükleyin, Bitti!",
+                subtitle: "Tek tek şube, öğrenci sayısı veya ders girmekle saatlerinizi harcamayın.",
+                icon: "📥",
+                contentHtml: `
+                    <div style="background: var(--bg-card-subtle); border: 2px dashed var(--primary); border-radius: 14px; padding: 1.25rem; text-align: center; margin: 1.25rem 0;">
+                        <div style="font-size: 2.2rem; margin-bottom: 0.5rem; animation: pulse 2s infinite;">📑 ➔ ⚡ ➔ 🏫</div>
+                        <div style="font-weight: 800; font-size: 0.95rem; color: var(--primary);">e-Okul Sınıf Şube Listesini İçe Aktarın</div>
+                        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.45;">
+                            e-Okul'dan aldığınız standart Excel dosyasını seçtiğiniz anda 9, 10, 11 ve 12. sınıf şubeleriniz, mevcudiyetler ve TTKB zorunlu dersleri <strong>3 saniyede otomatik kurulur!</strong>
+                        </p>
+                    </div>
+                `
+            },
+            {
+                badge: "⚖️ AKILLI NORM VE İHTİYAÇ MOTORU",
+                title: "Canlı Norm Rozetleri ve İhtiyaç Analizi",
+                subtitle: "Hangi branşta öğretmen ihtiyacı var, hangisinde norm fazlası var anında görün!",
+                icon: "⚖️",
+                contentHtml: `
+                    <div style="display: flex; flex-direction: column; gap: 0.65rem; margin: 1.25rem 0;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 0.6rem 0.9rem;">
+                            <span style="font-weight: 700; font-size: 0.85rem;">Matematik (90 Saat Ders Yükü)</span>
+                            <span style="background: #16a34a; color: #fff; font-weight: 800; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">✓ 4 Norm (Kadrolu: 4) - TAM</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 0.6rem 0.9rem;">
+                            <span style="font-weight: 700; font-size: 0.85rem;">Türk Dili ve Edebiyatı (110 Saat)</span>
+                            <span style="background: #ea580c; color: #fff; font-weight: 800; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">🚨 5 Norm (Mevcut: 3) - 2 İHTİYAÇ</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 0.6rem 0.9rem;">
+                            <span style="font-weight: 700; font-size: 0.85rem;">Fizik (24 Saat Ders Yükü)</span>
+                            <span style="background: #dc2626; color: #fff; font-weight: 800; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">⚠️ 1 Norm (Mevcut: 2) - 1 FAZLA</span>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                badge: "⚖️ YASAL UYARI & BÖLGE NORMU BİLGİLENDİRMESİ",
+                title: "Resmî Kayıtlar ve Bölge Normu Hatırlatması",
+                subtitle: "NormMatik™ bir karar destek ve ön planlama sistemidir.",
+                icon: "⚠️",
+                contentHtml: `
+                    <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid #f59e0b; border-radius: 12px; padding: 1.1rem; text-align: left; margin: 1.25rem 0;">
+                        <div style="font-weight: 800; font-size: 0.88rem; color: #b45309; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <span>⚠️</span> Hukuki Sorumluluk Reddi ve Bölge Normu Kuralı
+                        </div>
+                        <p style="font-size: 0.77rem; color: var(--text-main); line-height: 1.5; margin-bottom: 0.6rem;">
+                            1. <strong>MEBBİS Esastır:</strong> Bu sistem tarafından üretilen hesaplamalar okul içi ön hazırlık niteliğindedir. Resmî MEBBİS veri tabanı ve Bakanlık onayları yerine geçmez.
+                        </p>
+                        <p style="font-size: 0.77rem; color: var(--text-main); line-height: 1.5; margin-bottom: 0;">
+                            2. <strong>Bölge Normu:</strong> Okulunuzda 33 saat derse bağımsız olarak 2 norm çıksa dahi; eğitim bölgesindeki artık saatler havuzuna göre okulunuza 1 norm takdir edilebilir. Nihai yetki MEB komisyonlarındadır.
+                        </p>
+                    </div>
+                `
+            },
+            {
+                badge: "🖨️ İLÇE MEM RESMÎ TESLİMAT FORMATI",
+                title: "5 Sekmeli Excel ve İmzalı Resmî Cetveller",
+                subtitle: "Yönetici İcmali, Master Yük Matrisi ve Norm İhtiyaç Eylem Planı tek tıkla elinizde!",
+                icon: "📊",
+                contentHtml: `
+                    <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-main); border-radius: 12px; padding: 1.1rem; text-align: left; margin: 1.25rem 0;">
+                        <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;">
+                            <span style="font-size: 1.4rem;">🏛️</span>
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.88rem;">İlçe MEM ve Valilik Antetli Resmî Çıktılar</div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted);">Müdür, Başyardımcı ve Şube Müdürü imza onay blokları hazır.</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
+                            <span style="background: #e2e8f0; color: #1e293b; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">📊 Master Matris Grid</span>
+                            <span style="background: #e2e8f0; color: #1e293b; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">🏛️ Yönetici İcmali</span>
+                            <span style="background: #e2e8f0; color: #1e293b; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">🚨 İhtiyaç/Fazla Planı</span>
+                            <span style="background: #e2e8f0; color: #1e293b; padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.72rem; font-weight: 700;">🧩 Atölye Bölünmeleri</span>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        const renderSlide = (idx) => {
+            const slide = slides[idx];
+            const isLast = (idx === slides.length - 1);
+
+            const dotsHtml = slides.map((_, dIdx) => `
+                <span class="onboarding-dot ${dIdx === idx ? 'active' : ''}" style="width: ${dIdx === idx ? '24px' : '8px'}; height: 8px; border-radius: 9999px; background: ${dIdx === idx ? 'var(--primary)' : 'var(--border-main)'}; display: inline-block; transition: all 0.3s; cursor: pointer;" data-dot="${dIdx}"></span>
+            `).join("");
+
+            const modalHtml = `
+                <div class="modal-overlay active" id="onboarding-modal" style="z-index: 999999;">
+                    <div class="modal-box" style="max-width: 580px; padding: 1.75rem; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center;">
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="background: rgba(2, 132, 199, 0.12); color: var(--primary); font-weight: 800; font-size: 0.7rem; padding: 0.25rem 0.75rem; border-radius: 9999px; letter-spacing: 0.04em;">
+                                ${slide.badge}
+                            </span>
+                            <button class="modal-close-btn" id="btn-skip-onboarding" style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Tanıtımı Geç ✕</button>
+                        </div>
+
+                        <div style="margin: 0.5rem 0 1rem 0;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: var(--text-main); line-height: 1.3;">
+                                ${slide.title}
+                            </div>
+                            <div style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.45;">
+                                ${slide.subtitle}
+                            </div>
+                        </div>
+
+                        ${slide.contentHtml}
+
+                        <!-- Alt Gezinme & Aksiyon Çubuğu -->
+                        <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.25rem;">
+                            <div style="display: flex; gap: 0.4rem; align-items: center;">
+                                ${dotsHtml}
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                ${idx > 0 ? `<button class="btn btn-outline" id="btn-onboarding-prev" style="padding: 0.6rem 1rem; font-weight: 700;">❮ Geri</button>` : ''}
+                                <button class="btn btn-primary" id="btn-onboarding-next" style="padding: 0.65rem 1.4rem; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
+                                    ${isLast ? '🚀 Başlayalım ve Okulu Kuralım' : 'İleri ❯'}
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+            this.renderModal(modalHtml);
+
+            // Event Listeners
+            document.querySelectorAll(".onboarding-dot").forEach(d => {
+                d.addEventListener("click", () => {
+                    const target = parseInt(d.getAttribute("data-dot"), 10);
+                    currentSlide = target;
+                    renderSlide(currentSlide);
+                });
+            });
+
+            document.getElementById("btn-onboarding-prev")?.addEventListener("click", () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    renderSlide(currentSlide);
+                }
+            });
+
+            document.getElementById("btn-onboarding-next")?.addEventListener("click", () => {
+                if (!isLast) {
+                    currentSlide++;
+                    renderSlide(currentSlide);
+                } else {
+                    finishOnboarding();
+                }
+            });
+
+            document.getElementById("btn-skip-onboarding")?.addEventListener("click", () => {
+                finishOnboarding();
+            });
+        };
+
+        const finishOnboarding = () => {
+            try {
+                localStorage.setItem("normmatik_onboarding_seen", "true");
+            } catch (e) {}
+            this.closeModal("onboarding-modal");
+            if (typeof onFinishCallback === 'function') {
+                onFinishCallback();
+            }
+        };
+
+        renderSlide(0);
+    }
+
     openSchoolSetupModal() {
         const types = this.db.getSchoolTypes();
         const currentType = this.state.state.okulBilgisi.okulTuru || "anadolu_lisesi";
