@@ -146848,7 +146848,7 @@ export const MTEGM_CANONICAL_DB = {
           {
             "ders": "TURİZMDE REHBERLİK HİZMETLERİ",
             "saat": 2,
-            "is_common": true,
+            "is_common": false,
             "baraj_ders": false
           },
           {
@@ -147156,7 +147156,7 @@ export const MTEGM_CANONICAL_DB = {
           {
             "ders": "TURİZMDE REHBERLİK HİZMETLERİ",
             "saat": 2,
-            "is_common": true,
+            "is_common": false,
             "baraj_ders": false
           },
           {
@@ -147476,7 +147476,7 @@ export const MTEGM_CANONICAL_DB = {
           {
             "ders": "TURİZMDE REHBERLİK HİZMETLERİ",
             "saat": 2,
-            "is_common": true,
+            "is_common": false,
             "baraj_ders": false
           },
           {
@@ -155282,7 +155282,7 @@ export const MTEGM_CANONICAL_DB = {
           {
             "ders": "TURİZMDE REHBERLİK HİZMETLERİ",
             "saat": 3,
-            "is_common": true,
+            "is_common": false,
             "baraj_ders": false
           },
           {
