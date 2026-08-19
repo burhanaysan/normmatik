@@ -699,6 +699,7 @@ export class UIComponentManager {
         const info = this.state.state.okulBilgisi;
         const types = this.db.getSchoolTypes();
         const currentType = types.find(t => t.id === info.okulTuru) || { name: "Belirtilmedi", category: "MEB" };
+        const isLocked = (info.okulTuruKilitli && info.kurumKodu && info.kurumKodu !== "123456" && !info.isDemo);
 
         const modalHtml = `
             <div class="modal-overlay active" id="edit-school-modal" style="z-index: 99999;">
@@ -713,22 +714,22 @@ export class UIComponentManager {
                     <div class="modal-body" style="padding: 0;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
                             <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İl</label>
-                                <input type="text" id="edit-school-il" class="form-control" value="${info.il || ''}" placeholder="Örn: ANKARA">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İl (Düzenlenebilir)</label>
+                                <input type="text" id="edit-school-il" class="form-control" value="${info.il || ''}" placeholder="Örn: KONYA">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İlçe</label>
-                                <input type="text" id="edit-school-ilce" class="form-control" value="${info.ilce || ''}" placeholder="Örn: ÇANKAYA">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İlçe (Düzenlenebilir)</label>
+                                <input type="text" id="edit-school-ilce" class="form-control" value="${info.ilce || ''}" placeholder="Örn: AKŞEHİR">
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.75rem; margin-bottom: 0.75rem;">
                             <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">MEB Kurum Kodu</label>
-                                <input type="text" id="edit-school-kurum-kodu" class="form-control" value="${info.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">MEB Kurum Kodu 🔒</label>
+                                <input type="text" id="edit-school-kurum-kodu" class="form-control" value="${info.kurumKodu || ''}" readonly disabled style="background: rgba(15, 23, 42, 0.4); cursor: not-allowed; opacity: 0.85; font-family: monospace; font-weight: 800;">
                             </div>
                             <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Sezon</label>
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Eğitim Sezonu</label>
                                 <select id="edit-school-season" class="form-control">
                                     <option value="2026-2027" ${info.sezon === '2026-2027' ? 'selected' : ''}>2026-2027</option>
                                     <option value="2025-2026" ${info.sezon === '2025-2026' ? 'selected' : ''}>2025-2026</option>
@@ -738,8 +739,11 @@ export class UIComponentManager {
                         </div>
 
                         <div class="form-group" style="margin-bottom: 1.25rem;">
-                            <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul / Kurum Adı *</label>
-                            <input type="text" id="edit-school-name" class="form-control" value="${info.okulAdi || ''}" placeholder="Okul adını yazınız...">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700; margin-bottom: 0;">Okul / Kurum Resmî Adı 🔒</label>
+                                <span style="font-size: 0.7rem; color: #0284c7; font-weight: 800;">🔒 Lisansla Mühürlü</span>
+                            </div>
+                            <input type="text" id="edit-school-name" class="form-control" value="${info.okulAdi || ''}" readonly disabled style="background: rgba(15, 23, 42, 0.4); cursor: not-allowed; opacity: 0.85; font-weight: 800;">
                         </div>
 
                         <div style="background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
@@ -747,9 +751,15 @@ export class UIComponentManager {
                                 <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">MEVCUT OKUL TÜRÜ</div>
                                 <div style="font-size: 0.9rem; font-weight: 800; color: var(--primary);">📜 ${currentType.name}</div>
                             </div>
-                            <button class="btn btn-sm btn-danger-outline" id="btn-trigger-reset-school" style="font-size: 0.78rem;">
-                                🔄 Okul Türünü Değiştir / Sıfırla
-                            </button>
+                            ${isLocked ? `
+                                <span style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981; padding: 0.35rem 0.75rem; border-radius: 6px; font-weight: 800; font-size: 0.76rem;">
+                                    🔒 Mühürlü Lisans Türü
+                                </span>
+                            ` : `
+                                <button class="btn btn-sm btn-danger-outline" id="btn-trigger-reset-school" style="font-size: 0.78rem;">
+                                    🔄 Okul Türünü Değiştir / Sıfırla
+                                </button>
+                            `}
                         </div>
                     </div>
 
@@ -763,19 +773,13 @@ export class UIComponentManager {
         this.renderModal(modalHtml);
 
         document.getElementById("btn-save-edited-school-info")?.addEventListener("click", () => {
-            const name = document.getElementById("edit-school-name")?.value.trim();
-            const kurumKodu = document.getElementById("edit-school-kurum-kodu")?.value.trim();
             const il = document.getElementById("edit-school-il")?.value.trim();
             const ilce = document.getElementById("edit-school-ilce")?.value.trim();
             const season = document.getElementById("edit-school-season")?.value;
 
-            if (name) {
-                this.state.updateSchoolInfo(name, season, kurumKodu, il, ilce);
-                this.closeModal("edit-school-modal");
-                this.showToast("Okul bilgileri güncellendi.", "success");
-            } else {
-                alert("Lütfen Okul Adını boş bırakmayınız.");
-            }
+            this.state.updateSchoolInfo(info.okulAdi, season, info.kurumKodu, il, ilce);
+            this.closeModal("edit-school-modal");
+            this.showToast("İl/İlçe ve Sezon bilgileri güncellendi.", "success");
         });
 
         document.getElementById("btn-trigger-reset-school")?.addEventListener("click", () => {
