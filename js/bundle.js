@@ -26805,6 +26805,63 @@ const STRICT_PDF_CURRICULUM_DB = {
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 20,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İKİNCİ YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "10": [
+      {
+        "page": 11,
+        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ GAZETECİLİK DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZEL GESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": true
@@ -26902,11 +26959,11 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "10": [
+    "11": [
       {
         "page": 11,
         "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ GAZETECİLİK DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZEL GESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
+        "grade": "11",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27013,11 +27070,11 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "11": [
+    "12": [
       {
-        "page": 11,
-        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ GAZETECİLİK DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZEL GESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
+        "page": 10,
+        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ GAZETECİLİK DALI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27086,75 +27143,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HABER ÇEKİMİ VE KURGUSU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL MEDYADA HABERCİLİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YAPAY ZEKÂ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAYFA DÜZENLEME",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "12": [
-      {
-        "page": 10,
-        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ GAZETECİLİK DALI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "EDİTÖRLÜĞE GİRİŞ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -27181,6 +27169,12 @@ const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "YAPAY ZEKÂ",
             "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -37788,57 +37782,21 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
+            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
             "ders": "YABANCI DİL",
-            "saat": 4,
+            "saat": 24,
             "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -37848,30 +37806,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİK DEVRE ANALİZİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MONTAJ, ENTEGRASYON VE KONTROL",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -37879,7 +37813,7 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
+            "saat": 40,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           }
@@ -37891,57 +37825,21 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
+            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
             "ders": "YABANCI DİL",
-            "saat": 4,
+            "saat": 24,
             "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -37951,30 +37849,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİK DEVRE ANALİZİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MONTAJ, ENTEGRASYON VE KONTROL",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -37982,7 +37856,7 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
+            "saat": 40,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           }
@@ -37994,57 +37868,21 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
+            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
             "ders": "YABANCI DİL",
-            "saat": 4,
+            "saat": 24,
             "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -38054,30 +37892,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİK DEVRE ANALİZİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MONTAJ, ENTEGRASYON VE KONTROL",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -38085,7 +37899,7 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
+            "saat": 40,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           }
@@ -78935,6 +78749,51 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "EDEBİYATI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 20,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İKİNCİ YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "10": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ RADYO-TELEVİZYON DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGR AMI HAFTALIK DERS ÇİZELGESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -79001,19 +78860,19 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FOTOĞRAF VE VİDEO ÇEKİMİ",
+            "ders": "VİDEONUN TEMELLERİ",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
-            "ders": "MEDYADA ETKİLİ İLETİŞİM VE HİTABET",
+            "ders": "FOTOĞRAF VE VİDEO İŞLEME",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
-            "ders": "FOTOĞRAF VE VİDEO İŞLEME",
+            "ders": "RADYO TELEVİZYONUN TEMEL KAVRAMLARI",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
@@ -79023,15 +78882,21 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           }
         ]
       }
     ],
-    "10": [
+    "11": [
       {
         "page": 12,
         "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ RADYO-TELEVİZYON DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGR AMI HAFTALIK DERS ÇİZELGESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
+        "grade": "11",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79100,12 +78965,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FOTOĞRAF VE VİDEO İŞLEME",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "KAMERA SES VE IŞIK UYGULAMALARI",
             "saat": 4,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -79144,11 +79003,11 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "11": [
+    "12": [
       {
-        "page": 12,
-        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ RADYO-TELEVİZYON DALI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGR AMI HAFTALIK DERS ÇİZELGESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
+        "page": 11,
+        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ RADYO-TELEVİZYON DALI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79223,63 +79082,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "YAPAY ZEKÂ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "12": [
-      {
-        "page": 11,
-        "title": "5.4. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ RADYO-TELEVİZYON DALI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TELEVİZYON ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "SENARYO",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -79288,6 +79090,12 @@ const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "YAPAY ZEKÂ",
             "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
