@@ -4458,7 +4458,7 @@ export class UIComponentManager {
 
     // --- LİSANS DOĞRULAMA VE AKTİVASYON MERKEZİ MODALI ---
     openLicenseModal() {
-        const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 5 };
+        const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 3 };
         const okulInfo = this.state.state.okulBilgisi || {};
         const types = this.db.getSchoolTypes();
         const currentTypeObj = types.find(t => t.id === okulInfo.okulTuru) || { name: 'Belirtilmedi' };
@@ -4469,70 +4469,75 @@ export class UIComponentManager {
         } else if (lic.isAnnual) {
             statusBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1.5px solid #10b981; color: #10b981; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">🛡️ Yıllık Pro Lisans (${lic.daysRemaining} Gün Kaldı)</span>`;
         } else {
-            statusBadge = `<span style="background: rgba(245, 158, 11, 0.2); border: 1.5px solid #f59e0b; color: #d97706; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">⏳ 7 Günlük Deneme Sürümü (${lic.daysRemaining} Gün Kaldı - Maks 5 Şube)</span>`;
+            statusBadge = `<span style="background: rgba(245, 158, 11, 0.2); border: 1.5px solid #f59e0b; color: #d97706; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">⏳ Ücretsiz Deneme Modu (Maks 3 Şube - Çıktılar Filigranlı)</span>`;
         }
 
         const modalHtml = `
             <div class="modal-overlay active" id="license-modal">
-                <div class="modal-box" style="max-width: 680px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
-                    <div class="modal-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 1.1rem 1.4rem;">
+                <div class="modal-box" style="max-width: 650px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 1rem 1.3rem;">
                         <div class="modal-title" style="color: #fff; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 0.6rem;">
-                            <span style="font-size: 1.4rem;">🔑</span>
+                            <span style="font-size: 1.35rem;">🔑</span>
                             <div>
-                                <div>MEB Norm Kadro Lisans & Güvenlik Merkezi</div>
-                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">NormMatik™ 5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik Lisans Sistemi</div>
+                                <div>NormMatik™ Lisans & Güvenlik Merkezi</div>
+                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik Lisans Sistemi</div>
                             </div>
                         </div>
                         <button class="modal-close-btn" id="btn-close-license-modal" style="color: #fff;">✕</button>
                     </div>
-                    <div class="modal-body" style="padding: 1.25rem 1.4rem; display: flex; flex-direction: column; gap: 1.1rem;">
+                    <div class="modal-body" style="padding: 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 1rem;">
                         
-                        <!-- 1. Durum Kartı -->
-                        <div style="background: var(--bg-card-subtle, #f8fafc); border: 1.5px solid var(--border-main, #e2e8f0); border-radius: 12px; padding: 0.9rem 1.1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+                        <!-- 1. LANSMAN FİYATI VE KAMPANYA KARTİ -->
+                        <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 1.5px solid #0284c7; border-radius: 12px; padding: 0.9rem 1.1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;">
                             <div>
-                                <div style="font-size: 0.72rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase;">Mevcut Lisans Durumu</div>
-                                <div style="margin-top: 0.35rem;">${statusBadge}</div>
-                            </div>
-                            <div style="text-align: right; font-size: 0.78rem; color: var(--text-muted);">
-                                <div><strong>Kurum Kodu:</strong> ${lic.kurumKodu || okulInfo.kurumKodu || '752148'}</div>
-                                <div><strong>Bitiş Tarihi:</strong> ${lic.payload?.expireDate || (lic.isMaster ? '2099-12-31' : 'Deneme')}</div>
+                                <span style="background: #0284c7; color: #fff; font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase;">2026-2027 Sezonu Lansman Kampanyası</span>
+                                <div style="font-size: 1.25rem; font-weight: 900; color: var(--text-main); margin-top: 0.25rem;">
+                                    490 ₺ <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-decoration: line-through;">1.500 ₺</span> <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ 1 Yıllık Okul Lisansı</span>
+                                </div>
+                                <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.1rem;">
+                                    ✨ Sınırsız şube, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî teslimat çıktıları.
+                                </div>
                             </div>
                         </div>
 
-                        <!-- 2. CİHAZ VE KURUM KİMLİK KUTUSU (HWID + KURUM KODU) -->
-                        <div style="background: rgba(2, 132, 199, 0.05); border: 1.5px dashed #0284c7; border-radius: 12px; padding: 0.9rem 1.1rem; display: flex; flex-direction: column; gap: 0.6rem;">
-                            <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary); text-transform: uppercase; display: flex; align-items: center; justify-content: space-between;">
-                                <span>🖥️ Bu Bilgisayarın Cihaz ve Kurum Bilgileri</span>
-                                <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 600;">(Lisans Alırken Geliştiriciye Gönderiniz)</span>
-                            </div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem; background: var(--bg-card); padding: 0.65rem 0.85rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
-                                <div><strong>🏛️ Kurum Kodu:</strong> <span id="disp-kurum-kodu">${okulInfo.kurumKodu || '752148'}</span></div>
-                                <div><strong>📜 Kurum Türü:</strong> <span>${currentTypeObj.name}</span></div>
-                                <div style="grid-column: span 2;"><strong>🖥️ Cihaz Kodu (HWID):</strong> <span id="disp-hwid" style="font-family: monospace; color: #0284c7; font-weight: 700;">Hesaplanıyor...</span></div>
-                            </div>
-                            <button class="btn btn-sm btn-outline" id="btn-copy-device-info" style="font-weight: 700; font-size: 0.78rem; background: #fff; width: 100%;">
-                                📲 Lisans Talep Bilgilerini Kopyala (WhatsApp / E-posta)
+                        <!-- 2. WHATSAPP İLE TEK TIKLA LİSANS SATIN ALMA BUTONU -->
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <button class="btn" id="btn-send-whatsapp-license" style="background: #16a34a; border: 1px solid #15803d; color: #fff; width: 100%; padding: 0.85rem; font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25); transition: all 0.2s;">
+                                <span style="font-size: 1.25rem;">🟢</span> 📲 WhatsApp ile Hemen Lisans Al (+90 506 277 70 49)
                             </button>
+                            <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
+                                ⚡ Tıkladığınızda okul ve donanım bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız teslim edilir.
+                            </div>
                         </div>
 
-                        <!-- 3. Lisans Giriş Alanı -->
-                        <div class="form-group" style="display:flex; flex-direction:column; gap:0.4rem;">
-                            <label style="font-weight: 700; font-size: 0.82rem; color: var(--text-main);">Lisans Anahtarınızı Giriniz (Token veya Belge Metni):</label>
-                            <textarea id="inp-license-token" rows="3" placeholder="MEBNORM.eyJ... formatındaki lisans anahtarınızı buraya yapıştırınız." style="font-family: monospace; font-size: 0.8rem; width: 100%; border: 1.5px solid var(--border-main); border-radius: 8px; padding: 0.65rem; box-sizing: border-box;"></textarea>
+                        <!-- 3. CİHAZ VE KURUM KİMLİK KUTUSU -->
+                        <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-main); border-radius: 10px; padding: 0.75rem 0.9rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; font-size: 0.78rem;">
+                                <div><strong>🏛️ Kurum Kodu:</strong> <span id="disp-kurum-kodu">${okulInfo.kurumKodu || '754123'}</span></div>
+                                <div><strong>📜 Okul Türü:</strong> <span>${currentTypeObj.name}</span></div>
+                                <div style="grid-column: span 2;"><strong>🖥️ Cihaz Kodu (HWID):</strong> <span id="disp-hwid" style="font-family: monospace; color: var(--primary); font-weight: 700;">Hesaplanıyor...</span></div>
+                            </div>
+                            <div style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
+                                <button class="btn btn-sm btn-outline" id="btn-copy-device-info" style="font-size: 0.73rem; padding: 0.2rem 0.5rem;">
+                                    📋 Bilgileri Metin Olarak Kopyala
+                                </button>
+                            </div>
                         </div>
 
-                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="btn-submit-license" style="flex: 2; min-width: 180px; padding: 0.75rem; font-weight: 800;">
+                        <!-- 4. LİSANS ANAHTARI GİRİŞ ALANI -->
+                        <div class="form-group" style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom: 0;">
+                            <label style="font-weight: 700; font-size: 0.8rem; color: var(--text-main);">Lisans Anahtarınızı Giriniz:</label>
+                            <textarea id="inp-license-token" rows="2" placeholder="Geliştiriciden aldığınız MEBNORM.eyJ... anahtarını buraya yapıştırınız." style="font-family: monospace; font-size: 0.78rem; width: 100%; border: 1.5px solid var(--border-main); border-radius: 8px; padding: 0.55rem; box-sizing: border-box;"></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" id="btn-submit-license" style="flex: 2; min-width: 160px; padding: 0.65rem; font-weight: 800;">
                                 ⚡ Lisansı Aktifleştir
                             </button>
-                            <button class="btn btn-outline" id="btn-upload-lic-file" style="flex: 1; min-width: 140px; padding: 0.75rem;">
-                                📂 Dosyadan Yükle (.lic)
+                            <button class="btn btn-outline" id="btn-upload-lic-file" style="flex: 1; min-width: 130px; padding: 0.65rem; font-size: 0.78rem;">
+                                📂 .lic Dosyası Yükle
                             </button>
                             <input type="file" id="file-lic-input" accept=".lic,.txt,.json" style="display:none;">
-                        </div>
-
-                        <div style="font-size: 0.74rem; color: var(--text-muted); line-height: 1.4; border-top: 1px solid var(--border-subtle); padding-top: 0.6rem;">
-                            ℹ️ <strong>Nasıl Lisans Alınır?</strong> Kurumunuza özel 1 yıllık lisans anahtarı temin etmek için yazılım geliştiricisi <strong>Burhan AYSAN</strong> ile iletişime geçiniz.
                         </div>
                     </div>
                 </div>
@@ -4549,13 +4554,34 @@ export class UIComponentManager {
             });
         }
 
+        // WhatsApp ile Lisans Satın Alma Linki
+        document.getElementById("btn-send-whatsapp-license")?.addEventListener("click", () => {
+            const hwid = document.getElementById("disp-hwid")?.textContent || "HW-STANDALONE";
+            const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || (okulInfo.kurumKodu || "754123");
+            const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
+* MEB Kurum Kodu: ${kKodu}
+* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}
+* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}
+* Okul Türü: ${currentTypeObj.name}
+* Cihaz Donanım Kodu (HWID): ${hwid}
+
+Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. Ödeme (IBAN) bilgilerini iletebilir misiniz?`;
+            const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, "_blank");
+        });
+
         // WhatsApp Bilgi Metnini Kopyala
         document.getElementById("btn-copy-device-info")?.addEventListener("click", () => {
             const hwid = document.getElementById("disp-hwid")?.textContent || "HW-STANDALONE";
-            const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || "752148";
-            const msg = `👑 NormMatik™ LİSANS AKTİVASYON TALEBİ\n* MEB Kurum Kodu: ${kKodu}\n* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}\n* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}\n* Okul Türü: ${currentTypeObj.name}\n* Cihaz Donanım Kodu (HWID): ${hwid}`;
+            const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || "754123";
+            const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
+* MEB Kurum Kodu: ${kKodu}
+* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}
+* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}
+* Okul Türü: ${currentTypeObj.name}
+* Cihaz Donanım Kodu (HWID): ${hwid}`;
             navigator.clipboard.writeText(msg).then(() => {
-                this.showToast("Lisans talep bilgileri kopyalandı! Geliştiriciye gönderebilirsiniz.", "success");
+                this.showToast("Lisans talep bilgileri kopyalandı!", "success");
             });
         });
 
@@ -4565,7 +4591,7 @@ export class UIComponentManager {
         });
 
         // Lisans Aktifleştir
-        document.getElementById("btn-submit-license")?.addEventListener("click", async () => {
+        document.getElementById("btn-submit-license")?.addEventListener("click" , async () => {
             const tokenInp = document.getElementById("inp-license-token").value.trim();
             if (!tokenInp) {
                 alert("Lütfen lisans anahtarınızı giriniz.");

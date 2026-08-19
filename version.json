@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,8 +11,8 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Ultra Kompakt ve Dinamik Mobil Arayüz (Header 42px, Hero Banner Slim, Tablo Yoğunluğu %200 artırıldı).",
-    "Atanan branş kutuları genişletildi, yazı kesilmeleri giderildi.",
-    "Otomatik Yatay Ekran / Masaüstü Modu (Telefon yan çevrildiğinde tam 3 panelli masaüstü görünümüne geçer)."
+    "WhatsApp ile Doğrudan Lisans Satın Alma ve İletişim Entegrasyonu (+90 506 277 70 49) bağlandı.",
+    "2026-2027 Eğitim-Öğretim Yılı Lansman Kampanyası (490 TL) lisans merkezine eklendi.",
+    "Tek tıkla hazır WhatsApp sipariş şablonu oluşturma motoru aktif edildi."
   ]
 }
