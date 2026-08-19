@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,9 +11,9 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "MEB Kurum Kodu (Benzersiz Okul Kimliği) ve İl/İlçe entegrasyonu sağlandı.",
-    "İlk açılış kurulum modalı yenilendi: 'Kendi Okulumu Kur' ve 'Örnek Okul (Demo Modu)' seçenekleri eklendi.",
-    "Okul Bilgileri ve Yönetimi modalı eklendi: Kurum kodu, il/ilçe ve okul türü sıfırlama/değiştirme yeteneği getirildi.",
-    "NormMatik™ marka ve arayüz cilaları tamamlandı."
+    "Örnek Okul (Demo Modu): 9, 10, 11 ve 12. sınıfların tüm zorunlu ve seçmeli TTKB dersleri eksiksiz dolduruldu.",
+    "Açılış kutuları ve placeholderlar 'Atatürk Anadolu Lisesi' olarak güncellendi.",
+    "Örnek okul kart alt yazısı 'Örnek sınıflarla sistemi hemen keşfedin' olarak yenilendi.",
+    "Android ve mobil dokunmatik kaydırma (scroll) sistemi mükemmelleştirildi."
   ]
 }

@@ -300,7 +300,7 @@ class MebLicenseClientManager {
             licenseType: "NONE",
             daysRemaining: 0,
             isExpired: false,
-            maxSections: 5,
+            maxSections: 3,
             allowExport: false,
             kurumKodu: "*",
             okulAdi: "",
@@ -370,13 +370,13 @@ class MebLicenseClientManager {
             isMaster: false,
             daysRemaining: daysRemaining,
             isExpired: isExpired,
-            maxSections: 5,
+            maxSections: 3,
             allowExport: false,
             kurumKodu: "*",
             okulAdi: "Deneme ve İnceleme Okulu",
             okulTuru: "*",
             hardwareId: this.currentHardwareId,
-            reason: isExpired ? "7 Günlük deneme süreniz doldu. Lütfen lisans anahtarınızı giriniz." : null
+            reason: isExpired ? "Demo sürümünde en fazla 3 şube oluşturulabilir. Lütfen lisans anahtarınızı giriniz." : null
         };
 
         return this.licenseStatus;
@@ -4265,7 +4265,7 @@ class AppStateService {
         this.notify();
     }
 
-    loadDemoSchool(dbService, curriculumEngine) {
+        loadDemoSchool(dbService, curriculumEngine) {
         this.pushHistory();
         const demoState = {
             okulBilgisi: {
@@ -4301,43 +4301,131 @@ class AppStateService {
                 }
             },
             subeler: [
-                { id: "sube_demo_9a", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 32, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: true },
-                { id: "sube_demo_9b", subeAdi: "9-B", sinifSeviyesi: "9", ogrenciSayisi: 30, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ FİZİK", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
-                { id: "sube_demo_10a", subeAdi: "10-A", sinifSeviyesi: "10", ogrenciSayisi: 31, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
-                { id: "sube_demo_10b", subeAdi: "10-B", sinifSeviyesi: "10", ogrenciSayisi: 29, zorunluDersler: [], secmeliDersler: [{ dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
-                { id: "sube_demo_11a", subeAdi: "11-A (SAY)", sinifSeviyesi: "11", ogrenciSayisi: 28, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik" }, { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
-                { id: "sube_demo_11b", subeAdi: "11-B (EA)", sinifSeviyesi: "11", ogrenciSayisi: 27, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", dersSaati: 5, ttkbKarsiligi: "Türk Dili ve Edebiyatı" }, { dersAdi: "SEÇMELİ COĞRAFYA", dersSaati: 4, ttkbKarsiligi: "Coğrafya" }], rehberlikVarMi: true },
-                { id: "sube_demo_12a", subeAdi: "12-A (SAY)", sinifSeviyesi: "12", ogrenciSayisi: 26, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: false },
-                { id: "sube_demo_12b", subeAdi: "12-B (EA)", sinifSeviyesi: "12", ogrenciSayisi: 25, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", dersSaati: 4, ttkbKarsiligi: "Tarih" }], rehberlikVarMi: false }
+                {
+                    id: "sube_demo_9a",
+                    subeAdi: "9-A",
+                    sinifSeviyesi: "9",
+                    ogrenciSayisi: 30,
+                    zorunluDersler: [
+                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
+                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
+                        { ders: "Coğrafya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Coğrafya", baraj_ders: false, isAtolye: false },
+                        { ders: "Matematik", saat: 6, kategori: "ORTAK DERSLER", atananBrans: "Matematik", baraj_ders: false, isAtolye: false },
+                        { ders: "Fizik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Fizik", baraj_ders: false, isAtolye: false },
+                        { ders: "Kimya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Kimya", baraj_ders: false, isAtolye: false },
+                        { ders: "Biyoloji", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
+                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
+                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
+                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
+                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
+                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
+                        { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
+                        { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Bilişim Teknolojileri", baraj_ders: false, isAtolye: false },
+                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
+                    ],
+                    secmeliDersler: [
+                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 2, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" }
+                    ],
+                    rehberlikVarMi: true
+                },
+                {
+                    id: "sube_demo_10a",
+                    subeAdi: "10-A",
+                    sinifSeviyesi: "10",
+                    ogrenciSayisi: 30,
+                    zorunluDersler: [
+                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
+                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
+                        { ders: "Coğrafya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Coğrafya", baraj_ders: false, isAtolye: false },
+                        { ders: "Felsefe", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Felsefe", baraj_ders: false, isAtolye: false },
+                        { ders: "Matematik", saat: 6, kategori: "ORTAK DERSLER", atananBrans: "Matematik", baraj_ders: false, isAtolye: false },
+                        { ders: "Fizik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Fizik", baraj_ders: false, isAtolye: false },
+                        { ders: "Kimya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Kimya", baraj_ders: false, isAtolye: false },
+                        { ders: "Biyoloji", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
+                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
+                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
+                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
+                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
+                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Müzik", baraj_ders: false, isAtolye: false },
+                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
+                    ],
+                    secmeliDersler: [
+                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" }
+                    ],
+                    rehberlikVarMi: true
+                },
+                {
+                    id: "sube_demo_11a",
+                    subeAdi: "11-A",
+                    sinifSeviyesi: "11",
+                    ogrenciSayisi: 30,
+                    zorunluDersler: [
+                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
+                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
+                        { ders: "Felsefe", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Felsefe", baraj_ders: false, isAtolye: false },
+                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
+                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
+                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
+                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
+                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
+                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
+                    ],
+                    secmeliDersler: [
+                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" }
+                    ],
+                    rehberlikVarMi: true
+                },
+                {
+                    id: "sube_demo_12a",
+                    subeAdi: "12-A",
+                    sinifSeviyesi: "12",
+                    ogrenciSayisi: 30,
+                    zorunluDersler: [
+                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
+                        { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
+                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
+                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
+                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
+                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
+                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Müzik", baraj_ders: false, isAtolye: false }
+                    ],
+                    secmeliDersler: [
+                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" },
+                        { dersAdi: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", dersSaati: 3, ttkbKarsiligi: "Tarih", kategori: "SEÇMELİ DERSLER" }
+                    ],
+                    rehberlikVarMi: false
+                }
             ],
             aktifSubeId: "sube_demo_9a",
             mevcutOgretmenler: {
-                "Türk Dili ve Edebiyatı": 3,
-                "Matematik": 4,
-                "Fizik": 2,
-                "Kimya": 2,
-                "Biyoloji": 2,
-                "Tarih": 2,
-                "Coğrafya": 2,
+                "Türk Dili ve Edebiyatı": 1,
+                "Matematik": 2,
+                "Fizik": 1,
+                "Kimya": 1,
+                "Biyoloji": 1,
+                "Tarih": 1,
+                "Coğrafya": 1,
                 "Felsefe": 1,
-                "İngilizce": 3,
-                "Almanca": 2,
-                "Din Kültürü ve Ahlak Bilgisi": 2,
-                "Beden Eğitimi": 2,
+                "İngilizce": 1,
+                "Almanca": 1,
+                "Din Kültürü ve Ahlak Bilgisi": 1,
+                "Beden Eğitimi": 1,
                 "Görsel Sanatlar": 1,
                 "Müzik": 1,
                 "Bilişim Teknolojileri": 1,
-                "Rehberlik": 2
+                "Rehberlik": 1
             },
             koordinatorlukYukleri: {},
             ozelOkulBranslari: []
         };
-
-        if (curriculumEngine && typeof curriculumEngine.getMandatoryCourses === 'function') {
-            demoState.subeler.forEach(s => {
-                s.zorunluDersler = curriculumEngine.getMandatoryCourses("anadolu_lisesi", s.sinifSeviyesi);
-            });
-        }
 
         this.state = demoState;
         this.notify();
@@ -5754,7 +5842,7 @@ class UIComponentManager {
                             <div id="card-setup-demo" class="setup-choice-card" style="border: 1.5px solid var(--border); background: var(--bg-card-subtle); padding: 1rem; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s;">
                                 <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">🚀</div>
                                 <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main);">Örnek Okul (Demo)</div>
-                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">24 şubeli örnek verilerle hemen keşfedin</div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">Örnek sınıflarla sistemi hemen keşfedin</div>
                             </div>
                         </div>
 
@@ -5788,7 +5876,7 @@ class UIComponentManager {
 
                             <div class="form-group" style="margin-bottom: 0.75rem;">
                                 <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul / Kurum Tam Adı *</label>
-                                <input type="text" id="setup-school-name" class="form-control" placeholder="Örn: Kadıköy Anadolu Lisesi" value="${this.state.state.okulBilgisi.okulAdi || ''}">
+                                <input type="text" id="setup-school-name" class="form-control" placeholder="Örn: Atatürk Anadolu Lisesi" value="${this.state.state.okulBilgisi.okulAdi || ''}">
                             </div>
 
                             <div class="form-group" style="margin-bottom: 0.5rem;">
@@ -5806,7 +5894,7 @@ class UIComponentManager {
                         <div id="setup-form-demo" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
                             <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">🚀 Hızlı Başlangıç Demo Paketi</div>
                             <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında 9, 10, 11 ve 12. sınıflardan 24 şube, seçmeli ders dağılımları ve mevcut kadrolu öğretmen sayıları otomatik olarak yüklenecektir. İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
+                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
                             </p>
                             <button class="btn btn-success" id="btn-load-demo-school" style="width: 100%; padding: 0.85rem; font-weight: 800; font-size: 0.95rem;">
                                 🚀 Örnek Okul ile Sistemi Hemen Başlat
@@ -6054,7 +6142,7 @@ class UIComponentManager {
         const isEditing = !!sectionToEdit;
         const subelerList = this.state.state.subeler || [];
         if (!isEditing && typeof window !== 'undefined' && window.licenseManager && !window.licenseManager.canAddSection(subelerList.length)) {
-            alert("⚠️ Demo Sürüm Şube Sınırı: Deneme sürümünde en fazla 5 şube oluşturulabilir. Sınırsız şube eklemek için lütfen yıllık lisans anahtarınızı aktifleştiriniz.");
+            alert("🔒 LİSANS GEREKLİ (Maksimum 3 Şube): Ücretsiz deneme sürümünde en fazla 3 şube oluşturulabilir. Okulunuzun tüm şubelerini eklemek ve sınırsız norm hesaplamak için lütfen yıllık lisans anahtarınızı aktifleştiriniz.");
             this.openLicenseModal();
             return;
         }
@@ -7979,6 +8067,7 @@ class UIComponentManager {
                     </div>
 
                     <!-- Yazdırma Alt Bilgi / Onay Bloğu (Sadece Yazdırmada Görünür) -->
+                    <div class="demo-print-watermark">LİSANSSIZ DEMO SÜRÜMÜ — RESMÎ MEB TESLİMATINDA GEÇERSİZDİR</div>
                     <div class="reports-print-footer only-print" id="reports-print-signature-box">
                         <!-- JS tarafından dinamik antet bilgilerine göre doldurulur -->
                     </div>
@@ -8076,6 +8165,12 @@ class UIComponentManager {
 
         // Resmî Antet & İmzaları Düzenle Modalı
         document.getElementById("btn-report-edit-antet")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî Valilik / İlçe MEM Başlığı ve Onay İmzacılarını düzenlemek lisanslı sürüme özeldir.");
+                this.openLicenseModal();
+                return;
+            }
             this.openOfficialAntetModal();
         });
 
@@ -8109,8 +8204,14 @@ class UIComponentManager {
             renderActiveTab();
         });
 
-        // Excel (.XLSX) İndirme (Çok Sekmeli & Renkli)
+        // Excel (.XLSX) İndirme (Çok Sekmeli & Renkli) - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-xlsx")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî 5 Sekmeli Excel (.XLSX) Norm Kadro Cetveli indirmek lisanslı sürüme özeldir. Lütfen okulunuz için lisans anahtarı temin ediniz.");
+                this.openLicenseModal();
+                return;
+            }
             const stateData = this.state.state;
             const ok = this.reports.exportToXLSX(stateData);
             if (ok) {
@@ -8121,8 +8222,14 @@ class UIComponentManager {
             }
         });
 
-        // CSV İndirme
+        // CSV İndirme - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-csv")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî Norm Kadro verilerini dışa aktarmak lisanslı sürüme özeldir. Lütfen lisans anahtarınızı aktifleştiriniz.");
+                this.openLicenseModal();
+                return;
+            }
             const stateData = this.state.state;
             let reportData = null;
             if (currentTab === "GRID") reportData = this.reports.generateMasterLoadGrid(stateData, filterGrade);

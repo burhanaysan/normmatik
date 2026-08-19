@@ -353,7 +353,7 @@ export class UIComponentManager {
                             <div id="card-setup-demo" class="setup-choice-card" style="border: 1.5px solid var(--border); background: var(--bg-card-subtle); padding: 1rem; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s;">
                                 <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">🚀</div>
                                 <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main);">Örnek Okul (Demo)</div>
-                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">24 şubeli örnek verilerle hemen keşfedin</div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">Örnek sınıflarla sistemi hemen keşfedin</div>
                             </div>
                         </div>
 
@@ -387,7 +387,7 @@ export class UIComponentManager {
 
                             <div class="form-group" style="margin-bottom: 0.75rem;">
                                 <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul / Kurum Tam Adı *</label>
-                                <input type="text" id="setup-school-name" class="form-control" placeholder="Örn: Kadıköy Anadolu Lisesi" value="${this.state.state.okulBilgisi.okulAdi || ''}">
+                                <input type="text" id="setup-school-name" class="form-control" placeholder="Örn: Atatürk Anadolu Lisesi" value="${this.state.state.okulBilgisi.okulAdi || ''}">
                             </div>
 
                             <div class="form-group" style="margin-bottom: 0.5rem;">
@@ -405,7 +405,7 @@ export class UIComponentManager {
                         <div id="setup-form-demo" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
                             <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">🚀 Hızlı Başlangıç Demo Paketi</div>
                             <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında 9, 10, 11 ve 12. sınıflardan 24 şube, seçmeli ders dağılımları ve mevcut kadrolu öğretmen sayıları otomatik olarak yüklenecektir. İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
+                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
                             </p>
                             <button class="btn btn-success" id="btn-load-demo-school" style="width: 100%; padding: 0.85rem; font-weight: 800; font-size: 0.95rem;">
                                 🚀 Örnek Okul ile Sistemi Hemen Başlat
@@ -653,7 +653,7 @@ export class UIComponentManager {
         const isEditing = !!sectionToEdit;
         const subelerList = this.state.state.subeler || [];
         if (!isEditing && typeof window !== 'undefined' && window.licenseManager && !window.licenseManager.canAddSection(subelerList.length)) {
-            alert("⚠️ Demo Sürüm Şube Sınırı: Deneme sürümünde en fazla 5 şube oluşturulabilir. Sınırsız şube eklemek için lütfen yıllık lisans anahtarınızı aktifleştiriniz.");
+            alert("🔒 LİSANS GEREKLİ (Maksimum 3 Şube): Ücretsiz deneme sürümünde en fazla 3 şube oluşturulabilir. Okulunuzun tüm şubelerini eklemek ve sınırsız norm hesaplamak için lütfen yıllık lisans anahtarınızı aktifleştiriniz.");
             this.openLicenseModal();
             return;
         }
@@ -2578,6 +2578,7 @@ export class UIComponentManager {
                     </div>
 
                     <!-- Yazdırma Alt Bilgi / Onay Bloğu (Sadece Yazdırmada Görünür) -->
+                    <div class="demo-print-watermark">LİSANSSIZ DEMO SÜRÜMÜ — RESMÎ MEB TESLİMATINDA GEÇERSİZDİR</div>
                     <div class="reports-print-footer only-print" id="reports-print-signature-box">
                         <!-- JS tarafından dinamik antet bilgilerine göre doldurulur -->
                     </div>
@@ -2675,6 +2676,12 @@ export class UIComponentManager {
 
         // Resmî Antet & İmzaları Düzenle Modalı
         document.getElementById("btn-report-edit-antet")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî Valilik / İlçe MEM Başlığı ve Onay İmzacılarını düzenlemek lisanslı sürüme özeldir.");
+                this.openLicenseModal();
+                return;
+            }
             this.openOfficialAntetModal();
         });
 
@@ -2708,8 +2715,14 @@ export class UIComponentManager {
             renderActiveTab();
         });
 
-        // Excel (.XLSX) İndirme (Çok Sekmeli & Renkli)
+        // Excel (.XLSX) İndirme (Çok Sekmeli & Renkli) - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-xlsx")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî 5 Sekmeli Excel (.XLSX) Norm Kadro Cetveli indirmek lisanslı sürüme özeldir. Lütfen okulunuz için lisans anahtarı temin ediniz.");
+                this.openLicenseModal();
+                return;
+            }
             const stateData = this.state.state;
             const ok = this.reports.exportToXLSX(stateData);
             if (ok) {
@@ -2720,8 +2733,14 @@ export class UIComponentManager {
             }
         });
 
-        // CSV İndirme
+        // CSV İndirme - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-csv")?.addEventListener("click", () => {
+            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
+            if (lic && !lic.isMaster && !lic.isAnnual) {
+                alert("🔒 LİSANS GEREKLİ: Resmî Norm Kadro verilerini dışa aktarmak lisanslı sürüme özeldir. Lütfen lisans anahtarınızı aktifleştiriniz.");
+                this.openLicenseModal();
+                return;
+            }
             const stateData = this.state.state;
             let reportData = null;
             if (currentTab === "GRID") reportData = this.reports.generateMasterLoadGrid(stateData, filterGrade);

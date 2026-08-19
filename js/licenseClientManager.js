@@ -15,7 +15,7 @@ class MebLicenseClientManager {
             licenseType: "NONE",
             daysRemaining: 0,
             isExpired: false,
-            maxSections: 5,
+            maxSections: 3,
             allowExport: false,
             kurumKodu: "*",
             okulAdi: "",
@@ -85,13 +85,13 @@ class MebLicenseClientManager {
             isMaster: false,
             daysRemaining: daysRemaining,
             isExpired: isExpired,
-            maxSections: 5,
+            maxSections: 3,
             allowExport: false,
             kurumKodu: "*",
             okulAdi: "Deneme ve İnceleme Okulu",
             okulTuru: "*",
             hardwareId: this.currentHardwareId,
-            reason: isExpired ? "7 Günlük deneme süreniz doldu. Lütfen lisans anahtarınızı giriniz." : null
+            reason: isExpired ? "Demo sürümünde en fazla 3 şube oluşturulabilir. Lütfen lisans anahtarınızı giriniz." : null
         };
 
         return this.licenseStatus;

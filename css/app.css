@@ -6804,3 +6804,93 @@ body {
     font-size: 1.15rem;
     transition: transform 0.15s ease;
 }
+
+
+/* LİSANSSIZ DEMO YAZDIRMA VE PDF FİLİGRANI */
+.demo-print-watermark {
+    display: none;
+}
+
+@media print {
+    .demo-print-watermark {
+        display: block !important;
+        position: fixed !important;
+        top: 38% !important;
+        left: 5% !important;
+        right: 5% !important;
+        transform: rotate(-25deg) !important;
+        font-size: 2.2rem !important;
+        font-weight: 900 !important;
+        color: rgba(220, 38, 38, 0.22) !important;
+        border: 5px dashed rgba(220, 38, 38, 0.3) !important;
+        padding: 1.5rem 1rem !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.12em !important;
+        z-index: 99999 !important;
+        pointer-events: none !important;
+        background: rgba(254, 226, 226, 0.15) !important;
+    }
+}
+
+
+/* ==========================================================================
+   📱 ANDROID & MOBİL DOKUNMATİK KAYDIRMA VE MÜKEMMEL SCROLL MOTORU (v2.0)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Modal ve Açılır Pencerelerde Android Kaydırma Kilidini Çöz */
+    .modal-overlay,
+    .modal-backdrop {
+        align-items: flex-start !important;
+        padding: 0.65rem 0.5rem 2rem 0.5rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+    }
+
+    .modal-box,
+    .modal-dialog {
+        max-height: none !important;
+        height: auto !important;
+        margin: auto 0 !important;
+        width: 100% !important;
+        overflow: visible !important;
+        border-radius: 14px !important;
+    }
+
+    .modal-body {
+        overflow-y: visible !important;
+        max-height: none !important;
+        padding: 0.85rem 0.75rem !important;
+    }
+
+    /* Ana Çalışma Alanı ve Paneller */
+    .main-workspace {
+        height: calc(100dvh - 56px - 58px) !important;
+        max-height: calc(100dvh - 56px - 58px) !important;
+    }
+
+    .sidebar-left,
+    .sidebar-right,
+    .middle-canvas {
+        height: 100% !important;
+        max-height: 100% !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+    }
+
+    .sections-list,
+    .canvas-content-scroll,
+    .norm-table-container {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+        flex: 1 1 auto !important;
+    }
+
+    /* Girdi Kutuları Odaklandığında Android Klavye Uyumu */
+    input, select, textarea {
+        font-size: 16px !important; /* iOS ve Android'de istemsiz zoom yapmasını engeller */
+    }
+}
