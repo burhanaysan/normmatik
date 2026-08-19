@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,7 +11,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Canlı Lisans Telemetrisi ve Master Güvenlik Doğrulama Akışı entegre edildi.",
-    "Master CRM Portalı'na canlı çevrimiçi durum ve cihaz türü göstergeleri eklendi."
+    "Lisans satın alma modalına doğrudan Okul Adı, Kurum Kodu, Türü ve İl/İlçe düzenleme alanları eklendi.",
+    "WhatsApp lisans sipariş mesajı girilen okul bilgileriyle anlık senkronize edildi."
   ]
 }

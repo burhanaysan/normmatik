@@ -4673,7 +4673,24 @@ export class UIComponentManager {
         const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 3 };
         const okulInfo = this.state.state.okulBilgisi || {};
         const types = this.db.getSchoolTypes();
-        const currentTypeObj = types.find(t => t.id === okulInfo.okulTuru) || { name: 'Belirtilmedi' };
+        const currentType = okulInfo.okulTuru || "anadolu_lisesi";
+
+        // Okul türü seçenekleri
+        const grouped = {};
+        types.forEach(t => {
+            const cat = t.category || "Diğer Okullar";
+            if (!grouped[cat]) grouped[cat] = [];
+            grouped[cat].push(t);
+        });
+
+        let typeOptionsHtml = "";
+        for (const [catName, catTypes] of Object.entries(grouped)) {
+            typeOptionsHtml += `<optgroup label="📂 ${catName}">`;
+            catTypes.forEach(t => {
+                typeOptionsHtml += `<option value="${t.id}" ${currentType === t.id ? 'selected' : ''}>${t.name}</option>`;
+            });
+            typeOptionsHtml += `</optgroup>`;
+        }
         
         let statusBadge = "";
         if (lic.isMaster) {
@@ -4686,7 +4703,7 @@ export class UIComponentManager {
 
         const modalHtml = `
             <div class="modal-overlay active" id="license-modal">
-                <div class="modal-box" style="max-width: 650px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                <div class="modal-box" style="max-width: 680px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
                     <div class="modal-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 1rem 1.3rem;">
                         <div class="modal-title" style="color: #fff; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 0.6rem;">
                             <span style="font-size: 1.35rem;">🔑</span>
@@ -4707,32 +4724,55 @@ export class UIComponentManager {
                                     490 ₺ <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-decoration: line-through;">1.500 ₺</span> <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ 1 Yıllık Okul Lisansı</span>
                                 </div>
                                 <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.1rem;">
-                                    ✨ Sınırsız şube, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî teslimat çıktıları.
+                                    ✨ Sınırsız şube, okul içi tüm cihazlarda (PC/Telefon) serbest kullanım, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî çıktılar.
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 2. WHATSAPP İLE TEK TIKLA LİSANS SATIN ALMA BUTONU -->
-                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <!-- 2. DOĞRUDAN DÜZENLENEBİLİR OKUL VE LİSANS BİLGİLERİ -->
+                        <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.9rem 1rem;">
+                            <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: space-between;">
+                                <span>🏛️ Lisans Tanımlanacak Okul Bilgileri:</span>
+                                <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 500;">(Doğrudan buradan güncelleyebilirsiniz)</span>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.65rem; margin-bottom: 0.65rem;">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
+                                    <input type="text" id="lic-inp-kurum-kodu" class="form-control" value="${okulInfo.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
+                                    <input type="text" id="lic-inp-okul-adi" class="form-control" value="${okulInfo.okulAdi || ''}" placeholder="Örn: Kadıköy Anadolu Lisesi" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul Türü *</label>
+                                    <select id="lic-inp-okul-turu" class="form-control" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                        ${typeOptionsHtml}
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
+                                    <input type="text" id="lic-inp-il-ilce" class="form-control" value="${okulInfo.il ? (okulInfo.il + (okulInfo.ilce ? ' / ' + okulInfo.ilce : '')) : ''}" placeholder="Örn: İSTANBUL / KADIKÖY" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
+                                <span>🖥️ Cihaz Kimliği (HWID): <strong id="disp-hwid" style="font-family: monospace; color: var(--primary);">Hesaplanıyor...</strong></span>
+                                <span style="color: #10b981; font-weight: 700;">✓ Okul İçi Tüm Cihazlar Serbest</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. WHATSAPP İLE TEK TIKLA LİSANS SATIN ALMA BUTONU -->
+                        <div style="display: flex; flex-direction: column; gap: 0.4rem;">
                             <button class="btn" id="btn-send-whatsapp-license" style="background: #16a34a; border: 1px solid #15803d; color: #fff; width: 100%; padding: 0.85rem; font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25); transition: all 0.2s;">
                                 <span style="font-size: 1.25rem;">🟢</span> 📲 WhatsApp ile Hemen Lisans Al (+90 506 277 70 49)
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                ⚡ Tıkladığınızda okul ve donanım bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız teslim edilir.
-                            </div>
-                        </div>
-
-                        <!-- 3. CİHAZ VE KURUM KİMLİK KUTUSU -->
-                        <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-main); border-radius: 10px; padding: 0.75rem 0.9rem;">
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; font-size: 0.78rem;">
-                                <div><strong>🏛️ Kurum Kodu:</strong> <span id="disp-kurum-kodu">${okulInfo.kurumKodu || '754123'}</span></div>
-                                <div><strong>📜 Okul Türü:</strong> <span>${currentTypeObj.name}</span></div>
-                                <div style="grid-column: span 2;"><strong>🖥️ Cihaz Kodu (HWID):</strong> <span id="disp-hwid" style="font-family: monospace; color: var(--primary); font-weight: 700;">Hesaplanıyor...</span></div>
-                            </div>
-                            <div style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
-                                <button class="btn btn-sm btn-outline" id="btn-copy-device-info" style="font-size: 0.73rem; padding: 0.2rem 0.5rem;">
-                                    📋 Bilgileri Metin Olarak Kopyala
-                                </button>
+                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız teslim edilir.
                             </div>
                         </div>
 
@@ -4766,35 +4806,58 @@ export class UIComponentManager {
             });
         }
 
+        // Okul Bilgileri Değiştikçe Canlı Kaydet ve Senkronize Et
+        const syncSchoolInputs = () => {
+            const kKodu = document.getElementById("lic-inp-kurum-kodu")?.value.trim() || "";
+            const oAdi = document.getElementById("lic-inp-okul-adi")?.value.trim() || "";
+            const oTuru = document.getElementById("lic-inp-okul-turu")?.value || "";
+            const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "";
+
+            let il = "";
+            let ilce = "";
+            if (ilIlce.includes("/")) {
+                const parts = ilIlce.split("/");
+                il = parts[0].trim();
+                ilce = parts[1].trim();
+            } else {
+                il = ilIlce;
+            }
+
+            if (oAdi || kKodu) {
+                this.state.updateSchoolInfo(oAdi, "2026-2027", kKodu, il, ilce);
+            }
+            if (oTuru && !this.state.state.okulBilgisi.okulTuruKilitli) {
+                this.state.setSchoolType(oTuru);
+            }
+        };
+
+        document.getElementById("lic-inp-kurum-kodu")?.addEventListener("input", syncSchoolInputs);
+        document.getElementById("lic-inp-okul-adi")?.addEventListener("input", syncSchoolInputs);
+        document.getElementById("lic-inp-il-ilce")?.addEventListener("input", syncSchoolInputs);
+        document.getElementById("lic-inp-okul-turu")?.addEventListener("change", syncSchoolInputs);
+
         // WhatsApp ile Lisans Satın Alma Linki
         document.getElementById("btn-send-whatsapp-license")?.addEventListener("click", () => {
-            const hwid = document.getElementById("disp-hwid")?.textContent || "HW-STANDALONE";
-            const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || (okulInfo.kurumKodu || "754123");
+            syncSchoolInputs();
+
+            const kKodu = document.getElementById("lic-inp-kurum-kodu")?.value.trim() || (okulInfo.kurumKodu || "754123");
+            const oAdi = document.getElementById("lic-inp-okul-adi")?.value.trim() || (okulInfo.okulAdi || "MEB Okulu");
+            const turSelect = document.getElementById("lic-inp-okul-turu");
+            const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "Anadolu Lisesi";
+            const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "Belirtilmedi";
+            const hwid = document.getElementById("disp-hwid")?.textContent || "*";
+
             const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
 * MEB Kurum Kodu: ${kKodu}
-* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}
-* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}
-* Okul Türü: ${currentTypeObj.name}
-* Cihaz Donanım Kodu (HWID): ${hwid}
+* Okul Adı: ${oAdi}
+* İl / İlçe: ${ilIlce}
+* Okul Türü: ${turAdi}
+* Cihaz Kodu (HWID): ${hwid}
 
-Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. Ödeme (IBAN) bilgilerini iletebilir misiniz?`;
+Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
+
             const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, "_blank");
-        });
-
-        // WhatsApp Bilgi Metnini Kopyala
-        document.getElementById("btn-copy-device-info")?.addEventListener("click", () => {
-            const hwid = document.getElementById("disp-hwid")?.textContent || "HW-STANDALONE";
-            const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || "754123";
-            const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
-* MEB Kurum Kodu: ${kKodu}
-* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}
-* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}
-* Okul Türü: ${currentTypeObj.name}
-* Cihaz Donanım Kodu (HWID): ${hwid}`;
-            navigator.clipboard.writeText(msg).then(() => {
-                this.showToast("Lisans talep bilgileri kopyalandı!", "success");
-            });
         });
 
         // Kapatma
@@ -4817,11 +4880,16 @@ Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı al
             if (typeof window !== 'undefined' && window.licenseManager) {
                 const res = await window.licenseManager.activateLicense(cleanToken);
                 if (res.success) {
-                    alert("🎉 TEBRİKLER!\n\nLisansınız başarıyla aktifleştirildi.\nKurum: " + (res.status.okulAdi || 'Pro Kurum') + "\nTür: " + res.status.licenseType);
+                    alert("🎉 TEBRİKLER!
+
+Lisansınız başarıyla aktifleştirildi.
+Kurum: " + (res.status.okulAdi || 'Pro Kurum') + "
+Tür: " + res.status.licenseType);
                     this.closeModal("license-modal");
                     window.location.reload();
                 } else {
-                    alert("❌ Lisans Doğrulama Başarısız:\n" + res.reason);
+                    alert("❌ Lisans Doğrulama Başarısız:
+" + res.reason);
                 }
             }
         });
