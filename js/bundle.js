@@ -4405,7 +4405,31 @@ class AppStateService {
 
     resetSchool() {
         this.pushHistory();
+        const currentOkul = { ...this.state.okulBilgisi };
+        const antet = currentOkul.antet ? { ...currentOkul.antet } : null;
+        
         this.state = this.getDefaultState();
+        
+        // 🔒 KURUM KİMLİĞİ KALICI OLARAK KORUNUR (SIFIRLANAMAZ)
+        if (currentOkul.kurumKodu) {
+            this.state.okulBilgisi.kurumKodu = currentOkul.kurumKodu;
+            this.state.okulBilgisi.okulAdi = currentOkul.okulAdi;
+            this.state.okulBilgisi.okulTuru = currentOkul.okulTuru;
+            this.state.okulBilgisi.okulTuruKilitli = true;
+            this.state.okulBilgisi.il = currentOkul.il || "";
+            this.state.okulBilgisi.ilce = currentOkul.ilce || "";
+            this.state.okulBilgisi.sezon = currentOkul.sezon || "2026-2027";
+            if (antet) {
+                this.state.okulBilgisi.antet = antet;
+                this.state.okulBilgisi.antet.resmiOkulAdi = currentOkul.okulAdi;
+                this.state.okulBilgisi.antet.kurumKodu = currentOkul.kurumKodu;
+            }
+        }
+        
+        this.state.subeler = [];
+        this.state.aktifSubeId = null;
+        this.state.mevcutOgretmenler = {};
+        this.state.koordinatorlukYukleri = {};
         this.notify();
     }
 
