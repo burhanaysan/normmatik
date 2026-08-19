@@ -1,3 +1,4 @@
+import { MTEGM_CANONICAL_DB } from './mtegm_canonical_data.js';
 // MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi
 // Kurumsal Müfredat ve Ders Çözümleme Motoru (CurriculumEngine)
 // TTKB Haftalık Ders Çizelgeleri ve MEB Norm Standartları (v5.3 - 2026-2027)
