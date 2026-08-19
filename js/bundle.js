@@ -4125,14 +4125,19 @@ class AppStateService {
     getDefaultState() {
         return {
             okulBilgisi: {
-                okulAdi: "Atatürk Anadolu Lisesi",
+                okulAdi: "",
+                kurumKodu: "",
+                il: "",
+                ilce: "",
                 sezon: "2026-2027",
                 okulTuru: null, // "anadolu_lisesi", "mesleki_ve_teknik_anadolu_lisesi" vb.
                 okulTuruKilitli: false,
+                isDemo: false,
                 antet: {
-                    ilValiligi: "ANKARA VALİLİĞİ",
-                    ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
-                    resmiOkulAdi: "Atatürk Anadolu Lisesi",
+                    ilValiligi: "",
+                    ilceMem: "",
+                    resmiOkulAdi: "",
+                    kurumKodu: "",
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "",
@@ -4238,10 +4243,103 @@ class AppStateService {
         this.notify();
     }
 
-    updateSchoolInfo(name, season) {
+    updateSchoolInfo(name, season, kurumKodu, il, ilce) {
         this.pushHistory();
-        if (name !== undefined) this.state.okulBilgisi.okulAdi = name;
+        if (name !== undefined) {
+            this.state.okulBilgisi.okulAdi = name;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.resmiOkulAdi = name;
+        }
         if (season !== undefined) this.state.okulBilgisi.sezon = season;
+        if (kurumKodu !== undefined) {
+            this.state.okulBilgisi.kurumKodu = kurumKodu;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.kurumKodu = kurumKodu;
+        }
+        if (il !== undefined) {
+            this.state.okulBilgisi.il = il;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.ilValiligi = il.toUpperCase().includes("VALİLİK") ? il : (il ? `${il.toUpperCase()} VALİLİĞİ` : "");
+        }
+        if (ilce !== undefined) {
+            this.state.okulBilgisi.ilce = ilce;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.ilceMem = ilce.toUpperCase().includes("MÜDÜRLÜĞÜ") ? ilce : (ilce ? `${ilce} İlçe Millî Eğitim Müdürlüğü` : "");
+        }
+        this.notify();
+    }
+
+    loadDemoSchool(dbService, curriculumEngine) {
+        this.pushHistory();
+        const demoState = {
+            okulBilgisi: {
+                okulAdi: "Örnek Atatürk Anadolu Lisesi",
+                kurumKodu: "754123",
+                il: "ANKARA",
+                ilce: "ÇANKAYA",
+                sezon: "2026-2027",
+                okulTuru: "anadolu_lisesi",
+                okulTuruKilitli: true,
+                isDemo: true,
+                antet: {
+                    ilValiligi: "ANKARA VALİLİĞİ",
+                    ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
+                    resmiOkulAdi: "Örnek Atatürk Anadolu Lisesi",
+                    kurumKodu: "754123",
+                    logoBase64: null,
+                    hazirlayanUnvan: "Müdür Yardımcısı",
+                    hazirlayanAdSoyad: "Ahmet YILMAZ",
+                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolAdSoyad: "Mehmet DEMİR",
+                    onaylayanUnvan: "Okul Müdürü",
+                    onaylayanAdSoyad: "Burhan AYSAN"
+                },
+                adminOptions: {
+                    isPansiyonlu: false,
+                    hasDonerSermaye: false,
+                    isTamGunTamYil: false,
+                    hasStajyer100Plus: false,
+                    hasSigortali500Plus: false,
+                    isTasimaMerkezi: false,
+                    isBirlestirilmis: false
+                }
+            },
+            subeler: [
+                { id: "sube_demo_9a", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 32, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: true },
+                { id: "sube_demo_9b", subeAdi: "9-B", sinifSeviyesi: "9", ogrenciSayisi: 30, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ FİZİK", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
+                { id: "sube_demo_10a", subeAdi: "10-A", sinifSeviyesi: "10", ogrenciSayisi: 31, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
+                { id: "sube_demo_10b", subeAdi: "10-B", sinifSeviyesi: "10", ogrenciSayisi: 29, zorunluDersler: [], secmeliDersler: [{ dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
+                { id: "sube_demo_11a", subeAdi: "11-A (SAY)", sinifSeviyesi: "11", ogrenciSayisi: 28, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik" }, { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
+                { id: "sube_demo_11b", subeAdi: "11-B (EA)", sinifSeviyesi: "11", ogrenciSayisi: 27, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", dersSaati: 5, ttkbKarsiligi: "Türk Dili ve Edebiyatı" }, { dersAdi: "SEÇMELİ COĞRAFYA", dersSaati: 4, ttkbKarsiligi: "Coğrafya" }], rehberlikVarMi: true },
+                { id: "sube_demo_12a", subeAdi: "12-A (SAY)", sinifSeviyesi: "12", ogrenciSayisi: 26, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: false },
+                { id: "sube_demo_12b", subeAdi: "12-B (EA)", sinifSeviyesi: "12", ogrenciSayisi: 25, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", dersSaati: 4, ttkbKarsiligi: "Tarih" }], rehberlikVarMi: false }
+            ],
+            aktifSubeId: "sube_demo_9a",
+            mevcutOgretmenler: {
+                "Türk Dili ve Edebiyatı": 3,
+                "Matematik": 4,
+                "Fizik": 2,
+                "Kimya": 2,
+                "Biyoloji": 2,
+                "Tarih": 2,
+                "Coğrafya": 2,
+                "Felsefe": 1,
+                "İngilizce": 3,
+                "Almanca": 2,
+                "Din Kültürü ve Ahlak Bilgisi": 2,
+                "Beden Eğitimi": 2,
+                "Görsel Sanatlar": 1,
+                "Müzik": 1,
+                "Bilişim Teknolojileri": 1,
+                "Rehberlik": 2
+            },
+            koordinatorlukYukleri: {},
+            ozelOkulBranslari: []
+        };
+
+        if (curriculumEngine && typeof curriculumEngine.getMandatoryCourses === 'function') {
+            demoState.subeler.forEach(s => {
+                s.zorunluDersler = curriculumEngine.getMandatoryCourses("anadolu_lisesi", s.sinifSeviyesi);
+            });
+        }
+
+        this.state = demoState;
         this.notify();
     }
 
@@ -5616,46 +5714,110 @@ class UIComponentManager {
 
     openSchoolSetupModal() {
         const types = this.db.getSchoolTypes();
-        const currentType = this.state.state.okulBilgisi.okulTuru;
+        const currentType = this.state.state.okulBilgisi.okulTuru || "anadolu_lisesi";
         const isLocked = this.state.state.okulBilgisi.okulTuruKilitli;
 
-        const optionsHtml = types.map(t => `
-            <option value="${t.id}" ${currentType === t.id ? 'selected' : ''}>
-                ${t.name} (${t.category})
-            </option>
-        `).join("");
+        // Okul türlerini kategorilere göre grupla
+        const grouped = {};
+        types.forEach(t => {
+            const cat = t.category || "Diğer Okullar";
+            if (!grouped[cat]) grouped[cat] = [];
+            grouped[cat].push(t);
+        });
+
+        let optionsHtml = "";
+        for (const [catName, catTypes] of Object.entries(grouped)) {
+            optionsHtml += `<optgroup label="📂 ${catName}">`;
+            catTypes.forEach(t => {
+                optionsHtml += `<option value="${t.id}" ${currentType === t.id ? 'selected' : ''}>${t.name}</option>`;
+            });
+            optionsHtml += `</optgroup>`;
+        }
 
         const modalHtml = `
-            <div class="modal-overlay active" id="school-setup-modal">
-                <div class="modal-box" style="max-width: 500px;">
-                    <div class="modal-header">
-                        <div class="modal-title">🏫 Okul Kurulumu ve Tür Seçimi</div>
+            <div class="modal-overlay active" id="school-setup-modal" style="z-index: 99999;">
+                <div class="modal-box" style="max-width: 580px; padding: 1.75rem;">
+                    <div class="modal-header" style="border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.25rem;">
+                        <div class="modal-title" style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>👑</span> NormMatik™ Okul Kurulumu ve Başlangıç
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label class="form-label">Okul Adı</label>
-                            <input type="text" id="setup-school-name" class="form-control" value="${this.state.state.okulBilgisi.okulAdi}">
+                    
+                    <div class="modal-body" style="padding: 0;">
+                        <!-- 1. BAŞLANGIÇ SEÇENEK KARTLARI -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem;">
+                            <div id="card-setup-custom" class="setup-choice-card active" style="border: 2px solid var(--primary); background: rgba(2, 132, 199, 0.08); padding: 1rem; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s;">
+                                <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">🏫</div>
+                                <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main);">Kendi Okulumu Kur</div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">Kendi kurum bilgilerinizi girerek başlayın</div>
+                            </div>
+                            <div id="card-setup-demo" class="setup-choice-card" style="border: 1.5px solid var(--border); background: var(--bg-card-subtle); padding: 1rem; border-radius: 12px; cursor: pointer; text-align: center; transition: all 0.2s;">
+                                <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">🚀</div>
+                                <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-main);">Örnek Okul (Demo)</div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">24 şubeli örnek verilerle hemen keşfedin</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Eğitim-Öğretim Sezonu</label>
-                            <select id="setup-season" class="form-control">
-                                <option value="2026-2027" selected>2026-2027</option>
-                                <option value="2025-2026">2025-2026</option>
-                                <option value="2027-2028">2027-2028</option>
-                            </select>
+
+                        <!-- 2. KENDİ OKULUMU KUR FORMU -->
+                        <div id="setup-form-custom">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <div class="form-group">
+                                    <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İl</label>
+                                    <input type="text" id="setup-il" class="form-control" placeholder="Örn: ANKARA" value="${this.state.state.okulBilgisi.il || ''}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İlçe</label>
+                                    <input type="text" id="setup-ilce" class="form-control" placeholder="Örn: ÇANKAYA" value="${this.state.state.okulBilgisi.ilce || ''}">
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                <div class="form-group">
+                                    <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">MEB Kurum Kodu *</label>
+                                    <input type="text" id="setup-kurum-kodu" class="form-control" placeholder="Örn: 754123" maxlength="10" value="${this.state.state.okulBilgisi.kurumKodu || ''}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Eğitim-Öğretim Sezonu</label>
+                                    <select id="setup-season" class="form-control">
+                                        <option value="2026-2027" selected>2026-2027</option>
+                                        <option value="2025-2026">2025-2026</option>
+                                        <option value="2027-2028">2027-2028</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0.75rem;">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul / Kurum Tam Adı *</label>
+                                <input type="text" id="setup-school-name" class="form-control" placeholder="Örn: Kadıköy Anadolu Lisesi" value="${this.state.state.okulBilgisi.okulAdi || ''}">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0.5rem;">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul Türü (Müfredat ve Norm Kuralı)</label>
+                                <select id="setup-school-type" class="form-control" ${isLocked ? 'disabled' : ''}>
+                                    ${optionsHtml}
+                                </select>
+                                <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.4;">
+                                    * Seçilen okul türüne ait TTKB haftalık ders çizelgeleri ve norm baremleri otomatik yüklenir.
+                                </p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Okul Türü (Seçildikten sonra kilitlenir)</label>
-                            <select id="setup-school-type" class="form-control" ${isLocked ? 'disabled' : ''}>
-                                ${optionsHtml}
-                            </select>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem; line-height: 1.4;">
-                                * Okul türü seçildiğinde yalnızca o okula ait dersler ve norm kuralları sisteme yüklenir.
+
+                        <!-- 3. DEMO MODU AÇIKLAMA KUTUSU -->
+                        <div id="setup-form-demo" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
+                            <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">🚀 Hızlı Başlangıç Demo Paketi</div>
+                            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
+                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında 9, 10, 11 ve 12. sınıflardan 24 şube, seçmeli ders dağılımları ve mevcut kadrolu öğretmen sayıları otomatik olarak yüklenecektir. İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
                             </p>
+                            <button class="btn btn-success" id="btn-load-demo-school" style="width: 100%; padding: 0.85rem; font-weight: 800; font-size: 0.95rem;">
+                                🚀 Örnek Okul ile Sistemi Hemen Başlat
+                            </button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" id="btn-save-school-setup">Kurulumu Tamamla</button>
+
+                    <div class="modal-footer" style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
+                        <button class="btn btn-primary" id="btn-save-school-setup" style="padding: 0.75rem 1.5rem; font-weight: 800;">
+                            ✨ Kurulumu Tamamla ve Başla
+                        </button>
                     </div>
                 </div>
             </div>
@@ -5663,15 +5825,151 @@ class UIComponentManager {
 
         this.renderModal(modalHtml);
 
-        document.getElementById("btn-save-school-setup").addEventListener("click", () => {
-            const name = document.getElementById("setup-school-name").value.trim();
-            const season = document.getElementById("setup-season").value;
-            const type = document.getElementById("setup-school-type").value;
+        const cardCustom = document.getElementById("card-setup-custom");
+        const cardDemo = document.getElementById("card-setup-demo");
+        const formCustom = document.getElementById("setup-form-custom");
+        const formDemo = document.getElementById("setup-form-demo");
+        const btnSave = document.getElementById("btn-save-school-setup");
 
-            this.state.updateSchoolInfo(name, season);
+        cardCustom?.addEventListener("click", () => {
+            cardCustom.style.border = "2px solid var(--primary)";
+            cardCustom.style.background = "rgba(2, 132, 199, 0.08)";
+            cardDemo.style.border = "1.5px solid var(--border)";
+            cardDemo.style.background = "var(--bg-card-subtle)";
+            formCustom.style.display = "block";
+            formDemo.style.display = "none";
+            btnSave.style.display = "block";
+        });
+
+        cardDemo?.addEventListener("click", () => {
+            cardDemo.style.border = "2px solid #10b981";
+            cardDemo.style.background = "rgba(16, 185, 129, 0.08)";
+            cardCustom.style.border = "1.5px solid var(--border)";
+            cardCustom.style.background = "var(--bg-card-subtle)";
+            formCustom.style.display = "none";
+            formDemo.style.display = "block";
+            btnSave.style.display = "none";
+        });
+
+        // Demo Başlat Butonu
+        document.getElementById("btn-load-demo-school")?.addEventListener("click", () => {
+            this.state.loadDemoSchool(this.db, this.curriculum);
+            this.closeModal("school-setup-modal");
+            this.showToast("🚀 Örnek Atatürk Anadolu Lisesi verileri başarıyla yüklendi!", "success");
+        });
+
+        // Kendi Okulunu Kur Butonu
+        btnSave?.addEventListener("click", () => {
+            const name = document.getElementById("setup-school-name")?.value.trim();
+            const kurumKodu = document.getElementById("setup-kurum-kodu")?.value.trim();
+            const il = document.getElementById("setup-il")?.value.trim();
+            const ilce = document.getElementById("setup-ilce")?.value.trim();
+            const season = document.getElementById("setup-season")?.value;
+            const type = document.getElementById("setup-school-type")?.value;
+
+            if (!name) {
+                alert("Lütfen Okul / Kurum Adını yazınız.");
+                document.getElementById("setup-school-name")?.focus();
+                return;
+            }
+
+            this.state.updateSchoolInfo(name, season, kurumKodu, il, ilce);
             this.state.setSchoolType(type);
             this.closeModal("school-setup-modal");
-            this.showToast("Okul kurulumu başarıyla kaydedildi.", "success");
+            this.showToast(`✨ ${name} kurulumu başarıyla tamamlandı.`, "success");
+        });
+    }
+
+    openEditSchoolNameModal() {
+        this.openEditSchoolInfoModal();
+    }
+
+    openEditSchoolInfoModal() {
+        const info = this.state.state.okulBilgisi;
+        const types = this.db.getSchoolTypes();
+        const currentType = types.find(t => t.id === info.okulTuru) || { name: "Belirtilmedi", category: "MEB" };
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="edit-school-modal" style="z-index: 99999;">
+                <div class="modal-box" style="max-width: 520px; padding: 1.75rem;">
+                    <div class="modal-header" style="border-bottom: 1px solid var(--border); padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
+                        <div class="modal-title" style="font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>⚙️</span> Okul Bilgileri ve Yönetimi
+                        </div>
+                        <button class="modal-close-btn" onclick="document.getElementById('edit-school-modal').remove()">✕</button>
+                    </div>
+                    
+                    <div class="modal-body" style="padding: 0;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <div class="form-group">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İl</label>
+                                <input type="text" id="edit-school-il" class="form-control" value="${info.il || ''}" placeholder="Örn: ANKARA">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İlçe</label>
+                                <input type="text" id="edit-school-ilce" class="form-control" value="${info.ilce || ''}" placeholder="Örn: ÇANKAYA">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <div class="form-group">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">MEB Kurum Kodu</label>
+                                <input type="text" id="edit-school-kurum-kodu" class="form-control" value="${info.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Sezon</label>
+                                <select id="edit-school-season" class="form-control">
+                                    <option value="2026-2027" ${info.sezon === '2026-2027' ? 'selected' : ''}>2026-2027</option>
+                                    <option value="2025-2026" ${info.sezon === '2025-2026' ? 'selected' : ''}>2025-2026</option>
+                                    <option value="2027-2028" ${info.sezon === '2027-2028' ? 'selected' : ''}>2027-2028</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.25rem;">
+                            <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Okul / Kurum Adı *</label>
+                            <input type="text" id="edit-school-name" class="form-control" value="${info.okulAdi || ''}" placeholder="Okul adını yazınız...">
+                        </div>
+
+                        <div style="background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">MEVCUT OKUL TÜRÜ</div>
+                                <div style="font-size: 0.9rem; font-weight: 800; color: var(--primary);">📜 ${currentType.name}</div>
+                            </div>
+                            <button class="btn btn-sm btn-danger-outline" id="btn-trigger-reset-school" style="font-size: 0.78rem;">
+                                🔄 Okul Türünü Değiştir / Sıfırla
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="border-top: 1px solid var(--border); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn btn-outline" onclick="document.getElementById('edit-school-modal').remove()">Kapat</button>
+                        <button class="btn btn-primary" id="btn-save-edited-school-info" style="font-weight: 800;">💾 Bilgileri Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+
+        document.getElementById("btn-save-edited-school-info")?.addEventListener("click", () => {
+            const name = document.getElementById("edit-school-name")?.value.trim();
+            const kurumKodu = document.getElementById("edit-school-kurum-kodu")?.value.trim();
+            const il = document.getElementById("edit-school-il")?.value.trim();
+            const ilce = document.getElementById("edit-school-ilce")?.value.trim();
+            const season = document.getElementById("edit-school-season")?.value;
+
+            if (name) {
+                this.state.updateSchoolInfo(name, season, kurumKodu, il, ilce);
+                this.closeModal("edit-school-modal");
+                this.showToast("Okul bilgileri güncellendi.", "success");
+            } else {
+                alert("Lütfen Okul Adını boş bırakmayınız.");
+            }
+        });
+
+        document.getElementById("btn-trigger-reset-school")?.addEventListener("click", () => {
+            this.closeModal("edit-school-modal");
+            this.openResetSchoolConfirmModal();
         });
     }
 
@@ -9564,7 +9862,7 @@ class UIComponentManager {
                             <span style="font-size: 1.4rem;">🔑</span>
                             <div>
                                 <div>MEB Norm Kadro Lisans & Güvenlik Merkezi</div>
-                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik Lisans Sistemi</div>
+                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">NormMatik™ 5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik Lisans Sistemi</div>
                             </div>
                         </div>
                         <button class="modal-close-btn" id="btn-close-license-modal" style="color: #fff;">✕</button>
@@ -9637,7 +9935,7 @@ class UIComponentManager {
         document.getElementById("btn-copy-device-info")?.addEventListener("click", () => {
             const hwid = document.getElementById("disp-hwid")?.textContent || "HW-STANDALONE";
             const kKodu = document.getElementById("disp-kurum-kodu")?.textContent || "752148";
-            const msg = `🏛️ MEB NORM KADRO LİSANS TALEBİ\n* Kurum Kodu: ${kKodu}\n* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}\n* Okul Türü: ${currentTypeObj.name}\n* Cihaz Donanım Kodu (HWID): ${hwid}`;
+            const msg = `👑 NormMatik™ LİSANS AKTİVASYON TALEBİ\n* MEB Kurum Kodu: ${kKodu}\n* Okul Adı: ${okulInfo.okulAdi || 'MEB Okulu'}\n* İl / İlçe: ${okulInfo.il ? (okulInfo.il + ' / ' + okulInfo.ilce) : 'Belirtilmedi'}\n* Okul Türü: ${currentTypeObj.name}\n* Cihaz Donanım Kodu (HWID): ${hwid}`;
             navigator.clipboard.writeText(msg).then(() => {
                 this.showToast("Lisans talep bilgileri kopyalandı! Geliştiriciye gönderebilirsiniz.", "success");
             });
@@ -9889,8 +10187,8 @@ class MebNormApplication {
             <div class="header-section-module section-logo">
                 <div class="logo-badge-executive" style="padding-left: 0.35rem;">
                     <div class="logo-text-executive">
-                        <span class="logo-brand-title">MEB NORM</span>
-                        <span class="logo-brand-sub">DERS YÜKÜ & KADRO SİSTEMİ</span>
+                        <span class="logo-brand-title">NormMatik™</span>
+                        <span class="logo-brand-sub">MEB NORM KADRO & DERS YÜKÜ SİSTEMİ</span>
                     </div>
                 </div>
             </div>
@@ -9901,8 +10199,8 @@ class MebNormApplication {
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Adını Değiştirin">
-                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi} <span class="edit-pen-icon">✏️</span>
+                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin veya Okulu Değiştirin">
+                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi || 'Okul Adı Belirtilmedi'} ${info.kurumKodu ? '<span style="font-size: 0.78rem; font-weight: 700; color: var(--primary); background: rgba(2, 132, 199, 0.12); padding: 0.15rem 0.45rem; border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.3);">[' + info.kurumKodu + ']</span>' : ''} <span class="edit-pen-icon">✏️</span>
                         </span>
                     </div>
                     <div class="school-meta-pills">
@@ -9992,7 +10290,7 @@ class MebNormApplication {
         document.getElementById("btn-theme-toggle")?.addEventListener("click", () => this.toggleTheme());
 
         document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
-            this.ui.openEditSchoolNameModal();
+            this.ui.openEditSchoolInfoModal();
         });
 
         document.getElementById("season-selector")?.addEventListener("change", (e) => {

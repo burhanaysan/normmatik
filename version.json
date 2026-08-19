@@ -1,16 +1,19 @@
 {
-  "system": "NormMatik™",
-  "version": "2026.1.0",
+  "appName": "NormMatik™",
+  "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
+  "version": "1.0.1",
   "releaseDate": "2026-08-19",
-  "rulesHash": "sha256-nm2026v1-meb-norm-engine-stable",
-  "minAppVersion": "1.0.0",
+  "minEngineVersion": "1.0.0",
+  "rulesVersion": "2026.1",
+  "distribution": {
+    "channel": "stable",
+    "liveUrl": "https://www.normmatik.com.tr",
+    "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
+  },
   "changelog": [
-    "Türkiye Yüzyılı Maarif Modeli 9 ve 10. sınıf müfredat parametreleri eklendi.",
-    "69 Meslek Alanı ÇÖP ders saatleri ve atölye grup baremleri güncellendi.",
-    "Ortaokul 5, 6, 7 ve 8. sınıf e-Okul otomatik ithalat motoru aktif edildi.",
-    "ECDSA P-256 Asimetrik Kriptografik Lisanslama motoru entegre edildi."
-  ],
-  "downloadUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json",
-  "developer": "Burhan AYSAN",
-  "officialDomain": "https://www.normmatik.com.tr"
+    "MEB Kurum Kodu (Benzersiz Okul Kimliği) ve İl/İlçe entegrasyonu sağlandı.",
+    "İlk açılış kurulum modalı yenilendi: 'Kendi Okulumu Kur' ve 'Örnek Okul (Demo Modu)' seçenekleri eklendi.",
+    "Okul Bilgileri ve Yönetimi modalı eklendi: Kurum kodu, il/ilçe ve okul türü sıfırlama/değiştirme yeteneği getirildi.",
+    "NormMatik™ marka ve arayüz cilaları tamamlandı."
+  ]
 }

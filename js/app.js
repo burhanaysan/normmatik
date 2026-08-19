@@ -194,8 +194,8 @@ class MebNormApplication {
             <div class="header-section-module section-logo">
                 <div class="logo-badge-executive" style="padding-left: 0.35rem;">
                     <div class="logo-text-executive">
-                        <span class="logo-brand-title">MEB NORM</span>
-                        <span class="logo-brand-sub">DERS YÜKÜ & KADRO SİSTEMİ</span>
+                        <span class="logo-brand-title">NormMatik™</span>
+                        <span class="logo-brand-sub">MEB NORM KADRO & DERS YÜKÜ SİSTEMİ</span>
                     </div>
                 </div>
             </div>
@@ -206,8 +206,8 @@ class MebNormApplication {
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Adını Değiştirin">
-                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi} <span class="edit-pen-icon">✏️</span>
+                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin veya Okulu Değiştirin">
+                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi || 'Okul Adı Belirtilmedi'} ${info.kurumKodu ? '<span style="font-size: 0.78rem; font-weight: 700; color: var(--primary); background: rgba(2, 132, 199, 0.12); padding: 0.15rem 0.45rem; border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.3);">[' + info.kurumKodu + ']</span>' : ''} <span class="edit-pen-icon">✏️</span>
                         </span>
                     </div>
                     <div class="school-meta-pills">
@@ -297,7 +297,7 @@ class MebNormApplication {
         document.getElementById("btn-theme-toggle")?.addEventListener("click", () => this.toggleTheme());
 
         document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
-            this.ui.openEditSchoolNameModal();
+            this.ui.openEditSchoolInfoModal();
         });
 
         document.getElementById("season-selector")?.addEventListener("change", (e) => {

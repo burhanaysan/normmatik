@@ -15,14 +15,19 @@ export class AppStateService {
     getDefaultState() {
         return {
             okulBilgisi: {
-                okulAdi: "Atatürk Anadolu Lisesi",
+                okulAdi: "",
+                kurumKodu: "",
+                il: "",
+                ilce: "",
                 sezon: "2026-2027",
                 okulTuru: null, // "anadolu_lisesi", "mesleki_ve_teknik_anadolu_lisesi" vb.
                 okulTuruKilitli: false,
+                isDemo: false,
                 antet: {
-                    ilValiligi: "ANKARA VALİLİĞİ",
-                    ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
-                    resmiOkulAdi: "Atatürk Anadolu Lisesi",
+                    ilValiligi: "",
+                    ilceMem: "",
+                    resmiOkulAdi: "",
+                    kurumKodu: "",
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "",
@@ -128,10 +133,103 @@ export class AppStateService {
         this.notify();
     }
 
-    updateSchoolInfo(name, season) {
+    updateSchoolInfo(name, season, kurumKodu, il, ilce) {
         this.pushHistory();
-        if (name !== undefined) this.state.okulBilgisi.okulAdi = name;
+        if (name !== undefined) {
+            this.state.okulBilgisi.okulAdi = name;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.resmiOkulAdi = name;
+        }
         if (season !== undefined) this.state.okulBilgisi.sezon = season;
+        if (kurumKodu !== undefined) {
+            this.state.okulBilgisi.kurumKodu = kurumKodu;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.kurumKodu = kurumKodu;
+        }
+        if (il !== undefined) {
+            this.state.okulBilgisi.il = il;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.ilValiligi = il.toUpperCase().includes("VALİLİK") ? il : (il ? `${il.toUpperCase()} VALİLİĞİ` : "");
+        }
+        if (ilce !== undefined) {
+            this.state.okulBilgisi.ilce = ilce;
+            if (this.state.okulBilgisi.antet) this.state.okulBilgisi.antet.ilceMem = ilce.toUpperCase().includes("MÜDÜRLÜĞÜ") ? ilce : (ilce ? `${ilce} İlçe Millî Eğitim Müdürlüğü` : "");
+        }
+        this.notify();
+    }
+
+    loadDemoSchool(dbService, curriculumEngine) {
+        this.pushHistory();
+        const demoState = {
+            okulBilgisi: {
+                okulAdi: "Örnek Atatürk Anadolu Lisesi",
+                kurumKodu: "754123",
+                il: "ANKARA",
+                ilce: "ÇANKAYA",
+                sezon: "2026-2027",
+                okulTuru: "anadolu_lisesi",
+                okulTuruKilitli: true,
+                isDemo: true,
+                antet: {
+                    ilValiligi: "ANKARA VALİLİĞİ",
+                    ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
+                    resmiOkulAdi: "Örnek Atatürk Anadolu Lisesi",
+                    kurumKodu: "754123",
+                    logoBase64: null,
+                    hazirlayanUnvan: "Müdür Yardımcısı",
+                    hazirlayanAdSoyad: "Ahmet YILMAZ",
+                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolAdSoyad: "Mehmet DEMİR",
+                    onaylayanUnvan: "Okul Müdürü",
+                    onaylayanAdSoyad: "Burhan AYSAN"
+                },
+                adminOptions: {
+                    isPansiyonlu: false,
+                    hasDonerSermaye: false,
+                    isTamGunTamYil: false,
+                    hasStajyer100Plus: false,
+                    hasSigortali500Plus: false,
+                    isTasimaMerkezi: false,
+                    isBirlestirilmis: false
+                }
+            },
+            subeler: [
+                { id: "sube_demo_9a", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 32, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: true },
+                { id: "sube_demo_9b", subeAdi: "9-B", sinifSeviyesi: "9", ogrenciSayisi: 30, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ FİZİK", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
+                { id: "sube_demo_10a", subeAdi: "10-A", sinifSeviyesi: "10", ogrenciSayisi: 31, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
+                { id: "sube_demo_10b", subeAdi: "10-B", sinifSeviyesi: "10", ogrenciSayisi: 29, zorunluDersler: [], secmeliDersler: [{ dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik" }], rehberlikVarMi: true },
+                { id: "sube_demo_11a", subeAdi: "11-A (SAY)", sinifSeviyesi: "11", ogrenciSayisi: 28, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik" }, { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya" }], rehberlikVarMi: true },
+                { id: "sube_demo_11b", subeAdi: "11-B (EA)", sinifSeviyesi: "11", ogrenciSayisi: 27, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", dersSaati: 5, ttkbKarsiligi: "Türk Dili ve Edebiyatı" }, { dersAdi: "SEÇMELİ COĞRAFYA", dersSaati: 4, ttkbKarsiligi: "Coğrafya" }], rehberlikVarMi: true },
+                { id: "sube_demo_12a", subeAdi: "12-A (SAY)", sinifSeviyesi: "12", ogrenciSayisi: 26, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji" }], rehberlikVarMi: false },
+                { id: "sube_demo_12b", subeAdi: "12-B (EA)", sinifSeviyesi: "12", ogrenciSayisi: 25, zorunluDersler: [], secmeliDersler: [{ dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik" }, { dersAdi: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", dersSaati: 4, ttkbKarsiligi: "Tarih" }], rehberlikVarMi: false }
+            ],
+            aktifSubeId: "sube_demo_9a",
+            mevcutOgretmenler: {
+                "Türk Dili ve Edebiyatı": 3,
+                "Matematik": 4,
+                "Fizik": 2,
+                "Kimya": 2,
+                "Biyoloji": 2,
+                "Tarih": 2,
+                "Coğrafya": 2,
+                "Felsefe": 1,
+                "İngilizce": 3,
+                "Almanca": 2,
+                "Din Kültürü ve Ahlak Bilgisi": 2,
+                "Beden Eğitimi": 2,
+                "Görsel Sanatlar": 1,
+                "Müzik": 1,
+                "Bilişim Teknolojileri": 1,
+                "Rehberlik": 2
+            },
+            koordinatorlukYukleri: {},
+            ozelOkulBranslari: []
+        };
+
+        if (curriculumEngine && typeof curriculumEngine.getMandatoryCourses === 'function') {
+            demoState.subeler.forEach(s => {
+                s.zorunluDersler = curriculumEngine.getMandatoryCourses("anadolu_lisesi", s.sinifSeviyesi);
+            });
+        }
+
+        this.state = demoState;
         this.notify();
     }
 

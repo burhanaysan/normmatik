@@ -1,5 +1,5 @@
 // MEB Norm Kadro PWA - Offline Service Worker
-const CACHE_NAME = "meb-norm-kadro-v1";
+const CACHE_NAME = "meb-normmatik-v1";
 const ASSETS_TO_CACHE = [
     "./",
     "./index.html",
