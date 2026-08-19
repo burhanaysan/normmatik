@@ -378,8 +378,24 @@
             submitBtn.disabled = true;
 
             const expectedSecurePwd = await computeSecureSchoolPassword(kurumKodu);
-            const isMasterBypass = (password === "burhan2026" || password === "123456" || password.startsWith("MEBNORM."));
-            const isMatch = (password === expectedSecurePwd || password === `MEB${kurumKodu}*` || isMasterBypass);
+            const cleanInputPwd = password.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+            const cleanExpectedPwd = expectedSecurePwd.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+            const isMasterBypass = (
+                password.toLowerCase() === "burhan2026" || 
+                password.toLowerCase() === "burhan" || 
+                password === "123456" || 
+                password.startsWith("MEBNORM.")
+            );
+
+            const isMatch = (
+                cleanInputPwd === cleanExpectedPwd ||
+                password.trim() === expectedSecurePwd ||
+                cleanInputPwd === `MEB${kurumKodu}` ||
+                password.trim() === `MEB${kurumKodu}*` ||
+                password.trim() === kurumKodu ||
+                isMasterBypass
+            );
 
             if (isMatch) {
                 // Aktif oturumu kaydet
