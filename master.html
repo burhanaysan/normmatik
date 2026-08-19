@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 NormMatik™ Master Yönetim & Ciro Portalı — Burhan AYSAN</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    
+    <style>
+        :root {
+            --bg-base: #090d16;
+            --bg-card: #111827;
+            --bg-card-subtle: #1f2937;
+            --border: #374151;
+            --border-highlight: #0284c7;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+        }
+
+        /* GİRİŞ EKRANI */
+        .auth-container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.8);
+            margin-top: 10vh;
+        }
+
+        .auth-logo {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .auth-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-card-subtle);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .auth-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 0.85rem;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        /* ANA PORTAL */
+        .portal-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            display: none; /* Login sonrası açılır */
+        }
+
+        .portal-header {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .portal-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .portal-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-card-subtle);
+            padding: 0.3rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 0.55rem 1.1rem;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+        }
+
+        /* KPI DASHBOARD */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .kpi-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .kpi-box-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .kpi-box-val {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .kpi-box-val.green { color: #10b981; }
+        .kpi-box-val.amber { color: #f59e0b; }
+        .kpi-box-val.blue { color: #38bdf8; }
+
+        /* CARD & CONTENT CONTAINER */
+        .card-main {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        /* CRM TABLO */
+        .crm-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .search-input {
+            padding: 0.55rem 0.9rem;
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.85rem;
+            min-width: 260px;
+        }
+
+        .crm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        .crm-table th {
+            background: var(--bg-card-subtle);
+            padding: 0.75rem 0.9rem;
+            color: var(--text-muted);
+            font-weight: 800;
+            border-bottom: 1.5px solid var(--border);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .crm-table td {
+            padding: 0.75rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        .crm-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .badge-status {
+            padding: 0.2rem 0.55rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .badge-active { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+        .badge-expired { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+
+        .btn-table-action {
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .btn-table-action:hover {
+            border-color: var(--primary);
+            background: var(--primary);
+        }
+
+        .btn-wa-remind {
+            background: #16a34a;
+            border-color: #15803d;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .btn-wa-remind:hover {
+            background: #15803d;
+        }
+
+        /* KEYGEN FORM */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            padding: 0.65rem 0.85rem;
+            background: var(--bg-card-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.3);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10b981;
+            color: #fff;
+            padding: 0.85rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 999999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. GİRİŞ EKRANI -->
+    <div class="auth-container" id="auth-box">
+        <div class="auth-logo">👑</div>
+        <div class="auth-title">Master Yönetim Portalı</div>
+        <div class="auth-sub">Burhan AYSAN — NormMatik™ Kurumsal KeyGen & CRM</div>
+        <input type="password" id="auth-pwd" class="auth-input" placeholder="••••••••" autofocus>
+        <button class="btn-auth" id="btn-login">Sisteme Giriş Yap ➔</button>
+        <div id="auth-err" style="color: #ef4444; font-size: 0.8rem; font-weight: 700; margin-top: 0.75rem; display: none;">❌ Hatalı Master Şifre!</div>
+    </div>
+
+    <!-- 2. MASTER PORTAL -->
+    <div class="portal-wrapper" id="portal-box">
+        <!-- HEADER -->
+        <div class="portal-header">
+            <div class="portal-brand">
+                <div style="font-size: 1.8rem;">👑</div>
+                <div>
+                    <div style="font-weight: 900; font-size: 1.15rem; color: #fff;">NormMatik™ Master Yönetim & Ciro Merkezi</div>
+                    <div style="font-size: 0.74rem; color: var(--text-muted);">Geliştirici & Lisans Dağıtım Portalı • Burhan AYSAN</div>
+                </div>
+            </div>
+
+            <div class="portal-tabs">
+                <button class="tab-btn active" data-tab="tab-crm">📊 Müşteri & Ciro Portföyü</button>
+                <button class="tab-btn" data-tab="tab-keygen">🔑 Lisans Üretim Motoru</button>
+            </div>
+
+            <div>
+                <button class="btn-table-action" id="btn-logout" style="border-color: #ef4444; color: #f87171;">🔒 Çıkış</button>
+            </div>
+        </div>
+
+        <!-- KPI ROW -->
+        <div class="kpi-row">
+            <div class="kpi-box">
+                <span class="kpi-box-label">🏫 Lisanslı Okul Sayısı</span>
+                <span class="kpi-box-val blue" id="disp-total-schools">0</span>
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-box-label">💰 Toplam Ciro / Gelir</span>
+                <span class="kpi-box-val green" id="disp-total-revenue">0 ₺</span>
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-box-label">🟢 Aktif Lisanslar</span>
+                <span class="kpi-box-val green" id="disp-active-licenses">0</span>
+            </div>
+            <div class="kpi-box">
+                <span class="kpi-box-label">🚨 Yenilemesi Yaklaşan (<30 Gün)</span>
+                <span class="kpi-box-val amber" id="disp-expiring-soon">0</span>
+            </div>
+        </div>
+
+        <!-- TAB 1: CRM & MÜŞTERİ PORTFÖYÜ -->
+        <div class="tab-content" id="tab-crm">
+            <div class="card-main">
+                <div class="crm-header-row">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <input type="text" id="crm-search" class="search-input" placeholder="🔍 Okul adı veya kurum kodu ara...">
+                        <select id="crm-filter-status" style="padding: 0.55rem; font-size: 0.8rem;">
+                            <option value="ALL">Tüm Kayıtlar</option>
+                            <option value="ACTIVE">🟢 Aktif Lisanslar</option>
+                            <option value="WARNING">🚨 Süresi Yaklaşanlar</option>
+                            <option value="EXPIRED">🔴 Süresi Dolanlar</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn-table-action" id="btn-export-crm-json">💾 JSON Yedek</button>
+                        <button class="btn-table-action" id="btn-import-crm-json">📂 Yedeği Aç</button>
+                        <input type="file" id="file-crm-import" accept=".json" style="display:none;">
+                    </div>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="crm-table">
+                        <thead>
+                            <tr>
+                                <th>Kurum Kodu</th>
+                                <th>Okul Adı</th>
+                                <th>Okul Türü</th>
+                                <th>Fiyat</th>
+                                <th>Bitiş Tarihi</th>
+                                <th>Kalan Süre</th>
+                                <th>Durum</th>
+                                <th style="text-align: right;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crm-table-body">
+                            <!-- JS ile doldurulur -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: KEYGEN LİSANS ÜRETİCİ -->
+        <div class="tab-content" id="tab-keygen" style="display: none;">
+            <div class="card-main">
+                <!-- WHATSAPP AYRIŞTIRICI -->
+                <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem;">
+                    <label style="color: #10b981; font-weight: 800;">📲 WhatsApp'tan Gelen Lisans Sipariş Mesajını Yapıştırın (Otomatik Doldurur):</label>
+                    <textarea id="smart-paste" rows="2" style="width: 100%; margin-top: 0.4rem;" placeholder="İdarecinin attığı sipariş mesajını buraya yapıştırın..."></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>🏛️ MEB Kurum Kodu</label>
+                        <input type="text" id="inp-kodu" value="754123" placeholder="Örn: 754123">
+                    </div>
+                    <div class="form-group">
+                        <label>📜 Okul Türü</label>
+                        <select id="inp-turu">
+                            <option value="anadolu_lisesi">Anadolu Lisesi</option>
+                            <option value="mesleki_ve_teknik_anadolu_lisesi">Mesleki ve Teknik Anadolu Lisesi (MTAL)</option>
+                            <option value="fen_lisesi">Fen Lisesi</option>
+                            <option value="imam_hatip_lisesi">Anadolu İmam Hatip Lisesi</option>
+                            <option value="mesleki_egitim_merkezi">Mesleki Eğitim Merkezi (MESEM)</option>
+                            <option value="guzel_sanatlar_lisesi">Güzel Sanatlar Lisesi</option>
+                            <option value="spor_lisesi">Spor Lisesi</option>
+                            <option value="sosyal_bilimler_lisesi">Sosyal Bilimler Lisesi</option>
+                            <option value="ozel_egitim_meslek_okulu">Özel Eğitim Meslek Okulu</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label>🏫 Okul / Kurum Adı</label>
+                        <input type="text" id="inp-adi" value="Kadıköy Anadolu Lisesi" placeholder="Örn: Kadıköy Anadolu Lisesi">
+                    </div>
+                    <div class="form-group">
+                        <label>💰 Satış Bedeli (TL)</label>
+                        <input type="number" id="inp-fiyat" value="490">
+                    </div>
+                    <div class="form-group">
+                        <label>📅 Lisans Bitiş Tarihi</label>
+                        <input type="date" id="inp-exp" value="2027-08-31">
+                    </div>
+                    <div class="form-group">
+                        <label>🖥️ Cihaz Kilidi (HWID)</label>
+                        <input type="text" id="inp-hwid" value="*" placeholder="* (Kurum Kilidi - Tüm Cihazlar Serbest)">
+                    </div>
+                    <div class="form-group">
+                        <label>Maksimum Şube</label>
+                        <input type="number" id="inp-sections" value="-1" placeholder="-1 (Sınırsız)">
+                    </div>
+                </div>
+
+                <button class="btn-auth" id="btn-create-lic" style="font-size: 1.05rem; padding: 0.95rem;">
+                    ⚡ Lisansı Üret ve Master Veritabanına Kaydet ➔
+                </button>
+
+                <!-- SONUÇ KUTUSU -->
+                <div id="keygen-result" style="display: none; margin-top: 1.5rem; background: var(--bg-card-subtle); border: 1.5px solid var(--primary); border-radius: 12px; padding: 1.25rem;">
+                    <div style="font-weight: 800; font-size: 0.9rem; color: var(--primary); margin-bottom: 0.5rem;">🎉 Lisans Başarıyla Üretildi ve Kaydedildi!</div>
+                    <textarea id="out-token" rows="3" style="width: 100%; font-family: monospace; font-size: 0.78rem;" readonly></textarea>
+                    
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
+                        <button class="btn-table-action" id="btn-copy-token" style="background: #10b981; border-color: #10b981; font-weight: 800;">📋 Lisans Kodunu Kopyala</button>
+                        <button class="btn-table-action btn-wa-remind" id="btn-send-wa">📲 WhatsApp İle Müdüre Gönder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="toast" id="toast-msg"></div>
+
+    <script>
+        const MASTER_PRIVATE_KEY_JWK = {
+            "kty": "EC",
+            "x": "Ixop_Vp8qOnI_cJ555RRs4c7A9karZ8JlyIrwojiRwA",
+            "y": "8mAoQOD1uzeBqcJcgwTprG69YI8jzH1BsP9mLMap3E8",
+            "crv": "P-256",
+            "d": "ID8kRPQIKvIkeOVwp1AfKz9-ryTSuM4wAAJEz9kk4UU",
+            "kid": "meb-norm-master-key-2026",
+            "alg": "ES256",
+            "key_ops": ["sign"]
+        };
+        const PUBLIC_KEY_JWK = {};
+
+        let clientsDB = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
+
+        // Auth Logic
+        const storedPwd = localStorage.getItem('normmatik_master_pwd') || '123456';
+        
+        document.getElementById('btn-login').addEventListener('click', doLogin);
+        document.getElementById('auth-pwd').addEventListener('keyup', (e) => { if (e.key === 'Enter') doLogin(); });
+
+        function doLogin() {
+            const p = document.getElementById('auth-pwd').value;
+            if (p === storedPwd || p === 'burhan2026' || p === '123456') {
+                document.getElementById('auth-box').style.display = 'none';
+                document.getElementById('portal-box').style.display = 'block';
+                renderCRM();
+            } else {
+                document.getElementById('auth-err').style.display = 'block';
+            }
+        }
+
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            document.getElementById('portal-box').style.display = 'none';
+            document.getElementById('auth-box').style.display = 'block';
+            document.getElementById('auth-pwd').value = '';
+        });
+
+        // Tab Switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).style.display = 'block';
+            });
+        });
+
+        // Smart WhatsApp Parser
+        document.getElementById('smart-paste').addEventListener('input', (e) => {
+            const text = e.target.value;
+            if (!text) return;
+
+            const digits = text.match(/\b\d{6}\b/);
+            if (digits) document.getElementById('inp-kodu').value = digits[0];
+
+            const okulMatch = text.match(/(?:okul|okulu|adı|adi)[\s:=_-]*([^\n\r,]+)/i);
+            if (okulMatch && okulMatch[1].trim().length > 3) {
+                document.getElementById('inp-adi').value = okulMatch[1].trim();
+            }
+
+            const lower = text.toLowerCase();
+            if (lower.includes("mtal") || lower.includes("meslek") || lower.includes("teknik")) {
+                document.getElementById('inp-turu').value = "mesleki_ve_teknik_anadolu_lisesi";
+            } else if (lower.includes("fen")) {
+                document.getElementById('inp-turu').value = "fen_lisesi";
+            } else if (lower.includes("imam") || lower.includes("ihl") || lower.includes("aihl")) {
+                document.getElementById('inp-turu').value = "imam_hatip_lisesi";
+            } else if (lower.includes("anadolu")) {
+                document.getElementById('inp-turu').value = "anadolu_lisesi";
+            }
+
+            showToast("WhatsApp sipariş bilgileri ayrıştırıldı!");
+        });
+
+        // Base64URL Helpers
+        function base64UrlEncode(str) {
+            return btoa(unescape(encodeURIComponent(str))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        }
+        function base64UrlEncodeBuffer(buffer) {
+            const bytes = new Uint8Array(buffer);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+            return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        }
+
+        // Generate License
+        let lastGeneratedToken = "";
+        let lastPayload = null;
+
+        document.getElementById('btn-create-lic').addEventListener('click', async () => {
+            const kKodu = document.getElementById('inp-kodu').value.trim();
+            const turu = document.getElementById('inp-turu').value;
+            const adi = document.getElementById('inp-adi').value.trim();
+            const exp = document.getElementById('inp-exp').value;
+            const fiyat = parseFloat(document.getElementById('inp-fiyat').value) || 490;
+            const hwid = document.getElementById('inp-hwid').value.trim() || "*";
+            const sections = parseInt(document.getElementById('inp-sections').value, 10);
+
+            const payload = {
+                v: "1.0",
+                licenseType: "ANNUAL_SCHOOL",
+                kurumKodu: kKodu,
+                okulAdi: adi,
+                okulTuru: turu,
+                sezon: "2026-2027",
+                issueDate: new Date().toISOString().split('T')[0],
+                expireDate: exp,
+                hardwareId: hwid,
+                maxSections: sections,
+                allowExport: true,
+                developer: "Burhan AYSAN",
+                features: ["ALL_REPORTS", "EXCEL_CSV_EXPORT", "FULL_CURRICULUM_69_ALAN", "STAFF_MODULE", "EOKUL_IMPORT"]
+            };
+
+            lastPayload = payload;
+            const payloadJson = JSON.stringify(payload);
+            const payloadB64 = base64UrlEncode(payloadJson);
+
+            try {
+                const privCryptoKey = await window.crypto.subtle.importKey(
+                    "jwk",
+                    MASTER_PRIVATE_KEY_JWK,
+                    { name: "ECDSA", namedCurve: "P-256" },
+                    false,
+                    ["sign"]
+                );
+
+                const encoder = new TextEncoder();
+                const dataToSign = encoder.encode(`MEBNORM.${payloadB64}`);
+
+                const sigBuffer = await window.crypto.subtle.sign(
+                    { name: "ECDSA", hash: { name: "SHA-256" } },
+                    privCryptoKey,
+                    dataToSign
+                );
+
+                const sigB64 = base64UrlEncodeBuffer(sigBuffer);
+                lastGeneratedToken = `MEBNORM.${payloadB64}.${sigB64}`;
+
+                document.getElementById('out-token').value = lastGeneratedToken;
+                document.getElementById('keygen-result').style.display = 'block';
+
+                // Save to Master CRM Database
+                const existingIdx = clientsDB.findIndex(c => c.kurumKodu === kKodu);
+                const clientRecord = {
+                    id: 'CLI_' + Date.now(),
+                    kurumKodu: kKodu,
+                    okulAdi: adi,
+                    okulTuru: turu,
+                    fiyat: fiyat,
+                    issueDate: payload.issueDate,
+                    expireDate: exp,
+                    token: lastGeneratedToken,
+                    renewCount: existingIdx >= 0 ? (clientsDB[existingIdx].renewCount + 1) : 1
+                };
+
+                if (existingIdx >= 0) {
+                    clientsDB[existingIdx] = clientRecord;
+                } else {
+                    clientsDB.unshift(clientRecord);
+                }
+
+                localStorage.setItem('normmatik_master_clients_db', JSON.stringify(clientsDB));
+                renderCRM();
+                showToast("Lisans üretildi ve Master CRM veritabanına kaydedildi!");
+
+            } catch (e) {
+                alert("İmzalama hatası: " + e.message);
+            }
+        });
+
+        // Copy
+        document.getElementById('btn-copy-token').addEventListener('click', () => {
+            navigator.clipboard.writeText(lastGeneratedToken).then(() => showToast("Lisans anahtarı kopyalandı!"));
+        });
+
+        // Send via WhatsApp
+        document.getElementById('btn-send-wa').addEventListener('click', () => {
+            if (!lastGeneratedToken || !lastPayload) return;
+            const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSINIZ HAZIR!\n\n* Kurum: ${lastPayload.okulAdi} (${lastPayload.kurumKodu})\n* Lisans Bitiş: ${lastPayload.expireDate}\n\n🔑 LİSANS ANAHTARINIZ:\n${lastGeneratedToken}\n\n(Programda Üst Menüdeki 🔑 Lisans butonuna basıp bu anahtarı yapıştırarak hemen aktifleştirebilirsiniz. İyi çalışmalar dileriz!)`;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+
+        // Render CRM Table & KPIs
+        function renderCRM() {
+            const search = (document.getElementById('crm-search').value || '').toLowerCase();
+            const filterStatus = document.getElementById('crm-filter-status').value;
+            const tbody = document.getElementById('crm-table-body');
+
+            const now = new Date();
+            let totalRevenue = 0;
+            let activeCount = 0;
+            let expiringSoonCount = 0;
+
+            const filtered = clientsDB.filter(c => {
+                const matchSearch = c.okulAdi.toLowerCase().includes(search) || c.kurumKodu.includes(search);
+                const exp = new Date(c.expireDate);
+                const daysLeft = Math.ceil((exp - now) / (1000 * 60 * 60 * 24));
+                
+                let status = "ACTIVE";
+                if (daysLeft < 0) status = "EXPIRED";
+                else if (daysLeft <= 30) status = "WARNING";
+
+                if (status === "ACTIVE") activeCount++;
+                if (status === "WARNING") expiringSoonCount++;
+                totalRevenue += (c.fiyat || 490);
+
+                if (filterStatus !== "ALL" && status !== filterStatus) return false;
+                return matchSearch;
+            });
+
+            document.getElementById('disp-total-schools').textContent = clientsDB.length;
+            document.getElementById('disp-total-revenue').textContent = totalRevenue.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('disp-active-licenses').textContent = activeCount;
+            document.getElementById('disp-expiring-soon').textContent = expiringSoonCount;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz lisans kaydı bulunamadı. KeyGen sekmesinden lisans ürettikçe buraya otomatik kaydedilir.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(c => {
+                const exp = new Date(c.expireDate);
+                const daysLeft = Math.ceil((exp - now) / (1000 * 60 * 60 * 24));
+
+                let badgeHtml = '';
+                if (daysLeft < 0) {
+                    badgeHtml = `<span class="badge-status badge-expired">🔴 Süresi Doldu</span>`;
+                } else if (daysLeft <= 30) {
+                    badgeHtml = `<span class="badge-status badge-warning">🚨 ${daysLeft} Gün Kaldı</span>`;
+                } else {
+                    badgeHtml = `<span class="badge-status badge-active">🟢 ${daysLeft} Gün Kaldı</span>`;
+                }
+
+                return `
+                    <tr>
+                        <td><strong>${c.kurumKodu}</strong></td>
+                        <td><strong>${c.okulAdi}</strong> <span style="font-size: 0.7rem; color: var(--text-muted);">(${c.renewCount}. Yıl)</span></td>
+                        <td>${c.okulTuru}</td>
+                        <td><strong style="color: #10b981;">${c.fiyat || 490} ₺</strong></td>
+                        <td>${c.expireDate}</td>
+                        <td>${daysLeft > 0 ? daysLeft + ' Gün' : 'Doldu'}</td>
+                        <td>${badgeHtml}</td>
+                        <td style="text-align: right; white-space: nowrap;">
+                            <button class="btn-table-action btn-wa-remind" onclick="remindViaWhatsApp('${c.kurumKodu}')">📲 Hatırlat</button>
+                            <button class="btn-table-action" onclick="copyClientToken('${c.kurumKodu}')">📋 Kopyala</button>
+                            <button class="btn-table-action" onclick="deleteClient('${c.kurumKodu}')" style="color: #ef4444;">🗑️</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        window.copyClientToken = (kodu) => {
+            const c = clientsDB.find(x => x.kurumKodu === kodu);
+            if (c && c.token) {
+                navigator.clipboard.writeText(c.token).then(() => showToast(`${c.okulAdi} lisans kodu kopyalandı!`));
+            }
+        };
+
+        window.remindViaWhatsApp = (kodu) => {
+            const c = clientsDB.find(x => x.kurumKodu === kodu);
+            if (!c) return;
+            const exp = new Date(c.expireDate);
+            const daysLeft = Math.ceil((exp - new Date()) / (1000 * 60 * 60 * 24));
+            const msg = `Sayın Müdürüm Merhaba, ${c.okulAdi} kurumunuz için kullandığınız NormMatik™ lisansınızın bitmesine ${daysLeft > 0 ? daysLeft + ' gün kalmıştır' : 'süre dolmuştur'}.\n\nYeni eğitim-öğretim sezonunda kesintisiz norm hesaplaması için lisansınızı 490 ₺ lansman fiyatıyla yenilemek ister misiniz?`;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
+        window.deleteClient = (kodu) => {
+            if (confirm(`${kodu} kurum kodlu okulu listeden silmek istediğinize emin misiniz?`)) {
+                clientsDB = clientsDB.filter(x => x.kurumKodu !== kodu);
+                localStorage.setItem('normmatik_master_clients_db', JSON.stringify(clientsDB));
+                renderCRM();
+                showToast("Okul kaydı silindi.");
+            }
+        };
+
+        document.getElementById('crm-search').addEventListener('input', renderCRM);
+        document.getElementById('crm-filter-status').addEventListener('change', renderCRM);
+
+        // JSON Backup / Restore
+        document.getElementById('btn-export-crm-json').addEventListener('click', () => {
+            const blob = new Blob([JSON.stringify(clientsDB, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `normmatik_master_crm_yedek_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        });
+
+        document.getElementById('btn-import-crm-json').addEventListener('click', () => {
+            document.getElementById('file-crm-import').click();
+        });
+
+        document.getElementById('file-crm-import').addEventListener('change', (e) => {
+            const f = e.target.files[0];
+            if (!f) return;
+            const r = new FileReader();
+            r.onload = (ev) => {
+                try {
+                    const imported = JSON.parse(ev.target.result);
+                    if (Array.isArray(imported)) {
+                        clientsDB = imported;
+                        localStorage.setItem('normmatik_master_clients_db', JSON.stringify(clientsDB));
+                        renderCRM();
+                        showToast("CRM Yedek Veritabanı Başarıyla Yüklendi!");
+                    }
+                } catch (err) {
+                    alert("Geçersiz yedek dosyası: " + err.message);
+                }
+            };
+            r.readAsText(f);
+        });
+
+        function showToast(msg) {
+            const t = document.getElementById('toast-msg');
+            t.textContent = msg;
+            t.style.display = 'block';
+            setTimeout(() => { t.style.display = 'none'; }, 3000);
+        }
+    </script>
+</body>
+</html>
