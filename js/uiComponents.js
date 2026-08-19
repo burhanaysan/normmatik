@@ -4884,8 +4884,7 @@ Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı al
                     this.closeModal("license-modal");
                     window.location.reload();
                 } else {
-                    alert("❌ Lisans Doğrulama Başarısız:
-" + res.reason);
+                    alert(`❌ Lisans Doğrulama Başarısız:\n${res.reason}`);
                 }
             }
         });
