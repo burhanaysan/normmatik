@@ -4880,11 +4880,7 @@ Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı al
             if (typeof window !== 'undefined' && window.licenseManager) {
                 const res = await window.licenseManager.activateLicense(cleanToken);
                 if (res.success) {
-                    alert("🎉 TEBRİKLER!
-
-Lisansınız başarıyla aktifleştirildi.
-Kurum: " + (res.status.okulAdi || 'Pro Kurum') + "
-Tür: " + res.status.licenseType);
+                    alert(`🎉 TEBRİKLER!\n\nLisansınız başarıyla aktifleştirildi.\nKurum: ${res.status.okulAdi || 'Pro Kurum'}\nTür: ${res.status.licenseType}`);
                     this.closeModal("license-modal");
                     window.location.reload();
                 } else {
