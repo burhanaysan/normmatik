@@ -44,16 +44,25 @@ class MebNormApplication {
             if (session && !session.isDemo) {
                 localStorage.setItem("normmatik_onboarding_seen", "true");
                 appState.state.okulBilgisi.okulTuruKilitli = true;
-                if (session.okulTuru) {
-                    appState.state.okulBilgisi.okulTuru = session.okulTuru;
+                
+                // Kayıtlı Okul Bilgisini Çöz
+                const resolved = authService.resolveSchoolInfo(session.kurumKodu);
+                
+                appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
+                appState.state.okulBilgisi.okulAdi = resolved?.okulAdi || session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
+                appState.state.okulBilgisi.okulTuru = resolved?.okulTuru || session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
+                if (resolved?.il) appState.state.okulBilgisi.il = resolved.il;
+                if (resolved?.ilce) appState.state.okulBilgisi.ilce = resolved.ilce;
+                
+                if (appState.state.okulBilgisi.antet) {
+                    appState.state.okulBilgisi.antet.resmiOkulAdi = appState.state.okulBilgisi.okulAdi;
+                    appState.state.okulBilgisi.antet.kurumKodu = session.kurumKodu;
+                    if (resolved?.il) appState.state.okulBilgisi.antet.ilValiligi = `${resolved.il.toUpperCase()} VALİLİĞİ`;
+                    if (resolved?.ilce) appState.state.okulBilgisi.antet.ilceMem = `${resolved.ilce.toUpperCase()} İlçe Millî Eğitim Müdürlüğü`;
                 }
-                if (session.okulAdi) {
-                    appState.state.okulBilgisi.okulAdi = session.okulAdi;
-                }
-                if (session.kurumKodu) {
-                    appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
-                }
+
                 appState.state.okulBilgisi.isDemo = false;
+                appState.saveToStorage();
             } else if (session && session.isDemo) {
                 const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
                 if (!hasSeenOnboarding) {

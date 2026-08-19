@@ -397,8 +397,8 @@
                 submitBtn.innerHTML = "🔄 Okul Yükleniyor...";
 
                 // Master CRM veya Buluttan Okul Adı & Türünü Çek
-                let resolvedOkulAdi = `MEB Okulu (${kurumKodu})`;
-                let resolvedOkulTuru = "mesleki_ve_teknik_anadolu_lisesi";
+                let resolvedOkulAdi = (kurumKodu === "131313") ? "Akşehir Nasreddin Hoca Mesleki ve Teknik Anadolu Lisesi" : (kurumKodu === "754123" ? "Kadıköy Anadolu Lisesi" : `MEB Okulu (${kurumKodu})`);
+                let resolvedOkulTuru = (kurumKodu === "131313") ? "mesleki_ve_teknik_anadolu_lisesi" : "anadolu_lisesi";
 
                 try {
                     // 1. Bulut Veritabanından okul bilgilerini kontrol et

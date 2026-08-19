@@ -4113,9 +4113,55 @@ if (typeof window !== 'undefined') {
  * MEB Kurum Kodu, Şifre/Lisans Anahtarı ve Okul Kilidi Koruması
  */
 
+const REGISTERED_SCHOOLS = {
+    "131313": {
+        okulAdi: "Akşehir Nasreddin Hoca Mesleki ve Teknik Anadolu Lisesi",
+        okulTuru: "mesleki_ve_teknik_anadolu_lisesi",
+        il: "KONYA",
+        ilce: "AKŞEHİR"
+    },
+    "754123": {
+        okulAdi: "Kadıköy Anadolu Lisesi",
+        okulTuru: "anadolu_lisesi",
+        il: "İSTANBUL",
+        ilce: "KADIKÖY"
+    },
+    "123456": {
+        okulAdi: "Örnek Atatürk Anadolu Lisesi (Demo)",
+        okulTuru: "anadolu_lisesi",
+        il: "ANKARA",
+        ilce: "ÇANKAYA"
+    }
+};
+
 class AuthService {
     constructor() {
         this.SESSION_KEY = "normmatik_active_session";
+    }
+
+    /**
+     * Kurum Koduna göre kayıtlı okul bilgilerini çözer
+     */
+    resolveSchoolInfo(kurumKodu) {
+        if (!kurumKodu) return null;
+        const reg = REGISTERED_SCHOOLS[kurumKodu];
+        if (reg) return reg;
+
+        // Tarayıcı yerel master CRM'inden kontrol et
+        try {
+            const crm = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
+            const found = crm.find(c => c.kurumKodu === kurumKodu);
+            if (found) {
+                return {
+                    okulAdi: found.okulAdi,
+                    okulTuru: found.okulTuru,
+                    il: "",
+                    ilce: ""
+                };
+            }
+        } catch(e) {}
+
+        return null;
     }
 
     /**
@@ -10658,16 +10704,25 @@ class MebNormApplication {
             if (session && !session.isDemo) {
                 localStorage.setItem("normmatik_onboarding_seen", "true");
                 appState.state.okulBilgisi.okulTuruKilitli = true;
-                if (session.okulTuru) {
-                    appState.state.okulBilgisi.okulTuru = session.okulTuru;
+                
+                // Kayıtlı Okul Bilgisini Çöz
+                const resolved = authService.resolveSchoolInfo(session.kurumKodu);
+                
+                appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
+                appState.state.okulBilgisi.okulAdi = resolved?.okulAdi || session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
+                appState.state.okulBilgisi.okulTuru = resolved?.okulTuru || session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
+                if (resolved?.il) appState.state.okulBilgisi.il = resolved.il;
+                if (resolved?.ilce) appState.state.okulBilgisi.ilce = resolved.ilce;
+                
+                if (appState.state.okulBilgisi.antet) {
+                    appState.state.okulBilgisi.antet.resmiOkulAdi = appState.state.okulBilgisi.okulAdi;
+                    appState.state.okulBilgisi.antet.kurumKodu = session.kurumKodu;
+                    if (resolved?.il) appState.state.okulBilgisi.antet.ilValiligi = `${resolved.il.toUpperCase()} VALİLİĞİ`;
+                    if (resolved?.ilce) appState.state.okulBilgisi.antet.ilceMem = `${resolved.ilce.toUpperCase()} İlçe Millî Eğitim Müdürlüğü`;
                 }
-                if (session.okulAdi) {
-                    appState.state.okulBilgisi.okulAdi = session.okulAdi;
-                }
-                if (session.kurumKodu) {
-                    appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
-                }
+
                 appState.state.okulBilgisi.isDemo = false;
+                appState.saveToStorage();
             } else if (session && session.isDemo) {
                 const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
                 if (!hasSeenOnboarding) {
