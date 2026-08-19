@@ -6698,3 +6698,79 @@ html, body {
         background: rgba(254, 226, 226, 0.15) !important;
     }
 }
+
+
+/* ==========================================================================
+   🏢 KUSURSUZ ÜST BAŞLIK (HEADER) & OKUL BİLGİLERİ DÜZENİ (v1.1.5)
+   ========================================================================== */
+.app-header {
+    height: 90px !important;
+    min-height: 90px !important;
+    padding: 0.5rem 1.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.85rem !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+}
+
+.header-section-module.section-school-info {
+    flex: 1 0 auto !important;
+    min-width: 320px !important;
+    max-width: 480px !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.school-executive-cluster {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    width: 100% !important;
+}
+
+.school-title-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.school-title-executive {
+    font-size: 1.15rem !important;
+    font-weight: 800 !important;
+    padding: 0.28rem 0.85rem !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.school-meta-pills {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.school-type-tag {
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.22rem 0.75rem !important;
+    font-size: 0.76rem !important;
+    border-radius: 9999px !important;
+}
+
+.season-pill-box {
+    padding: 0.22rem 0.75rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+}
