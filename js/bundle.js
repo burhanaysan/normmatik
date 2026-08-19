@@ -16078,12 +16078,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 21,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -16157,12 +16151,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 22,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -16235,12 +16223,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 23,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
@@ -21633,12 +21615,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 26,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -21735,12 +21711,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ  ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 27,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -21839,12 +21809,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 28,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -21941,12 +21905,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 29,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22045,12 +22003,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 30,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22147,12 +22099,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 31,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22251,12 +22197,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 32,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22353,12 +22293,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 33,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22457,12 +22391,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 34,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22559,12 +22487,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 35,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22663,12 +22585,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 36,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22765,12 +22681,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 37,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22869,12 +22779,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 38,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22971,12 +22875,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ENDÜSTRİYEL BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 39,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -23075,12 +22973,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 40,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -23177,12 +23069,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (SAVUNMA ELEKTRONİK SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 41,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -30789,12 +30675,6 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
-          {
-            "ders": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
-            "saat": 15,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
