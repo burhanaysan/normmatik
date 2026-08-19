@@ -4676,7 +4676,7 @@ export class UIComponentManager {
         const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 3 };
         const okulInfo = this.state.state.okulBilgisi || {};
         const types = this.db.getSchoolTypes();
-        const currentType = okulInfo.okulTuru || "anadolu_lisesi";
+        const currentType = okulInfo.okulTuru || "";
 
         // Okul türü seçenekleri
         const grouped = {};
@@ -4686,7 +4686,7 @@ export class UIComponentManager {
             grouped[cat].push(t);
         });
 
-        let typeOptionsHtml = "";
+        let typeOptionsHtml = `<option value="" ${!currentType ? 'selected disabled' : ''}>-- Lütfen Okul / Kurum Türünü Seçiniz --</option>`;
         for (const [catName, catTypes] of Object.entries(grouped)) {
             typeOptionsHtml += `<optgroup label="📂 ${catName}">`;
             catTypes.forEach(t => {
@@ -4841,12 +4841,30 @@ export class UIComponentManager {
 
         // WhatsApp ile Lisans Satın Alma Linki
         document.getElementById("btn-send-whatsapp-license")?.addEventListener("click", () => {
+            const kKodu = document.getElementById("lic-inp-kurum-kodu")?.value.trim() || "";
+            const oAdi = document.getElementById("lic-inp-okul-adi")?.value.trim() || "";
+            const turSelect = document.getElementById("lic-inp-okul-turu");
+            const oTuru = turSelect ? turSelect.value : "";
+
+            if (!kKodu) {
+                this.showToast("⚠️ Lütfen MEB Kurum Kodunuzu giriniz!", "warning");
+                document.getElementById("lic-inp-kurum-kodu")?.focus();
+                return;
+            }
+            if (!oAdi) {
+                this.showToast("⚠️ Lütfen Okul Adınızı giriniz!", "warning");
+                document.getElementById("lic-inp-okul-adi")?.focus();
+                return;
+            }
+            if (!oTuru) {
+                this.showToast("⚠️ Lütfen geçerli bir Okul / Kurum Türü seçiniz!", "warning");
+                document.getElementById("lic-inp-okul-turu")?.focus();
+                return;
+            }
+
             syncSchoolInputs();
 
-            const kKodu = document.getElementById("lic-inp-kurum-kodu")?.value.trim() || (okulInfo.kurumKodu || "754123");
-            const oAdi = document.getElementById("lic-inp-okul-adi")?.value.trim() || (okulInfo.okulAdi || "MEB Okulu");
-            const turSelect = document.getElementById("lic-inp-okul-turu");
-            const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "Anadolu Lisesi";
+            const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "";
             const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "Belirtilmedi";
             const hwid = document.getElementById("disp-hwid")?.textContent || "*";
 
