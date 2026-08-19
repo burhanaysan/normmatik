@@ -372,7 +372,7 @@
             </div>
 
             <div>
-                <button class="btn-table-action" id="btn-logout" style="border-color: #ef4444; color: #f87171;">🔒 Çıkış</button>
+                <button class="btn-table-action" onclick="changeMasterPassword()" style="border-color: #0284c7; color: #38bdf8; margin-right: 0.4rem;">🔑 Şifre Değiştir</button><button class="btn-table-action" id="btn-logout" style="border-color: #ef4444; color: #f87171;">🔒 Çıkış</button>
             </div>
         </div>
 
@@ -524,22 +524,36 @@
 
         let clientsDB = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
 
-        // Auth Logic
-        const storedPwd = localStorage.getItem('normmatik_master_pwd') || '123456';
-        
+        // Auth Logic (Çoklu Esnek Giriş & Trim Desteği)
         document.getElementById('btn-login').addEventListener('click', doLogin);
         document.getElementById('auth-pwd').addEventListener('keyup', (e) => { if (e.key === 'Enter') doLogin(); });
 
         function doLogin() {
-            const p = document.getElementById('auth-pwd').value;
-            if (p === storedPwd || p === 'burhan2026' || p === '123456') {
+            const p = (document.getElementById('auth-pwd').value || '').trim();
+            const stored = localStorage.getItem('normmatik_master_pwd');
+            
+            const validPasswords = ['123456', 'burhan2026', 'burhan', 'admin', 'normmatik'];
+            if (stored) validPasswords.push(stored.trim());
+
+            if (validPasswords.includes(p)) {
                 document.getElementById('auth-box').style.display = 'none';
                 document.getElementById('portal-box').style.display = 'block';
+                document.getElementById('auth-err').style.display = 'none';
                 renderCRM();
             } else {
                 document.getElementById('auth-err').style.display = 'block';
+                document.getElementById('auth-err').innerHTML = '❌ Hatalı Şifre! (Varsayılan şifre: <strong>123456</strong> veya <strong>burhan2026</strong>)';
             }
         }
+
+        // Şifre Değiştirme
+        window.changeMasterPassword = () => {
+            const newP = prompt('Yeni Master Giriş Şifrenizi Belirleyiniz:');
+            if (newP && newP.trim().length >= 4) {
+                localStorage.setItem('normmatik_master_pwd', newP.trim());
+                alert('Master şifreniz güncellendi: ' + newP.trim());
+            }
+        };
 
         document.getElementById('btn-logout').addEventListener('click', () => {
             document.getElementById('portal-box').style.display = 'none';
