@@ -6880,3 +6880,118 @@ html, body {
     font-size: 0.76rem !important;
     height: 30px !important;
 }
+
+
+/* ==========================================================================
+   🎯 SAĞ PANEL ULTRA KOMPAKT KPI & BELİRGİN YASAL UYARI DÜZENİ (v1.1.7)
+   ========================================================================== */
+.norm-kpi-grid-compact {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.35rem !important;
+    padding: 0.4rem 0.85rem 0.45rem 0.85rem !important;
+    background: var(--bg-card-subtle) !important;
+    border-bottom: 1.5px solid var(--border-main) !important;
+    flex-shrink: 0 !important;
+}
+
+.kpi-banner-load {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.22rem 0.65rem !important;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.08) 100%) !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    border-radius: 6px !important;
+}
+
+.kpi-banner-label {
+    font-size: 0.74rem !important;
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
+}
+
+.kpi-banner-val {
+    font-size: 0.98rem !important;
+    font-weight: 900 !important;
+    color: #d97706 !important;
+}
+
+[data-theme="dark"] .kpi-banner-val {
+    color: #fbbf24 !important;
+}
+
+.kpi-row-quad {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.3rem !important;
+}
+
+.kpi-chip {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.22rem 0.15rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-main) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.kpi-chip-title {
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
+    margin-bottom: 0.15rem !important;
+}
+
+.kpi-chip-num {
+    font-size: 0.95rem !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+}
+
+.kpi-chip-num.blue { color: #0284c7 !important; }
+.kpi-chip-num.purple { color: #8b5cf6 !important; }
+.kpi-chip-num.red { color: #dc2626 !important; }
+
+/* BELİRGİN VE BAĞIMSIZ YASAL UYARI KUTUSU */
+.sidebar-right-disclaimer-distinct {
+    margin: 0.45rem 0.75rem 0.35rem 0.75rem !important;
+    background: #fef3c7 !important;
+    border: 1.5px solid #f59e0b !important;
+    border-radius: 8px !important;
+    padding: 0.45rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    color: #92400e !important;
+    line-height: 1.35 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.45rem !important;
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.18) !important;
+    flex-shrink: 0 !important;
+}
+
+.disclaimer-icon {
+    font-size: 1rem !important;
+    flex-shrink: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.disclaimer-body strong {
+    color: #b45309 !important;
+}
+
+[data-theme="dark"] .sidebar-right-disclaimer-distinct {
+    background: rgba(245, 158, 11, 0.12) !important;
+    border: 1.5px solid #d97706 !important;
+    color: #fef08a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .disclaimer-body strong {
+    color: #fbbf24 !important;
+}

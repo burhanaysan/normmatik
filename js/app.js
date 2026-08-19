@@ -1150,35 +1150,35 @@ class MebNormApplication {
                         </button>
                     </div>
                 </div>
-                <div class="norm-kpi-grid">
-                    <div class="kpi-card kpi-card-amber kpi-card-full" title="Okulun Tüm Branşlar ve Şubeler Dahil Toplam Haftalık Ders Yükü">
-                        <div class="kpi-load-wrapper">
-                            <div class="kpi-load-left">
-                                <span class="kpi-load-icon">⏱️</span>
-                                <span class="kpi-label">Toplam Okul Yükü</span>
-                            </div>
-                            <span class="kpi-val amber">${normResult.totalHours} <span class="kpi-unit">Saat</span></span>
+                <div class="norm-kpi-grid-compact">
+                    <!-- Toplam Yük İnce Şerit -->
+                    <div class="kpi-banner-load">
+                        <span class="kpi-banner-label">⏱️ Toplam Okul Yükü</span>
+                        <span class="kpi-banner-val">${normResult.totalHours} <span style="font-size: 0.72rem; font-weight: 600;">Saat</span></span>
+                    </div>
+
+                    <!-- 4'lü Kompakt Mini Rozet Grubu -->
+                    <div class="kpi-row-quad">
+                        <div class="kpi-chip kpi-chip-blue" title="Hesaplanan Norm">
+                            <span class="kpi-chip-title">Norm</span>
+                            <span class="kpi-chip-num blue">${normResult.totalCalculatedNorm}</span>
                         </div>
-                    </div>
-                    <div class="kpi-card kpi-card-blue">
-                        <span class="kpi-label">Hesaplanan Norm</span>
-                        <span class="kpi-val blue">${normResult.totalCalculatedNorm}</span>
-                    </div>
-                    <div class="kpi-card kpi-card-slate">
-                        <span class="kpi-label">Mevcut Öğretmen</span>
-                        <span class="kpi-val">${normResult.totalCurrentTeachers}</span>
-                    </div>
-                    <div class="kpi-card kpi-card-purple">
-                        <span class="kpi-label">Toplam İhtiyaç</span>
-                        <span class="kpi-val purple">${normResult.totalNeeded > 0 ? '-' + normResult.totalNeeded : '0'}</span>
-                    </div>
-                    <div class="kpi-card kpi-card-red">
-                        <span class="kpi-label">Toplam Fazla</span>
-                        <span class="kpi-val red">${normResult.totalSurplus > 0 ? '+' + normResult.totalSurplus : '0'}</span>
+                        <div class="kpi-chip kpi-chip-slate" title="Mevcut Öğretmen Sayısı">
+                            <span class="kpi-chip-title">Mevcut</span>
+                            <span class="kpi-chip-num">${normResult.totalCurrentTeachers}</span>
+                        </div>
+                        <div class="kpi-chip kpi-chip-purple" title="Toplam Norm İhtiyacı">
+                            <span class="kpi-chip-title">İhtiyaç</span>
+                            <span class="kpi-chip-num purple">${normResult.totalNeeded > 0 ? '-' + normResult.totalNeeded : '0'}</span>
+                        </div>
+                        <div class="kpi-chip kpi-chip-red" title="Toplam Norm Fazlası">
+                            <span class="kpi-chip-title">Fazla</span>
+                            <span class="kpi-chip-num red">${normResult.totalSurplus > 0 ? '+' + normResult.totalSurplus : '0'}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-                        <div class="norm-table-container">
+            <div class="norm-table-container">
                 <table class="norm-table">
                     <thead>
                         <tr>
@@ -1193,9 +1193,9 @@ class MebNormApplication {
                     </tbody>
                 </table>
             </div>
-                        <div class="sidebar-right-disclaimer-mini" style="margin: 0.35rem 0.65rem 0.2rem 0.65rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; padding: 0.35rem 0.55rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.35; display: flex; align-items: flex-start; gap: 0.35rem;">
-                <span style="font-size: 0.85rem; flex-shrink: 0; color: #b45309;">⚖️</span>
-                <div>
+                        <div class="sidebar-right-disclaimer-distinct">
+                <span class="disclaimer-icon">⚠️</span>
+                <div class="disclaimer-body">
                     <strong>Ön Hazırlık & Bölge Normu:</strong> Hesaplamalar karar destek amaçlıdır. MEB Bölge Normu uygulaması gereği 33 saat gibi artık saatlerde okul normu 1 olarak takdir edilebilir.
                 </div>
             </div>
