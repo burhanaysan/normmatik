@@ -1182,15 +1182,7 @@ class MebNormApplication {
                     </div>
                 </div>
             </div>
-                        <div class="sidebar-right-disclaimer" style="margin: 0.5rem 0.65rem 0.25rem 0.65rem; background: rgba(245, 158, 11, 0.08); border: 1.5px dashed #f59e0b; border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.72rem; color: var(--text-main); line-height: 1.4;">
-                <div style="font-weight: 800; color: #b45309; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.2rem;">
-                    <span>⚠️</span> Yasal Uyarı & Bölge Normu Hatırlatması
-                </div>
-                <div style="color: var(--text-muted);">
-                    Bu hesaplamalar <strong>karar destek ve ön planlama</strong> amaçlıdır; resmî MEBBİS kayıtları yerine geçmez. <strong>Bölge Normu:</strong> Okulunuzda 33 saat derse bağımsız olarak 2 norm çıksa dahi; eğitim bölgesindeki artık saatler havuzuna göre okulunuza 1 norm takdir edilebilir. Nihai yetki MEB komisyonlarındadır.
-                </div>
-            </div>
-            <div class="norm-table-container">
+                        <div class="norm-table-container">
                 <table class="norm-table">
                     <thead>
                         <tr>
@@ -1204,6 +1196,12 @@ class MebNormApplication {
                         ${rowsHtml.length > 0 ? rowsHtml : '<tr><td colspan="4" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz ders yükü hesaplanmadı.</td></tr>'}
                     </tbody>
                 </table>
+            </div>
+                        <div class="sidebar-right-disclaimer-mini" style="margin: 0.35rem 0.65rem 0.2rem 0.65rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; padding: 0.35rem 0.55rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.35; display: flex; align-items: flex-start; gap: 0.35rem;">
+                <span style="font-size: 0.85rem; flex-shrink: 0; color: #b45309;">⚖️</span>
+                <div>
+                    <strong>Ön Hazırlık & Bölge Normu:</strong> Hesaplamalar karar destek amaçlıdır. MEB Bölge Normu uygulaması gereği 33 saat gibi artık saatlerde okul normu 1 olarak takdir edilebilir.
+                </div>
             </div>
             <div class="sidebar-right-footer">
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">

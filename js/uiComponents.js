@@ -446,14 +446,22 @@ export class UIComponentManager {
 
                         ${slide.contentHtml}
 
+                        <!-- Tekrar Gösterme Onay Kutusu -->
+                        <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: flex-start;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.76rem; color: var(--text-muted); cursor: pointer; user-select: none;">
+                                <input type="checkbox" id="chk-dont-show-onboarding" checked style="cursor: pointer; width: 15px; height: 15px;">
+                                <span>Bu tanıtım ekranını bir daha gösterme</span>
+                            </label>
+                        </div>
+
                         <!-- Alt Gezinme & Aksiyon Çubuğu -->
-                        <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.25rem;">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1rem;">
                             <div style="display: flex; gap: 0.4rem; align-items: center;">
                                 ${dotsHtml}
                             </div>
                             <div style="display: flex; gap: 0.5rem;">
-                                ${idx > 0 ? `<button class="btn btn-outline" id="btn-onboarding-prev" style="padding: 0.6rem 1rem; font-weight: 700;">❮ Geri</button>` : ''}
-                                <button class="btn btn-primary" id="btn-onboarding-next" style="padding: 0.65rem 1.4rem; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
+                                ${idx > 0 ? `<button class="btn btn-outline" id="btn-onboarding-prev" style="padding: 0.55rem 0.9rem; font-weight: 700;">❮ Geri</button>` : ''}
+                                <button class="btn btn-primary" id="btn-onboarding-next" style="padding: 0.6rem 1.3rem; font-weight: 800; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
                                     ${isLast ? '🚀 Başlayalım ve Okulu Kuralım' : 'İleri ❯'}
                                 </button>
                             </div>
@@ -496,9 +504,16 @@ export class UIComponentManager {
         };
 
         const finishOnboarding = () => {
-            try {
-                localStorage.setItem("normmatik_onboarding_seen", "true");
-            } catch (e) {}
+            const chk = document.getElementById("chk-dont-show-onboarding");
+            if (chk && chk.checked) {
+                try {
+                    localStorage.setItem("normmatik_onboarding_seen", "true");
+                } catch (e) {}
+            } else {
+                try {
+                    localStorage.removeItem("normmatik_onboarding_seen");
+                } catch (e) {}
+            }
             this.closeModal("onboarding-modal");
             if (typeof onFinishCallback === 'function') {
                 onFinishCallback();

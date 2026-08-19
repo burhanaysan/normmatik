@@ -5935,14 +5935,22 @@ class UIComponentManager {
 
                         ${slide.contentHtml}
 
+                        <!-- Tekrar Gösterme Onay Kutusu -->
+                        <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: flex-start;">
+                            <label style="display: flex; align-items: center; gap: 0.45rem; font-size: 0.76rem; color: var(--text-muted); cursor: pointer; user-select: none;">
+                                <input type="checkbox" id="chk-dont-show-onboarding" checked style="cursor: pointer; width: 15px; height: 15px;">
+                                <span>Bu tanıtım ekranını bir daha gösterme</span>
+                            </label>
+                        </div>
+
                         <!-- Alt Gezinme & Aksiyon Çubuğu -->
-                        <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.25rem;">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1rem;">
                             <div style="display: flex; gap: 0.4rem; align-items: center;">
                                 ${dotsHtml}
                             </div>
                             <div style="display: flex; gap: 0.5rem;">
-                                ${idx > 0 ? `<button class="btn btn-outline" id="btn-onboarding-prev" style="padding: 0.6rem 1rem; font-weight: 700;">❮ Geri</button>` : ''}
-                                <button class="btn btn-primary" id="btn-onboarding-next" style="padding: 0.65rem 1.4rem; font-weight: 800; font-size: 0.9rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
+                                ${idx > 0 ? `<button class="btn btn-outline" id="btn-onboarding-prev" style="padding: 0.55rem 0.9rem; font-weight: 700;">❮ Geri</button>` : ''}
+                                <button class="btn btn-primary" id="btn-onboarding-next" style="padding: 0.6rem 1.3rem; font-weight: 800; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);">
                                     ${isLast ? '🚀 Başlayalım ve Okulu Kuralım' : 'İleri ❯'}
                                 </button>
                             </div>
@@ -5985,9 +5993,16 @@ class UIComponentManager {
         };
 
         const finishOnboarding = () => {
-            try {
-                localStorage.setItem("normmatik_onboarding_seen", "true");
-            } catch (e) {}
+            const chk = document.getElementById("chk-dont-show-onboarding");
+            if (chk && chk.checked) {
+                try {
+                    localStorage.setItem("normmatik_onboarding_seen", "true");
+                } catch (e) {}
+            } else {
+                try {
+                    localStorage.removeItem("normmatik_onboarding_seen");
+                } catch (e) {}
+            }
             this.closeModal("onboarding-modal");
             if (typeof onFinishCallback === 'function') {
                 onFinishCallback();
@@ -11505,15 +11520,7 @@ class MebNormApplication {
                     </div>
                 </div>
             </div>
-                        <div class="sidebar-right-disclaimer" style="margin: 0.5rem 0.65rem 0.25rem 0.65rem; background: rgba(245, 158, 11, 0.08); border: 1.5px dashed #f59e0b; border-radius: 8px; padding: 0.55rem 0.75rem; font-size: 0.72rem; color: var(--text-main); line-height: 1.4;">
-                <div style="font-weight: 800; color: #b45309; display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.2rem;">
-                    <span>⚠️</span> Yasal Uyarı & Bölge Normu Hatırlatması
-                </div>
-                <div style="color: var(--text-muted);">
-                    Bu hesaplamalar <strong>karar destek ve ön planlama</strong> amaçlıdır; resmî MEBBİS kayıtları yerine geçmez. <strong>Bölge Normu:</strong> Okulunuzda 33 saat derse bağımsız olarak 2 norm çıksa dahi; eğitim bölgesindeki artık saatler havuzuna göre okulunuza 1 norm takdir edilebilir. Nihai yetki MEB komisyonlarındadır.
-                </div>
-            </div>
-            <div class="norm-table-container">
+                        <div class="norm-table-container">
                 <table class="norm-table">
                     <thead>
                         <tr>
@@ -11527,6 +11534,12 @@ class MebNormApplication {
                         ${rowsHtml.length > 0 ? rowsHtml : '<tr><td colspan="4" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz ders yükü hesaplanmadı.</td></tr>'}
                     </tbody>
                 </table>
+            </div>
+                        <div class="sidebar-right-disclaimer-mini" style="margin: 0.35rem 0.65rem 0.2rem 0.65rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 6px; padding: 0.35rem 0.55rem; font-size: 0.68rem; color: var(--text-muted); line-height: 1.35; display: flex; align-items: flex-start; gap: 0.35rem;">
+                <span style="font-size: 0.85rem; flex-shrink: 0; color: #b45309;">⚖️</span>
+                <div>
+                    <strong>Ön Hazırlık & Bölge Normu:</strong> Hesaplamalar karar destek amaçlıdır. MEB Bölge Normu uygulaması gereği 33 saat gibi artık saatlerde okul normu 1 olarak takdir edilebilir.
+                </div>
             </div>
             <div class="sidebar-right-footer">
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
