@@ -650,11 +650,40 @@ class MebCurriculumEngine {
             if (schedulesForGrade && schedulesForGrade.length > 0) {
                 let matchedSchedule = null;
                 if (dalName) {
-                    const normDal = this.normalizeName(dalName).replace('dali', '').replace('programi', '').trim();
-                    matchedSchedule = schedulesForGrade.find(s => {
-                        const tNorm = this.normalizeName(s.title);
-                        return tNorm.includes(normDal) || (normDal.length >= 4 && tNorm.includes(normDal.substring(0, 5)));
-                    });
+                    const normDal = this.normalizeName(dalName).toLowerCase();
+                    const STOP_WORDS = new Set(["alani", "teknolojisi", "teknolojileri", "programi", "haftalik", "ders", "cizelgesi", "anadolu", "meslek", "teknik", "dali", "ve", "sistemleri", "bolumu"]);
+                    const dalTokens = normDal.split(/[\s\-_/]+/).filter(t => t.length > 1 && !STOP_WORDS.has(t));
+                    const isAmp = !schoolTypeStr.includes("teknik") && !schoolTypeStr.includes("atp");
+
+                    let bestScore = -1;
+                    for (let s of schedulesForGrade) {
+                        const normTitle = this.normalizeName(s.title || "").toLowerCase();
+                        
+                        // AMP / ATP Program filtreleme
+                        const titleIsAtp = normTitle.includes("anadolu teknik programi") && !normTitle.includes("anadolu meslek programi");
+                        const titleIsAmp = normTitle.includes("anadolu meslek programi") && !normTitle.includes("anadolu teknik programi");
+                        if (isAmp && titleIsAtp) continue;
+                        if (!isAmp && titleIsAmp) continue;
+
+                        let score = 0;
+                        const parenMatch = normTitle.match(/\((.*?)\)/);
+                        const parenContent = parenMatch ? parenMatch[1] : "";
+
+                        if (parenContent && parenContent.includes(normDal)) score += 200;
+                        else if (normTitle.includes(normDal)) score += 100;
+
+                        // Token bazlı örtüşme
+                        let tokenMatches = 0;
+                        for (let t of dalTokens) {
+                            if (parenContent.includes(t)) score += 40;
+                            else if (normTitle.includes(t)) score += 15;
+                        }
+
+                        if (score > bestScore) {
+                            bestScore = score;
+                            matchedSchedule = s;
+                        }
+                    }
                 }
                 if (!matchedSchedule) {
                     matchedSchedule = schedulesForGrade[0];
