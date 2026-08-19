@@ -737,6 +737,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   "adalet": {
     "9": [
       {
+        "page": 3,
+        "title": "ADALET ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ADALET ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ADALET ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ADALET ALANI (ZABIT KÂTİPLİĞİ, İNFAZ VE KORUMA DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ADALET ALANI (ZABIT KÂTİPLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ADALET ALANI (ZABIT KÂTİPLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "ADALET ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ADALET ALANI (İNFAZ VE KORUMA DALI) HAFTALIK DERS ÇİZELGESİ 23 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ADALET ALANI (İNFAZ VE KORUMA DALI) HAFTALIK DERS ÇİZELGESİ 24 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ADALET ALANI (İNFAZ VE KORUMA DALI) HAFTALIK 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 26",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ADALET ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ADALET ALANI (İNFAZ VE KORUMA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ADALET ALANI (İNFAZ VE KORUMA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ KLAVYE UYGULAMALARI DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HUKUK DİLİ VE TERMİNOLOJİSİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ZABIT KÂTİPLİĞİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MEDENİ HUKUK VE MEDENİ USUL HUKUKU UYGULAMALARI DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ADLİ Y AZIŞMA DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERSONEL HUKUKU UYGULAMALARI DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HUKUKİ DOSY ALAMA VE EVRAK İŞLEMLERİ DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İDARE HUKUKU UYGULAMALARI DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KALEM HİZMETLERİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CUMHURİYET BAŞSAVCILIĞI KALEM HİZMETLERİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CEZA VE CEZA MUHAKEMESİ HUKUKU UYGULAMALARI DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İNFAZ VE KORUMA DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MEDENİ HUKUK VE MEDENİ USUL HUKUKU UYGULAMALARI DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ADLİ Y AZIŞMA DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERSONEL HUKUKU UYGULAMALARI DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HUKUKİ DOSY ALAMA VE EVRAK İŞLEMLERİ DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İDARE HUKUKU UYGULAMALARI DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "NÖBET İŞLEMLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CEZA VE İNFAZ HUKUKU UYGULAMALARI DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HÜKÜMLÜ VE TUTUKLU PSİKOLOJİSİ DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CEZA İNFAZ KURUMU GÜVENLİĞİ DERSİ",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 20,
         "title": "ADALET ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ADALET ALANI (ZABIT KÂTİPLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -2536,30 +2862,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İDARE HUKUKU UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CUMHURİYET BAŞSAVCILIĞI KALEM HİZMETLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEZA VE CEZA MUHAKEMESİ HUKUKU UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALEM HİZMETLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -2603,30 +2905,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İDARE HUKUKU UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "NÖBET İŞLEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HÜKÜMLÜ VE TUTUKLU PSİKOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEZA VE İNFAZ HUKUKU UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -2644,6 +2922,169 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "ayakkabipro": {
     "9": [
+      {
+        "page": 3,
+        "title": "AYAKKABI VE SARACİYE TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "AYAKKABI VE SARACİYE TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. AY AKKABI VE SARACİYE TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. AY AKKABI VE SARACİYE TEKNOLOJİSİ ALANI (AY AKKABI TASARIMI VE ÜRETİMİ, SARACİYE TASARIMI VE ÜRETİMİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI AY AKKABI VE SARACİYE TEKNOLOJİSİ ALANI (AYAKKABI TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI AY AKKABI VE SARACİYE TEKNOLOJİSİ ALANI (SARACİYE TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "AYAKKABI VE SARACİYE TEKNOLOJİSİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI AY AKKABI VE SARACİYE TEKNOLOJİSİ ALANI (AYAKKABI TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -3263,6 +3704,314 @@ const STRICT_PDF_CURRICULUM_DB = {
   "matbaa": {
     "9": [
       {
+        "page": 3,
+        "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. BASIM TEKNOLOJİLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ, BASKI SİSTEMLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 21 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 22 BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ÖNCESİ TEKNİKLERİ DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ve BASKI SONRASI TEKNİKLERİ DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ÖNCESİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÖRÜNTÜ İŞLEME DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL TABANLI GRAFİK TASARIM DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ SAYFA TASARIMI DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BASKI DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SİSTEMLERİ DALI",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OFSET BASKI DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SONRASI TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI TEKNİKLERİ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CİLTLEME TEKNİKLERİ DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BASKI DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AMBALAJ TASARIMI VE ÜRETİM SÜREÇLERİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FLEKSO BASKI TEKNİKLERİ DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FOTOĞRAF ÇEKİMİ VE DİJİTAL DÜZENLEME DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 18,
         "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -4894,24 +5643,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL BASKI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -4953,18 +5684,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "CİLTLEME TEKNİKLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -4985,6 +5704,314 @@ const STRICT_PDF_CURRICULUM_DB = {
   "basim": {
     "9": [
       {
+        "page": 3,
+        "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. BASIM TEKNOLOJİLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ, BASKI SİSTEMLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 21 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 22 BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ÖNCESİ TEKNİKLERİ DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ve BASKI SONRASI TEKNİKLERİ DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI ÖNCESİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÖRÜNTÜ İŞLEME DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL TABANLI GRAFİK TASARIM DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ SAYFA TASARIMI DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BASKI DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SİSTEMLERİ DALI",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OFSET BASKI DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SONRASI TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI TEKNİKLERİ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CİLTLEME TEKNİKLERİ DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BASKI DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AMBALAJ TASARIMI VE ÜRETİM SÜREÇLERİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FLEKSO BASKI TEKNİKLERİ DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FOTOĞRAF ÇEKİMİ VE DİJİTAL DÜZENLEME DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 18,
         "title": "BASIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI BASIM TEKNOLOJİLERİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -6616,24 +7643,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL BASKI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -6677,18 +7686,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "CİLTLEME TEKNİKLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -6706,6 +7703,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "bilisim": {
     "9": [
+      {
+        "page": 3,
+        "title": "BİLİŞİM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. BİLİŞİM TEKNOLOJİLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. BİLİŞİM TEKNOLOJİLERİ ALANI (Y AZILIM GELİŞTİRME VE AĞ İŞLETMENLİĞİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (Y AZILIM GELİŞTİRME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (Y AZILIM GELİŞTİRME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (Y AZILIM GELİŞTİRME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (AĞ İŞLETMENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (AĞ İŞLETMENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "BİLİŞİM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (AĞ İŞLETMENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (AĞ İŞLETMENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROGRAMLAMA TEMELLERİ DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİNİN TEMELLERİ DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLI TASARIM UYGULAMALARI DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AZILIM GELİŞTİRME DALI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "NESNE TABANLI PROGRAMLAMA DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VERİ TABANI YÖNETİMİ DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ROBOTİK VE KODLAMA DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "WEB TABANLI UYGULAMA GELİŞTİRME DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MOBİL UYGULAMALAR DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GRAFİK VE CANLANDIRMA DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AĞ İŞLETMENLİĞİ DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AĞ SİSTEMLERİ VE ANAHTARLAMA DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AÇIK KAYNAK AĞ UYGULAMALARI DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AĞ SİSTEMLERİ VE YÖNLENDİRME DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİBER GÜVENLİK TEMELLERİ DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SUNUCU İŞLETİM SİSTEMLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AÇIK KAYNAK İŞLETİM SİSTEMİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AĞ PROJESİ DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BLOK ZİNCİRİ DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BULUT BİLİŞİM DERSİ",
+            "saat": 69,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL GERÇEKLİK DERSİ",
+            "saat": 72,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "BİLİŞİM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI BİLİŞİM TEKNOLOJİLERİ ALANI (YAZILIM GELİŞTİRME DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -7319,6 +8648,169 @@ const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "title": "YAPAY ZEKA ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YAPAY ZEKA ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. Y APAY ZEKÂ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. Y APAY ZEKÂ ALANI (Y APAY ZEKÂ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI Y APAY ZEKÂ ALANI (YAPAY ZEKÂ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           }
@@ -8586,24 +10078,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "WEB TABANLI UYGULAMA GELİŞTİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MOBİL UYGULAMALAR",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GRAFİK VE CANLANDIRMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -8647,24 +10121,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AĞ SİSTEMLERİ VE YÖNLENDİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİK TEMELLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNUCU İŞLETİM SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -8682,6 +10138,296 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "biyomedikal": {
     "9": [
+      {
+        "page": 3,
+        "title": "BIYOMEDIKAL CIHAZ TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BIYOMEDIKAL CIHAZ TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (FİZYOLOJİK SİNY AL İZLEME SİSTEMLERİ, TIBBİ GÖRÜNTÜLEME SİSTEMLERİ, TIBBİ LABORATUV AR SİSTEMLERİ, Y AŞAM DESTEK VE TEDAVİ CİHAZLARI DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (FİZYOLOJİK SİNYAL İZLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (FİZYOLOJİK SİNYAL İZLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "BIYOMEDIKAL CIHAZ TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 25 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ LABORATUVAR SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 27",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BIYOMEDIKAL CIHAZ TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ LABORATUVAR SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ LABORATUVAR SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (YAŞAM DESTEK VE TEDAVİ CİHAZLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (YAŞAM DESTEK VE TEDAVİ CİHAZLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI (YAŞAM DESTEK VE TEDAVİ CİHAZLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYO ÖLÇME DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZYOLOJİK SİNY AL İZLEME SİSTEMLERİ DALI",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ FİZYOLOJİ VE TERMİNOLOJİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TIBBİ TEKNOLOJİ ORGANİZASYONU DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MİKRODENETLEYİCİ UYGULAMALARI DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYO ENSTRÜMANTASYON DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEŞHİS, TAKİP VE KAYIT CİHAZLARI DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTROFİZYOLOJİ CİHAZLARI DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 21,
         "title": "BİYOMEDİKAL CİHAZ TEKNOLOJİERLİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (FİZYOLOJİK SİNYAL İZLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -12042,24 +13788,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTROFİZYOLOJİ CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEŞHİS TAKİP VE KAYIT CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO SİNYAL İZLEME VE TAKİP CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -12101,24 +13829,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "X-IŞINLI GÖRÜNTÜLEYİCİLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK GÖRÜNTÜLEME CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RADYOLOJİ CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -12164,24 +13874,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR DESTEK CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ANALİZ VE LABORATUVAR CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK LABORATUVAR CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -12225,24 +13917,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AMELİYATHANE VE YOĞUN BAKIM CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ACİL SERVİS VE DESTEK TEDAVİ CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞAM DESTEK CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -12260,6 +13934,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "buro": {
     "9": [
+      {
+        "page": 3,
+        "title": "BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI (BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI (BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI (BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI (BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI ALANI (BÜRO YÖNETİMİ VE YÖNETİCİ ASİSTANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -13211,42 +15054,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "YAZIŞMA VE DOSYALAMA TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TASARIM PROGRAMLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İLERİ OFİS UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "WEB UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -13264,6 +15071,254 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "cocukgelisimi": {
     "9": [
+      {
+        "page": 3,
+        "title": "ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ERKEN ÇOCUKLUK EĞİTİMİ VE ÖZEL EĞİTİM DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ERKEN ÇOCUKLUK EĞİTİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ERKEN ÇOCUKLUK EĞİTİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ERKEN ÇOCUKLUK EĞİTİMİ DALI) HAFTALIK DERS ÇİZELGESİ 19 ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ERKEN ÇOCUKLUK EĞİTİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ÖZEL EĞİTİM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ÖZEL EĞİTİM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ ALANI (ÖZEL EĞİTİM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANNE VE ÇOCUK SAĞLIĞI DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇOCUK RUH SAĞLIĞI DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MÜZİK VE DRAMA ETKİNLİKLERİ DERSİ",
+            "saat": 30,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ERKEN ÇOCUKLUK EĞİTİMİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BELGE HAZIRLAMA VE OFİS BECERİLERİ DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GELİŞİM ALANLARI DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ERKEN ÇOCUKLUKTA ÖZ BAKIM VE GÖRGÜ KURALLARI DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ERKEN ÇOCUKLUKTA OYUN VE OYUNCAK DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "ÇOCUK GELIŞIMI VE EĞITIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ÇOCUK GELİŞİMİ VE EĞİTİMİ  ALANI (ERKEN ÇOCUKLUK EĞİTİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -14458,18 +16513,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "YETERSİZLİK TÜRLERİ VE KAYNAŞTIRMA EĞİTİMİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ERKEN ÇOCUKLUK VE ÖZEL EĞİTİMDE PROGRAM ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -14487,6 +16530,350 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "denizcilik": {
     "9": [
+      {
+        "page": 3,
+        "title": "DENİZCİLİK  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DENİZCİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. DENİZCİLİK ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME, GEMİ MAKİNELERİ İŞLETME VE GÜVERTE İŞLETME DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ MAKİNELERİ İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DENİZCİLİK ALANI (GEMİ MAKİNELERİ İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "DENİZCİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ 25 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 26",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DENİZCİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL DENİZCİLİK DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZCİLİK ÖRF VE ÂDETLERİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YÜZME DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZDE EMNİYET DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ Y ABANCI DİL (DENİZCİLİK) DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ ELEKTRONİĞİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRONİK SEYİR SİSTEMLERİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ KONTROL SİSTEMLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZDE HABERLEŞME DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZDE HABERLEŞME SİSTEMLERİ DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ MAKİNELERİ İŞLETME DALI",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZDE EMNİYET DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ Y ABANCI DİL (DENİZCİLİK) DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GEMİ MAKİNELERİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ MESLEK RESMİ DERSİ",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ MAKİNELERİ DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ OTOMASYONU DERSİ",
+            "saat": 72,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MEKANİK VE TERMODİNAMİK DERSİ",
+            "saat": 75,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EMNİYETLİ MAKİNE V ARDİY ASI TUTMA DERSİ",
+            "saat": 77,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZ HUKUKU DERSİ",
+            "saat": 79,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÜVERTE İŞLETME DALI",
+            "saat": 82,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENİZDE EMNİYET DERSİ",
+            "saat": 82,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 20,
         "title": "DENİZCİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -16233,24 +18620,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRONİK SEYİR SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS) TEKNİK",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -16291,36 +18660,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ MAKİNELERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GEMİ OTOMASYONU",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK VE TERMODİNAMİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "EMNİYETLİ MAKİNE VARDİYASI TUTMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DENİZ HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -16367,30 +18706,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SEYİR VE ELEKTRONİK SEYİR ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DENİZ HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YÜK İŞLEM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -16409,10 +18724,191 @@ const STRICT_PDF_CURRICULUM_DB = {
   "denizcilikpro": {
     "9": [
       {
+        "page": 3,
+        "title": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. DENİZCİLİK ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME, GEMİ MAKİNELERİ İŞLETME VE GÜVERTE İŞLETME DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ MAKİNELERİ İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 21,
         "title": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGELERİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GEMİ ELEKTRONİĞİ VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
@@ -16487,6 +18983,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -16559,6 +19061,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI DENİZCİLİK ALANI (GÜVERTE İŞLETME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "DENİZCİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
@@ -17384,6 +19892,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "yiyecek": {
     "9": [
+      {
+        "page": 3,
+        "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ, ET VE ET ÜRÜNLERİ, MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ 23 OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SÜT VE SÜT ÜRÜNLERİ DALI",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AYLA KÜLTÜRÜ VE SÜT ÜRÜNLERİ DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 44,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TADIM TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU MUTFAĞI SÜT VE SÜT ÜRÜNLERİ YEMEKLERİ DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ET VE ET ÜRÜNLERİ DALI",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU MUTFAĞINDA ET PİŞİRME TEKNİKLERİ DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 61,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -18312,6 +21146,326 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
+        "page": 3,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI, HELV ACILIK, ŞERBET VE TATLI SANATLARI, MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 38,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞI KÜLTÜRÜ VE ÇOK KATMANLI İSTANBUL DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MARMARA YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞI YEMEKLERİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA HELV ACILIK, ŞEKERLEME VE REÇEL TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HELV ACILIK, ŞERBET VE TATLI SANATLARI DALI",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 55,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA TATLILAR VE ŞERBETLER DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA EKMEKÇİLİK VE FIRIN KÜLTÜRÜ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 20,
         "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -19233,6 +22387,332 @@ const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. YİYECEK İÇECEK HİZMETLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. YİYECEK İÇECEK HİZMETLERİALANI (AŞÇILIK, PASTACILIK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK ve SERVİS BECERİLERİ DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ Y ABANCI DİL DERSİ (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK DALI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SERVİS BECERİLERİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK BECERİLERİ (10) DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK BECERİLERİ (11) DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TATLI VE HAMUR İŞLERİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KAHVE HAZIRLAMA DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFİ İŞARET TESCİLLİ ÜRÜNLERLE YEMEKLER DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PASTACILIK DALI",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL HAMUR TEKNİKLERİ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TATLI Y APIM TEKNİKLERİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PASTACILIK UYGULAMALARI DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAKLAV ACILIK DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİKOLATA VE ŞEKERLEMELER DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EKMEK Y APIMI DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KAHVE HAZIRLAMA DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SERVİS BECERİLERİ DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BUTİK PASTACILIK DERSİ",
+            "saat": 62,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           }
@@ -20420,24 +23900,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -20455,6 +23917,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "dogugastro": {
     "9": [
+      {
+        "page": 3,
+        "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ, ET VE ET ÜRÜNLERİ, MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ 23 OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (ET VE ET ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SÜT VE SÜT ÜRÜNLERİ DALI",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AYLA KÜLTÜRÜ VE SÜT ÜRÜNLERİ DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 44,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TADIM TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU MUTFAĞI SÜT VE SÜT ÜRÜNLERİ YEMEKLERİ DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ET VE ET ÜRÜNLERİ DALI",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU MUTFAĞINDA ET PİŞİRME TEKNİKLERİ DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOĞU ANADOLU YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 61,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI DOĞU ANADOLU GASTRONOMİ VE MUTFAK SANATLARI ALANI (SÜT VE SÜT ÜRÜNLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -21946,24 +25734,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -21982,10 +25752,318 @@ const STRICT_PDF_CURRICULUM_DB = {
   "elektrik": {
     "9": [
       {
+        "page": 3,
+        "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR, ELEKTRİK TESİSATLARI VE DAĞITIMI, ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ, ELEKTRONİK VE HABERLEŞME, ENDÜSTRİYEL BAKIM ONARIM, SAVUNMA ELEKTRONİK SİSTEMLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ 33 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ 34 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ 35 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ 36",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ENDÜSTRİYEL BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ENDÜSTRİYEL BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ENDÜSTRİYEL BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (SAVUNMA ELEKTRONİK SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK ESASLARI DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLA DEVRE DİZAYNI DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ASANSÖR MONTAJI DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ASANSÖR BAKIM VE KONTROL DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ASANSÖR KUMANDA TEKNİKLERİ DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YÜRÜYEN MERDİVEN VE YOL SİSTEMLERİ DERSİ",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL ELEKTRONİK DERSİ",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLA DEVRE DİZAYNI DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK ESASLARI DERSİ",
+            "saat": 70,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 26,
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ  ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22084,6 +26162,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22180,6 +26264,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22278,6 +26368,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22374,6 +26470,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22472,6 +26574,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22568,6 +26676,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22666,6 +26780,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22762,6 +26882,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -22860,6 +26986,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -22956,6 +27088,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -23054,6 +27192,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -23150,6 +27294,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ENDÜSTRİYEL BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -23248,6 +27398,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -23345,6 +27501,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "courses": [
           {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -23441,6 +27603,12 @@ const STRICT_PDF_CURRICULUM_DB = {
         "title": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (SAVUNMA ELEKTRONİK SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
@@ -26373,24 +30541,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ASANSÖR MONTAJ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ASANSÖR BAKIM ONARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI ASANSÖR TASARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -26431,24 +30581,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PANO ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ELEKTRİK TESİSAT PROJELERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KONTROL PANOLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -26495,18 +30627,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TESİSATLI EV CİHAZLARI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SOĞUTUCULAR VE KLİMALAR",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -26547,24 +30667,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKRODENETLEYİCİLER VE GÜVENLİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GÖRÜNTÜ SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HABERLEŞME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -26611,24 +30713,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMASYON ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ENDÜSTRİYEL ELEKTRONİK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKRODENETLEYİCİ VE KODLAMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -26672,24 +30756,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SAVUNMA ELEKTRONİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MİKRODENETLEYİCİ İLE PROGRAMLAMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEST UYGULAMALARI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -26701,6 +30767,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "elsanat": {
     "9": [
+      {
+        "page": 3,
+        "title": "EL SANATLARI TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "EL SANATLARI TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. EL SANATLARI TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI, DEKORATİF EV TEKSTİLİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EV TEKSTİLİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "EL SANATLARI TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ  ANADOLU TEKNİK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EV TEKSTİLİ DALI) HAFTALIK DERS ÇİZELGESİ 20 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EV TEKSTİLİ DALI)  HAFTALIK DERS ÇİZELGESİ 21 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 22",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "EL SANATLARI TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EV TEKSTİLİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EV TEKSTİLİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL TEKNİKLER DERSİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEKORATİF EL SANATLARI DALI",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL DESEN TASARIMI VE VEKTÖREL ÇİZİM DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YÜZEY OLUŞTURMA TEKNİKLERİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YÜZEY SÜSLEME TEKNİKLERİ DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLI AKSESUAR UYGULAMALARI DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEKORATİF SÜSLEME TEKNİKLERİ İLE AKSESUAR ÜRETİMİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GELENEKSEL EL SANATLARI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEKORATİF EV TEKSTİLİ DALI",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EV TEKSTİLİ ÜRETİMİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SÜSLEME TEKNİKLERİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL DESEN TASARIMI VE VEKTÖREL ÇİZİM DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLI AKSESUAR UYGULAMALARI DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLI NAKIŞ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEKORATİF ÖRTÜLER DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GELENEKSEL EL SANATLARI DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA HALI DESENİ ÇİZİMİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİTKİSEL ÖRÜCÜLÜK DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "EL SANATLARI TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -28288,6 +32680,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -28339,30 +32737,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AHŞAP BOYAMA ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GELENEKSEL EL SANATLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÖRGÜ ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -28406,24 +32780,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "EV TEKSTİLİ ÜRETİMİ ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL EL SANATLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -28441,6 +32797,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "endustriyel_kalite_kontrol": {
     "9": [
+      {
+        "page": 3,
+        "title": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Ekte verilen örnek ders bilgi formuna (DBF) uygun olarak diğer ders bilgi formları da hazırlanmıştır",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ENDÜSTRİYEL KALİTE KONTROL ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -28758,6 +33289,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   "endkalite": {
     "9": [
       {
+        "page": 3,
+        "title": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Ekte verilen örnek ders bilgi formuna (DBF) uygun olarak diğer ders bilgi formları da hazırlanmıştır",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ENDÜSTRİYEL KALİTE KONTROL ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 17,
         "title": "ENDÜSTRİYEL KALİTE KONTROL ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -29073,6 +33779,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "endustriyel": {
     "9": [
+      {
+        "page": 3,
+        "title": "ENDÜSTRIYEL OTOMASYON TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ENDÜSTRIYEL OTOMASYON TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ ALANI (ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ ALANI (ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ DALI) ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ ALANI (ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ DALI) ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "ENDÜSTRIYEL OTOMASYON TEKNOLOJILERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ ALANI (ENDÜSTRİYEL OTOMASYON TEKNOLOJİLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -30255,24 +35136,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MEKATRONİK SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMATİK ÜRETİM",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30290,6 +35153,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "gazetecilik": {
     "9": [
+      {
+        "page": 3,
+        "title": "GAZETECİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GAZETECİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GAZETECİLİK ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GAZETECİLİK ALANI (GAZETECİLİK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GAZETİCİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "GAZETECİLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -31181,30 +36219,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "REDAKSİYON",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HABER ÇEKİMİ VE KURGUSU",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL MEDYADA HABERCİLİK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİZANPAJ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -31223,10 +36237,185 @@ const STRICT_PDF_CURRICULUM_DB = {
   "gazetecilikpro": {
     "9": [
       {
+        "page": 3,
+        "title": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GAZETECİLİK ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GAZETECİLİK ALANI (GAZETECİLİK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ETKİLİ KONUŞMA VE Y AZMA DERSİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 15,
         "title": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "courses": [
+          {
+            "ders": "GAZETECİLİK ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
@@ -31614,6 +36803,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "geleneksel": {
     "9": [
+      {
+        "page": 3,
+        "title": "GELENEKSEL TÜRK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GELENEKSEL TÜRK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GELENEKSEL TÜRK SANATLARI ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GELENEKSEL TÜRK SANATLARI ALANI DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GELENEKSEL TÜRK SANATLARI ALANI (GELENEKSEL TÜRK SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GELENEKSEL TÜRK SANATLARI ALANI (GELENEKSEL TÜRK SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GELENEKSEL TÜRK SANATLARI ALANI (GELENEKSEL TÜRK SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "GELENEKSEL TÜRK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI GELENEKSEL TÜRK SANATLARI ALANI (GELENEKSEL TÜRK SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -32541,30 +37905,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TEZHİP ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇİNİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALEMİŞİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİLT ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -32582,6 +37922,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "gemi": {
     "9": [
+      {
+        "page": 3,
+        "title": "GEMI YAPIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GEMI YAPIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GEMİ Y APIMI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GEMİ Y APIMI ALANI (GEMİ BORU DONATIM, GEMİ İNŞA, Y AT İNŞA DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ BORU DONATIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GEMİ Y APIMI ALANI (GEMİ BORU DONATIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ BORU DONATIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "GEMI YAPIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GEMİ Y APIMI ALANI (GEMİ İNŞA DALI) HAFTALIK DERS ÇİZELGESİ 24 BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ İNŞA DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK  PROGRAMI GEMİ Y APIMI ALANI (YAT İNŞA DALI) HAFTALIK DERS ÇİZELGESİ 26 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GEMİ Y APIMI ALANI (YAT İNŞA DALI) HAFTALIK DERS ÇİZELGESİ 27",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GEMI YAPIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GEMİ Y APIMI ALANI (GEMİ İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (YAT İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GEMİ Y APIMI ALANI (YAT İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (YAT İNŞA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ TEMEL İŞLEMLERİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ BORU DONATIM DALI",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDAZE ÇİZİMİ DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ BORU İŞÇİLİĞİ VE KAYNAKÇILIĞI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ BORU DONATIM İMALATI DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ MAKİNE TESİSAT DONATIM DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ BORU DONATIM RESMİ DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ İNŞA DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDAZE ÇİZİMİ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ KAYNAK UYGULAMALARI DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ İMALATI DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ TEÇHİZ VE DONATIM ELEMANLARI İMALATI DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GEMİ İMALAT RESMİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AT İNŞA DALI",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDAZE ÇİZİMİ DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AHŞAP Y AT İMALATI DERSİ",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KOMPOZİT Y AT İMALATI DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 20,
         "title": "GEMI YAPIMI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI GEMİ Y APIMI ALANI (GEMİ BORU DONATIM DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -35057,24 +40723,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GEMİ İMALATI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ KAYNAK UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -35116,24 +40764,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "YAT İMALATI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAT BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT YAT İMALATI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -35179,24 +40809,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GEMİ DONATIMI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ BORU İŞÇİLİĞİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ MAKİNE DONATIMI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -35214,6 +40826,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "gida": {
     "9": [
+      {
+        "page": 3,
+        "title": "GIDA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GIDA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GIDA TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GIDA TEKNOLOJİSİ ALANI (GIDA TEKNOLOJİSİ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GIDA TEKNOLOJİSİ ALANI (GIDA TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GIDA TEKNOLOJİSİ ALANI (GIDA TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GIDA TEKNOLOJİSİ ALANI (GIDA TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "GIDA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI GIDA TEKNOLOJİSİ ALANI (GIDA TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -35597,12 +41378,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GIDALARDA MİKROBİYOLOJİK ANALİZLER",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -35712,12 +41487,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GIDALARDA MİKROBİYOLOJİK ANALİZLER",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -35824,12 +41593,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -36123,24 +41886,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GIDALARDA TEMEL KALİTE KONTROL ANALİZLERİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GIDA ÜRETİM TEKNOLOJİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GIDA İŞLEME MAKİNELERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -36158,6 +41903,320 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "grafik": {
     "9": [
+      {
+        "page": 3,
+        "title": "GRAFİK VE FOTOĞRAF ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GRAFİK VE FOTOĞRAF ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GRAFİK VE FOTOĞRAF ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GRAFİK VE FOTOĞRAF ALANI (GRAFİK, FOTOĞRAF DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (GRAFİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (GRAFİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (GRAFİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "GRAFİK VE FOTOĞRAF ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ 21 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GRAFİK VE FOTOĞRAF ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (FOTOĞRAF DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL TASARIM DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL FOTOĞRAF DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERSPEKTİF DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GRAFİK DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA GRAFİK TASARIM DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DESEN DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLLÜSTRASYON DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TANITIM GRAFİĞİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AYIN GRAFİĞİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZGİ FİLM ANİMASYON DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FOTOĞRAF DALI",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FOTOĞRAF ÇEKİMİ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA FOTOĞRAF DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FOTOĞRAF YORUMLAMA DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇEKİM TEKNİKLERİ VE SUNUMU DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLETİŞİM ARAÇLARINDA FOTOĞRAF DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VİDEO ÇEKİMİ DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AÇIK HAV A REKLAMCILIĞI DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "GRAFİK VE FOTOĞRAF ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI GRAFİK VE FOTOĞRAF ALANI (GRAFİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -37892,24 +43951,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İLLÜSTRASYON UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TANITIM GRAFİĞİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAYIN GRAFİĞİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -37953,24 +43994,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDA FOTOĞRAF",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇEKİM TEKNİKLERİ VE SUNUMU",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "VİDEO ÇEKİMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -37988,6 +44011,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "guzellik": {
     "9": [
+      {
+        "page": 3,
+        "title": "GÜZELLİK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "GÜZELLİK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. GÜZELLİK HİZMETLERİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. GÜZELLİK HİZMETLERİ ALANI (GÜZELLİK HİZMETLERİ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI GÜZELLİK HİZMETLERİ ALANI (GÜZELLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI GÜZELLİK HİZMETLERİ ALANI (GÜZELLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI GÜZELLİK HİZMETLERİ ALANI (GÜZELLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "GÜZELLİK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERSÇİZELGELERİ ANADOLU MESLEK PROGRAMI GÜZELLİK HİZMETLERİ  ALANI (GÜZELLİK HİZMETLERİ  DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -38474,6 +44672,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "MESLEKİ RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -38731,12 +44935,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 5,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -38744,7 +44942,7 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
-            "saat": 4,
+            "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -38817,7 +45015,7 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
-            "saat": 4,
+            "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -38873,18 +45071,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MÜŞTERİ İLİŞKİLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -38902,6 +45088,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "halklailiskiler": {
     "9": [
+      {
+        "page": 3,
+        "title": "HALKLA İLİŞKİLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HALKLA İLİŞKİLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. HALKLA İLİŞKİLER ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. HALKLA İLİŞKİLER ALANI (HALKLA İLİŞKİLER DALI) DERS, MODÜL/ÖĞRENME ÇIKTISI SAYILARI TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI HALKLA İLİŞKİLER ALANI (HALKLA İLİŞKİLER DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HALKLA İLİŞKİLER ALANI (HALKLA İLİŞKİLER DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HALKLA İLİŞKİLER ALANI (HALKLA İLİŞKİLER DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "HALKLA İLİŞKİLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI HALKLA İLİŞKİLER ALANI (HALKLA İLİŞKİLER DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -39285,12 +45646,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -39394,12 +45749,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -39500,12 +45849,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -39811,30 +46154,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HALKLA İLİŞKİLERDE BÜTÜNLEŞİK PAZARLAMA İLETİŞİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HALKLA İLİŞKİLER VE REKLAM",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YENİ MEDYADA HALKLA İLİŞKİLER",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇAĞRI MERKEZİ İŞLEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -39852,6 +46171,326 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "harita": {
     "9": [
+      {
+        "page": 3,
+        "title": "HARİTA-TAPU-KADASTRO ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HARİTA-TAPU-KADASTRO ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. HARİTA-TAPU-KADASTRO ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. HARİTA-TAPU-KADASTRO ALANI ( HARİTA-KADASTRO, TAPU DALLARI) DERS, ÖĞRENME BİRİMİ/ MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (HARİTA-KADASTRO DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (HARİTA-KADASTRO DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (HARİTA-KADASTRO DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "HARİTA-TAPU-KADASTRO ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK  PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ 21 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HARİTA-TAPU-KADASTRO ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (TAPU DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MESLEKİ UYGULAMALAR DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ TEMEL HUKUK DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HARİTA-KADASTRO DALI",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ARAZİ ÖLÇME HESAPLARI DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HARİTA HESAPLARI DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HARİTA ÇİZİMİ DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ARAZİ VE ARSA DÜZENLEMESİ DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KADASTRO BİLGİSİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLI HARİTA ÇİZİMİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YOL PROJE UYGULAMALARI DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İNSANSIZ HAV A ARACI KULLANIMI DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAPU DALI",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL TAPU UYGULAMALARI DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BORÇLAR HUKUKU DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MİRAS HUKUKU DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAPU UYGULAMALARI DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EŞY A HUKUKU DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOSY ALAMA VE ARŞİVLEME DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3B Y API MODELLEME DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "HARİTA-TAPU-KADASTRO ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI HARİTA-TAPU-KADASTRO ALANI (HARİTA-KADASTRO DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -41520,30 +48159,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA HARİTA ÇİZİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İMAR",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KADASTRO",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -41587,30 +48202,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BORÇLAR HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEDENİ USUL VE İCRA İFLAS HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİRAS VE AYNİ HAKLAR HUKUKU",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -41628,6 +48219,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "hasta": {
     "9": [
+      {
+        "page": 3,
+        "title": "HASTA VE YAŞLI HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI HASTA VE YAŞLI HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HASTA VE YAŞLI HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI HASTA VE YAŞLI HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. HASTA VE Y AŞLI HİZMETLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. HASTA VE Y AŞLI HİZMETLERİ ALANI (HASTA VE Y AŞLI BAKIMI DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI HASTA VE Y AŞLI HİZMETLERİ ALANI (HASTA VE YAŞLI BAKIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HASTA VE Y AŞLI HİZMETLERİ ALANI (HASTA VE YAŞLI BAKIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HASTA VE Y AŞLI HİZMETLERİ ALANI (HASTA VE YAŞLI BAKIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "HASTA VE YAŞLI HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI HASTA VE Y AŞLI HİZMETLERİ ALANI (HASTA VE YAŞLI BAKIMI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -42537,24 +49303,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HASTA VE YAŞLI PSİKOLOJİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HASTALIKLAR VE İLAÇ BİLGİSİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -42572,6 +49320,344 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "havacilikveuzaypro": {
     "9": [
+      {
+        "page": 3,
+        "title": "HAVACILIK VE UZAY TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HAVACILIK VE UZAY TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (TASARIM VE İMALAT, İTKİ SİSTEMLERİ, ELEKTRONİK SİSTEMLER DALLARI) DERS, ÖĞRENME BİRİMİ /MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (İTKİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "HAVACILIK VE UZAY TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI PROGRAMI HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (ELEKTRONİK SİSTEMLER DALI) HAFTALIK DERS ÇİZELGESİ 21 9.6. ÇERÇE VE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 22",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HAVACILIK VE UZAY TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (ELEKTRONİK SİSTEMLER DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇE VE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME TEKNOLOJİSİ DERSİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİK DEVRE ANALİZİ DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MONTAJ, ENTEGRASYON VE KONTROL DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TASARIM VE İMALAT DALI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİ, ÇALIŞMA VE MALZEME GÜVENLİĞİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ TASARIM VE MODELLEME DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ACILIK VE UZAY BİLİMLERİNE GİRİŞ DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KOMPOZİT ÜRETİMİ VE ANALİZİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İMALAT TEKNİKLERİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖZEL PROSESLER DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HİDROLİK-PNÖMATİK VE MEKANİK SİSTEMLER DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İTKİ SİSTEMLERİ DALI",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİ, ÇALIŞMA VE MALZEME GÜVENLİĞİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ TASARIM VE MODELLEME DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ACILIK VE UZAY BİLİMLERİNE GİRİŞ DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İTKİ SİSTEMLERİ DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PİSTONLU MOTOR VE SİSTEMLERİ DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLERİ İTKİ SİSTEMLERİ DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y ANMA VE Y AKITLAR DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ROKET MOTOR SİSTEMLERİ DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERV ANE DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRONİK SİSTEMLER DALI",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİ, ÇALIŞMA VE MALZEME GÜVENLİĞİ DERSİ",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ TASARIM VE MODELLEME DERSİ",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ACILIK VE UZAY BİLİMLERİNE GİRİŞ DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRONİK DERSİ",
+            "saat": 70,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "HAVACILIK VE UZAY TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI HAV ACILIK VE UZAY TEKNOLOJİSİ ALANI (TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -43256,6 +50342,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "hayvanyetistiriciligi": {
     "9": [
+      {
+        "page": 3,
+        "title": "HAYVAN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "HAYVAN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI (HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI DALI) ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI (HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI (HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI (HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "HAYVAN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI HAYV AN YETİŞTİRİCİLİĞİ VE SAĞLIĞI ALANI (HAYVAN YETİŞTİRİCİLİĞİ VE SAĞLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -44141,30 +51396,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HASTALIKLARLA MÜCADELE",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNİ TOHUMLAMA VE DOĞUM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -44182,6 +51413,302 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "insaat": {
     "9": [
+      {
+        "page": 3,
+        "title": "İNŞAAT TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "İNŞAAT TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. İNŞAAT TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNOLOJİSİ VE Y API TEKNİK RESSAMLIĞI DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNOLOJİSİ DALI)HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "İNŞAAT TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ 22 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ 23 İÇİN ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI HAFTALIK DERS ÇİZELGESİ 24 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR                                                                    25",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "İNŞAAT TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İÇİN ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (Y API TEKNİK RESSAMLIĞI DALI HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y APIDA BİLGİSAY AR DESTEKLİ ÇİZİM DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y API BİLGİSİ DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL Y API UYGULAMALARI DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ Y API MESLEK RESMİ DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖLÇME TEKNİKLERİ VE METRAJ DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AHŞAP UYGULAMALAR DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y API UYGULAMALARI DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROJE ÇİZİM TEKNİKLERİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TASARI GEOMETRİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖLÇME TEKNİKLERİ VE METRAJ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y APIDA BİLGİSAY AR DESTEKLİ MODELLEME DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ PROJE ÇİZİM DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DUV AR, BACA VE ALÇI LEVHA UYGULAMALARI DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KALIP VE DONATI UYGULAMALARI DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "İNŞAAT TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI İNŞAAT TEKNOLOJİSİ ALANI (YAPI TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -48040,24 +55567,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA ALTYAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA ALTYAPI MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İNŞAAT ALTYAPI ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48099,24 +55608,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA ÜSTYAPI MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İNŞAAT ÜSTYAPI ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -48162,24 +55653,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA RESTORASYON MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİMARİ RESTORASYON ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48221,24 +55694,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA MİMARİ PROJE MODELLEME",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA MİMARİ PROJE ÇİZİM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -48284,24 +55739,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA STATİK PROJE MODELLEME",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA STATİK PROJE ÇİZİM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48345,24 +55782,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YÜZEY KAPLAMA MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAPI YÜZEY KAPLAMA VE YALITIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -48380,6 +55799,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "itfaiyecilik": {
     "9": [
+      {
+        "page": 3,
+        "title": "İTFAİYECİLİK VE YANGIN GÜVENLİĞİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "İTFAİYECİLİK VE YANGIN GÜVENLİĞİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI (İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI (İTFAİYECİLİK VE YANGIN GÜVENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI (İTFAİYECİLİK VE YANGIN GÜVENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI (İTFAİYECİLİK VE YANGIN GÜVENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "İTFAİYECİLİK VE YANGIN GÜVENLİĞİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI İTFAİYECİLİK VE Y ANGIN GÜVENLİĞİ ALANI (İTFAİYECİLİK VE YANGIN GÜVENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -49235,24 +56823,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YANGIN ÖNLEME TEDBİRLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UÇAK KAZA KIRIM VE YANGINLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -49270,6 +56840,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "kimya": {
     "9": [
+      {
+        "page": 3,
+        "title": "KİMYA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KİMYA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. KİMY A TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. KİMY A TEKNOLOJİSİ ALANI (KİMY A LABORATUV ARI, PETROL ENDÜSTRİSİ, PROSES DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (KİMY A LABORATUV ARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (KİMY A LABORATUV ARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İÇİN ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (KİMY A LABORATUV ARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PETROL ENDÜSTRİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "KİMYA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PETROL ENDÜSTRİSİ DALI) HAFTALIK DERS ÇİZELGESİ 23 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PETROL ENDÜSTRİSİ DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PROSES DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PROSES DALI) HAFTALIK DERS ÇİZELGESİ 26",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KİMYA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PETROL ENDÜSTRİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PETROL ENDÜSTRİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PROSES DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PROSES DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İÇİN ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (PROSES DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL KİMY A DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMY A LABORATUV ARI DALI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "NİTEL ANALİZ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİKOKİMY A DERSİ",
+            "saat": 37,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANORGANİK KİMY A DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "NİCEL ANALİZ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENSTRÜMANTAL ANALİZ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ORGANİK KİMY A DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PETROL ENDÜSTRİSİ DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PETROL TEKNOLOJİSİNE GİRİŞ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PETROL TEKNOLOJİSİNDE KONTROL DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PETROL ENDÜSTRİSİ PROSESLERİ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROSESTE NUMUNE, HAV A VE SU DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ORGANİK KİMY A DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROSES DALI",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROSESTE TEMEL İŞLEMLER DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİKOKİMY A DERSİ",
+            "saat": 65,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÜNİT OPERASYONLAR DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "KİMYA TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI KİMY A TEKNOLOJİSİ ALANI (KİMYA LABORATUVARI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -50158,12 +58054,6 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYADA MESLEKİ HESAPLAMALAR",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -51184,8 +59074,20 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ORGANİK KİMYA",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "NİCEL ANALİZ",
             "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENSTRÜMANTAL ANALİZ",
+            "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -51782,6 +59684,320 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "konaklama": {
     "9": [
+      {
+        "page": 3,
+        "title": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ, SEY AHAT ACENTELİĞİ VE TURİZMDE ETKİNLİK HİZMETLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (SEYAHAT ACENTELİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (SEYAHAT ACENTELİĞİ DALI) HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (SEYAHAT ACENTELİĞİ DALI) HAFTALIK DERS ÇİZELGESİ 23 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ 24 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ 25",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (SEYAHAT ACENTELİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (SEYAHAT ACENTELİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GENEL TURİZM DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTELCİLİK VE SEY AHAT HİZMETLERİ DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KONAKLAMADA PAKET PROGRAM DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KONUK GİRİŞ ÇIKIŞ İŞLEMLERİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL KAT HİZMETLERİ DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KAT HİZMETLERİ DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KONAKLAMA İŞLETMECİLİĞİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖN BÜRO HİZMETLERİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SÜRDÜRÜLEBİLİR TURİZM DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SEY AHAT ACENTELİĞİ DALI",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SEY AHAT ACENTELİĞİ HİZMETLERİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TURİZMDE REHBERLİK HİZMETLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU KÜLTÜRÜ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ACENTE PAKET PROGRAMLARI DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLETLEME DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SÜRDÜRÜLEBİLİR TURİZM DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -53998,6 +62214,18 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ANADOLU KÜLTÜRÜ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -54389,36 +62617,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KAT HİZMETLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KONAKLAMA İŞLETMECİLİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -54459,36 +62657,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ANADOLU KÜLTÜRÜ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ACENTE PAKET PROGRAMLARI ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REZERVASYON VE İSTATİSTİKİ İŞLEMLER ATÖLYE",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -54535,36 +62703,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ANİMASYONDA TEKNİK DESTEK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇALIŞMA HAYATINA HAZIRLIK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAHNE UYGULAMALARI ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ANİMASYONDA DANS VE MÜZİK AKTİVİTELERİ ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -54582,6 +62720,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "konaklamapro": {
     "9": [
+      {
+        "page": 3,
+        "title": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI  (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ, SEY AHAT ACENTELİĞİ VE TURİZMDE ETKİNLİK HİZMETLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGELERİLEK PROGRAMI HAFTALIK DERS",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (TURİZMDE ETKİNLİK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "KONAKLAMA VE SEYAHAT HİZMETLERİ ALANI  (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGELERİLEK PROGRAMI HAFTALIK DERS PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KONAKLAMA VE SEY AHAT HİZMETLERİ ALANI (KONAKLAMA HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -54821,6 +63128,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ÖN BÜRODA REZERVASYON",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "KONUK GİRİŞ ÇIKIŞ İŞLEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -55054,6 +63367,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -55075,12 +63394,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÖN BÜRODA REZERVASYON",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -55146,6 +63459,12 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "KİMYA",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -55231,6 +63550,12 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "KİMYA",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -55341,12 +63666,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -55450,12 +63769,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -55553,12 +63866,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -55618,6 +63925,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "kuyumculuk": {
     "9": [
+      {
+        "page": 3,
+        "title": "KUYUMCULUK TEKNOLOJİSİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "KUYUMCULUK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. KUYUMCULUK TEKNOLOJİSİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. KUYUMCULUK TEKNOLOJİSİ ALANI (TAKI İMALATI DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI KUYUMCULUK TEKNOLOJİSİ ALANI (TAKI İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI KUYUMCULUK TEKNOLOJİSİ ALANI (TAKI İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI KUYUMCULUK TEKNOLOJİSİ ALANI (TAKI İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "KUYUMCULUK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI KUYUMCULUK TEKNOLOJİSİ ALANI (TAKI İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -56473,18 +64955,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MUM MODELAJ VE DÖKÜM",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARDA TAKI TASARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -56502,6 +64972,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "laboratuvar": {
     "9": [
+      {
+        "page": 3,
+        "title": "LABORATUVAR HIZMETLERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "LABORATUVAR HIZMETLERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSYAL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURYAZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. LABORATUV AR HİZMETLERİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. LABORATUV AR HİZMETLERİ ALANI (GIDA, TARIM VE HAYV AN SAĞLIĞI LABORATUV ARI DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI LABORATUVAR HİZMETLERİ ALANI (GIDA, TARIM VE HAYVAN SAĞLIĞI LABORATUVARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI LABORATUVAR HİZMETLERİ ALANI (GIDA, TARIM VE HAYVAN SAĞLIĞI LABORATUVARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI LABORATUVAR HİZMETLERİ ALANI (GIDA, TARIM VE HAYVAN SAĞLIĞI LABORATUVARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "LABORATUVAR HIZMETLERI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI LABORATUV AR HİZMETLERİ ALANI (GIDA, TARIM VE HAYVAN SAĞLIĞI LABORATUVARI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -57227,6 +65872,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "GIDA ANALİZLERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -57351,24 +66002,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GIDA ANALİZLERİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HAYVAN SAĞLIĞI LABORATUVARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YEM ANALİZLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -57386,6 +66019,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "maden": {
     "9": [
+      {
+        "page": 3,
+        "title": "MADEN TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MADEN TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MADEN TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "MADEN TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -58319,36 +67121,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "YER ÜSTÜ MADEN İŞLEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SONDAJ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK PNÖMATİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEVHER ZENGİNLEŞTİRME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -58366,6 +67138,284 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "makine": {
     "9": [
+      {
+        "page": 3,
+        "title": "MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MAKİNE VE TASARIM TEKNOLOJİSİ ALANI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAY ARLI MAKİNE İMALATI, ENDÜSTRİYEL KALIP, MAKİNE BAKIM ONARIM, BİLGİSAY AR DESTEKLİ ENDÜSTRİYEL MODELLEME DALI, ENDÜSTRİYEL MAKİNE TASARIMI DALI, TIBBİ CİHAZ ÜRETİMİ, SAVUNMA MEKANİK SİSTEMLERİ) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYARLI MAKİNE İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYARLI MAKİNE İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYARLI MAKİNE İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ 29 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ 30 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ 31 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (MAKİNE BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ 32",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL KALIP DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (MAKİNE BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (MAKİNE BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (MAKİNE BAKIM ONARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYAR DESTEKLİ ENDÜSTRİYEL MODELLEME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYAR DESTEKLİ ENDÜSTRİYEL MODELLEME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYAR DESTEKLİ ENDÜSTRİYEL MODELLEME DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL MAKİNE TASARIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL MAKİNE TASARIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (ENDÜSTRİYEL MAKİNE TASARIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (TIBBİ CİHAZ ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (TIBBİ CİHAZ ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (TIBBİ CİHAZ ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (SAVUNMA MEKANİK SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 26,
         "title": "MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MAKİNE VE TASARIM TEKNOLOJİSİ ALANI (BİLGİSAYARLI MAKİNE İMALATI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -60289,6 +69339,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -60384,6 +69440,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
@@ -61620,6 +70682,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 5,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "KALIP İMALATI UYGULAMALARI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "TIBBİ CİHAZ ÜRETİM TERMİNOLOJİSİ",
@@ -62830,12 +71898,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
             "saat": 9,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -62912,12 +71974,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -63851,12 +72907,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KALIP İMALATI UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİLGİSAYAR KONTROLLÜ TEZGÂHLARLA TIBBİ CİHAZ ÜRETİMİ",
             "saat": 9,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -64747,24 +73797,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TASARIM (CAD",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -64805,30 +73837,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KATI MODELLEME VE ANİMASYON",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALIP TASARIMI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK-PNÖMATİK DEVRE ÇİZİMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİSİMLERİN DAYANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -64875,24 +73883,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HACİM KALIPLARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ KALIPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP ÜRETİM TEKNOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -64933,30 +73923,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK BAKIM ONARIM",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMATİK KONTROL SİSTEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİZMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -65003,30 +73969,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ TEZGÂHLARLA TIBBİ CİHAZ ÜRETİMİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TIBBİ CİHAZ TASARIMI VE ÜRETİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TIBBİ CİHAZ MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -65067,24 +74009,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ MODELLEMELER",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ SERİ ÜRETİM MODELLEMELERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT MODELLEME TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -65131,30 +74055,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL VE PROTOTİP ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KATI MODELLEME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARAMA VE SAYISALLAŞTIRMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN GELİŞTİRME UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -65195,30 +74095,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DEĞİRMEN MAKİNELERİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -65265,36 +74141,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ TASARIM VE İMALAT(CAD-CAM",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL OLMAYAN İMALAT YÖNTEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA MEKANİK SİSTEMLERİNDE KALİTE KONTROL",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEMERDE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA SİSTEMLERİ MALZEMELERİ VE YÜZEY İŞLEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "TOPLAM DERS SAATİ",
             "saat": 45,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -65306,6 +74152,326 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "marmaragastro": {
     "9": [
+      {
+        "page": 3,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI, HELV ACILIK, ŞERBET VE TATLI SANATLARI, MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 38,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞI KÜLTÜRÜ VE ÇOK KATMANLI İSTANBUL DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MARMARA YÖRESEL LEZZETLERİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞI YEMEKLERİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA HELV ACILIK, ŞEKERLEME VE REÇEL TEKNİKLERİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ULUSLARARASI MUTFAKLAR DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HELV ACILIK, ŞERBET VE TATLI SANATLARI DALI",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜRK MUTFAĞI TARİHİ VE UYGULAMALARI DERSİ",
+            "saat": 55,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA SÜRÜ, SÜT VE SULAR DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANADOLU’DA TOHUMDAN TABAĞA DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA TATLILAR VE ŞERBETLER DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OSMANLI SARAY MUTFAĞINDA EKMEKÇİLİK VE FIRIN KÜLTÜRÜ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 20,
         "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -66797,24 +75963,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -66838,6 +75986,308 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "metal": {
     "9": [
+      {
+        "page": 3,
+        "title": "METAL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "METAL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. METAL TEKNOLOJİSİ ALANI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. METAL TEKNOLOJİSİ ALANI (KAYNAK TEKNOLOJİSİ, METAL TASARIM VE İMALAT, ALÜMİNYUM Y API SİSTEMLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (KAYNAK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METAL TEKNOLOJİSİ ALANI (KAYNAK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (KAYNAK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "METAL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ 26 BAŞLAY AN  OKULLAR İÇİN ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ 27 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (ALÜMİNYUM YAPI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ  28",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "METAL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (METAL TASARIM VE İMALAT DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (ALÜMİNYUM YAPI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METAL TEKNOLOJİSİ ALANI (ALÜMİNYUM YAPI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (ALÜMİNYUM YAPI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL MALZEME BİLGİSİ DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL METAL İŞLEMLERİ DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA İKİ BOYUTLU TASARIM DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KAYNAK İLKELERİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL KAYNAK İŞLEMLERİ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA ÜÇ BOYUTLU TASARIM DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GAZ KORUMALI METAL ARK KAYNAĞI DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İMALATTA FORM VERME DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA İKİ BOYUTLU TASARIM DERSİ",
+            "saat": 64,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "METAL FORM VERME DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA ÜÇ BOYUTLU TASARIM DERSİ",
+            "saat": 71,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KONSTRÜKSİYON İMALATI DERSİ",
+            "saat": 74,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İMALATTA KAYNAK DERSİ",
+            "saat": 77,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 22,
         "title": "METAL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI METAL TEKNOLOJİSİ ALANI (KAYNAK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -68893,30 +78343,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ARK KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ARK KAYNAK ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -68960,30 +78386,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "METAL DOĞRAMA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "METAL DOĞRAMA ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69001,6 +78403,326 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "metalurji": {
     "9": [
+      {
+        "page": 3,
+        "title": "METALÜRJİ TEKNOLOJİSİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "METALÜRJİ TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. METALÜRJİ TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. METALÜRJİ TEKNOLOJİSİ ALANI (DÖKÜM, İZABE VE HADDECİLİK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (DÖKÜM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (DÖKÜM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "METALÜRJİ TEKNOLOJİSİ ALANI (DÖKÜM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (İZABE VE HADDECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "METALÜRJİ TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (İZABE VE HADDECİLİK DALI) HAFTALIK DERS ÇİZELGESİ 22 11. SINIFTA BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI  (İZABE VE HADDECİLİK DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "METALÜRJİ TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (İZABE VE HADDECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "METALÜRJİ TEKNOLOJİSİ ALANI (İZABE VE HADDECİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "METALÜRJİ ÜRETİM TEKNOLOJİLERİ DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DÖKÜM DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DÖKÜM TEMEL İŞLEMLERİ DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ ÜÇ BOYUTLU MODEL TASARIMI DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KUM KALIPLAMA TEKNİKLERİ DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "METAL ERGİTME DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ DÖKÜM MESLEK RESMİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DÖKÜM LABORATUV ARI DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İZABE VE HADDECİLİK DALI",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KOK VE HAM DEMİR ÜRETİMİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR DESTEKLİ ÜÇ BOYUTLU MODEL TASARIMI DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEMİR DIŞI METALLERİN İZABESİ DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KALİTE KONTROL DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇELİK ÜRETİM SÜREÇLERİ DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HADDELEME DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASINÇLI VE KOKİL DÖKÜM DERSİ",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL MALZEME BİLGİSİ DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "METALÜRJİ TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI METALÜRJİ TEKNOLOJİSİ ALANI (DÖKÜM DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -70735,24 +80457,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DÖKÜM LABORATUVARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ DÖKÜM MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -70796,24 +80500,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ İZABE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -70831,6 +80517,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "mikromekanik": {
     "9": [
+      {
+        "page": 3,
+        "title": "MİKROMEKANİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MİKROMEKANİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MİKROMEKANİK ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MİKROMEKANİK ALANI (MİKROMEKANİK VE SAATÇİLİK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MİKROMEKANİK ALANI (MİKROMEKANİK ve SAATÇİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MİKROMEKANİK ALANI (MİKROMEKANİK ve SAATÇİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İÇİN ANADOLU MESLEK PROGRAMI MİKROMEKANİK ALANI (MİKROMEKANİK ve SAATÇİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "MİKROMEKANİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MİKROMEKANİK ALANI (MİKROMEKANİK ve SAATÇİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -71483,6 +81344,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
             "saat": 4,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -71692,24 +81559,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKROMEKANİKTE BİLGİSAYAR DESTEKLİ ÇİZİM VE İMALAT",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -71727,6 +81576,326 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "mobilya": {
     "9": [
+      {
+        "page": 3,
+        "title": "MOBİL YA VE İÇ MEKÂN TASARIMI  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MOBİL YA VE İÇ MEKÂN TASARIMI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MOBİLY A VE İÇ MEKÂN TASARIMI ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (MOBİLY A ÜRETİM TEKNOLOJİSİ, İÇ MEKÂN RESSAMLIĞI DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (MOBİLYA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (MOBİLYA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (MOBİLYA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MOBİL YA VE İÇ MEKÂN TASARIMI  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ 20 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ 21 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ 22 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 23",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MOBİL YA VE İÇ MEKÂN TASARIMI ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (İÇ MEKÂN RESSAMLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA AHŞAP BİRLEŞTİRME ÇİZİMİ DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL AHŞAP UYGULAMALARI DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MOBİLY A ÜRETİM TEKNOLOJİSİ DALI",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA TEMEL MOBİLY A ÇİZİMİ DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AHŞAP İŞLEME MAKİNELERİ DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MASİF MOBİLY A ÜRETİMİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA İÇ MEKÂN RESMİ DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR KONTROLLÜ ÜRETİME GİRİŞ DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE GEREÇ BİLGİSİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PANEL MOBİLY A ÜRETİMİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İÇ MEKÂN RESSAMLIĞI DALI",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA MOBİLY A ÇİZİMİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MEKÂN Y ARDIMCI GEREÇLERİ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TASARIM VE ERGONOMİ DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA MEKÂN ÇİZİMİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY AR KONTROLLÜ ÜRETİME GİRİŞ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KATI MODELLEME VE MONTAJ TEKNİK RESMİ DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KEŞİF VE MALİYET DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "MOBİL YA VE İÇ MEKÂN TASARIMI  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MOBİLY A VE İÇ MEKÂN TASARIMI ALANI (MOBİL YA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -73467,30 +83636,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TASARIM VE MALZEME BİLGİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ MAKİNELERDE ÜRETİM (CNC",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI İÇ MEKÂN RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PANEL MOBİLYA ÜRETİMİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73534,24 +83679,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ MAKİNELERDE ÜRETİM (CNC",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜÇ BOYUTLU GÖRSEL SUNUM TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI MEKÂN TASARIMI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73569,6 +83696,278 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "moda": {
     "9": [
+      {
+        "page": 3,
+        "title": "MODA TASARIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MODA TASARIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL YAKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ YAPISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KA VRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSYAL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURYAZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN YANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MODA TASARIM TEKNOLOJİLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAYANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MODA TASARIM TEKNOLOJİLERİ ALANI (GİYSİ KALIP TASARIMI VE ÜRETİMİ, TERZİLİK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (GİYSİ KALIP TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (GİYSİ KALIP TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (GİYSİ KALIP TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MODA TASARIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ 19 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ 20 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ 21 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 22",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MODA TASARIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (TERZİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MODADA TEKNİK VE ARTİSTİK ÇİZİMLER DERSİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MODA TASARIM TEKNİKLERİ DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GİYSİ KALIP TASARIMI VE ÜRETİMİ DALI",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MODA TASARIMINDA TEMEL SANAT EĞİTİMİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MODADA GİYSİ TASARIMI VE ÜRETİMİ DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GİYSİ TASARIM SÜREÇLERİ VE MODEL OLUŞTURMA DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TERZİLİK DALI",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MODA TASARIMINDA TEMEL SANAT EĞİTİMİ DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖZEL TASARIM GİYSİ ÜRETİMİ DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KADIN/ERKEK ÖZEL GİYSİ TASARIMI VE ÜRETİMİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MODA AKSESUARLARININ TASARIMI VE ÜRETİMİ DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "MODA TASARIM TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MODA TASARIM TEKNOLOJİLERİ ALANI (GİYSİ KALIP TASARIMI VE ÜRETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -74222,12 +84621,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MODEL ANALİZİ VE MODEL GELİŞTİRME",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -75225,18 +85618,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
-            "saat": 14,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MODEL TASARIMI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -75280,18 +85661,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TERZİLİK ATÖLYESİ",
-            "saat": 14,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GİYİM AKSESUARLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -75309,6 +85678,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "muhasebe": {
     "9": [
+      {
+        "page": 3,
+        "title": "MUHASEBE VE FİNASMAN ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MUHASEBE VE FİNASMAN ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. MUHASEBE VE FİNANSMAN ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. MUHASEBE VE FİNANSMAN ALANI (MUHASEBE DALI-DIŞ TİCARET DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (MUHASEBE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (MUHASEBE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (MUHASEBE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "MUHASEBE VE FİNASMAN  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ 21 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "MUHASEBE VE FİNASMAN ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (DIŞ TİCARET DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EKONOMİ DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUHASEBE DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TİCARET MATEMATİĞİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUHASEBE DALI",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL HUKUK DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GENEL MUHASEBE DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KLAVYE TEKNİKLERİ DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFİS PROGRAMLARI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "E-TİCARET UYGULAMALARI DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL FİNANSAL OKURY AZARLIK DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ VE SOSY AL GÜVENLİK HUKUKU DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUHASEBE PAKET PROGRAMLARI DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "Y AZIŞMA VE BELGE YÖNETİMİ DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VERGİ VE BEY ANNAMELER DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARET DALI",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARETE GİRİŞ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL HUKUK DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFİS PROGRAMLARI DERSİ",
+            "saat": 54,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARET MEVZUATI DERSİ",
+            "saat": 56,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARETTE PAKET PROGRAMLAR DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARETTE SİGORTA DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARETTE TESLİM VE ÖDEME DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "MUHASEBE VE FİNASMAN  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MUHASEBE VE FİNANSMAN ALANI (MUHASEBE DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -77139,42 +87840,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLI MUHASEBE",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GİRİŞİMCİLİK VE İŞLETME YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VERGİ VE BEYANNAMELER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ŞİRKETLER MUHASEBESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALİYET MUHASEBESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ VE SOSYAL GÜVENLİK HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -77218,36 +87883,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "DIŞ TİCARET UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DIŞ TİCARET MEVZUATI VE UYGULAMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DIŞ TİCARETTE PAKET PROGRAMLAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DIŞ TİCARET MUHASEBESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -77265,6 +87900,302 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "motorluarac": {
     "9": [
+      {
+        "page": 3,
+        "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. OTOMOTİV TEKNOLOJİLERİ ALANI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR, OTOMOTİV ELEKTROMEKANİK, İŞ MAKİNELERİ, OTOMOTİV BOY A VE OTOMOTİV GÖVDE DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 26 BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 27 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇLAR DALI",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BATARY A TEKNOLOJİSİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 22,
         "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5.  ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -77426,6 +88357,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -77602,6 +88539,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -81306,30 +92249,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BATARYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTONOM ARAÇ TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -81370,24 +92289,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROELEKTRİK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -81434,30 +92335,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -81501,24 +92378,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİZEL YAKIT SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -81559,30 +92418,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -81604,6 +92439,302 @@ const STRICT_PDF_CURRICULUM_DB = {
   "otomotiv": {
     "9": [
       {
+        "page": 3,
+        "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. OTOMOTİV TEKNOLOJİLERİ ALANI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR, OTOMOTİV ELEKTROMEKANİK, İŞ MAKİNELERİ, OTOMOTİV BOY A VE OTOMOTİV GÖVDE DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 26 BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ 27 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAYAN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇLAR DALI",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BATARY A TEKNOLOJİSİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 22,
         "title": "OTOMOTİV TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5.  ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI OTOMOTİV TEKNOLOJİLERİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -81764,6 +92895,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -81940,6 +93077,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -85644,30 +96787,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BATARYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTONOM ARAÇ TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -85708,24 +96827,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROELEKTRİK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -85772,30 +96873,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -85836,24 +96913,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİZEL YAKIT SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -85900,30 +96959,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -85941,6 +96976,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "pazarlama": {
     "9": [
+      {
+        "page": 3,
+        "title": "PAZARLAMA VE PERAKENDE ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "PAZARLAMA VE PERAKENDE ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. PAZARLAMA VE PERAKENDE ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. PAZARLAMA VE PERAKENDE ALANI (SATIŞ DANIŞMANLIĞI-SİGORTACILIK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SATIŞ DANIŞMANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SATIŞ DANIŞMANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SATIŞ DANIŞMANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "PAZARLAMA VE PERAKENDE ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI)  HAFTALIK DERS ÇİZELGESİ  22 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI) HAFTALIK DERS ÇİZELGESİ  23 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI) HAFTALIK DERS ÇİZELGESİ 24 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 25",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "PAZARLAMA VE PERAKENDE ALANI ÇERÇEVE ÖĞRETIM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SİGORTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PAZARLAMA İLKELERİ DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DAVRANIŞLARI DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TİCARET MATEMATİĞİ DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL HUKUK DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SATIŞ DANIŞMANLIĞI DALI",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SATIŞ TEKNİKLERİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERAKENDECİLİK DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFİS PROGRAMLARI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PAZARLAMADA YENİ Y AKLAŞIMLAR DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÜRÜN VE MAĞAZA YÖNETİMİ DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "E-TİCARET UYGULAMALARI DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERAKENDE PAKET PROGRAMI DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PERAKENDE MATEMATİĞİ DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PAZARLAMA MEVZUATI DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ Y ABANCI DİL (PAZARLAMA VE PERAKENDE) DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİGORTACILIK DALI",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL SİGORTACILIK DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFİS PROGRAMLARI DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİGORTACILIKTA HİZMET PAZARLAMASI DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PAZARLAMADA YENİ Y AKLAŞIMLAR DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİGORTA BRANŞLARI DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RİSK VE HASAR YÖNETİMİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "PAZARLAMA VE PERAKENDE  ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI PAZARLAMA VE PERAKENDE ALANI (SATIŞ DANIŞMANLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -87904,6 +99271,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   "plastiksanatlar": {
     "9": [
       {
+        "page": 3,
+        "title": "PLASTİK SANATLAR ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "PLASTİK SANATLAR ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. PLASTİK SANATLAR ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. PLASTİK SANATLAR ALANI (PLASTİK SANATLAR DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI PLASTİK SANATLAR ALANI (PLASTİK SANATLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI PLASTİK SANATLAR ALANI (PLASTİK SANATLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI PLASTİK SANATLAR ALANI (PLASTİK SANATLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 15,
         "title": "PLASTİK SANATLAR ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI PLASTİK SANATLAR  ALANI (PLASTİK SANATLAR  DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -88806,6 +100348,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   "plastiktek": {
     "9": [
       {
+        "page": 3,
+        "title": "PLASTİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "PLASTİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. PLASTİK TEKNOLOJİSİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. PLASTİK TEKNOLOJİSİ ALANI (PLASTİK TEKNOLOJİSİ DALI) DERS, ÖĞRENME BİRİMİ/ MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI PLASTİK TEKNOLOJİSİ ALANI (PLASTİK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI PLASTİK TEKNOLOJİSİ ALANI (PLASTİK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PRO GRAMI PLASTİK TEKNOLOJİSİ ALANI (PLASTİK TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 16,
         "title": "PLASTİK TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI PLASTİK TEKNOLOJİSİ  ALANI (PLASTİK TEKNOLOJİSİ  DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -89188,6 +100905,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "PLASTİK KALIP ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -89457,12 +101180,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "PLASTİK KALIP ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "PLASTİK TEKNOLOJİSİNDE 3 BOYUTLU MODELLEME",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -89683,6 +101400,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "radyotv": {
     "9": [
+      {
+        "page": 3,
+        "title": "RADYO-TELEVİZYON ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "RADYO-TELEVİZYON ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL YAKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ YAPISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KA VRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSYAL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURYAZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN YANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. RADYO-TELEVİZYON ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAYANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. RADYO TELEVİZYON ALANI (RADYO TELEVİZYON DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI RADYO TELEVİZYON ALANI (RADYO TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RADYO TELEVİZYON ALANI (RADYO TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI RADYO TELEVİZYON ALANI (RADYO TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "RADYO-TELEVİZYON ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI RADYO TELEVİZYON ALANI (RADYO TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -90568,24 +102460,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TELEVİZYON ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SENARYO",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SİNEMA TARİHİ",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90603,6 +102477,169 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "radyotvpro": {
     "9": [
+      {
+        "page": 3,
+        "title": "RADYO -TELEVİZYON ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "RADYO -TELEVİZYON ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. RADYO TELEVİZYON ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. RADYO TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "RADYO-TELEVİZYON ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -90971,6 +103008,332 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "rayli": {
     "9": [
+      {
+        "page": 3,
+        "title": "RAYLI SİSTEMLER TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "RAYLI SİSTEMLER TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. RAYLI SİSTEMLER TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRONİK VE RAYLI SİSTEMLER YOL DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "RAYLI SİSTEMLER TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ 25 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ 26 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER YOL DALI) HAFTALIK DERS ÇİZELGESİ 27 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER YOL DALI) HAFTALIK DERS ÇİZELGESİ 28",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "RAYLI SİSTEMLER TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER YOL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER YOL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER YOL DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLERDE TEMEL İŞLEMLER DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEM BİLGİSİ DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEM ARAÇLARI DALI",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLER ARAÇ MEKANİĞİ DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLER ARAÇ ELEKTRİĞİ DERSİ",
+            "saat": 50,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLER BİLGİSAY AR DESTEKLİ ÇİZİM DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROGRAMLANABİLİR KONTROL SİSTEMLERİ DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TRAFİK YÖNETİM SİSTEMLERİ DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEMİRYOLU ELEKTRİFİKASYONU DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARLA DEVRE DİZAYNI DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİNY ALİZASYON VE HABERLEŞME SİSTEMLERİ DERSİ",
+            "saat": 70,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL GÜÇ ELEKTRONİĞİ DERSİ",
+            "saat": 75,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROGRAMLANABİLİR KONTROL SİSTEMLERİ DERSİ",
+            "saat": 77,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TRAFİK YÖNETİM SİSTEMLERİ DERSİ",
+            "saat": 80,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 21,
         "title": "RAYLI SİSTEMLER TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -93206,6 +105569,18 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "BİLGİSAYARLA DEVRE DİZAYNI",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL ELEKTRONİK",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -93482,30 +105857,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "RAYLI SİSTEM ARAÇ ELEKTRİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK-PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KENT İÇİ RAYLI SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TRAFİK YÖNETİM SİSTEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -93546,30 +105897,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SİNYALİZASYON VE HABERLEŞME ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYARLA DEVRE DİZAYNI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL ELEKTRONİK",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KENT İÇİ RAYLI SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -93616,30 +105943,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "DEMİRYOLU ÜSTYAPI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DEMİRYOLU APLİKASYONU VE HESAPLAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RAY KAYNAĞI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TRAFİK YÖNETİM SİSTEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -93657,6 +105960,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "saglik": {
     "9": [
+      {
+        "page": 3,
+        "title": "SAĞLIK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SAĞLIK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. SAĞLIK HİZMETLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. SAĞLIK HİZMETLERİ ALANI (DİŞ PROTEZ TEKNİSYENLİĞİ VE SAĞLIK BAKIM TEKNİSYENLİĞİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜLVE DERS SAATİ TABLOSU",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (DİŞ PROTEZ TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SAĞLIK HİZMETLERİ ALANI (DİŞ PROTEZ TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (DİŞ PROTEZ TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "SAĞLIK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ 25 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SAĞLIK HİZMETLERİ  ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ 26 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI)  HAFTALIK DERS ÇİZELGESİ 27 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 28",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SAĞLIK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SAĞLIK HİZMETLERİ ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (SAĞLIK BAKIM TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ANATOMİ VE FİZYOLOJİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ASEPTİK TEKNİKLER DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEK ETİĞİ VE İLETİŞİM DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK PSİKOLOJİSİ DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİŞ PROTEZ TEKNİSYENLİĞİ DALI",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENTAL MALZEME VE ARAÇ GEREÇ BİLGİSİ DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİŞ MORFOLOJİSİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAREKETLİ BÖLÜMLÜ PROTEZLER DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAM PROTEZLER DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÇENE-YÜZ PROTEZLERİ DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DENTAL UYGULAMALARDA BİLGİSAY AR DESTEKLİ TASARIM VE ÜRETİM DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLK Y ARDIM DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ORTODONTİK APAREYLER DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SABİT PROTEZLER DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BAKIM TEKNİSYENLİĞİ DALI",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENFEKSİYON HASTALIKLARI DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GENEL BESLENME DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HASTA BAKIMI DERSİ",
+            "saat": 67,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİŞİSEL BAKIM DERSİ",
+            "saat": 69,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİSTEM HASTALIKLARI DERSİ",
+            "saat": 71,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLK Y ARDIM DERSİ",
+            "saat": 74,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KADIN SAĞLIĞI VE HASTALIKLARI DERSİ",
+            "saat": 76,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 22,
         "title": "SAĞLIK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SAĞLIK HİZMETLERİ ALANI (DİŞ PROTEZ TEKNİSYENLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -96111,30 +108746,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "EBE YARDIMCILIĞI MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLAÇ BİLGİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -96175,30 +108786,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HEMŞİRE YARDIMCILIĞI MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLAÇ BİLGİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -96245,24 +108832,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SAĞLIK BAKIM TEKNİSYENLİĞİ MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -96280,6 +108849,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "seramikpro": {
     "9": [
+      {
+        "page": 3,
+        "title": "SERAMİK VE CAM TEKNOLOJİSİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SERAMİK VE CAM TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI İÇİNDEKİLER 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. SERAMİK VE CAM TEKNOLOJİSİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. SERAMİK VE CAM TEKNOLOJİSİ ALANI (CAM, SERAMİK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SERAMİK VE CAM TEKNOLOJİSİ ALANI (SERAMİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SERAMİK VE CAM TEKNOLOJİSİ ALANI(CAM DALI)HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 18,
         "title": "SERAMİK VE CAM TEKNOLOJİSİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SERAMİK VE CAM TEKNOLOJİSİ ALANI (SERAMİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -96959,6 +109697,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   "aile": {
     "9": [
       {
+        "page": 3,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. SOSY AL HİZMETLER ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. SOSY AL HİZMETLER ALANI (SOSY AL DESTEK HİZMETLERİ, TÜKETİCİ DESTEK HİZMETLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ  ANADOLU TEKNİK PROGRAMI  SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI)  HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN  ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI  (TÜKETİCİ DESTEK HİZMETLERİ DALI)  HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETE GİRİŞ DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL DESTEK HİZMETLERİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİ VE BELGE UYGULAMALARI DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAĞIMLILIK VE SOSY AL HİZMET DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETTE BİREY, AİLE VE TOPLUM DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMET UYGULAMA ALANLARI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖZEL GEREKSİNİMLİ BİREYLERE YÖNELİK DESTEK UYGULAMALARI DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KIRILGAN GRUPLARIN TEMEL GEREKSİNİMLERİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMET MEVZUATI DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETTE FAALİYET PLANLAMA VE UYGULAMA DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DESTEK HİZMETLERİ DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOSY A DÜZENLEME VE SAKLAMA SİSTEMLERİ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TİCARİ HESAPLAMALAR DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DAVRANIŞLARI VE KARAR SÜREÇLERİ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AMBALAJ VE PAKETLEME DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ HAKLARI VE Y ASAL DÜZENLEMELER DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DESTEK VE DANIŞMANLIK HİZMETLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROFESYONEL SATIŞ UYGULAMALARI DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SATIŞ HİZMETLERİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 18,
         "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -98704,30 +111774,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇOCUKLARDA VE GENÇLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞLI VE ENGELLİ BİREYLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİSİ KULLANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -98768,30 +111814,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL HUKUK BİLGİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TİCARİ HESAPLAMALAR",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN İADE HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -98813,6 +111835,338 @@ const STRICT_PDF_CURRICULUM_DB = {
   "sh": {
     "9": [
       {
+        "page": 3,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. SOSY AL HİZMETLER ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. SOSY AL HİZMETLER ALANI (SOSY AL DESTEK HİZMETLERİ, TÜKETİCİ DESTEK HİZMETLERİ DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ  ANADOLU TEKNİK PROGRAMI  SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI)  HAFTALIK DERS ÇİZELGESİ 22 OKULLAR İÇİN  ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI  (TÜKETİCİ DESTEK HİZMETLERİ DALI)  HAFTALIK DERS ÇİZELGESİ 23 9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 24",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETİM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETE GİRİŞ DERSİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ DERSİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM DERSİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL DESTEK HİZMETLERİ DALI",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİ VE BELGE UYGULAMALARI DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAĞIMLILIK VE SOSY AL HİZMET DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETTE BİREY, AİLE VE TOPLUM DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMET UYGULAMA ALANLARI DERSİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ÖZEL GEREKSİNİMLİ BİREYLERE YÖNELİK DESTEK UYGULAMALARI DERSİ",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KIRILGAN GRUPLARIN TEMEL GEREKSİNİMLERİ DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMET MEVZUATI DERSİ",
+            "saat": 44,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSY AL HİZMETTE FAALİYET PLANLAMA VE UYGULAMA DERSİ",
+            "saat": 46,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DESTEK HİZMETLERİ DALI",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DOSY A DÜZENLEME VE SAKLAMA SİSTEMLERİ DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TİCARİ HESAPLAMALAR DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DAVRANIŞLARI VE KARAR SÜREÇLERİ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AMBALAJ VE PAKETLEME DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ HAKLARI VE Y ASAL DÜZENLEMELER DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TÜKETİCİ DESTEK VE DANIŞMANLIK HİZMETLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "PROFESYONEL SATIŞ UYGULAMALARI DERSİ",
+            "saat": 61,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SATIŞ HİZMETLERİ DERSİ",
+            "saat": 63,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 66,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 18,
         "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -100558,30 +113912,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇOCUKLARDA VE GENÇLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞLI VE ENGELLİ BİREYLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİSİ KULLANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -100625,30 +113955,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL HUKUK BİLGİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TİCARİ HESAPLAMALAR",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN İADE HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -100666,6 +113972,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "siber": {
     "9": [
+      {
+        "page": 3,
+        "title": "SİBER GÜVENLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "SİBER GÜVENLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. SİBER GÜVENLİK ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. SİBER GÜVENLİK ALANI (SİBER GÜVENLİK DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI SİBER GÜVENLİK ALANI (SİBER GÜVENLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI SİBER GÜVENLİK ALANI (SİBER GÜVENLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BAŞLAY AN OKULLAR İÇİN ANADOLU MESLEK PROGRAMI SİBER GÜVENLİK ALANI (SİBER GÜVENLİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "SİBER GÜVENLİK ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SİBER GÜVENLİK ALANI (SİBER GÜVENLİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -101521,24 +114996,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SIZMA TESTİ VE SİBER OLAYLARA MÜDAHALE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİKTE AÇIK KAYNAK İŞLETİM SİSTEMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ADLİ BİLİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -101556,6 +115013,181 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "tarim": {
     "9": [
+      {
+        "page": 3,
+        "title": "TARIM ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TARIM ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. TARIM ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. TARIM ALANI (TARIM DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TARIM ALANI (TARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TARIM ALANI (TARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TARIM ALANI (TARIM DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "TARIM ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. 9.5. ANADOLUANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI TARIM ALANI (TARIM DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -102066,6 +115698,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "ÖRTÜ ALTI YETİŞTİRİCİLİK SİSTEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -102341,12 +115979,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GENEL BAHÇE BİTKİLERİ",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -102495,30 +116127,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GENEL BAHÇE BİTKİLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GENEL SÜS BİTKİLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GENEL TARLA BİTKİLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -102536,6 +116144,284 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "tekstil": {
     "9": [
+      {
+        "page": 3,
+        "title": "TEKSTİL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TEKSTİL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. TEKSTİL TEKNOLOJİSİ ALANI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. TEKSTİL TEKNOLOJİSİ ALANI (İPLİK ÜRETİM TEKNOLOJİSİ, DOKUMA ÜRETİM TEKNOLOJİSİ, ÖRME ÜRETİM TEKNOLOJİSİ, BASKI VE DESENCİLİĞİ, BOY A APRE VE LABORANTLIĞI DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (İPLİK ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (İPLİK ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 26,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (İPLİK ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "TEKSTİL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ 28 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ 29 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ 30 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (ÖRME ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ 31",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TEKSTİL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 28,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (DOKUMA ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (ÖRME ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 31,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (ÖRME ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (ÖRME ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BASKI VE DESENCİLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BASKI VE DESENCİLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BASKI VE DESENCİLİĞİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BOYA APRE VE LABORANTLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 37,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BOYA APRE VE LABORANTLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (TEKSTİL BOYA APRE VE LABORANTLIĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 40,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKSTİL LİFLERİ LABORATUV ARI DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL TEKSTİL UYGULAMALARI DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İPLİK ÜRETİM TEKNOLOJİSİ DALI",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İPLİKTE ÜRETİM HESAPLARI DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 25,
         "title": "TEKSTİL TEKNOLOJİSİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI TEKSTİL TEKNOLOJİSİ ALANI (İPLİK ÜRETİM TEKNOLOJİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -106679,30 +120565,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İPLİK BİTİM İŞLEMLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İPLİK ÜRETİMDE KONTROLLER ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İPLİK ÜRETİM HESAPLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İPLİKTE FARKLI ÜRETİM SİSTEMLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -106743,24 +120605,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "NUMUNE KUMAŞ DOKUMA ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DOKUMA HAZIRLIK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KUMAŞ DOKUMA VE MAKİNA SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -106807,18 +120651,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖRMEDE ANALİZ VE DESEN ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DÜZ VE ÇORAP ÖRME ÜRETİM ATÖLYESİ/ YUVARLAK ÖRME ÜRETİM ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -106860,24 +120692,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BASKI KİMYASI",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI MAKİNELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI TEKNİKLERİ ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -106923,24 +120737,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BOYAMA VE APRE TEKNİKLERİ ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KİMYASAL VE FİZİKSEL TEST LABORATUVARI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TERBİYE MAKİNELERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -106958,6 +120754,314 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "tesisat": {
     "9": [
+      {
+        "page": 3,
+        "title": "TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (TESİSAT VE ENERJİ SİSTEMLERİ/SOĞUTMA VE İKLİMLENDİRME DALI ) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (TESİSAT VE ENERJİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (TESİSAT VE ENERJİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (TESİSAT VE ENERJİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 22 MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 23 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ 24 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 25",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL TESİSAT İŞLEMLERİ DERSİ",
+            "saat": 30,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TESİSAT VE ENERJİ SİSTEMLERİ DALI",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA TESİSAT MESLEK RESMİ DERSİ",
+            "saat": 33,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ISITMA VE DOĞAL GAZ TESİSATI DERSİ",
+            "saat": 35,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TESİSAT VE İKLİMLENDİRME ELEKTRİK İŞLEMLERİ DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GAZ Y AKICI CİHAZLARIN MONTAJI DERSİ",
+            "saat": 42,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TESİSAT PROJELERİ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SIHHİ TESİSAT SİSTEMLERİ DERSİ",
+            "saat": 48,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOĞUTMA VE İKLİMLENDİRME SİSTEMLERİ DALI",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAY ARDA SOĞUTMA MESLEK RESMİ DERSİ",
+            "saat": 52,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL SOĞUTMA VE İKLİMLENDİRME DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TESİSAT VE İKLİMLENDİRME ELEKTRİK İŞLEMLERİ DERSİ",
+            "saat": 59,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL SOĞUTMA SİSTEMLERİ DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İKLİMLENDİRME VE SOĞUTMA PROJELERİ DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MERKEZİ İKLİMLENDİRME VE HAV ALANDIRMA DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "10.3. İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 71,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BACALAR VE Y ANMA VERİMLİLİĞİ DERSİ",
+            "saat": 73,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI TESİSAT TEKNOLOJİSİ VE İKLİMLENDİRME ALANI (TESİSAT VE ENERJİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -108656,24 +122760,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TESİSAT PROJELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ YAKICI CİHAZLAR ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SIHHİ TESİSAT VE GÜNEŞ ENERJİSİ ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -108717,24 +122803,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İKLİMLENDİRME VE SOĞUTMA PROJELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL SOĞUTMA ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MERKEZİ İKLİMLENDİRME VE HAVALANDIRMA ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -108752,6 +122820,157 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "ucak": {
     "9": [
+      {
+        "page": 3,
+        "title": "UÇAK BAKIM ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "UÇAK BAKIM ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ V E TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ V E TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇE VE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ V E TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ V E TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ". MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": ".7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BEL GELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. U ÇAK BAKIM ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRET İ M PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGR AMIN SÜRES İ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFER ANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. U ÇAK BAKIM ALANI (UÇAK GÖVDE-MOTOR, UÇAK ELEKTRONİĞİ DALLARI) DERS, ÖĞRENME BİRİMİ/ MODÜL V E DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "UÇAK BAKIM  ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI UÇAK BAKIM ALANI (UÇAK GÖVDE-MOTOR DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -110012,36 +124231,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GAZ TÜRBİNLİ MOTOR SİSTEMLERİ ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİJİTAL UYGULAMALAR ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PERVANE ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UÇAK SİSTEMLERİ ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAVA ARACI AERODİNAMİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -110085,36 +124274,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AVİYONİK SİSTEMLER ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İLERİ DİJİTAL TEKNİKLERİ ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İTME KUVVETİ ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEM UYGULAMALARI ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAVA ARACI AERODİNAMİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -110132,6 +124291,344 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "ulastirma": {
     "9": [
+      {
+        "page": 3,
+        "title": "ULAŞTIRMA HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ULAŞTIRMA HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. ULAŞTIRMA HİZMETLERİ ALANI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. ULAŞTIRMA HİZMETLERİ ALANI (LOJİSTİK, SİVİL HAV ACILIK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (LOJİSTİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (LOJİSTİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 20,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (LOJİSTİK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 21,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (SİVİL HAVACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 22,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "title": "ULAŞTIRMA HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (SİVİL HAVACILIK DALI) HAFTALIK DERS ÇİZELGESİ 23 OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (SİVİL HAVACILIK DALI) HAFTALIK DERS ÇİZELGESİ 24 9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR 25",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "ULAŞTIRMA HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (SİVİL HAVACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 23,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (SİVİL HAVACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 24,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 25,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFİS PROGRAMLARI DERSİ",
+            "saat": 27,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ULAŞTIRMA DERSİ",
+            "saat": 29,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "LOJİSTİK COĞRAFY ASI DERSİ",
+            "saat": 32,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "LOJİSTİK DALI",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAŞIMA SİSTEMLERİ DERSİ",
+            "saat": 34,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEPO YÖNETİMİ DERSİ",
+            "saat": 36,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DEPO Y AZILIMLARI DERSİ",
+            "saat": 38,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DIŞ TİCARET DERSİ",
+            "saat": 39,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÜMRÜK DERSİ",
+            "saat": 41,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÜMRÜK PROGRAMI DERSİ",
+            "saat": 43,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "EKONOMİ DERSİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "LOJİSTİK HESAPLAMALAR DERSİ",
+            "saat": 47,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İLERİ OFİS PROGRAMLARI DERSİ",
+            "saat": 49,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ Y ABANCI DİL (LOJİSTİK) DERSİ",
+            "saat": 51,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİVİL HAV ACILIK DALI",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SİVİL HAV ACILIĞA GİRİŞ DERSİ",
+            "saat": 53,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAMP HİZMETLERİ DERSİ",
+            "saat": 55,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ACILIKTA EMNİYET VE GÜVENLİK YÖNETİMİ DERSİ",
+            "saat": 57,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ACILIKTA İLETİŞİM DERSİ",
+            "saat": 58,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV ALİMANI TERMİNAL İŞLETMECİLİĞİ DERSİ",
+            "saat": 60,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAREKÂT HİZMETLERİ DERSİ",
+            "saat": 62,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YOLCU HİZMETLERİ DERSİ",
+            "saat": 65,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAV A KARGO HİZMETLERİ DERSİ",
+            "saat": 68,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 19,
         "title": "ULAŞTIRMA HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ULAŞTIRMA HİZMETLERİ ALANI (LOJİSTİK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -111938,36 +126435,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GÜMRÜK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GÜMRÜK PROGRAMI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK BELGELER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK HESAPLAMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK SATIN ALMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -112011,30 +126478,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HAREKÂT HİZMETLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YOLCU HİZMETLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RAMP HİZMETLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -112052,6 +126495,169 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "yapayzeka": {
     "9": [
+      {
+        "page": 3,
+        "title": "YAPAY ZEKA ALANI ÇERÇEVE ÖĞRETIM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YAPAY ZEKA ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. Y APAY ZEKÂ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. Y APAY ZEKÂ ALANI (Y APAY ZEKÂ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 13,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI Y APAY ZEKÂ ALANI (YAPAY ZEKÂ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 15,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 15,
         "title": "YAPAY ZEKA  ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU TEKNİK PROGRAMI Y APAY ZEKÂ ALANI (YAPAY ZEKÂ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -112732,24 +127338,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "WEB TABANLI UYGULAMA GELİŞTİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MOBİL UYGULAMALAR",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GRAFİK VE CANLANDIRMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -112793,24 +127381,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AĞ SİSTEMLERİ VE YÖNLENDİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİK TEMELLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNUCU İŞLETİM SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -112828,6 +127398,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "yenilenebilir": {
     "9": [
+      {
+        "page": 3,
+        "title": "YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI (YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ DALI) DERS, ÖĞRENME BİRİMİ/MODÜL VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU MESLEK PROGRAMI YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI (YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ ANADOLU TEKNİK PROGRAMI YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI (YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI (YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 16,
         "title": "YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ ALANI (YENİLENEBİLİR ENERJİ TEKNOLOJİLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -113683,18 +128422,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODELLEME VE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SANTRAL İŞLETİLMESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -113712,6 +128439,175 @@ const STRICT_PDF_CURRICULUM_DB = {
   },
   "yiyecekpro": {
     "9": [
+      {
+        "page": 3,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "YİYECEK İÇECEK HİZMETLERİ ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 1. MESLEKİ VE TEKNİK EĞİTİM PROGRAMLARININ TEMEL Y AKLAŞIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "2. MESLEKİ VE TEKNİK EĞİTİMDE PROGRAM GELİŞTİRME SÜRECİ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "3. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARININ Y APISI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "4. ÇERÇEVE ÖĞRETİM PROGRAMLARININ GENEL AMAÇLARI",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "5. MESLEKİ VE TEKNİK EĞİTİMDE ÖĞRENME KANITLARI (ÖLÇME VE DEĞERLENDİRME",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "6. MESLEKİ VE TEKNİK EĞİTİMDE AHİLİK KÜLTÜRÜ VE İLKELERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7. MESLEKİ VE TEKNİK EĞİTİM ÇERÇEVE ÖĞRETİM PROGRAMLARINDA YER ALAN TÜRKİYE YÜZYILI MAARİF MODELİ İLE İLİŞKİLİ BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.1. KAVRAMSAL BECERİLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.2. EĞİLİMLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3. PROGRAMLAR ARASI BİLEŞENLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.1. SOSY AL-DUYGUSAL ÖĞRENME BECERİLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.2. DEĞERLER",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.3.3. OKURY AZARLIK BECERİLERİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.4. BECERİLER ARASI İLİŞKİLER",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.5. ÖĞRENME ÇIKTILARI",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.6. İÇERİK ÇERÇEVESİ",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "7.7. ÖĞRETMEN Y ANSITMALARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "8. BELGELENDİRME",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9. YİYECEK İÇECEK HİZMETLERİ ALANI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.1. ÖĞRETİM PROGRAMININ AMAÇLARI",
+            "saat": 11,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.2. PROGRAMIN SÜRESİ",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.3. REFERANS DOKÜMANLAR VE DAY ANAKLAR",
+            "saat": 12,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.4. PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK, PASTACILIK DALLARI) DERS, ÖĞRENME BİRİMİ/MODÜL ADI VE DERS SAATİ TABLOSU",
+            "saat": 14,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 17,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ VE TEKNİK ANADOLU LİSESİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+            "saat": 18,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "9.6. ÇERÇEVE ÖĞRETIM PROGRAMININ UYGULANMASINA İLİŞKİN ESASLAR",
+            "saat": 19,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
       {
         "page": 17,
         "title": "YİYECEK İÇECEK HİZMETLERİ ALANI (PROTOKOL) ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ PROTOKOL KAPSAMINDAKİ OKULLAR İÇİN ANADOLU MESLEK PROGRAMI YİYECEK  İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
@@ -113947,6 +128843,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -114035,12 +128937,6 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "COĞRAFYA",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -114148,12 +129044,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "EKONOMİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -114224,6 +129114,12 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "KİMYA",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -114323,12 +129219,6 @@ const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "COĞRAFYA",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
