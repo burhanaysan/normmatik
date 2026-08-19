@@ -7355,3 +7355,323 @@ body.resizing .middle-canvas {
     border: 1px solid #f59e0b !important;
     color: #f59e0b !important;
 }
+
+
+/* ==========================================================================
+   🏛️ 4 BÖLGELİ EXECUTIVE HEADER MİMARİSİ (SIFIR TAŞMA & EŞİT YÜKSEKLİK)
+   ========================================================================== */
+
+.app-header {
+    background: #0b1329 !important;
+    border-bottom: 2px solid #1e293b !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    padding: 0 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.65rem !important;
+    z-index: 100 !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+}
+
+.app-header::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* GENEL BÖLGE TAŞIYICI */
+.header-zone {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    flex-shrink: 0 !important;
+}
+
+/* BÖLGE 1: LOGO VE OKUL KİMLİĞİ */
+.zone-left {
+    flex: 1 1 auto !important;
+    min-width: 220px !important;
+    max-width: 420px !important;
+    overflow: hidden !important;
+}
+
+.logo-badge-executive {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    border: 1px solid #38bdf8 !important;
+    border-radius: 8px !important;
+    padding: 0.25rem 0.6rem !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35) !important;
+}
+
+.logo-brand-title {
+    font-size: 0.92rem !important;
+    font-weight: 900 !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.logo-brand-sub {
+    font-size: 0.55rem !important;
+    font-weight: 800 !important;
+    color: #bae6fd !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1 !important;
+    margin-top: 0.15rem !important;
+}
+
+.school-identity-box {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.2rem !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1.5px solid #334155 !important;
+    border-radius: 8px !important;
+    padding: 0.25rem 0.65rem !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    overflow: hidden !important;
+    max-width: 100% !important;
+}
+
+.school-identity-box:hover {
+    border-color: #38bdf8 !important;
+    background: #17233d !important;
+}
+
+.school-name-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
+
+.school-name-text {
+    font-weight: 800 !important;
+    color: #f8fafc !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+.school-lock-chip {
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    font-family: monospace !important;
+    background: rgba(2, 132, 199, 0.2) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    color: #38bdf8 !important;
+    padding: 0.1rem 0.35rem !important;
+    border-radius: 4px !important;
+    flex-shrink: 0 !important;
+}
+
+.school-badges-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+}
+
+.season-chip {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 4px !important;
+    padding: 0.05rem 0.35rem !important;
+    font-size: 0.72rem !important;
+}
+
+.season-chip-select {
+    background: transparent !important;
+    border: none !important;
+    color: #cbd5e1 !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    outline: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+}
+
+.type-chip {
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 4px !important;
+    color: #94a3b8 !important;
+    padding: 0.05rem 0.4rem !important;
+    white-space: nowrap !important;
+}
+
+/* STANDART BUTONLAR (TAM 32PX YÜKSEKLİK) */
+.btn-hdr-action {
+    height: 32px !important;
+    min-height: 32px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.35rem !important;
+    padding: 0 0.75rem !important;
+    font-size: 0.78rem !important;
+    font-weight: 800 !important;
+    border-radius: 7px !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
+    transition: all 0.2s ease !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+.btn-hdr-action:hover {
+    transform: translateY(-1px) !important;
+}
+
+.btn-staff-vocational {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    border-color: #a855f7 !important;
+    color: #ffffff !important;
+}
+.btn-staff-vocational:hover {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4) !important;
+}
+
+.btn-staff-academic {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+}
+.btn-staff-academic:hover {
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.4) !important;
+}
+
+.btn-reports-gradient {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    border-color: #38bdf8 !important;
+    color: #ffffff !important;
+}
+.btn-reports-gradient:hover {
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* BELİRGİN SIFIRLAMA BUTONU */
+.btn-reset-prominent {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border: 1.5px solid #ef4444 !important;
+    color: #f87171 !important;
+}
+.btn-reset-prominent:hover {
+    background: #ef4444 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* GRUPLANMIŞ ÇİPLER (HİSTORY & VERİ) */
+.history-chip-group, .data-chip-group {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1.5px solid #334155 !important;
+    border-radius: 7px !important;
+    height: 32px !important;
+    box-sizing: border-box !important;
+    padding: 0 0.25rem !important;
+    gap: 0.2rem !important;
+}
+
+.btn-hist-circle {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    border: none !important;
+    background: #1e293b !important;
+    color: #38bdf8 !important;
+    font-size: 0.95rem !important;
+    font-weight: 900 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.15s ease !important;
+}
+.btn-hist-circle:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+}
+
+/* SAĞ ARAÇ BUTONLARI */
+.btn-hdr-tool {
+    height: 32px !important;
+    min-height: 32px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    padding: 0 0.6rem !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    border-radius: 7px !important;
+    border: 1.5px solid #334155 !important;
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-hdr-tool:hover {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+    background: #17233d !important;
+}
+
+.btn-tool-license {
+    background: rgba(2, 132, 199, 0.15) !important;
+    border-color: #0284c7 !important;
+    color: #38bdf8 !important;
+}
+.btn-tool-license:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+}
+
+.btn-tool-logout {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border-color: rgba(239, 68, 68, 0.5) !important;
+    color: #f87171 !important;
+}
+.btn-tool-logout:hover {
+    background: #ef4444 !important;
+    border-color: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+.btn-hdr-circle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 7px !important;
+    border: 1.5px solid #334155 !important;
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    font-size: 0.95rem !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+}
+.btn-hdr-circle:hover {
+    border-color: #f59e0b !important;
+    transform: translateY(-1px) !important;
+}
