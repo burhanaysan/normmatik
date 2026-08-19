@@ -6774,3 +6774,109 @@ html, body {
     align-items: center !important;
     gap: 0.4rem !important;
 }
+
+
+/* ==========================================================================
+   🏢 KUSURSUZ VE FERAH ÜST BAŞLIK (HEADER) DÜZENİ (v1.1.6)
+   ========================================================================== */
+.app-header {
+    height: 84px !important;
+    min-height: 84px !important;
+    padding: 0.45rem 1.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.65rem !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+}
+
+.header-section-module.section-logo {
+    flex-shrink: 0 !important;
+}
+
+.header-section-module.section-school-info {
+    flex: 2 1 auto !important;
+    min-width: 300px !important;
+    max-width: 520px !important;
+    overflow: visible !important;
+}
+
+.school-executive-cluster {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.3rem !important;
+    width: 100% !important;
+}
+
+.school-title-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+}
+
+.school-title-executive {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    padding: 0.22rem 0.75rem !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1.5px solid #475569 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+.school-code-badge {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    background: rgba(2, 132, 199, 0.2) !important;
+    padding: 0.1rem 0.4rem !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+}
+
+.school-meta-pills {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.school-type-tag {
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.3rem !important;
+    padding: 0.18rem 0.65rem !important;
+    font-size: 0.75rem !important;
+    border-radius: 9999px !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(148, 163, 184, 0.25) !important;
+    color: #cbd5e1 !important;
+}
+
+.season-pill-box {
+    padding: 0.18rem 0.65rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+}
+
+.header-toolbar-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.28rem !important;
+    padding: 0 0.35rem !important;
+}
+
+.btn-header-tool {
+    padding: 0 0.55rem !important;
+    font-size: 0.76rem !important;
+    height: 30px !important;
+}

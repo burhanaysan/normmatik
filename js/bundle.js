@@ -10535,35 +10535,38 @@ class MebNormApplication {
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
         headerEl.innerHTML = `
-            <!-- 1. BÖLÜM: SİSTEM BAŞLIĞI (LOGOSUZ VE SADE) -->
+            <!-- 1. BÖLÜM: SİSTEM BAŞLIĞI -->
             <div class="header-section-module section-logo">
-                <div class="logo-badge-executive" style="padding-left: 0.35rem;">
+                <div class="logo-badge-executive">
                     <div class="logo-text-executive">
                         <span class="logo-brand-title">NormMatik™</span>
-                        <span class="logo-brand-sub">MEB NORM KADRO & DERS YÜKÜ SİSTEMİ</span>
+                        <span class="logo-brand-sub">MEB NORM SİSTEMİ</span>
                     </div>
                 </div>
             </div>
             
             <div class="header-terminal-divider"></div>
 
-            <!-- 2. BÖLÜM: OKUL BİLGİLERİ -->
+            <!-- 2. BÖLÜM: OKUL BİLGİLERİ (GENİŞ VE FERAH) -->
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin veya Okulu Değiştirin">
-                            <span style="font-size: 1.25rem;">🏫</span> ${info.okulAdi || 'Okul Adı Belirtilmedi'} ${info.kurumKodu ? '<span style="font-size: 0.78rem; font-weight: 700; color: var(--primary); background: rgba(2, 132, 199, 0.12); padding: 0.15rem 0.45rem; border-radius: 6px; border: 1px solid rgba(2, 132, 199, 0.3);">[' + info.kurumKodu + ']</span>' : ''} <span class="edit-pen-icon">✏️</span>
+                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin">
+                            <span style="font-size: 1.15rem;">🏫</span>
+                            <span class="school-name-text">${info.okulAdi || 'Okul Adı Belirtilmedi'}</span>
+                            ${info.kurumKodu ? '<span class="school-code-badge">' + info.kurumKodu + '</span>' : ''}
+                            <span class="edit-pen-icon">✏️</span>
                         </span>
                     </div>
                     <div class="school-meta-pills">
-                        <div class="season-pill-box" title="Eğitim-Öğretim Sezonunu Değiştirin (Sınıf Atlatma & Sezon Devri)">
+                        <div class="season-pill-box" title="Eğitim-Öğretim Sezonu">
                             <span class="season-pill-icon">📅</span>
                             <select class="season-pill-select" id="season-selector">
                                 ${seasonOptionsHtml}
                             </select>
                         </div>
-                        <span class="school-type-tag" title="Okul türü kilitlidir. Değiştirmek için sıfırlayınız.">
-                            📜 ${currentType.category || 'MEB'} • ${currentType.name}
+                        <span class="school-type-tag" title="${currentType.name}">
+                            📜 ${currentType.name}
                         </span>
                     </div>
                 </div>
@@ -10573,55 +10576,48 @@ class MebNormApplication {
 
             <!-- 3. BÖLÜM: KADRO YÖNETİMİ + RAPOR MERKEZİ -->
             <div class="header-section-module section-management-reports">
-                <!-- Temiz Dairesel Geri / İleri Butonları (Yazısız) -->
                 <div class="history-controls-minimal">
-                    <button class="btn-history-circle" id="btn-undo" title="Son İşlemi Geri Al (Ctrl+Z)">
-                        <span>↶</span>
-                    </button>
-                    <button class="btn-history-circle" id="btn-redo" title="Geri Alınan İşlemi Yinele (Ctrl+Y)">
-                        <span>↷</span>
-                    </button>
+                    <button class="btn-history-circle" id="btn-undo" title="Geri Al (Ctrl+Z)"><span>↶</span></button>
+                    <button class="btn-history-circle" id="btn-redo" title="Yinele (Ctrl+Y)"><span>↷</span></button>
                 </div>
 
                 <button class="btn btn-sm ${headerStaffClass} btn-header-elevated" id="btn-header-staff" title="${headerStaffTitle}">
                     ${headerStaffText}
                 </button>
-                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="MEB Norm Kadro & Ders Yükü Raporlama Merkezi (Master Grid, Yönetici İcmali, Norm Cetvelleri)">
+                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="MEB Norm Kadro Raporları">
                     🖨️ Raporlar
                 </button>
             </div>
 
             <div class="header-terminal-divider"></div>
 
-            <!-- 4. BÖLÜM: DİĞER KOMPONENTLER / SİSTEM ARAÇLARI -->
+            <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1.5px solid #10b981; color: #10b981; font-weight: 800;" title="Sistemi Tanıtan Rehber Turunu Başlat">
-                        ❓ Nasıl Çalışır?
-                    </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.15); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Durumu ve Aktivasyon">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
                         🔑 Lisans
                     </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi Bilgisayarına JSON Olarak İndir">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
+                        ❓ Rehber
+                    </button>
+                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
                         💾 İndir
                     </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Kayıtlı Proje Dosyasını Aç">
+                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Proje Yükle">
                         📂 Yükle
                     </button>
                     <input type="file" id="file-import-json" accept=".json" style="display:none;">
-                    <button class="btn btn-sm btn-header-tool" id="btn-update-db" title="Yeni Yıl MEB Veri Tabanı Dosyası Yükle (Müfredat Güncelle)">
-                        📚 DB
-                    </button>
-                    <input type="file" id="file-import-db" accept=".json" style="display:none;">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği">
+                    <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
                         ⚖️ KVKK
                     </button>
-                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Açık / Koyu Tema Geçişi">
+                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Tema">
                         ${themeBtnText}
                     </button>
-                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" title="Okulu Sıfırla ve Yeniden Başlat">
-                        🔄 Sıfırla
+                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
+                        🔄
                     </button>
+                    <button class="btn btn-sm btn-header-tool" id="btn-update-db" style="display:none;">DB</button>
+                    <input type="file" id="file-import-db" accept=".json" style="display:none;">
                 </div>
             </div>
         `;
