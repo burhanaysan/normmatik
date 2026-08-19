@@ -1,3 +1,4 @@
+import { STRICT_PDF_CURRICULUM_DB } from './strict_pdf_curriculum_db.js';
 import { MTEGM_CANONICAL_DB } from './mtegm_canonical_data.js';
 // MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi
 // Kurumsal Müfredat ve Ders Çözümleme Motoru (CurriculumEngine)
@@ -445,13 +446,14 @@ class MebCurriculumEngine {
 
     // --- KAPSAMLI ZORUNLU DERS ÇÖZÜMLEME (UNIVERSAL RESOLVER) ---
     // --- KAPSAMLI VE %100 MEB UYUMLU ZORUNLU DERS ÇÖZÜMLEME (CANONICAL UNIVERSAL RESOLVER) ---
+        // --- SADECE VE SADECE PDF TABLOLARINDAN ÇEKİLEN KESİN MÜFREDAT ÇÖZÜMLEYİCİ ---
     getMandatoryCourses(schoolType, grade, areaId = null, dalName = null) {
         const gStr = String(grade);
         const result = [];
         const seenNorms = new Set();
         const schoolTypeStr = String(schoolType || "").toLowerCase();
 
-        // 0. ÖZEL EĞİTİM SINIFLARI MÜFREDATI (Haftalık 30 Saat)
+        // 0. ÖZEL EĞİTİM
         if (areaId === "ozel_egitim" || schoolTypeStr.includes("ozel_egitim") || String(dalName || "").includes("Özel Eğit")) {
             return [
                 { ders: "Türkçe / Türk Dili ve Edebiyatı (Özel Eğitim)", saat: 3, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: false },
@@ -460,140 +462,136 @@ class MebCurriculumEngine {
                 { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
                 { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
                 { ders: "Görsel Sanatlar ve Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
-                { ders: "İş Becerileri ve Mesleki Uygulamalar", saat: 15, kategori: "MESLEK ALAN DERSLERİ", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: true },
+                { ders: "İş Becerileri ve Mesleki Uygulamalar", saat: 15, kategori: "ALAN VE DAL MESLEK DERSLERİ", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: true },
                 { ders: "Rehberlik ve Yönlendirme", saat: 2, kategori: "REHBERLİK", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false }
             ];
         }
 
-        // 1. TEMEL EĞİTİM (ORTAOKUL & İMAM HATİP ORTAOKULU - 5, 6, 7, 8. SINIFLAR)
+        // 1. TEMEL EĞİTİM (İHO & ORTAOKUL)
         if (schoolTypeStr.includes("imam_hatip_ortaokulu") || schoolTypeStr.includes("iho")) {
             const IHO_CURRICULUM = {
                 "5": [
-                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Arapça", saat: 2, atananBrans: "Arapça" },
-                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri" }
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
+                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "6": [
-                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Arapça", saat: 2, atananBrans: "Arapça" },
-                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Temel Dini Bilgiler", saat: 1, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri" }
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
+                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Temel Dini Bilgiler", saat: 1, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "7": [
-                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Arapça", saat: 2, atananBrans: "Arapça" },
-                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım" }
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
+                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
                 ],
                 "8": [
-                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Arapça", saat: 2, atananBrans: "Arapça" },
-                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım" },
-                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik" }
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
+                    { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ]
             };
-            if (IHO_CURRICULUM[gStr]) {
-                return IHO_CURRICULUM[gStr].map(c => ({ ...c, kategori: "ORTAK DERSLER", isAtolye: false }));
-            }
+            if (IHO_CURRICULUM[gStr]) return IHO_CURRICULUM[gStr];
         }
 
         if (schoolTypeStr.includes("ortaokul") && !schoolTypeStr.includes("imam_hatip")) {
             const ORTAOKUL_CURRICULUM = {
                 "5": [
-                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri" }
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "6": [
-                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri" }
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "7": [
-                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım" }
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
                 ],
                 "8": [
-                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri" },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler" },
-                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Müzik", saat: 1, atananBrans: "Müzik" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım" },
-                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik" }
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ]
             };
-            if (ORTAOKUL_CURRICULUM[gStr]) {
-                return ORTAOKUL_CURRICULUM[gStr].map(c => ({ ...c, kategori: "ORTAK DERSLER", isAtolye: false }));
-            }
+            if (ORTAOKUL_CURRICULUM[gStr]) return ORTAOKUL_CURRICULUM[gStr];
         }
 
-        // 2. MTEGM (MESLEKİ VE TEKNİK ANADOLU LİSESİ - 69 ALAN)
+        // 2. MTEGM (DOĞRUDAN VE SADECE İLGİLİ SINIF KLASÖRÜNDEKİ PDF TABLOSUNDAN ALMA)
         if (schoolTypeStr.includes("meslek") || schoolTypeStr.includes("teknik") || schoolTypeStr.includes("mtegm") || areaId) {
             const ALIAS_MAP = {
                 "tesisat_teknolojisi_ve_iklimlendirme": "tesisat",
@@ -646,340 +644,103 @@ class MebCurriculumEngine {
             };
 
             const lookupKey = ALIAS_MAP[areaId] || (areaId ? areaId.toLowerCase() : "");
-            const canonicalList = (typeof MTEGM_CANONICAL_DB !== 'undefined' && lookupKey) ? MTEGM_CANONICAL_DB[lookupKey] : null;
+            const areaDb = (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined' && lookupKey) ? STRICT_PDF_CURRICULUM_DB[lookupKey] : null;
+            const schedulesForGrade = areaDb ? areaDb[gStr] : null;
 
-            // TTKB Resmî MTEGM Ortak Dersler (Kesinleşmiş Çizelge Saatleri)
-            const TTKB_MTEGM_ORTAK = {
-                "9": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Birinci Yabancı Dil", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi" }
-                ],
-                "10": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Matematik", saat: 5, atananBrans: "Matematik" },
-                    { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Birinci Yabancı Dil", saat: 2, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi" }
-                ],
-                "11": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Birinci Yabancı Dil", saat: 2, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji" }
-                ],
-                "12": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Birinci Yabancı Dil", saat: 2, atananBrans: "İngilizce" }
-                ]
-            };
-
-            // 1. Önce Ortak Dersleri Ekle (Tam TTKB Saatleri)
-            if (TTKB_MTEGM_ORTAK[gStr]) {
-                for (let od of TTKB_MTEGM_ORTAK[gStr]) {
-                    result.push({
-                        ders: od.ders,
-                        saat: od.saat,
-                        kategori: "ORTAK DERSLER",
-                        atananBrans: od.atananBrans,
-                        baraj_ders: !!od.baraj_ders,
-                        isAtolye: false
-                    });
-                    seenNorms.add(this.normalizeName(od.ders));
-                }
-            }
-
-            // 2. Meslek Derslerini ÇÖP Veritabanından Çek
-            let matchedSchedule = null;
-            if (canonicalList && canonicalList.length > 0) {
+            if (schedulesForGrade && schedulesForGrade.length > 0) {
+                let matchedSchedule = null;
                 if (dalName) {
                     const normDal = this.normalizeName(dalName).replace('dali', '').replace('programi', '').trim();
-                    matchedSchedule = canonicalList.find(s => {
+                    matchedSchedule = schedulesForGrade.find(s => {
                         const tNorm = this.normalizeName(s.title);
                         return tNorm.includes(normDal) || (normDal.length >= 4 && tNorm.includes(normDal.substring(0, 5)));
                     });
                 }
                 if (!matchedSchedule) {
-                    matchedSchedule = canonicalList[0];
+                    matchedSchedule = schedulesForGrade[0];
                 }
-            }
 
-            const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");
-            let vocCoursesAdded = 0;
+                const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");
 
-            if (matchedSchedule && matchedSchedule.grades && matchedSchedule.grades[gStr]) {
-                for (let c of matchedSchedule.grades[gStr]) {
-                    if (c.is_common) continue; // Ortak dersler zaten yukarıda TTKB standardıyla eklendi
-                    
+                for (let c of matchedSchedule.courses) {
                     const cNorm = this.normalizeName(c.ders);
-                    if (cNorm.includes("rehberlik") || cNorm.includes("toplam") || cNorm.includes("secmeli")) continue;
+                    if (cNorm.includes("toplam") || cNorm.includes("secmeli")) continue;
 
                     if (!seenNorms.has(cNorm)) {
                         seenNorms.add(cNorm);
-                        const assignedBranch = this.getCanonicalCourseAndBranch(c.ders, null, areaCode, "ALAN / DAL DERSLERİ").branchName;
+                        const assignedBranch = this.getCanonicalCourseAndBranch(c.ders, null, areaCode, c.kategori).branchName;
                         result.push({
                             ders: this.toTurkishTitleCase(c.ders),
                             saat: c.saat,
-                            kategori: "ALAN / DAL DERSLERİ",
+                            kategori: c.kategori,
                             atananBrans: assignedBranch,
                             baraj_ders: !!c.baraj_ders || (gStr === "12" && cNorm.includes("isletmelerde")),
-                            isAtolye: true
+                            isAtolye: c.kategori.includes("MESLEK")
                         });
-                        vocCoursesAdded += c.saat;
                     }
                 }
-            }
-
-            // Eğer veritabanından çekilemediyse Akıllı Standart Atölye Derslerini Ekle
-            if (vocCoursesAdded === 0) {
-                if (gStr === "9") {
-                    result.push({ ders: "Mesleki Gelişim Atölyesi", saat: 2, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: false, isAtolye: true });
-                    result.push({ ders: `${areaCode} Temel Meslek Atölyesi`, saat: 9, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: false, isAtolye: true });
-                } else if (gStr === "10") {
-                    result.push({ ders: `${areaCode} Meslek Atölyesi`, saat: 8, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: true, isAtolye: true });
-                    result.push({ ders: `${areaCode} Mesleki Çizim ve Tasarım`, saat: 5, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: false, isAtolye: true });
-                } else if (gStr === "11") {
-                    result.push({ ders: `${dalName || areaCode} Dal Atölyesi`, saat: 10, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: true, isAtolye: true });
-                    result.push({ ders: `${dalName || areaCode} Mesleki Uygulamaları`, saat: 7, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: false, isAtolye: true });
-                } else if (gStr === "12") {
-                    result.push({ ders: "İşletmelerde Mesleki Eğitim", saat: 24, kategori: "ALAN / DAL DERSLERİ", atananBrans: areaCode, baraj_ders: true, isAtolye: true });
-                }
-            }
-
-            // 3. Rehberlik Ekle (10 ve 11. sınıflarda 1 Saat)
-            if (gStr === "10" || gStr === "11") {
-                result.push({
-                    ders: "Rehberlik ve Yönlendirme",
-                    saat: 1,
-                    kategori: "ORTAK DERSLER",
-                    atananBrans: "Rehberlik",
-                    baraj_ders: false,
-                    isAtolye: false
-                });
-            }
-
-            return result;
-        }
-
-        // 3. DÖGM (ANADOLU İMAM HATİP LİSELERİ - HAZIRLIK, 9, 10, 11, 12)
-        if (schoolTypeStr.includes("imam_hatip") && !schoolTypeStr.includes("ortaokulu")) {
-            const AIHL_CURRICULUM = {
-                "9": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Kur'an-ı Kerim", saat: 3, atananBrans: "İHL Meslek Dersleri", baraj_ders: true },
-                    { ders: "Arapça", saat: 4, atananBrans: "Arapça" },
-                    { ders: "Temel Dini Bilgiler", saat: 1, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 5, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "10": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Kur'an-ı Kerim", saat: 4, atananBrans: "İHL Meslek Dersleri", baraj_ders: true },
-                    { ders: "Arapça", saat: 3, atananBrans: "Arapça" },
-                    { ders: "Hadis", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Siyer", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Fıkıh", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "11": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Kur'an-ı Kerim", saat: 4, atananBrans: "İHL Meslek Dersleri", baraj_ders: true },
-                    { ders: "Mesleki Arapça", saat: 3, atananBrans: "Arapça" },
-                    { ders: "Tefsir", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Akaid", saat: 1, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Hitabet ve Mesleki Uygulama", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "12": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Kur'an-ı Kerim", saat: 3, atananBrans: "İHL Meslek Dersleri", baraj_ders: true },
-                    { ders: "Mesleki Arapça", saat: 3, atananBrans: "Arapça" },
-                    { ders: "Kelam", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "Dinler Tarihi", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "İslam Kültür ve Medeniyeti", saat: 2, atananBrans: "İHL Meslek Dersleri" },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce" },
-                    { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Beden Eğitimi" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ]
-            };
-            if (AIHL_CURRICULUM[gStr]) {
-                return AIHL_CURRICULUM[gStr].map(c => ({ ...c, kategori: "ORTAK DERSLER", isAtolye: false }));
+                if (result.length > 0) return result;
             }
         }
 
-        // 4. OGM (ANADOLU LİSESİ & FEN LİSESİ - 9, 10, 11, 12)
-        if (schoolTypeStr.includes("fen_lisesi")) {
-            const FEN_CURRICULUM = {
-                "9": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Fen Lisesi Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fen Lisesi Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Fen Lisesi Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Fen Lisesi Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji" },
-                    { ders: "Bilgisayar Bilimi", saat: 2, atananBrans: "Bilişim Teknolojileri" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "10": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Fen Lisesi Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fen Lisesi Fizik", saat: 2, atananBrans: "Fizik" },
-                    { ders: "Fen Lisesi Kimya", saat: 2, atananBrans: "Kimya" },
-                    { ders: "Fen Lisesi Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Bilgisayar Bilimi", saat: 2, atananBrans: "Bilişim Teknolojileri" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "11": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Fen Lisesi İleri Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fen Lisesi İleri Fizik", saat: 4, atananBrans: "Fizik" },
-                    { ders: "Fen Lisesi İleri Kimya", saat: 4, atananBrans: "Kimya" },
-                    { ders: "Fen Lisesi İleri Biyoloji", saat: 4, atananBrans: "Biyoloji" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ],
-                "12": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih" },
-                    { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                    { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                    { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                    { ders: "Fen Lisesi İleri Matematik", saat: 6, atananBrans: "Matematik" },
-                    { ders: "Fen Lisesi İleri Fizik", saat: 4, atananBrans: "Fizik" },
-                    { ders: "Fen Lisesi İleri Kimya", saat: 4, atananBrans: "Kimya" },
-                    { ders: "Fen Lisesi İleri Biyoloji", saat: 4, atananBrans: "Biyoloji" },
-                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
-                ]
-            };
-            if (FEN_CURRICULUM[gStr]) {
-                return FEN_CURRICULUM[gStr].map(c => ({ ...c, kategori: "ORTAK DERSLER", isAtolye: false }));
-            }
-        }
-
-        // Genel Anadolu Lisesi ve Diğer OGM Okulları (Varsayılan)
+        // 3. OGM & DÖGM STANDARTLARI (Varsayılan)
         const ANADOLU_CURRICULUM = {
             "9": [
-                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                { ders: "Matematik", saat: 6, atananBrans: "Matematik" },
-                { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji" },
-                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
+                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
+                { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER" },
+                { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER" },
+                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
+                { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
+                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "10": [
-                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya" },
-                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                { ders: "Matematik", saat: 6, atananBrans: "Matematik" },
-                { ders: "Fizik", saat: 2, atananBrans: "Fizik" },
-                { ders: "Kimya", saat: 2, atananBrans: "Kimya" },
-                { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
+                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
+                { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER" },
+                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER" },
+                { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER" },
+                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
+                { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "11": [
-                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                { ders: "Tarih", saat: 2, atananBrans: "Tarih" },
-                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
+                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
+                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "12": [
-                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi" },
-                { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca" },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar" },
-                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik" }
+                { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ]
         };
 
-        if (ANADOLU_CURRICULUM[gStr]) {
-            return ANADOLU_CURRICULUM[gStr].map(c => ({ ...c, kategori: "ORTAK DERSLER", isAtolye: false }));
-        }
-
+        if (ANADOLU_CURRICULUM[gStr]) return ANADOLU_CURRICULUM[gStr];
         return [];
     }
 
