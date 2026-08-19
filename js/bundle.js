@@ -28241,7 +28241,317 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "10": [],
+    "10": [
+      {
+        "page": 17,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
     "11": [],
     "12": []
   },
@@ -28557,7 +28867,317 @@ const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "10": [],
+    "10": [
+      {
+        "page": 17,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL KALİTE",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TAHRİBATLI MALZEME MUAYENE",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
     "11": [],
     "12": []
   },
@@ -29166,315 +29786,6 @@ const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "ATÖLYE",
             "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL KALİTE",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TAHRİBATLI MALZEME MUAYENE",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 18,
-        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL KALİTE",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TAHRİBATLI MALZEME MUAYENE",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 19,
-        "title": "ENDÜSTRIYEL KALITE KONTROL ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI ENDÜSTRİYEL KALİTE KONTROL ALANI (ENDÜSTRİYEL KALİTE KONTROL DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME VE ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL KALİTE",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TAHRİBATLI MALZEME MUAYENE",
-            "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
           },
