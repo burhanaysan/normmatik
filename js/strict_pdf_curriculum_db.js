@@ -2465,7 +2465,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "basim": {
+  "matbaa": {
     "9": [
       {
         "page": 18,
@@ -3050,9 +3050,1100 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "10": [],
-    "11": [],
-    "12": []
+    "10": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÖRÜNTÜ İŞLEME",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 13,
+        "title": "BASKI ÖNCESİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÖRÜNTÜ İŞLEME",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 14,
+        "title": "BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "GÖRÜNTÜ İŞLEME",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM",
+            "saat": 7,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 15,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SONRASI TEKNİKLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI TEKNİKLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 16,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SONRASI TEKNİKLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI TEKNİKLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 17,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BASKI SONRASI TEKNİKLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI TEKNİKLERİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "11": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "DİJİTAL BASKI",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 13,
+        "title": "BASKI ÖNCESİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 14,
+        "title": "BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 15,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "CİLTLEME TEKNİKLERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 16,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 17,
+        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OFSET BASKI UYGULAMALARI",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "12": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 13,
+        "title": "OFSET BASKI SİSTEMLERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ]
   },
   "bilisim": {
     "9": [
@@ -13232,7 +14323,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "dogugastro": {
+  "yiyecek": {
     "9": [
       {
         "page": 19,
@@ -14160,11 +15251,2124 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           }
         ]
+      },
+      {
+        "page": 20,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 22,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 23,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 24,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 25,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 26,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 27,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 28,
+        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ  ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 20,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 22,
+        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ  ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 23,
+        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BESLENME İLKELERİ VE HİJYEN",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL(YİYECEK İÇECEK HİZMETLERİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
       }
     ],
-    "10": [],
-    "11": [],
-    "12": []
+    "10": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SERVİS ATÖLYESİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 13,
+        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SERVİS ATÖLYESİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 14,
+        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ YABANCI DİL",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SERVİS ATÖLYESİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "11": [
+      {
+        "page": 12,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SERVİS ATÖLYESİ",
+            "saat": 6,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 13,
+        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 14,
+        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "AŞÇILIK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "12": [
+      {
+        "page": 11,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ YİYECEK İÇECEK HİZMETLERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ]
   },
   "elektrik": {
     "9": [
@@ -20440,7 +23644,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "endkalite": {
+  "endustriyel_kalite_kontrol": {
     "9": [
       {
         "page": 17,
@@ -56053,940 +59257,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "marmaragastro": {
-    "9": [
-      {
-        "page": 20,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 21,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 22,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (SARAY MUTFAĞI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 24,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 25,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (HELVACILIK, ŞERBET VE TATLI SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 26,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 27,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU TEKNİK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 28,
-        "title": "MARMARA GASTRONOMI VE MUTFAK SANATLARI ALANI ÇERÇEVE ÖĞRETIM PROGRAMI ANADOLU MESLEK PROGRAMI MARMARA GASTRONOMİ VE MUTFAK SANATLARI ALANI (MİSAFİR DENEYİMİ VE SERVİS YÖNETİMİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL GASTRONOMİ UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MUTFAKTA İŞ SAĞLIĞI VE GIDA GÜVENLİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE MENÜ PLANLAMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "10": [],
-    "11": [],
-    "12": []
-  },
   "meslekigelisim": {
     "9": [],
     "10": [],
@@ -67114,7 +69384,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "otomotiv": {
+  "motorluarac": {
     "9": [
       {
         "page": 22,
@@ -68470,9 +70740,2849 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ],
-    "10": [],
-    "11": [],
-    "12": []
+    "10": [
+      {
+        "page": 15,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 16,
+        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 17,
+        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLUTEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 20,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 22,
+        "title": "İŞ MAKİNELERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 23,
+        "title": "İŞ MAKİNELERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 24,
+        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 25,
+        "title": "OTOMOTİV BOYA DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 26,
+        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 27,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 28,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 29,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "10",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "11": [
+      {
+        "page": 15,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "BATARYA TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV MESLEK RESMİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 16,
+        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 17,
+        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİZEL YAKIT SİSTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV MESLEK RESMİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLUTEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 20,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV MESLEK RESMİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 22,
+        "title": "İŞ MAKİNELERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 23,
+        "title": "İŞ MAKİNELERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 24,
+        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV MESLEK RESMİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 25,
+        "title": "OTOMOTİV BOYA DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 26,
+        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV BOYA ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 27,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV MESLEK RESMİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 28,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 29,
+        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "11",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ],
+    "12": [
+      {
+        "page": 14,
+        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 15,
+        "title": "İŞ MAKİNELERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 16,
+        "title": "OTOMOTİV BOYA DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 17,
+        "title": "OTOMOTİV ELEKTROMEKANİK DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "OTOMOTİV GÖVDE DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "12",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      }
+    ]
   },
   "pazarlama": {
     "9": [
@@ -76707,6 +81817,624 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           }
         ]
+      },
+      {
+        "page": 18,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 19,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 20,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 22,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 23,
+        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SOSYAL HİZMETE GİRİŞ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL İLETİŞİM",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TOPLAM DERS SAATİ",
+            "saat": 45,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          }
+        ]
       }
     ],
     "10": [
@@ -79268,631 +84996,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       }
     ]
-  },
-  "sh": {
-    "9": [
-      {
-        "page": 18,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 19,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 20,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (SOSYAL DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 21,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 22,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "SOSYAL HİZMETLER ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK PROGRAMI SOSY AL HİZMETLER ALANI (TÜKETİCİ DESTEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SOSYAL HİZMETE GİRİŞ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLETİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "10": [],
-    "11": [],
-    "12": []
   },
   "siber": {
     "9": [
@@ -91994,1199 +97097,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
       }
     ]
   },
-  "yiyecek": {
-    "9": [
-      {
-        "page": 18,
-        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI 9.5. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 19,
-        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ  ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 20,
-        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (AŞÇILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 21,
-        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 22,
-        "title": "YİYECEK İÇECEK HİZMETLERİ ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU TEKNİK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ  ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "YİYECEK İÇECEK HİZMETLERİ  ALANI ÇERÇEVE ÖĞRETİM PROGRAMI ANADOLU MESLEK  PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (PASTACILIK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "9",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR / GÖRSEL SANATLAR / MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BESLENME İLKELERİ VE HİJYEN",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL MUTFAK VE SERVİS BECERİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL(YİYECEK İÇECEK HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "10": [
-      {
-        "page": 12,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 13,
-        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 14,
-        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "11": [
-      {
-        "page": 12,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 13,
-        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 14,
-        "title": "YİYECEK İÇECEK HİZMETLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "12": [
-      {
-        "page": 11,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ YİYECEK İÇECEK HİZMETLERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI YİYECEK İÇECEK HİZMETLERİ ALANI (YİYECEK İÇECEK HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ]
-  },
   "yiyecekpro": {
     "9": [
       {
@@ -94707,3949 +98617,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
       {
         "page": 13,
         "title": "TÜKETİCİ HİZMETLERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI AİLE VE TÜKETİCİ HİZMETLERİ ALANI (TÜKETİCİ HİZMETLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ]
-  },
-  "matbaa": {
-    "9": [],
-    "10": [
-      {
-        "page": 12,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GÖRÜNTÜ İŞLEME",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 13,
-        "title": "BASKI ÖNCESİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GÖRÜNTÜ İŞLEME",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 14,
-        "title": "BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GÖRÜNTÜ İŞLEME",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 15,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI SONRASI TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI TEKNİKLERİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 16,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI SONRASI TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI TEKNİKLERİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI SONRASI TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI TEKNİKLERİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "11": [
-      {
-        "page": 12,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL BASKI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 13,
-        "title": "BASKI ÖNCESİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 14,
-        "title": "BASKI ÖNCESİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 15,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİLTLEME TEKNİKLERİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 16,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "OFSET BASKI SİSTEMLERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "12": [
-      {
-        "page": 12,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ BASKI ÖNCESİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (BASKI ÖNCESİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 13,
-        "title": "OFSET BASKI SİSTEMLERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MATBAA TEKNOLOJİSİ ALANI (OFSET BASKI SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ]
-  },
-  "motorluarac": {
-    "9": [],
-    "10": [
-      {
-        "page": 15,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 16,
-        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ELEKTRİK MAKİNELERİ VE DÖNÜŞTÜRÜCÜLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 18,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 19,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLUTEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 20,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 21,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 22,
-        "title": "İŞ MAKİNELERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "İŞ MAKİNELERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ TEKNOLOJİSİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 24,
-        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 25,
-        "title": "OTOMOTİV BOYA DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 26,
-        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEMEL BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV BOYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 27,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 28,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 29,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE KAYNAK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "11": [
-      {
-        "page": 15,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BATARYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 16,
-        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "ELEKTRİKLİ ARAÇLAR DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 18,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİZEL YAKIT SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 19,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ANADOLUTEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 20,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 21,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 22,
-        "title": "İŞ MAKİNELERİ DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "İŞ MAKİNELERİ DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROLELEKTRİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 24,
-        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 25,
-        "title": "OTOMOTİV BOYA DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 26,
-        "title": "OTOMOTİV BOYA DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 27,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 28,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGESİ ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 29,
-        "title": "OTOMOTİV GÖVDE DALI ANADOLU MESLEK PROGRAMI İŞLETMELERDE MESLEKİ EĞİTİME 11. SINIFTA BAŞLAYAN OKULLAR İÇİN HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
-            "saat": 16,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      }
-    ],
-    "12": [
-      {
-        "page": 14,
-        "title": "5.4. ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI HAFTALIK DERS ÇİZELGELERİ ELEKTRİKLİ ARAÇLAR DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (ELEKTRİKLİ ARAÇLAR DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 15,
-        "title": "İŞ MAKİNELERİ DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 16,
-        "title": "OTOMOTİV BOYA DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV BOYA DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 17,
-        "title": "OTOMOTİV ELEKTROMEKANİK DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "12",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "T.C. İNKILÂP TARİHİ VE ATATÜRKÇÜLÜK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TOPLAM DERS SAATİ",
-            "saat": 45,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 18,
-        "title": "OTOMOTİV GÖVDE DALI HAFTALIK DERS ÇİZELGESİ ANADOLU MESLEK VE ANADOLU TEKNİK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV GÖVDE DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "12",
         "courses": [
           {
