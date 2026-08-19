@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,9 +11,8 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Mobil 3-Sekmeli Dinamik Mimari (Şubeler - Dersler - Normlar) mükemmelleştirildi.",
-    "Ders tablosu yazı boyutları ve atanan branş kutuları mobilde kompakt ve akıcı hale getirildi.",
-    "Sol panelden bir şubeye tıklandığında mobilde otomatik Orta Panel Dersler sekmesine geçiş eklendi.",
-    "Tüm dersler ve normlar örnek okulda %100 eksiksiz dolduruldu."
+    "Ultra Kompakt ve Dinamik Mobil Arayüz (Header 42px, Hero Banner Slim, Tablo Yoğunluğu %200 artırıldı).",
+    "Atanan branş kutuları genişletildi, yazı kesilmeleri giderildi.",
+    "Otomatik Yatay Ekran / Masaüstü Modu (Telefon yan çevrildiğinde tam 3 panelli masaüstü görünümüne geçer)."
   ]
 }
