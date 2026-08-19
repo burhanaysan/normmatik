@@ -10872,32 +10872,48 @@ class MebNormApplication {
         `;
 
         sidebarEl.innerHTML = `
-            <div class="sidebar-header">
-                <div class="sidebar-title-row" style="display: flex; align-items: center; justify-content: space-between; gap: 0.4rem;">
-                    <!-- EN SOLDA: Simetrik Sol Paneli Gizleme Butonu & Başlık -->
-                    <div style="display: flex; align-items: center; gap: 0.45rem;">
-                        <button class="btn-panel-toggle" id="btn-collapse-left" title="Sol Şube Panelini Kapat (Sola Gizle)">
+            <div class="sidebar-header-executive">
+                <!-- 1. ÜST BAŞLIK & SİMETRİK GİZLEME BUTONU -->
+                <div class="sidebar-top-bar">
+                    <div class="sidebar-brand-group">
+                        <button class="btn-panel-toggle" id="btn-collapse-left" title="Sol Şube Panelini Gizle">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="11 17 6 12 11 7"></polyline>
                                 <polyline points="18 17 13 12 18 7"></polyline>
                             </svg>
                         </button>
-                        <span class="sidebar-title">📋 Şubeler (${subeler.length})</span>
-                    </div>
-
-                    <!-- SAĞDA: Şube Ekleme Aksiyon Butonları -->
-                    <div style="display: flex; align-items: center; gap: 0.35rem;">
-                        <button class="btn btn-sm btn-primary" id="btn-open-single-add" title="Tek Şube Ekle (Manuel İsim/Alan)">+ Şube</button>
-                        <button class="btn btn-sm btn-outline" id="btn-open-bulk-wizard" title="Toplu Şube Üretici">⚡ Toplu</button>
-                        <button class="btn btn-sm btn-success" id="btn-open-eokul-import" title="e-Okul Excel'den Otomatik Yükle" style="background: #059669; color: #fff; border: none; font-weight: 600; padding: 0.25rem 0.5rem; font-size: 0.78rem;">📥 e-Okul</button>
+                        <div class="sidebar-title-block">
+                            <span class="sidebar-heading-text">ŞUBE YÖNETİMİ</span>
+                            <span class="badge-total-sections">${subeler.length} Şube</span>
+                        </div>
                     </div>
                 </div>
-                <div class="grade-tabs-container">
+
+                <!-- 2. KURUMSAL 3'LÜ İŞLEM VE AKTARIM ÇUBUĞU -->
+                <div class="sidebar-action-grid">
+                    <button class="btn-sec-act btn-sec-add" id="btn-open-single-add" title="Tek Tek Manuel Şube Ekle">
+                        <span class="act-icon">➕</span>
+                        <span class="act-text">Şube Ekle</span>
+                    </button>
+                    <button class="btn-sec-act btn-sec-bulk" id="btn-open-bulk-wizard" title="Hızlı Çoklu Sınıf ve Şube Oluşturucu">
+                        <span class="act-icon">⚡</span>
+                        <span class="act-text">Çoklu Kur</span>
+                    </button>
+                    <button class="btn-sec-act btn-sec-eokul" id="btn-open-eokul-import" title="e-Okul Excel Dosyasından Tüm Şubeleri Otomatik İçe Aktar">
+                        <span class="act-icon">📥</span>
+                        <span class="act-text">e-Okul'dan Aktar</span>
+                    </button>
+                </div>
+
+                <!-- 3. KADEME SEKMELERİ (SEGMENTED BAR) -->
+                <div class="grade-segmented-bar">
                     ${gradeTabsHtml}
                 </div>
-                <div class="search-box">
+
+                <!-- 4. ARAMA KUTUSU -->
+                <div class="search-box-sleek">
                     <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input" id="section-search-input" placeholder="Şube veya alan ara..." value="${this.searchQuery}">
+                    <input type="text" class="search-input-sleek" id="section-search-input" placeholder="Şube, sınıf veya alan ara..." value="${this.searchQuery}">
                 </div>
             </div>
             <div class="sections-list">

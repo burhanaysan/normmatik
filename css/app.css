@@ -6995,3 +6995,206 @@ html, body {
 [data-theme="dark"] .disclaimer-body strong {
     color: #fbbf24 !important;
 }
+
+
+/* ==========================================================================
+   🎯 SOL PANEL KURUMSAL VE ŞIK BAŞLIK DÜZENİ (EXECUTIVE SIDEBAR)
+   ========================================================================== */
+.sidebar-header-executive {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.45rem !important;
+    padding: 0.65rem 0.85rem 0.55rem 0.85rem !important;
+    background: var(--bg-card-subtle) !important;
+    border-bottom: 1.5px solid var(--border-main) !important;
+    flex-shrink: 0 !important;
+}
+
+.sidebar-top-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.sidebar-brand-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+}
+
+.sidebar-title-block {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+}
+
+.sidebar-heading-text {
+    font-size: 0.88rem !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.04em !important;
+    color: var(--text-main) !important;
+    text-transform: uppercase !important;
+}
+
+.badge-total-sections {
+    background: rgba(2, 132, 199, 0.15) !important;
+    border: 1px solid #0284c7 !important;
+    color: #0284c7 !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    padding: 0.12rem 0.5rem !important;
+    border-radius: 9999px !important;
+}
+
+[data-theme="dark"] .badge-total-sections {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+}
+
+/* 3'LÜ KURUMSAL AKSİYON BUTONLARI */
+.sidebar-action-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1.3fr !important;
+    gap: 0.35rem !important;
+}
+
+.btn-sec-act {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    height: 32px !important;
+    padding: 0 0.4rem !important;
+    border-radius: 7px !important;
+    font-size: 0.75rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    border: 1px solid transparent !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    white-space: nowrap !important;
+}
+
+.btn-sec-act .act-icon {
+    font-size: 0.85rem !important;
+}
+
+.btn-sec-act .act-text {
+    line-height: 1 !important;
+}
+
+/* 1. Şube Ekle: Canlı Mavi */
+.btn-sec-add {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0369a1 !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25) !important;
+}
+.btn-sec-add:hover {
+    background: #0369a1 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.4) !important;
+}
+
+/* 2. Çoklu Kur: Asil Koyu Gri / İndigo */
+.btn-sec-bulk {
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #475569 !important;
+}
+.btn-sec-bulk:hover {
+    background: #334155 !important;
+    border-color: #94a3b8 !important;
+    transform: translateY(-1px) !important;
+}
+
+[data-theme="dark"] .btn-sec-bulk {
+    background: #334155 !important;
+    border-color: #64748b !important;
+}
+
+/* 3. e-Okul Aktar: Zümrüt Yeşili */
+.btn-sec-eokul {
+    background: #059669 !important;
+    color: #ffffff !important;
+    border-color: #047857 !important;
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25) !important;
+}
+.btn-sec-eokul:hover {
+    background: #047857 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4) !important;
+}
+
+/* KADEME SEGMENTED BAR */
+.grade-segmented-bar {
+    display: flex !important;
+    align-items: center !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-main) !important;
+    border-radius: 8px !important;
+    padding: 0.15rem !important;
+    gap: 0.15rem !important;
+    overflow-x: auto !important;
+}
+
+.grade-segmented-bar .grade-tab-btn {
+    flex: 1 !important;
+    min-width: 44px !important;
+    padding: 0.3rem 0.2rem !important;
+    border: none !important;
+    background: transparent !important;
+    color: var(--text-muted) !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.15s ease !important;
+    white-space: nowrap !important;
+}
+
+.grade-segmented-bar .grade-tab-btn:hover {
+    color: var(--text-main) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.grade-segmented-bar .grade-tab-btn.active {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3) !important;
+}
+
+/* ARAMA KUTUSU */
+.search-box-sleek {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.search-box-sleek .search-icon {
+    position: absolute !important;
+    left: 0.65rem !important;
+    font-size: 0.8rem !important;
+    pointer-events: none !important;
+    color: var(--text-muted) !important;
+}
+
+.search-input-sleek {
+    width: 100% !important;
+    padding: 0.4rem 0.65rem 0.4rem 2rem !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-main) !important;
+    border-radius: 7px !important;
+    font-size: 0.78rem !important;
+    color: var(--text-main) !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+}
+
+.search-input-sleek:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.25) !important;
+}

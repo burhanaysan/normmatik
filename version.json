@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.2.1",
+  "version": "1.2.5",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "1.0.0",
   "rulesVersion": "2026.1",
@@ -11,7 +11,8 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Lisans satın alma modalına doğrudan Okul Adı, Kurum Kodu, Türü ve İl/İlçe düzenleme alanları eklendi.",
-    "WhatsApp lisans sipariş mesajı girilen okul bilgileriyle anlık senkronize edildi."
+    "Sol Şube Paneli başlığı kurumsal ve ferah executive tasarıma kavuşturuldu.",
+    "Metin kırılmaları giderildi; '+ Şube Ekle', '⚡ Çoklu Kur', '📥 e-Okul\\'dan Aktar' butonları netleştirildi.",
+    "Sınıf kademe filtreleri şık segmented pill düzenine dönüştürüldü."
   ]
 }
