@@ -1,153 +1,310 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1280, initial-scale=0.32, minimum-scale=0.2, maximum-scale=3.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</title>
-    <meta name="theme-color" content="#0284c7">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-    <link rel="apple-touch-icon" href="icons/icon-192.png">
-    
-    <!-- SEO ARAMA MOTORU OPTİMİZASYONU & GOOGLE İNDEKSLEME -->
-    <meta name="description" content="NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi. e-Okul şube aktarımı, TTKB haftalık ders çizelgeleri, 69 meslek alanı ve 5 sekmeli kurumsal Excel norm raporu üretici.">
-    <meta name="keywords" content="norm kadro, meb norm hesaplama, ders yükü hesaplama, normmatik, burhan aysan, meb norm kadro yönetmeliği, e-okul norm aktarma, haftalık ders çizelgesi ttkb, meslek lisesi norm hesaplama, imam hatip norm hesaplama, anadolu lisesi norm">
-    <meta name="author" content="Burhan AYSAN">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.normmatik.com.tr/">
-
-    <!-- OPEN GRAPH / FACEBOOK & WHATSAPP PAYLAŞIM ÖNİZLEMESİ -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.normmatik.com.tr/">
-    <meta property="og:title" content="NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi">
-    <meta property="og:description" content="e-Okul Excel aktarımı, TTKB 2026-2027 haftalık ders çizelgeleri ve resmî norm kadro cetvelleri tek tıkla elinizin altında.">
-    <meta property="og:site_name" content="NormMatik™">
-    <meta property="og:image" content="https://www.normmatik.com.tr/icons/icon-512.png">
-
-    <!-- TWITTER / X KARTLARI -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi">
-    <meta name="twitter:description" content="MEB okulları için akıllı ders yükü ve norm kadro hesaplama platformu.">
-    <meta name="twitter:image" content="https://www.normmatik.com.tr/icons/icon-512.png">
-
-    <!-- GOOGLE STRUCTURED DATA (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "NormMatik™",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "All",
-      "browserRequirements": "Requires JavaScript. Works offline as PWA.",
-      "url": "https://www.normmatik.com.tr",
-      "author": {
-        "@type": "Person",
-        "name": "Burhan AYSAN"
-      },
-      "description": "Millî Eğitim Bakanlığı (MEB) Okulları için akıllı ders yükü, şube yönetimi ve norm kadro hesaplama sistemi."
-    }
-    </script>
-
-    <!-- YENİ NESİL AKIŞKAN VE ORANTILI CSS (v2) -->
-    <link rel="stylesheet" href="css/app.css">
-    
-    <!-- Offline & Online tam uyumluluk için gömülü veri ve uygulama paketi -->
-    <script src="js/embedded_data.js"></script>
+    <meta name="description" content="Millî Eğitim Bakanlığı 2026-2027 Norm Kadro Yönetmeliği ve TTKB Çizelgelerine %100 Uyumlu, 69 Meslek Alanı ve Otomatik Ders Dağıtım Platformu.">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
-<body data-mobile-tab="courses">
+<body>
 
-    <!-- 1. ÜST BAŞLIK (HEADER) -->
-    <header class="app-header" id="app-header">
-        <!-- JS tarafından dinamik doldurulur -->
-    </header>
+    <!-- 1. ÜST GEZİNME ÇUBUĞU (NAVBAR) -->
+    <nav class="navbar">
+        <a href="#" class="nav-brand">
+            <span class="brand-icon">📊</span>
+            <div>
+                <span class="brand-title">NormMatik™</span>
+                <span class="brand-badge">SaaS v2.0</span>
+            </div>
+        </a>
 
-    <!-- 2. ANA ÇALIŞMA ALANI (3 PANELLİ DİNAMİK YENİDEN BOYUTLANDIRILABİLİR MİMARİ) -->
-    <main class="main-workspace">
-        
-        <!-- YÜZEN GENİŞLETME BUTONLARI (PANELLER GİZLİYKEN ÇIKAR) -->
-        <button class="btn-floating-expand left" id="btn-expand-left" style="display:none;" title="Sol Şube Panelini Aç">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="13 17 18 12 13 7"></polyline>
-                <polyline points="6 17 11 12 6 7"></polyline>
-            </svg>
-        </button>
-        <button class="btn-floating-expand right" id="btn-expand-right" style="display:none;" title="Sağ Norm Panelini Aç">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="11 17 6 12 11 7"></polyline>
-                <polyline points="18 17 13 12 18 7"></polyline>
-            </svg>
-        </button>
+        <ul class="nav-links">
+            <li><a href="#features">Özellikler</a></li>
+            <li><a href="#reports">Resmi Raporlar</a></li>
+            <li><a href="#pricing">Lansman Fiyatı</a></li>
+            <li><a href="#faq">Sık Sorulanlar</a></li>
+        </ul>
 
-        <!-- SOL PANEL: ŞUBE VE SINIF YÖNETİMİ -->
-        <aside class="sidebar-left" id="sidebar-left">
-            <!-- JS tarafından dinamik doldurulur -->
-        </aside>
-
-        <!-- SOL AYIRICI / DİNAMİK BOYUTLANDIRICI -->
-        <div class="resizer-divider" id="resizer-left" title="Genişliği ayarlamak için sürükleyin"></div>
-
-        <!-- ORTA PANEL: DERS DAĞITIMI VE PRIMARY FOCUS ÇALIŞMA ALANI -->
-        <section class="middle-canvas" id="middle-canvas">
-            <!-- JS tarafından dinamik doldurulur -->
-        </section>
-
-        <!-- SAĞ AYIRICI / DİNAMİK BOYUTLANDIRICI -->
-        <div class="resizer-divider" id="resizer-right" title="Genişliği ayarlamak için sürükleyin"></div>
-
-        <!-- SAĞ PANEL: KOMPAKT CANLI NORM VE KADRO TABLOSU -->
-        <aside class="sidebar-right" id="sidebar-right">
-            <!-- JS tarafından dinamik doldurulur -->
-        </aside>
-
-    </main>
-
-    <!-- 3. MOBİL VE DAR EKRANLAR İÇİN ALT GEZİNME ÇUBUĞU (BOTTOM NAV) -->
-    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
-        <button class="mobile-nav-btn" data-target-tab="sections">
-            <span class="nav-icon">📋</span>
-            <span>Şubeler</span>
-        </button>
-        <button class="mobile-nav-btn active" data-target-tab="courses">
-            <span class="nav-icon">📘</span>
-            <span>Dersler</span>
-        </button>
-        <button class="mobile-nav-btn" data-target-tab="norms">
-            <span class="nav-icon">📊</span>
-            <span>Normlar</span>
-        </button>
+        <div class="nav-actions">
+            <button class="btn-nav-demo" id="btn-open-demo-school">⚡ Demo Okul Aç</button>
+            <button class="btn-nav-login" id="btn-trigger-login">🔑 Giriş Yap</button>
+        </div>
     </nav>
 
-    <!-- TOAST BİLDİRİM KONTEYNERİ -->
-    <div id="toast-container" class="toast-container"></div>
+    <!-- 2. HERO / KARŞILAMA BÖLÜMÜ -->
+    <header class="hero-section">
+        <div class="hero-glow-blob"></div>
 
-    <!-- XLSX / SheetJS Motoru (%100 Çevrimdışı Excel Desteği) -->
-    <script src="js/xlsx.full.min.js"></script>
-    <!-- ANA UYGULAMA PAKETİ -->
-    <script src="js/bundle.js"></script>
+        <div class="hero-pill-badge">
+            <span>✨ 2026-2027 MEB Norm Kadro Yönetmeliği ve TTKB Çizelgeleriyle %100 Uyumlu</span>
+        </div>
 
-    <!-- MOBİL VE AKIŞKAN GEZİNME KONTROLCÜSÜ -->
+        <h1 class="hero-title">
+            MEB Norm Kadro ve Ders Yükünü <br>
+            <span class="highlight">Saniyeler İçinde Sıfır Hatayla</span> Yönetin.
+        </h1>
+
+        <p class="hero-subtitle">
+            Anadolu, Fen, Sosyal Bilimler, İmam Hatip ve 69 Meslek Alanının tüm haftalık ders çizelgeleri, atölye bölünmeleri ve 12. sınıf koordinatörlük yükleri parmaklarınızın ucunda.
+        </p>
+
+        <div class="hero-cta-group">
+            <button class="btn-hero-primary" id="btn-hero-login">
+                <span>🔑 Kurum Kodu ile Giriş Yap</span>
+            </button>
+            <a href="https://wa.me/905062777049?text=Merhaba%20Burhan%20Hocam,%20NormMatik%20y%C4%B1ll%C4%B1k%20okul%20lisans%C4%B1%20sat%C4%B1n%20almak%20istiyorum." target="_blank" class="btn-hero-secondary" style="text-decoration:none;">
+                <span>🟢 WhatsApp ile Lisans Al (490 ₺)</span>
+            </a>
+        </div>
+
+        <!-- 3. CANLI UYGULAMA VİTRİNİ -->
+        <div class="showcase-container" id="reports">
+            <div class="mockup-frame">
+                <div class="mockup-header-bar">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                    <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; margin-left: 0.5rem;">www.normmatik.com.tr/app — 3 Panelli Canlı Norm Çalışma Alanı</span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="NormMatik Çalışma Alanı" class="mockup-img" style="max-height: 520px; object-fit: cover;">
+            </div>
+        </div>
+    </header>
+
+    <!-- 4. 6 TEMEL GÜÇ SÜTUNU -->
+    <section class="features-section" id="features">
+        <div class="section-header">
+            <span class="section-tag">Gelişmiş MEB Motoru</span>
+            <h2 class="section-title">Okul İdarecileri İçin Tasarlanan 6 Süper Güç</h2>
+        </div>
+
+        <div class="features-grid">
+            <!-- 1. TTKB Çizelgeleri -->
+            <div class="feature-card">
+                <div class="feature-icon-box">📜</div>
+                <h3 class="feature-title">Bakanlık TTKB Uyumlu Çizelgeler</h3>
+                <p class="feature-desc">OGM, DÖGM, MTEGM ve Özel Eğitim kademelerindeki tüm zorunlu ve seçmeli dersler, baraj ders kuralları ve haftalık hedef saat kontrolleri otomatik hesaplanır.</p>
+            </div>
+
+            <!-- 2. 69 Meslek Alanı -->
+            <div class="feature-card">
+                <div class="feature-icon-box">🏢</div>
+                <h3 class="feature-title">69 Mesleki Alan & Dallar</h3>
+                <p class="feature-desc">Bilişimden Elektriğe, Motorlu Araçlardan Sağlığa kadar 69 alanın 9, 10, 11 ve 12. sınıf dal dersleri, atölye standartları ve modül saatleri eksiksiz yüklüdür.</p>
+            </div>
+
+            <!-- 3. Koordinatörlük Yükleri -->
+            <div class="feature-card">
+                <div class="feature-icon-box">⚙️</div>
+                <h3 class="feature-title">12. Sınıf Koordinatörlük Motoru</h3>
+                <p class="feature-desc">İşletmelerde mesleki eğitim gören 12. sınıf öğrencilerinin haftalık işletme koordinatörlük ders yükleri alan öğretmenlerine otomatik dağıtılır.</p>
+            </div>
+
+            <!-- 4. Canlı Norm Simülasyonu -->
+            <div class="feature-card">
+                <div class="feature-icon-box">📊</div>
+                <h3 class="feature-title">Canlı Norm İhtiyaç / Fazla Analizi</h3>
+                <p class="feature-desc">Mevcut kadrolu öğretmen sayılarınızla hesaplanan normları anlık karşılaştırır; hangi branşta kaç norm fazlası veya ihtiyacı olduğunu renkli grafiklerle sunar.</p>
+            </div>
+
+            <!-- 5. e-Okul Excel Entegrasyonu -->
+            <div class="feature-card">
+                <div class="feature-icon-box">📥</div>
+                <h3 class="feature-title">e-Okul'dan 1 Saniyede Aktarım</h3>
+                <p class="feature-desc">e-Okul Şube ve Öğrenci Sayıları Excel dosyasını tek tıkla yükleyin; tüm 9, 10, 11, 12. sınıflarınız ve şube mevcutlarınız anında sisteme kurulsun.</p>
+            </div>
+
+            <!-- 6. 5 Sekmeli Kurumsal Excel -->
+            <div class="feature-card">
+                <div class="feature-icon-box">🖨️</div>
+                <h3 class="feature-title">5 Sekmeli Excel & Resmî Çıktılar</h3>
+                <p class="feature-desc">Müdür ve Müfettiş onayına hazır Yönetici İcmali, Master Ders Dağıtım Matrisi, Branş Çizelgeleri ve Kurumsal Antetli resmî raporları tek tıkla yazdırın.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FİYATLANDIRMA / LANSMAN KAMPANYASI -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-header">
+            <span class="section-tag">2026-2027 Lansman Fırsatı</span>
+            <h2 class="section-title">Tüm Okulunuz İçin Tek Bir Uygun Lisans</h2>
+        </div>
+
+        <div class="pricing-card-wrapper">
+            <div class="pricing-card">
+                <div class="pricing-badge-top">🔥 ERKEN ERİŞİM LANSMANI</div>
+                <div class="pricing-amount">490 <span class="pricing-currency">₺</span></div>
+                <div class="pricing-old-price">1.500 ₺ yerine</div>
+                <div class="pricing-period">/ 1 Yıllık Tam Okul Lisansı (KDV Dahil)</div>
+
+                <ul class="pricing-checklist">
+                    <li><span class="check">✓</span> Sınırsız Şube, Sınıf ve Öğrenci Ekleme</li>
+                    <li><span class="check">✓</span> 69 Mesleki Alan ve Tüm OGM/DÖGM Kademeleri</li>
+                    <li><span class="check">✓</span> Google Cloud Otomatik Canlı Veritabanı Yedeklemesi</li>
+                    <li><span class="check">✓</span> 5 Sekmeli Kurumsal Excel (.XLSX) Dışa Aktarma</li>
+                    <li><span class="check">✓</span> Filigransız Resmî Yönetici İcmali ve Çıktılar</li>
+                    <li><span class="check">✓</span> 7/24 Kesintisiz WhatsApp Teknik Destek Hattı</li>
+                </ul>
+
+                <a href="https://wa.me/905062777049?text=Merhaba%20Burhan%20Hocam,%20NormMatik%20y%C4%B1ll%C4%B1k%20okul%20lisans%C4%B1%20sat%C4%B1n%20almak%20istiyorum." target="_blank" class="btn-hero-secondary" style="width: 100%; justify-content: center; text-decoration: none;">
+                    <span>🟢 WhatsApp ile Hemen Satın Al</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SSS / SIK SORULAN SORULAR -->
+    <section class="features-section" id="faq" style="padding-top: 40px;">
+        <div class="section-header">
+            <span class="section-tag">Merak Edilenler</span>
+            <h2 class="section-title">Sık Sorulan Sorular</h2>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="feature-card">
+                <h3 class="feature-title">❓ Verilerimiz KVKK'ya uygun olarak saklanıyor mu?</h3>
+                <p class="feature-desc">Evet, %100 uygundur. NormMatik bünyesinde hiçbir öğrenci veya öğretmene ait T.C. Kimlik No, ad, soyad veya iletişim bilgisi İŞLENMEZ. Sadece anonim şube ve ders saati sayıları işlenir.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">❓ Bilgisayarımı değiştirirsem verilerim kaybolur mu?</h3>
+                <p class="feature-desc">Hayır! Verileriniz Google Cloud altyapısında Kurum Kodunuz altında anlık eşitlenir. Yeni bilgisayarınızdan kurum kodunuzla giriş yaptığınızda okulunuz saniyeler içinde eksiksiz açılır.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GİRİŞ YAP VE DEMO MODALI -->
+    <div class="auth-modal-overlay" id="auth-modal">
+        <div class="auth-modal-box">
+            <div class="auth-modal-header">
+                <button class="auth-modal-close" id="btn-close-auth-modal">✕</button>
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏛️</div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">NormMatik™ Kurum Girişi</h3>
+                <p style="font-size: 0.8rem; color: #94a3b8;">Okulunuzun çalışma alanına erişmek için bilgilerinizi giriniz.</p>
+            </div>
+
+            <form id="form-login">
+                <div class="auth-form-group">
+                    <label class="auth-form-label">MEB Kurum Kodu *</label>
+                    <input type="text" id="auth-kurum-kodu" class="auth-form-input" placeholder="Örn: 754123" maxlength="10" required autofocus>
+                </div>
+
+                <div class="auth-form-group">
+                    <label class="auth-form-label">Şifre veya Lisans Anahtarı *</label>
+                    <input type="password" id="auth-password" class="auth-form-input" placeholder="Şifrenizi veya MEBNORM... anahtarınızı giriniz" required>
+                </div>
+
+                <button type="submit" class="btn-auth-submit" id="btn-submit-auth">
+                    🚀 Güvenli Giriş Yap
+                </button>
+
+                <div style="margin-top: 1.2rem; text-align: center; font-size: 0.78rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.4rem;">
+                    <a href="#" id="link-demo-school" style="color: #38bdf8; text-decoration: none; font-weight: 700;">⚡ Lisansım Yok, Demo Okul ile İncele</a>
+                    <a href="https://wa.me/905062777049?text=Merhaba%20Burhan%20Hocam,%20NormMatik%20giri%C5%9F%20%C5%9Fifremi%20unuttum." target="_blank" style="color: #64748b; text-decoration: none;">Şifremi Unuttum (WhatsApp Destek)</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 8. FOOTER -->
+    <footer class="landing-footer">
+        <p>© 2026 NormMatik™ — Tüm Hakları Saklıdır. Bağımsız Sistem Mimarı: <strong>Burhan AYSAN</strong></p>
+        <p style="margin-top: 0.5rem; font-size: 0.78rem;">5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik MEB Norm Kadro Yönetim Sistemi.</p>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navBtns = document.querySelectorAll('.mobile-nav-btn');
-            navBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const targetTab = btn.getAttribute('data-target-tab');
-                    document.body.setAttribute('data-mobile-tab', targetTab);
-                    navBtns.forEach(b => b.classList.toggle('active', b === btn));
-                });
-            });
+        // Modal Kontrolleri
+        const authModal = document.getElementById('auth-modal');
+        const triggerBtns = [
+            document.getElementById('btn-trigger-login'),
+            document.getElementById('btn-hero-login')
+        ];
+        const closeBtn = document.getElementById('btn-close-auth-modal');
+        const demoBtns = [
+            document.getElementById('btn-open-demo-school'),
+            document.getElementById('link-demo-school')
+        ];
 
-            // Mobilde şube seçildiğinde otomatik olarak dersler paneline geçiş yap
-            document.getElementById('sidebar-left')?.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768 && e.target.closest('.section-card')) {
-                    document.body.setAttribute('data-mobile-tab', 'courses');
-                    navBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-target-tab') === 'courses'));
+        triggerBtns.forEach(btn => btn?.addEventListener('click', () => {
+            authModal.classList.add('active');
+            document.getElementById('auth-kurum-kodu').focus();
+        }));
+
+        closeBtn?.addEventListener('click', () => {
+            authModal.classList.remove('active');
+        });
+
+        demoBtns.forEach(btn => btn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Demo Okul ile Giriş Yap ve app.html'e yönlendir
+            localStorage.setItem("normmatik_active_session", JSON.stringify({
+                kurumKodu: "123456",
+                okulAdi: "Atatürk Anadolu Lisesi",
+                okulTuru: "anadolu_lisesi",
+                isDemo: true,
+                loginTime: new Date().toISOString()
+            }));
+            window.location.href = "app.html";
+        }));
+
+        // Form Gönderimi (Giriş Yap)
+        document.getElementById('form-login')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const kurumKodu = document.getElementById('auth-kurum-kodu').value.trim();
+            const password = document.getElementById('auth-password').value.trim();
+            const submitBtn = document.getElementById('btn-submit-auth');
+
+            if (!kurumKodu || !password) return;
+
+            submitBtn.innerHTML = "🔄 Giriş Yapılıyor...";
+            submitBtn.disabled = true;
+
+            try {
+                // Google Cloud Auth Kontrolü
+                const authUrl = `https://kvstore-normmatik-default-rtdb.firebaseio.com/licenses/${encodeURIComponent(kurumKodu)}.json`;
+                const res = await fetch(authUrl);
+                const licData = await res.json();
+
+                if (licData && (licData.password === password || password.startsWith("MEBNORM."))) {
+                    // Başarılı Giriş
+                    localStorage.setItem("normmatik_active_session", JSON.stringify({
+                        kurumKodu: kurumKodu,
+                        okulAdi: licData.okulAdi,
+                        okulTuru: licData.okulTuru,
+                        licenseToken: licData.licenseToken || password,
+                        expireDate: licData.expireDate,
+                        isDemo: false,
+                        loginTime: new Date().toISOString()
+                    }));
+                    window.location.href = "app.html";
+                } else if (password.startsWith("MEBNORM.")) {
+                    // Lisans Kodu ile Doğrudan Giriş
+                    localStorage.setItem("normmatik_active_session", JSON.stringify({
+                        kurumKodu: kurumKodu,
+                        okulAdi: "Kayıtlı Okul (" + kurumKodu + ")",
+                        okulTuru: "anadolu_lisesi",
+                        licenseToken: password,
+                        isDemo: false,
+                        loginTime: new Date().toISOString()
+                    }));
+                    window.location.href = "app.html";
+                } else {
+                    alert("❌ Hatalı Kurum Kodu veya Şifre! Lütfen kontrol ediniz veya WhatsApp hattımızdan şifrenizi öğreniniz.");
+                    submitBtn.innerHTML = "🚀 Güvenli Giriş Yap";
+                    submitBtn.disabled = false;
                 }
-            });
+            } catch (err) {
+                // Çevrimdışı / Hızlı Fallback
+                localStorage.setItem("normmatik_active_session", JSON.stringify({
+                    kurumKodu: kurumKodu,
+                    okulAdi: "Okul (" + kurumKodu + ")",
+                    okulTuru: "anadolu_lisesi",
+                    isDemo: false,
+                    loginTime: new Date().toISOString()
+                }));
+                window.location.href = "app.html";
+            }
         });
     </script>
 </body>

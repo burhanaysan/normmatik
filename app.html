@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Çalışma Alanı</title>
+    <meta name="description" content="MEB Norm Kadro ve Haftalık Ders Dağıtımı Çalışma Terminali">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+
+    <!-- 1. ÜST BAŞLIK (EXECUTIVE MARKET TERMINAL HEADER) -->
+    <header class="app-header" id="app-header">
+        <!-- JS Tarafından Reaktif Olarak Doldurulur -->
+    </header>
+
+    <!-- 2. ANA ÇALIŞMA ALANI (ÜÇ BAĞIMSIZ YÜZEN ADA MİMARİSİ) -->
+    <main class="main-workspace" id="main-workspace">
+        
+        <!-- YÜZEN GENİŞLETME BUTONLARI (PANELLER GİZLİYKEN ÇIKAR) -->
+        <button class="btn-floating-expand left" id="btn-expand-left" style="display:none;" title="Sol Şube Panelini Aç">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="13 17 18 12 13 7"></polyline>
+                <polyline points="6 17 11 12 6 7"></polyline>
+            </svg>
+        </button>
+        <button class="btn-floating-expand right" id="btn-expand-right" style="display:none;" title="Sağ Norm Panelini Aç">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="11 17 6 12 11 7"></polyline>
+                <polyline points="18 17 13 12 18 7"></polyline>
+            </svg>
+        </button>
+
+        <!-- SOL PANEL: ŞUBE VE SINIF YÖNETİMİ -->
+        <aside class="sidebar-left" id="sidebar-left">
+            <!-- JS tarafından dinamik doldurulur -->
+        </aside>
+
+        <!-- SOL AYIRICI / DİNAMİK BOYUTLANDIRICI -->
+        <div class="resizer-divider" id="resizer-left" title="Genişliği ayarlamak için sürükleyin"></div>
+
+        <!-- ORTA PANEL: DERS DAĞITIMI VE PRIMARY FOCUS ÇALIŞMA ALANI -->
+        <section class="middle-canvas" id="middle-canvas">
+            <!-- JS tarafından dinamik doldurulur -->
+        </section>
+
+        <!-- SAĞ AYIRICI / DİNAMİK BOYUTLANDIRICI -->
+        <div class="resizer-divider" id="resizer-right" title="Genişliği ayarlamak için sürükleyin"></div>
+
+        <!-- SAĞ PANEL: KOMPAKT CANLI NORM VE KADRO TABLOSU -->
+        <aside class="sidebar-right" id="sidebar-right">
+            <!-- JS tarafından dinamik doldurulur -->
+        </aside>
+
+    </main>
+
+    <!-- 3. MOBİL VE DAR EKRANLAR İÇİN ALT GEZİNME ÇUBUĞU (BOTTOM NAV) -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+        <button class="mobile-nav-btn" data-target-tab="sections">
+            <span class="nav-icon">📋</span>
+            <span>Şubeler</span>
+        </button>
+        <button class="mobile-nav-btn active" data-target-tab="courses">
+            <span class="nav-icon">📘</span>
+            <span>Dersler</span>
+        </button>
+        <button class="mobile-nav-btn" data-target-tab="norms">
+            <span class="nav-icon">📊</span>
+            <span>Normlar</span>
+        </button>
+    </nav>
+
+    <!-- TOAST BİLDİRİM KONTEYNERİ -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- XLSX / SheetJS Motoru (%100 Çevrimdışı Excel Desteği) -->
+    <script src="js/xlsx.full.min.js"></script>
+    
+    <!-- ANA UYGULAMA PAKETİ -->
+    <script src="js/bundle.js"></script>
+
+    <!-- GÜVENLİ OTURUM VE SAYFA YÖNETİCİSİ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobil Sekme Kontrolü
+            const navBtns = document.querySelectorAll('.mobile-nav-btn');
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetTab = btn.getAttribute('data-target-tab');
+                    document.body.setAttribute('data-mobile-tab', targetTab);
+                    navBtns.forEach(b => b.classList.toggle('active', b === btn));
+                });
+            });
+        });
+    </script>
+</body>
+</html>

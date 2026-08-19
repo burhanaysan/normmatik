@@ -1,3 +1,5 @@
+import { authService } from "./authService.js";
+import { cloudDbService } from "./cloudDatabaseService.js";
 // NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi - Ana Uygulama Koordinatörü (app.js)
 import { dbService } from './database.js';
 import { curriculumEngine } from './curriculumEngine.js';
@@ -328,6 +330,10 @@ class MebNormApplication {
                     </button>
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
+                    </button>
+                    <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
+                    <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
+                        🚪 Çıkış
                     </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-update-db" style="display:none;">DB</button>
                     <input type="file" id="file-import-db" accept=".json" style="display:none;">

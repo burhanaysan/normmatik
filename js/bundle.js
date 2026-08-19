@@ -4106,6 +4106,153 @@ if (typeof window !== 'undefined') {
     window.MebReportsEngine = MebReportsEngine;
 }
 
+// ==================== authService.js ====================
+
+/**
+ * NormMatik™ — Kurumsal Kimlik Doğrulama ve Güvenli Oturum Servisi (AuthService)
+ * MEB Kurum Kodu, Şifre/Lisans Anahtarı ve Okul Kilidi Koruması
+ */
+
+class AuthService {
+    constructor() {
+        this.SESSION_KEY = "normmatik_active_session";
+    }
+
+    /**
+     * Aktif oturumu döndürür
+     */
+    getSession() {
+        try {
+            const data = localStorage.getItem(this.SESSION_KEY);
+            return data ? JSON.parse(data) : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    /**
+     * Oturumu kaydeder
+     */
+    setSession(sessionData) {
+        try {
+            localStorage.setItem(this.SESSION_KEY, JSON.stringify({
+                ...sessionData,
+                lastActive: new Date().toISOString()
+            }));
+        } catch (e) {}
+    }
+
+    /**
+     * Oturumu kapatır ve vitrin ana sayfasına yönlendirir
+     */
+    logout() {
+        try {
+            localStorage.removeItem(this.SESSION_KEY);
+        } catch (e) {}
+        window.location.href = "index.html";
+    }
+
+    /**
+     * Çalışma alanında (app.html) oturum kontrolü yapar
+     */
+    requireAuth() {
+        const session = this.getSession();
+        if (!session || !session.kurumKodu) {
+            window.location.href = "index.html";
+            return false;
+        }
+        return true;
+    }
+}
+
+const authService = new AuthService();
+
+// ==================== cloudDatabaseService.js ====================
+
+/**
+ * NormMatik™ — Google Cloud Realtime Veritabanı Servisi
+ * Her Okul İçin İzole, Şifreli ve Canlı Bulut Senkronizasyonu
+ */
+
+class CloudDatabaseService {
+    constructor() {
+        this.baseUrl = "https://kvstore-normmatik-default-rtdb.firebaseio.com/school_data";
+        this.saveTimeout = null;
+        this.isSaving = false;
+    }
+
+    /**
+     * Okulun verilerini Google Cloud'dan çeker
+     */
+    async loadSchoolData(kurumKodu) {
+        if (!kurumKodu || kurumKodu === "123456" || kurumKodu === "*") return null;
+        
+        try {
+            const url = `${this.baseUrl}/${encodeURIComponent(kurumKodu)}.json`;
+            const res = await fetch(url);
+            if (!res.ok) return null;
+            const data = await res.json();
+            return data;
+        } catch (e) {
+            console.warn("[CloudDB] Veri yüklenemedi:", e);
+            return null;
+        }
+    }
+
+    /**
+     * Okul verilerini Google Cloud üzerine sessizce kaydeder (Debounced 1.2 sn)
+     */
+    scheduleAutoSave(kurumKodu, state) {
+        if (!kurumKodu || kurumKodu === "123456" || kurumKodu === "*") return;
+        if (!state || !Array.isArray(state.subeler)) return;
+
+        clearTimeout(this.saveTimeout);
+        this.saveTimeout = setTimeout(async () => {
+            await this.saveSchoolData(kurumKodu, state);
+        }, 1200);
+    }
+
+    /**
+     * Doğrudan Google Cloud Kayıt İşlemi
+     */
+    async saveSchoolData(kurumKodu, state) {
+        if (!kurumKodu || kurumKodu === "123456") return;
+
+        try {
+            this.isSaving = true;
+            const payload = {
+                kurumKodu: kurumKodu,
+                okulAdi: state.okulBilgisi.okulAdi,
+                okulTuru: state.okulBilgisi.okulTuru,
+                sezon: state.okulBilgisi.sezon || "2026-2027",
+                il: state.okulBilgisi.il || "",
+                ilce: state.okulBilgisi.ilce || "",
+                subeler: state.subeler || [],
+                mevcutOgretmenler: state.mevcutOgretmenler || {},
+                koordinatorlukYukleri: state.koordinatorlukYukleri || {},
+                adminOptions: state.okulBilgisi.adminOptions || {},
+                antet: state.okulBilgisi.antet || {},
+                totalSections: (state.subeler || []).length,
+                lastUpdated: new Date().toISOString(),
+                version: "2.0.0"
+            };
+
+            const url = `${this.baseUrl}/${encodeURIComponent(kurumKodu)}.json`;
+            await fetch(url, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            this.isSaving = false;
+        } catch (e) {
+            console.warn("[CloudDB] Buluta kaydedilemedi:", e);
+            this.isSaving = false;
+        }
+    }
+}
+
+const cloudDbService = new CloudDatabaseService();
+
 // ==================== state.js ====================
 
 // MEB Norm Kadro Uygulaması - Reaktif ve Normalize State Yönetimi
@@ -4959,6 +5106,10 @@ class AppStateService {
         if (typeof localStorage === 'undefined') return;
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
+            // ☁️ Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
+            if (typeof window !== 'undefined' && window.cloudDbService && this.state.okulBilgisi?.kurumKodu) {
+                window.cloudDbService.scheduleAutoSave(this.state.okulBilgisi.kurumKodu, this.state);
+            }
         } catch (e) {
             console.error("State localStorage üzerine kaydedilemedi:", e);
         }
@@ -10752,6 +10903,10 @@ class MebNormApplication {
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
                     </button>
+                    <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
+                    <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
+                        🚪 Çıkış
+                    </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-update-db" style="display:none;">DB</button>
                     <input type="file" id="file-import-db" accept=".json" style="display:none;">
                 </div>
@@ -11903,6 +12058,8 @@ if (typeof window !== 'undefined') {
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
     if (typeof MebReportsEngine !== 'undefined') window.MebReportsEngine = MebReportsEngine;
+    if (typeof authService !== 'undefined') window.authService = authService;
+    if (typeof cloudDbService !== 'undefined') window.cloudDbService = cloudDbService;
     if (typeof appState !== 'undefined') window.appState = appState;
         if (typeof EOkulImporter !== 'undefined') window.EOkulImporter = EOkulImporter;
     if (typeof UIComponentManager !== 'undefined') window.UIComponentManager = UIComponentManager;

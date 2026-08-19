@@ -849,6 +849,10 @@ export class AppStateService {
         if (typeof localStorage === 'undefined') return;
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
+            // ☁️ Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
+            if (typeof window !== 'undefined' && window.cloudDbService && this.state.okulBilgisi?.kurumKodu) {
+                window.cloudDbService.scheduleAutoSave(this.state.okulBilgisi.kurumKodu, this.state);
+            }
         } catch (e) {
             console.error("State localStorage üzerine kaydedilemedi:", e);
         }

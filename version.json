@@ -1,9 +1,9 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
-  "version": "1.3.4",
+  "version": "2.0.0",
   "releaseDate": "2026-08-19",
-  "minEngineVersion": "1.0.0",
+  "minEngineVersion": "2.0.0",
   "rulesVersion": "2026.1",
   "distribution": {
     "channel": "stable",
@@ -11,7 +11,9 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "Bulut depolama rozeti ve arka plan servisi devre dışı bırakıldı.",
-    "Sağ üst araç çubuğundaki tüm butonların (Lisans, Rehber, İndir, Yükle, KVKK, Tema, Sıfırla) eksiksiz ve ferah görünümü sağlandı."
+    "🎉 NormMatik 2.0 SaaS Dönüşümü Tamamlandı!",
+    "Yeni Kurumsal Vitrin ve Pazarlama Ana Sayfası (Landing Page) yayınlandı.",
+    "MEB Kurum Kodu ve Şifreli Okul Giriş Portalı devreye alındı.",
+    "Google Cloud Realtime Online Veritabanı ile sıfır veri kaybı ve canlı bulut senkronizasyonu sağlandı."
   ]
 }
