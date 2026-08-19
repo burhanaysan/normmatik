@@ -286,11 +286,6 @@ class MebNormApplication {
                         <span class="school-type-tag" title="${currentType.name}">
                             📜 ${currentType.name}
                         </span>
-                        <!-- ☁️ GOOGLE CLOUD OTOMATİK YEDEKLEME ROZETİ -->
-                        <div class="cloud-sync-badge saved" id="cloud-sync-badge" title="Tüm değişiklikler Google Cloud üzerinde anında yedeklenir.">
-                            <span class="cloud-icon">☁️</span>
-                            <span class="cloud-text">Buluta Kaydedildi</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -317,6 +312,11 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
+                    <!-- ☁️ KOMPAKT BULUT YEDEKLEME ROZETİ (SAĞ ÜST KÖŞE) -->
+                    <div class="cloud-sync-badge-compact saved" id="cloud-sync-badge" title="Google Cloud otomatik yedekleme aktif. Verileriniz güvendedir.">
+                        <span class="cloud-icon">☁️</span>
+                        <span class="cloud-text">Buluta Kaydedildi</span>
+                    </div>
                     <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
                         🔑 Lisans
                     </button>

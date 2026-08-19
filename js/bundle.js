@@ -10579,20 +10579,20 @@ class NormMatikCloudSyncEngine {
         if (!el) return;
 
         if (status === "syncing") {
-            el.innerHTML = `<span class="cloud-icon spin">🔄</span> <span class="cloud-text">Buluta Kaydediliyor...</span>`;
-            el.className = "cloud-sync-badge syncing";
+            el.innerHTML = `<span class="cloud-icon spin">🔄</span> <span class="cloud-text">Kaydediliyor...</span>`;
+            el.className = "cloud-sync-badge-compact syncing";
         } else if (status === "saved") {
             const displayTime = timeStr || (new Date().toLocaleTimeString("tr-TR", { hour: '2-digit', minute: '2-digit' }));
-            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Buluta Kaydedildi (${displayTime})</span>`;
-            el.className = "cloud-sync-badge saved";
+            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Buluta Kaydedildi</span>`;
+            el.className = "cloud-sync-badge-compact saved";
             el.title = `Son otomatik bulut senkronizasyonu: ${displayTime}. Verileriniz Google Cloud üzerinde güvendedir.`;
         } else if (status === "offline") {
-            el.innerHTML = `<span class="cloud-icon">💾</span> <span class="cloud-text">Yerel Kayıt Aktif</span>`;
-            el.className = "cloud-sync-badge local";
+            el.innerHTML = `<span class="cloud-icon">💾</span> <span class="cloud-text">Yerel</span>`;
+            el.className = "cloud-sync-badge-compact local";
             el.title = "Verileriniz bu bilgisayarda güvendedir.";
         } else {
-            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Bulut Aktif</span>`;
-            el.className = "cloud-sync-badge ready";
+            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Bulut</span>`;
+            el.className = "cloud-sync-badge-compact ready";
         }
     }
 }
@@ -10881,11 +10881,6 @@ class MebNormApplication {
                         <span class="school-type-tag" title="${currentType.name}">
                             📜 ${currentType.name}
                         </span>
-                        <!-- ☁️ GOOGLE CLOUD OTOMATİK YEDEKLEME ROZETİ -->
-                        <div class="cloud-sync-badge saved" id="cloud-sync-badge" title="Tüm değişiklikler Google Cloud üzerinde anında yedeklenir.">
-                            <span class="cloud-icon">☁️</span>
-                            <span class="cloud-text">Buluta Kaydedildi</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -10912,6 +10907,11 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
+                    <!-- ☁️ KOMPAKT BULUT YEDEKLEME ROZETİ (SAĞ ÜST KÖŞE) -->
+                    <div class="cloud-sync-badge-compact saved" id="cloud-sync-badge" title="Google Cloud otomatik yedekleme aktif. Verileriniz güvendedir.">
+                        <span class="cloud-icon">☁️</span>
+                        <span class="cloud-text">Buluta Kaydedildi</span>
+                    </div>
                     <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
                         🔑 Lisans
                     </button>

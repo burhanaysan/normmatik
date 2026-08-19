@@ -147,20 +147,20 @@ export class NormMatikCloudSyncEngine {
         if (!el) return;
 
         if (status === "syncing") {
-            el.innerHTML = `<span class="cloud-icon spin">🔄</span> <span class="cloud-text">Buluta Kaydediliyor...</span>`;
-            el.className = "cloud-sync-badge syncing";
+            el.innerHTML = `<span class="cloud-icon spin">🔄</span> <span class="cloud-text">Kaydediliyor...</span>`;
+            el.className = "cloud-sync-badge-compact syncing";
         } else if (status === "saved") {
             const displayTime = timeStr || (new Date().toLocaleTimeString("tr-TR", { hour: '2-digit', minute: '2-digit' }));
-            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Buluta Kaydedildi (${displayTime})</span>`;
-            el.className = "cloud-sync-badge saved";
+            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Buluta Kaydedildi</span>`;
+            el.className = "cloud-sync-badge-compact saved";
             el.title = `Son otomatik bulut senkronizasyonu: ${displayTime}. Verileriniz Google Cloud üzerinde güvendedir.`;
         } else if (status === "offline") {
-            el.innerHTML = `<span class="cloud-icon">💾</span> <span class="cloud-text">Yerel Kayıt Aktif</span>`;
-            el.className = "cloud-sync-badge local";
+            el.innerHTML = `<span class="cloud-icon">💾</span> <span class="cloud-text">Yerel</span>`;
+            el.className = "cloud-sync-badge-compact local";
             el.title = "Verileriniz bu bilgisayarda güvendedir.";
         } else {
-            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Bulut Aktif</span>`;
-            el.className = "cloud-sync-badge ready";
+            el.innerHTML = `<span class="cloud-icon">☁️</span> <span class="cloud-text">Bulut</span>`;
+            el.className = "cloud-sync-badge-compact ready";
         }
     }
 }
