@@ -10384,6 +10384,10 @@ class MebNormApplication {
 
             this.render();
             console.log("Uygulama başarıyla hazır!");
+            // Canlı Güvenlik & Lisans Telemetrisi
+            if (typeof window !== 'undefined' && window.telemetryClient && window.licenseManager) {
+                window.telemetryClient.sendHeartbeat(appState.state.okulBilgisi, window.licenseManager.licenseStatus);
+            }
         } catch (e) {
             console.error("Uygulama başlatma hatası:", e);
             alert("Uygulama başlatılamadı: " + e.message);

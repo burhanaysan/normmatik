@@ -376,6 +376,7 @@
             </div>
         </div>
 
+
         <!-- KPI ROW -->
         <div class="kpi-row">
             <div class="kpi-box">
@@ -387,14 +388,15 @@
                 <span class="kpi-box-val green" id="disp-total-revenue">0 ₺</span>
             </div>
             <div class="kpi-box">
-                <span class="kpi-box-label">🟢 Aktif Lisanslar</span>
-                <span class="kpi-box-val green" id="disp-active-licenses">0</span>
+                <span class="kpi-box-label">🟢 Canlı Çevrimiçi (Son 15 Dk)</span>
+                <span class="kpi-box-val green" id="disp-online-schools">0</span>
             </div>
             <div class="kpi-box">
                 <span class="kpi-box-label">🚨 Yenilemesi Yaklaşan (<30 Gün)</span>
                 <span class="kpi-box-val amber" id="disp-expiring-soon">0</span>
             </div>
         </div>
+
 
         <!-- TAB 1: CRM & MÜŞTERİ PORTFÖYÜ -->
         <div class="tab-content" id="tab-crm">
@@ -425,8 +427,8 @@
                                 <th>Okul Türü</th>
                                 <th>Fiyat</th>
                                 <th>Bitiş Tarihi</th>
-                                <th>Kalan Süre</th>
-                                <th>Durum</th>
+                                <th>Canlı Durum & Cihaz</th>
+                                <th>Lisans Durumu</th>
                                 <th style="text-align: right;">İşlemler</th>
                             </tr>
                         </thead>
@@ -523,6 +525,35 @@
         const PUBLIC_KEY_JWK = {};
 
         let clientsDB = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
+
+        const TELEMETRY_ENDPOINT = "https://kvstore-normmatik-default-rtdb.firebaseio.com/telemetry.json";
+        let liveTelemetryData = {};
+
+        async function fetchLiveTelemetry() {
+            try {
+                // 1. Bulut Telemetri Çek
+                const res = await fetch(TELEMETRY_ENDPOINT);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && typeof data === 'object') {
+                        liveTelemetryData = { ...liveTelemetryData, ...data };
+                    }
+                }
+            } catch (e) {}
+
+            // 2. Yerel Tarayıcı Telemetrisi ile birleştir
+            try {
+                const localFeed = JSON.parse(localStorage.getItem('normmatik_telemetry_feed') || '{}');
+                liveTelemetryData = { ...liveTelemetryData, ...localFeed };
+            } catch (e) {}
+
+            renderCRM();
+        }
+
+        // Her 20 saniyede bir canlı akış yenile
+        setInterval(fetchLiveTelemetry, 20000);
+        fetchLiveTelemetry();
+
 
         // Auth Logic (Çoklu Esnek Giriş & Trim Desteği)
         document.getElementById('btn-login').addEventListener('click', doLogin);
@@ -717,6 +748,7 @@
             let totalRevenue = 0;
             let activeCount = 0;
             let expiringSoonCount = 0;
+            let onlineCount = 0;
 
             const filtered = clientsDB.filter(c => {
                 const matchSearch = c.okulAdi.toLowerCase().includes(search) || c.kurumKodu.includes(search);
@@ -737,7 +769,7 @@
 
             document.getElementById('disp-total-schools').textContent = clientsDB.length;
             document.getElementById('disp-total-revenue').textContent = totalRevenue.toLocaleString('tr-TR') + ' ₺';
-            document.getElementById('disp-active-licenses').textContent = activeCount;
+            document.getElementById('disp-online-schools').textContent = onlineCount;
             document.getElementById('disp-expiring-soon').textContent = expiringSoonCount;
 
             if (filtered.length === 0) {
@@ -758,6 +790,20 @@
                     badgeHtml = `<span class="badge-status badge-active">🟢 ${daysLeft} Gün Kaldı</span>`;
                 }
 
+                const telem = liveTelemetryData[c.kurumKodu] || null;
+                const isOnlineNow = telem && (now - telem.lastSeenTimestamp < 15 * 60 * 1000); // son 15 dk
+                
+                let onlineBadge = '<span style="color: var(--text-muted); font-size: 0.75rem;">⚪ Çevrimdışı</span>';
+                if (isOnlineNow) {
+                    onlineBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #10b981; padding: 0.15rem 0.45rem; border-radius: 9999px; font-weight: 800; font-size: 0.68rem;">🟢 ÇEVRİMİÇİ</span>`;
+                } else if (telem && telem.lastSeenDateStr) {
+                    onlineBadge = `<span style="font-size: 0.7rem; color: var(--text-muted);" title="${telem.lastSeenDateStr}">🕒 ${telem.lastSeenDateStr.split(' ')[0]}</span>`;
+                }
+
+                const deviceStr = telem ? `<div style="font-size: 0.68rem; color: #38bdf8; margin-top: 2px;">📱 ${telem.deviceType || 'Web'} (${telem.screenResolution || ''})</div>` : '';
+
+                if (isOnlineNow) onlineCount++;
+
                 return `
                     <tr>
                         <td><strong>${c.kurumKodu}</strong></td>
@@ -765,7 +811,10 @@
                         <td>${c.okulTuru}</td>
                         <td><strong style="color: #10b981;">${c.fiyat || 490} ₺</strong></td>
                         <td>${c.expireDate}</td>
-                        <td>${daysLeft > 0 ? daysLeft + ' Gün' : 'Doldu'}</td>
+                        <td>
+                            <div>${onlineBadge}</div>
+                            ${deviceStr}
+                        </td>
                         <td>${badgeHtml}</td>
                         <td style="text-align: right; white-space: nowrap;">
                             <button class="btn-table-action btn-wa-remind" onclick="remindViaWhatsApp('${c.kurumKodu}')">📲 Hatırlat</button>
