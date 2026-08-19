@@ -11066,6 +11066,18 @@ class MebNormApplication {
         document.getElementById("btn-redo")?.addEventListener("click", () => appState.redo());
         document.getElementById("btn-reset-school")?.addEventListener("click", () => this.ui.openResetSchoolConfirmModal());
 
+        // 🚪 Oturumu Kapat ve Ana Sayfaya Dön
+        document.getElementById("btn-app-logout")?.addEventListener("click", () => {
+            if (confirm("Oturumunuz kapatılacak ve ana sayfaya yönlendirileceksiniz. Çıkış yapmak istiyor musunuz?")) {
+                if (typeof authService !== 'undefined') {
+                    authService.logout();
+                } else {
+                    localStorage.removeItem("normmatik_active_session");
+                    window.location.href = "index.html";
+                }
+            }
+        });
+
         document.getElementById("btn-export-json")?.addEventListener("click", () => {
             const jsonStr = appState.exportProjectJSON();
             const blob = new Blob([jsonStr], { type: "application/json" });
