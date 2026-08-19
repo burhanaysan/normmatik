@@ -9770,7 +9770,7 @@ class UIComponentManager {
 
                         <h4 class="kvkk-sub-heading">1. Veri Sorumlusu ve Sistem Mimarı</h4>
                         <p class="kvkk-p">
-                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</strong> kapsamında işlenen teknik ve kurumsal veriler bakımından veri sorumlusu ve bağımsız sistem mimarı <strong>Burhan AYSAN</strong>’dır.
+                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</strong> kapsamında işlenen teknik ve kurumsal veriler bakımından veri sorumlusu ve bağımsız sistem mimarı <strong>NormMatik™ Ar-Ge ve Eğitim Teknolojileri Grubu</strong>’dır.
                         </p>
 
                         <h4 class="kvkk-sub-heading">2. İşlenen Veri Kategorileri ve Kesin Sınırları</h4>
@@ -10356,7 +10356,7 @@ class UIComponentManager {
         
         let statusBadge = "";
         if (lic.isMaster) {
-            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">👑 Master Developer (Burhan AYSAN) - Sınırsız</span>`;
+            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">👑 Master Developer (NormMatik™ Ar-Ge ve Eğitim Teknolojileri Grubu) - Sınırsız</span>`;
         } else if (lic.isAnnual) {
             statusBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1.5px solid #10b981; color: #10b981; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">🛡️ Yıllık Pro Lisans (${lic.daysRemaining} Gün Kaldı)</span>`;
         } else {
@@ -10534,7 +10534,7 @@ class UIComponentManager {
 * Okul Türü: ${turAdi}
 * Cihaz Kodu (HWID): ${hwid}
 
-Merhaba Burhan Hocam, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
+Merhaba, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
 
             const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, "_blank");
@@ -11871,8 +11871,8 @@ class MebNormApplication {
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
                     🛡️ <strong>KVKK & Gizlilik</strong>
                 </button>
-                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • Burhan Aysan">
-                    ⚡ Mimari & Tasarım: <strong>burhanaysan</strong>
+                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • NormMatik™ Ar-Ge Grubu">
+                    ⚡ Mimari & Tasarım: <strong>normmatik</strong>
                 </span>
             </div>
         `;

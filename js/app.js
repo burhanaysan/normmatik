@@ -1281,8 +1281,8 @@ class MebNormApplication {
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
                     🛡️ <strong>KVKK & Gizlilik</strong>
                 </button>
-                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • Burhan Aysan">
-                    ⚡ Mimari & Tasarım: <strong>burhanaysan</strong>
+                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • NormMatik™ Ar-Ge Grubu">
+                    ⚡ Mimari & Tasarım: <strong>normmatik</strong>
                 </span>
             </div>
         `;
