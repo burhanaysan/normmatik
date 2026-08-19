@@ -32,15 +32,23 @@ class MebNormApplication {
 
 
 
-            const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
-            if (!hasSeenOnboarding) {
-                this.ui.openOnboardingWelcomeModal(() => {
-                    if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
-                        this.ui.openSchoolSetupModal();
-                    }
-                });
-            } else if (!hasSavedState || !appState.state.okulBilgisi.okulTuru) {
-                this.ui.openSchoolSetupModal();
+            // 🔒 Lisanslı Kurum Güvenliği: Asla Okul Kurulum/Değiştirme Modalı Açma!
+            if (session && !session.isDemo) {
+                localStorage.setItem("normmatik_onboarding_seen", "true");
+                // Lisanslı okul her zaman kilitlidir
+                appState.state.okulBilgisi.okulTuruKilitli = true;
+                if (!appState.state.okulBilgisi.okulTuru) {
+                    appState.state.okulBilgisi.okulTuru = session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
+                }
+                if (!appState.state.okulBilgisi.okulAdi || appState.state.okulBilgisi.okulAdi.includes("Atatürk Anadolu")) {
+                    appState.state.okulBilgisi.okulAdi = session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
+                }
+                appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
+            } else if (session && session.isDemo) {
+                const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
+                if (!hasSeenOnboarding) {
+                    this.ui.openOnboardingWelcomeModal();
+                }
             }
 
             appState.subscribe(() => this.render());

@@ -394,14 +394,56 @@
             );
 
             if (isMatch) {
+                submitBtn.innerHTML = "🔄 Okul Yükleniyor...";
+
+                // Master CRM veya Buluttan Okul Adı & Türünü Çek
+                let resolvedOkulAdi = `MEB Okulu (${kurumKodu})`;
+                let resolvedOkulTuru = "mesleki_ve_teknik_anadolu_lisesi";
+
+                try {
+                    // 1. Bulut Veritabanından okul bilgilerini kontrol et
+                    const cloudRes = await fetch(`https://kvstore-normmatik-default-rtdb.firebaseio.com/licenses/${encodeURIComponent(kurumKodu)}.json`);
+                    if (cloudRes.ok) {
+                        const licData = await cloudRes.json();
+                        if (licData && licData.okulAdi) {
+                            resolvedOkulAdi = licData.okulAdi;
+                            resolvedOkulTuru = licData.okulTuru || resolvedOkulTuru;
+                        }
+                    }
+                } catch(e) {}
+
+                // 2. Eğer aynı tarayıcıdaki Master Üreteçte bu kurum kodu varsa oradan al
+                try {
+                    const crmData = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
+                    const matched = crmData.find(c => c.kurumKodu === kurumKodu);
+                    if (matched) {
+                        resolvedOkulAdi = matched.okulAdi || resolvedOkulAdi;
+                        resolvedOkulTuru = matched.okulTuru || resolvedOkulTuru;
+                    }
+                } catch(e) {}
+
                 // Aktif oturumu kaydet
                 localStorage.setItem("normmatik_active_session", JSON.stringify({
                     kurumKodu: kurumKodu,
-                    okulAdi: "MEB Okulu (" + kurumKodu + ")",
-                    okulTuru: "anadolu_lisesi",
+                    okulAdi: resolvedOkulAdi,
+                    okulTuru: resolvedOkulTuru,
+                    okulTuruKilitli: true,
                     isDemo: false,
                     loginTime: new Date().toISOString()
                 }));
+
+                // Önceki geçici demo kayıtlarını temizle ve bu okula özel temiz state oluştur
+                try {
+                    const savedStr = localStorage.getItem("MEB_NORM_KADRO_STATE_V1");
+                    if (savedStr) {
+                        const savedObj = JSON.parse(savedStr);
+                        if (savedObj?.okulBilgisi?.kurumKodu !== kurumKodu) {
+                            localStorage.removeItem("MEB_NORM_KADRO_STATE_V1");
+                        }
+                    }
+                } catch(e) {}
+
+                localStorage.setItem("normmatik_onboarding_seen", "true");
                 window.location.href = "app.html";
             } else {
                 alert("❌ Hatalı Kurum Kodu veya Şifre! Lütfen lisans belgenizdeki şifreyi kontrol ediniz.");
