@@ -190,8 +190,8 @@ body {
 
 /* --- 4. ÜST BAŞLIK ÇUBUĞU (APP HEADER) - MEDIUM SLATE GREY / AÇIK KOYU GRİ THEME --- */
 .app-header {
-    height: 80px;
-    min-height: 80px;
+    height: 86px;
+    min-height: 86px;
     margin: 0.65rem 0.85rem 0.45rem 0.85rem;
     border-radius: var(--radius-lg);
     background: linear-gradient(135deg, #475569 0%, #3b4758 50%, #334155 100%);
@@ -199,7 +199,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.45rem;
+    padding: 0.5rem 1.45rem;
     z-index: 100;
     flex-shrink: 0;
     box-shadow: 0 10px 28px -4px rgba(0, 0, 0, 0.25), 0 2px 6px -2px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.22);
@@ -284,8 +284,9 @@ body {
 }
 
 .header-section-module.section-school-info {
-    flex: 1;
-    min-width: 0;
+    flex: 1 1 auto;
+    min-width: 280px;
+    overflow: visible;
 }
 
 .header-terminal-divider {
@@ -309,18 +310,19 @@ body {
 
 .school-title-executive {
     font-weight: 900;
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     letter-spacing: -0.015em;
     cursor: pointer;
-    padding: 0.28rem 0.85rem;
+    padding: 0.25rem 0.85rem;
     border-radius: var(--radius-md);
     color: #ffffff;
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(15, 23, 42, 0.8);
     border: 1.5px solid #475569;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
+    white-space: nowrap;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
@@ -363,6 +365,8 @@ body {
     display: flex;
     align-items: center;
     gap: 0.65rem;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
 
 .school-type-tag {
