@@ -11027,9 +11027,7 @@ class MebNormApplication {
                     <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
                         🚪 Çıkış
                     </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-update-db" style="display:none;">DB</button>
-                    <input type="file" id="file-import-db" accept=".json" style="display:none;">
-                </div>
+                    </div>
             </div>
         `;
 
@@ -11098,24 +11096,7 @@ class MebNormApplication {
         });
 
         const dbFileInput = document.getElementById("file-import-db");
-        document.getElementById("btn-update-db")?.addEventListener("click", () => dbFileInput.click());
-        dbFileInput?.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const ok = dbService.updateDatabaseFromJSON(event.target.result);
-                if (ok) {
-                    normEngine.setBranchMatrix(dbService.getBranchMatrix());
-                    this.render();
-                    this.ui.showToast("Yeni MEB Veri Tabanı başarıyla yüklendi ve güncellendi!", "success");
-                } else {
-                    alert("Geçersiz MEB veri tabanı JSON dosyası.");
-                }
-            };
-            reader.readAsText(file);
-        });
-    }
+        }
 
     getTargetWeeklyHours(section, schoolType) {
         if (section?.isSpecialEdu || (section?.subeAdi && section.subeAdi.includes("Özel Eğt")) || section?.alanId === "ozel_egitim") {
