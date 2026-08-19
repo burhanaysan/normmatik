@@ -1,21 +1,20 @@
 /* ==========================================================================
-   🏛️ NORMMATİK™ — KURUMSAL VİTRİN VE PAZARLAMA ANA SAYFASI STİLLERİ
-   Tasarım: Burhan AYSAN | Modern SaaS UI / Dark-Light Theme
+   🏛️ NORMMATİK™ — RESMÎ VE KURUMSAL VİTRİN STİLLERİ (INSTITUTIONAL UI)
+   Tasarım: Burhan AYSAN | Resmî Kurum Ciddiyeti, Sade ve Şık Tipografi
    ========================================================================== */
 
 :root {
     --primary: #0284c7;
     --primary-hover: #0369a1;
-    --primary-glow: rgba(2, 132, 199, 0.4);
+    --primary-glow: rgba(2, 132, 199, 0.35);
     --secondary: #10b981;
-    --accent: #8b5cf6;
-    --bg-dark: #090d16;
-    --bg-dark-card: #0f172a;
-    --bg-dark-card-hover: #1e293b;
-    --border-dark: rgba(255, 255, 255, 0.1);
-    --text-white: #ffffff;
-    --text-muted-dark: #94a3b8;
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --bg-dark: #070d18;
+    --bg-dark-card: #0e172a;
+    --bg-dark-card-hover: #17233d;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --font-sans: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -24,22 +23,27 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-dark);
-    color: var(--text-white);
-    line-height: 1.6;
+    color: var(--text-main);
+    line-height: 1.65;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
 }
 
-/* --- 1. NAVBAR --- */
+/* --- 1. ÜST GEZİNME ÇUBUĞU (NAVBAR) --- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 72px;
-    background: rgba(9, 13, 22, 0.85);
+    height: 70px;
+    background: rgba(7, 13, 24, 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-dark);
@@ -55,44 +59,42 @@ body {
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
-    color: var(--text-white);
+    color: var(--text-main);
 }
 
 .brand-icon {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 
 .brand-title {
     font-size: 1.25rem;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
 }
 
 .brand-badge {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    background: rgba(2, 132, 199, 0.2);
-    border: 1px solid var(--primary);
+    background: rgba(2, 132, 199, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.4);
     color: #38bdf8;
     padding: 0.15rem 0.5rem;
-    border-radius: 9999px;
+    border-radius: 6px;
     text-transform: uppercase;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.8rem;
     list-style: none;
 }
 
 .nav-links a {
-    color: var(--text-muted-dark);
+    color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
     transition: color 0.2s;
 }
@@ -104,15 +106,15 @@ body {
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.75rem;
 }
 
 .btn-nav-demo {
-    padding: 0.55rem 1.1rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
+    padding: 0.5rem 1.1rem;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-dark);
-    color: var(--text-white);
+    color: #f1f5f9;
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
@@ -120,90 +122,68 @@ body {
 }
 
 .btn-nav-demo:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-color: #38bdf8;
 }
 
 .btn-nav-login {
-    padding: 0.55rem 1.3rem;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-white);
+    padding: 0.5rem 1.2rem;
+    border-radius: 7px;
+    background: #0284c7;
+    border: 1px solid #0369a1;
+    color: #ffffff;
     font-weight: 800;
     font-size: 0.85rem;
     cursor: pointer;
-    box-shadow: 0 4px 14px var(--primary-glow);
+    box-shadow: 0 2px 8px var(--primary-glow);
     transition: all 0.2s;
 }
 
 .btn-nav-login:hover {
-    transform: translateY(-1.5px);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+    background: #0369a1;
+    transform: translateY(-1px);
 }
 
-/* --- 2. HERO SECTION --- */
+/* --- 2. HERO / RESMÎ BAŞLIK ALANI --- */
 .hero-section {
-    padding: 160px 5% 100px 5%;
+    padding: 140px 5% 80px 5%;
     text-align: center;
     position: relative;
-    overflow: hidden;
-}
-
-.hero-glow-blob {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(2, 132, 199, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
-    filter: blur(80px);
-    z-index: 0;
-    pointer-events: none;
+    border-bottom: 1px solid var(--border-dark);
+    background: radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.12) 0%, transparent 60%);
 }
 
 .hero-pill-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 1rem;
+    padding: 0.35rem 0.95rem;
     border-radius: 9999px;
     background: rgba(2, 132, 199, 0.12);
-    border: 1.5px solid rgba(56, 189, 248, 0.35);
+    border: 1.5px solid rgba(56, 189, 248, 0.3);
     color: #38bdf8;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    margin-bottom: 1.8rem;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 1.5rem;
 }
 
 .hero-title {
-    font-size: 3.4rem;
+    font-size: 2.8rem;
     font-weight: 900;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -0.03em;
-    max-width: 900px;
-    margin: 0 auto 1.5rem auto;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-title span.highlight {
-    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    max-width: 960px;
+    margin: 0 auto 1.3rem auto;
+    color: #ffffff;
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
-    color: var(--text-muted-dark);
-    max-width: 720px;
-    margin: 0 auto 2.5rem auto;
-    font-weight: 500;
-    position: relative;
-    z-index: 1;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 760px;
+    margin: 0 auto 2.2rem auto;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 .hero-cta-group {
@@ -212,265 +192,334 @@ body {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 1;
 }
 
 .btn-hero-primary {
-    padding: 0.9rem 2rem;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.8rem 1.8rem;
+    border-radius: 9px;
+    background: #0284c7;
+    border: 1px solid #0369a1;
     color: #ffffff;
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 10px 25px -3px var(--primary-glow);
-    transition: all 0.25s;
+    box-shadow: 0 4px 14px var(--primary-glow);
+    transition: all 0.2s;
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
 }
 
 .btn-hero-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 35px var(--primary-glow);
+    background: #0369a1;
+    transform: translateY(-1.5px);
 }
 
 .btn-hero-secondary {
-    padding: 0.9rem 2rem;
-    border-radius: 12px;
-    background: #16a34a;
-    border: 1px solid #15803d;
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 800;
+    padding: 0.8rem 1.8rem;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    color: #f1f5f9;
+    font-size: 0.98rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.25s;
+    transition: all 0.2s;
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    box-shadow: 0 10px 25px -3px rgba(22, 163, 74, 0.35);
+    gap: 0.5rem;
 }
 
 .btn-hero-secondary:hover {
-    background: #15803d;
-    transform: translateY(-2px);
-    box-shadow: 0 14px 35px rgba(22, 163, 74, 0.5);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #38bdf8;
+    color: #38bdf8;
 }
 
-/* --- 3. APP MOCKUP SHOWCASE --- */
-.showcase-container {
-    max-width: 1200px;
-    margin: 4rem auto 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.mockup-frame {
-    background: #1e293b;
-    border: 1.5px solid var(--border-dark);
-    border-radius: 20px;
-    padding: 0.75rem;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(2, 132, 199, 0.2);
-}
-
-.mockup-header-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 0.75rem;
-    padding-left: 0.5rem;
-}
-
-.mockup-dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-}
-.mockup-dot.red { background: #ef4444; }
-.mockup-dot.yellow { background: #f59e0b; }
-.mockup-dot.green { background: #10b981; }
-
-.mockup-img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* --- 4. 6 CORE PILLARS SECTION --- */
-.features-section {
-    padding: 100px 5%;
+/* --- 3. OKUL KADEMELERİ VE MEB KAPSAMI (6 KUTU) --- */
+.section-container {
+    padding: 80px 5%;
     max-width: 1240px;
     margin: 0 auto;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
 }
 
 .section-tag {
     color: #38bdf8;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     display: block;
 }
 
 .section-title {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     font-weight: 900;
+    color: #ffffff;
     letter-spacing: -0.02em;
 }
 
-.features-grid {
+.section-desc {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0.6rem auto 0 auto;
+}
+
+.cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.8rem;
+    gap: 1.5rem;
 }
 
-.feature-card {
+.scope-card {
     background: var(--bg-dark-card);
     border: 1.5px solid var(--border-dark);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+    border-radius: 14px;
+    padding: 1.8rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.feature-card:hover {
+.scope-card:hover {
     background: var(--bg-dark-card-hover);
-    border-color: rgba(56, 189, 248, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.6);
+    border-color: rgba(56, 189, 248, 0.35);
+    transform: translateY(-3px);
 }
 
-.feature-icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
-    background: rgba(2, 132, 199, 0.15);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
+.scope-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    display: inline-block;
 }
 
-.feature-title {
-    font-size: 1.2rem;
+.scope-card-title {
+    font-size: 1.15rem;
     font-weight: 800;
-    margin-bottom: 0.65rem;
     color: #ffffff;
+    margin-bottom: 0.5rem;
 }
 
-.feature-desc {
-    color: var(--text-muted-dark);
-    font-size: 0.92rem;
+.scope-card-text {
+    font-size: 0.88rem;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
-/* --- 5. PRICING & CAMPAIGN SECTION --- */
-.pricing-section {
-    padding: 100px 5%;
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #0d1527 100%);
-    text-align: center;
+/* --- 4. GERÇEK EKRAN GÖRÜNTÜLERİ GALERİSİ (LIGHTBOX DESTEKLİ) --- */
+.gallery-section {
+    padding: 80px 5%;
+    background: #090f1d;
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
 }
 
-.pricing-card-wrapper {
-    max-width: 540px;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.6rem;
+    max-width: 1240px;
     margin: 0 auto;
 }
 
-.pricing-card {
-    background: #0f172a;
-    border: 2px solid #0284c7;
-    border-radius: 24px;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 25px 60px -15px rgba(2, 132, 199, 0.35);
+.gallery-card {
+    background: var(--bg-dark-card);
+    border: 1.5px solid var(--border-dark);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
 }
 
-.pricing-badge-top {
+.gallery-card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.25);
+}
+
+.gallery-thumb-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: #000;
+    overflow: hidden;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover .gallery-thumb {
+    transform: scale(1.04);
+}
+
+.gallery-zoom-badge {
     position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
-    color: #0f172a;
-    font-weight: 900;
-    font-size: 0.78rem;
-    padding: 0.35rem 1.2rem;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.5);
-}
-
-.pricing-amount {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: #ffffff;
-    margin: 1rem 0 0.2rem 0;
-}
-
-.pricing-currency {
-    font-size: 1.8rem;
-    font-weight: 700;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(7, 13, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-.pricing-old-price {
-    font-size: 1.1rem;
-    color: #64748b;
-    text-decoration: line-through;
-    font-weight: 600;
+.gallery-caption {
+    padding: 1.1rem 1.3rem;
 }
 
-.pricing-period {
-    color: #10b981;
+.gallery-caption-title {
     font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
 }
 
-.pricing-checklist {
-    list-style: none;
-    text-align: left;
-    margin-bottom: 2.5rem;
+.gallery-caption-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --- 5. LIGHTBOX / TAM EKRAN RESİM İNCELEME MODALI --- */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 3000;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.3rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.lightbox-close:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+.lightbox-img-box {
+    max-width: 90vw;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+    border: 1.5px solid var(--border-dark);
+}
+
+.lightbox-title {
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* --- 6. RESMÎ RAPORLAR VE ÇIKTILAR VİTRİNİ --- */
+.reports-features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+}
+
+.report-item-box {
+    background: var(--bg-dark-card);
+    border: 1.5px solid var(--border-dark);
+    border-radius: 12px;
+    padding: 1.3rem;
+    display: flex;
+    align-items: flex-start;
     gap: 0.9rem;
 }
 
-.pricing-checklist li {
+.report-item-icon {
+    font-size: 1.5rem;
+    background: rgba(2, 132, 199, 0.15);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.95rem;
-    color: #cbd5e1;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.pricing-checklist li span.check {
-    color: #10b981;
-    font-weight: 900;
+.report-item-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
 }
 
-/* --- 6. AUTH LOGIN MODAL --- */
+.report-item-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+/* --- 7. AUTH LOGIN MODAL --- */
 .auth-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(10px);
     z-index: 2000;
     display: flex;
@@ -490,22 +539,16 @@ body {
 .auth-modal-box {
     background: #0f172a;
     border: 1.5px solid var(--border-dark);
-    border-radius: 20px;
+    border-radius: 16px;
     width: 100%;
-    max-width: 440px;
+    max-width: 420px;
     padding: 2.2rem;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(2, 132, 199, 0.25);
-    transform: translateY(20px);
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.auth-modal-overlay.active .auth-modal-box {
-    transform: translateY(0);
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
 }
 
 .auth-modal-header {
     text-align: center;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.6rem;
     position: relative;
 }
 
@@ -526,13 +569,8 @@ body {
     justify-content: center;
 }
 
-.auth-modal-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
 .auth-form-group {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.1rem;
     text-align: left;
 }
 
@@ -546,48 +584,44 @@ body {
 
 .auth-form-input {
     width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
     background: #1e293b;
     border: 1.5px solid #334155;
     color: #ffffff;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     outline: none;
-    transition: border-color 0.2s;
 }
 
 .auth-form-input:focus {
     border-color: #0284c7;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
 }
 
 .btn-auth-submit {
     width: 100%;
-    padding: 0.85rem;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: #0284c7;
     border: none;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 800;
     cursor: pointer;
     margin-top: 0.5rem;
-    box-shadow: 0 4px 14px var(--primary-glow);
-    transition: all 0.2s;
 }
 
 .btn-auth-submit:hover {
-    background: #0284c7;
-    transform: translateY(-1px);
+    background: #0369a1;
 }
 
-/* --- 7. FOOTER --- */
+/* --- 8. FOOTER --- */
 .landing-footer {
     border-top: 1px solid var(--border-dark);
-    padding: 3rem 5%;
+    padding: 2.5rem 5%;
     text-align: center;
-    color: var(--text-muted-dark);
-    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.84rem;
+    background: #050912;
 }
 
 .landing-footer a {
