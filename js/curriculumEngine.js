@@ -641,6 +641,46 @@ class MebCurriculumEngine {
             if (İLKOKUL_CURRICULUM[gStr]) return İLKOKUL_CURRICULUM[gStr];
         }
 
+                // 1.2. MESLEKİ EĞİTİM MERKEZİ (MESEM / ÇIRAKLIK)
+        if (schoolTypeStr.includes("mesleki_egitim_merkezi") || schoolTypeStr.includes("mesem")) {
+            const areaNameStr = areaId ? this.toTurkishTitleCase(areaId.replace(/_/g, ' ')) : "Alan";
+            const dalNameStr = dalName ? this.toTurkishTitleCase(dalName.replace(/_/g, ' ')) : "Meslek";
+            const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");
+            const vocBranch = this.getCanonicalCourseAndBranch(dalNameStr, null, areaCode, "ALAN VE DAL MESLEK DERSLERİ").branchName;
+
+            const MESEM_CURRICULUM = {
+                "9": [
+                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Matematik", saat: 2, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: `${areaNameStr} Temel Meslek ve İSG`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
+                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
+                ],
+                "10": [
+                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Matematik", saat: 2, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: `${dalNameStr} Meslek Teknolojisi`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
+                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
+                ],
+                "11": [
+                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Matematik", saat: 1, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: `${dalNameStr} İleri Uygulamaları`, saat: 5, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
+                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
+                ],
+                "12": [
+                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
+                    { ders: `${dalNameStr} Ustalık Eğitimi ve Ahilik`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
+                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
+                ]
+            };
+            if (MESEM_CURRICULUM[gStr]) return MESEM_CURRICULUM[gStr];
+        }
+
         // 2. MTEGM (DOĞRUDAN VE SADECE İLGİLİ SINIF KLASÖRÜNDEKİ PDF TABLOSUNDAN ALMA)
         if (schoolTypeStr.includes("meslek") || schoolTypeStr.includes("teknik") || schoolTypeStr.includes("mtegm") || areaId) {
             const ALIAS_MAP = {
