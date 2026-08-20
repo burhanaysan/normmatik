@@ -191,8 +191,7 @@ def build_bundle():
         "liveUpdateSyncEngine.js",
         "strict_pdf_curriculum_db.js",
         "strict_elective_courses_db.js",
-        "mtegm_canonical_data.js",
-        "database.js",
+                "database.js",
         "curriculumEngine.js",
         "normEngine.js",
         "reportsEngine.js",
@@ -236,7 +235,6 @@ if (typeof window !== 'undefined') {
     }
     if (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') window.STRICT_PDF_CURRICULUM_DB = STRICT_PDF_CURRICULUM_DB;
     if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
-    if (typeof MTEGM_CANONICAL_DB !== 'undefined') window.MTEGM_CANONICAL_DB = MTEGM_CANONICAL_DB;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
