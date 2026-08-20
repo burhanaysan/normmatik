@@ -471045,9 +471045,33 @@ class AppStateService {
         }
         return false;
     }
-}
+    /**
+     * Okuldaki tüm şubelerin zorunlu derslerini güncel MEB müfredat veritabanıyla eşitler
+     * @param {Object} curriculumEngineInstance - Müfredat motoru nesnesi
+     * @returns {number} Güncellenen şube sayısı
+     */
+    syncAllSectionsWithCurriculum(curriculumEngineInstance) {
+        if (!curriculumEngineInstance) return 0;
+        const schoolType = this.state.okulBilgisi.okulTuru;
+        let count = 0;
+        (this.state.subeler || []).forEach(sec => {
+            const newCourses = curriculumEngineInstance.getMandatoryCourses(
+                schoolType,
+                sec.sinifSeviyesi,
+                sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
+                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
+            );
+            if (newCourses && newCourses.length > 0) {
+                sec.zorunluDersler = newCourses;
+                count++;
+            }
+        });
+        this.saveState();
+        this.notifyListeners();
+        return count;
+    }
 
-const appState = new AppStateService();
+}
 
 // ==================== eOkulImporter.js ====================
 
@@ -472514,6 +472538,17 @@ class UIComponentManager {
                                 * İşaretlendiğinde bu şube için doğrudan <strong>2 Özel Eğitim Öğretmeni Normu</strong> tahsis edilir ve haftalık 30 saatlik özel eğitim müfredatı yüklenir.
                             </p>
                         </div>
+                        ${isEditing ? `
+                        <div class="form-group" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.65rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: #166534; cursor: pointer; margin-bottom: 0;">
+                                <input type="checkbox" id="sec-refresh-curriculum" checked>
+                                🔄 Zorunlu dersleri güncel MEB müfredatına göre otomatik yenile
+                            </label>
+                            <p style="font-size: 0.72rem; color: #15803d; margin-top: 0.25rem; margin-bottom: 0;">
+                                * İşaretli olduğunda bu şubenin zorunlu dersleri en son MEB ÇÖP veritabanıyla eşitlenir (Seçtiğiniz seçmeli dersler korunur).
+                            </p>
+                        </div>
+                        ` : ''}
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-outline" onclick="document.getElementById('section-modal').remove()">İptal</button>
@@ -472556,9 +472591,12 @@ class UIComponentManager {
 
                 if (isEditing) {
                     const originalCourses = sectionToEdit.zorunluDersler || [];
+                    const refreshCurriculum = document.getElementById("sec-refresh-curriculum")?.checked || false;
                     let updatedCourses = originalCourses;
-                    // Eğer alan, sınıf veya özel eğitim statüsü değiştiyse müfredatı yeniden çöz
-                    if (sectionToEdit.alanId !== (isSpecialEdu ? "ozel_egitim" : areaId) || 
+                    // Eğer kullanıcı onay verdiyse veya alan, dal, sınıf, özel eğitim statüsü değiştiyse müfredatı yeniden çöz
+                    if (refreshCurriculum || 
+                        sectionToEdit.alanId !== (isSpecialEdu ? "ozel_egitim" : areaId) || 
+                        sectionToEdit.dalAdi !== (isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName) ||
                         sectionToEdit.sinifSeviyesi !== grade || 
                         sectionToEdit.isSpecialEdu !== isSpecialEdu) {
                         updatedCourses = this.curriculum.getMandatoryCourses(
@@ -477401,6 +477439,9 @@ class MebNormApplication {
                                     <button class="hero-btn-pill" id="btn-edit-active-sec" title="Şube ve Dal Bilgilerini Düzenle">
                                         <span>✏️ Düzenle</span>
                                     </button>
+                                    <button class="hero-btn-pill" id="btn-sync-curriculum-sec" title="Bu şubenin zorunlu derslerini güncel MEB ÇÖP veritabanıyla eşitle / yenile" style="background: rgba(2, 132, 199, 0.08); border-color: #0284c7; color: #0284c7; font-weight: 600;">
+                                        <span>🔄 Müfredatı Güncelle</span>
+                                    </button>
                                     <button class="hero-btn-pill split" id="btn-split-active-sec" title="Şubeyi 2 veya 3'e Böl (Mevcut/Dal Bölünmesi)">
                                         <span>✂️ Böl</span>
                                     </button>
@@ -477502,6 +477543,20 @@ class MebNormApplication {
 
         document.getElementById("btn-edit-active-sec")?.addEventListener("click", () => {
             this.ui.openAddSectionModal(activeSec);
+        });
+
+        document.getElementById("btn-sync-curriculum-sec")?.addEventListener("click", () => {
+            const schoolType = appState.state.okulBilgisi.okulTuru;
+            const updatedCourses = curriculumEngine.getMandatoryCourses(
+                schoolType,
+                activeSec.sinifSeviyesi,
+                activeSec.isSpecialEdu ? "ozel_egitim" : activeSec.alanId,
+                activeSec.isSpecialEdu ? "Özel Eğitim Sınıfı" : activeSec.dalAdi
+            );
+            activeSec.zorunluDersler = updatedCourses;
+            appState.updateSection(activeSec.id, { zorunluDersler: updatedCourses });
+            this.ui.showToast(`🔄 "${activeSec.subeAdi}" şubesinin zorunlu dersleri güncel MEB veritabanı ile eşitlendi!`, "success");
+            this.renderAll();
         });
 
         document.getElementById("btn-split-active-sec")?.addEventListener("click", () => {

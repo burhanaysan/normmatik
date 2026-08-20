@@ -924,6 +924,30 @@ export class AppStateService {
         }
         return false;
     }
-}
+    /**
+     * Okuldaki tüm şubelerin zorunlu derslerini güncel MEB müfredat veritabanıyla eşitler
+     * @param {Object} curriculumEngineInstance - Müfredat motoru nesnesi
+     * @returns {number} Güncellenen şube sayısı
+     */
+    syncAllSectionsWithCurriculum(curriculumEngineInstance) {
+        if (!curriculumEngineInstance) return 0;
+        const schoolType = this.state.okulBilgisi.okulTuru;
+        let count = 0;
+        (this.state.subeler || []).forEach(sec => {
+            const newCourses = curriculumEngineInstance.getMandatoryCourses(
+                schoolType,
+                sec.sinifSeviyesi,
+                sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
+                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
+            );
+            if (newCourses && newCourses.length > 0) {
+                sec.zorunluDersler = newCourses;
+                count++;
+            }
+        });
+        this.saveState();
+        this.notifyListeners();
+        return count;
+    }
 
-export const appState = new AppStateService();
+}
