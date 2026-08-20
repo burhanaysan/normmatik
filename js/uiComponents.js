@@ -2552,37 +2552,48 @@ export class UIComponentManager {
             'yiyecekpro': 'Yiyecek İçecek Hizmetleri'
         };
 
-        // 1. MTEGM 10.4.2 Seçmeli Meslek Dersleri Havuzu (Meslek Alanı Eşleşmesi)
-        const mtegmAlanlar = master.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
-        let areaData = null;
-        let areaKey = section.alanId;
+        // 1. MTEGM 6.4.2 Seçmeli Meslek Dersleri Havuzu (Resmî MEB ÇÖP Veritabanı)
+        const electiveDb = (typeof window !== 'undefined' && window.STRICT_ELECTIVE_COURSES_DB) 
+            ? window.STRICT_ELECTIVE_COURSES_DB 
+            : (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined' ? STRICT_ELECTIVE_COURSES_DB : null);
 
-        if (areaKey && mtegmAlanlar[areaKey]) {
-            areaData = mtegmAlanlar[areaKey];
-        } else if (section.alanAdi) {
-            const cleanTarget = String(section.alanAdi).toLowerCase().replace(/[^a-z0-9]/g, '');
-            for (let k in mtegmAlanlar) {
-                const kClean = k.toLowerCase().replace(/[^a-z0-9]/g, '');
-                const kodClean = String(mtegmAlanlar[k].alan_kodu || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-                if (kClean === cleanTarget || cleanTarget.includes(kClean) || kClean.includes(cleanTarget) || (kodClean && cleanTarget.includes(kodClean))) {
-                    areaData = mtegmAlanlar[k];
-                    areaKey = k;
-                    break;
+        let areaKey = section.alanId || "";
+        let searchKey = String(areaKey).toLowerCase().replace(/_/g, '');
+        let matchedAreaCourses = [];
+
+        if (electiveDb) {
+            if (areaKey && electiveDb[areaKey]) {
+                matchedAreaCourses = electiveDb[areaKey];
+            } else if (searchKey) {
+                for (let k in electiveDb) {
+                    if (searchKey.includes(k) || k.includes(searchKey)) {
+                        matchedAreaCourses = electiveDb[k];
+                        break;
+                    }
+                }
+            }
+            if (!matchedAreaCourses.length && section.alanAdi) {
+                const normAlan = String(section.alanAdi).toLowerCase().replace(/[^a-z0-9]/g, '');
+                for (let k in electiveDb) {
+                    if (normAlan.includes(k) || k.includes(normAlan)) {
+                        matchedAreaCourses = electiveDb[k];
+                        break;
+                    }
                 }
             }
         }
 
-        if (areaData && Array.isArray(areaData.secmeli_meslek_dersleri_10_4_2_havuzu)) {
-            const vocBranchName = AREA_BRANCHES[areaKey] || areaData.alan_adi || (areaData.alan_kodu || areaKey || "Meslek").replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-            for (let sm of areaData.secmeli_meslek_dersleri_10_4_2_havuzu) {
-                const courseName = sm.ders_adi || sm.ders;
+        if (matchedAreaCourses && matchedAreaCourses.length > 0) {
+            const vocBranchName = AREA_BRANCHES[areaKey] || (areaKey || "Meslek").replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            for (let sm of matchedAreaCourses) {
+                const courseName = sm.ders;
                 if (!courseName) continue;
 
                 const normName = courseName.toLowerCase().trim();
                 if (seenNames.has(normName)) continue;
                 seenNames.add(normName);
 
-                const baseH = parseInt(sm.ders_saati || sm.saat || 2, 10);
+                const baseH = parseInt(sm.saat || 2, 10);
                 let hoursOpts = [2, 3, 4];
                 if (baseH === 1) hoursOpts = [1, 2];
                 else if (baseH === 4) hoursOpts = [2, 3, 4, 6];
@@ -2590,7 +2601,7 @@ export class UIComponentManager {
 
                 list.push({
                     ders: courseName,
-                    grup: "🟣 Seçmeli Meslek Dersi (" + (sm.sinif_seviyesi || "11-12. Sınıf") + ")",
+                    grup: "🟣 Seçmeli Meslek Dersi (" + (sm.siniflar || "11-12. Sınıf") + ")",
                     hoursOptions: hoursOpts,
                     selectedHour: baseH || 2,
                     defaultBranch: sm.atananBrans || vocBranchName,
