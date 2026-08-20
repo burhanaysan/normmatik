@@ -591,6 +591,56 @@ class MebCurriculumEngine {
             if (ORTAOKUL_CURRICULUM[gStr]) return ORTAOKUL_CURRICULUM[gStr];
         }
 
+                // 1.1. İLKOKUL
+        if (schoolTypeStr.includes("ilkokul")) {
+            const İLKOKUL_CURRICULUM = {
+                "1": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Oyun", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
+                ],
+                "2": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Oyun", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
+                ],
+                "3": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Oyun", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
+                ],
+                "4": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi ve Oyun", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "İnsan Hakları, Yurttaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
+                ]
+            };
+            if (İLKOKUL_CURRICULUM[gStr]) return İLKOKUL_CURRICULUM[gStr];
+        }
+
         // 2. MTEGM (DOĞRUDAN VE SADECE İLGİLİ SINIF KLASÖRÜNDEKİ PDF TABLOSUNDAN ALMA)
         if (schoolTypeStr.includes("meslek") || schoolTypeStr.includes("teknik") || schoolTypeStr.includes("mtegm") || areaId) {
             const ALIAS_MAP = {
