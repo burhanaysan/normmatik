@@ -471066,12 +471066,14 @@ class AppStateService {
                 count++;
             }
         });
-        this.saveState();
-        this.notifyListeners();
+        this.saveToStorage();
+        this.notify();
         return count;
     }
 
 }
+
+const appState = new AppStateService();
 
 // ==================== eOkulImporter.js ====================
 
@@ -476548,6 +476550,7 @@ class MebNormApplication {
     }
 
     async init() {
+        this.autoReconcileAllSections();
         try {
             console.log("Uygulama başlatılıyor...");
             this.initTheme();
@@ -476739,6 +476742,53 @@ class MebNormApplication {
         window.addEventListener("pointerup", onEnd);
         window.addEventListener("touchend", onEnd);
         window.addEventListener("pointercancel", onEnd);
+    }
+
+        /**
+     * MEB ÇÖP Veritabanı Değişikliklerini ve Düzeltmelerini Şubelere Otomatik Uygular
+     * Kullanıcının seçmeli derslerini ve öğretmen atamalarını bozmadan zorunlu dersleri eşitler
+     */
+    autoReconcileAllSections() {
+        if (!appState || !curriculumEngine) return;
+        const schoolType = appState.state.okulBilgisi?.okulTuru;
+        if (!schoolType) return;
+        
+        let changed = false;
+        (appState.state.subeler || []).forEach(sec => {
+            const canonicalCourses = curriculumEngine.getMandatoryCourses(
+                schoolType,
+                sec.sinifSeviyesi,
+                sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
+                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
+            );
+            if (canonicalCourses && canonicalCourses.length > 0) {
+                // Mevcut atanan branşları koruyarak eşitle
+                const branchMap = {};
+                (sec.zorunluDersler || []).forEach(c => {
+                    if (c.ders && c.atananBrans) {
+                        branchMap[c.ders] = c.atananBrans;
+                    }
+                });
+
+                const reconciled = canonicalCourses.map(c => ({
+                    ...c,
+                    atananBrans: branchMap[c.ders] || c.atananBrans
+                }));
+
+                const oldStr = JSON.stringify(sec.zorunluDersler || []);
+                const newStr = JSON.stringify(reconciled);
+                if (oldStr !== newStr) {
+                    sec.zorunluDersler = reconciled;
+                    changed = true;
+                }
+            }
+        });
+
+        if (changed) {
+            console.log("⚡ [Otomatik Müfredat Senkronizasyonu] Şubeler güncel MEB ÇÖP veritabanı ile eşitlendi.");
+            appState.saveToStorage();
+            appState.notify();
+        }
     }
 
     render() {

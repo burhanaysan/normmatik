@@ -945,9 +945,11 @@ export class AppStateService {
                 count++;
             }
         });
-        this.saveState();
-        this.notifyListeners();
+        this.saveToStorage();
+        this.notify();
         return count;
     }
 
 }
+
+export const appState = new AppStateService();
