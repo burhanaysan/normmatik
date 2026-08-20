@@ -555,24 +555,38 @@ class MebNormApplication {
             const gradeClass = isSpecialEdu ? 'card-grade-special-edu' : ('card-grade-' + String(s.sinifSeviyesi || '').toLowerCase());
             return `
                 <div class="section-card ${gradeClass} ${isActive ? 'active' : ''}" data-id="${s.id}">
-                    <div class="sec-card-header">
-                        <div class="sec-card-title-wrap">
-                            <span class="sec-card-name">${s.subeAdi}</span>
+                    <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
+                    <div class="sec-card-top-row">
+                        <div class="sec-identity-wrap">
+                            <span class="sec-card-name" title="${s.subeAdi}">${s.subeAdi}</span>
                         </div>
-                        <span class="sec-chip-badge student-chip">${s.ogrenciSayisi} Öğr</span>
+                        
+                        <div class="sec-top-right-wrap">
+                            <!-- Metrik Hapları (Varsayılan Görünüm) -->
+                            <div class="sec-metrics-group">
+                                <span class="sec-badge-pill student-pill" title="Mevcut: ${s.ogrenciSayisi} Öğrenci">
+                                    <span class="pill-icon">👥</span>${s.ogrenciSayisi}
+                                </span>
+                                <span class="sec-badge-pill hour-pill ${hourStatus}" title="Haftalık Ders Saati: ${totalHours} / ${targetHours} Saat">
+                                    <span class="chip-pulse-dot"></span>${totalHours}/${targetHours}s
+                                </span>
+                            </div>
+
+                            <!-- Hover Aksiyon Butonları (Mouse Gelince Pürüzsüzce Açılır) -->
+                            <div class="sec-action-chips">
+                                <button class="sec-action-btn btn-edit-sec" data-id="${s.id}" title="Şubeyi Düzenle">✏️</button>
+                                <button class="sec-action-btn split btn-split-sec" data-id="${s.id}" title="Şubeyi 2 veya 3'e Böl">✂️</button>
+                                <button class="sec-action-btn btn-duplicate-sec" data-id="${s.id}" title="Şubeyi Kopyala">📋</button>
+                                <button class="sec-action-btn delete btn-delete-sec" data-id="${s.id}" title="Şubeyi Sil">🗑️</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sec-card-subline">
-                        <span class="sec-chip-badge dal-chip" title="${dalText}">${dalText}</span>
-                    </div>
-                    <div class="sec-chips-bottom">
-                        <span class="sec-chip-badge hour-chip ${hourStatus}" title="Haftalık Ders Saati Durumu">
-                            <span class="chip-pulse-dot"></span> ${totalHours} / ${targetHours} Saat
-                        </span>
-                        <div class="sec-action-chips">
-                            <button class="sec-action-btn btn-edit-sec" data-id="${s.id}" title="Şubeyi Düzenle">✏️</button>
-                            <button class="sec-action-btn split btn-split-sec" data-id="${s.id}" title="Şubeyi 2 veya 3'e Böl">✂️</button>
-                            <button class="sec-action-btn btn-duplicate-sec" data-id="${s.id}" title="Şubeyi Kopyala">📋</button>
-                            <button class="sec-action-btn delete btn-delete-sec" data-id="${s.id}" title="Şubeyi Sil">🗑️</button>
+
+                    <!-- 2. ALT SATIR: UZUN METİNLERİ KORUYAN OKUNAKLI ALAN & DAL BİLGİSİ -->
+                    <div class="sec-card-bottom-row">
+                        <div class="sec-branch-desc" title="${dalText}">
+                            <span class="sec-branch-bullet">▪</span>
+                            <span class="sec-branch-text">${dalText}</span>
                         </div>
                     </div>
                 </div>
