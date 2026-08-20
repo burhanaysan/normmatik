@@ -1801,30 +1801,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İDARE HUKUKU UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CUMHURİYET BAŞSAVCILIĞI KALEM HİZMETLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEZA VE CEZA MUHAKEMESİ HUKUKU UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALEM HİZMETLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -1865,30 +1841,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İDARE HUKUKU UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "NÖBET İŞLEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HÜKÜMLÜ VE TUTUKLU PSİKOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEZA VE İNFAZ HUKUKU UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -4159,24 +4111,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL BASKI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -4218,18 +4152,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "CİLTLEME TEKNİKLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -5881,24 +5803,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDAN KALIBA ÇIKIŞ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL BASKI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VEKTÖREL ÇİZİM UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -5940,18 +5844,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "CİLTLEME TEKNİKLERİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFSET BASKI UYGULAMALARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -7851,24 +7743,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "WEB TABANLI UYGULAMA GELİŞTİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MOBİL UYGULAMALAR",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GRAFİK VE CANLANDIRMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -7909,24 +7783,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AĞ SİSTEMLERİ VE YÖNLENDİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİK TEMELLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNUCU İŞLETİM SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -11307,24 +11163,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTROFİZYOLOJİ CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEŞHİS TAKİP VE KAYIT CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO SİNYAL İZLEME VE TAKİP CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -11366,24 +11204,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "X-IŞINLI GÖRÜNTÜLEYİCİLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK GÖRÜNTÜLEME CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RADYOLOJİ CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -11429,24 +11249,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR DESTEK CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ANALİZ VE LABORATUVAR CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK LABORATUVAR CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -11488,24 +11290,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "AMELİYATHANE VE YOĞUN BAKIM CİHAZLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ACİL SERVİS VE DESTEK TEDAVİ CİHAZLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞAM DESTEK CİHAZLARI ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -12471,42 +12255,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAZIŞMA VE DOSYALAMA TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TASARIM PROGRAMLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İLERİ OFİS UYGULAMALARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "WEB UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -13721,18 +13469,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "YETERSİZLİK TÜRLERİ VE KAYNAŞTIRMA EĞİTİMİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ERKEN ÇOCUKLUK VE ÖZEL EĞİTİMDE PROGRAM ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -15498,24 +15234,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRONİK SEYİR SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS) TEKNİK",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -15559,36 +15277,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GEMİ MAKİNELERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GEMİ OTOMASYONU",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK VE TERMODİNAMİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "EMNİYETLİ MAKİNE VARDİYASI TUTMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DENİZ HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -15629,30 +15317,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SEYİR VE ELEKTRONİK SEYİR ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KÜRESEL DENİZCİLİK ACİL DURUM EMNİYET HABERLEŞME SİSTEMİ (GMDSS",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DENİZ HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YÜK İŞLEM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -19685,24 +19349,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -21208,24 +20854,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -25638,24 +25266,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ASANSÖR MONTAJ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ASANSÖR BAKIM ONARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI ASANSÖR TASARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -25696,24 +25306,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PANO ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ELEKTRİK TESİSAT PROJELERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KONTROL PANOLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -25760,18 +25352,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TESİSATLI EV CİHAZLARI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SOĞUTUCULAR VE KLİMALAR",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -25812,24 +25392,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKRODENETLEYİCİLER VE GÜVENLİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GÖRÜNTÜ SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HABERLEŞME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -25876,24 +25438,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMASYON ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ENDÜSTRİYEL ELEKTRONİK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKRODENETLEYİCİ VE KODLAMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -25934,24 +25478,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA ELEKTRONİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MİKRODENETLEYİCİ İLE PROGRAMLAMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEST UYGULAMALARI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -27553,6 +27079,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -27604,30 +27136,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "AHŞAP BOYAMA ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GELENEKSEL EL SANATLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÖRGÜ ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -27668,24 +27176,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "EV TEKSTİLİ ÜRETİMİ ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL EL SANATLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PROTOTİP ÜRÜNLER VE ORGANİZASYON ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -30293,24 +29783,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TASARIM (CAD",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30351,30 +29823,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KATI MODELLEME VE ANİMASYON",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALIP TASARIMI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK-PNÖMATİK DEVRE ÇİZİMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİSİMLERİN DAYANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -30421,24 +29869,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HACİM KALIPLARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ KALIPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP ÜRETİM TEKNOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30479,30 +29909,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK BAKIM ONARIM",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMATİK KONTROL SİSTEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİZMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -30549,30 +29955,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ TEZGÂHLARLA TIBBİ CİHAZ ÜRETİMİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TIBBİ CİHAZ TASARIMI VE ÜRETİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TIBBİ CİHAZ MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30613,24 +29995,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ MODELLEMELER",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ SERİ ÜRETİM MODELLEMELERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT MODELLEME TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -30677,30 +30041,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL VE PROTOTİP ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KATI MODELLEME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARAMA VE SAYISALLAŞTIRMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN GELİŞTİRME UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30744,30 +30084,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "DEĞİRMEN MAKİNELERİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -30808,36 +30124,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ TASARIM VE İMALAT(CAD-CAM",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL OLMAYAN İMALAT YÖNTEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA MEKANİK SİSTEMLERİNDE KALİTE KONTROL",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEMERDE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA SİSTEMLERİ MALZEMELERİ VE YÜZEY İŞLEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -33439,24 +32725,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TASARIM (CAD",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33497,30 +32765,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KATI MODELLEME VE ANİMASYON",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALIP TASARIMI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK-PNÖMATİK DEVRE ÇİZİMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİSİMLERİN DAYANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -33567,24 +32811,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HACİM KALIPLARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ KALIPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP ÜRETİM TEKNOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33625,30 +32851,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK BAKIM ONARIM",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMATİK KONTROL SİSTEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİZMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -33695,30 +32897,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ TEZGÂHLARLA TIBBİ CİHAZ ÜRETİMİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TIBBİ CİHAZ TASARIMI VE ÜRETİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TIBBİ CİHAZ MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33759,24 +32937,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ MODELLEMELER",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ SERİ ÜRETİM MODELLEMELERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT MODELLEME TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -33823,30 +32983,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL VE PROTOTİP ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KATI MODELLEME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARAMA VE SAYISALLAŞTIRMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN GELİŞTİRME UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33890,30 +33026,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "DEĞİRMEN MAKİNELERİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -33954,36 +33066,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ TASARIM VE İMALAT(CAD-CAM",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL OLMAYAN İMALAT YÖNTEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA MEKANİK SİSTEMLERİNDE KALİTE KONTROL",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEMERDE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA SİSTEMLERİ MALZEMELERİ VE YÜZEY İŞLEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -34869,24 +33951,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "MEKATRONİK SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMATİK ÜRETİM",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -35795,30 +34859,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "REDAKSİYON",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HABER ÇEKİMİ VE KURGUSU",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DİJİTAL MEDYADA HABERCİLİK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİZANPAJ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -37154,30 +36194,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEZHİP ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇİNİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALEMİŞİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİLT ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -39673,24 +38689,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GEMİ İMALATI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ KAYNAK UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -39734,24 +38732,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "YAT İMALATI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAT BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT YAT İMALATI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -39793,24 +38773,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ DONATIMI RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ BORU İŞÇİLİĞİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GEMİ MAKİNE DONATIMI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -40736,24 +39698,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GIDALARDA TEMEL KALİTE KONTROL ANALİZLERİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GIDA ÜRETİM TEKNOLOJİLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GIDA İŞLEME MAKİNELERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -42508,24 +41452,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İLLÜSTRASYON UYGULAMALARI",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TANITIM GRAFİĞİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAYIN GRAFİĞİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -42566,24 +41492,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARDA FOTOĞRAF",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇEKİM TEKNİKLERİ VE SUNUMU",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "VİDEO ÇEKİMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -43090,6 +41998,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "MESLEKİ RESİM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -43360,7 +42274,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
-            "saat": 4,
+            "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -43433,7 +42347,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "MAKYAJ UYGULAMALARI ATÖLYESİ",
-            "saat": 4,
+            "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -43486,18 +42400,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MÜŞTERİ İLİŞKİLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -44424,30 +43326,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HALKLA İLİŞKİLERDE BÜTÜNLEŞİK PAZARLAMA İLETİŞİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HALKLA İLİŞKİLER VE REKLAM",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YENİ MEDYADA HALKLA İLİŞKİLER",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇAĞRI MERKEZİ İŞLEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -46136,30 +45014,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA HARİTA ÇİZİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İMAR",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KADASTRO",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -46201,30 +45055,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BORÇLAR HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEDENİ USUL VE İCRA İFLAS HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİRAS VE AYNİ HAKLAR HUKUKU",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -47150,24 +45980,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HASTA VE YAŞLI PSİKOLOJİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HASTALIKLAR VE İLAÇ BİLGİSİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -48755,30 +47567,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "HASTALIKLARLA MÜCADELE",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KLİNİK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNİ TOHUMLAMA VE DOĞUM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -52656,24 +51444,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA ALTYAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA ALTYAPI MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İNŞAAT ALTYAPI ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -52715,24 +51485,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA ÜSTYAPI MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İNŞAAT ÜSTYAPI ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -52778,24 +51530,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA RESTORASYON MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİMARİ RESTORASYON ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -52837,24 +51571,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA MİMARİ PROJE MODELLEME",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA MİMARİ PROJE ÇİZİM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -52900,24 +51616,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA STATİK PROJE MODELLEME",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA STATİK PROJE ÇİZİM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -52959,24 +51657,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YAPI MALİYET HESAPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLA YÜZEY KAPLAMA MESLEK RESMİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAPI YÜZEY KAPLAMA VE YALITIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -53848,24 +52528,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YANGIN ÖNLEME TEDBİRLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UÇAK KAZA KIRIM VE YANGINLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -55800,8 +54462,20 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ORGANİK KİMYA",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "NİCEL ANALİZ",
             "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENSTRÜMANTAL ANALİZ",
+            "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
@@ -58614,6 +57288,18 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ANADOLU KÜLTÜRÜ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -59005,36 +57691,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KAT HİZMETLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KONAKLAMA İŞLETMECİLİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -59078,36 +57734,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ANADOLU KÜLTÜRÜ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SÜRDÜRÜLEBİLİR TURİZM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ACENTE PAKET PROGRAMLARI ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REZERVASYON VE İSTATİSTİKİ İŞLEMLER ATÖLYE",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -59147,36 +57773,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "YABANCI DİL",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ANİMASYONDA TEKNİK DESTEK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÇALIŞMA HAYATINA HAZIRLIK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAHNE UYGULAMALARI ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ANİMASYONDA DANS VE MÜZİK AKTİVİTELERİ ATÖLYESİ",
-            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
@@ -59437,6 +58033,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ÖN BÜRODA REZERVASYON",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "KONUK GİRİŞ ÇIKIŞ İŞLEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -59670,6 +58272,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -59767,6 +58375,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -59847,6 +58461,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "KİMYA",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -59957,12 +58577,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -60066,12 +58680,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "FELSEFE",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -60164,12 +58772,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "COĞRAFYA",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -61089,18 +59691,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MUM MODELAJ VE DÖKÜM",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARDA TAKI TASARIMI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -61843,6 +60433,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "GIDA ANALİZLERİ",
+            "saat": 8,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -61964,24 +60560,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GIDA ANALİZLERİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "HAYVAN SAĞLIĞI LABORATUVARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YEM ANALİZLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -62932,36 +61510,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YER ÜSTÜ MADEN İŞLEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SONDAJ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK PNÖMATİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CEVHER ZENGİNLEŞTİRME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -64905,6 +63453,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -65000,6 +63554,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "MAKİNE MESLEK RESMİ",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
@@ -66236,6 +64796,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 5,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": true
+          },
+          {
+            "ders": "KALIP İMALATI UYGULAMALARI",
+            "saat": 4,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
           },
           {
             "ders": "TIBBİ CİHAZ ÜRETİM TERMİNOLOJİSİ",
@@ -69363,24 +67929,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TASARIM (CAD",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69421,30 +67969,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KATI MODELLEME VE ANİMASYON",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALIP TASARIMI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HİDROLİK-PNÖMATİK DEVRE ÇİZİMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "CİSİMLERİN DAYANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -69491,24 +68015,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HACİM KALIPLARI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ KALIPLARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP ÜRETİM TEKNOLOJİSİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69549,30 +68055,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK BAKIM ONARIM",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "OTOMATİK KONTROL SİSTEMLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİZMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -69619,30 +68101,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYAR KONTROLLÜ TEZGÂHLARLA TIBBİ CİHAZ ÜRETİMİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ TIBBİ CİHAZ TASARIMI VE ÜRETİMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TIBBİ CİHAZ MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69683,24 +68141,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ MODELLEMELER",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ SERİ ÜRETİM MODELLEMELERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KOMPOZİT MODELLEME TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -69747,30 +68187,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODEL VE PROTOTİP ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KATI MODELLEME",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARAMA VE SAYISALLAŞTIRMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN GELİŞTİRME UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69814,30 +68230,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "DEĞİRMEN MAKİNELERİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL ELEKTRİK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AR-GE VE KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -69878,36 +68270,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ TASARIM VE İMALAT(CAD-CAM",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GELENEKSEL OLMAYAN İMALAT YÖNTEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA MEKANİK SİSTEMLERİNDE KALİTE KONTROL",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEMERDE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAVUNMA SİSTEMLERİ MALZEMELERİ VE YÜZEY İŞLEMLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -71410,24 +69772,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AŞÇILIK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SERVİS ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MUTFAK HİZMETLERİ YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -73509,30 +71853,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ARK KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ARK KAYNAK ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -73573,30 +71893,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "METAL DOĞRAMA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "METAL DOĞRAMA ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ KORUMALI KAYNAK ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -75351,24 +73647,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DÖKÜM LABORATUVARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ DÖKÜM MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -75409,24 +73687,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KALİTE KONTROL",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR DESTEKLİ İZABE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -76099,6 +74359,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI",
+            "saat": 5,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
             "saat": 4,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -76306,24 +74572,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "MİKROMEKANİK SİSTEM BAKIM ONARIMI",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YENİLİKÇİ ÜRETİM YÖNTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MİKROMEKANİKTE BİLGİSAYAR DESTEKLİ ÇİZİM VE İMALAT",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -78083,30 +76331,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TASARIM VE MALZEME BİLGİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ MAKİNELERDE ÜRETİM (CNC",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI İÇ MEKÂN RESMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PANEL MOBİLYA ÜRETİMİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -78148,24 +76372,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYAR KONTROLLÜ MAKİNELERDE ÜRETİM (CNC",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜÇ BOYUTLU GÖRSEL SUNUM TEKNİKLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLGİSAYARLI MEKÂN TASARIMI",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -79841,18 +78047,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GİYSİ KALIP TASARIMI VE ÜRETİMİ ATÖLYESİ",
-            "saat": 14,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MODEL TASARIMI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -79893,18 +78087,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TERZİLİK ATÖLYESİ",
-            "saat": 14,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GİYİM AKSESUARLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -81755,42 +79937,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARLI MUHASEBE",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GİRİŞİMCİLİK VE İŞLETME YÖNETİMİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "VERGİ VE BEYANNAMELER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ŞİRKETLER MUHASEBESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALİYET MUHASEBESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ VE SOSYAL GÜVENLİK HUKUKU",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -81829,36 +79975,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DIŞ TİCARET UYGULAMALARI",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DIŞ TİCARET MEVZUATI VE UYGULAMA",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DIŞ TİCARETTE PAKET PROGRAMLAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DIŞ TİCARET MUHASEBESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -82044,6 +80160,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -82218,6 +80340,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -85922,30 +84050,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BATARYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTONOM ARAÇ TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -85986,24 +84090,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROELEKTRİK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -86050,30 +84136,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -86117,24 +84179,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİZEL YAKIT SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -86175,30 +84219,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -86382,6 +84402,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -86556,6 +84582,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL OTOMOTİV TEKNOLOJİSİ",
+            "saat": 10,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -90260,30 +88292,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ELEKTRİKLİ ARAÇ HAREKET SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BATARYA TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTONOM ARAÇ TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90324,24 +88332,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HİDROELEKTRİK ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İŞ MAKİNELERİ HAREKET KONTROL SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -90388,30 +88378,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OTOMOTİV BOYA ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV BOYA RENK UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90455,24 +88421,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİZEL YAKIT SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -90513,30 +88461,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE ONARIM ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV GÖVDE MEKANİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -95184,24 +93108,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TELEVİZYON ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SENARYO",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SİNEMA TARİHİ",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -97822,6 +95728,18 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "BİLGİSAYARLA DEVRE DİZAYNI",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ENDÜSTRİYEL ELEKTRONİK",
+            "saat": 3,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -98098,30 +96016,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "RAYLI SİSTEM ARAÇ ELEKTRİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK-PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KENT İÇİ RAYLI SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TRAFİK YÖNETİM SİSTEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -98165,30 +96059,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SİNYALİZASYON VE HABERLEŞME ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "BİLGİSAYARLA DEVRE DİZAYNI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL ELEKTRONİK",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KENT İÇİ RAYLI SİSTEMLER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -98229,30 +96099,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "DEMİRYOLU ÜSTYAPI ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DEMİRYOLU APLİKASYONU VE HESAPLAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RAY KAYNAĞI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TRAFİK YÖNETİM SİSTEMLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -100727,30 +98573,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "EBE YARDIMCILIĞI MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLAÇ BİLGİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -100794,30 +98616,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "HEMŞİRE YARDIMCILIĞI MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL İLAÇ BİLGİSİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -100858,24 +98656,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BAKIM TEKNİSYENLİĞİ MESLEKİ UYGULAMALAR",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİSTEM HASTALIKLARI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK PSİKOLOJİSİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -103320,30 +101100,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇOCUKLARDA VE GENÇLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞLI VE ENGELLİ BİREYLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİSİ KULLANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -103384,30 +101140,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL HUKUK BİLGİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TİCARİ HESAPLAMALAR",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN İADE HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -105174,30 +102906,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ÇOCUKLARDA VE GENÇLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YAŞLI VE ENGELLİ BİREYLERDE SOSYAL DESTEK HİZMETLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEMEL BİLGİ TEKNOLOJİSİ KULLANIMI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -105238,30 +102946,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ATÖLYE UYGULAMALARI",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "TEMEL HUKUK BİLGİLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TİCARİ HESAPLAMALAR",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÜRÜN İADE HİZMETLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -106137,24 +103821,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "SIZMA TESTİ VE SİBER OLAYLARA MÜDAHALE",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİKTE AÇIK KAYNAK İŞLETİM SİSTEMİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ADLİ BİLİŞİM",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -106682,6 +104348,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ",
+            "saat": 2,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
             "ders": "ÖRTÜ ALTI YETİŞTİRİCİLİK SİSTEMLERİ",
             "saat": 2,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -107109,30 +104781,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "GENEL BAHÇE BİTKİLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GENEL SÜS BİTKİLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GENEL TARLA BİTKİLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UYGULAMA",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -111295,30 +108943,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İPLİK BİTİM İŞLEMLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İPLİK ÜRETİMDE KONTROLLER ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İPLİK ÜRETİM HESAPLARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İPLİKTE FARKLI ÜRETİM SİSTEMLERİ ATÖLYESİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -111359,24 +108983,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "NUMUNE KUMAŞ DOKUMA ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DOKUMA HAZIRLIK",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KUMAŞ DOKUMA VE MAKİNA SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -111423,18 +109029,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖRMEDE ANALİZ VE DESEN ATÖLYESİ",
-            "saat": 10,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DÜZ VE ÇORAP ÖRME ÜRETİM ATÖLYESİ/ YUVARLAK ÖRME ÜRETİM ATÖLYESİ",
-            "saat": 7,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -111478,24 +109072,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BASKI KİMYASI",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI MAKİNELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BASKI TEKNİKLERİ ATÖLYESİ",
-            "saat": 12,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -111536,24 +109112,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BOYAMA VE APRE TEKNİKLERİ ATÖLYESİ",
-            "saat": 11,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "KİMYASAL VE FİZİKSEL TEST LABORATUVARI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TERBİYE MAKİNELERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -113272,24 +110830,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "TESİSAT PROJELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GAZ YAKICI CİHAZLAR ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SIHHİ TESİSAT VE GÜNEŞ ENERJİSİ ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -113331,24 +110871,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "İKLİMLENDİRME VE SOĞUTMA PROJELERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ENDÜSTRİYEL SOĞUTMA ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MERKEZİ İKLİMLENDİRME VE HAVALANDIRMA ATÖLYESİ",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
@@ -114628,36 +112150,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GAZ TÜRBİNLİ MOTOR SİSTEMLERİ ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİJİTAL UYGULAMALAR ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "PERVANE ATÖLYESİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "UÇAK SİSTEMLERİ ATÖLYESİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAVA ARACI AERODİNAMİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -114698,36 +112190,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AVİYONİK SİSTEMLER ATÖLYESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "İLERİ DİJİTAL TEKNİKLERİ ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İTME KUVVETİ ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MEKANİK SİSTEM UYGULAMALARI ATÖLYESİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAVA ARACI AERODİNAMİĞİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -116554,36 +114016,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "GÜMRÜK",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "GÜMRÜK PROGRAMI",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK BELGELER",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK HESAPLAMALAR",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LOJİSTİK SATIN ALMA",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -116623,30 +114055,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "YABANCI DİL",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKÂT HİZMETLERİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "YOLCU HİZMETLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "RAMP HİZMETLERİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ YABANCI DİL",
-            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
@@ -117348,24 +114756,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "WEB TABANLI UYGULAMA GELİŞTİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MOBİL UYGULAMALAR",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "GRAFİK VE CANLANDIRMA",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -117406,24 +114796,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "YABANCI DİL",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AĞ SİSTEMLERİ VE YÖNLENDİRME",
-            "saat": 8,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "SİBER GÜVENLİK TEMELLERİ",
-            "saat": 5,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SUNUCU İŞLETİM SİSTEMLERİ",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -118299,18 +115671,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MODELLEME VE MONTAJ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SANTRAL İŞLETİLMESİ",
-            "saat": 6,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 24,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -118563,6 +115923,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -118651,12 +116017,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "COĞRAFYA",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -118845,6 +116205,12 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "FELSEFE",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
             "ders": "BİRİNCİ YABANCI DİL (İNGİLİZCE",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -118939,12 +116305,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
           },
           {
             "ders": "COĞRAFYA",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
             "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
