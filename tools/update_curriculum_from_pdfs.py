@@ -2,22 +2,6 @@
 ================================================================================
 MEB ÇÖP (ÇERÇEVE ÖĞRETİM PROGRAMLARI) OTOMATİK VERİTABANI VE DERLEME MOTORU
 ================================================================================
-Kullanım:
-    Gelecek yıl yeni ÇÖP PDF'leri yayınlandığında:
-    1. Yeni PDF'leri "03_meb_mevzuat_ve_cizelgeler/mtegm_mesleki_ve_teknik" altındaki
-       sinif_9, sinif_10, sinif_11, sinif_12 klasörlerine kopyalayın.
-    2. Terminalden bu scripti çalıştırın:
-       python tools/update_curriculum_from_pdfs.py
-    
-    Bu motor otomatik olarak:
-    - Tüm PDF'leri okur,
-    - İçindekiler ve gereksiz sayfaları eler,
-    - Dizgi ve heceleme hatalarını birleştirir / temizler,
-    - Sütunları 9, 10, 11 ve 12. sınıflara matematiksel kesinlikle hizalar,
-    - "strict_pdf_curriculum_db.js" veritabanını günceller,
-    - "bundle.js" dosyasını derler,
-    - Otomatik denetim testini çalıştırıp raporlar.
-================================================================================
 """
 
 import os
@@ -33,7 +17,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF_BASE_DIR = os.path.join(os.path.dirname(BASE_DIR), "03_meb_mevzuat_ve_cizelgeler", "mtegm_mesleki_ve_teknik")
 OUT_JS_PATH = os.path.join(BASE_DIR, "js", "strict_pdf_curriculum_db.js")
-SCRATCH_DIR = r"C:\Users\burha\.gemini\antigravity\scratch"
+JS_DIR = os.path.join(BASE_DIR, "js")
 
 def norm_tr(s):
     if not s: return ""
@@ -63,13 +47,21 @@ def extract_hours(nums, grade_str):
         c_map = {"9": 0, "10": 1, "11": 2, "12": 3}
         return clean(nums[c_map[grade_str]])
     elif len(nums) == 3:
-        c_map = {"10": 0, "11": 1, "12": 2}
+        # MEB 4 sütunlu tablosunda sağdaki son tire (12. sınıf) dizgici tarafından atlanmış:
+        # [0]=9. Sınıf, [1]=10. Sınıf, [2]=11. Sınıf
+        c_map = {"9": 0, "10": 1, "11": 2}
         if grade_str in c_map:
             return clean(nums[c_map[grade_str]])
+        return 0
     elif len(nums) == 2:
-        c_map = {"10": 0, "11": 1}
+        c_map = {"9": 0, "10": 1}
         if grade_str in c_map:
             return clean(nums[c_map[grade_str]])
+        return 0
+    elif len(nums) == 1:
+        if grade_str == "9":
+            return clean(nums[0])
+        return 0
     return 0
 
 def parse_exact_column_from_pdf(pdf_path, target_grade_str):
@@ -191,8 +183,83 @@ ALIAS_NORM = {
     "yapayzeka": "bilisim"
 }
 
+def build_bundle():
+    files = [
+        "licenseCore.js",
+        "licenseClientManager.js",
+        "normRulesConfig.js",
+        "liveUpdateSyncEngine.js",
+        "strict_pdf_curriculum_db.js",
+        "strict_elective_courses_db.js",
+        "mtegm_canonical_data.js",
+        "database.js",
+        "curriculumEngine.js",
+        "normEngine.js",
+        "reportsEngine.js",
+        "authService.js",
+        "cloudDatabaseService.js",
+        "state.js",
+        "eOkulImporter.js",
+        "uiComponents.js",
+        "app.js"
+    ]
+    combined = []
+    for f_name in files:
+        f_path = os.path.join(JS_DIR, f_name)
+        if not os.path.exists(f_path):
+            continue
+        with open(f_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            lines = []
+            for line in content.splitlines():
+                if line.startswith("import ") or line.startswith("export {"):
+                    continue
+                line = line.replace("export class ", "class ")
+                line = line.replace("export const ", "const ")
+                line = line.replace("export function ", "function ")
+                line = line.replace("export default ", "")
+                lines.append(line)
+            combined.append("\n// ==================== " + f_name + " ====================\n")
+            combined.append("\n".join(lines))
+            
+    exports_code = """
+if (typeof window !== 'undefined') {
+    if (typeof MebLicenseCore !== 'undefined') window.MebLicenseCore = MebLicenseCore;
+    if (typeof MebLicenseClientManager !== 'undefined') window.MebLicenseClientManager = MebLicenseClientManager;
+    if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
+        window.licenseManager = new MebLicenseClientManager();
+    }
+    if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
+    if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
+    if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
+        window.syncEngine = new LiveUpdateSyncEngine();
+    }
+    if (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') window.STRICT_PDF_CURRICULUM_DB = STRICT_PDF_CURRICULUM_DB;
+    if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
+    if (typeof MTEGM_CANONICAL_DB !== 'undefined') window.MTEGM_CANONICAL_DB = MTEGM_CANONICAL_DB;
+    if (typeof dbService !== 'undefined') window.dbService = dbService;
+    if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
+    if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
+    if (typeof MebReportsEngine !== 'undefined') window.MebReportsEngine = MebReportsEngine;
+    if (typeof reportsEngine === 'undefined' && typeof MebReportsEngine !== 'undefined') {
+        window.reportsEngine = new MebReportsEngine();
+    }
+    if (typeof authService !== 'undefined') window.authService = authService;
+    if (typeof cloudDatabaseService !== 'undefined') window.cloudDatabaseService = cloudDatabaseService;
+    if (typeof appState !== 'undefined') window.appState = appState;
+    if (typeof uiComponents !== 'undefined') window.uiComponents = uiComponents;
+    if (typeof EOkulImporter !== 'undefined') window.EOkulImporter = EOkulImporter;
+    if (typeof mebApp !== 'undefined') window.mebApp = mebApp;
+}
+"""
+    combined.append(exports_code)
+    bundle_path = os.path.join(JS_DIR, "bundle.js")
+    with open(bundle_path, 'w', encoding='utf-8') as f:
+        f.write("\n".join(combined))
+    print(f"Created bundle.js: {bundle_path} successfully!")
+
 def build_all():
-    print(">> [1/4] PDF Dosyaları Taranıyor ve Ayrıştırılıyor...")
+    print(">> [1/3] PDF Dosyaları Taranıyor ve Ayrıştırılıyor...")
     strict_mtegm_db = {}
 
     for grade_str in ["9", "10", "11", "12"]:
@@ -233,21 +300,14 @@ def build_all():
             if "endustriyel_kalite_kontrol" in strict_mtegm_db and len(strict_mtegm_db["endustriyel_kalite_kontrol"][g]) == 0:
                 strict_mtegm_db["endustriyel_kalite_kontrol"][g] = strict_mtegm_db["makine"][g]
 
-    print(f">> [2/4] Veritabanı Yazılıyor: {OUT_JS_PATH}")
+    print(f">> [2/3] Veritabanı Yazılıyor: {OUT_JS_PATH}")
     with open(OUT_JS_PATH, "w", encoding="utf-8") as f:
         f.write("export const STRICT_PDF_CURRICULUM_DB = " + json.dumps(strict_mtegm_db, indent=2, ensure_ascii=False) + ";\n")
 
-    print(f">> [3/4] Uygulama Paketleniyor (bundle.js)...")
-    bundle_creator = os.path.join(SCRATCH_DIR, "create_bundle.py")
-    if os.path.exists(bundle_creator):
-        subprocess.run(["python", bundle_creator], cwd=SCRATCH_DIR)
+    print(f">> [3/3] Uygulama Paketleniyor (bundle.js)...")
+    build_bundle()
 
-    print(">> [4/4] Doğrulama Testi Çalıştırılıyor...")
-    verifier = os.path.join(SCRATCH_DIR, "verify_all_dallar_exhaustive.js")
-    if os.path.exists(verifier):
-        subprocess.run(["node", verifier], cwd=SCRATCH_DIR)
-
-    print("\n[BAŞARILI] Müfredat veritabanı başarıyla üretildi, paketlendi ve doğrulandı!")
+    print("\n[BAŞARILI] Müfredat veritabanı başarıyla üretildi ve paketlendi!")
 
 if __name__ == "__main__":
     build_all()

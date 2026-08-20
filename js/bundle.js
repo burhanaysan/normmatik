@@ -28601,12 +28601,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
             "saat": 9,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -28683,12 +28677,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -29619,12 +29607,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP İMALATI UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -31543,12 +31525,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
             "saat": 9,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -31625,12 +31601,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -32561,12 +32531,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP İMALATI UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -39910,12 +39874,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GIDALARDA MİKROBİYOLOJİK ANALİZLER",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -40025,12 +39983,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GIDALARDA MİKROBİYOLOJİK ANALİZLER",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -40137,12 +40089,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "LABORATUVAR TEKNİĞİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -42996,12 +42942,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MESLEKİ RESİM",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "CİLT BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 5,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -43538,12 +43478,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -43647,12 +43581,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "HALKLA İLİŞKİLER VE MESLEK UYGULAMALARI",
             "saat": 7,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -43753,12 +43681,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -54176,12 +54098,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KİMYADA MESLEKİ HESAPLAMALAR",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
             "ders": "KİMYASAL KİNETİK",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
@@ -59034,12 +58950,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÖN BÜRODA REZERVASYON",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -66747,12 +66657,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "BİLGİSAYAR KONTROLLÜ ÜRETİM (CNC/CAM",
             "saat": 9,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -66829,12 +66733,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MAKİNE MESLEK RESMİ",
-            "saat": 3,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -67765,12 +67663,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
             "saat": 1,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KALIP İMALATI UYGULAMALARI",
-            "saat": 4,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -77779,12 +77671,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MODEL ANALİZİ VE MODEL GELİŞTİRME",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -92463,6 +92349,12 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
+            "ders": "PLASTİK KALIP ATÖLYESİ",
+            "saat": 9,
+            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
             "ders": "REHBERLİK VE YÖNLENDİRME",
             "saat": 1,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -92730,12 +92622,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "saat": 1,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "PLASTİK KALIP ATÖLYESİ",
-            "saat": 9,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "PLASTİK TEKNOLOJİSİNDE 3 BOYUTLU MODELLEME",
@@ -105364,12 +105250,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÜRETME VE ÇOĞALTMA TEKNİKLERİ",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
             "ders": "GENEL BAHÇE BİTKİLERİ",
             "saat": 3,
             "kategori": "ALAN VE DAL MESLEK DERSLERİ",
@@ -116856,12 +116736,6 @@ const STRICT_PDF_CURRICULUM_DB = {
             "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR",
             "saat": 2,
             "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OFİS UYGULAMALARI",
-            "saat": 2,
-            "kategori": "ALAN VE DAL MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
