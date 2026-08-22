@@ -36,11 +36,31 @@ export class MebDatabaseService {
         }
 
         // 3. Embedded Data Fallback (file:// protokolü ve offline çalışma için tam destek)
-        const embeddedData = window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA;
+        const embeddedData = (typeof window !== 'undefined' ? (window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA) : null);
         if (embeddedData) {
             this.masterData = embeddedData;
             this.isLoaded = true;
             console.log("MEB Master DB gömülü veri (embedded) üzerinden başarıyla yüklendi.");
+            return this.masterData;
+        }
+
+        // 4. Strict PDF Veritabanı Otomatik Sentezleyici (%100 Bağımsız file:// Çevrimdışı Modu)
+        const strictDb = (typeof window !== 'undefined' && window.STRICT_PDF_CURRICULUM_DB) || (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined' ? STRICT_PDF_CURRICULUM_DB : null);
+        if (strictDb) {
+            this.masterData = {
+                proje_meta: { version: "2026-2027", engine: "STRICT_PDF_IN_MEMORY" },
+                okul_turleri_ve_cizelgeler: {
+                    mesleki_ve_teknik_egitim_mtegm: {
+                        alanlar: strictDb
+                    }
+                },
+                norm_ve_ders_yuku_hesaplama_motoru: {
+                    brans_ders_eslestirme_matrisi: {},
+                    meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi: { branslar: {} }
+                }
+            };
+            this.isLoaded = true;
+            console.log("MEB Master DB, STRICT_PDF_CURRICULUM_DB üzerinden başarıyla sentezlendi (file:// Çevrimdışı Mod).");
             return this.masterData;
         }
 
