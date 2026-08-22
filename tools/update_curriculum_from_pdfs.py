@@ -244,6 +244,7 @@ if (typeof window !== 'undefined') {
     }
     if (typeof authService !== 'undefined') window.authService = authService;
     if (typeof cloudDatabaseService !== 'undefined') window.cloudDatabaseService = cloudDatabaseService;
+    if (typeof cloudDbService !== 'undefined') window.cloudDbService = cloudDbService;
     if (typeof appState !== 'undefined') window.appState = appState;
     if (typeof uiComponents !== 'undefined') window.uiComponents = uiComponents;
     if (typeof EOkulImporter !== 'undefined') window.EOkulImporter = EOkulImporter;

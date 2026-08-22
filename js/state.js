@@ -874,8 +874,12 @@ export class AppStateService {
         try {
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
             // ☁️ Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
-            if (typeof window !== 'undefined' && window.cloudDbService && this.state.okulBilgisi?.kurumKodu) {
-                window.cloudDbService.scheduleAutoSave(this.state.okulBilgisi.kurumKodu, this.state);
+            if (typeof window !== 'undefined') {
+                const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
+                if (cloudService) {
+                    const kKodu = this.state.okulBilgisi?.kurumKodu || "default_school";
+                    cloudService.scheduleAutoSave(kKodu, this.state);
+                }
             }
         } catch (e) {
             console.error("State localStorage üzerine kaydedilemedi:", e);
