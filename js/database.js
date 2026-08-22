@@ -10,7 +10,7 @@ export class MebDatabaseService {
 
     async loadDatabase() {
         // 1. Kullanıcının sonradan yüklediği güncel veri tabanı var mı?
-        const customDb = localStorage.getItem(this.STORAGE_KEY_DB);
+        const customDb = (typeof localStorage !== 'undefined') ? localStorage.getItem(this.STORAGE_KEY_DB) : null;
         if (customDb) {
             try {
                 this.masterData = JSON.parse(customDb);
@@ -265,11 +265,28 @@ export class MebDatabaseService {
         }
 
         const dallarSet = new Set();
+        
+        // 1. Geleneksel format (siniflar -> haftalik_ders_cizelgeleri)
         const siniflar = areaData.siniflar || {};
         for (let sKey in siniflar) {
             const cList = siniflar[sKey]?.haftalik_ders_cizelgeleri || [];
             for (let c of cList) {
-                const title = String(c.cizelge_basligi || "");
+                const title = String(c.cizelge_basligi || c.title || "");
+                const match = title.match(/\(([^)]+DALI)\)/i) || title.match(/\(([^)]+)\)/i);
+                if (match && match[1]) {
+                    const dalCandidate = match[1].trim().toUpperCase();
+                    if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
+                        dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+                    }
+                }
+            }
+        }
+
+        // 2. Strict PDF formatı ("9", "10", "11", "12" direkt dizi)
+        for (let g of ["9", "10", "11", "12"]) {
+            const cList = Array.isArray(areaData[g]) ? areaData[g] : [];
+            for (let c of cList) {
+                const title = String(c.title || c.cizelge_basligi || "");
                 const match = title.match(/\(([^)]+DALI)\)/i) || title.match(/\(([^)]+)\)/i);
                 if (match && match[1]) {
                     const dalCandidate = match[1].trim().toUpperCase();
