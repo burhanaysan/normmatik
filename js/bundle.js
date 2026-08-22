@@ -134417,7 +134417,9 @@ class AppStateService {
     }
 
     sanitizeSection(sec) {
-        if (!sec || !Array.isArray(sec.zorunluDersler)) return;
+        if (!sec) return;
+        if (!Array.isArray(sec.zorunluDersler)) sec.zorunluDersler = [];
+        if (!Array.isArray(sec.secmeliDersler)) sec.secmeliDersler = [];
 
         const normalizeName = (text) => {
             if (!text) return "";
@@ -134555,7 +134557,7 @@ class AppStateService {
 
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
-        const all = [...sec.zorunluDersler, ...sec.secmeliDersler];
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
         const target = all.find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
@@ -134575,11 +134577,11 @@ class AppStateService {
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
 
-        const courseA = [...secA.zorunluDersler, ...secA.secmeliDersler].find(d => {
+        const courseA = [...(secA.zorunluDersler || []), ...(secA.secmeliDersler || [])].find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
         });
-        const courseB = [...secB.zorunluDersler, ...secB.secmeliDersler].find(d => {
+        const courseB = [...(secB.zorunluDersler || []), ...(secB.secmeliDersler || [])].find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
         });
@@ -137242,7 +137244,7 @@ class UIComponentManager {
 
     openCourseMergeModal(section, courseName) {
         const sameGradeSections = this.state.state.subeler.filter(s => s.sinifSeviyesi === section.sinifSeviyesi && s.id !== section.id);
-        const currentCourse = [...section.zorunluDersler, ...section.secmeliDersler].find(d => (d.ders || d.ders_adi) === courseName);
+        const currentCourse = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])].find(d => (d.ders || d.ders_adi) === courseName);
         const mergedIds = currentCourse?.birlesikSubeler || [];
 
         const listHtml = sameGradeSections.length === 0 
@@ -140730,7 +140732,7 @@ class MebNormApplication {
         }
 
         const sectionsHtml = filtered.map(s => {
-            const totalHours = [...s.zorunluDersler, ...s.secmeliDersler].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+            const totalHours = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
             const targetHours = this.getTargetWeeklyHours(s, schoolType);
             const isActive = s.id === aktifId;
             const hourStatus = totalHours === targetHours ? 'status-ok' : (totalHours > targetHours ? 'status-over' : 'status-under');

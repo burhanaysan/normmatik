@@ -651,7 +651,9 @@ export class AppStateService {
     }
 
     sanitizeSection(sec) {
-        if (!sec || !Array.isArray(sec.zorunluDersler)) return;
+        if (!sec) return;
+        if (!Array.isArray(sec.zorunluDersler)) sec.zorunluDersler = [];
+        if (!Array.isArray(sec.secmeliDersler)) sec.secmeliDersler = [];
 
         const normalizeName = (text) => {
             if (!text) return "";
@@ -789,7 +791,7 @@ export class AppStateService {
 
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
-        const all = [...sec.zorunluDersler, ...sec.secmeliDersler];
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
         const target = all.find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
@@ -809,11 +811,11 @@ export class AppStateService {
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
 
-        const courseA = [...secA.zorunluDersler, ...secA.secmeliDersler].find(d => {
+        const courseA = [...(secA.zorunluDersler || []), ...(secA.secmeliDersler || [])].find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
         });
-        const courseB = [...secB.zorunluDersler, ...secB.secmeliDersler].find(d => {
+        const courseB = [...(secB.zorunluDersler || []), ...(secB.secmeliDersler || [])].find(d => {
             const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
             return dNorm === norm;
         });

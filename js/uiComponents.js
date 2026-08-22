@@ -2020,7 +2020,7 @@ export class UIComponentManager {
 
     openCourseMergeModal(section, courseName) {
         const sameGradeSections = this.state.state.subeler.filter(s => s.sinifSeviyesi === section.sinifSeviyesi && s.id !== section.id);
-        const currentCourse = [...section.zorunluDersler, ...section.secmeliDersler].find(d => (d.ders || d.ders_adi) === courseName);
+        const currentCourse = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])].find(d => (d.ders || d.ders_adi) === courseName);
         const mergedIds = currentCourse?.birlesikSubeler || [];
 
         const listHtml = sameGradeSections.length === 0 

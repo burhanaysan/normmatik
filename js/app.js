@@ -548,7 +548,7 @@ class MebNormApplication {
         }
 
         const sectionsHtml = filtered.map(s => {
-            const totalHours = [...s.zorunluDersler, ...s.secmeliDersler].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+            const totalHours = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
             const targetHours = this.getTargetWeeklyHours(s, schoolType);
             const isActive = s.id === aktifId;
             const hourStatus = totalHours === targetHours ? 'status-ok' : (totalHours > targetHours ? 'status-over' : 'status-under');
