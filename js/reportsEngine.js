@@ -394,7 +394,10 @@ class MebReportsEngine {
                 const baseH = parseInt(c.saat || c.ders_saati || 0, 10);
                 if (baseH <= 0) return;
 
-                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount, schoolType);
+                // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
+                // geçilmezse rapor, norm hesabından farklı grup sayısı üretir.
+                const inclusionCount = parseInt(sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10) || 0;
+                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount, schoolType, sec.sinifSeviyesi, inclusionCount);
                 grandBaseHours += baseH;
                 grandCalculatedHours += mult.calculatedLoad;
 

@@ -1210,7 +1210,10 @@ class MebNormApplication {
             return sec ? sec.subeAdi : "";
         }).filter(Boolean).join(", ");
 
-        const mult = normEngine.evaluateCourseMultiplier(course, section.ogrenciSayisi || 30, schoolType);
+        // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
+        // geçilmezse ekranda görünen yük, norm hesabındaki yükten farklı çıkar.
+        const sectionInclusionCount = parseInt(section.kaynastirmaOgrenciSayisi ?? section.kaynastirmaSayisi ?? 0, 10) || 0;
+        const mult = normEngine.evaluateCourseMultiplier(course, section.ogrenciSayisi || 30, schoolType, section.sinifSeviyesi, sectionInclusionCount);
         
         let loadInfoHtml = "";
         let badgeHtml = "";

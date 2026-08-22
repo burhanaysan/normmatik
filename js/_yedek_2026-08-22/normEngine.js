@@ -1,100 +1,25 @@
 // MEB Norm Kadro - Norm ve Ders Yükü Hesaplama Motoru (normEngine.js)
-//
-// TÜM BAREMLER normRulesConfig.js DOSYASINDAN OKUNUR.
-// Bu dosyaya sabit sayı yazmayın; yönetmelik değişikliği config'ten yapılır.
-import { NORM_RULES_CONFIG } from './normRulesConfig.js';
 
 export class NormEngine {
     constructor() {
         this.branchMatrix = {};
-        this.rules = NORM_RULES_CONFIG;
     }
 
     setBranchMatrix(matrix) {
         this.branchMatrix = matrix || {};
-    }
-
-    /**
-     * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).
+    }    /**
+     * OÖKY Madde 100 & Norm Yönetmeliği Madde 22/1-ç: Mesleki ve Teknik Ortaöğretimde Grup Bölünme Standartları
+     * 10-20 Öğrenci: 1 Grup
+     * 21-30 Öğrenci: 2 Grup
+     * 31-40 Öğrenci: 3 Grup
+     * 41 ve Üzeri: 4 Grup (Fiziki kapasiteye göre azami 4 grup)
      */
-    setRules(rules) {
-        this.rules = rules || NORM_RULES_CONFIG;
-    }
-
-    /**
-     * Mevzuattaki "A-B'ye kadar" kademe tablolarını çözer.
-     * `untilBelow` ÜST SINIRI DIŞLAR: { untilBelow: 31, norm: 1 } => 6..30
-     * @param {number} value - Ölçülen değer (saat veya öğrenci sayısı)
-     * @param {Array} tiers - [{ untilBelow, norm|groups }, ...]
-     * @param {string} outKey - "norm" veya "groups"
-     * @returns {number|null} Kademe değeri; hiçbir kademeye girmiyorsa null
-     */
-    resolveTier(value, tiers, outKey) {
-        for (const tier of (tiers || [])) {
-            if (value < tier.untilBelow) return tier[outKey];
-        }
-        return null; // taşma bölgesinde
-    }
-
-    /**
-     * Kademe tablosunun üstünde kalan (taşma) bölge için norm hesaplar.
-     * Formül: baseNorm + floor(artan / interval) + (kalan >= residualBonus ? 1 : 0)
-     */
-    resolveOverflowNorm(hours, overflow) {
-        const extra = hours - overflow.appliesAboveHours;
-        if (extra <= 0) return overflow.baseNorm;
-        const whole = Math.floor(extra / overflow.intervalHours);
-        const residual = extra % overflow.intervalHours;
-        const bonus = residual >= overflow.residualBonusMinHours ? 1 : 0;
-        return overflow.baseNorm + whole + bonus;
-    }
-
-    /**
-     * MEB Norm Kadro Yönetmeliği Madde 22/1-ç
-     * Atölye / laboratuvar derslerinde şubenin kaç gruba bölüneceğini hesaplar.
-     *
-     * ÖNEMLİ: Grup sayısı SINIF SEVİYESİNE göre değişir.
-     *   9. sınıf     : 10-20 -> 1, 21-30 -> 2, 31+ -> 3 (tavan 3)
-     *   10/11/12.    :  8-16 -> 1, 17-24 -> 2, 25-32 -> 3, 33+ -> 4
-     * Kaynaştırma öğrencisi varsa ilgili gruplar ikiye bölünür, tavan 5'tir.
-     *
-     * @param {number} studentCount - Şubedeki öğrenci sayısı
-     * @param {string|number} gradeLevel - Sınıf seviyesi ("9","10","11","12")
-     * @param {number} inclusionStudentCount - Kaynaştırma öğrencisi sayısı
-     * @returns {number} Grup sayısı
-     */
-    calculateWorkshopGroups(studentCount, gradeLevel = null, inclusionStudentCount = 0) {
-        const cfg = this.rules.workshopGroupRules;
-        const count = parseInt(studentCount, 10) || 0;
-        const grade = String(gradeLevel == null ? "" : gradeLevel).trim();
-
-        // Sınıf seviyesi bilinmiyorsa, öğrenci lehine olmayan (dar) baremi
-        // uygulamak yerine üst sınıf baremini kullanırız: veri setinde
-        // sinifSeviyesi alanı her zaman doludur, bu yalnızca emniyet payıdır.
-        const isGrade9 = grade === "9";
-        const scale = isGrade9 ? cfg.grade9 : cfg.upperGrades;
-
-        // Asgari bölünme mevcudunun altındaysa şube bölünmez.
-        if (count < scale.minStudentsToSplit) return 1;
-
-        let groups = this.resolveTier(count, scale.tiers, "groups");
-        if (groups === null) groups = scale.groupsAboveTiers;
-
-        // Kaynaştırma yoksa mevzuat tavanı 4'tür (9. sınıfta zaten 3).
-        groups = Math.min(groups, cfg.maxGroupsWithoutInclusion);
-
-        // Madde 22/1-ç kapanış hükmü: en az 2 kaynaştırma öğrencisi bulunan
-        // gruplar ikiye bölünür; grup sayısı hiçbir şekilde 5'i geçemez.
-        const inclusion = parseInt(inclusionStudentCount, 10) || 0;
-        if (cfg.inclusion.enabled && inclusion >= cfg.inclusion.minStudentsPerSplit) {
-            const splittableGroups = Math.min(
-                groups,
-                Math.floor(inclusion / cfg.inclusion.minStudentsPerSplit)
-            );
-            groups = groups + splittableGroups;
-        }
-
-        return Math.min(groups, cfg.absoluteMaxGroups);
+    calculateWorkshopGroups(studentCount) {
+        if (studentCount < 10) return 1;
+        if (studentCount <= 20) return 1;
+        if (studentCount <= 30) return 2;
+        if (studentCount <= 40) return 3;
+        return 4;
     }
 
     /**
@@ -104,39 +29,20 @@ export class NormEngine {
      * @returns {number} Grup Sayısı (0 - 12)
      */
     calculateMesemApprenticeGroups(totalApprentices) {
-        const cfg = this.rules.mesemApprenticeRules;
         const count = parseInt(totalApprentices, 10) || 0;
-
-        if (count < cfg.minApprenticesForFirstGroup) return 0;
-        if (count < cfg.firstTierUntilBelow) return 1;
-
-        const extra = count - (cfg.firstTierUntilBelow - 1);
-        const groups = 1 + Math.ceil(extra / cfg.intervalApprentices);
-        return Math.min(groups, cfg.maxGroups);
-    }
-
-    /**
-     * Bir dersin ders yükünün MADDE 19 (atölye ve laboratuvar) kapsamına mı,
-     * yoksa MADDE 18 (genel bilgi ve meslek dersleri) kapsamına mı gireceğini
-     * belirler. İki madde AYRI kadro ve AYRI formül kullandığı için bu ayrım
-     * norm hesabının doğruluğu açısından kritiktir.
-     *
-     * @returns {boolean} true ise Madde 19 (atölye/lab) yüküdür
-     */
-    isWorkshopLabCourse(course, schoolType = "") {
-        const cfg = this.rules.workshopLabNorm;
-        const cName = this.normalizeText(course.ders || course.ders_adi || "");
-        const matches = (pattern) => cName.includes(this.normalizeText(pattern));
-
-        // Ad kalıbı atölye/lab'a uysa bile istisna listesindeyse genel bilgi sayılır.
-        if ((cfg.courseNameExclusions || []).some(matches)) return false;
-
-        if ((cfg.courseNamePatterns || []).some(matches)) return true;
-
-        // Veri setinden gelen açık işaret
-        if (course.isAtolye === true) return true;
-
-        return false;
+        if (count < 10) return 0;
+        if (count < 41) return 1;
+        if (count < 81) return 2;
+        if (count < 121) return 3;
+        if (count < 161) return 4;
+        if (count < 201) return 5;
+        if (count < 241) return 6;
+        if (count < 281) return 7;
+        if (count < 321) return 8;
+        if (count < 361) return 9;
+        if (count < 401) return 10;
+        if (count < 441) return 11;
+        return 12; // 441 ve daha fazla çırak için 12 grup
     }
 
     /**
@@ -144,17 +50,12 @@ export class NormEngine {
      * @param {Object} course - Ders nesnesi
      * @param {number} studentCount - Şube öğrenci sayısı
      * @param {string} schoolType - Okul türü
-     * @param {string|number} gradeLevel - Şubenin sınıf seviyesi (Madde 22/1-ç için ZORUNLU)
-     * @param {number} inclusionStudentCount - Şubedeki kaynaştırma öğrencisi sayısı
-     * @returns {Object} { groupCount, calculatedLoad, note, loadCategory }
+     * @returns {Object} { groupCount, calculatedLoad, note }
      */
-    evaluateCourseMultiplier(course, studentCount, schoolType = "", gradeLevel = null, inclusionStudentCount = 0) {
-        const isWorkshop = this.isWorkshopLabCourse(course, schoolType);
-        const loadCategory = isWorkshop ? "ATOLYE" : "GENEL";
-
+    evaluateCourseMultiplier(course, studentCount, schoolType = "") {
         const baseHours = parseInt(course.saat || course.ders_saati || 0, 10);
         if (isNaN(baseHours) || baseHours <= 0) {
-            return { groupCount: 1, calculatedLoad: 0, note: "", loadCategory };
+            return { groupCount: 1, calculatedLoad: 0, note: "" };
         }
 
         const cName = this.normalizeText(course.ders || course.ders_adi || "");
@@ -170,8 +71,7 @@ export class NormEngine {
             return {
                 groupCount: 1,
                 calculatedLoad: baseHours,
-                note: matchesCourse("İŞLETMELERDE MESLEKİ EĞİTİM") ? "MESEM Staj Yükü (Madde 22/2 Bareminde Hesaplanır)" : "",
-                loadCategory
+                note: matchesCourse("İŞLETMELERDE MESLEKİ EĞİTİM") ? "MESEM Staj Yükü (Madde 22/2 Bareminde Hesaplanır)" : ""
             };
         }
 
@@ -182,8 +82,7 @@ export class NormEngine {
             return {
                 groupCount: count,
                 calculatedLoad: load,
-                note: `Bireysel Çalgı (1'e 1 - Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`,
-                loadCategory
+                note: `Bireysel Çalgı (1'e 1 - Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`
             };
         }
 
@@ -193,8 +92,7 @@ export class NormEngine {
             return {
                 groupCount: groups,
                 calculatedLoad: baseHours * groups,
-                note: `Ses Eğitimi (2'li Grup): ${groups} grup x ${baseHours} saat = ${baseHours * groups}s yük`,
-                loadCategory
+                note: `Ses Eğitimi (2'li Grup): ${groups} grup x ${baseHours} saat = ${baseHours * groups}s yük`
             };
         }
 
@@ -204,28 +102,27 @@ export class NormEngine {
                 return {
                     groupCount: 2,
                     calculatedLoad: baseHours * 2,
-                    note: `Kur'an-ı Kerim (25+ Mevcut): 2 grup x ${baseHours} saat = ${baseHours * 2}s yük`,
-                    loadCategory
+                    note: `Kur'an-ı Kerim (25+ Mevcut): 2 grup x ${baseHours} saat = ${baseHours * 2}s yük`
                 };
             }
         }
 
-        // 4. Mesleki ve Teknik Uygulamalı / Atölye / Laboratuvar Dersleri (Norm Yön. Md. 22/1-ç)
+        // 4. Mesleki ve Teknik SADECE Uygulamalı / Atölye / Laboratuvar Dersleri (OÖKY Md. 100 & Norm Yön. Md. 22/1-ç)
+        const isTrueAtolye = matchesCourse("ATÖLYE") ||
+                             matchesCourse("ATOLYE") ||
+                             matchesCourse("LABORATUVAR") ||
+                             matchesCourse("UYGULAMALARI") ||
+                             matchesCourse("İŞLETMELERDE MESLEKİ EĞİTİM") ||
+                             (course.isAtolye === true && !matchesCourse("HUKUK DİLİ") && !matchesCourse("TERMİNOLOJİ"));
+
         const isVocationalSchool = sType.includes("meslek") || sType.includes("teknik") || schoolType.includes("AMP") || schoolType.includes("ATP");
 
-        if (isWorkshop && (isVocationalSchool || course.isAtolye)) {
-            const groups = this.calculateWorkshopGroups(studentCount, gradeLevel, inclusionStudentCount);
-            const gradeLabel = gradeLevel ? `${gradeLevel}. sınıf, ` : "";
-            const inclusionNote = (parseInt(inclusionStudentCount, 10) || 0) >= 2
-                ? ` (${inclusionStudentCount} kaynaştırma öğrencisi dâhil)`
-                : "";
+        if (isTrueAtolye && (isVocationalSchool || course.isAtolye)) {
+            const groups = this.calculateWorkshopGroups(studentCount);
             return {
                 groupCount: groups,
                 calculatedLoad: baseHours * groups,
-                note: groups > 1
-                    ? `Atölye/Lab (Md. 22/1-ç): ${gradeLabel}${studentCount} öğrenci ➔ ${groups} grup x ${baseHours}s = ${baseHours * groups}s yük${inclusionNote}`
-                    : "",
-                loadCategory
+                note: groups > 1 ? `Atölye/Lab (Md. 22/1-ç): ${studentCount} öğrenci ➔ ${groups} grup x ${baseHours}s = ${baseHours * groups}s yük` : ""
             };
         }
 
@@ -233,8 +130,7 @@ export class NormEngine {
         return {
             groupCount: 1,
             calculatedLoad: baseHours,
-            note: "",
-            loadCategory
+            note: ""
         };
     }
 
@@ -262,141 +158,33 @@ export class NormEngine {
     }
 
     /**
-     * MEB Norm Kadro Yönetmeliği MADDE 18/1
-     * Genel bilgi ve meslek dersleri öğretmeni norm kadrosu.
-     * 6-30 -> 1 | 31-42 -> 2 | 42'den fazlası: her 21 saate 1, artan >=15 ise +1
-     *
-     * @param {number} hours - Branşın GENEL BİLGİ/MESLEK dersleri yükü
-     * @returns {Object} { normCount, formulaExplanation }
-     */
-    calculateGeneralSubjectNorm(hours) {
-        const cfg = this.rules.generalSubjectNorm;
-        const h = parseInt(hours, 10) || 0;
-
-        if (h <= 0) {
-            return { normCount: 0, formulaExplanation: "Genel bilgi/meslek dersi yükü yok." };
-        }
-        if (h < cfg.minHoursForAnyNorm) {
-            return {
-                normCount: 0,
-                formulaExplanation: `${cfg.minHoursForAnyNorm} saatin altında (${h}s): Norm verilmez. (${cfg.legalRef})`
-            };
-        }
-
-        const tierNorm = this.resolveTier(h, cfg.tiers, "norm");
-        if (tierNorm !== null) {
-            return {
-                normCount: tierNorm,
-                formulaExplanation: `Genel Bilgi/Meslek (${cfg.legalRef}): ${h} saat ➔ ${tierNorm} Norm`
-            };
-        }
-
-        const ov = cfg.overflow;
-        const total = this.resolveOverflowNorm(h, ov);
-        const extra = h - ov.appliesAboveHours;
-        return {
-            normCount: total,
-            formulaExplanation: `Genel Bilgi/Meslek (${cfg.legalRef}): ${ov.appliesAboveHours} saat ➔ ${ov.baseNorm} Norm + artan ${extra} saat (her ${ov.intervalHours} saatte 1, kalan ≥${ov.residualBonusMinHours} saat ise +1) ➔ Toplam ${total} Norm`
-        };
-    }
-
-    /**
-     * MEB Norm Kadro Yönetmeliği MADDE 19/1
-     * Atölye ve laboratuvar öğretmeni norm kadrosu. İşletmelerde meslek eğitimi
-     * dersi bu yüke DÂHİLDİR.
-     * 15-40 -> 1 | 41-80 -> 2 | 81-120 -> 3 | 121-160 -> 4 | 161-200 -> 5
-     * 201+ : her 40 saate 1, artan >=20 ise +1
-     *
-     * DİKKAT: Bu formül Madde 18'den tamamen ayrıdır. Atölye yükünü Madde 18
-     * ile hesaplamak normu yaklaşık iki katına çıkarır (önceki sürümün hatası).
-     *
-     * @param {number} hours - Branşın ATÖLYE/LABORATUVAR yükü
-     * @returns {Object} { normCount, formulaExplanation }
-     */
-    calculateWorkshopLabNorm(hours) {
-        const cfg = this.rules.workshopLabNorm;
-        const h = parseInt(hours, 10) || 0;
-
-        if (h <= 0) {
-            return { normCount: 0, formulaExplanation: "Atölye/laboratuvar yükü yok." };
-        }
-        if (h < cfg.minHoursForAnyNorm) {
-            return {
-                normCount: 0,
-                formulaExplanation: `${cfg.minHoursForAnyNorm} saatin altında (${h}s): Atölye normu verilmez. (${cfg.legalRef})`
-            };
-        }
-
-        const tierNorm = this.resolveTier(h, cfg.tiers, "norm");
-        if (tierNorm !== null) {
-            return {
-                normCount: tierNorm,
-                formulaExplanation: `Atölye/Laboratuvar (${cfg.legalRef}): ${h} saat ➔ ${tierNorm} Norm`
-            };
-        }
-
-        const ov = cfg.overflow;
-        const total = this.resolveOverflowNorm(h, ov);
-        const extra = h - ov.appliesAboveHours;
-        return {
-            normCount: total,
-            formulaExplanation: `Atölye/Laboratuvar (${cfg.legalRef}): ${ov.appliesAboveHours} saat ➔ ${ov.baseNorm} Norm + artan ${extra} saat (her ${ov.intervalHours} saatte 1, kalan ≥${ov.residualBonusMinHours} saat ise +1) ➔ Toplam ${total} Norm`
-        };
-    }
-
-    /**
-     * Bir branşın toplam norm kadrosunu hesaplar.
-     *
-     * Mevzuat, ders yükünü İKİ AYRI KADRO TÜRÜNE ayırır:
-     *   • Madde 18 — Genel bilgi ve meslek dersleri öğretmeni
-     *   • Madde 19 — Atölye ve laboratuvar öğretmeni (işletmelerde meslek eğitimi dâhil)
-     * Bunlar ayrı formüllerle hesaplanır ve branşın toplam kadrosu ikisinin
-     * TOPLAMIDIR.
-     *
-     * @param {number} totalHours - Branşın toplam yükü (geriye dönük uyumluluk)
+     * MEB Norm Kadro Yönetmeliği Madde 18 ve Madde 20 Matematiksel Formülü
+     * @param {number} totalHours - Branşın toplam haftalık ders yükü
      * @param {string} schoolType - Okul türü
      * @param {string} branchName - Branş adı
-     * @param {Object} loadSplit - { genel: number, atolye: number } yük ayrımı.
-     *        Verilmezse tüm yük Madde 18 kapsamında sayılır (eski davranış).
-     * @returns {Object} { normCount, formulaExplanation, generalNorm, workshopNorm, generalHours, workshopHours }
+     * @returns {Object} { normCount, formulaExplanation }
      */
-    calculateBranchNorm(totalHours, schoolType = "", branchName = "", loadSplit = null) {
-        const total = parseInt(totalHours, 10) || 0;
-        if (total <= 0) {
-            return {
-                normCount: 0,
-                formulaExplanation: "Ders yükü 0 saat.",
-                generalNorm: 0, workshopNorm: 0, generalHours: 0, workshopHours: 0
+    calculateBranchNorm(totalHours, schoolType = "", branchName = "") {
+        if (totalHours <= 0) {
+            return { normCount: 0, formulaExplanation: "Ders yükü 0 saat." };
+        }
+
+        // Genel Ortaöğretim / Mesleki Eğitim (Madde 18) Standart Norm Formülü
+        if (totalHours >= 6 && totalHours <= 30) {
+            return { normCount: 1, formulaExplanation: `6 - 30 saat arası: 1 Norm Kadro (Fiili Yük: ${totalHours}s)` };
+        } else if (totalHours >= 31 && totalHours <= 42) {
+            return { normCount: 2, formulaExplanation: `31 - 42 saat arası: 2 Norm Kadro (Fiili Yük: ${totalHours}s)` };
+        } else if (totalHours > 42) {
+            const extra = totalHours - 42;
+            const extraNorm = Math.floor(extra / 21) + (extra % 21 >= 15 ? 1 : 0);
+            const total = 2 + extraNorm;
+            return { 
+                normCount: total, 
+                formulaExplanation: `42 saat: 2 Norm + Kalan ${extra} saat için ${extraNorm} Norm (21 saatte bir + 15 saat artık norm) = Toplam ${total} Norm (Fiili Yük: ${totalHours}s)` 
             };
+        } else {
+            return { normCount: 0, formulaExplanation: `6 saatin altında (${totalHours}s): Norm verilmez.` };
         }
-
-        // Yük ayrımı verilmediyse geriye dönük uyumluluk: hepsi genel bilgi sayılır.
-        const genelHours = loadSplit ? (parseInt(loadSplit.genel, 10) || 0) : total;
-        const atolyeHours = loadSplit ? (parseInt(loadSplit.atolye, 10) || 0) : 0;
-
-        const genel = this.calculateGeneralSubjectNorm(genelHours);
-        const atolye = this.calculateWorkshopLabNorm(atolyeHours);
-        const normCount = genel.normCount + atolye.normCount;
-
-        // Açıklamayı sadece fiilen yük bulunan maddelerden kur.
-        const parts = [];
-        if (genelHours > 0) parts.push(genel.formulaExplanation);
-        if (atolyeHours > 0) parts.push(atolye.formulaExplanation);
-        if (parts.length === 0) parts.push(`Fiili yük ${total}s ancak norm barajlarının altında: Norm verilmez.`);
-
-        let formulaExplanation = parts.join("  +  ");
-        if (genelHours > 0 && atolyeHours > 0) {
-            formulaExplanation += `  =  TOPLAM ${normCount} Norm (Fiili Yük: ${total}s)`;
-        }
-
-        return {
-            normCount,
-            formulaExplanation,
-            generalNorm: genel.normCount,
-            workshopNorm: atolye.normCount,
-            generalHours: genelHours,
-            workshopHours: atolyeHours
-        };
     }
 
     /**
@@ -408,30 +196,12 @@ export class NormEngine {
      */
     calculateSchoolNorms(subeler = [], existingTeachers = {}, schoolType = "", coordinatorHoursMap = {}) {
         const branchLoadMap = {};
-        // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
-        const branchLoadSplit = {};
         const branchCourseDetails = {};
         const handledMergedPairs = new Set();
         const branchesWithGrade12Vocational = new Set();
 
-        const ensureBranch = (name) => {
-            if (!branchLoadMap[name]) {
-                branchLoadMap[name] = 0;
-                branchCourseDetails[name] = [];
-            }
-            if (!branchLoadSplit[name]) {
-                branchLoadSplit[name] = { genel: 0, atolye: 0 };
-            }
-        };
-
         subeler.forEach(sec => {
             const isGrade12 = String(sec.sinifSeviyesi) === "12";
-            const gradeLevel = sec.sinifSeviyesi;
-            // Kaynaştırma öğrenci sayısı (Madde 22/1-ç). Arayüzde henüz bu alan
-            // yoksa 0 kabul edilir ve kural devreye girmez.
-            const inclusionCount = parseInt(
-                sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10
-            ) || 0;
             const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
             const studentCount = sec.ogrenciSayisi || 30;
 
@@ -492,27 +262,22 @@ export class NormEngine {
                     handledMergedPairs.add(groupKey);
                 }
 
-                // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart)
-                const mult = this.evaluateCourseMultiplier(course, studentCount, schoolType, gradeLevel, inclusionCount);
+                // Grup / Çalgı / Atölye Katsayısı Hesabı
+                const mult = this.evaluateCourseMultiplier(course, studentCount, schoolType);
                 const load = mult.calculatedLoad;
 
-                ensureBranch(assignedBranch);
-
-                branchLoadMap[assignedBranch] += load;
-                // Yükü doğru maddeye yaz: ATOLYE -> Madde 19, GENEL -> Madde 18
-                if (mult.loadCategory === "ATOLYE") {
-                    branchLoadSplit[assignedBranch].atolye += load;
-                } else {
-                    branchLoadSplit[assignedBranch].genel += load;
+                if (!branchLoadMap[assignedBranch]) {
+                    branchLoadMap[assignedBranch] = 0;
+                    branchCourseDetails[assignedBranch] = [];
                 }
 
+                branchLoadMap[assignedBranch] += load;
                 branchCourseDetails[assignedBranch].push({
                     sectionName: sec.subeAdi,
                     courseName: cName,
                     baseHours: course.saat || course.ders_saati || 0,
                     calculatedLoad: load,
-                    note: mult.note,
-                    loadCategory: mult.loadCategory
+                    note: mult.note
                 });
             });
         });
@@ -565,11 +330,11 @@ export class NormEngine {
             }
 
             if (coordHours > 0) {
-                ensureBranch(branchName);
+                if (!branchLoadMap[branchName]) {
+                    branchLoadMap[branchName] = 0;
+                    branchCourseDetails[branchName] = [];
+                }
                 branchLoadMap[branchName] += coordHours;
-                // Madde 19/1: "...işletmelerde meslek eğitimi dersi dâhil toplam ders yükü"
-                // Bu yük ATÖLYE VE LABORATUVAR normuna sayılır, Madde 18'e değil.
-                branchLoadSplit[branchName].atolye += coordHours;
                 branchCoordinatorMap[branchName] = coordHours;
 
                 branchCourseDetails[branchName].push({
@@ -578,8 +343,7 @@ export class NormEngine {
                     baseHours: coordHours,
                     calculatedLoad: coordHours,
                     note: coordNote,
-                    isCoordinator: true,
-                    loadCategory: "ATOLYE"
+                    isCoordinator: true
                 });
             }
         });
@@ -657,9 +421,7 @@ export class NormEngine {
                 return;
             }
 
-            const normCalc = this.calculateBranchNorm(
-                totalHours, schoolType, branchName, branchLoadSplit[branchName] || null
-            );
+            const normCalc = this.calculateBranchNorm(totalHours, schoolType, branchName);
             const calculatedNorm = normCalc.normCount;
 
             const diff = currentTeachers - calculatedNorm;
@@ -693,11 +455,6 @@ export class NormEngine {
                 statusType,
                 statusBadge,
                 formulaExplanation: normCalc.formulaExplanation,
-                // Madde 18 / Madde 19 kırılımı (raporlama ve denetlenebilirlik için)
-                generalHours: normCalc.generalHours,
-                workshopHours: normCalc.workshopHours,
-                generalNorm: normCalc.generalNorm,
-                workshopNorm: normCalc.workshopNorm,
                 courses: branchCourseDetails[branchName] || []
             });
         });
