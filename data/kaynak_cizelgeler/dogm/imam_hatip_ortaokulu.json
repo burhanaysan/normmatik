@@ -1,0 +1,1352 @@
+{
+  "belge_no": "103",
+  "belge_tarihi": "2025-10-14",
+  "kurulda_gorusulme_tarihi": "2025-10-02",
+  "onceki_kararlar": [
+    {
+      "tarih": "2024-09-25",
+      "sayi": "61",
+      "not": "Müzik Programı Uygulayan İmam Hatip Ortaokulları Haftalık Ders Çizelgesi"
+    },
+    {
+      "tarih": "2025-07-30",
+      "sayi": "30",
+      "not": "İmam Hatip Ortaokulu Haftalık Ders Çizelgesinde Değişiklik Yapılması"
+    }
+  ],
+  "yururluk": "2025-2026 eğitim ve öğretim yılından itibaren",
+  "belge_adi": "İmam Hatip Ortaokulu Haftalık Ders Çizelgesi",
+  "kaynak_dosya": "imam_hatip_ortaokulu_haftalik_ders_cizelgesi_2025-2026_egiti.pdf",
+  "sinif_seviyeleri": [
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "ana_cizelge": {
+    "zorunlu_dersler": [
+      {
+        "ders_adi": "Türkçe",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 6
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 6
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 5
+          }
+        }
+      },
+      {
+        "ders_adi": "Matematik",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 5
+          }
+        }
+      },
+      {
+        "ders_adi": "Fen Bilimleri",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 4
+          }
+        }
+      },
+      {
+        "ders_adi": "Sosyal Bilgiler",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "8": null
+        }
+      },
+      {
+        "ders_adi": "T. C. İnkılap Tarihi ve Atatürkçülük",
+        "saatler": {
+          "5": null,
+          "6": null,
+          "7": null,
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Yabancı Dil",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 4
+          }
+        }
+      },
+      {
+        "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Görsel Sanatlar",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 1
+          }
+        }
+      },
+      {
+        "ders_adi": "Müzik",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 1
+          }
+        }
+      },
+      {
+        "ders_adi": "Beden Eğitimi ve Spor",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 1
+          }
+        }
+      },
+      {
+        "ders_adi": "Teknoloji ve Tasarım",
+        "saatler": {
+          "5": null,
+          "6": null,
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Bilişim Teknolojileri ve Yazılım",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": null,
+          "8": null
+        }
+      },
+      {
+        "ders_adi": "Rehberlik ve Yönlendirme",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 1
+          }
+        }
+      },
+      {
+        "ders_adi": "Kur’an-ı Kerim",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Arapça",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Peygamberimizin Hayatı",
+        "saatler": {
+          "5": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "6": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "8": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Temel Dinî Bilgiler",
+        "saatler": {
+          "5": null,
+          "6": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "7": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "8": null
+        }
+      }
+    ],
+    "secmeli_dersler_alanlari": [
+      {
+        "alan_adi": "İnsan, Toplum ve Bilim",
+        "dersler": [
+          {
+            "ders_adi": "Matematik ve Bilim Uygulamaları",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Okuma Becerileri",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": null,
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Yazarlık ve Yazma Becerileri",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Yaşayan Diller ve Lehçeler",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "secenekli",
+                "secenekler": [
+                  1,
+                  2
+                ]
+              }
+            }
+          },
+          {
+            "ders_adi": "Yabancı Dil (Bakanlar Kurulu Kararı ile Kabul Edilen Diller)",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "secenekli",
+                "secenekler": [
+                  1,
+                  2
+                ]
+              }
+            }
+          },
+          {
+            "ders_adi": "Çevre Eğitimi ve İklim Değişikliği",
+            "kac_kez_secilebilir": 1,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "“Şehrimiz ...”",
+            "kac_kez_secilebilir": 1,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Hukuk ve Adalet",
+            "kac_kez_secilebilir": 1,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Düşünme Eğitimi",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": null,
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Robotik Kodlama",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": null,
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Yapay Zeka Uygulamaları",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": null,
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "secenekli",
+                "secenekler": [
+                  1,
+                  2
+                ]
+              }
+            }
+          },
+          {
+            "ders_adi": "Proje Tasarımı ve Uygulamaları",
+            "kac_kez_secilebilir": 3,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Okul Temelli Sosyal Sorumluluk Çalışmaları",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "secenekli",
+                "secenekler": [
+                  1,
+                  2
+                ]
+              }
+            }
+          },
+          {
+            "ders_adi": "Medya Okuryazarlığı",
+            "kac_kez_secilebilir": 1,
+            "saatler": {
+              "5": null,
+              "6": null,
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Afet Bilinci",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Temel Yaşam Becerileri",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Türk Sosyal Hayatında Aile",
+            "kac_kez_secilebilir": 1,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "alan_adi": "Din, Ahlak ve Değer",
+        "dersler": [
+          {
+            "ders_adi": "Kur'an-ı Kerim",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "secenekli",
+                "secenekler": [
+                  1,
+                  2
+                ]
+              }
+            }
+          },
+          {
+            "ders_adi": "Kültür ve Medeniyetimize Yön Verenler",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Ahlak ve Vatandaşlık Eğitimi",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "alan_adi": "Kültür, Sanat ve Spor",
+        "dersler": [
+          {
+            "ders_adi": "Görgü Kuralları ve Nezaket",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Müzik",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Spor ve Fizikî Etkinlikler",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Oyun ve Oyun Etkinlikleri",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Dijital Sanatlar",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Masal ve Destanlarımız",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          },
+          {
+            "ders_adi": "Geleneksel Sanatlar",
+            "kac_kez_secilebilir": 2,
+            "saatler": {
+              "5": null,
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": null
+            }
+          },
+          {
+            "ders_adi": "Halk Oyunları",
+            "kac_kez_secilebilir": 4,
+            "saatler": {
+              "5": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "6": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "7": {
+                "tip": "sabit",
+                "saat": 1
+              },
+              "8": {
+                "tip": "sabit",
+                "saat": 1
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "ozet": {
+      "zorunlu_ders_saati_toplami": {
+        "5": 35,
+        "6": 35,
+        "7": 35,
+        "8": 34
+      },
+      "secmeli_ders_saati_toplami": {
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 2
+      },
+      "toplam_ders_saati": {
+        "5": 36,
+        "6": 36,
+        "7": 36,
+        "8": 36
+      }
+    }
+  },
+  "program_secmeli_dersleri": [
+    {
+      "program_adi": "MÜZİK PROGRAMI SEÇMELİ DERSLERİ",
+      "dersler": [
+        {
+          "ders_adi": "Beden Eğitimi, Oyun ve Müzik",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Müziksel İşitme, Okuma ve Yazma",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Türk Müziği Teori ve Uygulaması",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Koro ve Repertuvar",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 2
+            }
+          }
+        },
+        {
+          "ders_adi": "Bireysel Çalgı Eğitimi",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 2
+            }
+          }
+        },
+        {
+          "ders_adi": "Bireysel Ses Eğitimi",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Çalgı Toplulukları",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 2
+            }
+          }
+        },
+        {
+          "ders_adi": "Müzik Tarihi",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "program_adi": "SPOR PROGRAMI SEÇMELİ DERSLERİ",
+      "dersler": [
+        {
+          "ders_adi": "Beden Eğitimi ve Sporun Temelleri",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Ritim Eğitimi ve Halk Oyunları",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 1
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 1
+            }
+          }
+        },
+        {
+          "ders_adi": "Oyun ve Taktiksel Farkındalık",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 2
+            }
+          }
+        },
+        {
+          "ders_adi": "Çocuklarda Atletik Performans Uygulamaları",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 2
+            }
+          }
+        },
+        {
+          "ders_adi": "Kapsamlı Spor Eğitimi",
+          "saatler": {
+            "5": {
+              "tip": "sabit",
+              "saat": 4
+            },
+            "6": {
+              "tip": "sabit",
+              "saat": 3
+            },
+            "7": {
+              "tip": "sabit",
+              "saat": 3
+            },
+            "8": {
+              "tip": "sabit",
+              "saat": 4
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "kapsamli_spor_egitimi_aktiviteler_tablosu": [
+    {
+      "sinif": "5",
+      "guz": {
+        "sabit_etkinlik": "Atletizm",
+        "secmeli_spor_dali": true
+      },
+      "bahar": {
+        "sabit_etkinlik": "Jimnastik",
+        "secmeli_spor_dali": true
+      },
+      "kamp": null
+    },
+    {
+      "sinif": "6",
+      "guz": {
+        "sabit_etkinlik": "Yüzme",
+        "secmeli_spor_dali": true
+      },
+      "bahar": {
+        "sabit_etkinlik": "Basketbol",
+        "secmeli_spor_dali": true
+      },
+      "kamp": "Doğa Sporları"
+    },
+    {
+      "sinif": "7",
+      "guz": {
+        "sabit_etkinlik": "Futbol",
+        "secmeli_spor_dali": true
+      },
+      "bahar": {
+        "sabit_etkinlik": "Hentbol",
+        "secmeli_spor_dali": true
+      },
+      "kamp": "Su Sporları"
+    },
+    {
+      "sinif": "8",
+      "guz": {
+        "sabit_etkinlik": "Voleybol",
+        "secmeli_spor_dali": true
+      },
+      "bahar": {
+        "sabit_etkinlik": "Tenis",
+        "secmeli_spor_dali": true
+      },
+      "kamp": "Kış Sporları"
+    }
+  ],
+  "aciklamalar": [
+    {
+      "no": 1,
+      "metin": "İmam hatip ortaokullarında 5, 6 ve 7. sınıflarda velilerin yazılı başvurusu doğrultusunda aşağıda belirtilen zorunlu derslere ilave olarak: (a) 5. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı ile rehberlik ve yönlendirme derslerini “30” saat almak kaydıyla haftada “6” saate kadar, (b) 6. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler ile rehberlik ve yönlendirme derslerini “31” saat almak kaydıyla haftada “5” saate kadar, (c) 7. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler ile rehberlik ve yönlendirme derslerini “31” saat almak kaydıyla haftada “5” saate kadar Arapça, Kur’an-ı Kerim veya yabancı dil dersi verebilir. Bu uygulamayı yapan okullarda, öğrencilerin hazır bulunuşluk düzeyleri dikkate alınarak Talim ve Terbiye Kurulu Başkanlığınca kabul edilmiş ve uygulanmakta olan Arapça, yabancı dil ve Kur’an-ı Kerim dersi öğretim programları esas alınarak dersin zümre öğretmenler kurulunca hazırlanan öğretim programı uygulanabilir."
+    },
+    {
+      "no": 2,
+      "metin": "Yabancı uyruklu öğrenciler için açılan 5. sınıflarda (1-a) bendinde belirtilen dersleri almak kaydıyla “6” saat, 6. sınıflarda (1-b) bendinde belirtilen dersleri almak kaydıyla “5” saat, 7. sınıflarda ise (1-c) bendinde belirtilen dersleri almak kaydıyla “5” saat ilave Türkçe dersi verilebilir. Bu uygulamayı yapan okullarda, öğrencilerin hazır bulunuşluluk düzeyleri dikkate alınarak Talim ve Terbiye Kurulu Başkanlığınca kabul edilmiş ve uygulanmakta olan Türkçe Dersi Öğretim Programı esas alınarak dersin zümre öğretmenler kurulunca hazırlanan öğretim programı uygulanabilir."
+    },
+    {
+      "no": 3,
+      "metin": "Çizelge, Bakanlıkça uygun görülen okullarda haftada “40” saat üzerinden uygulanabilir. Buna göre; (a) 5. sınıflarda (1-a) bendinde belirtilen dersler çizelgede olduğu şekilde alınmak kaydıyla “1” saat seçmeli ders ve “9” saat Arapça veya yabancı dil dersi, (b) 6. sınıflarda (1-b) bendinde belirtilen derslere ilave olarak görsel sanatlar, müzik, beden eğitimi ve spor derslerini çizelgede olduğu şekilde alınmak kaydıyla “2” saat seçmeli ders ve “4” saat Arapça veya yabancı dil dersi, (c) 7. sınıflarda (1-c) bendinde belirtilen derslere ilave olarak görsel sanatlar, müzik, beden eğitimi ve spor derslerini çizelgede olduğu şekilde alınmak kaydıyla “2” saat seçmeli ders ve “4” saat Arapça veya yabancı dil dersi, (ç) 8. sınıflarda Türkçe, matematik, fen bilimleri, T.C. inkılap tarihi ve Atatürkçülük, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, beden eğitimi ve spor, teknoloji ve tasarım, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı ile rehberlik ve yönlendirme dersleri çizelgede olduğu şekilde “34” saat alınmak kaydıyla “3” saat seçmeli ders ve “3” saat Arapça veya yabancı dil dersi verilir."
+    },
+    {
+      "no": 4,
+      "metin": "Bakanlıkça uygun görülen imam hatip okullarında “Örgün Eğitimle Birlikte Hafızlık Projesi/Programı” uygulanır. Bu okullarda eğitim öğretim 5, 6 ve 7. sınıflarda “27” saat üzerinden planlanır. Buna göre: (a) 5. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Arapça ile rehberlik ve yönlendirme dersi çizelgede belirtilen şekilde (26 saat); beden eğitimi ve spor, görsel sanatlar ve müzik derslerinden sadece biri, “1” saat verilir. (b) 6. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Arapça ile rehberlik ve yönlendirme dersi çizelgede belirtilen şekilde (26 saat); beden eğitimi ve spor, görsel sanatlar ve müzik derslerinden sadece biri, “1” saat verilir. (c) 7. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, Arapça ile rehberlik ve yönlendirme dersi çizelgede belirtilen şekilde (26 saat); beden eğitimi ve spor, görsel sanatlar ve müzik derslerinden sadece biri, “1” saat verilir."
+    },
+    {
+      "no": 5,
+      "metin": "Bakanlıkça uygun görülen imam hatip okullarında “Müzik Programı” uygulanır. Bu okullarda eğitim öğretim haftalık “42” saat olarak planlanır. Buna göre öğrenciler: (a) 5. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı derslerini çizelgede belirtilen şekilde (toplam 31 saat) alır. İlave olarak çizelge ekinde yer alan “Müzik Programı Seçmeli Dersleri”nden “11” saat ders seçer. (b) 6. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler derslerini çizelgede belirtilen şekilde (toplam 32 saat) alır. İlave olarak çizelge ekinde yer alan “Müzik Programı Seçmeli Dersleri”nden “10” saat ders seçer. (c) 7. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler derslerini çizelgede belirtilen şekilde (toplam 32 saat) alır. İlave olarak çizelge ekinde yer alan “Müzik Programı Seçmeli Dersleri”nden “10” saat ders seçer. (ç) 8. sınıflarda Türkçe, matematik, fen bilimleri, T.C. inkılap tarihi ve Atatürkçülük, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı derslerini çizelgede belirtilen şekilde (toplam 30 saat), “1” saat seçmeli ders alır. İlave olarak çizelge ekinde yer alan “Müzik Programı Seçmeli Dersleri”nden “11” saat ders seçer."
+    },
+    {
+      "no": 6,
+      "metin": "Bakanlıkça uygun görülen imam hatip okullarında “Spor Programı” uygulanır. Bu okullarda eğitim öğretim haftalık “42” saat olarak planlanır. Buna göre öğrenciler: (a) 5. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı derslerini çizelgede belirtilen şekilde (toplam 32 saat) alır. İlave olarak çizelge ekinde yer alan “Spor Programı Seçmeli Dersleri”nden “10” saat ders seçer. (b) 6. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler derslerini çizelgede belirtilen şekilde (toplam 33 saat) alır. İlave olarak çizelge ekinde yer alan “Spor Programı Seçmeli Dersleri”nden “9” saat ders seçer. (c) 7. sınıflarda Türkçe, matematik, fen bilimleri, sosyal bilgiler, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı, temel dinî bilgiler derslerini çizelgede belirtilen şekilde (toplam 33 saat) alır. İlave olarak çizelge ekinde yer alan “Spor Programı Seçmeli Dersleri”nden “9” saat ders seçer. (ç) 8. sınıflarda Türkçe, matematik, fen bilimleri, T.C. inkılap tarihi ve Atatürkçülük, yabancı dil, din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, rehberlik ve yönlendirme, Kur’an-ı Kerim, Arapça, peygamberimizin hayatı derslerini çizelgede belirtilen şekilde (toplam 31 saat) ve seçmeli ders (1 saat) alır. İlave olarak çizelge ekinde yer alan “Spor Programı Seçmeli Dersleri”nden “10” saat ders seçer. Çizelge ekinde yer alan “Kapsamlı Spor Eğitimi Dersi Aktiviteler Tablosu”nda atletizm, jimnastik, voleybol, basketbol, hentbol, futbol, tenis, doğa sporları, kış kampı, su sporları kampı her dönem seçilecek olan bir spor dalını oluşturur. Okul imkânlarına ve öğrenci tercihlerine göre tablodan ders seçimi yapılır."
+    },
+    {
+      "no": 7,
+      "metin": "Müzik ve spor programı uygulayan imam hatip ortaokullarında ilgili programlara ait derslerin ders saatleri öğretim programlarında belirtilen ders saatlerinden az olanlar için zümre öğretmenler kurulunca öğretim programlarında ilgili sınıf düzeyi ve öğrencilerin öğrenme ihtiyaçları dikkate alınarak gerekli planlama yapılır."
+    },
+    {
+      "no": 8,
+      "metin": "Haftalık ders çizelgesinde yer alan ancak henüz öğretim programı tamamlanmamış dersler için öğretim programı hazırlanıncaya kadar zümre öğretmenler kurulunca hazırlanacak programlar uygulanır."
+    },
+    {
+      "no": 9,
+      "metin": "Kur’an-ı Kerim dersinin hedeflenen kazanımlarına ulaşılabilmesi için, mevcudu 25’i geçen sınıflar iki gruba ayrılabilir. Gruplar oluşturulurken öğrenci sayılarının dengeli dağılımına dikkat edilir. Her gruptan eğitim öğretim yılı boyunca farklı bir öğretmen (alan öğretmeni) sorumlu olur, gruplardan sorumlu öğretmenler kendisine verilen grupla eğitim öğretimi gerçekleştirir."
+    },
+    {
+      "no": 10,
+      "metin": "Seçmeli derslerin kaç kez alınabileceği dersin adının yanında parantez içinde, kaç saat alınabileceği ise tabloda rakamlarla ifade edilmiştir."
+    },
+    {
+      "no": 11,
+      "metin": "Seçmeli derslerde, seçilen derslerin ders saatlerinin öğretim programlarında belirtilen ders saatlerinden az olması durumunda, zümre öğretmenler kurulunca gerekli planlama yapılır, içerikler ilgili sınıf düzeyi ve öğrencilerin öğrenme ihtiyaçları dikkate alınarak azaltılabilir."
+    },
+    {
+      "no": 12,
+      "metin": "Seçmeli dersler, birden fazla sınıf düzeyinde alınabilir. Öğrenciler, birden fazla sınıfta seçilebilen dersleri, seçeceği dersin okutulduğu herhangi bir sınıfta bir kez seçebileceği gibi, birden fazla sınıf seviyesinde seçebilir. Okulun imkân ve şartlarına bağlı olarak farklı sınıf düzeylerindeki öğrenciler ile seçtikleri ders açısından aynı seviyede olan öğrenciler için ortak seçmeli ders grubu oluşturulabilir."
+    },
+    {
+      "no": 13,
+      "metin": "İsteyen okullarda dokuz (9) ders saatine kadar okul ve çevrenin şartları ile öğrencilerin bireysel özellikleri ve ihtiyaçları dikkate alınarak okul yönetiminin kararıyla her türlü eğitici faaliyet (Örneğin sanat etkinlikleri, sportif çalışmalar, sosyal ve kültürel etkinlikler, yabancı dil vb.) uygulanabilir."
+    },
+    {
+      "no": 14,
+      "metin": "Rehberlik ve Yönlendirme dersinde, Talim ve Terbiye Kurulunun 09.07.2020 tarihli ve 17 sayılı Kurul Kararı eki Sınıf Rehberlik Programı (Okul Öncesi, İlkokul, Ortaokul ve Ortaöğretim) uygulanacaktır. Bu ders, okutulduğu kurumda görev yapan bütün alan öğretmenleri tarafından okutulur."
+    }
+  ]
+}

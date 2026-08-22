@@ -1,0 +1,4007 @@
+{
+  "meta": {
+    "karar_sayi": "107",
+    "karar_tarihi": "17/08/2018",
+    "konu": "Uluslararası Bakalorya Programı-I ve Uluslararası Bakalorya Programı-II Haftalık Ders Çizelgesi",
+    "onceki_karar": "12/09/2017-128; 30/05/2014-43",
+    "notlar": [
+      "UYARI: Bu karar 2018 tarihlidir; klasördeki 21 belge arasında bu konuda daha güncel (2024/2025) bir Kurul kararına rastlanmamıştır. Bu nedenle mevcut/yürürlükteki tek IB çizelgesi olarak değerlendirilip kapsama dahil edilmiştir, ancak bu bir varsayımdır ve teyide açıktır.",
+      "IB tablolarında saat hücreleri diğer belgelerden farklı olarak çoğunlukla 'min-max' aralık biçimindedir (örn. '4-8', '1-10**'); bu hücreler saatler alanında tip='aralik' olarak modellenmiştir."
+    ]
+  },
+  "kaynak_dosya": "uluslararasi_bakalorya_programi_i_ve_ii_haftalik_ders_cizelg.pdf",
+  "tablolar": [
+    {
+      "tablo_adi": "Uluslararası Bakalorya Programı-I (Kasım Ayı Sınav Dönemi)",
+      "sinif_seviyeleri": [
+        "hazirlik",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "gruplar": [
+        {
+          "grup_adi": "ORTAK DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "HAZIRLIK TÜRK DİLİ VE EDEBİYATI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "TÜRK DİLİ VE EDEBİYATI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 5
+                }
+              }
+            },
+            {
+              "ders_adi": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TARİH",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "T.C. İNKILAP TARİHİ VE ATATÜRKÇÜLÜK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "COĞRAFYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "MATEMATİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FİZİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "KİMYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİYOLOJİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FELSEFE",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİRİNCİ YABANCI DİL",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 20
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "İKİNCİ YABANCI DİL",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİSAYAR BİLİMİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BEDEN EĞİTİMİ VE SPOR",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "GÖRSEL SANATLAR/MÜZİK/DRAMA*/BİT",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "hazirlik": {
+              "tip": "sabit",
+              "saat": 39
+            },
+            "9": {
+              "tip": "sabit",
+              "saat": 34
+            },
+            "10": {
+              "tip": "sabit",
+              "saat": 33
+            },
+            "11": {
+              "tip": "sabit",
+              "saat": 19
+            },
+            "12": {
+              "tip": "sabit",
+              "saat": 17
+            }
+          }
+        },
+        {
+          "grup_adi": "SEÇMELİ DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "SEÇMELİ TÜRK DİLİ VE EDEBİYATI",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 5
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 5
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            },
+            {
+              "ders_adi": "DİKSİYON VE HİTABET",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "OSMANLI TÜRKÇESİ",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TEMEL MATEMATİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ MATEMATİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 8
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 8
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 8
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ FİZİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ KİMYA",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİYOLOJİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "ÇEVRE SİSTEMLERİ VE TOPLUM",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "SPOR VE SAĞLIK BİLİMİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "MATEMATİK TARİHİ VE UYGULAMALARI",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FEN BİLİMLERİ TARİHİ VE UYGULAMALARI",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 3
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TARİH",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "TÜRK KÜLTÜR VE MEDENİYET TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM KÜLTÜR VE MEDENİYETİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM BİLİM TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "20. YÜZYILDA TÜRKİYE",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ COĞRAFYA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "TARİH",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "COĞRAFYA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "PSİKOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "MANTIK",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FELSEFE",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİ KURAMI",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYAL VE KÜLTÜREL ANTROPOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESEL VİZYON",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 3,
+                  "max": 4
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 3,
+                  "max": 4
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "İŞLETME",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "İŞLETME VE YÖNETİM",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "EKONOMİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "GİRİŞİMCİLİK",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "YÖNETİM BİLİMİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "ARAŞTIRMA TEKNİKLERİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "ULUSLARARASI İLİŞKİLER",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESEL POLİTİKA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "KUR'AN- I KERİM",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "PEYGAMBERİMİZİN HAYATI",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TEMEL DİNÎ BİLGİLER",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİRİNCİ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 10,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 10,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 10,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ ÜÇÜNCÜ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "YABANCI DİLLER EDEBİYATI",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BEDEN EĞİTİMİ VE SPOR",
+              "grup": "SPOR VE SOSYAL ETKİNLİK",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYAL ETKİNLİK",
+              "grup": "SPOR VE SOSYAL ETKİNLİK",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ GÖRSEL SANATLAR",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ MÜZİK",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SANAT TARİHİ",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FİLM",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "DRAMA",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "TİYATRO",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİ VE İLETİŞİM TEKNOLOJİSİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİLGİYASAR BİLİMLERİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESELLEŞEN TOPLUMDA İLETİŞİM TEKNOLOJİLERİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "TASARIM TEKNOLOJİSİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "PROJE HAZIRLAMA",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "hazirlik": {
+              "tip": "sabit",
+              "saat": 5
+            },
+            "9": {
+              "tip": "aralik",
+              "min": 5,
+              "max": 10
+            },
+            "10": {
+              "tip": "aralik",
+              "min": 6,
+              "max": 11
+            },
+            "11": {
+              "tip": "aralik",
+              "min": 20,
+              "max": 25
+            },
+            "12": {
+              "tip": "aralik",
+              "min": 22,
+              "max": 27
+            }
+          }
+        }
+      ],
+      "rehberlik_ve_yonlendirme": {
+        "hazirlik": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "9": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "10": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "11": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "12": {
+          "tip": "sabit",
+          "saat": 1
+        }
+      },
+      "toplam_ders_saati": {
+        "hazirlik": {
+          "tip": "sabit",
+          "saat": 45
+        },
+        "9": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "10": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "11": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "12": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        }
+      },
+      "program_disi_etkinlikler": []
+    },
+    {
+      "tablo_adi": "Uluslararası Bakalorya Programı-II (Mayıs Ayı Sınav Dönemi)",
+      "sinif_seviyeleri": [
+        "hazirlik",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "gruplar": [
+        {
+          "grup_adi": "ORTAK DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "HAZIRLIK TÜRK DİLİ VE EDEBİYATI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "TÜRK DİLİ VE EDEBİYATI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 5
+                }
+              }
+            },
+            {
+              "ders_adi": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TARİH",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "T.C. İNKILAP TARİHİ VE ATATÜRKÇÜLÜK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "COĞRAFYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "MATEMATİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FİZİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "KİMYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİYOLOJİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FELSEFE",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİRİNCİ YABANCI DİL",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 20
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "İKİNCİ YABANCI DİL",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİSAYAR BİLİMİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BEDEN EĞİTİMİ VE SPOR",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "GÖRSEL SANATLAR/ MÜZİK /DRAMA*/BİT",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "hazirlik": {
+              "tip": "sabit",
+              "saat": 39
+            },
+            "9": {
+              "tip": "sabit",
+              "saat": 34
+            },
+            "10": {
+              "tip": "sabit",
+              "saat": 35
+            },
+            "11": {
+              "tip": "sabit",
+              "saat": 19
+            },
+            "12": {
+              "tip": "sabit",
+              "saat": 17
+            }
+          }
+        },
+        {
+          "grup_adi": "SEÇMELİ DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "SEÇMELİ TÜRK DİLİ VE EDEBİYATI",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 5
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 5
+                }
+              }
+            },
+            {
+              "ders_adi": "DİKSİYON VE HİTABET",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "OSMANLI TÜRKÇESİ",
+              "grup": "DİL VE ANLATIM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TEMEL MATEMATİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ MATEMATİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 8
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 8
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ FİZİK",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ KİMYA",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİYOLOJİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2,
+                  "dipnot": "*"
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 7,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "ÇEVRE SİSTEMLERİ VE TOPLUM",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "SPOR VE SAĞLIK BİLİMİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "MATEMATİK TARİHİ VE UYGULAMALARI",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FEN BİLİMLERİ TARİHİ VE UYGULAMALARI",
+              "grup": "MATEMATİK VE FEN BİLİMLERİ",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 3
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TARİH",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "TÜRK KÜLTÜR VE MEDENİYET TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM KÜLTÜR VE MEDENİYETİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM BİLİM TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "20. YÜZYILDA TÜRKİYE",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ COĞRAFYA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "TARİH",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "COĞRAFYA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "PSİKOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "MANTIK",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FELSEFE",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİ KURAMI",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYAL ve KÜLTÜREL ANTROPOLOJİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESEL VİZYON",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 3,
+                  "max": 4
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 3,
+                  "max": 4
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "İŞLETME",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "İŞLETME ve YÖNETİM",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "EKONOMİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 3,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "GİRİŞİMCİLİK",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "YÖNETİM BİLİMİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "ARAŞTIRMA TEKNİKLERİ",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "ULUSLARARASI İLİŞKİLER",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESEL POLİTİKA",
+              "grup": "SOSYAL BİLİMLER",
+              "kac_kez_secilebilir": null,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "KUR'AN-I KERİM",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "PEYGAMBERİMİZİN HAYATI",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TEMEL DİNÎ BİLGİLER",
+              "grup": "DİN, AHLAK VE DEĞERLER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİRİNCİ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 10,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 10,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ ÜÇÜNCÜ YABANCI DİL",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 4,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "YABANCI DİLLER EDEBİYATI",
+              "grup": "YABANCI DİLLER VE EDEBİYATI",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BEDEN EĞİTİMİ VE SPOR",
+              "grup": "SPOR VE SOSYAL ETKİNLİK",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYAL ETKİNLİK",
+              "grup": "SPOR VE SOSYAL ETKİNLİK",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ GÖRSEL SANATLAR",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ MÜZİK",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 5,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "9": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 2,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "SANAT TARİHİ",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "FİLM",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "DRAMA",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "TİYATRO",
+              "grup": "GÜZEL SANATLAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLGİ VE İLETİŞİM TEKNOLOJİSİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİLGİYASAR BİLİMLERİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 3,
+                  "dipnot": "*"
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6,
+                  "dipnot": "**"
+                }
+              }
+            },
+            {
+              "ders_adi": "KÜRESELLEŞEN TOPLUMDA İLETİŞİM TEKNOLOJİLERİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "TASARIM TEKNOLOJİSİ",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "**",
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 4,
+                  "max": 6
+                }
+              }
+            },
+            {
+              "ders_adi": "PROJE HAZIRLAMA",
+              "grup": "BİLİŞİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "10": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "11": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                },
+                "12": {
+                  "tip": "aralik",
+                  "min": 1,
+                  "max": 2
+                }
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "hazirlik": {
+              "tip": "sabit",
+              "saat": 5
+            },
+            "9": {
+              "tip": "aralik",
+              "min": 5,
+              "max": 10
+            },
+            "10": {
+              "tip": "aralik",
+              "min": 4,
+              "max": 9
+            },
+            "11": {
+              "tip": "aralik",
+              "min": 20,
+              "max": 25
+            },
+            "12": {
+              "tip": "aralik",
+              "min": 22,
+              "max": 27
+            }
+          }
+        }
+      ],
+      "rehberlik_ve_yonlendirme": {
+        "hazirlik": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "9": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "10": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "11": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "12": {
+          "tip": "sabit",
+          "saat": 1
+        }
+      },
+      "toplam_ders_saati": {
+        "hazirlik": {
+          "tip": "sabit",
+          "saat": 45
+        },
+        "9": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "10": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "11": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        },
+        "12": {
+          "tip": "aralik",
+          "min": 40,
+          "max": 45
+        }
+      },
+      "program_disi_etkinlikler": []
+    }
+  ],
+  "aciklamalar": "ULUSLARARASI BAKALORYA PROGRAMI UYGULANMASINA YÖNELİK AÇIKLAMALAR\nUluslararası Bakalorya Programı, uluslararası eğitimcilerin çalışmalarıyla hazırlanan, akredite dersleri tüm\ndünyada aynen uygulanan ve değerlendirilen, Cenevre merkezli bir eğitim- öğretim programıdır. Bu akademik\nprogramda öğrenciler, gerekli temel eğitimi dengeli bir dağılımda alabilmek için “6 ana gruptan”, “3 ileri”, “3\nstandart” seviyeden ders seçmenin yanı sıra bilgi kuramı, bitirme tezi ve “yaratıcılık, etkinlik ve sosyal hizmet\n(CAS)” çalışmalarını da tamamlarlar. Öğrencilere hem kendi kültürlerini hem de diğer kültürleri\ntanıyabilmeleri için gerekli ileri dil becerileri verilir. Eleştirel bakış açısına sahip olabilmeleri için\nkarşılaştırmalı ve derinlemesine inceleme yöntemleri kullanılır ve tez hazırlatılarak akademik araştırma yapma\nbecerileri kazandırılır.\nUluslararası Genel Ortaöğretim Sertifika Programı (IGCSE) da Uluslararası Bakalorya Programı gibi,\nakredite dersleri tüm dünyada aynen uygulanan ve değerlendirilen İngiltere merkezli bir eğitim-öğretim\nprogramıdır. İki yıllık bir program olan Uluslararası Genel Ortaöğretim Sertifika Programı (IGCSE) sınavları\ntüm dünyada programın ikinci yılı içerisinde kasım ve mayıs aylarında olmak üzere iki dönemde\nyapılmaktadır.\nUluslararası Bakalorya Programı Haftalık Ders Çizelgesi, Ara Yıllar Programı (MYP), Uluslararası\nBakalorya Diploma Programı (IBDP) ve Uluslararası Genel Ortaöğretim Sertifika Programı’nın (IGCSE)\ngereklerini ulusal programla birlikte karşılamak üzere hazırlanmıştır.\nUluslararası Bakalorya Programı diploma sınavları tüm dünyada kasım ve mayıs aylarında olmak üzere iki\ndönemde yapılmaktadır.\n1. Okullar, Uluslararası Bakalorya Programı I-II Haftalık Ders Çizelgesi’nin yanı sıra uluslararası\nprogramların uygulandığı yıllar dışındaki sınıf seviyelerinde Millî Eğitim Bakanlığı tarafından kabul\nedilen kendi okullarının haftalık ders çizelgesini de uygulayabilirler.\n2. MYP, IGCSE, IBDP uygulayan okullarda, öğrencilerin uluslararası programların ve sınavlarının\ngerekliliklerini karşılayabilmeleri için hazırlık Türk Dili ve Edebiyatı, Türk Dili ve Edebiyatı ,Türk\nKültür dersleri dışındaki tüm diğer dersler yabancı dilde okutulabilir.\n3. Uluslararası Bakalorya Programı’ndaki CAS; yaratıcılık, bedensel etkinlik ve sosyal hizmetlerden\noluşur. Yaratıcılık (müzik, resim, heykel, drama, tiyatro, simülasyon hazırlama, tasarım vb.),\nbedensel etkinlik (voleybol, basketbol, atletizm, yüzme, dağcılık, kayak vb.), sosyal hizmetler\n(yaşlılara ve engellilere yardım, kimsesiz çocukların bakım ve eğitimi, kırsal kesimdeki okulların\nkütüphaneleri için kitap yardımı ile ders, araç ve gereçleri desteği vb.) içerir. Bu nedenle sınıf\nseviyelerine göre Müzik, Görsel Sanatlar ve Beden Eğitimi derslerinin bilgi ve becerilerinden eksik\nkalanlar, notlandırılmadan CAS kapsamı içinde verilecektir. Bu etkinliklerde öğrencilerin hazırladığı\nportfolyolar IBO tarafından değerlendirilir. CAS etkinliklerinin gereklerini yerine getiremeyen\nöğrenciler Uluslararası Bakalorya Programı diplomasını almaya hak kazanamazlar.\n4. Çizelgede yer alan derslerden; IGCSE ve IBO tarafından akredite edilmiş Fizik, Kimya, Biyoloji,\nMatematik, Bilgi Kuramı, Yabancı Dil ve İkinci Yabancı Dil ders programları ulusal programları da\nkapsadığından, Uluslararası Bakalorya Programı uygulayan okullarda Talim ve Terbiye Kurulunun\n19.02.2018 tarihli ve 56 sayılı kararı ile kabul edilen Millî Eğitim Bakanlığı Ortaöğretim\nKurumları Haftalık Ders Çizelgesi “Açıklamaları” doğrultusunda uygulanır.\n5. (*) Tek yıldız ile gösterilen dersler, MYP ve IGCSE tarafından akredite edilmiş olup Bakanlık\noluru bulunan, MYP ve IGCSE Programı uygulayan okullarda ve/veya IBDP’ye hazırlık için\nuygulanabilir.\n6. (**) Çift yıldız ile gösterilen dersler IBO tarafından akredite edilmiş olup Bakanlık oluru\nbulunan okullarda, Uluslararası Bakalorya Programına dahil öğrenciler tarafından\nseçmeli dersler kapsamında alınabilir.\n7. Ortak derslerle MYP, IGCSE ve IBDP ders saatlerinin doldurulamaması durumunda\nders saatleri seçmeli derslerle tamamlanır.\n8. Uluslararası Bakalorya Diploma Programı’nda (IBDP) ve Uluslararası Genel\nOrtaöğretim Sertifika Programı’nda (IGCSE) kasım veya mayıs sınavına giren\nöğrencilerin programa hazırlanabilmeleri amacıyla gruplar oluşturulması durumunda,\nokullarında sürdürecekleri çalışmaları için 6 saate kadar etüt uygulanabilir.\n9. 03.12.2007 tarihli ve 181 sayılı Kurul Kararı ile kabul edilen Uluslararası Bakalorya 20.\nYüzyılda Türkiye Dersi Öğretim Programı Sosyal Bilimler dersi olarak veya Tarih/T.C.\nİnkılap Tarihi ve Atatürkçülük/ Çağdaş Türk ve Dünya Tarihi, Coğrafya ve Sosyoloji\nöğretim programlarının disiplinler arası yaklaşımla, bir bütünlük içerisinde uygulanır.\n10. Hazırlık, 9 ve 10. sınıflarda okutulan Seçmeli Fizik, Kimya, Biyoloji ve Seçmeli Temel\nMatematik derslerinde zümre öğretmenleri kurulunca hazırlanan öğretim programları\nuygulanır.\n11. Uluslararası Bakalorya Programı uygulanan yıllarda Bilgi Kuramı dersi notla değerlendirilir.\n12. Sosyal etkinlik çalışmaları notla değerlendirilmez.\n13. Bu çizelgede belirtilenler dışında IGCSE ve/veya IBO tarafından akredite edilecek diğer\nders programları da IGCSE ve/veya IBDP uygulayan okullar tarafından seçmeli dersler\nkapsamında seçilebilir."
+}

@@ -1,0 +1,615 @@
+{
+ "kaynak": "meb_norm_kadro_esas_dersler_cizelgesi.xlsx",
+ "branslar": [
+  {
+   "brans_adi": "Biyoloji",
+   "norma_dahil_dersler": [
+    "Biyoloji",
+    "Seçmeli Biyoloji",
+    "Çevre Eğitimi ve İklim Değişikliği",
+    "Fen Bilimleri (Lise)",
+    "Anatomi-Fizyoloji (Sağlık hariç)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Sağlık Bilgisi ve Trafik Kültürü",
+    "Fen Bilgisi (Ortaokul)"
+   ]
+  },
+  {
+   "brans_adi": "Matematik",
+   "norma_dahil_dersler": [
+    "Matematik",
+    "Seçmeli Matematik",
+    "Matematik Uygulamaları",
+    "Geometri",
+    "Seçmeli Geometri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Astronomi ve Uzay Bilimleri"
+   ]
+  },
+  {
+   "brans_adi": "Türk Dili ve Edebiyatı",
+   "norma_dahil_dersler": [
+    "Türk Dili ve Edebiyatı",
+    "Seçmeli Türk Dili ve Edebiyatı",
+    "Diksiyon ve Hitabet",
+    "Yazarlık ve Yazma Becerileri",
+    "Tiyatro"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Türkçe (Ortaokul)"
+   ]
+  },
+  {
+   "brans_adi": "Türkçe",
+   "norma_dahil_dersler": [
+    "Türkçe",
+    "Seçmeli Türkçe",
+    "Okuma Becerileri",
+    "Masal ve Destanlarımız",
+    "Medya Okuryazarlığı (Ortaokul)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Türk Dili ve Edebiyatı (Lise)"
+   ]
+  },
+  {
+   "brans_adi": "Tarih",
+   "norma_dahil_dersler": [
+    "Tarih",
+    "T.C. İnkılap Tarihi ve Atatürkçülük",
+    "Seçmeli Tarih",
+    "Çağdaş Türk ve Dünya Tarihi",
+    "Türk Düşünce Tarihi",
+    "İslam Bilim Tarihi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Sosyal Bilgiler",
+    "Demokrasi ve İnsan Hakları"
+   ]
+  },
+  {
+   "brans_adi": "Coğrafya",
+   "norma_dahil_dersler": [
+    "Coğrafya",
+    "Seçmeli Coğrafya",
+    "Türkiye Coğrafyası ve Jeopolitiği",
+    "Çevre ve Toplum"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Sosyal Bilgiler"
+   ]
+  },
+  {
+   "brans_adi": "Sosyal Bilgiler",
+   "norma_dahil_dersler": [
+    "Sosyal Bilgiler",
+    "T.C. İnkılap Tarihi (Ortaokul)",
+    "Seçmeli Sosyal Bilgiler",
+    "Halk Kültürü",
+    "Ortak Türk Tarihi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Tarih (Lise)",
+    "Coğrafya (Lise)"
+   ]
+  },
+  {
+   "brans_adi": "Fizik",
+   "norma_dahil_dersler": [
+    "Fizik",
+    "Seçmeli Fizik",
+    "Astronomi ve Uzay Bilimleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Fen Bilimleri (Ortaokul)"
+   ]
+  },
+  {
+   "brans_adi": "Kimya",
+   "norma_dahil_dersler": [
+    "Kimya",
+    "Seçmeli Kimya",
+    "Kimya Uygulamaları"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Fen Bilimleri (Ortaokul)"
+   ]
+  },
+  {
+   "brans_adi": "Fen Bilimleri",
+   "norma_dahil_dersler": [
+    "Fen Bilimleri (İlkokul/Ortaokul)",
+    "Seçmeli Fen Bilimleri",
+    "Bilim Uygulamaları",
+    "Çevre Eğitimi (Ortaokul)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Fizik",
+    "Kimya",
+    "Biyoloji (Lise)"
+   ]
+  },
+  {
+   "brans_adi": "Felsefe",
+   "norma_dahil_dersler": [
+    "Felsefe",
+    "Sosyoloji",
+    "Psikoloji",
+    "Mantık",
+    "Demokrasi ve İnsan Hakları",
+    "Düşünme Eğitimi",
+    "Klasik Metinler"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Rehberlik / Kariyer Planlama"
+   ]
+  },
+  {
+   "brans_adi": "İngilizce",
+   "norma_dahil_dersler": [
+    "İngilizce",
+    "Seçmeli İngilizce",
+    "Mesleki İngilizce",
+    "Yabancı Dil Edebiyatı (İngilizce)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Almanca",
+    "Fransızca ve diğer yabancı diller"
+   ]
+  },
+  {
+   "brans_adi": "Almanca",
+   "norma_dahil_dersler": [
+    "Almanca",
+    "Seçmeli Almanca",
+    "İkinci Yabancı Dil (Almanca)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "İngilizce"
+   ]
+  },
+  {
+   "brans_adi": "Fransızca",
+   "norma_dahil_dersler": [
+    "Fransızca",
+    "Seçmeli Fransızca",
+    "İkinci Yabancı Dil (Fransızca)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "İngilizce"
+   ]
+  },
+  {
+   "brans_adi": "Arapça",
+   "norma_dahil_dersler": [
+    "Arapça",
+    "Mesleki Arapça (İHL)",
+    "Seçmeli Arapça"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Temel Dini Bilgiler"
+   ]
+  },
+  {
+   "brans_adi": "Din Kültürü ve A.B.",
+   "norma_dahil_dersler": [
+    "Din Kültürü ve Ahlak Bilgisi",
+    "Hz. Muhammed'in Hayatı",
+    "Kur'an-ı Kerim",
+    "Temel Dini Bilgiler",
+    "İslam Kültür ve Medeniyeti"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Arapça",
+    "Değerler Eğitimi (Okul Öncesi)"
+   ]
+  },
+  {
+   "brans_adi": "İHL Meslek Dersleri",
+   "norma_dahil_dersler": [
+    "Fıkıh",
+    "Tefsir",
+    "Hadis",
+    "Kelam",
+    "Siyer",
+    "Hitabet ve Mesleki Uygulama",
+    "Akaid",
+    "İslam Tarihi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Din Kültürü ve Ahlak Bilgisi (Normal okullar)"
+   ]
+  },
+  {
+   "brans_adi": "Beden Eğitimi",
+   "norma_dahil_dersler": [
+    "Beden Eğitimi ve Spor",
+    "Seçmeli Beden Eğitimi",
+    "Spor Eğitimi",
+    "Spor Yönetimi",
+    "Trafik Güvenliği (İlkokul)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Sağlık Bilgisi ve Trafik Kültürü (Lise)"
+   ]
+  },
+  {
+   "brans_adi": "Görsel Sanatlar",
+   "norma_dahil_dersler": [
+    "Görsel Sanatlar",
+    "Seçmeli Görsel Sanatlar",
+    "Resim",
+    "Grafik Tasarım (Sanat)",
+    "Sanat Tarihi",
+    "Estetik"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Teknoloji ve Tasarım"
+   ]
+  },
+  {
+   "brans_adi": "Müzik",
+   "norma_dahil_dersler": [
+    "Müzik",
+    "Seçmeli Müzik",
+    "Çalgı Eğitimi",
+    "Koro",
+    "Müzik Tarihi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Diksiyon ve Hitabet"
+   ]
+  },
+  {
+   "brans_adi": "Teknoloji ve Tasarım",
+   "norma_dahil_dersler": [
+    "Teknoloji ve Tasarım (Ortaokul 7-8. Sınıf)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Bilişim Teknolojileri",
+    "Görsel Sanatlar"
+   ]
+  },
+  {
+   "brans_adi": "Bilişim Teknolojileri",
+   "norma_dahil_dersler": [
+    "Bilişim Teknolojileri ve Yazılım",
+    "Robotik Kodlama",
+    "Yapay Zekâ Uygulamaları",
+    "Dijital Sanatlar",
+    "Siber Güvenlik",
+    "Yazılım Geliştirme"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Teknoloji ve Tasarım"
+   ]
+  },
+  {
+   "brans_adi": "Sınıf Öğretmenliği",
+   "norma_dahil_dersler": [
+    "İlkokul Türkçe",
+    "Matematik",
+    "Hayat Bilgisi",
+    "Fen Bilimleri",
+    "Sosyal Bilgiler",
+    "İnsan Hakları",
+    "Yurttaşlık ve Demokrasi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Okul Öncesi Dersleri",
+    "Ortaokul Branş Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Okul Öncesi",
+   "norma_dahil_dersler": [
+    "Okul Öncesi Eğitim Kurumları Çocuk Eğitimi Etkinlik Saatleri (Tüm gelişim alanları ders yükleri)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "İlkokul 1. Sınıf Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Özel Eğitim",
+   "norma_dahil_dersler": [
+    "Özel Eğitim Okul/Sınıflarındaki Tüm Akademik ve Beceri Ders Saatleri (Görme, İşitme, Zihinsel Engelliler, Otizm vb.)"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Genel eğitim sınıflarının normal branş yükleri"
+   ]
+  },
+  {
+   "brans_adi": "Muhasebe ve Finansman",
+   "norma_dahil_dersler": [
+    "Genel Muhasebe",
+    "Bilgisayarlı Muhasebe",
+    "Şirketler Muhasebesi",
+    "Maliyet Muhasebesi",
+    "Vergi Uygulamaları",
+    "Ekonomi",
+    "Bankacılık"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Büro Yönetimi Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Büro Yönetimi / Yönetici Asist.",
+   "norma_dahil_dersler": [
+    "Ofis Uygulamaları",
+    "Yazışma Teknikleri",
+    "Klavye Teknikleri",
+    "Protokol Bilgisi",
+    "Dosyalama ve Arşivleme"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Muhasebe Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Pazarlama ve Perakende",
+   "norma_dahil_dersler": [
+    "Satış Teknikleri",
+    "Pazarlama İlkeleri",
+    "Mağaza Yönetimi",
+    "Ürün Bilgisi",
+    "Reklamcılık ve Halkla İlişkiler"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Genel Muhasebe"
+   ]
+  },
+  {
+   "brans_adi": "Elektrik-Elektronik Teknoloji",
+   "norma_dahil_dersler": [
+    "Elektrik-Elektronik Esasları",
+    "Tesisat Teknolojisi",
+    "Endüstriyel Kontrol",
+    "Otomasyon",
+    "Elektrik Makineleri ve Kontrol"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Bilişim Teknolojileri Donanım Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Makine ve Tasarım Teknolojisi",
+   "norma_dahil_dersler": [
+    "Temel İmalat İşlemleri",
+    "Teknik Resim",
+    "Bilgisayar Destekli Tasarım (CAD)",
+    "CNC Torna/Freze",
+    "Makine Elemanları"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Metal Teknolojisi Kaynak Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Metal Teknolojisi",
+   "norma_dahil_dersler": [
+    "Kaynak Teknikleri",
+    "Metal Şekillendirme",
+    "Oksigaz Kaynağı",
+    "Çelik Yapılar",
+    "Temel Metal İşlemleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Makine Talaşlı İmalat Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Mobilya ve İç Mekân Tasarımı",
+   "norma_dahil_dersler": [
+    "Mobilya Yapım Teknikleri",
+    "İç Mekân Kadraj ve Çizim",
+    "Bilgisayar Destekli Mobilya Çizimi",
+    "Üst Yüzey İşlemleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "İnşaat Teknolojisi Yapı Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "İnşaat Teknolojisi",
+   "norma_dahil_dersler": [
+    "Yapı Statitiği",
+    "Mimari Çizim",
+    "Temel İnşaat İşlemleri",
+    "Ahşap Yapı",
+    "Betonarme Yapı",
+    "Harita Kadastro Temelleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Mobilya Tasarım Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Motorlu Araçlar Teknolojisi",
+   "norma_dahil_dersler": [
+    "Otomotiv Elektromekanik",
+    "Motor Mekaniği",
+    "Otomotiv Gövde",
+    "Hasar Analizi",
+    "Araç Teknolojisi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Makine İmalat Esasları"
+   ]
+  },
+  {
+   "brans_adi": "Kimya Teknolojisi",
+   "norma_dahil_dersler": [
+    "Temel Kimya İşlemleri",
+    "Analitik Kimya",
+    "Nicel/Nitel Analiz",
+    "Endüstriyel Kimya",
+    "Proses Ölçümleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Genel Kimya (Kültür Dersi)"
+   ]
+  },
+  {
+   "brans_adi": "Sağlık / Sağlık Hizmetleri",
+   "norma_dahil_dersler": [
+    "Sağlık Bilgisi ve Trafik Kültürü (Tüm Liseler)",
+    "Anatomi ve Fizyoloji (Meslek)",
+    "İlkyardım",
+    "Hasta Bakım Teknikleri",
+    "Epidemiyoloji"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Biyoloji"
+   ]
+  },
+  {
+   "brans_adi": "Güzellik Saç Bakım Hizmetleri",
+   "norma_dahil_dersler": [
+    "Saç Kesim Teknikleri",
+    "Cilt Bakımı",
+    "Makyaj Uygulamaları",
+    "Kozmetik Bilgisi",
+    "Epilasyon/Depilasyon"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Kimya Laboratuvar Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Yiyecek İçecek Hizmetleri",
+   "norma_dahil_dersler": [
+    "Temel Yiyecek Üretimi",
+    "Servis Hazırlıkları",
+    "Mutfak Uygulamaları",
+    "Pasta Yapım Teknikleri",
+    "Bar Servisi",
+    "Beslenme İlkeleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Konaklama Hizmetleri Ön Büro Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Konaklama ve Seyahat Hizmetleri",
+   "norma_dahil_dersler": [
+    "Ön Büro Hizmetleri",
+    "Kat Hizmetleri",
+    "Rezervasyon Sistemi",
+    "Seyahat Acenteciliği",
+    "Tur Operatörlüğü"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Yiyecek İçecek Servis Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Çocuk Gelişimi ve Eğitimi",
+   "norma_dahil_dersler": [
+    "Erken Çocuklukta Özbakım",
+    "Çocuk Ruhu Sağlığı",
+    "Dramatik Etkinlikler",
+    "Çocukla İletişim",
+    "Yetersizlik Türleri ve Kaynaştırma"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Okul Öncesi Öğretmenliği Fiili Sınıf Yükü"
+   ]
+  },
+  {
+   "brans_adi": "Grafik ve Fotoğraf",
+   "norma_dahil_dersler": [
+    "Temel Tasarım",
+    "Desen",
+    "Bilgisayar Destekli Grafik Tasarım",
+    "Fotoğraf Çekim Teknikleri",
+    "İllüstrasyon",
+    "Ambalaj Tasarımı"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Görsel Sanatlar Resim Dersi"
+   ]
+  },
+  {
+   "brans_adi": "Moda Tasarım Teknolojileri",
+   "norma_dahil_dersler": [
+    "Kalıp Hazırlama Teknikleri",
+    "Giysi Üretimi",
+    "Moda Resmi ve İllüstrasyonu",
+    "Tekstil Teknolojisi Bilgisi"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Görsel Sanatlar"
+   ]
+  },
+  {
+   "brans_adi": "Tarım",
+   "norma_dahil_dersler": [
+    "Tarla Bitkileri",
+    "Bahçe Bitkileri",
+    "Bitki Sağlığı",
+    "Tarım Alet ve Makineleri",
+    "Toprak Bilgisi ve Bitki Besleme"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Biyoloji",
+    "Çevre Eğitimi"
+   ]
+  },
+  {
+   "brans_adi": "Laboratuvar Hizmetleri",
+   "norma_dahil_dersler": [
+    "Genel Laboratuvar Teknikleri",
+    "Gıda Analizleri",
+    "Toprak ve Su Analizleri",
+    "Mikrobiyolojik İşlemler"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Kimya Teknolojisi Sanayi Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Adalet",
+   "norma_dahil_dersler": [
+    "Hukuk Dili ve Yazışmaları",
+    "Klavye Teknikleri (Adalet)",
+    "Ceza Hukuku",
+    "Medeni Hukuk",
+    "UYAP Sistemi",
+    "Kalem Hizmetleri"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Büro Yönetimi Ofis Programları Dersi"
+   ]
+  },
+  {
+   "brans_adi": "Ulaştırma Hizmetleri",
+   "norma_dahil_dersler": [
+    "Lojistik İlkeleri",
+    "Depo Yönetimi",
+    "Taşıma Modları",
+    "Gümrük Mevzuatı",
+    "Dağıtım ve Sevkiyat Planlaması"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Pazarlama ve Perakende Dersleri"
+   ]
+  },
+  {
+   "brans_adi": "Denizcilik",
+   "norma_dahil_dersler": [
+    "Seyir",
+    "Gemi Makineleri",
+    "Temel Denizcilik",
+    "Denizde Emniyet",
+    "Vardiya Standartları",
+    "Gemi Teçhizatı"
+   ],
+   "norma_dahil_edilmeyen_yan_dersler": [
+    "Motorlu Araçlar Teknolojisi"
+   ]
+  }
+ ]
+}

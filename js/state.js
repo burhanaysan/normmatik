@@ -719,18 +719,35 @@ export class AppStateService {
 
         // 3. Kanonik Ders ve Branş Standardizasyonu (Çift isim ve sahte branşları temizler)
         const curriculum = (typeof window !== 'undefined' && window.curriculumEngine) ? window.curriculumEngine : null;
+        
+        const CULTURE_COURSE_KEYS = new Set([
+            "turkdiliveedebiyati", "turkedebiyati", "dinkulturuveahlakbilgisi", "dinkulturu", "tarih",
+            "tcinkilaptarihiveataturkculuk", "cografya", "matematik", "fizik", "kimya",
+            "biyoloji", "felsefe", "ingilizce", "almanca", "yabancidil", "birinciyabancidil",
+            "ikinciyabancidil", "bedenegitimivespor", "bedenegitimi", "gorselsanatlar",
+            "muzik", "saglikbilgisivetrafikkulturu", "bedenegitimivesporgorselsanatlarmuzik"
+        ]);
+
         const standardizeCourse = (d) => {
             const rawName = (d.ders || d.ders_adi || "").trim();
+            const norm = normalizeName(rawName);
+
+            // Kültür / Genel Bilgi dersleri ASLA meslek/atölye dersi olamaz
+            if (CULTURE_COURSE_KEYS.has(norm)) {
+                d.kategori = "ORTAK DERSLER";
+                d.isAtolye = false;
+            }
+
             if (curriculum && typeof curriculum.getCanonicalCourseAndBranch === 'function') {
                 const resolved = curriculum.getCanonicalCourseAndBranch(rawName, d.atananBrans, sec.alanId, d.kategori || "ORTAK DERSLER");
                 d.ders = resolved.courseName;
                 if (d.ders_adi) d.ders_adi = resolved.courseName;
                 d.atananBrans = resolved.branchName;
             } else {
-                const norm = normalizeName(rawName);
                 if (norm === "tarih") { d.ders = "Tarih"; d.atananBrans = "Tarih"; }
                 else if (norm.includes("inkilap")) { d.ders = "T.C. İnkılap Tarihi ve Atatürkçülük"; d.atananBrans = "Tarih"; }
                 else if (norm === "turkdiliveedebiyati" || norm === "turkedebiyati") { d.ders = "Türk Dili ve Edebiyatı"; d.atananBrans = "Türk Dili ve Edebiyatı"; }
+                else if (norm.includes("dinkulturu")) { d.ders = "Din Kültürü ve Ahlak Bilgisi"; d.atananBrans = "Din Kültürü ve Ahlak Bilgisi"; }
                 else if (norm.includes("saglikbilgisi") || norm.includes("trafik")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Biyoloji"; }
                 else if (norm.includes("yabancidil") || norm === "ingilizce" || norm === "birinciyabancidil") { d.ders = "İngilizce"; d.atananBrans = "İngilizce"; }
                 else if (norm === "ikinciyabancidil" || norm === "almanca") { d.ders = "Almanca"; d.atananBrans = "Almanca"; }

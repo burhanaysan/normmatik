@@ -1,0 +1,1776 @@
+{
+  "meta": {
+    "karar_sayi": "09",
+    "karar_tarihi": "09/05/2025",
+    "konu": "Spor Lisesi Haftalık Ders Çizelgesi",
+    "onceki_karar": "24/08/2023-42; 03/09/2024-47",
+    "notlar": [
+      "GEÇİŞ NOTU (Karar Sayı 11, Tarih 09/05/2025): 2025-2026 eğitim öğretim yılına mahsus olmak üzere, bu kararın referans aldığı ESKİ 01/11/2021-45 sayılı kararın ortak dersler bölümünde 12. sınıfta 3 ders saati olarak yer alan 'Spor Uygulamaları' dersi kaldırılıp yerine seçmeli dersler bölümü Akademik Çalışmalar grubunda 12. sınıf seviyesinde 3 ders saati olarak eklenmiştir. Sayı11, 09/05/2025 tarihli GÜNCEL Sayı09 kararını değil, ondan önceki (01/11/2021-45) kararı referans aldığından, kademeli geçiş sürecindeki eski müfredat kohortları için bir defalık geçici düzenleme niteliğindedir; ayrı bir çizelge tablosu olarak değil bu not olarak eklenmiştir."
+    ]
+  },
+  "kaynak_dosya": "spor_lisesi_haftalik_ders_cizelgesi.pdf",
+  "tablolar": [
+    {
+      "tablo_adi": "Spor Lisesi",
+      "sinif_seviyeleri": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "gruplar": [
+        {
+          "grup_adi": "ORTAK DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "TÜRK DİLİ VE EDEBİYATI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 5
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 5
+                }
+              }
+            },
+            {
+              "ders_adi": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TARİH",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "T.C. İNKILAP TARİHİ VE ATATÜRKÇÜLÜK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "COĞRAFYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "MATEMATİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FİZİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "KİMYA",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİYOLOJİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "FELSEFE",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BİRİNCİ YABANCI DİL",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "GÖRSEL SANATLAR/MÜZİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "TEMEL SPOR EĞİTİMİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "SPOR ANATOMİSİ VE FİZYOLOJİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "BEDEN EĞİTİMİ VE SPOR TARİHİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "ANTRENMAN BİLGİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "ANTRENÖRLÜK EĞİTİMİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "SPORCU SAĞLIĞI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "SPOR YÖNETİMİ VE ORGANİZASYONU",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SPOR PSİKOLOJİSİ VE SOSYOLOJİSİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SPOR VE BESLENME",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "EĞİTSEL OYUNLAR",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "GENEL JİMNASTİK",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "RİTİM EĞİTİMİ VE HALK DANSLARI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 3
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "ATLETİZM",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TAKIM SPORLARI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "BİREYSEL SPORLAR",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "**",
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 4
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 4
+                }
+              }
+            },
+            {
+              "ders_adi": "MÜSABAKA ANALİZİ",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "*",
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "SPOR UYGULAMALARI",
+              "grup": null,
+              "kac_kez_secilebilir": null,
+              "dipnot": "***",
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "9": {
+              "tip": "sabit",
+              "saat": 41
+            },
+            "10": {
+              "tip": "sabit",
+              "saat": 40
+            },
+            "11": {
+              "tip": "sabit",
+              "saat": 36
+            },
+            "12": {
+              "tip": "sabit",
+              "saat": 34
+            }
+          }
+        },
+        {
+          "grup_adi": "SEÇMELİ DERSLER",
+          "dersler": [
+            {
+              "ders_adi": "SEÇMELİ MATEMATİK",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "TEMEL MATEMATİK",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ FİZİK",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ KİMYA",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİYOLOJİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TÜRK DİLİ VE EDEBİYATI",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ TARİH",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ COĞRAFYA",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "PSİKOLOJİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYOLOJİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "MANTIK",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ BİRİNCİ YABANCI DİL",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "ARTİSTİK JİMNASTİK",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ MÜSABAKA ANALİZİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": "*",
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "HEDEF TEMELLİ DESTEK EĞİTİMİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": null,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "FEN BİLİMLERİ UYGULAMALARI",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SOSYAL BİLİM ÇALIŞMALARI",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "PROJE TASARIMI VE UYGULAMALARI",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "DÜŞÜNME EĞİTİMİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ",
+              "grup": "AKADEMİK ÇALIŞMALAR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İKLİM, ÇEVRE VE YENİLİKÇİ ÇÖZÜMLER",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "TEMEL HUKUK BİLGİSİ",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "GİRİŞİMCİLİK",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "METİN TAHLİLLERİ",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "OSMANLI TÜRKÇESİ",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 3,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "TÜRK DÜNYASI COĞRAFYASI",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "ORTAK TÜRK EDEBİYATI",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "ORTAK TÜRK TARİHİ",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "KUR’AN-I KERİM",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "KUR’AN-I KERİM’İN ANLAM DÜNYASI",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "PEYGAMBERİMİZİN HAYATI",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 4,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "TEMEL DİNÎ BİLGİLER",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "TÜRK DÜŞÜNCE TARİHİ",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "KLASİK AHLAK METİNLERİ",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "ADABIMUAŞERET",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "TÜRK SOSYAL HAYATINDA AİLE",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM BİLİM TARİHİ",
+              "grup": "DİN, AHLAK VE DEĞER",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "TÜRK KÜLTÜR VE MEDENİYET TARİHİ",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "İSLAM KÜLTÜR VE MEDENİYETİ",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
+              "kac_kez_secilebilir": 1,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SPOR EĞİTİMİ",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "SANAT EĞİTİMİ",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
+              "kac_kez_secilebilir": 2,
+              "dipnot": null,
+              "saatler": {
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            }
+          ],
+          "toplam_ders_saati": {
+            "9": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "10": {
+              "tip": "sabit",
+              "saat": 2
+            },
+            "11": {
+              "tip": "sabit",
+              "saat": 6
+            },
+            "12": {
+              "tip": "sabit",
+              "saat": 8
+            }
+          }
+        }
+      ],
+      "rehberlik_ve_yonlendirme": {
+        "9": null,
+        "10": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "11": {
+          "tip": "sabit",
+          "saat": 1
+        },
+        "12": {
+          "tip": "sabit",
+          "saat": 1
+        }
+      },
+      "toplam_ders_saati": {
+        "9": {
+          "tip": "sabit",
+          "saat": 43
+        },
+        "10": {
+          "tip": "sabit",
+          "saat": 43
+        },
+        "11": {
+          "tip": "sabit",
+          "saat": 43
+        },
+        "12": {
+          "tip": "sabit",
+          "saat": 43
+        }
+      },
+      "program_disi_etkinlikler": [
+        "SOSYAL SORUMLULUK PROGRAMI",
+        "HAYAT BOYU ÖĞRENME/SERTİFİKASYON"
+      ]
+    }
+  ],
+  "aciklamalar": "SPOR LİSESİ HAFTALIK DERS ÇİZELGESİNİN AÇIKLAMALARI\nÖğrencilerin 9, 10, 11 ve 12. sınıf seviyelerinde “insan, toplum ve bilim” ile “din, ahlak ve değer” seçmeli ders gruplarından en az birer ders seçmelidir.\nSpor eğitimi dersinde bireysel sporlardan halter, yüzme, güreş, kayak, tenis, masa tenisi, badminton, oryantiring, eskrim, bisiklet, okçuluk ile takım sporlarından basketbol,\nvoleybol, futbol ve hentbol eğitimi verilir. Öğrenciler spor eğitimi dersinde bireysel veya takım sporlarının alt branşlarından birini seçer.\nSanat eğitimi müzik, görsel sanatlar, sahne sanatları, geleneksel Türk sanatları ve müze eğitimi alan ve alt alanlarından oluşur. Bu alanlar kapsamında her bir alanın alt\nmodülleri ise\n• Müze Eğitimi\n• Müzik: Koro, piyano, bağlama, kaval, tar, kemane, ney, ut, kanun, keman, klarnet, gitar, flüt\n• Görsel Sanatlar: Fotoğrafçılık, grafik tasarım, kısa film, animasyon\n• Sahne Sanatları: Tiyatro, drama, halk oyunları\n• Geleneksel Türk Sanatları: Hüsnühat, tezhip, minyatür, ebru, ahşap oymacılık ve vitraydan oluşur.\nÖğrenciler müzik, görsel sanatlar, sahne sanatları, geleneksel Türk sanatlarının alt alanlarından birini ya da müze eğitimini seçerler.\nÖğrenciler “insan, toplum ve bilim” alanında yer alan “bilişim teknolojileri ve yazılım” dersinde oluşturulan modüllerden programlamaya giriş ve algoritma, robotik kodlama,\nprogramlama dilleri, mobil uygulama geliştirme, yapay zekâ uygulamaları modüllerinden birini seçerler.\nProgramlama dilleri modülünde Java, C++, C#, Dart, PHP, JavaScript, Python dillerinden birisi seçilir.\nProgramlamaya giriş ve algoritma modülü alınmadan robotik kodlama, mobil uygulama geliştirme ve programlama dilleri modülleri seçilemez. Programlama dilleri modülü\nalınmadan yapay zekâ uygulamaları modülü seçilemez.\nProgram dışı etkinlikler alanında yer alan “sosyal sorumluluk programı” kapsamında her öğrenci ders dışı zamanlarda gerçekleştirmek üzere mezun olana kadar en az 40 saatlik sosyal sorumluluk\nprogramı görevine katılmalıdır. Öğrencilerin bu çalışmalara katılım durumları ilgili resmî kurum/kuruluş/yetkili merciler tarafından belgelendirilir ve ilgili belgeler okul yönetimince öğrencinin e-\nportfolyosuna işlenir. Sosyal sorumluluk programı kapsamında yürütütülecek çalışmalar Millî Eğitim Bakanlığı Ortaöğretim Kurumları Yönetmeliği ve Millî Eğitim Bakanlığı Sosyal Sorumluluk\nProgramı ve Hayat Boyu Öğrenme/Sertifikasyon Uygulama Yönergesi'nde belirtilen usul ve esaslar doğrultusunda gerçekleştirilecektir.\nProgram dışı etkinlikler alanında yer alan “Hayat Boyu Öğrenme/Sertifikasyon” kapsamında öğrenciler gönüllü olarak Hayat Boyu Öğrenme Genel Müdürlüğü, Meslekî ve\nTeknik Eğitim Genel Müdürlüğü ile Bilgi Teknolojileri ve İletişim Kurumu (BTK Akademi) tarafından oluşturulan uzaktan ve yüz yüze eğitim modülleri içinde yer alan paket\nbeceri setlerinden alacakları kursları belgelendirerek okul idaresine sunar. Hayat Boyu Öğrenme/Sertifikasyonla ilgili öğrencilere yönelik planlama okul yönetimi tarafından\nyapılır ve ilgili belgeler okul yönetimince öğrencinin e-portfolyosuna işlenir.\n*Atletizm, müsabaka analizi ve antrenman bilgisi derslerinde içerikler okul için belirlenen spor branşı doğrultusunda ilgili spor branşının zümresi tarafından belirlenir.\n**Bireysel sporlarda her sınıfta en az 2 branş seçilir (3 yıl sonunda toplam 6 branş seçilmiş olacaktır.)\nBireysel Sporlar: Halter, yüzme, güreş, kayak, tenis, masa tenisi, badminton, oryantiring, eskrim, bisiklet, okçuluk, judo, karate, boks ve tekvando branşlarıdır.\nTakım Sporları: Basketbol, voleybol, futbol, hentbol branşlarıdır.\n***Spor uygulamaları dersinde sınıf birleştirmesi yapılamaz. Spor uygulamaları dersinde, okul ve çevre imkânlarına bağlı olarak takım sporu veya bireysel spor yapan\nöğrenciler antrenmanlarını zümre öğretmenlerinin belirlediği uygun olan saha, salon, tesis veya kulüplerde yapabilirler.\nHedef temelli destek eğitimi; yükseköğretime hazırlanma, öğrenme eksikliklerini giderme veya önceki öğrenmeleri pekiştirme amaçlı öğrencilerin ilgi, ihtiyaç ve beklentileri\ndoğrultusunda öğrenci seçimine bağlı olarak okul idarelerince planlamanın yapılacağı derstir. Hedef temelli destek eğitimi içeriğinde Türk dili ve edebiyatı, fizik, kimya,\nbiyoloji, tarih, coğrafya, felsefe, matematik, sosyoloji, psikoloji, mantık, birinci yabancı dil, çağdaş Türk ve dünya tarihi, T.C. inkılap tarihi ve Atatürkçülük, din kültürü ve ahlak\nbilgisi ile Türk kültür ve medeniyet tarihi derslerinden ders başına en az 1 en fazla 3 saat verilerek ilgili dersin mevcut öğretim programı doğrultusunda dersin zümresi\ntarafından oluşturulacak program uygulanır. Ders notla değerlendirilmez. Sadece süreç değerlendirme yapılır, öğrencilere bu doğrultuda dönüt verilerek gerekli destek\nsağlanır."
+}

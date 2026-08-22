@@ -1,0 +1,4056 @@
+{
+  "belge_no": "26",
+  "belge_tarihi": "2025-07-23",
+  "kurulda_gorusulme_tarihi": "2025-07-10",
+  "onceki_karar": {
+    "tarih": "2024-09-03",
+    "sayi": "44"
+  },
+  "yururluk": "2025-2026 eğitim öğretim yılından itibaren tüm sınıf düzeylerinde",
+  "belge_adi": "Anadolu İmam Hatip Lisesi ve Hazırlık Sınıfı Bulunan Anadolu İmam Hatip Lisesi Haftalık Ders Çizelgesi",
+  "kaynak_dosya": "anadolu_imam_hatip_lisesi_ve_hazirlik_sinifi_bulunan_anadolu.pdf",
+  "sinif_seviyeleri": [
+    "hazirlik",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "ana_cizelge": {
+    "ortak_dersler": [
+      {
+        "ders_adi": "Hazırlık Sınıfı Türk Dili ve Edebiyatı",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Türk Dili ve Edebiyatı",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "12": {
+            "tip": "sabit",
+            "saat": 5
+          }
+        }
+      },
+      {
+        "ders_adi": "Tarih",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "T.C. İnkılap Tarihi ve Atatürkçülük",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Coğrafya",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Hazırlık Sınıfı Matematik",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Matematik",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 6
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 6
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Fizik",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Kimya",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Biyoloji",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Felsefe",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Yabancı Dil",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 20
+          },
+          "9": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "12": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Hafızlık Eğitimi",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 20
+          },
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": null
+        },
+        "footnote_refs": [
+          "**"
+        ]
+      },
+      {
+        "ders_adi": "Bilişim Teknolojileri ve Yazılım",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "9": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Sağlık Bilgisi ve Trafik Kültürü",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "10": null,
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Arapça",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "İkinci Yabancı Dil",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": null
+        },
+        "footnote_refs": [
+          "***"
+        ]
+      }
+    ],
+    "meslek_dersleri": [
+      {
+        "ders_adi": "Kur’an-ı Kerim",
+        "saatler": {
+          "hazirlik": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "9": {
+            "tip": "sabit",
+            "saat": 5
+          },
+          "10": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "11": {
+            "tip": "sabit",
+            "saat": 4
+          },
+          "12": {
+            "tip": "sabit",
+            "saat": 3
+          }
+        }
+      },
+      {
+        "ders_adi": "Mesleki Arapça",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": {
+            "tip": "sabit",
+            "saat": 3
+          },
+          "12": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Temel Dinî Bilgiler",
+        "saatler": {
+          "hazirlik": null,
+          "9": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "10": null,
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Siyer",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Fıkıh",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Tefsir",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Dinler Tarihi",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": {
+            "tip": "sabit",
+            "saat": 1
+          }
+        }
+      },
+      {
+        "ders_adi": "Hadis",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "11": null,
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Akaid",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "Kelam",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Hitabet ve Mesleki Uygulama",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": {
+            "tip": "sabit",
+            "saat": 2
+          },
+          "12": null
+        }
+      },
+      {
+        "ders_adi": "İslam Kültür ve Medeniyeti",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": null,
+          "11": null,
+          "12": {
+            "tip": "sabit",
+            "saat": 2
+          }
+        }
+      },
+      {
+        "ders_adi": "Osmanlı Türkçesi",
+        "saatler": {
+          "hazirlik": null,
+          "9": null,
+          "10": {
+            "tip": "sabit",
+            "saat": 1
+          },
+          "11": null,
+          "12": null
+        }
+      }
+    ],
+    "ozet": {
+      "ortak_dersler_toplami": {
+        "hazirlik": 35,
+        "9": 33,
+        "10": 29,
+        "11": 12,
+        "12": 9
+      },
+      "meslek_dersleri_toplami": {
+        "hazirlik": 4,
+        "9": 6,
+        "10": 11,
+        "11": 12,
+        "12": 10
+      },
+      "secmeli_dersler_toplami": {
+        "hazirlik": null,
+        "9": null,
+        "10": null,
+        "11": 16,
+        "12": 21
+      },
+      "rehberlik_ve_yonlendirme": {
+        "hazirlik": 1,
+        "9": 1,
+        "10": null,
+        "11": null,
+        "12": null
+      },
+      "toplam_ders_saati": {
+        "hazirlik": 40,
+        "9": 40,
+        "10": 40,
+        "11": 40,
+        "12": 40
+      }
+    }
+  },
+  "secmeli_dersler": {
+    "a_grubu": {
+      "aciklama": "Alan bazlı seçmeli dersler (Temel İslam Bilimleri, Türk İslam Sanatları, Akademik Çalışmalar, İnsan Toplum ve Bilim, Kültür Sanat ve Spor)",
+      "alanlar": [
+        {
+          "alan_adi": "Temel İslam Bilimleri",
+          "dersler": [
+            {
+              "ders_adi": "Arapça (Metin–Mükâleme)",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Fıkıh Okumaları",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Hadis Metinleri",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İslam Ahlakı",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "İslam Bilim Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İslam Felsefesi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İslam Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an Okuma Teknikleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an’ın Ana Konuları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Mesleki Uygulama",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Tasavvuf Kültürü",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "Tefsir Okumaları",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Klasik Ahlak Metinleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "alan_adi": "Türk İslam Sanatları",
+          "dersler": [
+            {
+              "ders_adi": "Dinî Musiki",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Ebru",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Hüsnühat",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Tezhip",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "alan_adi": "Akademik Çalışmalar",
+          "dersler": [
+            {
+              "ders_adi": "Seçmeli Matematik",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Temel Matematik",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Biyoloji",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Fizik",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Kimya",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Dili ve Edebiyatı",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Tarih",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Çağdaş Türk ve Dünya Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Coğrafya",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Psikoloji",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Sosyoloji",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Mantık",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli Birinci Yabancı Dil",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    10,
+                    12
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    10,
+                    12
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Hedef Temelli Destek Eğitimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4,
+                    5,
+                    6
+                  ]
+                }
+              },
+              "footnote_refs": [
+                "****"
+              ]
+            }
+          ]
+        },
+        {
+          "alan_adi": "İnsan, Toplum ve Bilim",
+          "dersler": [
+            {
+              "ders_adi": "Fen Bilimleri Uygulamaları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Astronomi ve Uzay Bilimleri",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Sosyal Bilim Çalışmaları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Bilişim Teknolojileri ve Yazılım",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Proje Tasarımı ve Uygulamaları",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Düşünme Eğitimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "Demokrasi ve İnsan Hakları",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İklim, Çevre ve Yenilikçi Çözümler",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Temel Hukuk Bilgisi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Girişimcilik",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Metin Tahlilleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Seçmeli İkinci Yabancı Dil",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Osmanlı Türkçesi",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Dünyası Coğrafyası",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Ortak Türk Edebiyatı",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Ortak Türk Tarihi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Türk Düşünce Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "alan_adi": "Kültür, Sanat ve Spor",
+          "dersler": [
+            {
+              "ders_adi": "Türk Kültür ve Medeniyeti Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    4
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Adabımuaşeret",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Sosyal Hayatında Aile",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Spor Eğitimi",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Sanat Eğitimi",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "b_grubu": {
+      "aciklama": "Program/Proje bazlı seçmeli dersler",
+      "programlar": [
+        {
+          "program_adi": "SPOR PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Atletizm",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Antrenman Bilgisi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Antrenörlük Eğitimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "Artistik Jimnastik",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Beden Eğitimi ve Spor Tarihi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Bireysel Sporlar",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Eğitsel Oyunlar",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Geleneksel Sporlar (Ata Sporları)",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Genel Jimnastik",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Spor Anatomisi ve Fizyolojisi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Spor Psikolojisi ve Sosyolojisi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Spor Uygulamaları",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Spor ve Beslenme",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Sporcu Sağlığı",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Spor Yönetimi ve Organizasyonu",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Takım Sporları",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Temel Spor Eğitimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            }
+          ]
+        },
+        {
+          "program_adi": "MUSİKİ PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Batı Müziği Teori ve Uygulaması",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Bağlama/Kanun/Piyano",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Bilişim Destekli Müzik",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Bireysel Ses Eğitimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 1
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 1
+                }
+              }
+            },
+            {
+              "ders_adi": "Çalgı Eğitimi",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Çalgı Toplulukları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Dinî Musiki",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Geleneksel Türk Sanatları",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Halk Dansları ve Müzikleri",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Müzik Kültürü",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Temel Piyano",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Toplu Ses Eğitimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Türk Dünyası Müzikleri",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Halk Müziği Koro",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Sanat Müziği Koro",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Halk Müziği Teori ve Uygulaması",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Müziği Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk Sanat Müziği Teori ve Uygulaması",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "program_adi": "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Desen",
+              "kac_kez_secilebilir": 4,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Dijital Grafik",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Ebru",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Estetik",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Fotoğraf",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Geleneksel Türk Sanatları",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Genel Sanat Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Grafik Tasarım",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Hüsnühat",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Hüsnühat Yazı Çeşitleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "İki Boyutlu Sanat Atölye",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İmgesel Resim",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Sanat Eserlerini İnceleme",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Temel Sanat Eğitimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Tezhip",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Türk İslam Sanatı Tarihi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Üç Boyutlu Sanat Atölye",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "program_adi": "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Arapça (Sarf, Nahiv ve Klasik Metinler)",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Dinî Musiki",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Hüsnühat",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an’ın Ana Konuları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an Okuma Teknikleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            }
+          ]
+        },
+        {
+          "program_adi": "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Bilgisayarlı Tasarım Uygulamaları",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Robotik ve Kodlama",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Nesnelerin İnterneti",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Mobil Uygulamalar",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Web Tabanlı Uygulama Geliştirme",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Siber Güvenlik Temelleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Nano Teknoloji ve Malzeme Bilimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": null
+              }
+            },
+            {
+              "ders_adi": "Açık Kaynak İşletim Sistemi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Ağ Projesi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Blok Zincir",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Oyun Programlama",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Web Tabanlı İçerik Yönetimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Dijital Tasarım",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 2
+                }
+              }
+            },
+            {
+              "ders_adi": "Yapay Zekâ ve Makine Öğrenmesi",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Havacılık ve Uzay Teknolojileri",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Sosyal Medya",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Enerji Teknolojileri",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "program_adi": "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Mesleki Gelişim Atölyesi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Anne Çocuk Sağlığı",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Çocuk Ruh Sağlığı",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Müzik ve Dramatik Etkinlikler Atölyesi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "sabit",
+                  "saat": 2
+                },
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Çocuk Gelişimi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    2,
+                    3
+                  ]
+                },
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Erken Çocukluk ve Özel Eğitimde Öz Bakım",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": null,
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Oyun ve Oyuncak Atölyesi",
+              "kac_kez_secilebilir": null,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    3,
+                    4
+                  ]
+                },
+                "12": null
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Din Eğitimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "İslam’da Çocuk Eğitimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Yetersizlik Türleri ve Kaynaştırma Eğitimi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    4,
+                    6
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    4,
+                    6
+                  ]
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            },
+            {
+              "ders_adi": "Erken Çocukluk ve Özel Eğitimde Program Atölyesi",
+              "kac_kez_secilebilir": 1,
+              "saatler": {
+                "hazirlik": null,
+                "9": null,
+                "10": null,
+                "11": {
+                  "tip": "sabit",
+                  "saat": 6
+                },
+                "12": {
+                  "tip": "sabit",
+                  "saat": 6
+                }
+              },
+              "footnote_refs": [
+                "*****"
+              ]
+            }
+          ]
+        },
+        {
+          "program_adi": "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ",
+          "dersler": [
+            {
+              "ders_adi": "Arapça (Sarf, Nahiv ve Klasik Metinler)",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Dinî Musiki",
+              "kac_kez_secilebilir": 3,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an’ın Ana Konuları",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            },
+            {
+              "ders_adi": "Kur’an Okuma Teknikleri",
+              "kac_kez_secilebilir": 2,
+              "saatler": {
+                "hazirlik": null,
+                "9": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "10": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "11": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                },
+                "12": {
+                  "tip": "secenekli",
+                  "secenekler": [
+                    1,
+                    2
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "aciklamalar": [
+    {
+      "no": 1,
+      "metin": "Anadolu İmam Hatip Lisesi ve Hazırlık Sınıfı Bulunan Anadolu İmam Hatip Lisesi Haftalık Ders Çizelgesi’nde “ortak dersler”, “meslek dersleri” ve “seçmeli dersler” “A” ve “B” grubu bölümleri yer almaktadır."
+    },
+    {
+      "no": 2,
+      "metin": "“Türk dili ve edebiyatı” ve “Kur’an-ı Kerim” dersleri, yıl sonu başarı ortalaması ile başarılı sayılamayacak derslerdir."
+    },
+    {
+      "no": 3,
+      "metin": "Anadolu imam hatip liselerinde öğrenciler, beden eğitimi ve spor/görsel sanatlar/müzik derslerinden sadece birini seçerler. Görsel sanatlar dersinde hüsnühat, ebru, tezhip; müzik dersinde dinî musiki öğretim programları uygulanabilir. Öğrenciler bu derslerden alt sınıfta seçtikleri bir dersi, üst sınıflarda değiştirebilir."
+    },
+    {
+      "no": 4,
+      "metin": "Kur’an-ı Kerim dersinin hedeflenen kazanımlara ulaşılabilmesi için mevcudu 25’i geçen sınıflar iki gruba ayrılabilir. Grupların eşit sayıda öğrenciden oluşturulmasına dikkat edilir. Her gruptan eğitim öğretim yılı boyunca farklı bir öğretmen sorumlu olur. Bu öğretmenler, sorumlu olduğu grupla eğitim öğretimi gerçekleştirir."
+    },
+    {
+      "no": 5,
+      "metin": "Seçmeli dersler; öğrencinin ilgi ve istekleri, derslerdeki başarı durumları ve hedefledikleri yükseköğretim programları doğrultusunda öğrenci, veli ve okul tarafından ortaklaşa belirlenir."
+    },
+    {
+      "no": 6,
+      "metin": "Çizelgedeki seçmeli derslerin haftalık ders saati sayıları, sınıflara göre parantez içinde ve seçenekli olarak verilmiştir. Öğrenciler her sınıfta parantez içinde verilen ders saatlerinden sadece birini seçebilirler. Örneğin seçmeli dersler bölümünde yer alan İslam tarihi dersinin yanında (1) rakamı yer almaktadır. Buna göre öğrenciler bu dersi 11 veya 12. sınıfta “1” ya da “2” ders saati olarak sadece “1” defa seçebilir."
+    },
+    {
+      "no": 7,
+      "metin": "Ders saatlerinin ilgili derslere ait öğretim programlarında öngörülen ders saatlerinden az veya fazla olması hâlinde bu derslerin mevcut öğretim programlarının amaç, kazanım ve açıklamaları dikkate alınarak zümre öğretmenler kurulunca planlama yapılır ve mevcut öğretim programları uygulanır."
+    },
+    {
+      "no": 8,
+      "metin": "Anadolu imam hatip liselerinde: (a) “İmam Hatip Programı”, “Fen ve Sosyal Bilimler Programı/Projesi”, “Yabancı Dil Hazırlık Programı/Projesi” ve “Hafızlık Eğitimi Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler sadece “A” grubundaki seçmeli derslerden ders seçimi yapabilir. (b) “İlahiyat Odaklı Hafızlık Programı/Projesi”, “Geleneksel ve Çağdaş Görsel Sanatlar Programı/Projesi”, “Musiki Programı/Projesi”, “Fen ve Teknoloji Programı/Projesi”, “Çocuk Gelişimi ve Eğitimi Programı/Projesi”, “Spor Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler ise “A” ve “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 9,
+      "metin": "“Fen ve Sosyal Bilimler Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 11. sınıfta “3”, (b) Arapça dersini 10. sınıfta “2”, (c) Mesleki Arapça dersini 11. sınıfta “2” saat alır. (ç) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (d) 10. sınıfta “2” saat, 11. sınıfta “18”, 12. sınıfta “21” saat “A” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 10,
+      "metin": "“Geleneksel ve Çağdaş Görsel Sanatlar veya Musiki Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9. sınıfta “4”; 10 ve 11 sınıflarda “3”, (b) Yabancı dil dersini 9. sınıfta “2”, (c) Matematik dersini 9 ve 10. sınıflarda “5”, (ç) Arapça dersini 9. sınıfta “3”; 10. sınıfta “2”, (d) Mesleki Arapça dersini 11. sınıfta “2” saat alır. (e) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (f) 9. sınıfta “6”, 10. sınıfta “4” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (g) 11. sınıfta “18”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 11,
+      "metin": "“Musiki Programı/Projesi” uygulayan Anadolu imam hatip liselerinde bağlama/kanun/piyano derslerinden biri seçilir. Öğrenciler, bu derslerden alt sınıfta seçtikleri bir dersi üst sınıflarda değiştirebilir. Çalgı eğitimi dersinde “keman, viyola, çello, kontrbas, flüt, gitar, klarnet, bağlama, kemane, tar, kaval, tambur, ut, kanun, klasik kemençe, ney ve ritim” çalgıları kullanılır."
+    },
+    {
+      "no": 12,
+      "metin": "“Spor Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9. sınıfta “4”; 10 ve 11 sınıflarda “3”, (b) Yabancı dil dersini 9. sınıfta “2”, (c) Matematik dersini 9 ve 10. sınıflarda “5”, (ç) Arapça dersini 9. sınıfta “3”; 10. sınıfta “2”, (d) Mesleki Arapça dersini 11 sınıfta “2” saat alır. (e) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (f) 9. sınıfta “6”, 10. sınıfta “4” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (g) 11. sınıfta “18”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 13,
+      "metin": "“Spor Programı/Projesi” uygulayan Anadolu imam hatip liselerinde 10. sınıftan itibaren her sınıf düzeyinde iki branş seçilir. Spor uygulamaları dersinde sınıf birleştirmesi yapılamaz. Bu derste okul ve çevre imkânlarına bağlı olarak belirlenen branşlardan (bireysel ya da takım sporları) en az bir okul takımı oluşturulur. Tüm öğrencilerin takım çalışmalarına katılımı sağlanır. Takım çalışmalarının planlaması okul zümre öğretmenler kurulunca yapılır. (a) Takım sporları; basketbol, voleybol, futbol ve hentbol alanlarında oluşturulur. (b) Bireysel sporlar ise halter, yüzme, güreş, kayak, tenis, masa tenisi, badminton, oryantiring, eskrim, bisiklet, okçuluk, judo, karate, boks ve tekvando alanlarından seçilir."
+    },
+    {
+      "no": 14,
+      "metin": "“İlahiyat Odaklı Hafızlık Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9, 10 ve 11 sınıflarda “2”, (b) Matematik dersini 10. sınıfta “5”, (c) Yabancı dil dersini 9. sınıfta “4”, (ç) Beden eğitimi ve spor/görsel sanatlar/müzik derslerinden birisini 9. sınıfta “1” saat alır. (d) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (e) 9. sınıfta “5”, 10. sınıfta “4” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (f) 11. sınıfta “18”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 15,
+      "metin": "“Fen ve Teknoloji Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9. sınıfta “4”; 10. sınıfta “3”; 11 sınıfta “2”, (b) Yabancı dil dersini hazırlık sınıfında “16”, (c) Arapça dersini 9 ve 10. sınıflarda “2”, (ç) Mesleki Arapça dersini 11 sınıfta “2”, (d) Beden eğitimi ve spor/görsel sanatlar/müzik derslerinden birini 9. sınıfta “1” saat alır. (e) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (f) Hazırlık sınıfında “4”, 9. sınıfta “4”, 10. sınıfta “3” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (g) 11. sınıfta “19”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 16,
+      "metin": "(*) Çizelgede “Hazırlık Sınıfı” sütununda yer alan dersler, sadece hazırlık sınıfı uygulaması yapan Anadolu imam hatip liselerinin hazırlık sınıfı ders saatlerini ifade eder. Hazırlık sınıfı bulunmayan Anadolu imam hatip liseleri çizelgenin bu sütununda yer alan derslerden sorumlu değildir."
+    },
+    {
+      "no": 17,
+      "metin": "(**) Hafızlık eğitimi dersi, hazırlık sınıfında hafızlık eğitimi uygulaması yapan Anadolu imam hatip liseleri içindir. Uygulamayı yapan Anadolu imam hatip liselerinde hazırlık sınıfında öğrenim gören öğrenciler: (a) Hafızlık eğitimi dersini “20”, (b) Hazırlık sınıfı Türk dili ve edebiyatı dersini “3”, (c) Hazırlık sınıfı matematik dersini “3”, (ç) Beden eğitimi ve spor/görsel sanatlar/müzik derslerinden birisini “2”, (d) Bilişim teknolojileri ve yazılım dersini “3”, (e) Kur’an-ı Kerim dersini “4”, (f) İkinci yabancı dil dersini “4”, (g) Rehberlik ve yönlendirme dersini “1” saat alır. (ğ) Yabancı dil dersini almaz. Hafızlık eğitimi uygulaması yapan Anadolu imam hatip liselerinde hazırlık sınıfı sonrasında “İmam Hatip Programı” uygulanır."
+    },
+    {
+      "no": 18,
+      "metin": "(***) Arapça dışında başka bir yabancı dilde hazırlık sınıfı uygulaması yapan Anadolu imam hatip liseleri ile hafızlık eğitimi uygulaması yapan Anadolu imam hatip liselerinde hazırlık sınıfında ikinci yabancı dil dersi olarak “Arapça” okutulur."
+    },
+    {
+      "no": 19,
+      "metin": "“Hazırlık Sınıfı” uygulaması yapan Anadolu imam hatip liselerinde hazırlıkta okutulan yabancı dil; 9, 10, 11 ve 12. sınıflarda da birinci yabancı dil olarak okutulur. Ancak Arapça hazırlık uygulaması yapan Anadolu imam hatip liselerinde hazırlık sınıfından sonra İngilizce birinci yabancı dil olarak okutulur, Arapça dersi ise çizelgede belirtilen sınıf ve saat oranında okutulur."
+    },
+    {
+      "no": 20,
+      "metin": "“Arapça” ve “İngilizce” dışında dillerde hazırlık sınıfı uygulaması yapan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) İkinci yabancı dil dersi kapsamında 9, 10, 11 ve 12. sınıflarda İngilizce dersini “2” saat seçmeli olarak alır. (b) Kur’an-ı Kerim dersini 9. sınıfta “4”; 11. sınıfta “3”, (c) Arapça dersini 9. sınıfta “3”; 10. sınıfta “2”, (ç) Mesleki Arapça dersini 11 sınıfta “2” saat alır. (d) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (e) 9 ve 10. sınıflarda “2” saat, 11. sınıfta “18”; 12. sınıfta “21” saat “A” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 21,
+      "metin": "(*****) Bu derslerde Talim ve Terbiye Kurulu Başkanlığının 19.08.2020 tarihli ve 21 sayılı kararı ile uygulamaya konulan “Meslekî ve Teknik Anadolu Lisesi Anadolu meslek ve Anadolu teknik programı (fen ve teknoloji programı/projesi için “bilişim teknolojileri alanı”; çocuk gelişimi ve eğitimi programı/projesi için “çocuk gelişimi ve eğitimi alanı”) çerçeve öğretim programları” uygulanır."
+    },
+    {
+      "no": 22,
+      "metin": "Haftalık ders çizelgesinde yer alan ancak henüz öğretim programı tamamlanmamış seçmeli derslerde öğretim programı hazırlanıncaya kadar zümre öğretmenler kurulunca hazırlanacak programlar uygulanır."
+    },
+    {
+      "no": 23,
+      "metin": "Musiki Programı/Projesi ile Geleneksel ve Çağdaş Görsel Sanatlar Programı/Projesi uygulayan Anadolu imam hatip liselerinde Millî Eğitim Bakanlığına Bağlı Okul ve Kurumların Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik’in ilgili hükümleri doğrultusunda öğrencilerin ihtiyaçlarına göre haftalık ders çizelgesine grup derslerinde “10”, bireysel derslerde ise “6” saate kadar ilave ders yapılabilir. İlave ders saatlerine ilgili programların zümre öğretmenler kurulunun önerisi doğrultusunda okul yönetimince karar verilir. Bu dersler okulda yapılan ders dışı aktiviteleri içermez."
+    },
+    {
+      "no": 24,
+      "metin": "Musiki Programı/Projesi uygulayan Anadolu imam hatip liselerinde; (a) Batı müziği teori ve uygulaması, Türk müziği teori ve uygulaması, Türk halk müziği teori ve uygulaması, Türk sanat müziği teori ve uygulaması, çalgı toplulukları ve dinî musiki dersleri zümre öğretmenlerinin önerisi doğrultusunda okul yönetimi kararı ile grup dersi olarak yapılabilecek derslerdir. Gruplar belirlenirken bir şube üçten fazla gruba ayrılamaz ve her grup “8” öğrenciden az olamaz. (b) Bağlama, kanun, piyano, çalgı eğitimi, bireysel ses eğitimi dersleri öğretmenin en fazla “3” öğrenci ile bire bir çalışma yaptığı derslerdir. Ancak yeterli öğretmen olmaması durumunda çalgı eğitimi hariç diğer sayılan dersler grup olarak işlenebilir."
+    },
+    {
+      "no": 25,
+      "metin": "Geleneksel ve Çağdaş Görsel Sanatlar Programı/Projesi uygulayan Anadolu imam hatip liselerinde desen, iki boyutlu sanat atölye, üç boyutlu sanat atölye, imgesel resim, temel sanat eğitimi, grafik tasarım, ebru, hüsnühat, tezhip dersleri zümre öğretmenlerinin önerisi doğrultusunda okul yönetimi kararı ile grup dersi olarak yapılabilecek derslerdir. Gruplar belirlenirken bir şube üçten fazla gruba ayrılamaz ve her grup “8” öğrenciden az olamaz."
+    },
+    {
+      "no": 26,
+      "metin": "“Çocuk Eğitimi ve Gelişimi Programı” Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9. sınıfta “4”; 10. sınıfta “3” ve 11. sınıfta “2”, (b) Matematik dersini 9 ve 10. sınıflarda “5”, (c) Yabancı dil dersini 9. sınıfta “4”, (ç) Arapça dersini 9 ve 10. sınıflarda “2”, (d) Mesleki Arapça dersini 11. sınıfta “2”, (e) Beden eğitimi ve spor/görsel sanatlar/müzik derslerinden birisini 9. sınıfta “1” saat alır. (f) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (g) 9. sınıfta “6”, 10. sınıfta “4” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (ğ) 11. sınıfta “19”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 27,
+      "metin": "Birinci yabancı dil ve ikinci yabancı dil derslerinde Bakanlar Kurulu Kararı ile öğretiminin yapılması kabul edilen yabancı diller okutulur."
+    },
+    {
+      "no": 28,
+      "metin": "Öğrenciler “insan, toplum ve bilim” alanında yer alan “bilişim teknolojileri ve yazılım” dersinde oluşturulan modüllerden programlamaya giriş ve algoritma, robotik kodlama, programlama dilleri, mobil uygulama geliştirme, yapay zekâ uygulamaları modüllerinden birini seçerler. (a) Programlama dilleri modülünde Java, C++, C#, Dart, PHP, JavaScript, Python dillerinden birisi seçilir. (b) Programlamaya giriş ve algoritma modülü alınmadan robotik kodlama, mobil uygulama geliştirme ve programlama dilleri modülleri seçilemez. Programlama dilleri modülü alınmadan yapay zekâ uygulamaları modülü seçilemez."
+    },
+    {
+      "no": 29,
+      "metin": "Spor eğitimi (seçmeli) dersinde bireysel sporlardan halter, yüzme, güreş, kayak, tenis, masa tenisi, badminton, oryantiring, eskrim, bisiklet, okçuluk, judo, karate, boks ve tekvando ile takım sporlarından basketbol, voleybol, futbol ve hentbol eğitimi verilir. Öğrenciler spor eğitimi dersinde bireysel veya takım sporlarının alt branşlarından birini seçer."
+    },
+    {
+      "no": 30,
+      "metin": "Sanat eğitimi (seçmeli) dersinde müzik, görsel sanatlar, sahne sanatları, geleneksel Türk sanatları ve müze eğitimi alan ve alt alanlarından oluşur. Bu alanlar kapsamında her bir alanın alt modülleri; (a) Müzik: Koro, piyano, bağlama, kaval, tar, kemane, ney, ut, kanun, keman, klarnet, gitar ve flüt; (b) Görsel Sanatlar: Fotoğrafçılık, grafik tasarım, kısa film ve animasyon; (c) Sahne Sanatları: Tiyatro, drama ve halk oyunları; (ç) Geleneksel Türk Sanatları: Hüsnühat, tezhip, minyatür, ebru, ahşap oymacılık ve vitraydan oluşur. (d) Müze eğitimi Öğrenciler müzik, görsel sanatlar, sahne sanatları, geleneksel Türk sanatlarının alt alanlarından birini ya da müze eğitimini seçerler."
+    },
+    {
+      "no": 31,
+      "metin": "Program dışı etkinlikler alanında yer alan sosyal sorumluluk programı kapsamında her öğrenci; (a) Ders dışı zamanlarda gerçekleştirmek üzere mezun olana kadar en az 40 saatlik sosyal sorumluluk programı görevine katılır. Öğrencilerin bu çalışmalara katılım durumları ilgili kurum/kuruluş/yetkili merciler tarafından belgelendirilir ve ilgili belgeler okul yönetimince öğrencinin e- portfolyosuna işlenir. Sosyal sorumluluk programı kapsamında yürütülecek çalışmalar Millî Eğitim Bakanlığı Ortaöğretim Kurumları Yönetmeliği ve Millî Eğitim Bakanlığı Sosyal Sorumluluk Programı ve Hayat Boyu Öğrenme/Sertifikasyon Uygulama Yönergesi’nde belirtilen usul ve esaslar doğrultusunda gerçekleştirilecektir. (b) Program dışı etkinlikler alanında yer alan “Hayat Boyu Öğrenme/Sertifikasyon” kapsamında öğrenciler gönüllü olarak Hayat Boyu Öğrenme Genel Müdürlüğü, Meslekî ve Teknik Eğitim Genel Müdürlüğü ile Bilgi Teknolojileri ve İletişim Kurumu (BTK Akademi) tarafından oluşturulan uzaktan ve yüz yüze eğitim modülleri içinde yer alan paket beceri setlerinden alacakları kursları belgelendirerek okul idaresine sunarlar. Hayat Boyu Öğrenme/Sertifikasyonla ilgili öğrencilere yönelik planlama okul yönetimi tarafından yapılır ve ilgili belgeler okul yönetimince öğrencinin e-portfolyosuna işlenir."
+    },
+    {
+      "no": 32,
+      "metin": "Uluslararası programı uygulayan Anadolu imam hatip liseleri toplam haftalık ders saatlerinin dışında en fazla 5 saat ilave ders yapabilir."
+    },
+    {
+      "no": 33,
+      "metin": "“Kur’an Eğitim Merkezi Programı/Projesi” uygulayan Anadolu imam hatip liselerinde öğrenim gören öğrenciler: (a) Kur’an-ı Kerim dersini 9. sınıfta “4”; 10 ve 11 sınıflarda “2”, (b) Yabancı dil dersini 9. sınıfta “2”, (c) Matematik dersini 9 ve 10. sınıflarda “5”, (ç) Beden eğitimi ve spor/görsel sanatlar/müzik dersini 9. sınıfta “1” alır. (d) Osmanlı Türkçesi dersini zorunlu olarak almaz. Bu okullarda okuyan öğrenciler: (e) 9. sınıfta “6”, 10. sınıfta “4” saat “B” grubundaki seçmeli derslerden ders seçimi yapar. (f) 11. sınıfta “18”, 12. sınıfta “21” saat “A” ve/veya “B” grubundaki seçmeli derslerden ders seçimi yapabilir."
+    },
+    {
+      "no": 34,
+      "metin": "(****) Hedef temelli destek eğitimi; yükseköğretime hazırlanma, öğrenme eksikliklerini giderme veya önceki öğrenmeleri pekiştirme amaçlı öğrencilerin ilgi, ihtiyaç ve beklentileri doğrultusunda, öğrenci seçimine bağlı olarak okul idarelerince planlamanın yapılacağı derstir. Hedef temelli destek eğitimi içeriğinde; Türk dili ve edebiyatı, fizik, kimya, biyoloji, tarih, coğrafya, felsefe, matematik, sosyoloji, psikoloji, mantık, birinci yabancı dil, çağdaş Türk ve dünya tarihi, T.C. inkılap tarihi ve Atatürkçülük, din kültürü ve ahlak bilgisi ile Türk kültür ve medeniyet tarihi derslerinden ders başına en az “1” en fazla “3”saat verilerek ilgili dersin mevcut öğretim programı doğrultusunda dersin zümresi tarafından oluşturulacak program uygulanır. Hedef temelli destek eğitimi dersi notla değerlendirilmez. Derste sadece süreç değerlendirmesi yapılır, öğrencilere bu doğrultuda dönüt verilerek gerekli destek sağlanır."
+    }
+  ]
+}

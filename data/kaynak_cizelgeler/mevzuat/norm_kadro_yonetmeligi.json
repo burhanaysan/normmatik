@@ -1,0 +1,1158 @@
+{
+ "kaynak": "norm_kadro_yonetmeligi.pdf (Millî Eğitim Bakanlığına Bağlı Eğitim Kurumları Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik, BKK 16/6/2014-2014/6459)",
+ "maddeler": [
+  {
+   "madde_no": "1",
+   "baslik": "Amaç",
+   "bolum": "BİRİNCİ BÖLÜM - Amaç, Kapsam, Dayanak ve Tanımlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmeliğin amacı; Millî Eğitim Bakanlığına bağlı her derece ve türdeki örgün ve yaygın eğitim kurumlarının yönetici ve öğretmen norm kadrolarının belirlenmesine ilişkin usul ve esasları düzenlemektir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "2",
+   "baslik": "Kapsam",
+   "bolum": "BİRİNCİ BÖLÜM - Amaç, Kapsam, Dayanak ve Tanımlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmelik, Millî Eğitim Bakanlığına bağlı her derece ve türdeki örgün ve yaygın eğitim kurumlarını kapsar.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "3",
+   "baslik": "Dayanak",
+   "bolum": "BİRİNCİ BÖLÜM - Amaç, Kapsam, Dayanak ve Tanımlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "(Değişik:RG-27/6/2019-30814-C.K.-1241/1 md.) Bu Yönetmelik, 1 sayılı Cumhurbaşkanlığı Teşkilatı Hakkında Cumhurbaşkanlığı Kararnamesinin 330 ve 537 nci maddelerine dayanılarak hazırlanmıştır.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "4",
+   "baslik": "Tanımlar",
+   "bolum": "BİRİNCİ BÖLÜM - Amaç, Kapsam, Dayanak ve Tanımlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmeliğin uygulanmasında;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "Alan/Bölüm: Millî Eğitim Bakanlığına bağlı örgün ve yaygın eğitim kurumlarında uygulanan eğitim programlarının içeriğine uygun olarak bir veya birbirini tamamlayan ya da bağımsız birden çok atölyelerden/birimlerden oluşan eğitim, öğretim ve/veya üretim ortamını,"
+      },
+      {
+       "harf": "b",
+       "metin": "Atölye: Meslekî ve teknik eğitim programlarının gerektirdiği uygulamalı derslerde bilgi, beceri ve davranışların kazandırılması amacıyla sağlık ve güvenlik koşulları da dikkate alınarak gerekli donatımı yapılmış eğitim, öğretim, uygulama ve üretim yapılan ortamı,"
+      },
+      {
+       "harf": "c",
+       "metin": "Bakan: Millî Eğitim Bakanını,"
+      },
+      {
+       "harf": "ç",
+       "metin": "Bakanlık: Millî Eğitim Bakanlığını,"
+      },
+      {
+       "harf": "d",
+       "metin": "Ders yükü: Millî Eğitim Bakanlığına bağlı her derece ve türdeki örgün ve yaygın eğitim kurumlarında, Bakanlıkça belirlenen sayıdaki öğrenciden oluşan şube veya grupların dâhil oldukları sınıflara göre öğretim programlarında gösterilen teorik ve uygulamalı ders saatlerinin haftalık sayısını,"
+      },
+      {
+       "harf": "e",
+       "metin": "Eğitim bölgesi: Her yaştaki nüfusun eğitim ve öğretiminin sağlanabileceği değişik tür ve kademelerden oluşan okullarla öğretmenlerin meslekî eğitim ve sosyal ihtiyaçlarının karşılanabileceği tesislerin bulunduğu bölgeyi,"
+      },
+      {
+       "harf": "f",
+       "metin": "Eğitim kurumu: Millî Eğitim Bakanlığına bağlı her derece ve türdeki örgün ve yaygın eğitim veren okul ve kurumları,"
+      },
+      {
+       "harf": "g",
+       "metin": "Eğitim kampusu: Millî Eğitim Bakanlığına bağlı değişik tür ve derecedeki birden fazla okul ve kurum ile bunlara bağlı pansiyon, yatakhane, yemekhane, kütüphane, spor alanları, rehberlik ve sağlık ünitesi, konferans salonu, çok amaçlı salon ve benzeri yerleri içerisinde bulunduran alanı,"
+      },
+      {
+       "harf": "ğ",
+       "metin": "Laboratuvar: Derslerle ilgili iş, işlem, deney, gözlem, inceleme, araştırma, geliştirme ve benzeri uygulamaların yapılması amacıyla sağlık ve güvenlik koşulları da dikkate alınarak gerekli donanıma sahip eğitim ve öğretim laboratuvarı ile meslekî ve teknik eğitimde uygulama ve üretim yapılan ortamı,"
+      },
+      {
+       "harf": "h",
+       "metin": "Norm kadro: Millî Eğitim Bakanlığına bağlı her derece ve türdeki örgün ve yaygın eğitim kurumlarında bulunması gereken yönetici ve öğretmen sayısını,"
+      },
+      {
+       "harf": "ı",
+       "metin": "Örgün eğitim kurumu: Okul öncesi eğitim kurumları, ilköğretim kurumları (ilkokul, ortaokul ve imam hatip ortaokulu) ve ortaöğretim kurumlarını,"
+      },
+      {
+       "harf": "i",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) Proje okulu: Bakan onayı ile proje okulu olarak seçilen eğitim kurumlarını,"
+      },
+      {
+       "harf": "j",
+       "metin": "Tam gün tam yıl eğitim: Meslekî ve teknik örgün ve yaygın eğitim kurumlarının fizikî kapasitelerinden azamî derecede yararlanılması amacıyla hafta sonu, yarıyıl ve yaz tatilleri de dahil olmak üzere 07.00-22.00 saatleri arasında yapılan eğitim ve öğretimi,"
+      },
+      {
+       "harf": "k",
+       "metin": "Yaygın eğitim kurumu: Örgün eğitimin yanında veya dışında eğitim faaliyetlerinin yürütüldüğü kurumları,"
+      },
+      {
+       "harf": "l",
+       "metin": "Yerleşim merkezi: İl ve ilçe belediyesi sınırları içinde kalan mahaller ile köyleri,"
+      },
+      {
+       "harf": "m",
+       "metin": "Yönetici: Millî Eğitim Bakanlığına bağlı eğitim kurumlarında müdür, müdür başyardımcısı ve müdür yardımcısı görevlerini 14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanununun 88 inci maddesine göre ikinci görev kapsamında yürütenleri,"
+      }
+     ],
+     "bentler_kapanis": "ifade eder."
+    }
+   ]
+  },
+  {
+   "madde_no": "5",
+   "baslik": "Müdür norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Birleştirilmiş sınıf uygulaması yapılan okullar hariç olmak üzere, eğitim kurumlarının her biri için müdür norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Özel eğitim kurumları hariç olmak üzere, aynı bahçede farklı binalarda faaliyet gösteren farklı derece ve türdeki eğitim kurumlarının her birine müdür norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "3",
+     "metin": "Aynı binada faaliyet gösteren farklı derece ve türdeki eğitim kurumlarından sadece öğrenci sayısı en fazla olana müdür norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "4",
+     "metin": "Aynı bahçede faaliyet gösteren farklı derece ve türdeki özel eğitim kurumlarından sadece öğrenci sayısı en fazla olan eğitim kurumu için bir müdür norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "5",
+     "metin": "(Değişik: 30/10/2017-2017/10939 K.) Eğitim kampüsü için bir müdür norm kadrosu verilir. Eğitim kampüsü içerisinde yer alan eğitim kurumları için ayrıca müdür norm kadrosu verilmez.",
+     "bentler": null
+    },
+    {
+     "no": "6",
+     "metin": "(Ek: RG-18/8/2022-31927-C.K.-5975/1 md.) Bilim ve sanat merkezi binasında açılan anaokullarına müdür norm kadrosu verilmez.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "6",
+   "baslik": "Müdür başyardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Eğitim kurumlarından;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) Yatılı veya pansiyonlu olanlara,"
+      },
+      {
+       "harf": "b",
+       "metin": "Müdür yardımcısı sayısı altı olan her derece ve türdeki örgün ve yaygın eğitim kurumlarına,"
+      }
+     ],
+     "bentler_kapanis": "müdür başyardımcısı norm kadrosu verilir."
+    },
+    {
+     "no": "2",
+     "metin": "(Ek: 30/10/2017-2017/10939 K.) Eğitim kampüsü içerisinde yer alan eğitim kurumlarına müdür başyardımcısı norm kadrosu verilmez.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "7",
+   "baslik": "Anaokulu müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Anaokullarında, öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "100-501'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "501 ve daha fazlası için 2,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "8",
+   "baslik": "İlkokul müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "İlkokullarda, öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "100-601'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "601-1201'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "1201-1801'e kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) 1801-2401'e kadar 4,"
+      },
+      {
+       "harf": "d",
+       "metin": "(Ek: 17/10/2016-2016/9488 K.) 2401 ve daha fazlası için 5,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "9",
+   "baslik": "Ortaokul ve imam hatip ortaokulu müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Ortaokul ve imam hatip ortaokullarında, öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "501'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "501-1001'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "1001-1501'e kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) 1501-2001'e kadar 4,"
+      },
+      {
+       "harf": "d",
+       "metin": "(Ek: 17/10/2016-2016/9488 K.) 2001 ve daha fazlası için 5,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "10",
+   "baslik": "Ortaöğretim kurumları müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "dipnotlar": [
+    "(1) 18/8/2022 tarihli ve 31927 sayılı Resmî Gazete'de yayımlanan 5975 sayılı Cumhurbaşkanı Kararının 2 nci maddesiyle bu madde başlığında yer alan “ile meslekî ve teknik eğitim merkezi” ibaresi yürürlükten kaldırılmış, aynı maddenin birinci fıkrasında yer alan “Ortaöğretim kurumları ile meslekî ve teknik eğitim merkezlerinde, öğrenci sayısı;” ibaresi “Ortaöğretim kurumlarında öğrenci sayısı;” şeklinde değiştirilmiştir.."
+   ],
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Ortaöğretim kurumlarında öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "501'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "501-1001'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "1001-1501'e kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) 1501-2001'e kadar 4,"
+      },
+      {
+       "harf": "d",
+       "metin": "(Ek: 17/10/2016-2016/9488 K.) 2001 ve daha fazlası için 5,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "11",
+   "baslik": "Özel eğitim kurumu müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "not_": "(Değişik: 17/10/2016-2016/9488 K.)",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Özel eğitim kurumlarında, öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "51'e kadar l,"
+      },
+      {
+       "harf": "b",
+       "metin": "51-126'ya kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "126'dan sonra gelen her 150 öğrenci için 1,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    },
+    {
+     "no": "2",
+     "metin": "Özel eğitim kurumlarından aynı bina veya bahçede farklı kademelerde eğitim verenlerin öğrenci sayıları birlikte değerlendirilerek müdür yardımcısı norm kadrosu öğrenci sayısı en fazla olan eğitim kurumuna verilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "12",
+   "baslik": "Meslekî eğitim merkezi müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Meslekî eğitim merkezlerinde, çırak-kursiyer sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "401'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "401-801'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "801-1201'e kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "1201 ve daha fazlası için 4,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "13",
+   "baslik": "Rehberlik ve araştırma merkezi müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Rehberlik ve araştırma merkezlerinde, görev alanlarına giren il veya ilçenin nüfus sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "600.001'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "600.001 ve daha fazlası için 2,"
+      }
+     ],
+     "bentler_kapanis": "müdür yardımcısı norm kadrosu verilir."
+    }
+   ]
+  },
+  {
+   "madde_no": "14",
+   "baslik": "İlave müdür yardımcısı norm kadrosu",
+   "bolum": "İKİNCİ BÖLÜM - Yönetici Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Rehberlik ve araştırma merkezleri hariç olmak üzere, eğitim kurumlarından;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "Yatılı veya pansiyonlu olanlara,"
+      },
+      {
+       "harf": "b",
+       "metin": "Döner sermaye işletmesi bulunanlara,"
+      },
+      {
+       "harf": "c",
+       "metin": "Tam gün tam yıl eğitim uygulaması ve/veya açık öğretim kapsamında yüz yüze eğitim uygulaması yapılan eğitim kurumlarına,"
+      },
+      {
+       "harf": "ç",
+       "metin": "5/6/1986 tarihli ve 3308 sayılı Meslekî Eğitim Kanunu kapsamında işletmelerde yapılan meslekî eğitime en az 100 öğrenci gönderen meslekî ve teknik eğitim kurumlarına,"
+      },
+      {
+       "harf": "d",
+       "metin": "(Değişik: RG-18/8/2022-31927-C.K.-5975/3 md.) 3308 sayılı Kanunun 25 inci maddesi kapsamında öğrencilerin sigorta işleminin yapıldığı en az 500 öğrencisi olan meslekî ve teknik eğitim kurumlarına,"
+      },
+      {
+       "harf": "e",
+       "metin": "Öğrenci sayısına bağlı olarak müdür yardımcısı normu verilemeyen taşıma eğitim merkezi durumundaki eğitim kurumlarına,"
+      },
+      {
+       "harf": "f",
+       "metin": "(Ek: 30/10/2017-2017/10939 K.) Eğitim kampüsü içerisinde yer alan her bir eğitim kurumuna,"
+      }
+     ],
+     "bentler_kapanis": "her özelliğe bağlı olarak ayrı ayrı olmak üzere ilave 1 müdür yardımcısı norm kadrosu daha verilir."
+    },
+    {
+     "no": "2",
+     "metin": "(Değişik: RG-18/8/2022-31927-C.K.-5975/3 md.) Bir eğitim kurumundaki müdür yardımcısı norm kadrosu, öğrenci sayısı 1500'e kadar olanlar için 6'yı, 1500 ve daha fazla olanlar için 7'yi hiçbir şekilde geçemez.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "15",
+   "baslik": "Okul öncesi öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Öğrenci sayısı 10'dan az, 20'den fazla olmamak üzere anaokulu, ana sınıfı ve uygulama sınıflarında oluşturulan her grup için 1 okul öncesi öğretmeni norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Özel eğitim ihtiyacı olan çocuklara yönelik anaokulları ve ana sınıflarında açılan her şube için 1 okul öncesi öğretmeni norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "3",
+     "metin": "(Ek: RG-18/8/2022-31927-C.K.-5975/4 md.) Nüfusu az ve dağınık olan köy ve diğer benzeri yerleşim yerlerinde, öğrenci sayısı 5'ten az, 20'den fazla olmamak üzere, açılan ana sınıflarında oluşturulan her grup için 1 okul öncesi öğretmeni norm kadrosu verilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "16",
+   "baslik": "Sınıf öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "İlkokullarda, öğrenci sayısı 10'dan az olmamak şartıyla açılan her şube için 1 sınıf öğretmeni norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Birleştirilmiş sınıf uygulaması yapılan bir derslikli ilkokullarda öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "10-21'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "21 ve daha fazlası için 2,"
+      }
+     ],
+     "bentler_kapanis": "sınıf öğretmeni norm kadrosu verilir."
+    },
+    {
+     "no": "3",
+     "metin": "Birleştirilmiş sınıf uygulaması yapılan iki ve daha fazla derslikli ilkokullarda öğrenci sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "10-21'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "21-41'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "41 ve daha fazlası için 3,"
+      }
+     ],
+     "bentler_kapanis": "sınıf öğretmeni norm kadrosu verilir."
+    },
+    {
+     "no": "4",
+     "metin": "Sağlık Bakanlığına bağlı eğitim ve araştırma hastanelerinde veya üniversite hastanelerinde yatarak tedavi gören öğrencilerin eğitimi için, uygun görülen ilkokullara ayrıca 2 sınıf öğretmeni norm kadrosu verilir.",
+     "bentler": null
+    },
+    {
+     "no": "5",
+     "metin": "(Ek: RG-18/8/2022-31927-C.K.-5975/5 md.) Nüfusu az ve dağınık olan köy ve benzeri yerleşim yerlerinde açılan ilkokullara öğrenci sayısına bakılmaksızın 1 sınıf öğretmeni norm kadrosu verilir. Öğrenci sayısının 21 ve üzeri olması halinde bu maddenin ikinci fıkra hükümleri uygulanır.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "17",
+   "baslik": "Özel eğitim öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Özel eğitim kurumları ile özel eğitim sınıflarında;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "Özel eğitime ihtiyacı olan çocuklara yönelik açılan her anasınıfı için 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "Görme ve işitme engellilere yönelik ilkokullarda açılan her sınıf veya şube için 1,"
+      },
+      {
+       "harf": "c",
+       "metin": null,
+       "durum": "mulga",
+       "not_": "(Mülga: 17/10/2016-2016/9488 K.)"
+      },
+      {
+       "harf": "ç",
+       "metin": "(Değişik: 17/10/2016-2016/9488 K.) Anaokulları ile anasınıfları hariç olmak üzere, her derece ve türdeki eğitim kurumlarında orta ve ağır düzeyde zihin engelliler ile otizmli öğrenciler için açılan her sınıf veya şube için 2,"
+      },
+      {
+       "harf": "d",
+       "metin": "İlkokul ve ortaokul kademesinde hafif düzeyde zihin engellilere yönelik açılan her sınıf veya şube için 2,"
+      },
+      {
+       "harf": "e",
+       "metin": "Lise kademesinde hafif düzeyde zihin engelliler için açılan her sınıf veya şube için 1,"
+      },
+      {
+       "harf": "f",
+       "metin": "Birden fazla engellilere yönelik açılan her sınıf veya şube için alanın gerektirdiği engel durumu dikkate alınarak 2,"
+      },
+      {
+       "harf": "g",
+       "metin": "Yatılı ve pansiyonlu özel eğitim ilkokullarına grup gözetimi ve eğitimi görevi için 26 yatılı öğrenciye kadar 1; 26'dan sonrası için 2,"
+      }
+     ],
+     "bentler_kapanis": "özel eğitim öğretmeni norm kadrosu verilir."
+    },
+    {
+     "no": "2",
+     "metin": "(Değişik: 17/10/2016-2016/9488 K.) Rehberlik ve araştırma merkezlerine; görev alanlarına giren il veya ilçenin nüfusu l00.000'e kadar olan yerlerde 7, sonra gelen her 100.000 nüfus için 1, bu şekilde yapılacak hesaplama sonunda artan nüfusun en az 50.000 olması hâlinde ilave olarak 1 özel eğitim öğretmeni norm kadrosu daha verilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "18",
+   "baslik": "Genel bilgi ve meslek dersleri öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Örgün ve yaygın eğitim kurumlarında, genel bilgi ve meslek dersleri toplam ders yükü;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "6-31 saate kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "31-42 saate kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "42'den fazla olması hâlinde her 21 saat için 1,"
+      }
+     ],
+     "bentler_kapanis": "genel bilgi ve meslek dersleri öğretmeni norm kadrosu verilir. Bu şekildeki hesaplama sonrasında artan ders yükünün en az 15 saat olması halinde ilave olarak 1 genel bilgi ve meslek dersleri öğretmeni norm kadrosu daha verilir."
+    },
+    {
+     "no": "2",
+     "metin": "(Değişik: 17/10/2016-2016/9488 K.) Yatılı bölge ortaokulları, proje okulları ve özel eğitim kurumları hariç olmak üzere, aynı yerleşim merkezinde bulunan eğitim kurumlarının genel bilgi ve meslek dersleri öğretmenleri bakımından alanlar itibarıyla öğretmen norm kadrolarının belirlenmesinde, o yerleşim merkezindeki (birden fazla eğitim bölgesi oluşturulmuşsa her bir eğitim bölgesindeki) eğitim kurumlarının aynı alanlardaki haftalık ders yükü toplamı dikkate alınır. Belirlenen norm kadroların eğitim kurumları itibarıyla dağıtımı, toplama dâhil edilen her bir eğitim kurumuna o alandaki ders yükü en fazla olandan başlanarak her 21 saate bir genel bilgi ve meslek dersleri öğretmeni norm kadrosu verilecek şekilde yapılır. Bu şekilde yapılacak dağıtımda artan norm kadro, öncelikle o alanda norm kadro verilmemiş olan eğitim kurumuna olmak üzere, 6 saatten az olmamak şartıyla artan ders yükü en fazla olan eğitim kurumuna verilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "19",
+   "baslik": "Atölye ve laboratuvar öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "not_": "(Değişik: 17/10/2016-2016/9488 K.)",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Örgün ve yaygın eğitim kurumlarında okutulan atölye ve laboratuvar dersleri ile işletmelerde meslek eğitimi dersi dâhil toplam ders yükü;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "15-41'e kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "41-81'e kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "81-121'e kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "121-161'e kadar 4,"
+      },
+      {
+       "harf": "d",
+       "metin": "161-201'e kadar 5,"
+      },
+      {
+       "harf": "e",
+       "metin": "Toplam ders yükünün 201'den fazla olması halinde, her 40 saat ders yükü için 1,"
+      }
+     ],
+     "bentler_kapanis": "atölye ve laboratuvar öğretmeni norm kadrosu verilir. Bu şekildeki hesaplama sonrasında artan ders yükünün en az 20 saat olması hâlinde, ilave olarak 1 atölye ve laboratuvar öğretmeni norm kadrosu daha verilir."
+    },
+    {
+     "no": "2",
+     "metin": "Özel eğitim kurumları ile proje okulları hariç olmak üzere, aynı yerleşim merkezinde bulunan eğitim kurumlarının atölye ve laboratuvar öğretmenleri bakımından alanlar itibarıyla öğretmen norm kadrolarının belirlenmesinde, o yerleşim merkezindeki (birden fazla eğitim bölgesi oluşturulmuşsa her bir eğitim bölgesindeki) eğitim kurumlarının aynı alanlardaki haftalık ders yükü toplamı dikkate alınır. Belirlenen norm kadroların eğitim kurumları itibarıyla dağıtımı, toplama dâhil edilen her bir eğitim kurumuna o alandaki ders yükü en fazla olandan başlanarak her 40 saate bir atölye ve laboratuvar dersleri öğretmeni norm kadrosu verilecek şekilde yapılır. Bu şekilde yapılacak dağıtımda artan norm kadro, öncelikle o alanda norm kadro verilmemiş olan eğitim kurumuna olmak üzere, 15 saatten az olmamak şartıyla artan ders yükü en fazla olan eğitim kurumuna verilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "20",
+   "baslik": "Alan/Bölüm, atölye ve laboratuvar şefi norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Alan/bölüm, atölye ve laboratuvar şefi norm kadrosu, meslekî ve teknik örgün ve yaygın eğitim kurumlarında alanlarıyla ilgili öğretmen norm kadrosu içinde değerlendirilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "21",
+   "baslik": "Rehberlik alan öğretmeni norm kadrosu",
+   "bolum": "ÜÇÜNCÜ BÖLÜM - Öğretmen Normu",
+   "dipnotlar": [
+    "(1) Danıştay Onaltıncı Dairesinin 24/3/2015 tarihli ve E.: 2015/10784 sayılı Kararı ile; bu maddede “bağımsız anaokulları” ibaresine yer verilmemesine ilişkin eksik düzenleme yönünden, maddenin yürütmesinin durdurulmasına karar verilmiştir.",
+    "(2) Danıştay İdari Dava Daireleri Kurulunun YD İtiraz No: 2015/442 sayılı Kararı ile; bu maddede bağımsız anaokullarına yer verilmemesi ile özel eğitim kurumlarına 2. ve daha sonraki rehber öğretmen norm kadrosunun hangi sayılar esas alınarak verileceğine ilişkin bir düzenleme bulunmaması yönünden, maddenin yürürlüğünün durdurulmasına karar verilmiştir."
+   ],
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Rehberlik ve araştırma merkezlerine, görev alanlarına giren il veya ilçenin nüfusu 100.000'e kadar olan yerlerde 4, sonra gelen her 50.000 nüfus için 1 rehberlik alan öğretmeni norm kadrosu verilir. Bu şekilde yapılacak hesaplama sonunda artan nüfusun en az 25.000 olması hâlinde ilave olarak bir rehberlik alan öğretmeni norm kadrosu daha verilir.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Okul rehberlik servislerine;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "(Değişik: 30/10/2017-2017/10939 K.) Her derece ve türdeki özel eğitim kurumlarına (aynı bina veya bahçede farklı kademelerde eğitim veren özel eğitim kurumlarından öğrenci sayısı fazla olana verilmek üzere), toplam öğrenci sayısı 25 ve daha fazlası için 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "(Değişik: 30/10/2017-2017/10939 K.) İlkokullarda öğrenci sayısı 300, ortaokul, imam hatip ortaokulları ve anaokullarında öğrenci sayısı 150 ve daha fazla olanların her birine 1,"
+      },
+      {
+       "harf": "c",
+       "metin": "Ortaöğretim kurumlarından öğrenci sayısı 150 ve daha fazla olanların her birine 1,"
+      },
+      {
+       "harf": "ç",
+       "metin": "Yatılı veya pansiyonlu eğitim kurumlarının öğrenci sayılarına bakılmaksızın her birine 1,"
+      },
+      {
+       "harf": "d",
+       "metin": "İlçe merkezindeki ilköğretim ve ortaöğretim kurumlarında öğrenci sayısının yetersiz olması nedeniyle norm kadro verilememesi hâlinde öğrenci sayısı en fazla olan eğitim kurumuna 1,"
+      },
+      {
+       "harf": "e",
+       "metin": "Meslekî eğitim merkezlerinden çırak ve kursiyer sayısı 200 ve daha fazla olanların her birine 1,"
+      }
+     ],
+     "bentler_kapanis": "rehberlik alan öğretmeni norm kadrosu verilir."
+    },
+    {
+     "no": "3",
+     "metin": "(Değişik: 30/10/2017-2017/10939 K.) Özel eğitim kurumlarında çırak/öğrenci sayısının 100 ve 100'ün katlarına, diğer eğitim kurumlarında ise çırak/öğrenci sayısının 500 ve 500'ün katlarına ulaşması hâlinde her defasında ilave olarak 1 rehberlik alan öğretmeni norm kadrosu daha verilir.",
+     "bentler": null
+    },
+    {
+     "no": "4",
+     "metin": "(Değişik: 17/10/2016-2016/9488 K.) Özel eğitim kurumları hariç olmak üzere, bir yerleşim merkezindeki her eğitim kurumunda en az 1 rehberlik alan öğretmeni norm kadrosu doldurulmadan ikinci ve müteakip norm kadrolara öğretmen atanamaz.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "22",
+   "baslik": "Norm kadro belirlenmesinde dikkate alınacak hususlar",
+   "bolum": "DÖRDÜNCÜ BÖLÜM - Norm Belirlemede Dikkate Alınacak Hususlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Okul ve kurumların yönetici ve öğretmen norm kadrolarının belirlenmesinde dikkate alınacak hususlar şunlardır:",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "Müdür norm kadrosu verilme şartlarını taşımayan hiçbir eğitim kurumuna müdür yardımcısı normu verilmez."
+      },
+      {
+       "harf": "b",
+       "metin": "Müdür yardımcısı norm kadrosunun belirlenmesinde esas alınan öğrenci sayısına, o okula kayıtlı bulunan ana sınıfı, uygulama sınıfı, alt özel eğitim sınıfı öğrencileri de dâhil edilir."
+      },
+      {
+       "harf": "c",
+       "metin": "Alan itibarıyla ders yükünün hesaplanmasında;",
+       "alt_bentler": [
+        {
+         "no": "1",
+         "metin": "O alan içinde aylık karşılığı okutulması gereken dersler birlikte dikkate alınır."
+        },
+        {
+         "no": "2",
+         "metin": "Alan/bölüm, atölye ve laboratuvar şeflerinin, atölyelerdeki makine ve teçhizatın bakımı, onarımı ve öğretime hazır halde bulundurulması kapsamında yaptıkları göreve ilişkin ders saatleri de dikkate alınır."
+        }
+       ]
+      },
+      {
+       "harf": "ç",
+       "metin": "(Değişik: RG-18/8/2022-31927-C.K.-5975/7 md.) Meslekî ve teknik örgün ve yaygın eğitim kurumlarında alan/dal derslerine ilişkin ders yükü, haftalık ders çizelgesine göre her bir sınıfta okutulan ders miktarının grup sayısı ile çarpımı sonucunda bulunur. Ders yükü hesaplanırken, derslerin ayrı fiziki ortam, atölye ve laboratuvarlarda veya farklı makine, araç ve gereçle grup çalışması şeklinde yapılması durumunda şubeler gruplara bölünür ve ders yükü buna göre hesaplanır. Ancak bir şubede 4'ten fazla grup oluşturulamaz ve gruplar;",
+       "alt_bentler": [
+        {
+         "no": "1",
+         "metin": "9 uncu sınıfta, 10-21 öğrenciye kadar 1, 21-31 öğrenciye kadar 2, 31'den fazla öğrenci için 3,"
+        },
+        {
+         "no": "2",
+         "metin": "10 uncu, 11 inci ve 12 nci sınıflarda, 8-17 öğrenciye kadar 1, 17-25 öğrenciye kadar 2, 25-33 öğrenciye kadar 3, 33 ve daha fazla öğrenci için 4,"
+        }
+       ],
+       "alt_bentler_kapanis": "olacak şekilde oluşturulur. Ancak, kaynaştırma/bütünleştirme yoluyla eğitimine devam eden özel eğitim ihtiyacı olan öğrencilerin gruplara eşit sayıda dağıtılması kaydıyla bu durumda bulunan en az 2 öğrencinin bulunduğu gruplar ikiye bölünür. Grup sayısı hiçbir şekilde 5'i geçemez."
+      }
+     ]
+    },
+    {
+     "no": "2",
+     "metin": "(Değişik: RG-18/8/2022-31927-C.K.-5975/7 md.) Meslekî eğitim merkezi programında alan/dal derslerine ilişkin ders yükü hesaplanırken şubeler gruplara bölünmez ve bir şubedeki öğrenci sayısının birinci fıkranın (ç) bendinde belirtilen grup oluşturma sayısının altında olması durumunda işletmelerde meslek eğitimi dersi dışındaki alan/dal dersleri ders yükü hesabına dâhil edilmez. İşletmelerde meslek eğitimi ders yükü hesaplanırken meslek alanındaki tüm sınıf seviyelerinde kayıtlı toplam çırak sayısı;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "10-41 çırağa kadar 1,"
+      },
+      {
+       "harf": "b",
+       "metin": "41-81 çırağa kadar 2,"
+      },
+      {
+       "harf": "c",
+       "metin": "81-121 çırağa kadar 3,"
+      },
+      {
+       "harf": "ç",
+       "metin": "121-161 çırağa kadar 4,"
+      },
+      {
+       "harf": "d",
+       "metin": "161-201 çırağa kadar 5,"
+      },
+      {
+       "harf": "e",
+       "metin": "201-241 çırağa kadar 6,"
+      },
+      {
+       "harf": "f",
+       "metin": "241-281 çırağa kadar 7,"
+      },
+      {
+       "harf": "g",
+       "metin": "281-321 çırağa kadar 8,"
+      },
+      {
+       "harf": "ğ",
+       "metin": "321-361 çırağa kadar 9,"
+      },
+      {
+       "harf": "h",
+       "metin": "361-401 çırağa kadar 10,"
+      },
+      {
+       "harf": "ı",
+       "metin": "401-441 çırağa kadar 11,"
+      },
+      {
+       "harf": "i",
+       "metin": "441 ve daha fazla çırak için 12,"
+      }
+     ],
+     "bentler_kapanis": "olacak şekilde gruplandırılır. İşletmelerde meslek eğitimi ders yükü çerçeve öğretim programında yer alan işletmelerde meslek eğitimi ders saati ile grup sayısının çarpımı sonucu bulunur."
+    },
+    {
+     "no": "3",
+     "metin": "(Değişik: RG-18/8/2022-31927-C.K.-5975/7 md.) Meslekî eğitim merkezi programında alanın toplam ders yükü, işletmelerde meslek eğitimi ders yüküne meslek alanında okutulan haftalık alan/dal ders saatleri eklenerek bulunur.",
+     "bentler": null
+    },
+    {
+     "no": "4",
+     "metin": "Spor liseleri ve güzel sanatlar liselerinin bölümler itibarıyla alan derslerinin ders yükü;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "Öğrencinin öğretmenle bire bir çalışmasını gerektiren dersler bakımından haftalık ders saati sayısına her iki öğrenci için 6 saate kadar,"
+      },
+      {
+       "harf": "b",
+       "metin": "Koro eğitimi, çalgı toplulukları, atölye ve benzeri grup çalışmasını gerektiren dersler bakımından haftalık ders saati sayısına her grup için 10 saate kadar,"
+      }
+     ],
+     "bentler_kapanis": "ilave edilerek bulunur. Ancak, bir şube 3'ten fazla gruba ayrılamaz ve her grup 8 öğrenciden az olamaz. Bire bir çalışmayı veya grup çalışmasını gerektiren derslerin norm kadroları ayrı belirlenir."
+    },
+    {
+     "no": "5",
+     "metin": "Birleştirilmiş sınıf uygulaması yapılan eğitim kurumlarının müdür yetkili öğretmenleri, o eğitim kurumundaki öğretmenler için belirlenen norm kadro içinde değerlendirilir.",
+     "bentler": null
+    },
+    {
+     "no": "6",
+     "metin": "Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir.",
+     "bentler": null
+    },
+    {
+     "no": "7",
+     "metin": "(Ek: 30/10/2017-2017/10939 K.) Eğitim kampüsü içerisinde yer alan her bir eğitim kurumunun müdür yardımcısı norm kadrosu, bu Yönetmelikte eğitim kurumlarının tür ve derecelerine göre öngörülen kriterler esas alınarak birbirinden bağımsız olarak belirlenir. Eğitim kampüsü içerisinde birden fazla özel eğitim kurumunun yer alması halinde bu özel eğitim kurumlarının öğrenci sayıları birlikte değerlendirilerek müdür yardımcısı norm kadrosu öğrenci sayısı en fazla olan özel eğitim kurumuna verilir.",
+     "bentler": null
+    },
+    {
+     "no": "8",
+     "metin": "(Ek: 30/10/2017-2017/10939 K.) Eğitim kampüsü içerisinde yer alan eğitim kurumlarının öğretmen norm kadrosu, bu Yönetmelikte öğretmenler için öngörülen kriterler dikkate alınarak belirlenir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "23",
+   "baslik": "Norm kadroları Bakanlıkça belirlenecek eğitim kurumları",
+   "bolum": "DÖRDÜNCÜ BÖLÜM - Norm Belirlemede Dikkate Alınacak Hususlar",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": null,
+     "durum": "mulga",
+     "not_": "(Mülga:RG-2/10/2021-31616-CK-4585/2 md.)",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Açık Öğretim Ortaokulu, Açık Öğretim Lisesi, Meslekî Açık Öğretim Lisesi, Meslekî ve Teknik Açık Öğretim Okulu, Açık Öğretim İmam-Hatip Lisesi, akşam sanat okulları, hizmet içi eğitim enstitüleri, halk eğitimi merkezleri, olgunlaşma enstitüleri, öğretmen evi ve akşam sanat okulları, bilim ve sanat merkezleri, ölçme değerlendirme merkezleri ile benzeri kurumların yönetici ve öğretmenlerinin norm kadroları, Cumhurbaşkanlığının uygun görüşleri de alınarak Bakanlıkça belirlenir. Bu kurumların norm kadro sayılarının değişikliğinde de aynı yöntem izlenir ve alan değişikliğine bağlı düzenleme Bakanlıkça yapılır.",
+     "bentler": null
+    },
+    {
+     "no": "3",
+     "metin": "(Ek: 17/10/2016-2016/9488 K.) Sınıfları bilişim teknolojisi araçları ile donatılmış olan eğitim kurumlarından bilişim teknolojisi alanı norm kadrosu bulunmayanların bilişim teknolojisi alanı norm kadroları, Yenilik ve Eğitim Teknolojileri Genel Müdürlüğünün teklifi ve İnsan Kaynakları Genel Müdürlüğünün uygun görüşü üzerine Bakan onayı ile belirlenir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "24",
+   "baslik": "Norm kadro belirlemeye yetkili birimler",
+   "bolum": "BEŞİNCİ BÖLÜM - Normların Onayı ve Değişmesi",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Eğitim kurumlarının yönetici ve öğretmen norm kadroları, elektronik ortamdaki mevcut veri tabanı esas alınarak eğitim kurumu müdürlüğü, ilçe millî eğitim müdürlüğü ve il millî eğitim müdürlüğünün sıralı teklifi üzerine belirlenir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "25",
+   "baslik": "Norm kadroların onaylanması",
+   "bolum": "BEŞİNCİ BÖLÜM - Normların Onayı ve Değişmesi",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Eğitim kurumlarının yönetici ve öğretmen norm kadroları Bakanlıkça onaylanır.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Bakanlıkça onaylanan ve valiliklere bildirilen norm kadro çizelgeleri, bildirildikleri tarihi takip eden 15 gün içerisinde; il millî eğitim müdürlüklerince ilçe millî eğitim müdürlüklerine, ilçe millî eğitim müdürlüklerince de ilgili eğitim kurumu müdürlüklerine bildirilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "26",
+   "baslik": "Norm kadro sayıları değişen eğitim kurumları",
+   "bolum": "BEŞİNCİ BÖLÜM - Normların Onayı ve Değişmesi",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "(Değişik: 17/10/2016-2016/9488 K) Eğitim kurumlarının norm kadro sayılarının bu Yönetmelikte belirlenen norm kadro kriterleri çerçevesinde değişmesi hâlinde, değişikliğe konu olan eğitim kurumlarının norm kadro sayıları ekim ayında yeniden belirlenir. Bakanlık ihtiyaç duyulan hallerde bu ay dışında da eğitim kurumlarının norm kadro sayılarını yeniden belirleyebilir.",
+     "bentler": null
+    },
+    {
+     "no": "2",
+     "metin": "Yeni açılan eğitim kurumları ile yeni derslik/şube açılan veya kapatılan mevcut eğitim kurumlarının norm kadroları süre aranmaksızın belirlenir.",
+     "bentler": null
+    },
+    {
+     "no": "3",
+     "metin": "Eğitim kurumlarının yönetici ve öğretmen norm kadro sayılarının azalması nedeniyle norm kadro fazlası olan yönetici ve öğretmenler hakkında, ilgili atama ve yer değiştirme mevzuatı hükümleri uygulanır.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "27",
+   "baslik": "Norm kadro sayısının değiştirilemeyeceği",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Norm kadro belirlenmesine esas kriterlere göre yapılacak değişiklikler dışında olmak üzere, eğitim kurumlarının bu Yönetmeliğe göre belirlenmiş olan norm kadro sayıları değiştirilemez.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "28",
+   "baslik": "Bilgi verme",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "dipnotlar": [
+    "(1) Danıştay Onaltıncı Dairesinin 24/3/2015 tarihli ve E.: 2015/10784 sayılı Kararı ile; bu maddenin birinci fıkrasında yer alan “Bakanlığın uygun gördüğü tarihlerde” ibaresi yönünden maddenin yürütmesinin durdurulmasına karar verilmiştir.",
+    "(2) 27/6/2019 tarihli ve 30814 sayılı Resmi Gazete'de yayımlanan 1241 sayılı Cumhurbaşkanı Kararının 3 üncü maddesiyle bu fıkrada yer alan “Maliye Bakanlığı” ibaresi “Hazine ve Maliye Bakanlığı” şeklinde değiştirilmiştir.",
+    "(3) 2/10/2021 tarihli ve 31616 sayılı Resmî Gazete'de yayımlanan 4585 sayılı Cumhurbaşkanı Kararının 3 üncü maddesiyle bu fıkrada yer alan “Hazine ve Maliye Bakanlığı ve Devlet Personel Başkanlığına” ibaresi “Cumhurbaşkanlığına” şeklinde değiştirilmiştir."
+   ],
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Eğitim kurumlarının norm kadro sayıları ve değişiklikleri, onaylanmasını takip eden bir ay içinde Bakanlıkça iller itibarıyla Cumhurbaşkanlığına bildirilir.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "29",
+   "baslik": "Boş kadro tahsisi ve kullanımı",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "dipnotlar": [
+    "(1) 17/10/2016 tarihli ve 2016/9488 sayılı Bakanlar Kurulu Kararı eki Yönetmeliğin 14 üncü maddesiyle, bu bentlerde yer alan “Yöneticilik” ibareleri “Kadroları doğrudan merkez teşkilatına bağlı eğitim kurumlarında bulunan yönetici ve öğretmenler ile yöneticilik” şeklinde değiştirilmiştir."
+   ],
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bakanlığa tahsis edilmiş bulunan serbest öğretmen kadro sayısının, bu Yönetmelik hükümleri uyarınca ülke genelinde belirlenen yönetici ve öğretmen norm kadro sayısından fazla olması hâlinde, fazla durumdaki boş kadrolar il millî eğitim müdürlüklerine aktarılır. Bu kadrolar;",
+     "bentler": [
+      {
+       "harf": "a",
+       "metin": "23 üncü maddenin birinci fıkrasında belirtilen eğitim kurumlarının kadro ihtiyacının karşılanmasında,"
+      },
+      {
+       "harf": "b",
+       "metin": "26 ncı madde uyarınca norm kadro sayısının değişmesi halinde ihtiyaç duyulacak kadroların karşılanmasında,"
+      },
+      {
+       "harf": "c",
+       "metin": "Muvazzaf askerlik hizmetini yerine getirmek üzere ayrılanlar hariç olmak üzere, çeşitli kanun, kanun hükmünde kararname ve yönetmelikler gereği bir yıl ve daha fazla aylıksız izne ayrılma isteğinde bulunan yönetici ve öğretmenlere aylıksız izin verilmeden önce atanmalarında,"
+      },
+      {
+       "harf": "ç",
+       "metin": "5/6/2003 tarihli ve 2003/5753 sayılı Bakanlar Kurulu Kararına göre yurtdışında görevlendirilecek öğretmenlerin görevlendirilmeden önce atanmalarında,"
+      },
+      {
+       "harf": "d",
+       "metin": "Kadroları doğrudan merkez teşkilatına bağlı eğitim kurumlarında bulunan yönetici ve öğretmenler ile yöneticilik görevi verilenler hariç olmak üzere, çeşitli kanun ve kanun hükmünde kararnamelerde yer alan hükümlere göre diğer kamu kurum ve kuruluşlarında geçici olarak altı aydan fazla görevlendirilen öğretmenlerin görevlendirmeden önce atanmalarında,"
+      },
+      {
+       "harf": "e",
+       "metin": "Kadroları doğrudan merkez teşkilatına bağlı eğitim kurumlarında bulunan yönetici ve öğretmenler ile yöneticilik görevi verilenler hariç olmak üzere, Bakanlığın merkez ve taşra teşkilatında altı aydan fazla süreli görevlendirilen öğretmenlerin, görevlendirilmelerinden önce atanmalarında,"
+      },
+      {
+       "harf": "f",
+       "metin": "Her ilin öğretmen norm kadro sayısının %5'ini geçmemek üzere, öğretmenlerin kanuni izin, geçici görev, disiplin cezası uygulaması veya görevden uzaklaştırma nedenleriyle görevlerinden geçici olarak ayrılmaları durumunda oluşacak öğretmen ihtiyacının karşılanmasında ve şehit eşi öğretmenler ile ilgili mevzuatı uyarınca zorunlu yer değiştirmeye tabi tutulan kamu personelinin öğretmen eşlerinin atanmalarında,"
+      }
+     ],
+     "bentler_kapanis": "kullanılmak üzere Bakan onayı ile il ve ilçe millî eğitim müdürlüklerine aktarılır."
+    },
+    {
+     "no": "2",
+     "metin": "Yukarıda belirtilen durumların ortadan kalkması üzerine boşalan kadrolar ile eğitim kurumlarının norm kadro sayılarının bu Yönetmelikte yer alan norm kadro kriterlerine bağlı olarak değişmesi sonucunda ortaya çıkacak boş kadrolar, il millî eğitim müdürlüklerine aktarılır.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "30",
+   "baslik": "Yürürlükten kaldırılan mevzuat",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "16/7/1999 tarihli ve 99/13184 sayılı Bakanlar Kurulu Kararı ile yürürlüğe konulan Millî Eğitim Bakanlığına Bağlı Okul ve Kurumların Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik yürürlükten kaldırılmıştır.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "31",
+   "baslik": "Yürürlük",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmelik yayımı tarihinde yürürlüğe girer.",
+     "bentler": null
+    }
+   ]
+  },
+  {
+   "madde_no": "32",
+   "baslik": "Yürütme",
+   "bolum": "ALTINCI BÖLÜM - Çeşitli ve Son Hükümler",
+   "dipnotlar": [
+    "(1) 27/6/2019 tarihli ve 30814 sayılı Resmi Gazete'de yayımlanan 1241 sayılı Cumhurbaşkanı Kararının 4 üncü maddesiyle bu fıkrada yer alan “Bakanlar Kurulu” ibaresi “Cumhurbaşkanı” şeklinde değiştirilmiştir."
+   ],
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmelik hükümlerini Cumhurbaşkanı yürütür.",
+     "bentler": null
+    }
+   ]
+  }
+ ],
+ "gecici_maddeler": [
+  {
+   "no": "1",
+   "baslik": "Yönetici ve öğretmenlerin norm kadro ile ilişkilendirilmeleri",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Eğitim kurumlarının norm kadroları, bu Yönetmeliğin yürürlüğe girdiği tarihten itibaren üç ay içinde belirlenir."
+    },
+    {
+     "no": "2",
+     "metin": "Eğitim kurumlarında görev yapmakta olan yöneticiler yönetici, öğretmenler ise öğretmen norm kadrolarıyla ilişkilendirilir."
+    },
+    {
+     "no": "3",
+     "metin": "Eğitim kurumlarının yönetici ve öğretmen sayılarının norm kadro sayısından fazla olması hâlinde, fazlalığın giderilmesinde ilgili atama ve yer değiştirme yönetmeliği hükümleri uygulanır."
+    }
+   ]
+  },
+  {
+   "no": "2",
+   "baslik": "Norm kadroların onayına kadar geçen sürede uygulama",
+   "fikralar": [
+    {
+     "no": "1",
+     "metin": "Bu Yönetmelikle öngörülen norm kadroların onaylanıp yürürlüğe konulmasına kadar geçen sürede, bu Yönetmelik ile yürürlükten kaldırılan Millî Eğitim Bakanlığına Bağlı Okul ve Kurumların Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik hükümlerinin uygulanmasına devam olunur."
+    }
+   ]
+  }
+ ],
+ "degisiklik_tablosu": {
+  "baslik": "16/6/2014 tarihli ve 2014/6459 sayılı Bakanlar Kurulu Kararı ile yürürlüğe konulan Yönetmeliğe ek ve değişiklik getiren yönetmeliklerin yürürlüğe giriş tarihlerini gösteren tablo",
+  "not_": "Kaynak PDF'teki son satirda degisen madde numaralari arasindaki ayirac nokta (\"5.10.14.15.16.21.22\") olarak cikarilmis; bu muhtemelen virgul (,) OCR/metin-cikarma artefaktidir, madde listesi olarak yorumlanmistir.",
+  "satirlar": [
+   {
+    "karari_yururluge_koyan_kararnamenin_tarihi": "17/10/2016",
+    "numarasi": "2016/9488",
+    "degisen_maddeler": [
+     "4",
+     "6",
+     "8",
+     "9",
+     "10",
+     "11",
+     "17",
+     "18",
+     "19",
+     "21",
+     "22",
+     "23",
+     "26",
+     "29"
+    ],
+    "yururluge_giris_tarihi": "25/11/2016"
+   },
+   {
+    "karari_yururluge_koyan_kararnamenin_tarihi": "30/10/2017",
+    "numarasi": "2017/10939",
+    "degisen_maddeler": [
+     "5",
+     "6",
+     "14",
+     "21",
+     "22"
+    ],
+    "yururluge_giris_tarihi": "2/6/2018"
+   },
+   {
+    "karari_yururluge_koyan_kararnamenin_tarihi": "26/6/2019",
+    "numarasi": "1241",
+    "degisen_maddeler": [
+     "3",
+     "23",
+     "28",
+     "32"
+    ],
+    "yururluge_giris_tarihi": "27/6/2019"
+   },
+   {
+    "karari_yururluge_koyan_kararnamenin_tarihi": "1/10/2021",
+    "numarasi": "4585",
+    "degisen_maddeler": [
+     "22",
+     "23",
+     "28"
+    ],
+    "yururluge_giris_tarihi": "2/10/2021"
+   },
+   {
+    "karari_yururluge_koyan_kararnamenin_tarihi": "17/8/2022",
+    "numarasi": "5975",
+    "degisen_maddeler": [
+     "5",
+     "10",
+     "14",
+     "15",
+     "16",
+     "21",
+     "22"
+    ],
+    "yururluge_giris_tarihi": "18/8/2022"
+   }
+  ]
+ }
+}

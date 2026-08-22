@@ -309,4 +309,45 @@ def build_all():
     print("\n[BAŞARILI] Müfredat veritabanı başarıyla üretildi ve paketlendi!")
 
 if __name__ == "__main__":
+    # ------------------------------------------------------------------
+    # !!! KULLANIMDAN KALDIRILDI - 2026-08-22 !!!
+    # ------------------------------------------------------------------
+    # Bu script js/strict_pdf_curriculum_db.js dosyasinin UZERINE YAZAR ve
+    # boylece 2026-08-22'de yapilan duzeltmeleri GERI ALIR. Bilinen hatalari:
+    #
+    #   1) Sutun kaymasi: 12. sinifta AMP/ATP sutunlari birlestiriliyor;
+    #      ATP subelerine, o programda HIC OLMAYAN 24 saat "Isletmelerde
+    #      Mesleki Egitim" yaziliyor -> atolye normu ~2 kat sisiyor.
+    #   2) Baslikta hem "ANADOLU MESLEK PROGRAMI" hem "ANADOLU TEKNIK
+    #      PROGRAMI" gecen kayit uretiyor -> curriculumEngine.js:752'deki
+    #      AMP/ATP filtresi sessizce devre disi kaliyor.
+    #   3) BASKA ALANIN mufredatini kopyaliyor (bu dosyada, yukarida):
+    #         strict_mtegm_db["endkalite"][g] = strict_mtegm_db["makine"][g]
+    #      Endustriyel Kalite Kontrol ogrencisine Makine dersleri gosteriliyor.
+    #   4) REHBERLIK VE YONLENDIRME satirini MESLEK kategorisine yaziyor ->
+    #      rehberlik saati Madde 19 atolye yukune ekleniyor.
+    #
+    # YERINE: tools/rebuild_curriculum_db.py
+    #   Kaynak    : data/kaynak_cizelgeler/mtegm/sinif_{9,10,11,12}.json
+    #   Dogrulama : node tools/test_curriculumData.mjs
+    # ------------------------------------------------------------------
+    if "--gercekten-eski-uretici" not in sys.argv:
+        print("=" * 70)
+        print("DURDURULDU: Bu uretici KULLANIMDAN KALDIRILDI.")
+        print("=" * 70)
+        print("Calissaydi js/strict_pdf_curriculum_db.js uzerine yazacak ve")
+        print("2026-08-22 duzeltmelerini geri alacakti (AMP/ATP sutun kaymasi,")
+        print("alanlar arasi mufredat bulasmasi, rehberligin atolye yukune")
+        print("yazilmasi).")
+        print("")
+        print("BUNUN YERINE:")
+        print("    python tools/rebuild_curriculum_db.py")
+        print("    node   tools/test_curriculumData.mjs")
+        print("    python tools/build_bundle.py")
+        print("")
+        print("Ayrinti icin bu dosyanin en altindaki yorum blokuna bakin.")
+        print("=" * 70)
+        sys.exit(1)
+
+    print("UYARI: Kullanimdan kaldirilmis uretici ACIKCA calistiriliyor.")
     build_all()

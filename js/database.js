@@ -64,7 +64,9 @@ export class MebDatabaseService {
             return this.masterData;
         }
 
-        throw new Error("Master veri tabanı yüklenemedi. Lütfen data/meb_master_db.json veya js/embedded_data.js dosyasını kontrol edin.");
+        // NOT: Eskiden bu mesajda js/embedded_data.js de anılıyordu. O dosya 2026-08-22'de
+        // ölü kod olarak arşivlendi (_arsiv_olu_dosyalar/); artık hiçbir yerden yüklenmiyor.
+        throw new Error("Master veri tabanı yüklenemedi. Lütfen data/meb_master_db.json dosyasını kontrol edin.");
     }
 
     /**

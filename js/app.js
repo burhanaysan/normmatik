@@ -827,8 +827,16 @@ class MebNormApplication {
 
         const isMeslekCourse = (c) => {
             if (isRehberlikCourse(c)) return false;
+            const rawName = String(c.ders || c.ders_adi || "").toLowerCase()
+                .replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g')
+                .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]/g, '');
+            
+            // Kültür dersleri hiçbir şubede meslek grubuna düşemez
+            const CULTURE_LIST = ["dinkulturu", "turkdiliveedebiyati", "tarih", "inkilap", "cografya", "matematik", "fizik", "kimya", "biyoloji", "felsefe", "ingilizce", "almanca", "bedenegitimi", "gorselsanatlar", "muzik", "saglikbilgisi"];
+            if (CULTURE_LIST.some(k => rawName.includes(k))) return false;
+
             const rawKat = (c.kategori || "").toUpperCase();
-            return rawKat.includes("ALAN") || rawKat.includes("MESLEK") || rawKat.includes("DAL") || c.isAtolye;
+            return rawKat.includes("ALAN") || rawKat.includes("MESLEK") || rawKat.includes("DAL") || !!c.isAtolye;
         };
 
         const ortakCourses = zorunluList.filter(d => !isMeslekCourse(d) && !isRehberlikCourse(d));
