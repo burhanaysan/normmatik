@@ -906,8 +906,8 @@ export class UIComponentManager {
             </option>
         `).join("");
 
-        // Seçilen Alana Ait Dallar
-        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId) : [];
+        // Seçilen Alana ve Sınıf Seviyesine Ait Dallar (Dinamik Filtreleme)
+        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, schoolType, selectedGrade) : [];
         const selectedDal = sectionToEdit?.dalAdi || "";
         let branchOptions = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
         if (currentBranches.length > 0) {
@@ -988,15 +988,19 @@ export class UIComponentManager {
         `;
         this.renderModal(modalHtml);
 
+        const gradeSelect = document.getElementById("sec-grade");
         const areaSelect = document.getElementById("sec-area");
         const branchSelect = document.getElementById("sec-branch");
-        areaSelect?.addEventListener("change", (e) => {
-            const areaId = e.target.value;
+
+        const updateDynamicBranches = () => {
+            if (!areaSelect || !branchSelect) return;
+            const areaId = areaSelect.value;
+            const gradeVal = gradeSelect ? gradeSelect.value : null;
             if (!areaId) {
                 branchSelect.innerHTML = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
                 return;
             }
-            const branches = this.db.getBranchesForArea(areaId);
+            const branches = this.db.getBranchesForArea(areaId, schoolType, gradeVal);
             let bHtml = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
             if (branches.length > 0) {
                 branches.forEach(b => {
@@ -1006,7 +1010,10 @@ export class UIComponentManager {
                 bHtml += `<option value="${areaId.toUpperCase()} DALI">${areaId.toUpperCase()} DALI</option>`;
             }
             branchSelect.innerHTML = bHtml;
-        });
+        };
+
+        areaSelect?.addEventListener("change", updateDynamicBranches);
+        gradeSelect?.addEventListener("change", updateDynamicBranches);
 
         document.getElementById("btn-save-single-section").addEventListener("click", () => {
             try {
@@ -4691,6 +4698,13 @@ export class UIComponentManager {
 
             this.closeModal("eokul-import-modal");
             this.showToast(`🎉 ${parsedData.sections.length} Şube ve ${parsedData.schoolSummary.totalStudents} Öğrenci e-Okul'dan Başarıyla Kuruldu!`, "success");
+
+            const warnings = (this.state.state.subeler || []).filter(s => s.eOkulWarning).map(s => s.eOkulWarning);
+            if (warnings.length > 0) {
+                setTimeout(() => {
+                    this.showToast(warnings[0], "warning", 8000);
+                }, 1200);
+            }
 
             // Global UI yeniden hesaplama
             if (typeof window !== 'undefined' && window.app && typeof window.app.renderAll === 'function') {

@@ -239,9 +239,10 @@ export class MebDatabaseService {
         return Array.from(seenNames.values()).sort((a, b) => a.name.localeCompare(b.name, 'tr'));
     }
 
-    getBranchesForArea(areaId, schoolType = "") {
+    getBranchesForArea(areaId, schoolType = "", gradeLevel = null) {
         if (!this.masterData || !areaId) return [];
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
+        const targetGrades = gradeLevel ? [String(gradeLevel)] : ["9", "10", "11", "12"];
         
         // 1. MESEM Kontrolü
         if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
@@ -262,15 +263,11 @@ export class MebDatabaseService {
         }
         if (!areaData) return [];
 
-        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
-            return areaData.dallar;
-        }
-
         const dallarSet = new Set();
         
         // 1. Geleneksel format (siniflar -> haftalik_ders_cizelgeleri)
         const siniflar = areaData.siniflar || {};
-        for (let sKey in siniflar) {
+        for (let sKey of targetGrades) {
             const cList = siniflar[sKey]?.haftalik_ders_cizelgeleri || [];
             for (let c of cList) {
                 const title = String(c.cizelge_basligi || c.title || "");
@@ -285,7 +282,7 @@ export class MebDatabaseService {
         }
 
         // 2. Strict PDF formatı ("9", "10", "11", "12" direkt dizi)
-        for (let g of ["9", "10", "11", "12"]) {
+        for (let g of targetGrades) {
             const cList = Array.isArray(areaData[g]) ? areaData[g] : [];
             for (let c of cList) {
                 const title = String(c.title || c.cizelge_basligi || "");
@@ -303,8 +300,11 @@ export class MebDatabaseService {
             return Array.from(dallarSet).sort((a, b) => a.localeCompare(b, 'tr'));
         }
 
-        const fallback = (areaData.alan_kodu || areaId).replace(/_/g, ' ').toUpperCase() + " DALI";
-        return [fallback];
+        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
+            return areaData.dallar;
+        }
+
+        return [];
     }
 
     static get CANONICAL_CULTURE_BRANCHES() {

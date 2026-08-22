@@ -124550,9 +124550,10 @@ class MebDatabaseService {
         return Array.from(seenNames.values()).sort((a, b) => a.name.localeCompare(b.name, 'tr'));
     }
 
-    getBranchesForArea(areaId, schoolType = "") {
+    getBranchesForArea(areaId, schoolType = "", gradeLevel = null) {
         if (!this.masterData || !areaId) return [];
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
+        const targetGrades = gradeLevel ? [String(gradeLevel)] : ["9", "10", "11", "12"];
         
         // 1. MESEM Kontrolü
         if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
@@ -124573,15 +124574,11 @@ class MebDatabaseService {
         }
         if (!areaData) return [];
 
-        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
-            return areaData.dallar;
-        }
-
         const dallarSet = new Set();
         
         // 1. Geleneksel format (siniflar -> haftalik_ders_cizelgeleri)
         const siniflar = areaData.siniflar || {};
-        for (let sKey in siniflar) {
+        for (let sKey of targetGrades) {
             const cList = siniflar[sKey]?.haftalik_ders_cizelgeleri || [];
             for (let c of cList) {
                 const title = String(c.cizelge_basligi || c.title || "");
@@ -124596,7 +124593,7 @@ class MebDatabaseService {
         }
 
         // 2. Strict PDF formatı ("9", "10", "11", "12" direkt dizi)
-        for (let g of ["9", "10", "11", "12"]) {
+        for (let g of targetGrades) {
             const cList = Array.isArray(areaData[g]) ? areaData[g] : [];
             for (let c of cList) {
                 const title = String(c.title || c.cizelge_basligi || "");
@@ -124614,8 +124611,11 @@ class MebDatabaseService {
             return Array.from(dallarSet).sort((a, b) => a.localeCompare(b, 'tr'));
         }
 
-        const fallback = (areaData.alan_kodu || areaId).replace(/_/g, ' ').toUpperCase() + " DALI";
-        return [fallback];
+        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
+            return areaData.dallar;
+        }
+
+        return [];
     }
 
     static get CANONICAL_CULTURE_BRANCHES() {
@@ -129116,6 +129116,20 @@ class EOkulImporter {
                 }
             }
 
+            // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
+            let dalWarning = null;
+            if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
+                const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
+                if (validGradeBranches.length > 0) {
+                    const normDal = dalAdi.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    const isMatched = validGradeBranches.some(b => b.toLowerCase().replace(/[^a-z0-9]/g, '').includes(normDal) || normDal.includes(b.toLowerCase().replace(/[^a-z0-9]/g, '')));
+                    if (!isMatched) {
+                        dalWarning = `ℹ️ ${sec.subeAdi} şubesinin e-Okul'daki dalı ("${dalAdi}"), MEB ${sec.grade}. sınıf kılavuzunda yer almadığı için alanın geçerli ${sec.grade}. sınıf müfredatı atanmıştır.`;
+                        console.warn(`[e-Okul İçe Aktarım Uyarısı] ${dalWarning}`);
+                    }
+                }
+            }
+
             const newSection = {
                 id: "sube_" + Date.now() + "_" + idx + "_" + Math.random().toString(36).substr(2, 4),
                 subeAdi: sec.subeAdi,
@@ -129127,7 +129141,8 @@ class EOkulImporter {
                 specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
-                rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu
+                rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
+                eOkulWarning: dalWarning
             };
 
             stateService.sanitizeSection(newSection);
@@ -130053,8 +130068,8 @@ class UIComponentManager {
             </option>
         `).join("");
 
-        // Seçilen Alana Ait Dallar
-        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId) : [];
+        // Seçilen Alana ve Sınıf Seviyesine Ait Dallar (Dinamik Filtreleme)
+        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, schoolType, selectedGrade) : [];
         const selectedDal = sectionToEdit?.dalAdi || "";
         let branchOptions = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
         if (currentBranches.length > 0) {
@@ -130135,15 +130150,19 @@ class UIComponentManager {
         `;
         this.renderModal(modalHtml);
 
+        const gradeSelect = document.getElementById("sec-grade");
         const areaSelect = document.getElementById("sec-area");
         const branchSelect = document.getElementById("sec-branch");
-        areaSelect?.addEventListener("change", (e) => {
-            const areaId = e.target.value;
+
+        const updateDynamicBranches = () => {
+            if (!areaSelect || !branchSelect) return;
+            const areaId = areaSelect.value;
+            const gradeVal = gradeSelect ? gradeSelect.value : null;
             if (!areaId) {
                 branchSelect.innerHTML = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
                 return;
             }
-            const branches = this.db.getBranchesForArea(areaId);
+            const branches = this.db.getBranchesForArea(areaId, schoolType, gradeVal);
             let bHtml = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
             if (branches.length > 0) {
                 branches.forEach(b => {
@@ -130153,7 +130172,10 @@ class UIComponentManager {
                 bHtml += `<option value="${areaId.toUpperCase()} DALI">${areaId.toUpperCase()} DALI</option>`;
             }
             branchSelect.innerHTML = bHtml;
-        });
+        };
+
+        areaSelect?.addEventListener("change", updateDynamicBranches);
+        gradeSelect?.addEventListener("change", updateDynamicBranches);
 
         document.getElementById("btn-save-single-section").addEventListener("click", () => {
             try {
@@ -133838,6 +133860,13 @@ class UIComponentManager {
 
             this.closeModal("eokul-import-modal");
             this.showToast(`🎉 ${parsedData.sections.length} Şube ve ${parsedData.schoolSummary.totalStudents} Öğrenci e-Okul'dan Başarıyla Kuruldu!`, "success");
+
+            const warnings = (this.state.state.subeler || []).filter(s => s.eOkulWarning).map(s => s.eOkulWarning);
+            if (warnings.length > 0) {
+                setTimeout(() => {
+                    this.showToast(warnings[0], "warning", 8000);
+                }, 1200);
+            }
 
             // Global UI yeniden hesaplama
             if (typeof window !== 'undefined' && window.app && typeof window.app.renderAll === 'function') {

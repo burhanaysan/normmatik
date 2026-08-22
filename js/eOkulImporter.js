@@ -463,6 +463,20 @@ export class EOkulImporter {
                 }
             }
 
+            // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
+            let dalWarning = null;
+            if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
+                const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
+                if (validGradeBranches.length > 0) {
+                    const normDal = dalAdi.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    const isMatched = validGradeBranches.some(b => b.toLowerCase().replace(/[^a-z0-9]/g, '').includes(normDal) || normDal.includes(b.toLowerCase().replace(/[^a-z0-9]/g, '')));
+                    if (!isMatched) {
+                        dalWarning = `ℹ️ ${sec.subeAdi} şubesinin e-Okul'daki dalı ("${dalAdi}"), MEB ${sec.grade}. sınıf kılavuzunda yer almadığı için alanın geçerli ${sec.grade}. sınıf müfredatı atanmıştır.`;
+                        console.warn(`[e-Okul İçe Aktarım Uyarısı] ${dalWarning}`);
+                    }
+                }
+            }
+
             const newSection = {
                 id: "sube_" + Date.now() + "_" + idx + "_" + Math.random().toString(36).substr(2, 4),
                 subeAdi: sec.subeAdi,
@@ -474,7 +488,8 @@ export class EOkulImporter {
                 specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
-                rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu
+                rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
+                eOkulWarning: dalWarning
             };
 
             stateService.sanitizeSection(newSection);
