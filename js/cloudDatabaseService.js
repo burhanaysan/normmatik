@@ -5,7 +5,7 @@
 
 export class CloudDatabaseService {
     constructor() {
-        this.baseUrl = "https://kvstore-normmatik-default-rtdb.firebaseio.com/school_data";
+        this.baseUrl = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/school_data";
         this.saveTimeout = null;
         this.isSaving = false;
     }

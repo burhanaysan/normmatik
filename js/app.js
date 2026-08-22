@@ -64,6 +64,25 @@ class MebNormApplication {
 
                 appState.state.okulBilgisi.isDemo = false;
                 appState.saveToStorage();
+                // ☁️ Canlı Google Cloud Senkronizasyonu (Çapraz Cihaz / Mobil-PC Eşitleme)
+                if (window.cloudDbService && session.kurumKodu) {
+                    window.cloudDbService.loadSchoolData(session.kurumKodu).then(cloudData => {
+                        if (cloudData && Array.isArray(cloudData.subeler) && cloudData.subeler.length > 0) {
+                            console.log("☁️ [Google Cloud Canlı Senkronizasyon] Veriler başarıyla çekildi:", cloudData.subeler.length, "şube");
+                            appState.state.subeler = cloudData.subeler;
+                            if (cloudData.mevcutOgretmenler) appState.state.mevcutOgretmenler = cloudData.mevcutOgretmenler;
+                            if (cloudData.koordinatorlukYukleri) appState.state.koordinatorlukYukleri = cloudData.koordinatorlukYukleri;
+                            if (cloudData.adminOptions) appState.state.okulBilgisi.adminOptions = cloudData.adminOptions;
+                            if (cloudData.antet) appState.state.okulBilgisi.antet = cloudData.antet;
+                            if (cloudData.sezon) appState.state.okulBilgisi.sezon = cloudData.sezon;
+                            appState.sanitizeExistingState();
+                            this.autoReconcileAllSections();
+                            this.render();
+                        }
+                    }).catch(err => {
+                        console.warn("[CloudDB] Bulut senkronizasyon uyarısı:", err);
+                    });
+                }
             } else if (session && session.isDemo) {
                 const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
                 if (!hasSeenOnboarding) {

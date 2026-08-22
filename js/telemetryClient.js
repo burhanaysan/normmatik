@@ -5,7 +5,7 @@
 
 class NormMatikTelemetryClient {
     constructor() {
-        this.endpoint = "https://kvstore-normmatik-default-rtdb.firebaseio.com/telemetry";
+        this.endpoint = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/telemetry";
         this.lastPingTime = 0;
         this.pingIntervalMs = 5 * 60 * 1000; // 5 dakikada bir kontrol
     }

@@ -5,7 +5,7 @@
 
 export class NormMatikCloudSyncEngine {
     constructor(dbService, curriculumEngine) {
-        this.endpoint = "https://kvstore-normmatik-default-rtdb.firebaseio.com/schools";
+        this.endpoint = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/schools";
         this.db = dbService;
         this.curriculum = curriculumEngine;
         this.isSyncing = false;
