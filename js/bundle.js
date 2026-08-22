@@ -124551,12 +124551,11 @@ class MebDatabaseService {
     }
 
     getBranchesForArea(areaId, schoolType = "", gradeLevel = null) {
-        if (!this.masterData || !areaId) return [];
+        if (!areaId) return [];
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
-        const targetGrades = gradeLevel ? [String(gradeLevel)] : ["9", "10", "11", "12"];
         
         // 1. MESEM Kontrolü
-        if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
+        if (isMesem && this.masterData?.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
             const mesemArea = this.masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem.alanlar[areaId];
             if (mesemArea?.dallar) {
                 const dalNames = Object.values(mesemArea.dallar).map(d => d.dal_adi || d.dal_kodu);
@@ -124564,44 +124563,119 @@ class MebDatabaseService {
             }
         }
 
-        // 2. MTEGM (AMP / ATP) Kontrolü
-        const mtegm = this.masterData.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
-        let areaData = mtegm[areaId];
-        if (!areaData && areaId.endsWith('pro')) {
-            areaData = mtegm[areaId.replace(/pro$/, '')];
-        } else if (!areaData && mtegm[areaId + 'pro']) {
-            areaData = mtegm[areaId + 'pro'];
-        }
-        if (!areaData) return [];
+        const ALIAS_MAP = {
+            "tesisat_teknolojisi_ve_iklimlendirme": "tesisat",
+            "bilisim_teknolojileri": "bilisim",
+            "elektrik_elektronik_teknolojisi": "elektrik",
+            "makine_ve_tasarim_teknolojisi": "makine",
+            "motorlu_araclar_teknolojisi": "motorluarac",
+            "kimya_teknolojisi": "kimya",
+            "insaat_teknolojisi": "insaat",
+            "mobilya_ve_ic_mekan_tasarimi": "mobilya",
+            "metal_teknolojisi": "metal",
+            "moda_tasarim_teknolojileri": "moda",
+            "yiyecek_icecek_hizmetleri": "yiyecek",
+            "cocuk_gelisimi_ve_egitimi": "cocukgelisimi",
+            "grafik_ve_fotograf": "grafik",
+            "guzellik_hizmetleri": "guzellik",
+            "hasta_ve_yasli_hizmetleri": "hasta",
+            "adalet": "adalet",
+            "muhasebe_ve_finansman": "muhasebe",
+            "pazarlama_ve_perakende": "pazarlama",
+            "buro_yonetimi_ve_yonetici_asistanligi": "buro",
+            "halkla_iliskiler": "halklailiskiler",
+            "gazetecilik": "gazetecilik",
+            "radyo_televizyon": "radyotv",
+            "saglik_hizmetleri": "saglik",
+            "tarim": "tarim",
+            "hayvan_yetistiriciligi_ve_sagligi": "hayvanyetistiriciligi",
+            "laboratuvar_hizmetleri": "laboratuvar",
+            "gida_teknolojisi": "gida",
+            "tekstil_teknolojisi": "tekstil",
+            "biyomedikal_cihaz_teknolojileri": "biyomedikal",
+            "denizcilik": "denizcilik",
+            "gemi_yapimi": "gemi",
+            "havacilik_ve_uzay_teknolojisi": "havacilikveuzaypro",
+            "ucak_bakim": "ucak",
+            "rayli_sistemler_teknolojisi": "rayli",
+            "harita_tapu_kadastro": "harita",
+            "maden_teknolojisi": "maden",
+            "matbaa_teknolojisi": "matbaa",
+            "seramik_ve_cam_teknolojisi": "seramikpro",
+            "kuyumculuk_teknolojisi": "kuyumculuk",
+            "plastik_teknolojisi": "plastiktek",
+            "yenilenebilir_enerji_teknolojileri": "yenilenebilir",
+            "itfaiyecilik_ve_yangin_guvenligi": "itfaiyecilik",
+            "konaklama_ve_seyahat_hizmetleri": "konaklama",
+            "endustriyel_otomasyon_teknolojileri": "endustriyel",
+            "mikromekanik": "mikromekanik",
+            "siber_guvenlik": "siber",
+            "yapay_zeka_ve_veri_bilimi": "yapayzeka"
+        };
 
+        const cleanId = String(areaId).toLowerCase().trim();
+        const lookupKey = ALIAS_MAP[cleanId] || cleanId;
+        const gNum = (gradeLevel && String(gradeLevel).toLowerCase() !== 'all') ? String(gradeLevel).replace(/[^0-9]/g, '') : null;
+        const targetGrades = gNum ? [gNum] : ["9", "10", "11", "12"];
         const dallarSet = new Set();
-        
-        // 1. Geleneksel format (siniflar -> haftalik_ders_cizelgeleri)
-        const siniflar = areaData.siniflar || {};
-        for (let sKey of targetGrades) {
-            const cList = siniflar[sKey]?.haftalik_ders_cizelgeleri || [];
-            for (let c of cList) {
-                const title = String(c.cizelge_basligi || c.title || "");
-                const match = title.match(/\(([^)]+DALI)\)/i) || title.match(/\(([^)]+)\)/i);
-                if (match && match[1]) {
-                    const dalCandidate = match[1].trim().toUpperCase();
-                    if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
-                        dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+
+        const strictDb = (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') ? STRICT_PDF_CURRICULUM_DB : ((typeof window !== 'undefined' && window.STRICT_PDF_CURRICULUM_DB) ? window.STRICT_PDF_CURRICULUM_DB : null);
+        const strictArea = strictDb ? (strictDb[lookupKey] || strictDb[cleanId] || (cleanId.endsWith('pro') ? strictDb[cleanId.replace(/pro$/, '')] : null) || strictDb[cleanId + 'pro']) : null;
+
+        if (strictArea) {
+            for (let g of targetGrades) {
+                const cList = strictArea[g] || [];
+                for (let c of cList) {
+                    const title = String(c.title || c.cizelge_basligi || "");
+                    const match = title.match(/\(([^)]+DALI)\)/iu) || title.match(/\(([^)]+)\)/iu);
+                    if (match && match[1]) {
+                        const dalCandidate = match[1].trim().toUpperCase();
+                        if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
+                            dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+                        }
                     }
                 }
             }
         }
 
-        // 2. Strict PDF formatı ("9", "10", "11", "12" direkt dizi)
-        for (let g of targetGrades) {
-            const cList = Array.isArray(areaData[g]) ? areaData[g] : [];
-            for (let c of cList) {
-                const title = String(c.title || c.cizelge_basligi || "");
-                const match = title.match(/\(([^)]+DALI)\)/i) || title.match(/\(([^)]+)\)/i);
-                if (match && match[1]) {
-                    const dalCandidate = match[1].trim().toUpperCase();
-                    if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
-                        dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+        // Eğer seçilen sınıf için dal bulunamadıysa (örneğin henüz ayrışmamışsa), alanın tüm sınıflarındaki dalları listele
+        if (dallarSet.size === 0 && strictArea) {
+            for (let g of ["9", "10", "11", "12"]) {
+                const cList = strictArea[g] || [];
+                for (let c of cList) {
+                    const title = String(c.title || c.cizelge_basligi || "");
+                    const match = title.match(/\(([^)]+DALI)\)/iu) || title.match(/\(([^)]+)\)/iu);
+                    if (match && match[1]) {
+                        const dalCandidate = match[1].trim().toUpperCase();
+                        if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
+                            dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+                        }
+                    }
+                }
+            }
+        }
+
+        // 3. MTEGM (this.masterData) Geleneksel Tarama
+        if (dallarSet.size === 0 && this.masterData?.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar) {
+            const mtegm = this.masterData.okul_turleri_ve_cizelgeler.mesleki_ve_teknik_egitim_mtegm.alanlar;
+            let areaData = mtegm[lookupKey] || mtegm[cleanId] || (cleanId.endsWith('pro') ? mtegm[cleanId.replace(/pro$/, '')] : null) || mtegm[cleanId + 'pro'];
+            if (areaData) {
+                if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
+                    return areaData.dallar;
+                }
+                const siniflar = areaData.siniflar || {};
+                for (let g of ["9", "10", "11", "12"]) {
+                    const list1 = siniflar['sinif_' + g]?.haftalik_ders_cizelgeleri || siniflar[g]?.haftalik_ders_cizelgeleri || [];
+                    const list2 = Array.isArray(areaData[g]) ? areaData[g] : (Array.isArray(areaData['sinif_' + g]) ? areaData['sinif_' + g] : []);
+                    for (let c of [...list1, ...list2]) {
+                        const title = String(c.cizelge_basligi || c.title || "");
+                        const match = title.match(/\(([^)]+DALI)\)/iu) || title.match(/\(([^)]+)\)/iu);
+                        if (match && match[1]) {
+                            const dalCandidate = match[1].trim().toUpperCase();
+                            if (!dalCandidate.includes("PROGRAMI") && !dalCandidate.includes("ALANI") && dalCandidate.length > 3) {
+                                dallarSet.add(dalCandidate.endsWith("DALI") ? dalCandidate : dalCandidate + " DALI");
+                            }
+                        }
                     }
                 }
             }
@@ -124609,10 +124683,6 @@ class MebDatabaseService {
 
         if (dallarSet.size > 0) {
             return Array.from(dallarSet).sort((a, b) => a.localeCompare(b, 'tr'));
-        }
-
-        if (Array.isArray(areaData.dallar) && areaData.dallar.length > 0) {
-            return areaData.dallar;
         }
 
         return [];
