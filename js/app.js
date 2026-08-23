@@ -988,9 +988,6 @@ class MebNormApplication {
                                     <button class="hero-btn-pill" id="btn-edit-active-sec" title="Şube ve Dal Bilgilerini Düzenle">
                                         <span>✏️ Düzenle</span>
                                     </button>
-                                    <button class="hero-btn-pill" id="btn-sync-curriculum-sec" title="Bu şubenin zorunlu derslerini güncel MEB ÇÖP veritabanıyla eşitle / yenile" style="background: rgba(2, 132, 199, 0.08); border-color: #0284c7; color: #0284c7; font-weight: 600;">
-                                        <span>🔄 Müfredatı Güncelle</span>
-                                    </button>
                                     <button class="hero-btn-pill split" id="btn-split-active-sec" title="Şubeyi 2 veya 3'e Böl (Mevcut/Dal Bölünmesi)">
                                         <span>✂️ Böl</span>
                                     </button>
@@ -1092,20 +1089,6 @@ class MebNormApplication {
 
         document.getElementById("btn-edit-active-sec")?.addEventListener("click", () => {
             this.ui.openAddSectionModal(activeSec);
-        });
-
-        document.getElementById("btn-sync-curriculum-sec")?.addEventListener("click", () => {
-            const schoolType = appState.state.okulBilgisi.okulTuru;
-            const updatedCourses = curriculumEngine.getMandatoryCourses(
-                schoolType,
-                activeSec.sinifSeviyesi,
-                activeSec.isSpecialEdu ? "ozel_egitim" : activeSec.alanId,
-                activeSec.isSpecialEdu ? "Özel Eğitim Sınıfı" : activeSec.dalAdi
-            );
-            activeSec.zorunluDersler = updatedCourses;
-            appState.updateSection(activeSec.id, { zorunluDersler: updatedCourses });
-            this.ui.showToast(`🔄 "${activeSec.subeAdi}" şubesinin zorunlu dersleri güncel MEB veritabanı ile eşitlendi!`, "success");
-            this.renderAll();
         });
 
         document.getElementById("btn-split-active-sec")?.addEventListener("click", () => {
