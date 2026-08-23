@@ -595,7 +595,8 @@ class MebReportsEngine {
         });
 
         // Toplam Satırı
-        const totalRow = ["", "GENEL TOPLAM", "Tüm Şube Yükleri", ...gridData.subeler.map(s => gridData.sectionTotals[s.id] || 0), gridData.grandTotalHours, "—"];
+        const gridSutunToplami = gridData.subeler.reduce((s, sec) => s + (gridData.sectionTotals[sec.id] || 0), 0);
+        const totalRow = ["", "GENEL TOPLAM", "Tüm Şube Yükleri", ...gridData.subeler.map(s => gridData.sectionTotals[s.id] || 0), gridSutunToplami, "—"];
         wsGridRows.push(totalRow);
 
         const wsGrid = xlsxLib.utils.aoa_to_sheet(wsGridRows);
@@ -748,7 +749,8 @@ class MebReportsEngine {
             });
 
             // Şube Toplam Satırı
-            const totalRow = ["TOPLAM DERS SAATİ", "—", ...reportData.subeler.map(s => reportData.sectionTotals[s.id] || 0), reportData.grandTotalHours, "—"];
+            const csvSutunToplami = reportData.subeler.reduce((s, sec) => s + (reportData.sectionTotals[sec.id] || 0), 0);
+            const totalRow = ["TOPLAM DERS SAATİ", "—", ...reportData.subeler.map(s => reportData.sectionTotals[s.id] || 0), csvSutunToplami, "—"];
             csvRows.push(totalRow);
 
         } else if (reportData.reportType === "EXECUTIVE_SUMMARY" || reportData.reportType === "BRANCH_DETAIL") {

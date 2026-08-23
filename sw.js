@@ -5,7 +5,7 @@
 // (v2 -> v3 gibi). Aksi halde uygulamayı daha önce açmış kullanıcılarda
 // eski sürüm önbellekte kalır ve düzeltmeleriniz onlara ASLA ULAŞMAZ.
 // "activate" olayı, adı farklı olan tüm eski önbellekleri siler.
-const CACHE_NAME = "meb-normmatik-20260823_2055";
+const CACHE_NAME = "meb-normmatik-20260823_2134";
 
 const ASSETS_TO_CACHE = [
     "./",

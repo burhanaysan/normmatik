@@ -127385,7 +127385,8 @@ class MebReportsEngine {
         });
 
         // Toplam Satırı
-        const totalRow = ["", "GENEL TOPLAM", "Tüm Şube Yükleri", ...gridData.subeler.map(s => gridData.sectionTotals[s.id] || 0), gridData.grandTotalHours, "—"];
+        const gridSutunToplami = gridData.subeler.reduce((s, sec) => s + (gridData.sectionTotals[sec.id] || 0), 0);
+        const totalRow = ["", "GENEL TOPLAM", "Tüm Şube Yükleri", ...gridData.subeler.map(s => gridData.sectionTotals[s.id] || 0), gridSutunToplami, "—"];
         wsGridRows.push(totalRow);
 
         const wsGrid = xlsxLib.utils.aoa_to_sheet(wsGridRows);
@@ -127538,7 +127539,8 @@ class MebReportsEngine {
             });
 
             // Şube Toplam Satırı
-            const totalRow = ["TOPLAM DERS SAATİ", "—", ...reportData.subeler.map(s => reportData.sectionTotals[s.id] || 0), reportData.grandTotalHours, "—"];
+            const csvSutunToplami = reportData.subeler.reduce((s, sec) => s + (reportData.sectionTotals[sec.id] || 0), 0);
+            const totalRow = ["TOPLAM DERS SAATİ", "—", ...reportData.subeler.map(s => reportData.sectionTotals[s.id] || 0), csvSutunToplami, "—"];
             csvRows.push(totalRow);
 
         } else if (reportData.reportType === "EXECUTIVE_SUMMARY" || reportData.reportType === "BRANCH_DETAIL") {
@@ -131420,7 +131422,7 @@ class UIComponentManager {
                         <span style="font-size: 0.82rem; font-weight: ${active ? '700' : '600'}; color: var(--text-main);">${name}</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <input type="number" class="form-control admin-teaching-input" data-branch="${name}" value="${h}" min="0" max="40" style="width: 68px; padding: 0.2rem 0.35rem; text-align: center; font-weight: 800; color: ${active ? '#0284c7' : 'var(--text-main)'};">
+                        <input type="number" class="form-control admin-teaching-input" data-branch="${name}" value="${h}" min="0" max="40" style="max-width: 68px; padding: 0.2rem 0.35rem; text-align: center; font-weight: 800; color: ${active ? '#0284c7' : 'var(--text-main)'};">
                         <span style="font-size: 0.72rem; color: var(--text-muted);">Saat</span>
                     </div>
                 </div>
@@ -131609,7 +131611,7 @@ class UIComponentManager {
                                     Müdür yardımcısı normuna esas öğrenci sayısına, okul bünyesindeki ana sınıfı, uygulama sınıfı ve alt özel eğitim sınıfı öğrencileri de dâhil edilir. Şubelerden gelen ${totalStudents} öğrenciye eklenecek sayıyı yazın.
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                    <input type="number" id="inp-admin-ek-ogrenci" value="${parseInt(adminOpts.ekSinifOgrencileri || 0, 10)}" min="0" max="2000" class="form-control" style="width: 96px; padding: 0.25rem 0.35rem; text-align: center; font-weight: 800; color: #0284c7;">
+                                    <input type="number" id="inp-admin-ek-ogrenci" value="${parseInt(adminOpts.ekSinifOgrencileri || 0, 10)}" min="0" max="2000" class="form-control" style="max-width: 96px; padding: 0.25rem 0.35rem; text-align: center; font-weight: 800; color: #0284c7;">
                                     <span style="font-size: 0.72rem; color: var(--text-muted);">Öğrenci (ana sınıfı / uygulama sınıfı / alt özel eğitim sınıfı)</span>
                                 </div>
                             </div>
@@ -132900,7 +132902,7 @@ class UIComponentManager {
                             ${data.subeler.map(s => `
                                 <td class="cell-sec-total"><strong>${data.sectionTotals[s.id] || 0}</strong></td>
                             `).join("")}
-                            <td class="cell-grand-total"><strong>${data.grandTotalHours}</strong></td>
+                            <td class="cell-grand-total"><strong>${data.subeler.reduce((s, sec) => s + (data.sectionTotals[sec.id] || 0), 0)}</strong></td>
                             <td class="cell-grand-norm">—</td>
                         </tr>
                     </tfoot>
