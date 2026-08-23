@@ -1462,7 +1462,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -1543,7 +1543,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -3266,7 +3266,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -3341,7 +3341,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -5548,7 +5548,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -5617,7 +5617,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -7268,7 +7268,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -7337,7 +7337,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -8655,378 +8655,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO ÖLÇME",
-            "saat": 8,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 23,
-        "title": "ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (FİZYOLOJİK SİNYAL İZLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO ÖLÇME",
-            "saat": 8,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 26,
-        "title": "ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ GÖRÜNTÜLEME SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO ÖLÇME",
-            "saat": 8,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 29,
-        "title": "ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (TIBBİ LABORATUVAR SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYO ÖLÇME",
-            "saat": 8,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 32,
-        "title": "ANADOLU TEKNİK PROGRAMI BİYOMEDİKAL CİHAZ TEKNOLOJİLERİ ALANI (YAŞAM DESTEK VE TEDAVİ CİHAZLARI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10668,7 +10296,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -10743,7 +10371,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -10818,7 +10446,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -10893,7 +10521,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -12271,7 +11899,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -13469,7 +13097,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -17671,6 +17299,192 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
+        "page": 29,
+        "title": "ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "program": "AMP",
+        "varyant": null,
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 32,
+        "title": "ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "program": "AMP",
+        "varyant": null,
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 35,
         "title": "ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRONİK VE HABERLEŞME DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
@@ -17769,6 +17583,192 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 28,
+        "title": "ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "9",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 31,
+        "title": "ANADOLU MESLEK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "9",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18138,6 +18138,192 @@ export const STRICT_PDF_CURRICULUM_DB = {
       {
         "page": 27,
         "title": "ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ASANSÖR VE ELEKTROMEKANİK TAŞIYICILAR DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "program": "ATP",
+        "varyant": null,
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 30,
+        "title": "ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİK TESİSATLARI VE DAĞITIMI DALI) HAFTALIK DERS ÇİZELGESİ",
+        "grade": "9",
+        "program": "ATP",
+        "varyant": null,
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL ELEKTRİK-ELEKTRONİK",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 33,
+        "title": "ANADOLU TEKNİK PROGRAMI ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI (ELEKTRİKLİ CİHAZLAR TEKNİK SERVİSİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "9",
         "program": "ATP",
         "varyant": null,
@@ -20520,7 +20706,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -20589,7 +20775,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -20658,7 +20844,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -20727,7 +20913,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -20796,7 +20982,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -22685,99 +22871,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           }
         ]
-      },
-      {
-        "page": 14,
-        "title": "ANADOLU TEKNİK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "10",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "AKSESUAR ATÖLYESİ",
-            "saat": 11,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DESEN TASARIMI",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
       }
     ],
     "11": [
@@ -22993,7 +23086,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -23068,7 +23161,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -23204,75 +23297,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 14,
-        "title": "ANADOLU TEKNİK PROGRAMI EL SANATLARI TEKNOLOJİSİ ALANI (DEKORATİF EL SANATLARI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
-        "grade": "11",
-        "program": "ATP",
-        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ÖRGÜ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
-            "saat": 16,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -24761,7 +24785,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -26256,7 +26280,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -26425,6 +26449,57 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 20,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İKİNCİ YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 15,
+        "title": "ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
+        "grade": "9",
+        "program": "ATP",
+        "varyant": "protokol_kapsamindaki_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": true
@@ -26511,57 +26586,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "ROBOTİK VE KODLAMA",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 15,
-        "title": "ANADOLU TEKNİK PROGRAMI GAZETECİLİK ALANI (GAZETECİLİK DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "protokol_kapsamindaki_okullar_icin",
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 20,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İKİNCİ YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
             "baraj_ders": false
           }
         ]
@@ -26899,7 +26923,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OSMANLI TÜRKÇESİ (***)",
+            "ders": "OSMANLI TÜRKÇESİ",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27004,7 +27028,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OSMANLI TÜRKÇESİ (***)",
+            "ders": "OSMANLI TÜRKÇESİ",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27109,7 +27133,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "OSMANLI TÜRKÇESİ (***)",
+            "ders": "OSMANLI TÜRKÇESİ",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27228,7 +27252,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KĀTI’ ATÖLYESİ",
+            "ders": "KĀTI' ATÖLYESİ",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27333,7 +27357,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KĀTI’ ATÖLYESİ",
+            "ders": "KĀTI' ATÖLYESİ",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27438,7 +27462,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "KĀTI’ ATÖLYESİ",
+            "ders": "KĀTI' ATÖLYESİ",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -27596,7 +27620,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (****)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -29721,7 +29745,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -29796,7 +29820,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -29871,7 +29895,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -31060,7 +31084,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -32618,7 +32642,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -32693,7 +32717,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -34398,7 +34422,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -34473,7 +34497,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -35446,7 +35470,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -36347,7 +36371,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -37863,7 +37887,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM(***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -37932,7 +37956,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -38986,7 +39010,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -39148,55 +39172,25 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "varyant": "protokol_kapsamindaki_okullar_icin",
         "courses": [
           {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
+            "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
             "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
+            "saat": 3,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           },
           {
             "ders": "YABANCI DİL",
+            "saat": 24,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
@@ -39206,30 +39200,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
-          },
-          {
-            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MALZEME TEKNOLOJİSİ",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "ELEKTRİK DEVRE ANALİZİ",
-            "saat": 4,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MONTAJ, ENTEGRASYON VE KONTROL",
-            "saat": 4,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -39247,51 +39217,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "varyant": "protokol_kapsamindaki_okullar_icin",
         "courses": [
           {
-            "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 24,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 20,
-        "title": "ANADOLU TEKNİK PROGRAMI HAVACILIK VE UZAY TEKNOLOJİSİ ALANI (İTKİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "protokol_kapsamindaki_okullar_icin",
-        "courses": [
-          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -39429,8 +39354,8 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
-        "page": 21,
-        "title": "ANADOLU TEKNİK PROGRAMI HAVACILIK VE UZAY TEKNOLOJİSİ ALANI (ELEKTRONİK SİSTEMLER DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
+        "page": 20,
+        "title": "ANADOLU TEKNİK PROGRAMI HAVACILIK VE UZAY TEKNOLOJİSİ ALANI (İTKİ SİSTEMLERİ DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
@@ -39563,6 +39488,105 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 2,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 21,
+        "title": "ANADOLU TEKNİK PROGRAMI HAVACILIK VE UZAY TEKNOLOJİSİ ALANI (ELEKTRONİK SİSTEMLER DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
+        "grade": "9",
+        "program": "ATP",
+        "varyant": "protokol_kapsamindaki_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MESLEKİ GELİŞİM ATÖLYESİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MALZEME TEKNOLOJİSİ",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "ELEKTRİK DEVRE ANALİZİ",
+            "saat": 4,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MONTAJ, ENTEGRASYON VE KONTROL",
+            "saat": 4,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -40831,7 +40855,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -43919,7 +43943,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -43988,7 +44012,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -44057,7 +44081,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -44126,7 +44150,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -44195,7 +44219,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -44264,7 +44288,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -45804,7 +45828,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -47881,7 +47905,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -47950,7 +47974,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -48019,7 +48043,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -49356,7 +49380,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖNBÜRODA REZERVASYON",
+            "ders": "ÖN BÜRODA REZERVASYON",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -49374,7 +49398,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -49659,7 +49683,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖNBÜRODA REZERVASYON",
+            "ders": "ÖN BÜRODA REZERVASYON",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -49677,7 +49701,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -49962,7 +49986,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖNBÜRODA REZERVASYON",
+            "ders": "ÖN BÜRODA REZERVASYON",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -49980,7 +50004,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -50249,7 +50273,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -50510,13 +50534,13 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -50591,7 +50615,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -50678,7 +50702,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -50747,7 +50771,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "ÖNBÜRO HİZMETLERİ ATÖLYESİ",
+            "ders": "ÖN BÜRO HİZMETLERİ ATÖLYESİ",
             "saat": 5,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -52795,7 +52819,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -53648,7 +53672,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -54231,6 +54255,111 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
+        "page": 14,
+        "title": "ANADOLU MESLEK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "10",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEMEL MEKANİK İŞLEMLER",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YER ALTI MADEN İŞLEMLERİ",
+            "saat": 6,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "MADEN TOPOĞRAFYASI",
+            "saat": 3,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLGİSAYAR DESTEKLİ ÇİZİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 13,
         "title": "ANADOLU TEKNİK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "10",
@@ -54415,6 +54544,81 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "saat": 4,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 14,
+        "title": "ANADOLU MESLEK PROGRAMI MADEN TEKNOLOJİSİ ALANI (MADENCİLİK DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "11",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YER ÜSTÜ MADEN İŞLEMLERİ",
+            "saat": 6,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SONDAJ",
+            "saat": 3,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
           },
           {
             "ders": "REHBERLİK VE YÖNLENDİRME",
@@ -59614,7 +59818,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -59689,7 +59893,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -59758,7 +59962,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -59833,7 +60037,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -59902,7 +60106,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -59971,7 +60175,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -60046,7 +60250,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -60121,7 +60325,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -63567,7 +63771,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -63636,7 +63840,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -65638,7 +65842,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -65713,7 +65917,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -67400,7 +67604,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -67481,7 +67685,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -68511,7 +68715,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -70087,7 +70291,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -70156,7 +70360,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -71777,7 +71981,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -71852,7 +72056,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -73659,105 +73863,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
-        "page": 19,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "program": "AMP",
-        "varyant": null,
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
         "page": 21,
         "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "10",
@@ -75203,69 +75308,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
-        "page": 19,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "program": "AMP",
-        "varyant": null,
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
         "page": 21,
         "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "11",
@@ -75558,7 +75600,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -75627,7 +75669,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -75696,7 +75738,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -75765,7 +75807,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -77200,25 +77242,25 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "GENEL MUHASEBE",
             "saat": 7,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
             "ders": "EKONOMİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "TEMEL HUKUK",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "KLAVYE TEKNİKLERİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -77826,37 +77868,37 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "BİLGİSAYARLI MUHASEBE",
             "saat": 7,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
             "ders": "GİRİŞİMCİLİK VE İŞLETME YÖNETİMİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "VERGİ VE BEYANNAMELER",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "ŞİRKETLER MUHASEBESİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "MALİYET MUHASEBESİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "İŞ VE SOSYAL GÜVENLİK HUKUKU",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -78016,7 +78058,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -78097,7 +78139,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -80763,105 +80805,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
-        "page": 19,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "10",
-        "program": "AMP",
-        "varyant": null,
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "COĞRAFYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 5,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FİZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "KİMYA",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİYOLOJİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV ELEKTROMEKANİK ATÖLYESİ",
-            "saat": 9,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "ARAÇLARDA HİDROLİK VE PNÖMATİK SİSTEMLER",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "OTOMOTİV TEKNİK RESİM",
-            "saat": 2,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
         "page": 21,
         "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "10",
@@ -82307,69 +82250,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
-        "page": 19,
-        "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (OTOMOTİV ELEKTROMEKANİK DALI) HAFTALIK DERS ÇİZELGESİ",
-        "grade": "11",
-        "program": "AMP",
-        "varyant": null,
-        "courses": [
-          {
-            "ders": "TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": true
-          },
-          {
-            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "TARİH",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "FELSEFE",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
-            "saat": 1,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "HAREKET KONTROL SİSTEMLERİ ATÖLYESİ",
-            "saat": 9,
-            "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": true
-          },
-          {
-            "ders": "REHBERLİK VE YÖNLENDİRME",
-            "saat": 1,
-            "kategori": "REHBERLİK",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
         "page": 21,
         "title": "ANADOLU MESLEK PROGRAMI MOTORLU ARAÇLAR TEKNOLOJİSİ ALANI (İŞ MAKİNELERİ DALI) HAFTALIK DERS ÇİZELGESİ",
         "grade": "11",
@@ -82662,7 +82542,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -82731,7 +82611,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -82800,7 +82680,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -82869,7 +82749,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -85186,7 +85066,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -85267,7 +85147,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -85935,7 +85815,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDA İKİBOYUTLU ÇİZİM",
+            "ders": "BİLGİSAYARDA İKİ BOYUTLU ÇİZİM",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -86040,7 +85920,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDA İKİBOYUTLU ÇİZİM",
+            "ders": "BİLGİSAYARDA İKİ BOYUTLU ÇİZİM",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -86145,7 +86025,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "BİLGİSAYARDA İKİBOYUTLU ÇİZİM",
+            "ders": "BİLGİSAYARDA İKİ BOYUTLU ÇİZİM",
             "saat": 3,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -86315,7 +86195,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -87192,7 +87072,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -88081,7 +87961,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -88249,6 +88129,51 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "varyant": "protokol_kapsamindaki_okullar_icin",
         "courses": [
           {
+            "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 3,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 20,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İKİNCİ YABANCI DİL",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
+        "page": 18,
+        "title": "ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
+        "grade": "9",
+        "program": "ATP",
+        "varyant": "protokol_kapsamindaki_okullar_icin",
+        "courses": [
+          {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 5,
             "kategori": "ORTAK DERSLER",
@@ -88336,51 +88261,6 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "ders": "ROBOTİK VE KODLAMA",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
-          }
-        ]
-      },
-      {
-        "page": 18,
-        "title": "ANADOLU TEKNİK PROGRAMI RADYO-TELEVİZYON ALANI (RADYO-TELEVİZYON DALI) HAFTALIK DERS ÇİZELGESİ - PROTOKOL KAPSAMINDAKI OKULLAR ICIN",
-        "grade": "9",
-        "program": "ATP",
-        "varyant": "protokol_kapsamindaki_okullar_icin",
-        "courses": [
-          {
-            "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "MATEMATİK",
-            "saat": 3,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "YABANCI DİL",
-            "saat": 20,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "İKİNCİ YABANCI DİL",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
-            "saat": 4,
-            "kategori": "ORTAK DERSLER",
-            "baraj_ders": false
-          },
-          {
-            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
-            "saat": 2,
-            "kategori": "ORTAK DERSLER",
             "baraj_ders": false
           }
         ]
@@ -89763,6 +89643,105 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
+        "page": 16,
+        "title": "ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "10",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "COĞRAFYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "MATEMATİK",
+            "saat": 5,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FİZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "KİMYA",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BİYOLOJİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEMLER ARAÇ MEKANİK ATÖLYESİ",
+            "saat": 8,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "RAYLI SİSTEM BİLGİSİ",
+            "saat": 3,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TEKNİK RESİM",
+            "saat": 2,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 19,
         "title": "ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
         "grade": "10",
@@ -90503,6 +90482,75 @@ export const STRICT_PDF_CURRICULUM_DB = {
         ]
       },
       {
+        "page": 16,
+        "title": "ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEM ARAÇLARI DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
+        "grade": "11",
+        "program": "AMP",
+        "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "courses": [
+          {
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
+            "saat": 4,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": true
+          },
+          {
+            "ders": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "TARİH",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "FELSEFE",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "YABANCI DİL",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+            "saat": 2,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
+            "saat": 1,
+            "kategori": "ORTAK DERSLER",
+            "baraj_ders": false
+          },
+          {
+            "ders": "RAYLI SİSTEM ARAÇ ELEKTRİK ATÖLYESİ",
+            "saat": 9,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": false
+          },
+          {
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
+            "saat": 16,
+            "kategori": "MESLEK DERSLERİ",
+            "baraj_ders": true
+          },
+          {
+            "ders": "REHBERLİK VE YÖNLENDİRME",
+            "saat": 1,
+            "kategori": "REHBERLİK",
+            "baraj_ders": false
+          }
+        ]
+      },
+      {
         "page": 19,
         "title": "ANADOLU MESLEK PROGRAMI RAYLI SİSTEMLER TEKNOLOJİSİ ALANI (RAYLI SİSTEMLER ELEKTRİK-ELEKTRONİK DALI) HAFTALIK DERS ÇİZELGESİ - ISLETMELERDE MESLEKI EGITIME 11. SINIFTA BASLAYAN OKULLAR ICIN",
         "grade": "11",
@@ -90558,7 +90606,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -90627,7 +90675,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -92534,10 +92582,10 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "ASEPTİK TEKNİKLER VE KİŞİSEL BAKIM UYGULAMALARI( *)",
+            "ders": "ASEPTİK TEKNİKLER VE KİŞİSEL BAKIM UYGULAMALARI",
             "saat": 4,
             "kategori": "MESLEK DERSLERİ",
-            "baraj_ders": false
+            "baraj_ders": true
           },
           {
             "ders": "İLK YARDIM UYGULAMALARI",
@@ -93007,7 +93055,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -93082,7 +93130,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -93157,7 +93205,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -95661,7 +95709,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -95736,7 +95784,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -97685,7 +97733,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -101172,7 +101220,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -101241,7 +101289,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -101310,7 +101358,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -101379,7 +101427,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -101448,7 +101496,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -103516,7 +103564,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -103591,7 +103639,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -104595,7 +104643,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "varyant": null,
         "courses": [
           {
-            "ders": "ORTAK DERSLER TÜRK DİLİ VE EDEBİYATI",
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": true
@@ -104663,25 +104711,25 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "ANALOG ELEKTRONİK ATÖLYESİ",
             "saat": 7,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
             "ders": "UÇAK ELEKTRİK SİSTEMLERİ ATÖLYESİ",
             "saat": 4,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "DİJİTAL UYGULAMALAR ATÖLYESİ",
             "saat": 3,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "UÇAK TEKNİK RESMİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           }
         ]
@@ -104993,7 +105041,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "varyant": null,
         "courses": [
           {
-            "ders": "ORTAK DERSLER TÜRK DİLİ VE EDEBİYATI",
+            "ders": "TÜRK DİLİ VE EDEBİYATI",
             "saat": 4,
             "kategori": "ORTAK DERSLER",
             "baraj_ders": true
@@ -105037,31 +105085,31 @@ export const STRICT_PDF_CURRICULUM_DB = {
           {
             "ders": "AVİYONİK SİSTEMLER ATÖLYESİ",
             "saat": 6,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
           },
           {
             "ders": "HAVA ARACI AERODİNAMİĞİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "MESLEKİ YABANCI DİL (UÇAK BAKIM)",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "HAVACILIK MEVZUATI VE İNSAN FAKTÖRLERİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
             "ders": "UÇAK BAKIM UYGULAMALARI ATÖLYESİ",
             "saat": 2,
-            "kategori": "ORTAK DERSLER",
+            "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
           },
           {
@@ -106692,7 +106740,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -106767,7 +106815,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": false
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -107989,7 +108037,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true
@@ -108526,7 +108574,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "MESLEKİ YABANCI DİL(YİYECEK İÇECEK HİZMETLERİ)",
+            "ders": "MESLEKİ YABANCI DİL (YİYECEK İÇECEK HİZMETLERİ)",
             "saat": 2,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": false
@@ -109169,7 +109217,7 @@ export const STRICT_PDF_CURRICULUM_DB = {
             "baraj_ders": true
           },
           {
-            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM (***)",
+            "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
             "saat": 16,
             "kategori": "MESLEK DERSLERİ",
             "baraj_ders": true

@@ -1,49 +1,48 @@
-# 📘 MEB ÇÖP Müfredat Veritabanı Otomatik Güncelleme Rehberi
+# ⚠️ BU REHBER ARTIK GEÇERLİ DEĞİL
 
-Bu proje, Millî Eğitim Bakanlığı (MEB) tarafından her yıl veya dönem yayınlanan **Çerçeve Öğretim Programları (ÇÖP)** haftalık ders çizelgelerini otomatik olarak okuyup işleyen **akıllı bir derleme ve denetim motoruna** sahiptir.
+Müfredat güncelleme yöntemi değişti. Bu dosyadaki eski talimatı **uygulamayın.**
 
----
+## Doğru yöntem
 
-## 🚀 Gelecek Yıl Yeni Müfredat Yayınlandığında Ne Yapacaksınız?
+Proje ana klasöründeki **`Gelecek_Yil_Mufredat_Guncelle.bat`** dosyasına çift
+tıklayın. Ayrıntı için:
 
-Yeni öğretim yılında MEB yeni PDF'ler yayınladığında tek yapmanız gereken 2 basit adımdır:
-
-### 1. Adım: Yeni PDF Dosyalarını Klasöre Ekleyin
-MEB'in yayınladığı yeni ÇÖP PDF dosyalarını şu klasörlere yerleştirin:
-* **9. Sınıflar için:** `03_meb_mevzuat_ve_cizelgeler/mtegm_mesleki_ve_teknik/sinif_9/`
-* **10. Sınıflar için:** `03_meb_mevzuat_ve_cizelgeler/mtegm_mesleki_ve_teknik/sinif_10/`
-* **11. Sınıflar için:** `03_meb_mevzuat_ve_cizelgeler/mtegm_mesleki_ve_teknik/sinif_11/`
-* **12. Sınıflar için:** `03_meb_mevzuat_ve_cizelgeler/mtegm_mesleki_ve_teknik/sinif_12/`
+```
+04_veri_tabani_ve_araclar\pdf_donusturucu_hatti\OKUBENI.md
+```
 
 ---
 
-### 2. Adım: Tek Bir Komutla Motoru Çalıştırın
-Terminali açıp şu komutu yazın:
+## Neden değişti?
 
-```bash
+Eski rehber şu komutu söylüyordu:
+
+```
 python tools/update_curriculum_from_pdfs.py
 ```
 
+**Bu komutu çalıştırmayın.** Eski ayrıştırıcı, sütunları tablodaki çizgilerden
+ve sabit sıra numarasından ("Sütun 0 ➔ 9. Sınıf") tanıyordu. MEB PDF'lerinde
+bu yöntem **sütun kayması** üretiyor: bir dersin saati komşu sınıfın sütununa
+düşüyor ve hata hiçbir yerde görünmüyor.
+
+Yeni ayrıştırıcı (`04_veri_tabani_ve_araclar\pdf_donusturucu_hatti`) kelimeleri
+sütun başlıklarının **koordinatına** göre yerleştirir; bu hata sınıfı yapısal
+olarak ortadan kalkar. Ayrıca:
+
+* Kendi toplamı tutmayan sayfa çıktıya **yazılmaz** (sessiz yanlış veri yerine
+  açık eksik veri).
+* Üretilen veri, uygulamaya girmeden önce doğrulama testinden geçer.
+* Ayrıştırıcının kendisi gerileme testiyle korunur.
+
+Eski üretici bu yüzden **kilitlendi**: çalıştırıldığında bir uyarı basıp
+durur, veriye dokunmaz. (Kilidi açan bayrağı kullanmayın; kullanılırsa
+`strict_pdf_curriculum_db.js` eski ve hatalı içerikle ezilir.)
+
 ---
 
-## ⚙️ Motorun Otomatik Olarak Yaptığı İşlemler:
+## Canlıya gönderme
 
-Bu script tek başına çalıştığında arka planda sırasıyla:
-1. **İçindekiler ve Açıklama Sayfalarını Eler:** PDF'lerin başındaki gereksiz bölümleri atlar, yalnızca resmî haftalık ders tablolarını bulur.
-2. **Dizgi ve Heceleme Hatalarını Onarır:** MEB dizgicisi kelimeleri bölmüş olsa bile (`ATÖL YESİ`, `DİN KÜL TÜRÜ` vb.) otomatik temizleyip doğru birleştirir.
-3. **Sütun ve Sınıf Seviyesini Matematiksel Olarak Kilitler:** 
-   - Sütun 0 ➔ 9. Sınıf
-   - Sütun 1 ➔ 10. Sınıf
-   - Sütun 2 ➔ 11. Sınıf
-   - Sütun 3 ➔ 12. Sınıf (AMP & Staj)
-4. **Veritabanını Üretir:** `01_uygulama/js/strict_pdf_curriculum_db.js` dosyasını sıfır hatayla baştan oluşturur.
-5. **Uygulamayı Paketler:** `bundle.js` dosyasını günceller.
-6. **Otomatik Denetim Yapar:** 157 dalın tamamını test edip `%100 BAŞARILI` raporunu ekrana basar.
-
----
-
-## 🌐 Canlıya Gönderme (Opsiyonel):
-Yeni veritabanını doğrudan GitHub Pages canlı sunucunuza aktarmak için:
-```bash
-python deploy.py "2026-2027 Yeni MEB ÇÖP Müfredat Güncellemesi"
-```
+Eski rehberdeki `deploy.py` satırı da kaldırıldı: o dosyada açık metin bir
+GitHub erişim anahtarı bulunuyordu. Anahtar iptal edildi. Yayınlama adımını
+yeniden kurmadan bu komutu kullanmayın.

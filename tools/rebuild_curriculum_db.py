@@ -105,6 +105,11 @@ def sayfa_no(p):
     return p or 0
 
 
+# Ders sayilmayip disarida birakilan "isletmelerde mesleki egitim" satirlari.
+# Sessizce dusmesinler diye toplanip ozette sayilari basilir.
+ISLETME_SATIRLARI = []
+
+
 def kategori_duzelt(k):
     """Kaynak PDF ayiklamasindan gelen bosluk hatalarini duzeltir."""
     k = str(k or "").strip().upper()
@@ -113,11 +118,38 @@ def kategori_duzelt(k):
     return k or "ORTAK DERSLER"
 
 
+# Yalnizca yildizdan olusan dipnot isareti: (*) (**) (***) (****)
+# "(YIYECEK ICECEK HIZMETLERI)" gibi aciklamalar adin gercek parcasidir,
+# bu desen onlara dokunmaz.
+_DIPNOT_RE = re.compile(r"\s*\(\*+\)")
+
+
 def ders_temizle(ad):
-    """(*) baraj isaretini ayirir, adi normalize eder."""
+    """
+    Dipnot isaretlerini addan ayirir; baraj bilgisini dondurur.
+
+    BARAJ YALNIZCA (*) DEMEKTIR. Kaynak PDF'in kendi dipnotu:
+    "(*) Milli Egitim Bakanligi Ortaogretim Kurumlari Yonetmeligi uyarinca
+    yilsonu basari puani ile basarili sayilamayacak derslerdir."
+    242 PDF'in TAMAMINDAKI dipnotlar tarandi; isaretlerin anlami sabittir:
+      (**)  "Secmeli meslek dersleri ... Cerceve Ogretim Programinin Uygulama
+            Esaslari'nda yer almaktadir." (1126 dipnotun ~%97'si.)
+      (***) "Il istihdam ve mesleki egitim kurulu tarafindan belirlenen
+            alan/dallarda 11. SINIFTA Isletmelerde Mesleki Egitim dersi
+            uygulanir." (345 dipnotun ~%85'i.) Bu bir KURALDIR; ayri bir
+            cizelge olarak zaten yakalanir, bkz. varyant alani =
+            "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin".
+    Ikisi de baraj DEGILDIR ama ADIN da parcasi degildir.
+
+    ADDAN HEPSI SILINIR. Once yalnizca "(*)" siliniyordu; geriye kalan
+    "(***)" yuzunden ayni ders veri tabaninda UC AYRI AD olarak duruyordu
+    ("ISLETMELERDE MESLEKI EGITIM" 121, "... (***)" 107, "... (****)" 1).
+    Ad bir ANAHTAR: curriculumEngine dersi adiyla eslestirir, yuk boylece
+    var olmayan derslere bolunur.
+    """
     ham = str(ad or "").strip()
     baraj = "(*)" in ham
-    temiz = ham.replace("(*)", "").strip()
+    temiz = _DIPNOT_RE.sub("", ham).strip()
     temiz = re.sub(r"\s+", " ", temiz)
     return temiz, baraj
 
@@ -164,6 +196,22 @@ def baslik_uret(alan_adi, dal_adi, program, varyant):
 def kayit_to_cizelge(rec, alan_adi, program):
     dersler = []
     for c in rec.get("dersler", []):
+        # KATEGORISI None OLAN SATIR DERS DEGILDIR. Ayristirici bunu bilerek
+        # bos birakir: satir cizelgenin TOPLAM DERS SAATI satirinin ALTINDA
+        # basilmistir ve cizelgenin kendi toplamina DAHIL DEGILDIR. Kulliyatta
+        # tek ornegi var: protokol cizelgelerindeki "ISLETMELERDE MESLEKI
+        # EGITIM" (24 saat, 9 PDF'de 17 satir).
+        #
+        # Kategori bosken kategori_duzelt() bunu "ORTAK DERSLER" yapardi ve
+        # 24 saat siniftaki ders yukune eklenirdi: 43 saatlik cizelge 67 saat
+        # gorunur, o dallarin normu sisirilirdi. Isletmede mesleki egitim
+        # sinifta okutulan ders degil, KOORDINATORLUK gorevidir ve ayri
+        # kurallara tabidir; ders yuku olarak sayilamaz.
+        if c.get("kategori") is None:
+            ISLETME_SATIRLARI.append(
+                (rec.get("kaynak_dosya"), rec.get("kaynak_sayfa"),
+                 c.get("ders_adi"), c.get("haftalik_saat")))
+            continue
         temiz, baraj = ders_temizle(c.get("ders_adi"))
         if not temiz:
             continue
@@ -328,6 +376,8 @@ def main():
     print("  cizelge            : %d" % top_cizelge)
     print("  ders satiri        : %d" % top_ders)
     print("  atlanan ek tablo   : %d  (tablo_turu / dal_adi yok)" % atlanan_tablo)
+    print("  isletmede mes.eg.  : %d satir  (ders yuku disi, koordinatorluk)"
+          % len(ISLETME_SATIRLARI))
     print("  dosya boyutu       : %.2f MB" % (os.path.getsize(OUT_FILE) / 1048576.0))
     if rapor_doldurma:
         print("\n  ALAN ADI DEGISIKLIGI NEDENIYLE DOLDURULAN SINIFLAR:")

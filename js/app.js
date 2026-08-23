@@ -1289,7 +1289,9 @@ class MebNormApplication {
         const subeler = appState.state.subeler || [];
         const existingTeachers = appState.state.mevcutOgretmenler || {};
         const schoolType = appState.state.okulBilgisi.okulTuru || "";
-        const coordinatorMap = appState.state.koordinatorlukYukleri || {};
+        // Kopya: adminOptions anahtarı canlı state'e sızarsa branş listesi kirlenir.
+        const coordinatorMap = { ...(appState.state.koordinatorlukYukleri || {}) };
+        coordinatorMap.adminOptions = appState.state.okulBilgisi.adminOptions || {};
 
         const normResult = normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
 

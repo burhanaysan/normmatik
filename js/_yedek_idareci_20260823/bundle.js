@@ -126401,45 +126401,6 @@ class NormEngine {
             }
         });
 
-        // Madde 22/6: "Alanlara gore ogretmen norm kadrolari, YONETICILERIN GIRMIS
-        // OLDUGU DERS SAATLERI ilgili alanin ders yukunden DUSULEREK belirlenir."
-        //
-        // Yoneticinin okuttugu saat, o brans icin ayrica ogretmen normu dogurmaz;
-        // dusulmezse norm oldugundan yuksek cikar. Dusum, brans yukunun mevcut
-        // Madde 18 (genel) / Madde 19 (atolye) oranina gore paylastirilir; boylece
-        // hangi kovadan dusuldugu keyfi olmaz.
-        const adminTeachingMap = (coordinatorHoursMap && coordinatorHoursMap.adminOptions
-            && coordinatorHoursMap.adminOptions.yoneticiDersYukleri) || {};
-        const branchAdminDeduction = {};
-
-        Object.keys(adminTeachingMap).forEach(branchName => {
-            const istenen = parseInt(adminTeachingMap[branchName], 10) || 0;
-            if (istenen <= 0) return;
-
-            const mevcutYuk = branchLoadMap[branchName] || 0;
-            if (mevcutYuk <= 0) return;
-
-            // Yonetici saati brans yukunden buyuk olamaz: yuk eksiye dusemez.
-            const dusulen = Math.min(istenen, mevcutYuk);
-            const split = branchLoadSplit[branchName] || { genel: 0, atolye: 0 };
-            const genelPay = Math.min(split.genel, Math.round(dusulen * (split.genel / mevcutYuk)));
-            const atolyePay = Math.min(split.atolye, dusulen - genelPay);
-
-            branchLoadMap[branchName] = mevcutYuk - dusulen;
-            split.genel -= genelPay;
-            split.atolye -= atolyePay;
-            branchAdminDeduction[branchName] = dusulen;
-
-            (branchCourseDetails[branchName] = branchCourseDetails[branchName] || []).push({
-                sectionName: "Yönetici Ders Saati",
-                courseName: "Yöneticilerin okuttuğu dersler",
-                baseHours: -dusulen,
-                calculatedLoad: -dusulen,
-                note: `MEB Norm Kadro Yön. Md. 22/6: ${dusulen} saat branş ders yükünden düşüldü${dusulen < istenen ? ` (girilen ${istenen} saat, branş yükünden fazla olduğu için sınırlandı)` : ""}`,
-                isAdminDeduction: true
-            });
-        });
-
         const branchReport = [];
         let totalCalculatedNorm = 0;
         let totalCurrentTeachers = 0;
@@ -126508,10 +126469,8 @@ class NormEngine {
             const totalHours = branchLoadMap[branchName] || 0;
             const currentTeachers = parseInt(existingTeachers[branchName] || 0, 10);
 
-            // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin.
-            // Ancak yükü Md. 22/6 düşümüyle sıfırlanan branş listede KALIR; aksi hâlde
-            // branş sessizce kaybolur ve normun neden düştüğü görünmez.
-            if (totalHours <= 0 && !branchAdminDeduction[branchName]) {
+            // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin
+            if (totalHours <= 0) {
                 return;
             }
 
@@ -126546,7 +126505,6 @@ class NormEngine {
                 calculatedNorm,
                 currentTeachers,
                 coordinatorHours: branchCoordinatorMap[branchName] || 0,
-                adminDeductedHours: branchAdminDeduction[branchName] || 0,
                 diff,
                 statusText,
                 statusType,
@@ -126597,34 +126555,15 @@ class NormEngine {
         const isIlkokul = sType.includes("ilkokul");
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isBirlestirilmis = !!options.isBirlestirilmis;
-        const isKampusIcinde = !!options.isKampusIcinde;
-        // Ayni binada baska bir egitim kurumu var VE ogrenci sayisi en fazla olan
-        // bu okul DEGIL. Md. 5/3 mudur normunu yalnizca en kalabalik olana verir.
-        const isAyniBinadaKucuk = !!options.isAyniBinadaKucuk;
 
-        // Md. 22/1-b: mudur yardimcisi normuna esas ogrenci sayisina, okula
-        // kayitli ana sinifi / uygulama sinifi / alt ozel egitim sinifi
-        // ogrencileri de DAHIL edilir. Bu ogrenciler subelerde ayri girilmedigi
-        // icin ayrica alinir; girilmezse norm oldugundan dusuk cikar.
-        const ekOgrenci = Math.max(0, parseInt(options.ekSinifOgrencileri, 10) || 0);
-        const count = (parseInt(totalStudents, 10) || 0) + ekOgrenci;
+        const count = parseInt(totalStudents, 10) || 0;
         const explanations = [];
-
-        if (ekOgrenci > 0) {
-            explanations.push(`Öğrenci sayısına ana sınıfı/uygulama sınıfı/alt özel eğitim sınıfı öğrencileri dâhil edildi: +${ekOgrenci} (Md. 22/1-b). Norma esas toplam: ${count}.`);
-        }
 
         // 1. Müdür Normu (Madde 5)
         let mudurNorm = 1;
         if (isBirlestirilmis) {
             mudurNorm = 0;
-            explanations.push("Birleştirilmiş sınıf uygulaması yapılıyor: Müdür normu verilmez (Müdür Yetkili Öğretmen görevlendirilir - Md. 5/1 & Md. 22/5).");
-        } else if (isKampusIcinde) {
-            mudurNorm = 0;
-            explanations.push("Eğitim kampüsü içindeki kurum: Müdür normu kampüsün tamamına verilir, kuruma ayrıca verilmez (Md. 5/5).");
-        } else if (isAyniBinadaKucuk) {
-            mudurNorm = 0;
-            explanations.push("Aynı binada faaliyet gösteren kurumlardan öğrenci sayısı en fazla olan bu okul değil: Müdür normu verilmez (Md. 5/3).");
+            explanations.push("Birleştirilmiş sınıflı ilkokul: Müdür normu verilmez (Müdür Yetkili Öğretmen görevlendirilir - Md. 5/1 & Md. 22/5).");
         } else {
             explanations.push("Bağımsız eğitim kurumu: 1 Müdür norm kadrosu (Md. 5/1).");
         }
@@ -126695,10 +126634,6 @@ class NormEngine {
             extraMdrYrd += 1;
             extraDetails.push("Taşıma Eğitim Merkezi (+1 Md. 14/1-e)");
         }
-        if (isKampusIcinde) {
-            extraMdrYrd += 1;
-            extraDetails.push("Eğitim Kampüsü İçindeki Kurum (+1 Md. 14/1-f)");
-        }
 
         let totalMdrYrd = baseMdrYrd + extraMdrYrd;
 
@@ -126713,56 +126648,17 @@ class NormEngine {
             explanations.push(`İlave Müdür Yardımcısı Hakları: +${extraMdrYrd} [${extraDetails.join(', ')}]`);
         }
 
-        // 5. Md. 22/1-a: "Mudur norm kadrosu verilme sartlarini tasimayan hicbir
-        //    egitim kurumuna mudur yardimcisi normu verilmez."
-        //
-        // Egitim kampusu bu kuralin ISTISNASIDIR: Md. 5/5 kampus icindeki kuruma
-        // mudur normu vermez, ama Md. 22/7 her kurumun mudur yardimcisi normunun
-        // "birbirinden bagimsiz olarak" belirlenecegini ACIKCA soyler. Sonraki ve
-        // ozel hukum oldugu icin kampuste kapi uygulanmaz.
-        if (mudurNorm === 0 && !isKampusIcinde) {
-            if (totalMdrYrd > 0) {
-                explanations.push(`Müdür normu verilmeyen kuruma müdür yardımcısı normu da verilmez; hesaplanan ${totalMdrYrd} norm sıfırlandı (Md. 22/1-a).`);
-            }
-            baseMdrYrd = 0;
-            extraMdrYrd = 0;
-            totalMdrYrd = 0;
-        }
-
-        // 6. Müdür Başyardımcısı Normu (Madde 6)
+        // 5. Müdür Başyardımcısı Normu (Madde 6)
         let mudurBasYrd = 0;
-        if (isKampusIcinde) {
-            explanations.push("Eğitim kampüsü içindeki kuruma müdür başyardımcısı normu verilmez (Md. 6/2).");
-        } else if (mudurNorm === 0) {
-            explanations.push("Müdür normu verilmeyen kuruma müdür başyardımcısı normu da verilmez (Md. 22/1-a).");
-        } else if (options.isPansiyonlu) {
+        if (options.isPansiyonlu) {
             mudurBasYrd = 1;
             explanations.push("Yatılı/Pansiyonlu Kurum: 1 Müdür Başyardımcısı normu (Md. 6/1-a).");
         } else if (totalMdrYrd >= 6) {
-            // Md. 6/1-b metni "mudur yardimcisi sayisi ALTI olan" der. 2022'de tavan
-            // 1500+ okullarda 7'ye cikinca 7 mdr. yrd. olan okul lafzen kapsam disi
-            // kalir. Amaca uygun yorum tercih edildi: 6 hak ediyorsa 7 de eder.
             mudurBasYrd = 1;
-            explanations.push(`Müdür Yardımcısı sayısı ${totalMdrYrd} (6 ve üzeri): 1 Müdür Başyardımcısı normu (Md. 6/1-b).`);
+            explanations.push("Müdür Yardımcısı sayısı 6 olan kurum: 1 Müdür Başyardımcısı normu (Md. 6/1-b).");
         }
 
         const grandTotal = mudurNorm + mudurBasYrd + totalMdrYrd;
-
-        // 7. Mevcut kadro ile karsilastirma (ogretmenlerde zaten yapiliyor).
-        const mevcut = options.mevcutIdareciler || {};
-        const mevcutMudur = Math.max(0, parseInt(mevcut.mudur, 10) || 0);
-        const mevcutBasyrd = Math.max(0, parseInt(mevcut.mudurBasyardimcisi, 10) || 0);
-        const mevcutMdrYrd = Math.max(0, parseInt(mevcut.mudurYardimcisi, 10) || 0);
-        const mevcutToplam = mevcutMudur + mevcutBasyrd + mevcutMdrYrd;
-
-        const kiyas = (norm, adet) => {
-            const fark = adet - norm;
-            return {
-                norm, mevcut: adet, fark,
-                durum: fark === 0 ? "tam" : (fark > 0 ? "fazla" : "ihtiyac"),
-                etiket: fark === 0 ? "Tam" : (fark > 0 ? `${fark} Fazla` : `${Math.abs(fark)} İhtiyaç`)
-            };
-        };
 
         return {
             mudur: mudurNorm,
@@ -126771,13 +126667,6 @@ class NormEngine {
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
             toplamYonetici: grandTotal,
-            normaEsasOgrenciSayisi: count,
-            karsilastirma: {
-                mudur: kiyas(mudurNorm, mevcutMudur),
-                mudurBasyardimcisi: kiyas(mudurBasYrd, mevcutBasyrd),
-                mudurYardimcisi: kiyas(totalMdrYrd, mevcutMdrYrd),
-                toplam: kiyas(grandTotal, mevcutToplam)
-            },
             explanations: explanations
         };
     }
@@ -126800,13 +126689,6 @@ class MebReportsEngine {
         this.curriculum = curriculumEngine;
     }
 
-    // Kopya: adminOptions anahtarı canlı state'e sızarsa branş listesi kirlenir.
-    buildCoordinatorMap(state) {
-        const map = { ...(state.koordinatorlukYukleri || {}) };
-        map.adminOptions = (state.okulBilgisi || {}).adminOptions || {};
-        return map;
-    }
-
     // --- 1. OKUL İCMAL VE YÖNETİCİ ÖZETİ RAPORU ---
     generateExecutiveSummary(state) {
         const subeler = state.subeler || [];
@@ -126814,7 +126696,8 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const coordinatorMap = this.buildCoordinatorMap(state);
+        const coordinatorMap = { ...(state.koordinatorlukYukleri || {}) };
+        coordinatorMap.adminOptions = schoolInfo.adminOptions || {};
 
         const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
         
@@ -126886,7 +126769,7 @@ class MebReportsEngine {
             return a.subeAdi.localeCompare(b.subeAdi, 'tr');
         });
 
-        const normResult = this.normEngine.calculateSchoolNorms(rawSubeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(rawSubeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
         const branchReportMap = {};
         normResult.branchReport.forEach(b => {
             branchReportMap[b.branchName] = b;
@@ -127019,7 +126902,7 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
 
         const filteredBranches = normResult.branchReport.filter(b => {
             if (targetBranch === "ALL") return true;
@@ -127134,7 +127017,7 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
 
         const neededList = normResult.branchReport.filter(b => b.difference < 0).map(b => ({
             branchName: b.branchName,
@@ -127312,24 +127195,13 @@ class MebReportsEngine {
 
         // Yönetici Normları
         if (execData.adminNorms) {
-            const an = execData.adminNorms;
-            const kr = an.karsilastirma;
             wsExecRows.push(["--- MEB YÖNETİCİ VE İDARECİ NORM KADRO CETVELİ (MD. 5 - 14) ---"]);
-            wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Mevzuat Açıklaması"]);
-            wsExecRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-            wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
-            wsExecRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
-            wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
-            (an.explanations || []).forEach(exp => wsExecRows.push(["", "", "", "", exp]));
+            wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Yasal Dayanak ve Mevzuat Açıklaması"]);
+            wsExecRows.push(["Okul Müdürü", execData.adminNorms.mudur, "MEB Norm Kadro Yön. Madde 5"]);
+            wsExecRows.push(["Müdür Başyardımcısı", execData.adminNorms.mudurBasyardimcisi, "MEB Norm Kadro Yön. Madde 6"]);
+            wsExecRows.push(["Müdür Yardımcısı (Toplam)", execData.adminNorms.mudurYardimcisiTotal, `Temel: ${execData.adminNorms.mudurYardimcisiBase} + İlave: ${execData.adminNorms.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
+            wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", execData.adminNorms.toplamYonetici, "—"]);
             wsExecRows.push([]);
-
-            const dusumSatirlari = execData.branchReport.filter(b => b.adminDeductedHours > 0);
-            if (dusumSatirlari.length > 0) {
-                wsExecRows.push(["--- YÖNETİCİLERİN OKUTTUĞU DERSLERİN BRANŞ YÜKÜNDEN DÜŞÜLMESİ (MD. 22/6) ---"]);
-                wsExecRows.push(["Branş Adı", "Düşülen Saat", "Düşüm Sonrası Haftalık Ders Yükü"]);
-                dusumSatirlari.forEach(b => wsExecRows.push([b.branchName, b.adminDeductedHours, b.totalHours]));
-                wsExecRows.push([]);
-            }
         }
 
         // Branş Norm Tablosu
@@ -127543,14 +127415,12 @@ class MebReportsEngine {
 
         } else if (reportData.reportType === "EXECUTIVE_SUMMARY" || reportData.reportType === "BRANCH_DETAIL") {
             if (reportData.adminNorms && reportData.reportType === "EXECUTIVE_SUMMARY") {
-                const an = reportData.adminNorms;
-                const kr = an.karsilastirma;
                 csvRows.push(["--- YÖNETİCİ VE İDARECİ NORM KADRO DURUMU (MEB MD. 5 - 14) ---"]);
-                csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Açıklama"]);
-                csvRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-                csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
-                csvRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
-                csvRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
+                csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Yasal Dayanak ve Açıklama"]);
+                csvRows.push(["Okul Müdürü", reportData.adminNorms.mudur, "MEB Norm Kadro Yön. Madde 5"]);
+                csvRows.push(["Müdür Başyardımcısı", reportData.adminNorms.mudurBasyardimcisi, "MEB Norm Kadro Yön. Madde 6"]);
+                csvRows.push(["Müdür Yardımcısı (Toplam)", reportData.adminNorms.mudurYardimcisiTotal, `Temel: ${reportData.adminNorms.mudurYardimcisiBase} + İlave: ${reportData.adminNorms.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
+                csvRows.push(["TOPLAM YÖNETİCİ NORMU", reportData.adminNorms.toplamYonetici, "—"]);
                 csvRows.push([]);
             }
 
@@ -127839,12 +127709,7 @@ class AppStateService {
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
                     isTasimaMerkezi: false,
-                    isBirlestirilmis: false,
-                    isKampusIcinde: false,
-                    isAyniBinadaKucuk: false,
-                    ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
-                    yoneticiDersYukleri: {}
+                    isBirlestirilmis: false
                 }
             },
             subeler: [], // [{ id, subeAdi, sinifSeviyesi, ogrenciSayisi, alanId, dalAdi, zorunluDersler, secmeliDersler, rehberlikVarMi }]
@@ -128031,12 +127896,7 @@ class AppStateService {
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
                     isTasimaMerkezi: false,
-                    isBirlestirilmis: false,
-                    isKampusIcinde: false,
-                    isAyniBinadaKucuk: false,
-                    ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
-                    yoneticiDersYukleri: {}
+                    isBirlestirilmis: false
                 }
             },
             subeler: [
@@ -131404,29 +131264,6 @@ class UIComponentManager {
         const cultureRowsHtml = cultureBranches.map(b => renderBranchRow(b, false)).join("");
         const vocRowsHtml = vocBranches.map(b => renderBranchRow(b, true)).join("");
 
-        // Md. 22/6: yöneticilerin okuttuğu ders saatleri branş yükünden düşülür.
-        const adminHoursMap = adminOpts.yoneticiDersYukleri || {};
-        const mevcutIdareci = adminOpts.mevcutIdareciler || {};
-        const adminTeachingRowsHtml = [
-            ...cultureBranches.map(b => ({ name: b, isVoc: false })),
-            ...vocBranches.map(b => ({ name: b, isVoc: true }))
-        ].map(({ name, isVoc }) => {
-            const h = parseInt(adminHoursMap[name] || 0, 10);
-            const active = h > 0;
-            return `
-                <div class="admin-teaching-item" data-search="${name.toLowerCase()}" style="display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border-subtle); background: ${active ? 'rgba(2, 132, 199, 0.07)' : 'transparent'}; border-left: 3px solid ${active ? '#0284c7' : 'transparent'}; border-radius: 6px; margin-bottom: 0.25rem;">
-                    <div style="display: flex; align-items: center; gap: 0.45rem;">
-                        <span style="font-size: 0.85rem;">${isVoc ? '🟣' : '📘'}</span>
-                        <span style="font-size: 0.82rem; font-weight: ${active ? '700' : '600'}; color: var(--text-main);">${name}</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <input type="number" class="form-control admin-teaching-input" data-branch="${name}" value="${h}" min="0" max="40" style="width: 68px; padding: 0.2rem 0.35rem; text-align: center; font-weight: 800; color: ${active ? '#0284c7' : 'var(--text-main)'};">
-                        <span style="font-size: 0.72rem; color: var(--text-muted);">Saat</span>
-                    </div>
-                </div>
-            `;
-        }).join("");
-
         const allVocBranches = isVocationalSchool ? vocBranches : [];
         const activeVocBranchesSet = new Set();
         if (isVocationalSchool) {
@@ -131577,73 +131414,6 @@ class UIComponentManager {
                                         <div style="font-size: 0.68rem; color: var(--text-muted);">+1 İlave Müdür Yardımcısı (Md. 14/1-e)</div>
                                     </div>
                                 </label>
-
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-kampus" ${adminOpts.isKampusIcinde ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🏫 Eğitim Kampüsü İçinde Yer Alan Kurum</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Müdür ve Müdür Başyardımcısı normu verilmez (Md. 5/5, 6/2), +1 İlave Müdür Yardımcısı (Md. 14/1-f)</div>
-                                    </div>
-                                </label>
-
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-aynibina" ${adminOpts.isAyniBinadaKucuk ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🏢 Aynı Binada Başka Kurum Var (Öğrencisi Fazla Olan Bu Okul Değil)</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Müdür normu öğrenci sayısı en fazla olan kuruma verilir (Md. 5/3)</div>
-                                    </div>
-                                </label>
-
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-birlestirilmis" ${adminOpts.isBirlestirilmis ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🔗 Birleştirilmiş Sınıf Uygulaması Yapan Kurum</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Müdür normu verilmez; müdür yetkili öğretmen görevlendirilir (Md. 5)</div>
-                                    </div>
-                                </label>
-                            </div>
-
-                            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
-                                <div style="font-size: 0.78rem; font-weight: 800; color: #0284c7; margin-bottom: 0.15rem;">👥 Norma Esas Ek Öğrenci Sayısı (Md. 22/1-b)</div>
-                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
-                                    Müdür yardımcısı normuna esas öğrenci sayısına, okul bünyesindeki ana sınıfı, uygulama sınıfı ve alt özel eğitim sınıfı öğrencileri de dâhil edilir. Şubelerden gelen ${totalStudents} öğrenciye eklenecek sayıyı yazın.
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 0.4rem;">
-                                    <input type="number" id="inp-admin-ek-ogrenci" value="${parseInt(adminOpts.ekSinifOgrencileri || 0, 10)}" min="0" max="2000" class="form-control" style="width: 96px; padding: 0.25rem 0.35rem; text-align: center; font-weight: 800; color: #0284c7;">
-                                    <span style="font-size: 0.72rem; color: var(--text-muted);">Öğrenci (ana sınıfı / uygulama sınıfı / alt özel eğitim sınıfı)</span>
-                                </div>
-                            </div>
-
-                            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
-                                <div style="font-size: 0.78rem; font-weight: 800; color: #7c3aed; margin-bottom: 0.15rem;">🗂️ Kurumda Hâlen Görevli İdareci Sayısı</div>
-                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
-                                    Norm ile karşılaştırılıp "İhtiyaç / Fazla" durumu gösterilir. Bilinmiyorsa 0 bırakın.
-                                </div>
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">OKUL MÜDÜRÜ</div>
-                                        <input type="number" id="inp-mevcut-mudur" value="${parseInt(mevcutIdareci.mudur || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #0284c7;">
-                                    </div>
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR BAŞYRD.</div>
-                                        <input type="number" id="inp-mevcut-basyrd" value="${parseInt(mevcutIdareci.mudurBasyardimcisi || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #7c3aed;">
-                                    </div>
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR YARDIMCISI</div>
-                                        <input type="number" id="inp-mevcut-mdryrd" value="${parseInt(mevcutIdareci.mudurYardimcisi || 0, 10)}" min="0" max="20" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #059669;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
-                                <div style="font-size: 0.78rem; font-weight: 800; color: #b45309; margin-bottom: 0.15rem;">📉 Yöneticilerin Okuttuğu Ders Saatleri (Md. 22/6)</div>
-                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
-                                    Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir. Hangi branşta kaç saat derse giriliyorsa o branşa yazın.
-                                </div>
-                                <input type="text" id="admin-teaching-search" placeholder="🔍 Branş Ara..." class="form-control" style="width: 100%; padding: 0.35rem 0.65rem; font-size: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem;">
-                                <div id="admin-teaching-container" style="max-height: 26vh; overflow-y: auto; padding-right: 0.25rem;">
-                                    ${adminTeachingRowsHtml}
-                                </div>
                             </div>
 
                             <div id="admin-norm-live-preview" style="background: var(--bg-card); border: 1.5px solid #2563eb; border-radius: 8px; padding: 0.75rem; margin-top: 0.5rem;">
@@ -131727,44 +131497,11 @@ class UIComponentManager {
                     isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                     hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                     hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                    isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
-                    isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
-                    isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
-                    isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
-                    ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
-                    mevcutIdareciler: {
-                        mudur: parseInt(document.getElementById("inp-mevcut-mudur")?.value, 10) || 0,
-                        mudurBasyardimcisi: parseInt(document.getElementById("inp-mevcut-basyrd")?.value, 10) || 0,
-                        mudurYardimcisi: parseInt(document.getElementById("inp-mevcut-mdryrd")?.value, 10) || 0
-                    }
+                    isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked
                 };
 
                 const normEng = this.norm || this.normEngine || (typeof window !== 'undefined' ? window.normEngine : null);
                 const res = normEng ? normEng.calculateAdminNorms(schoolType, totalStudents, opts) : { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisiTotal: 1, toplamYonetici: 2, explanations: [] };
-
-                const k = res.karsilastirma;
-                const mevcutToplam = opts.mevcutIdareciler.mudur + opts.mevcutIdareciler.mudurBasyardimcisi + opts.mevcutIdareciler.mudurYardimcisi;
-                const kiyasCell = (baslik, c) => {
-                    const renk = c.durum === "tam" ? "#16a34a" : (c.durum === "fazla" ? "#b45309" : "#dc2626");
-                    const zemin = c.durum === "tam" ? "rgba(22, 163, 74, 0.1)" : (c.durum === "fazla" ? "rgba(180, 83, 9, 0.1)" : "rgba(220, 38, 38, 0.1)");
-                    return `
-                        <div style="background: ${zemin}; padding: 0.35rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                            <div style="font-size: 0.64rem; color: var(--text-muted);">${baslik}</div>
-                            <div style="font-size: 0.72rem; font-weight: 800; color: ${renk};">${c.mevcut} / ${c.norm} · ${c.etiket}</div>
-                        </div>
-                    `;
-                };
-                const kiyasHtml = (k && mevcutToplam > 0) ? `
-                    <div style="border-top: 1px solid var(--border-subtle); margin-bottom: 0.5rem; padding-top: 0.45rem;">
-                        <div style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted); margin-bottom: 0.3rem;">MEVCUT / NORM KARŞILAŞTIRMASI</div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; text-align: center;">
-                            ${kiyasCell("MÜDÜR", k.mudur)}
-                            ${kiyasCell("BAŞYRD.", k.mudurBasyardimcisi)}
-                            ${kiyasCell("MDR. YRD.", k.mudurYardimcisi)}
-                            ${kiyasCell("TOPLAM", k.toplam)}
-                        </div>
-                    </div>
-                ` : '';
 
                 previewEl.innerHTML = `
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.35rem;">
@@ -131785,7 +131522,6 @@ class UIComponentManager {
                             <div style="font-size: 1.15rem; font-weight: 800; color: #059669;">${res.mudurYardimcisiTotal}</div>
                         </div>
                     </div>
-                    ${kiyasHtml}
                     ${res.explanations && res.explanations.length > 0 ? `
                         <div style="font-size: 0.68rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem;">
                             ${res.explanations.map(e => `<div>• ${e}</div>`).join('')}
@@ -131804,28 +131540,9 @@ class UIComponentManager {
             "chk-admin-tamgun",
             "chk-admin-stajyer100",
             "chk-admin-sigortali500",
-            "chk-admin-tasima",
-            "chk-admin-kampus",
-            "chk-admin-aynibina",
-            "chk-admin-birlestirilmis"
+            "chk-admin-tasima"
         ].forEach(id => {
             document.getElementById(id)?.addEventListener("change", updateAdminPreview);
-        });
-        [
-            "inp-admin-ek-ogrenci",
-            "inp-mevcut-mudur",
-            "inp-mevcut-basyrd",
-            "inp-mevcut-mdryrd"
-        ].forEach(id => {
-            document.getElementById(id)?.addEventListener("input", updateAdminPreview);
-        });
-
-        document.getElementById("admin-teaching-search")?.addEventListener("input", (e) => {
-            const query = (e.currentTarget.value || "").toLowerCase().trim();
-            document.querySelectorAll("#admin-teaching-container .admin-teaching-item").forEach(item => {
-                const searchTxt = item.dataset.search || "";
-                item.style.display = (!query || searchTxt.includes(query)) ? "flex" : "none";
-            });
         });
 
         document.getElementById("staff-branch-search")?.addEventListener("input", (e) => {
@@ -131869,29 +131586,13 @@ class UIComponentManager {
                 this.state.setCoordinatorHours(branch, val);
             });
 
-            const yoneticiDersYukleri = {};
-            document.querySelectorAll(".admin-teaching-input").forEach(input => {
-                const saat = parseInt(input.value, 10) || 0;
-                if (saat > 0) yoneticiDersYukleri[input.dataset.branch] = saat;
-            });
-
             const adminOptsToSave = {
                 isPansiyonlu: !!document.getElementById("chk-admin-pansiyon")?.checked,
                 hasDonerSermaye: !!document.getElementById("chk-admin-doner")?.checked,
                 isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                 hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                 hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
-                isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
-                isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
-                isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
-                ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
-                mevcutIdareciler: {
-                    mudur: parseInt(document.getElementById("inp-mevcut-mudur")?.value, 10) || 0,
-                    mudurBasyardimcisi: parseInt(document.getElementById("inp-mevcut-basyrd")?.value, 10) || 0,
-                    mudurYardimcisi: parseInt(document.getElementById("inp-mevcut-mdryrd")?.value, 10) || 0
-                },
-                yoneticiDersYukleri: yoneticiDersYukleri
+                isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked
             };
             this.state.setAdminOptions(adminOptsToSave);
 
@@ -133016,25 +132717,6 @@ class UIComponentManager {
                         <div style="font-size: 0.68rem; color: var(--text-muted);">Temel: ${data.adminNorms.mudurYardimcisiBase} + İlave Haklar: ${data.adminNorms.mudurYardimcisiExtra}</div>
                     </div>
                 </div>
-
-                ${(data.adminNorms.karsilastirma && data.adminNorms.karsilastirma.toplam.mevcut > 0) ? `
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem;">
-                        ${[
-                            ["OKUL MÜDÜRÜ", data.adminNorms.karsilastirma.mudur],
-                            ["MÜDÜR BAŞYRD.", data.adminNorms.karsilastirma.mudurBasyardimcisi],
-                            ["MÜDÜR YRD.", data.adminNorms.karsilastirma.mudurYardimcisi],
-                            ["TOPLAM", data.adminNorms.karsilastirma.toplam]
-                        ].map(([baslik, c]) => {
-                            const renk = c.durum === "tam" ? "#16a34a" : (c.durum === "fazla" ? "#b45309" : "#dc2626");
-                            return `
-                                <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-left: 3px solid ${renk}; border-radius: 8px; padding: 0.45rem 0.6rem;">
-                                    <div style="font-size: 0.66rem; font-weight: 700; color: var(--text-muted);">${baslik} (Mevcut / Norm)</div>
-                                    <div style="font-size: 0.85rem; font-weight: 800; color: ${renk};">${c.mevcut} / ${c.norm} · ${c.etiket}</div>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                ` : ''}
 
                 ${data.adminNorms.explanations && data.adminNorms.explanations.length > 0 ? `
                     <div style="font-size: 0.72rem; color: var(--text-muted); background: var(--bg-card); border-radius: 6px; padding: 0.5rem 0.75rem; border-left: 3px solid #2563eb; display: flex; flex-direction: column; gap: 0.2rem;">
@@ -135721,9 +135403,7 @@ class MebNormApplication {
         const subeler = appState.state.subeler || [];
         const existingTeachers = appState.state.mevcutOgretmenler || {};
         const schoolType = appState.state.okulBilgisi.okulTuru || "";
-        // Kopya: adminOptions anahtarı canlı state'e sızarsa branş listesi kirlenir.
-        const coordinatorMap = { ...(appState.state.koordinatorlukYukleri || {}) };
-        coordinatorMap.adminOptions = appState.state.okulBilgisi.adminOptions || {};
+        const coordinatorMap = appState.state.koordinatorlukYukleri || {};
 
         const normResult = normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
 

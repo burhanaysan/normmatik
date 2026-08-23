@@ -204,6 +204,118 @@ check("Atölye yükü ATÖLYE kovasında", mak.workshopHours, 20);
 check("Atölye yükü Md.18'e sızmadı", mak.generalHours, 0);
 check("20s atölye -> 1 norm (Md.19: 15-40 ➔ 1)", mak.calculatedNorm, 1);
 
+/* =========================================================================
+ * MADDE 5 - 14 & 22 — YÖNETİCİ (İDARECİ) NORM KADROSU
+ * ========================================================================= */
+section("MADDE 9 & 10 — Temel müdür yardımcısı normu (ortaokul/lise)");
+
+const adm = (ogr, opts = {}, tur = "anadolu_lisesi") => engine.calculateAdminNorms(tur, ogr, opts);
+
+check("500 öğrenci -> 1 Mdr. Yrd. (Md. 10/1-a)", adm(500).mudurYardimcisiTotal, 1);
+check("501 öğrenci -> 2 Mdr. Yrd. (Md. 10/1-b)", adm(501).mudurYardimcisiTotal, 2);
+check("1000 öğrenci -> 2 Mdr. Yrd.", adm(1000).mudurYardimcisiTotal, 2);
+check("1001 öğrenci -> 3 Mdr. Yrd. (Md. 10/1-c)", adm(1001).mudurYardimcisiTotal, 3);
+check("1501 öğrenci -> 4 Mdr. Yrd. (Md. 10/1-ç)", adm(1501).mudurYardimcisiTotal, 4);
+check("2001 öğrenci -> 5 Mdr. Yrd. (Md. 10/1-d)", adm(2001).mudurYardimcisiTotal, 5);
+check("Bağımsız kurumda müdür normu 1 (Md. 5/1)", adm(500).mudur, 1);
+check("Şart yoksa müdür başyardımcısı 0", adm(500).mudurBasyardimcisi, 0);
+check("500 öğrenci -> toplam 2 yönetici", adm(500).toplamYonetici, 2);
+
+section("MADDE 12 — MESEM müdür yardımcısı normu");
+
+const admMesem = (c) => engine.calculateAdminNorms("mesleki_egitim_merkezi", c, {}).mudurYardimcisiTotal;
+check("400 çırak -> 1 Mdr. Yrd. (Md. 12/1-a)", admMesem(400), 1);
+check("401 çırak -> 2 Mdr. Yrd. (Md. 12/1-b)", admMesem(401), 2);
+check("801 çırak -> 3 Mdr. Yrd. (Md. 12/1-c)", admMesem(801), 3);
+check("1201 çırak -> 4 Mdr. Yrd. (Md. 12/1-ç)", admMesem(1201), 4);
+
+section("MADDE 14 — İlave müdür yardımcısı normları ve tavan");
+
+check("Pansiyon +1 ilave (Md. 14/1-a)", adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal, 2);
+check("Pansiyon -> 1 müdür başyardımcısı (Md. 6/1-a)", adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 1);
+check("Döner sermaye +1 (Md. 14/1-b)", adm(500, { hasDonerSermaye: true }).mudurYardimcisiTotal, 2);
+check("Taşıma merkezi +1 (Md. 14/1-e)", adm(500, { isTasimaMerkezi: true }).mudurYardimcisiTotal, 2);
+
+const altiIlave = {
+    isPansiyonlu: true, hasDonerSermaye: true, isTamGunTamYil: true,
+    hasStajyer100Plus: true, hasSigortali500Plus: true, isTasimaMerkezi: true
+};
+check("1000 öğrenci + 6 ilave -> tavan 6 (Md. 14/2)", adm(1000, altiIlave).mudurYardimcisiTotal, 6);
+check("1600 öğrenci + 6 ilave -> tavan 7 (Md. 14/2)", adm(1600, altiIlave).mudurYardimcisiTotal, 7);
+check("6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)", adm(1000, altiIlave).mudurBasyardimcisi, 1);
+
+section("MADDE 5/3, 5/5, 6/2, 22/1-a, 22/7 — Müdür normu verilmeyen kurumlar");
+
+const ayniBina = adm(1000, { isAyniBinadaKucuk: true });
+check("Aynı binada küçük kurum -> müdür 0 (Md. 5/3)", ayniBina.mudur, 0);
+check("Aynı binada küçük kurum -> mdr. yrd. 0 (Md. 22/1-a)", ayniBina.mudurYardimcisiTotal, 0);
+check("Aynı binada küçük kurum -> başyrd. 0 (Md. 22/1-a)", ayniBina.mudurBasyardimcisi, 0);
+check("Aynı binada küçük kurum -> toplam 0", ayniBina.toplamYonetici, 0);
+
+const birlestirilmis = adm(60, { isBirlestirilmis: true });
+check("Birleştirilmiş sınıf -> müdür 0 (Md. 5)", birlestirilmis.mudur, 0);
+check("Birleştirilmiş sınıf -> toplam 0 (Md. 22/1-a)", birlestirilmis.toplamYonetici, 0);
+
+const kampus = adm(1000, { isKampusIcinde: true });
+check("Kampüs içi kurum -> müdür 0 (Md. 5/5)", kampus.mudur, 0);
+check("Kampüs içi kurum -> müdür başyrd. 0 (Md. 6/2)", kampus.mudurBasyardimcisi, 0);
+check("Kampüs içi kurum -> mdr. yrd. bağımsız: 2 + 1 (Md. 22/7 & 14/1-f)", kampus.mudurYardimcisiTotal, 3);
+check("Kampüs içi kurum -> toplam 3", kampus.toplamYonetici, 3);
+
+section("MADDE 22/1-b — Norma esas öğrenci sayısına ek sınıfların dâhil edilmesi");
+
+const ekli = adm(450, { ekSinifOgrencileri: 60 });
+check("450 + 60 ek -> norma esas 510", ekli.normaEsasOgrenciSayisi, 510);
+check("450 + 60 ek -> 2 Mdr. Yrd. (500 eşiği aşıldı)", ekli.mudurYardimcisiTotal, 2);
+check("Ek girilmezse norma esas = şube toplamı", adm(450).normaEsasOgrenciSayisi, 450);
+
+section("Mevcut idareci karşılaştırması");
+
+const kars = adm(1000, { mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 1 } }).karsilastirma;
+check("Müdür 1/1 -> tam", kars.mudur.durum, "tam");
+check("Mdr. Yrd. norm 2, mevcut 1 -> ihtiyaç", kars.mudurYardimcisi.durum, "ihtiyac");
+check("Mdr. Yrd. eksik 1", kars.mudurYardimcisi.fark, -1);
+check("Toplam norm 3, mevcut 2 -> ihtiyaç etiketi", kars.toplam.etiket, "1 İhtiyaç");
+
+const karsFazla = adm(500, { mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 1, mudurYardimcisi: 3 } }).karsilastirma;
+check("Başyrd. norm 0, mevcut 1 -> fazla", karsFazla.mudurBasyardimcisi.durum, "fazla");
+check("Mdr. Yrd. norm 1, mevcut 3 -> 2 Fazla", karsFazla.mudurYardimcisi.etiket, "2 Fazla");
+
+/* =========================================================================
+ * MADDE 22/6 — Yöneticilerin okuttuğu ders saatlerinin düşülmesi
+ * ========================================================================= */
+section("MADDE 22/6 — Yönetici ders saatinin branş yükünden düşülmesi");
+
+const subelerAdm = [{
+    id: "s9",
+    subeAdi: "9-A",
+    sinifSeviyesi: "9",
+    ogrenciSayisi: 30,
+    zorunluDersler: [{ ders: "MATEMATİK", saat: 40, atananBrans: "Matematik" }],
+    secmeliDersler: []
+}];
+
+const resDusumsuz = engine.calculateSchoolNorms(subelerAdm, {}, "anadolu_lisesi");
+const matDusumsuz = resDusumsuz.branchReport.find(b => b.branchName === "Matematik");
+check("Düşüm yokken yük 40s", matDusumsuz.totalHours, 40);
+check("Düşüm yokken norm 2 (Md. 18)", matDusumsuz.calculatedNorm, 2);
+
+const resDusum = engine.calculateSchoolNorms(subelerAdm, {}, "anadolu_lisesi", {
+    adminOptions: { yoneticiDersYukleri: { "Matematik": 10 } }
+});
+const matDusum = resDusum.branchReport.find(b => b.branchName === "Matematik");
+check("10s yönetici dersi düşüldü -> yük 30s", matDusum.totalHours, 30);
+check("Düşüm sonrası norm 1 (Md. 18)", matDusum.calculatedNorm, 1);
+check("Düşülen saat raporlanıyor", matDusum.adminDeductedHours, 10);
+
+const resAsim = engine.calculateSchoolNorms(subelerAdm, {}, "anadolu_lisesi", {
+    adminOptions: { yoneticiDersYukleri: { "Matematik": 100 } }
+});
+const matAsim = resAsim.branchReport.find(b => b.branchName === "Matematik");
+check("Branş yükünden fazla saat girilirse yük eksiye düşmez", matAsim.totalHours, 0);
+check("Yükü sıfırlanan branş listede kalır", !!matAsim, true);
+check("Sıfırlanan branşın normu 0", matAsim.calculatedNorm, 0);
+
 /* ===================================================================== */
 console.log("\n" + "=".repeat(70));
 if (failed === 0) {

@@ -43,12 +43,7 @@ export class AppStateService {
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
                     isTasimaMerkezi: false,
-                    isBirlestirilmis: false,
-                    isKampusIcinde: false,
-                    isAyniBinadaKucuk: false,
-                    ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
-                    yoneticiDersYukleri: {}
+                    isBirlestirilmis: false
                 }
             },
             subeler: [], // [{ id, subeAdi, sinifSeviyesi, ogrenciSayisi, alanId, dalAdi, zorunluDersler, secmeliDersler, rehberlikVarMi }]
@@ -235,12 +230,7 @@ export class AppStateService {
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
                     isTasimaMerkezi: false,
-                    isBirlestirilmis: false,
-                    isKampusIcinde: false,
-                    isAyniBinadaKucuk: false,
-                    ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
-                    yoneticiDersYukleri: {}
+                    isBirlestirilmis: false
                 }
             },
             subeler: [

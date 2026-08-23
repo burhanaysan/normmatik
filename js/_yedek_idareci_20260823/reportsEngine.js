@@ -10,13 +10,6 @@ class MebReportsEngine {
         this.curriculum = curriculumEngine;
     }
 
-    // Kopya: adminOptions anahtarı canlı state'e sızarsa branş listesi kirlenir.
-    buildCoordinatorMap(state) {
-        const map = { ...(state.koordinatorlukYukleri || {}) };
-        map.adminOptions = (state.okulBilgisi || {}).adminOptions || {};
-        return map;
-    }
-
     // --- 1. OKUL İCMAL VE YÖNETİCİ ÖZETİ RAPORU ---
     generateExecutiveSummary(state) {
         const subeler = state.subeler || [];
@@ -24,7 +17,8 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const coordinatorMap = this.buildCoordinatorMap(state);
+        const coordinatorMap = { ...(state.koordinatorlukYukleri || {}) };
+        coordinatorMap.adminOptions = schoolInfo.adminOptions || {};
 
         const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
         
@@ -96,7 +90,7 @@ class MebReportsEngine {
             return a.subeAdi.localeCompare(b.subeAdi, 'tr');
         });
 
-        const normResult = this.normEngine.calculateSchoolNorms(rawSubeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(rawSubeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
         const branchReportMap = {};
         normResult.branchReport.forEach(b => {
             branchReportMap[b.branchName] = b;
@@ -229,7 +223,7 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
 
         const filteredBranches = normResult.branchReport.filter(b => {
             if (targetBranch === "ALL") return true;
@@ -344,7 +338,7 @@ class MebReportsEngine {
         const schoolInfo = state.okulBilgisi || {};
         const schoolType = schoolInfo.okulTuru || "";
 
-        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
+        const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, state.koordinatorlukYukleri || {});
 
         const neededList = normResult.branchReport.filter(b => b.difference < 0).map(b => ({
             branchName: b.branchName,
@@ -522,24 +516,13 @@ class MebReportsEngine {
 
         // Yönetici Normları
         if (execData.adminNorms) {
-            const an = execData.adminNorms;
-            const kr = an.karsilastirma;
             wsExecRows.push(["--- MEB YÖNETİCİ VE İDARECİ NORM KADRO CETVELİ (MD. 5 - 14) ---"]);
-            wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Mevzuat Açıklaması"]);
-            wsExecRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-            wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
-            wsExecRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
-            wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
-            (an.explanations || []).forEach(exp => wsExecRows.push(["", "", "", "", exp]));
+            wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Yasal Dayanak ve Mevzuat Açıklaması"]);
+            wsExecRows.push(["Okul Müdürü", execData.adminNorms.mudur, "MEB Norm Kadro Yön. Madde 5"]);
+            wsExecRows.push(["Müdür Başyardımcısı", execData.adminNorms.mudurBasyardimcisi, "MEB Norm Kadro Yön. Madde 6"]);
+            wsExecRows.push(["Müdür Yardımcısı (Toplam)", execData.adminNorms.mudurYardimcisiTotal, `Temel: ${execData.adminNorms.mudurYardimcisiBase} + İlave: ${execData.adminNorms.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
+            wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", execData.adminNorms.toplamYonetici, "—"]);
             wsExecRows.push([]);
-
-            const dusumSatirlari = execData.branchReport.filter(b => b.adminDeductedHours > 0);
-            if (dusumSatirlari.length > 0) {
-                wsExecRows.push(["--- YÖNETİCİLERİN OKUTTUĞU DERSLERİN BRANŞ YÜKÜNDEN DÜŞÜLMESİ (MD. 22/6) ---"]);
-                wsExecRows.push(["Branş Adı", "Düşülen Saat", "Düşüm Sonrası Haftalık Ders Yükü"]);
-                dusumSatirlari.forEach(b => wsExecRows.push([b.branchName, b.adminDeductedHours, b.totalHours]));
-                wsExecRows.push([]);
-            }
         }
 
         // Branş Norm Tablosu
@@ -753,14 +736,12 @@ class MebReportsEngine {
 
         } else if (reportData.reportType === "EXECUTIVE_SUMMARY" || reportData.reportType === "BRANCH_DETAIL") {
             if (reportData.adminNorms && reportData.reportType === "EXECUTIVE_SUMMARY") {
-                const an = reportData.adminNorms;
-                const kr = an.karsilastirma;
                 csvRows.push(["--- YÖNETİCİ VE İDARECİ NORM KADRO DURUMU (MEB MD. 5 - 14) ---"]);
-                csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Açıklama"]);
-                csvRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-                csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
-                csvRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
-                csvRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
+                csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Yasal Dayanak ve Açıklama"]);
+                csvRows.push(["Okul Müdürü", reportData.adminNorms.mudur, "MEB Norm Kadro Yön. Madde 5"]);
+                csvRows.push(["Müdür Başyardımcısı", reportData.adminNorms.mudurBasyardimcisi, "MEB Norm Kadro Yön. Madde 6"]);
+                csvRows.push(["Müdür Yardımcısı (Toplam)", reportData.adminNorms.mudurYardimcisiTotal, `Temel: ${reportData.adminNorms.mudurYardimcisiBase} + İlave: ${reportData.adminNorms.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
+                csvRows.push(["TOPLAM YÖNETİCİ NORMU", reportData.adminNorms.toplamYonetici, "—"]);
                 csvRows.push([]);
             }
 

@@ -584,45 +584,6 @@ export class NormEngine {
             }
         });
 
-        // Madde 22/6: "Alanlara gore ogretmen norm kadrolari, YONETICILERIN GIRMIS
-        // OLDUGU DERS SAATLERI ilgili alanin ders yukunden DUSULEREK belirlenir."
-        //
-        // Yoneticinin okuttugu saat, o brans icin ayrica ogretmen normu dogurmaz;
-        // dusulmezse norm oldugundan yuksek cikar. Dusum, brans yukunun mevcut
-        // Madde 18 (genel) / Madde 19 (atolye) oranina gore paylastirilir; boylece
-        // hangi kovadan dusuldugu keyfi olmaz.
-        const adminTeachingMap = (coordinatorHoursMap && coordinatorHoursMap.adminOptions
-            && coordinatorHoursMap.adminOptions.yoneticiDersYukleri) || {};
-        const branchAdminDeduction = {};
-
-        Object.keys(adminTeachingMap).forEach(branchName => {
-            const istenen = parseInt(adminTeachingMap[branchName], 10) || 0;
-            if (istenen <= 0) return;
-
-            const mevcutYuk = branchLoadMap[branchName] || 0;
-            if (mevcutYuk <= 0) return;
-
-            // Yonetici saati brans yukunden buyuk olamaz: yuk eksiye dusemez.
-            const dusulen = Math.min(istenen, mevcutYuk);
-            const split = branchLoadSplit[branchName] || { genel: 0, atolye: 0 };
-            const genelPay = Math.min(split.genel, Math.round(dusulen * (split.genel / mevcutYuk)));
-            const atolyePay = Math.min(split.atolye, dusulen - genelPay);
-
-            branchLoadMap[branchName] = mevcutYuk - dusulen;
-            split.genel -= genelPay;
-            split.atolye -= atolyePay;
-            branchAdminDeduction[branchName] = dusulen;
-
-            (branchCourseDetails[branchName] = branchCourseDetails[branchName] || []).push({
-                sectionName: "Yönetici Ders Saati",
-                courseName: "Yöneticilerin okuttuğu dersler",
-                baseHours: -dusulen,
-                calculatedLoad: -dusulen,
-                note: `MEB Norm Kadro Yön. Md. 22/6: ${dusulen} saat branş ders yükünden düşüldü${dusulen < istenen ? ` (girilen ${istenen} saat, branş yükünden fazla olduğu için sınırlandı)` : ""}`,
-                isAdminDeduction: true
-            });
-        });
-
         const branchReport = [];
         let totalCalculatedNorm = 0;
         let totalCurrentTeachers = 0;
@@ -691,10 +652,8 @@ export class NormEngine {
             const totalHours = branchLoadMap[branchName] || 0;
             const currentTeachers = parseInt(existingTeachers[branchName] || 0, 10);
 
-            // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin.
-            // Ancak yükü Md. 22/6 düşümüyle sıfırlanan branş listede KALIR; aksi hâlde
-            // branş sessizce kaybolur ve normun neden düştüğü görünmez.
-            if (totalHours <= 0 && !branchAdminDeduction[branchName]) {
+            // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin
+            if (totalHours <= 0) {
                 return;
             }
 
@@ -729,7 +688,6 @@ export class NormEngine {
                 calculatedNorm,
                 currentTeachers,
                 coordinatorHours: branchCoordinatorMap[branchName] || 0,
-                adminDeductedHours: branchAdminDeduction[branchName] || 0,
                 diff,
                 statusText,
                 statusType,
@@ -780,34 +738,15 @@ export class NormEngine {
         const isIlkokul = sType.includes("ilkokul");
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isBirlestirilmis = !!options.isBirlestirilmis;
-        const isKampusIcinde = !!options.isKampusIcinde;
-        // Ayni binada baska bir egitim kurumu var VE ogrenci sayisi en fazla olan
-        // bu okul DEGIL. Md. 5/3 mudur normunu yalnizca en kalabalik olana verir.
-        const isAyniBinadaKucuk = !!options.isAyniBinadaKucuk;
 
-        // Md. 22/1-b: mudur yardimcisi normuna esas ogrenci sayisina, okula
-        // kayitli ana sinifi / uygulama sinifi / alt ozel egitim sinifi
-        // ogrencileri de DAHIL edilir. Bu ogrenciler subelerde ayri girilmedigi
-        // icin ayrica alinir; girilmezse norm oldugundan dusuk cikar.
-        const ekOgrenci = Math.max(0, parseInt(options.ekSinifOgrencileri, 10) || 0);
-        const count = (parseInt(totalStudents, 10) || 0) + ekOgrenci;
+        const count = parseInt(totalStudents, 10) || 0;
         const explanations = [];
-
-        if (ekOgrenci > 0) {
-            explanations.push(`Öğrenci sayısına ana sınıfı/uygulama sınıfı/alt özel eğitim sınıfı öğrencileri dâhil edildi: +${ekOgrenci} (Md. 22/1-b). Norma esas toplam: ${count}.`);
-        }
 
         // 1. Müdür Normu (Madde 5)
         let mudurNorm = 1;
         if (isBirlestirilmis) {
             mudurNorm = 0;
-            explanations.push("Birleştirilmiş sınıf uygulaması yapılıyor: Müdür normu verilmez (Müdür Yetkili Öğretmen görevlendirilir - Md. 5/1 & Md. 22/5).");
-        } else if (isKampusIcinde) {
-            mudurNorm = 0;
-            explanations.push("Eğitim kampüsü içindeki kurum: Müdür normu kampüsün tamamına verilir, kuruma ayrıca verilmez (Md. 5/5).");
-        } else if (isAyniBinadaKucuk) {
-            mudurNorm = 0;
-            explanations.push("Aynı binada faaliyet gösteren kurumlardan öğrenci sayısı en fazla olan bu okul değil: Müdür normu verilmez (Md. 5/3).");
+            explanations.push("Birleştirilmiş sınıflı ilkokul: Müdür normu verilmez (Müdür Yetkili Öğretmen görevlendirilir - Md. 5/1 & Md. 22/5).");
         } else {
             explanations.push("Bağımsız eğitim kurumu: 1 Müdür norm kadrosu (Md. 5/1).");
         }
@@ -878,10 +817,6 @@ export class NormEngine {
             extraMdrYrd += 1;
             extraDetails.push("Taşıma Eğitim Merkezi (+1 Md. 14/1-e)");
         }
-        if (isKampusIcinde) {
-            extraMdrYrd += 1;
-            extraDetails.push("Eğitim Kampüsü İçindeki Kurum (+1 Md. 14/1-f)");
-        }
 
         let totalMdrYrd = baseMdrYrd + extraMdrYrd;
 
@@ -896,56 +831,17 @@ export class NormEngine {
             explanations.push(`İlave Müdür Yardımcısı Hakları: +${extraMdrYrd} [${extraDetails.join(', ')}]`);
         }
 
-        // 5. Md. 22/1-a: "Mudur norm kadrosu verilme sartlarini tasimayan hicbir
-        //    egitim kurumuna mudur yardimcisi normu verilmez."
-        //
-        // Egitim kampusu bu kuralin ISTISNASIDIR: Md. 5/5 kampus icindeki kuruma
-        // mudur normu vermez, ama Md. 22/7 her kurumun mudur yardimcisi normunun
-        // "birbirinden bagimsiz olarak" belirlenecegini ACIKCA soyler. Sonraki ve
-        // ozel hukum oldugu icin kampuste kapi uygulanmaz.
-        if (mudurNorm === 0 && !isKampusIcinde) {
-            if (totalMdrYrd > 0) {
-                explanations.push(`Müdür normu verilmeyen kuruma müdür yardımcısı normu da verilmez; hesaplanan ${totalMdrYrd} norm sıfırlandı (Md. 22/1-a).`);
-            }
-            baseMdrYrd = 0;
-            extraMdrYrd = 0;
-            totalMdrYrd = 0;
-        }
-
-        // 6. Müdür Başyardımcısı Normu (Madde 6)
+        // 5. Müdür Başyardımcısı Normu (Madde 6)
         let mudurBasYrd = 0;
-        if (isKampusIcinde) {
-            explanations.push("Eğitim kampüsü içindeki kuruma müdür başyardımcısı normu verilmez (Md. 6/2).");
-        } else if (mudurNorm === 0) {
-            explanations.push("Müdür normu verilmeyen kuruma müdür başyardımcısı normu da verilmez (Md. 22/1-a).");
-        } else if (options.isPansiyonlu) {
+        if (options.isPansiyonlu) {
             mudurBasYrd = 1;
             explanations.push("Yatılı/Pansiyonlu Kurum: 1 Müdür Başyardımcısı normu (Md. 6/1-a).");
         } else if (totalMdrYrd >= 6) {
-            // Md. 6/1-b metni "mudur yardimcisi sayisi ALTI olan" der. 2022'de tavan
-            // 1500+ okullarda 7'ye cikinca 7 mdr. yrd. olan okul lafzen kapsam disi
-            // kalir. Amaca uygun yorum tercih edildi: 6 hak ediyorsa 7 de eder.
             mudurBasYrd = 1;
-            explanations.push(`Müdür Yardımcısı sayısı ${totalMdrYrd} (6 ve üzeri): 1 Müdür Başyardımcısı normu (Md. 6/1-b).`);
+            explanations.push("Müdür Yardımcısı sayısı 6 olan kurum: 1 Müdür Başyardımcısı normu (Md. 6/1-b).");
         }
 
         const grandTotal = mudurNorm + mudurBasYrd + totalMdrYrd;
-
-        // 7. Mevcut kadro ile karsilastirma (ogretmenlerde zaten yapiliyor).
-        const mevcut = options.mevcutIdareciler || {};
-        const mevcutMudur = Math.max(0, parseInt(mevcut.mudur, 10) || 0);
-        const mevcutBasyrd = Math.max(0, parseInt(mevcut.mudurBasyardimcisi, 10) || 0);
-        const mevcutMdrYrd = Math.max(0, parseInt(mevcut.mudurYardimcisi, 10) || 0);
-        const mevcutToplam = mevcutMudur + mevcutBasyrd + mevcutMdrYrd;
-
-        const kiyas = (norm, adet) => {
-            const fark = adet - norm;
-            return {
-                norm, mevcut: adet, fark,
-                durum: fark === 0 ? "tam" : (fark > 0 ? "fazla" : "ihtiyac"),
-                etiket: fark === 0 ? "Tam" : (fark > 0 ? `${fark} Fazla` : `${Math.abs(fark)} İhtiyaç`)
-            };
-        };
 
         return {
             mudur: mudurNorm,
@@ -954,13 +850,6 @@ export class NormEngine {
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
             toplamYonetici: grandTotal,
-            normaEsasOgrenciSayisi: count,
-            karsilastirma: {
-                mudur: kiyas(mudurNorm, mevcutMudur),
-                mudurBasyardimcisi: kiyas(mudurBasYrd, mevcutBasyrd),
-                mudurYardimcisi: kiyas(totalMdrYrd, mevcutMdrYrd),
-                toplam: kiyas(grandTotal, mevcutToplam)
-            },
             explanations: explanations
         };
     }

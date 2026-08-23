@@ -20,11 +20,15 @@ DOĞRULAMA (paketlemeden önce mutlaka):
 ==============================================================================
 """
 
+import datetime
 import os
+import re
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JS_DIR = os.path.join(BASE_DIR, "js")
+APP_HTML = os.path.join(BASE_DIR, "app.html")
+SW_JS = os.path.join(BASE_DIR, "sw.js")
 
 # Paket sırası ÖNEMLİDİR: bundle düz birleştirme yapar ve modül kapsamı yoktur.
 # Bir dosya, kendisinden önce gelen dosyalardaki const/class'lara erişebilir.
@@ -98,6 +102,41 @@ def strip_module_syntax(content):
     return "\n".join(lines)
 
 
+def surum_damgala():
+    """
+    app.html'deki ?v= etiketini ve sw.js'deki CACHE_NAME'i tazeler.
+
+    NEDEN OTOMATIK: Uygulama bir PWA. Service worker eski bundle.js'i onbellege
+    alir ve CACHE_NAME degismedikce ONU sunmaya devam eder. Iki etiket elle
+    guncellendigi surece, unutuldugu her seferinde kullanici yeni surumu
+    ALMAZ; islem "basarili" gorunur ama hicbir sey degismez. Sessiz basarisizlik
+    oldugu icin fark edilmesi de zordur -- bu yuzden pakete baglandi.
+    """
+    damga = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+    sonuc = []
+
+    for yol, desen, yeni, ad in [
+            (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
+             "app.html ?v="),
+            (SW_JS, r'(const CACHE_NAME\s*=\s*")[^"]+(")',
+             r'\g<1>meb-normmatik-' + damga + r'\g<2>', "sw.js CACHE_NAME")]:
+        if not os.path.exists(yol):
+            sonuc.append("  ! BULUNAMADI: %s" % yol)
+            continue
+        with open(yol, "r", encoding="utf-8") as f:
+            metin = f.read()
+        yeni_metin, n = re.subn(desen, yeni, metin, count=1)
+        if not n:
+            # Sessizce gecmek tam da onlemek istedigimiz hatayi geri getirir.
+            sonuc.append("  ! ETIKET BULUNAMADI, ELLE GUNCELLEYIN: %s" % ad)
+            continue
+        with open(yol, "w", encoding="utf-8") as f:
+            f.write(yeni_metin)
+        sonuc.append("  + %-22s -> %s" % (ad, damga))
+
+    return damga, sonuc
+
+
 def build_bundle():
     combined = []
     included = []
@@ -134,9 +173,10 @@ def build_bundle():
         len(output.encode("utf-8")), output.count("\n") + 1))
     print("  konum      : {}".format(bundle_path))
     print()
-    print("  SONRAKI ADIM: app.html icindeki  bundle.js?v=...  surum etiketini")
-    print("                degistirin, aksi halde tarayici eski paketi onbellekten")
-    print("                yukler ve degisiklikleri GORMEZSINIZ.")
+    print("  SURUM ETIKETLERI (onbellek tazeleme):")
+    damga, satirlar = surum_damgala()
+    for satir in satirlar:
+        print(satir)
     return bundle_path
 
 
