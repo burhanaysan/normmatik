@@ -365,6 +365,79 @@
             return `N${numPart}`;
         }
 
+        // Master Üretici Doğrulama (Tek yönlü Kriptografik SHA-256 Hash Kontrolü)
+        async function verifyMasterDeveloperPassword(pwd) {
+            if (!pwd) return false;
+            const salt = "NormMatik_Master_Developer_Salt_2026";
+            const text = `${pwd.trim().toLowerCase()}${salt}`;
+            const msgBuffer = new TextEncoder().encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hex === "9d13832da293546d8884b86bbd2b70d3b290860ee05c95bda53ef5d7826e288d";
+        }
+
+        // Asimetrik Kriptografik Lisans Doğrulama (ECDSA P-256 / SHA-256)
+        async function verifyDigitalLicenseToken(licenseToken, expectedKurumKodu) {
+            try {
+                if (!licenseToken || typeof licenseToken !== 'string') return false;
+                const parts = licenseToken.trim().split('.');
+                if (parts.length !== 3 || parts[0] !== 'MEBNORM') return false;
+
+                const payloadB64 = parts[1];
+                const signatureB64 = parts[2];
+
+                // Base64URL Decode
+                let base64 = payloadB64.replace(/-/g, '+').replace(/_/g, '/');
+                while (base64.length % 4) base64 += '=';
+                const payload = JSON.parse(decodeURIComponent(escape(atob(base64))));
+
+                // Kurum Kodu ve Süre Uyumu
+                if (payload.kurumKodu && String(payload.kurumKodu) !== String(expectedKurumKodu)) {
+                    return false;
+                }
+                if (payload.expireDate && new Date() > new Date(payload.expireDate)) {
+                    return false;
+                }
+
+                // ECDSA Açık Anahtar ile Dijital İmza Doğrulaması
+                const MASTER_PUB_KEY_JWK = {
+                    "kty": "EC",
+                    "x": "Ixop_Vp8qOnI_cJ555RRs4c7A9karZ8JlyIrwojiRwA",
+                    "y": "8mAoQOD1uzeBqcJcgwTprG69YI8jzH1BsP9mLMap3E8",
+                    "crv": "P-256",
+                    "kid": "meb-norm-master-key-2026",
+                    "alg": "ES256",
+                    "key_ops": ["verify"]
+                };
+
+                const cryptoKey = await crypto.subtle.importKey(
+                    "jwk",
+                    MASTER_PUB_KEY_JWK,
+                    { name: "ECDSA", namedCurve: "P-256" },
+                    false,
+                    ["verify"]
+                );
+
+                const dataToVerify = new TextEncoder().encode(`MEBNORM.${payloadB64}`);
+                
+                let sigBase64 = signatureB64.replace(/-/g, '+').replace(/_/g, '/');
+                while (sigBase64.length % 4) sigBase64 += '=';
+                const binSig = atob(sigBase64);
+                const sigBytes = new Uint8Array(binSig.length);
+                for (let i = 0; i < binSig.length; i++) sigBytes[i] = binSig.charCodeAt(i);
+
+                return await crypto.subtle.verify(
+                    { name: "ECDSA", hash: { name: "SHA-256" } },
+                    cryptoKey,
+                    sigBytes,
+                    dataToVerify
+                );
+            } catch(e) {
+                return false;
+            }
+        }
+
         // Form Giriş Kontrolü
         document.getElementById('form-login')?.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -381,16 +454,14 @@
             const cleanInputPwd = password.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
             const cleanExpectedPwd = expectedSecurePwd.toUpperCase().replace(/[^A-Z0-9]/g, '');
 
-            const isMasterBypass = (
-                password.trim() === "Burhan3451" ||
-                password.trim() === "burhan3451" ||
-                password.startsWith("MEBNORM.")
-            );
+            const isMasterKey = await verifyMasterDeveloperPassword(password);
+            const isSignedLicense = password.startsWith("MEBNORM.") ? (await verifyDigitalLicenseToken(password, kurumKodu)) : false;
 
             const isMatch = (
                 cleanInputPwd === cleanExpectedPwd ||
                 password.trim() === expectedSecurePwd ||
-                isMasterBypass
+                isMasterKey ||
+                isSignedLicense
             );
 
             if (isMatch) {
