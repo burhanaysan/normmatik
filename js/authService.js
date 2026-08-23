@@ -17,7 +17,7 @@ export const REGISTERED_SCHOOLS = {
         ilce: "KADIKÖY"
     },
     "123456": {
-        okulAdi: "Örnek Atatürk Anadolu Lisesi (Demo)",
+        okulAdi: "Atatürk Anadolu Lisesi (Demo)",
         okulTuru: "anadolu_lisesi",
         il: "ANKARA",
         ilce: "ÇANKAYA"
@@ -29,68 +29,41 @@ export class AuthService {
         this.SESSION_KEY = "normmatik_active_session";
     }
 
-    /**
-     * Kurum Koduna göre kayıtlı okul bilgilerini çözer
-     */
     resolveSchoolInfo(kurumKodu) {
         if (!kurumKodu) return null;
         const reg = REGISTERED_SCHOOLS[kurumKodu];
         if (reg) return reg;
-
-        // Tarayıcı yerel master CRM'inden kontrol et
-        try {
-            const crm = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
-            const found = crm.find(c => c.kurumKodu === kurumKodu);
-            if (found) {
-                return {
-                    okulAdi: found.okulAdi,
-                    okulTuru: found.okulTuru,
-                    il: "",
-                    ilce: ""
-                };
-            }
-        } catch(e) {}
-
         return null;
     }
 
-    /**
-     * Aktif oturumu döndürür
-     */
     getSession() {
         try {
-            const data = localStorage.getItem(this.SESSION_KEY);
+            const data = sessionStorage.getItem(this.SESSION_KEY) || localStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
         }
     }
 
-    /**
-     * Oturumu kaydeder
-     */
     setSession(sessionData) {
         try {
-            localStorage.setItem(this.SESSION_KEY, JSON.stringify({
+            const jsonStr = JSON.stringify({
                 ...sessionData,
                 lastActive: new Date().toISOString()
-            }));
+            });
+            sessionStorage.setItem(this.SESSION_KEY, jsonStr);
+            localStorage.setItem(this.SESSION_KEY, jsonStr);
         } catch (e) {}
     }
 
-    /**
-     * Oturumu kapatır ve vitrin ana sayfasına yönlendirir
-     */
     logout() {
         try {
-            localStorage.removeItem(this.SESSION_KEY);
+            localStorage.clear();
+            sessionStorage.clear();
         } catch (e) {}
         window.location.href = "index.html";
     }
 
-    /**
-     * Çalışma alanında (app.html) oturum kontrolü yapar
-     */
     requireAuth() {
         const session = this.getSession();
         if (!session || !session.kurumKodu) {
@@ -102,3 +75,6 @@ export class AuthService {
 }
 
 export const authService = new AuthService();
+if (typeof window !== 'undefined') {
+    window.authService = authService;
+}

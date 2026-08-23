@@ -887,38 +887,22 @@ export class AppStateService {
         return this.state.koordinatorlukYukleri || {};
     }
 
-    // --- LocalStorage Kayıt & Yükleme ---
+    // --- Pure Cloud Senkronizasyon (Yerel Kalıntı Yok) ---
     saveToStorage() {
-        if (typeof localStorage === 'undefined') return;
-        try {
-            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
-            // ☁️ Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
-            if (typeof window !== 'undefined') {
-                const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
-                if (cloudService) {
-                    const kKodu = this.state.okulBilgisi?.kurumKodu || "default_school";
+        // ☁️ Doğrudan Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
+        if (typeof window !== 'undefined') {
+            const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
+            if (cloudService) {
+                const kKodu = this.state.okulBilgisi?.kurumKodu;
+                if (kKodu && !this.state.okulBilgisi?.isDemo) {
                     cloudService.scheduleAutoSave(kKodu, this.state);
                 }
             }
-        } catch (e) {
-            console.error("State localStorage üzerine kaydedilemedi:", e);
         }
     }
 
     loadFromStorage() {
-        if (typeof localStorage === 'undefined') return false;
-        try {
-            const data = localStorage.getItem(this.STORAGE_KEY);
-            if (data) {
-                this.state = JSON.parse(data);
-                this.sanitizeExistingState();
-                this.history = [JSON.stringify(this.state)];
-                this.historyIndex = 0;
-                return true;
-            }
-        } catch (e) {
-            console.error("State yüklenirken hata oluştu:", e);
-        }
+        // Yerel çöp hafıza kullanılmaz, veriler doğrudan Google Cloud ve oturumdan gelir
         return false;
     }
 

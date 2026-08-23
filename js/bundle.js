@@ -127439,7 +127439,7 @@ const REGISTERED_SCHOOLS = {
         ilce: "KADIKÖY"
     },
     "123456": {
-        okulAdi: "Örnek Atatürk Anadolu Lisesi (Demo)",
+        okulAdi: "Atatürk Anadolu Lisesi (Demo)",
         okulTuru: "anadolu_lisesi",
         il: "ANKARA",
         ilce: "ÇANKAYA"
@@ -127451,68 +127451,41 @@ class AuthService {
         this.SESSION_KEY = "normmatik_active_session";
     }
 
-    /**
-     * Kurum Koduna göre kayıtlı okul bilgilerini çözer
-     */
     resolveSchoolInfo(kurumKodu) {
         if (!kurumKodu) return null;
         const reg = REGISTERED_SCHOOLS[kurumKodu];
         if (reg) return reg;
-
-        // Tarayıcı yerel master CRM'inden kontrol et
-        try {
-            const crm = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
-            const found = crm.find(c => c.kurumKodu === kurumKodu);
-            if (found) {
-                return {
-                    okulAdi: found.okulAdi,
-                    okulTuru: found.okulTuru,
-                    il: "",
-                    ilce: ""
-                };
-            }
-        } catch(e) {}
-
         return null;
     }
 
-    /**
-     * Aktif oturumu döndürür
-     */
     getSession() {
         try {
-            const data = localStorage.getItem(this.SESSION_KEY);
+            const data = sessionStorage.getItem(this.SESSION_KEY) || localStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
         }
     }
 
-    /**
-     * Oturumu kaydeder
-     */
     setSession(sessionData) {
         try {
-            localStorage.setItem(this.SESSION_KEY, JSON.stringify({
+            const jsonStr = JSON.stringify({
                 ...sessionData,
                 lastActive: new Date().toISOString()
-            }));
+            });
+            sessionStorage.setItem(this.SESSION_KEY, jsonStr);
+            localStorage.setItem(this.SESSION_KEY, jsonStr);
         } catch (e) {}
     }
 
-    /**
-     * Oturumu kapatır ve vitrin ana sayfasına yönlendirir
-     */
     logout() {
         try {
-            localStorage.removeItem(this.SESSION_KEY);
+            localStorage.clear();
+            sessionStorage.clear();
         } catch (e) {}
         window.location.href = "index.html";
     }
 
-    /**
-     * Çalışma alanında (app.html) oturum kontrolü yapar
-     */
     requireAuth() {
         const session = this.getSession();
         if (!session || !session.kurumKodu) {
@@ -127524,177 +127497,86 @@ class AuthService {
 }
 
 const authService = new AuthService();
+if (typeof window !== 'undefined') {
+    window.authService = authService;
+}
 
 // ==================== cloudDatabaseService.js ====================
 
 /**
- * NormMatik™ — Güvenli Bulut Veri Servisi
- * Copyright (c) 2026 Burhan AYSAN.
- *
- * ================== 2026-08-22 GÜVENLİK DEĞİŞİKLİĞİ ==================
- * ÖNCEDEN: Bu dosya Realtime Database'e DOĞRUDAN ve kimlik doğrulamasız
- * bağlanıyordu (düz fetch GET/PUT). Veritabanı tüm internete açıktı;
- * adresi bilen herkes bütün okulların verisini okuyabiliyor, değiştirebiliyor
- * ve silebiliyordu. Ayrıca lisanssız/demo kullanıcılar ortak "default_school"
- * kaydını paylaşıyor, birbirlerinin verisinin üzerine yazıyordu.
- *
- * ŞİMDİ: Veritabanı herkese kapalı. Erişim yalnızca Cloud Function üzerinden
- * ve yalnızca GEÇERLİ LİSANS ANAHTARI ile mümkün. Hangi okulun verisine
- * erişileceğine sunucu karar verir; bu bilgi imzalı lisansın içinden okunur,
- * bu dosyanın gönderdiği bir alandan değil. Yani bu dosyadaki kodu değiştiren
- * biri bile başka okulun verisine ulaşamaz.
- *
- * Sunucu kodu: 09_firebase_guvenlik/functions/index.js
- * =====================================================================
+ * NormMatik™ — Google Cloud Canlı Veritabanı Servisi (CloudDatabaseService)
+ * Google Firebase Realtime Database (europe-west1)
+ * Doğrudan Google Cloud Senkronizasyonu & Çevrimdışı/Önbellek Bağımsızlığı
  */
 
-// Cloud Function adresi. Dağıtımdan sonra `firebase deploy` çıktısındaki
-// adresle doğrulayın. Bölge, veritabanıyla aynı: europe-west1.
-const VERI_KAPISI_URL =
-    "https://europe-west1-normmatik-85118.cloudfunctions.net/normmatikVeri";
-
-const LISANS_DEPO_ANAHTARI = "meb_norm_license_key";
+const FIREBASE_RTDB_BASE = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/school_data";
 
 class CloudDatabaseService {
     constructor() {
         this.saveTimeout = null;
         this.isSaving = false;
         this.lastSyncTime = null;
-        this.sonHata = null;
-        this.devreDisi = false; // Ağ/sunucu yoksa gereksiz denemeleri kes
+        this.baseUrl = FIREBASE_RTDB_BASE;
     }
 
     /**
-     * Geriye dönük uyumluluk için korunuyor. Artık yol anahtarını SUNUCU
-     * belirliyor; burada yalnızca günlük kaydı/gösterim amacıyla kullanılır.
+     * Kurum kodunu güvenli URL anahtarına çevirir
      */
     getEffectiveKey(kurumKodu) {
-        if (!kurumKodu || String(kurumKodu).trim() === "" || kurumKodu === "*") {
-            return "lisanssiz";
+        if (!kurumKodu || String(kurumKodu).trim() === "" || kurumKodu === "*" || kurumKodu === "123456") {
+            return null; // Demo veya tanımsız okullar buluta yazılmaz
         }
         return String(kurumKodu).trim().replace(/[.#$[\]]/g, "_");
     }
 
-    /** localStorage'daki lisans anahtarını okur. */
-    _lisansAnahtari() {
-        try {
-            return localStorage.getItem(LISANS_DEPO_ANAHTARI);
-        } catch (e) {
-            return null;
-        }
-    }
-
-    /** Lisans yöneticisinin hesapladığı donanım kimliği. */
-    _donanimKimligi() {
-        try {
-            return (
-                (window.licenseManager && window.licenseManager.currentHardwareId) ||
-                null
-            );
-        } catch (e) {
-            return null;
-        }
-    }
-
     /**
-     * Veri kapısına istek gönderir.
-     * Lisans yoksa buluta hiç gidilmez — uygulama yerelde çalışmayı sürdürür.
-     */
-    async _istek(islem, ekAlanlar = {}) {
-        if (this.devreDisi) return null;
-
-        const licenseToken = this._lisansAnahtari();
-        if (!licenseToken) {
-            // Demo/lisanssız kullanım: bulut eşitlemesi yok, yerel kayıt sürer.
-            return null;
-        }
-
-        try {
-            const res = await fetch(VERI_KAPISI_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    licenseToken,
-                    hardwareId: this._donanimKimligi(),
-                    islem,
-                    ...ekAlanlar,
-                }),
-            });
-
-            let govde = null;
-            try {
-                govde = await res.json();
-            } catch (e) {
-                govde = null;
-            }
-
-            if (!res.ok) {
-                this.sonHata = (govde && govde.hata) || `HTTP ${res.status}`;
-
-                if (res.status === 403) {
-                    // Lisans geçersiz/süresi dolmuş → tekrar denemenin anlamı yok.
-                    this.devreDisi = true;
-                    console.warn(
-                        "[Bulut] Lisans bulut eşitlemesi için kabul edilmedi:",
-                        this.sonHata
-                    );
-                } else {
-                    console.warn("[Bulut] İstek başarısız:", this.sonHata);
-                }
-                return null;
-            }
-
-            this.sonHata = null;
-            return govde;
-        } catch (e) {
-            // Ağ yok / çevrimdışı / sunucuya ulaşılamıyor → sessizce yerelde devam
-            this.sonHata = e.message;
-            console.warn("[Bulut] Sunucuya ulaşılamadı, yerel kayıt kullanılıyor:", e.message);
-            return null;
-        }
-    }
-
-    /**
-     * Okulun verilerini buluttan çeker.
-     * @returns {Promise<object|null>}
+     * Okulun verilerini doğrudan Google Cloud'dan çeker
      */
     async loadSchoolData(kurumKodu) {
-        const cevap = await this._istek("yukle");
-        if (!cevap || !cevap.basarili) return null;
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key) return null;
 
-        const veri = cevap.veri;
-        if (veri && Array.isArray(veri.subeler)) {
-            this.lastSyncTime = new Date();
-            return veri;
+        try {
+            const url = `${this.baseUrl}/${encodeURIComponent(key)}.json`;
+            const res = await fetch(url, { method: "GET" });
+            if (!res.ok) return null;
+            const data = await res.json();
+            if (data && (Array.isArray(data.subeler) || data.okulAdi)) {
+                this.lastSyncTime = new Date();
+                console.log(`☁️ [Google Cloud] '${key}' verileri başarıyla çekildi (${(data.subeler || []).length} Şube).`);
+                return data;
+            }
+            return null;
+        } catch (e) {
+            console.warn("☁️ [Google Cloud] Veri yüklenemedi:", e.message);
+            return null;
         }
-        return null;
     }
 
     /**
-     * Otomatik kayıt (800 ms geciktirmeli — arka arkaya değişikliklerde
-     * tek istek gönderilir).
+     * Otomatik kayıt (600ms debounced)
      */
     scheduleAutoSave(kurumKodu, state) {
-        if (!state || !Array.isArray(state.subeler)) return;
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key || !state) return;
 
         clearTimeout(this.saveTimeout);
         this.saveTimeout = setTimeout(async () => {
-            await this.saveSchoolData(kurumKodu, state);
-        }, 800);
+            await this.saveSchoolData(key, state);
+        }, 600);
     }
 
     /**
-     * Veriyi buluta yazar.
-     * NOT: kurumKodu parametresi artık YETKİ belirlemez; sunucu onu imzalı
-     * lisanstan okur. Burada yalnızca günlük kaydı için duruyor.
+     * Okul verilerini doğrudan Google Cloud'a kaydeder
      */
     async saveSchoolData(kurumKodu, state) {
-        if (!state || !Array.isArray(state.subeler)) return;
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key || !state) return;
 
-        const veri = {
+        const payload = {
+            kurumKodu: key,
             okulAdi: state.okulBilgisi?.okulAdi || "MEB Okulu",
-            okulTuru:
-                state.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
+            okulTuru: state.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
             sezon: state.okulBilgisi?.sezon || "2026-2027",
             il: state.okulBilgisi?.il || "",
             ilce: state.okulBilgisi?.ilce || "",
@@ -127703,32 +127585,26 @@ class CloudDatabaseService {
             koordinatorlukYukleri: state.koordinatorlukYukleri || {},
             adminOptions: state.okulBilgisi?.adminOptions || {},
             antet: state.okulBilgisi?.antet || {},
-            totalSections: (state.subeler || []).length,
-            lastUpdated: new Date().toISOString(),
-            version: "3.0.0",
+            lastUpdated: new Date().toISOString()
         };
 
-        this.isSaving = true;
-        const cevap = await this._istek("kaydet", { veri });
-        this.isSaving = false;
-
-        if (cevap && cevap.basarili) {
-            this.lastSyncTime = new Date();
-            console.log(
-                `☁️ [Bulut] '${cevap.kurumKodu}' verileri güvenli kanaldan kaydedildi ` +
-                    `(${veri.totalSections} şube).`
-            );
+        try {
+            this.isSaving = true;
+            const url = `${this.baseUrl}/${encodeURIComponent(key)}.json`;
+            const res = await fetch(url, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            this.isSaving = false;
+            if (res.ok) {
+                this.lastSyncTime = new Date();
+                console.log(`☁️ [Google Cloud] '${key}' anında kaydedildi (${payload.subeler.length} Şube).`);
+            }
+        } catch (e) {
+            this.isSaving = false;
+            console.warn("☁️ [Google Cloud] Kayıt başarısız:", e.message);
         }
-    }
-
-    /** Arayüzde durum göstermek isterseniz kullanılabilir. */
-    durum() {
-        return {
-            lisansVar: !!this._lisansAnahtari(),
-            devreDisi: this.devreDisi,
-            sonHata: this.sonHata,
-            sonEsitleme: this.lastSyncTime,
-        };
     }
 }
 
@@ -128629,38 +128505,22 @@ class AppStateService {
         return this.state.koordinatorlukYukleri || {};
     }
 
-    // --- LocalStorage Kayıt & Yükleme ---
+    // --- Pure Cloud Senkronizasyon (Yerel Kalıntı Yok) ---
     saveToStorage() {
-        if (typeof localStorage === 'undefined') return;
-        try {
-            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.state));
-            // ☁️ Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
-            if (typeof window !== 'undefined') {
-                const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
-                if (cloudService) {
-                    const kKodu = this.state.okulBilgisi?.kurumKodu || "default_school";
+        // ☁️ Doğrudan Google Cloud Canlı Veritabanı Otomatik Senkronizasyonu
+        if (typeof window !== 'undefined') {
+            const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
+            if (cloudService) {
+                const kKodu = this.state.okulBilgisi?.kurumKodu;
+                if (kKodu && !this.state.okulBilgisi?.isDemo) {
                     cloudService.scheduleAutoSave(kKodu, this.state);
                 }
             }
-        } catch (e) {
-            console.error("State localStorage üzerine kaydedilemedi:", e);
         }
     }
 
     loadFromStorage() {
-        if (typeof localStorage === 'undefined') return false;
-        try {
-            const data = localStorage.getItem(this.STORAGE_KEY);
-            if (data) {
-                this.state = JSON.parse(data);
-                this.sanitizeExistingState();
-                this.history = [JSON.stringify(this.state)];
-                this.historyIndex = 0;
-                return true;
-            }
-        } catch (e) {
-            console.error("State yüklenirken hata oluştu:", e);
-        }
+        // Yerel çöp hafıza kullanılmaz, veriler doğrudan Google Cloud ve oturumdan gelir
         return false;
     }
 
@@ -134223,15 +134083,14 @@ class MebNormApplication {
     }
 
     async init() {
-        this.autoReconcileAllSections();
         try {
-            console.log("Uygulama başlatılıyor...");
+            console.log("Uygulama başlatılıyor (Google Cloud-Native Mod)...");
             this.initTheme();
 
             const session = (typeof authService !== 'undefined') ? authService.getSession() : null;
 
             if (typeof window !== 'undefined' && window.location.pathname.endsWith("app.html")) {
-                if (!session) {
+                if (!session || !session.kurumKodu) {
                     window.location.href = "index.html";
                     return;
                 }
@@ -134243,74 +134102,66 @@ class MebNormApplication {
             await dbService.loadDatabase();
 
             normEngine.setBranchMatrix(dbService.getBranchMatrix());
-
             appState.loadLayout();
-            const hasSavedState = appState.loadFromStorage();
 
-            // 🔒 Lisanslı Kurum Güvenliği: Asla Okul Kurulum/Değiştirme Modalı Açma!
-            if (session && !session.isDemo) {
-                localStorage.setItem("normmatik_onboarding_seen", "true");
+            // 1. DEMO OKUL SENARYOSU (Tertemiz, Başka Okuldan İz Taşımayan Demo Şablonu)
+            if (session && session.isDemo) {
+                appState.state = appState.getDefaultState();
+                appState.state.okulBilgisi.kurumKodu = "123456";
+                appState.state.okulBilgisi.okulAdi = "Atatürk Anadolu Lisesi (Demo)";
+                appState.state.okulBilgisi.okulTuru = "anadolu_lisesi";
                 appState.state.okulBilgisi.okulTuruKilitli = true;
-                
-                // Kayıtlı Okul Bilgisini Çöz
-                const resolved = authService.resolveSchoolInfo(session.kurumKodu);
-                
+                appState.state.okulBilgisi.isDemo = true;
+                appState.state.subeler = [];
+                appState.history = [JSON.stringify(appState.state)];
+                appState.historyIndex = 0;
+            } 
+            // 2. GERÇEK LİSANSLI OKUL SENARYOSU (Doğrudan Google Cloud'dan Canlı Yükleme)
+            else if (session && session.kurumKodu) {
+                appState.state = appState.getDefaultState();
                 appState.state.okulBilgisi.kurumKodu = session.kurumKodu;
-                appState.state.okulBilgisi.okulAdi = resolved?.okulAdi || session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
-                appState.state.okulBilgisi.okulTuru = resolved?.okulTuru || session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
-                if (resolved?.il) appState.state.okulBilgisi.il = resolved.il;
-                if (resolved?.ilce) appState.state.okulBilgisi.ilce = resolved.ilce;
-                
-                if (appState.state.okulBilgisi.antet) {
-                    appState.state.okulBilgisi.antet.resmiOkulAdi = appState.state.okulBilgisi.okulAdi;
-                    appState.state.okulBilgisi.antet.kurumKodu = session.kurumKodu;
-                    if (resolved?.il) appState.state.okulBilgisi.antet.ilValiligi = `${resolved.il.toUpperCase()} VALİLİĞİ`;
-                    if (resolved?.ilce) appState.state.okulBilgisi.antet.ilceMem = `${resolved.ilce.toUpperCase()} İlçe Millî Eğitim Müdürlüğü`;
-                }
-
+                appState.state.okulBilgisi.okulAdi = session.okulAdi || `MEB Okulu (${session.kurumKodu})`;
+                appState.state.okulBilgisi.okulTuru = session.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
+                appState.state.okulBilgisi.okulTuruKilitli = true;
                 appState.state.okulBilgisi.isDemo = false;
-                appState.saveToStorage();
-                // ☁️ Canlı Google Cloud Senkronizasyonu (Çapraz Cihaz / Mobil-PC Eşitleme)
-                if (window.cloudDbService && session.kurumKodu) {
-                    window.cloudDbService.loadSchoolData(session.kurumKodu).then(cloudData => {
-                        if (cloudData && Array.isArray(cloudData.subeler) && cloudData.subeler.length > 0) {
-                            console.log("☁️ [Google Cloud Canlı Senkronizasyon] Veriler başarıyla çekildi:", cloudData.subeler.length, "şube");
-                            appState.state.subeler = cloudData.subeler;
-                            if (cloudData.mevcutOgretmenler) appState.state.mevcutOgretmenler = cloudData.mevcutOgretmenler;
-                            if (cloudData.koordinatorlukYukleri) appState.state.koordinatorlukYukleri = cloudData.koordinatorlukYukleri;
-                            if (cloudData.adminOptions) appState.state.okulBilgisi.adminOptions = cloudData.adminOptions;
-                            if (cloudData.antet) appState.state.okulBilgisi.antet = cloudData.antet;
-                            if (cloudData.sezon) appState.state.okulBilgisi.sezon = cloudData.sezon;
-                            appState.sanitizeExistingState();
-                            this.autoReconcileAllSections();
-                            this.render();
+
+                // Google Cloud Realtime Database'den Okulun Verilerini Çek
+                const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
+                if (cloudService) {
+                    const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
+                    if (cloudData) {
+                        if (cloudData.okulAdi) appState.state.okulBilgisi.okulAdi = cloudData.okulAdi;
+                        if (cloudData.okulTuru) appState.state.okulBilgisi.okulTuru = cloudData.okulTuru;
+                        if (cloudData.il) appState.state.okulBilgisi.il = cloudData.il;
+                        if (cloudData.ilce) appState.state.okulBilgisi.ilce = cloudData.ilce;
+                        if (cloudData.sezon) appState.state.okulBilgisi.sezon = cloudData.sezon;
+                        if (cloudData.antet) appState.state.okulBilgisi.antet = cloudData.antet;
+                        if (cloudData.adminOptions) appState.state.okulBilgisi.adminOptions = cloudData.adminOptions;
+                        if (Array.isArray(cloudData.subeler)) appState.state.subeler = cloudData.subeler;
+                        if (cloudData.mevcutOgretmenler) appState.state.mevcutOgretmenler = cloudData.mevcutOgretmenler;
+                        if (cloudData.koordinatorlukYukleri) appState.state.koordinatorlukYukleri = cloudData.koordinatorlukYukleri;
+
+                        appState.sanitizeExistingState();
+                        if (appState.state.subeler.length > 0) {
+                            appState.state.aktifSubeId = appState.state.subeler[0].id;
                         }
-                    }).catch(err => {
-                        console.warn("[CloudDB] Bulut senkronizasyon uyarısı:", err);
-                    });
+                    }
                 }
-            } else if (session && session.isDemo) {
-                const hasSeenOnboarding = localStorage.getItem("normmatik_onboarding_seen");
-                if (!hasSeenOnboarding) {
-                    this.ui.openOnboardingWelcomeModal();
-                }
+                appState.history = [JSON.stringify(appState.state)];
+                appState.historyIndex = 0;
             }
 
             appState.subscribe(() => this.render());
-
+            this.autoReconcileAllSections();
             this.bindResizers();
             this.bindKeyboardShortcuts();
-
             this.render();
-            console.log("Uygulama başarıyla hazır!");
-            
-            // Canlı Güvenlik & Lisans Telemetrisi
-            if (typeof window !== 'undefined' && window.telemetryClient && window.licenseManager) {
-                window.telemetryClient.sendHeartbeat(appState.state.okulBilgisi, window.licenseManager.licenseStatus);
-            }
-        } catch (e) {
-            console.error("Uygulama başlatma hatası:", e);
-            alert("Uygulama başlatılamadı: " + e.message);
+            this.initEventListeners();
+            this.initSplitter();
+
+            console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
+        } catch (error) {
+            console.error("Uygulama başlatma hatası:", error);
         }
     }
 
