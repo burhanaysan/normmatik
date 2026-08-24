@@ -164265,6 +164265,9 @@ class AppStateService {
     // --- Şube Yönetimi ---
     addSection(sectionData) {
         this.pushHistory();
+        // Lisans şube sınırı — bkz. subeSiniriniUygula()
+        if (this.subeSiniriniUygula(1) < 1) return null;
+
         const newId = "sube_" + Date.now() + "_" + Math.random().toString(36).substr(2, 4);
         const isSpecialEdu = !!sectionData.isSpecialEdu;
         const section = {
@@ -164288,6 +164291,11 @@ class AppStateService {
     }
 
     addBulkSections(level, count, studentCountPerSection, defaultZorunluDersler = []) {
+        // Lisans şube sınırı: istenen sayı kırpılır, hiç hak yoksa
+        // işlem başlamadan çıkılır (boş geçmiş kaydı da oluşmaz).
+        count = this.subeSiniriniUygula(parseInt(count, 10) || 0);
+        if (count < 1) return;
+
         this.pushHistory();
         const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "P"];
         const levelPrefix = String(level).toLowerCase() === "hazirlik" ? "Hazırlık" : level;
@@ -164316,6 +164324,67 @@ class AppStateService {
         this.notify();
     }
 
+    // ======================================================================
+    //  LİSANS ŞUBE SINIRI — MERKEZÎ BEKÇİ
+    // ======================================================================
+    // 2026-08-24'te bulunan açık: şube sınırı YALNIZCA tekli ekleme
+    // formunda (uiComponents.js:871) kontrol ediliyordu. Şube ekleyen
+    // diğer BEŞ yol sınırı hiç sormuyordu:
+    //
+    //     çoklu şube ekleme · e-Okul Excel aktarımı · şube kopyalama
+    //     şube bölme · sınıf yükseltme
+    //
+    // Sonuç: deneme sürümüyle 46 şube oluşturulabiliyordu. Ücretsiz
+    // sürümün 3 şube sınırı fiilen yoktu; okul lisans almadan işini
+    // bitirebiliyordu.
+    //
+    // Sınır artık arayüzde değil, şubelerin eklendiği bu katmanda
+    // uygulanıyor. Böylece ileride yeni bir ekleme yolu yazılırsa o da
+    // kendiliğinden kapsanır — kontrolü eklemeyi unutmak mümkün değil.
+    //
+    // NOT: Bu bir GELİR koruması, güvenlik önlemi değildir. Tarayıcıdaki
+    // hiçbir kontrol kararlı birini durduramaz; amaç sıradan kullanımda
+    // ücretsiz sürümün iş görmesini engellemektir. Veriye erişim zaten
+    // sunucudaki kurallarla korunuyor.
+    // ======================================================================
+
+    /** Kaç şube daha eklenebilir? Sınırsızsa Infinity döner. */
+    kalanSubeHakki() {
+        const lm = (typeof window !== "undefined") ? window.licenseManager : null;
+        const durum = lm && lm.licenseStatus;
+        if (!durum) return Infinity;
+        if (durum.isMaster || durum.maxSections === -1) return Infinity;
+        const tavan = parseInt(durum.maxSections, 10);
+        if (!Number.isFinite(tavan) || tavan < 0) return Infinity;
+        return Math.max(0, tavan - (this.state.subeler || []).length);
+    }
+
+    /**
+     * İstenen sayıda şube eklenebilir mi? Eklenebilecek sayıyı döndürür.
+     * Sınıra takılırsa kullanıcıya bir kez uyarı gösterilir.
+     */
+    subeSiniriniUygula(istenen = 1, sessiz = false) {
+        const kalan = this.kalanSubeHakki();
+        if (kalan === Infinity) return istenen;
+        const verilebilir = Math.min(istenen, kalan);
+        if (verilebilir < istenen && !sessiz) {
+            this._sinirUyarisi(istenen - verilebilir);
+        }
+        return verilebilir;
+    }
+
+    _sinirUyarisi(reddedilen) {
+        const lm = (typeof window !== "undefined") ? window.licenseManager : null;
+        const tavan = (lm && lm.licenseStatus) ? lm.licenseStatus.maxSections : 3;
+        try {
+            if (typeof window !== "undefined" && window.dispatchEvent) {
+                window.dispatchEvent(new CustomEvent("normmatik-sube-siniri", {
+                    detail: { tavan, reddedilen }
+                }));
+            }
+        } catch (e) { /* olay yayınlanamazsa akış bozulmaz */ }
+    }
+
     updateSection(sectionId, updates) {
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return null;
@@ -164339,6 +164408,7 @@ class AppStateService {
     duplicateSection(sectionId) {
         const source = this.state.subeler.find(s => s.id === sectionId);
         if (!source) return;
+        if (this.subeSiniriniUygula(1) < 1) return;   // lisans şube sınırı
 
         this.pushHistory();
         const newId = "sube_" + Date.now() + "_" + Math.random().toString(36).substr(2, 4);
@@ -164356,6 +164426,17 @@ class AppStateService {
         const sourceIndex = this.state.subeler.findIndex(s => s.id === sourceSectionId);
         if (sourceIndex === -1) return null;
         const source = this.state.subeler[sourceIndex];
+
+        // Lisans şube sınırı: bölme de yeni şube ÜRETİR. Hak yetmiyorsa
+        // plan kırpılır; hiç hak yoksa bölme yapılmaz (ana şubenin mevcudu
+        // da değiştirilmez, yoksa öğrenciler yok olurdu).
+        const istenen = (splitPlan.newSections || []).length;
+        const verilen = this.subeSiniriniUygula(istenen);
+        if (verilen < 1) return null;
+        if (verilen < istenen) {
+            splitPlan = { ...splitPlan,
+                          newSections: (splitPlan.newSections || []).slice(0, verilen) };
+        }
 
         this.pushHistory();
 
@@ -165186,6 +165267,26 @@ class EOkulImporter {
         if (clearExisting) {
             stateService.state.subeler = [];
             stateService.state.aktifSubeId = null;
+        }
+
+        // ------------------------------------------------------------------
+        // LİSANS ŞUBE SINIRI
+        // Bu yol, deneme sürümünde sınırı en kolay aşan yoldu: tek bir
+        // e-Okul dosyası 46 şubeyi birden oluşturuyordu. Sınır kontrolü
+        // yalnızca tekli ekleme formunda vardı, burada hiç yoktu.
+        //
+        // Kırpma, mevcut şubeler TEMİZLENDİKTEN sonra hesaplanır; yoksa
+        // "üzerine yaz" seçeneğinde kalan hak yanlış çıkardı.
+        // ------------------------------------------------------------------
+        if (typeof stateService.subeSiniriniUygula === "function") {
+            const verilen = stateService.subeSiniriniUygula(parsedSections.length);
+            if (verilen < parsedSections.length) {
+                parsedSections = parsedSections.slice(0, Math.max(0, verilen));
+            }
+            if (parsedSections.length === 0) {
+                stateService.notify();
+                return { eklenen: 0, sinirAsildi: true };
+            }
         }
 
         const effectiveSchoolType = schoolType || stateService.state.okulBilgisi.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
@@ -170599,6 +170700,31 @@ class MebNormApplication {
                 }
                 appState.history = [JSON.stringify(appState.state)];
                 appState.historyIndex = 0;
+            }
+
+            // Şube sınırına takılınca kullanıcıya TEK bir açıklama göster.
+            // state.js sınırı uygular ama ekrana bir şey yazmaz (katman
+            // ayrımı); mesajı burada, lisans penceresini açarak veriyoruz.
+            // Arka arkaya çok sayıda ret gelebileceği için (örn. e-Okul
+            // aktarımında 43 şube birden reddedilir) uyarı kısa süre
+            // bastırılır, yoksa üst üste onlarca kutu açılırdı.
+            if (typeof window !== 'undefined' && !window.__subeSiniriBagli) {
+                window.__subeSiniriBagli = true;
+                let sonUyari = 0;
+                window.addEventListener('normmatik-sube-siniri', (olay) => {
+                    const simdi = Date.now();
+                    if (simdi - sonUyari < 1500) return;
+                    sonUyari = simdi;
+                    const tavan = (olay.detail && olay.detail.tavan) || 3;
+                    const red = (olay.detail && olay.detail.reddedilen) || 0;
+                    alert(
+                        `🔒 LİSANS GEREKLİ — Deneme sürümü en fazla ${tavan} şube ile sınırlıdır.\n\n` +
+                        (red > 1 ? `İstediğiniz şubelerden ${red} tanesi eklenmedi.\n\n` : '') +
+                        `Okulunuzun bütün şubelerini ekleyip sınırsız norm hesabı yapmak için ` +
+                        `yıllık lisans almanız gerekir.`
+                    );
+                    try { uiComponents.openLicenseModal(); } catch (e) {}
+                });
             }
 
             appState.subscribe(() => this.render());

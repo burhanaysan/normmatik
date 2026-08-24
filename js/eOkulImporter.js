@@ -441,6 +441,26 @@ export class EOkulImporter {
             stateService.state.aktifSubeId = null;
         }
 
+        // ------------------------------------------------------------------
+        // LİSANS ŞUBE SINIRI
+        // Bu yol, deneme sürümünde sınırı en kolay aşan yoldu: tek bir
+        // e-Okul dosyası 46 şubeyi birden oluşturuyordu. Sınır kontrolü
+        // yalnızca tekli ekleme formunda vardı, burada hiç yoktu.
+        //
+        // Kırpma, mevcut şubeler TEMİZLENDİKTEN sonra hesaplanır; yoksa
+        // "üzerine yaz" seçeneğinde kalan hak yanlış çıkardı.
+        // ------------------------------------------------------------------
+        if (typeof stateService.subeSiniriniUygula === "function") {
+            const verilen = stateService.subeSiniriniUygula(parsedSections.length);
+            if (verilen < parsedSections.length) {
+                parsedSections = parsedSections.slice(0, Math.max(0, verilen));
+            }
+            if (parsedSections.length === 0) {
+                stateService.notify();
+                return { eklenen: 0, sinirAsildi: true };
+            }
+        }
+
         const effectiveSchoolType = schoolType || stateService.state.okulBilgisi.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
 
         parsedSections.forEach((sec, idx) => {

@@ -124,6 +124,31 @@ class MebNormApplication {
                 appState.historyIndex = 0;
             }
 
+            // Şube sınırına takılınca kullanıcıya TEK bir açıklama göster.
+            // state.js sınırı uygular ama ekrana bir şey yazmaz (katman
+            // ayrımı); mesajı burada, lisans penceresini açarak veriyoruz.
+            // Arka arkaya çok sayıda ret gelebileceği için (örn. e-Okul
+            // aktarımında 43 şube birden reddedilir) uyarı kısa süre
+            // bastırılır, yoksa üst üste onlarca kutu açılırdı.
+            if (typeof window !== 'undefined' && !window.__subeSiniriBagli) {
+                window.__subeSiniriBagli = true;
+                let sonUyari = 0;
+                window.addEventListener('normmatik-sube-siniri', (olay) => {
+                    const simdi = Date.now();
+                    if (simdi - sonUyari < 1500) return;
+                    sonUyari = simdi;
+                    const tavan = (olay.detail && olay.detail.tavan) || 3;
+                    const red = (olay.detail && olay.detail.reddedilen) || 0;
+                    alert(
+                        `🔒 LİSANS GEREKLİ — Deneme sürümü en fazla ${tavan} şube ile sınırlıdır.\n\n` +
+                        (red > 1 ? `İstediğiniz şubelerden ${red} tanesi eklenmedi.\n\n` : '') +
+                        `Okulunuzun bütün şubelerini ekleyip sınırsız norm hesabı yapmak için ` +
+                        `yıllık lisans almanız gerekir.`
+                    );
+                    try { uiComponents.openLicenseModal(); } catch (e) {}
+                });
+            }
+
             appState.subscribe(() => this.render());
             this.autoReconcileAllSections();
             this.bindResizers();
