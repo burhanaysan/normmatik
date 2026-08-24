@@ -5663,14 +5663,17 @@ body {
         margin: 0 !important;
     }
 
+    /* Uygulamanın kendi başlık çubuğu KÂĞIDA GİTMEZ.
+       "MEB Norm Kadro ve Ders Yükü Raporlama Merkezi | okul | sezon |
+       zaman damgası" satırı bir ARAYÜZ öğesidir. Resmî bir belgenin
+       üstünde durması yakışıksız; belgeyi bir ekran çıktısı gibi
+       gösteriyordu.
+
+       Raporun KENDİ resmî başlığı zaten var ve yedi raporun hepsinde
+       mevcut: T.C. / Valilik / İlçe MEM / okul adı / belge başlığı
+       (.official-print-header). Kâğıtta görünmesi gereken başlık odur. */
     .reports-modal-header {
-        border-bottom: 2px solid #000000 !important;
-        padding: 0 0 3mm 0 !important;
-        margin-bottom: 3mm !important;
-        background: transparent !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        display: none !important;
     }
 
     .reports-header-title {

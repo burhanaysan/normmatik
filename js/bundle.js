@@ -162707,7 +162707,7 @@ class MebReportsEngine {
 
         return {
             reportType: "NORM_ACTION_REPORT",
-            title: "Norm Kadro İhtiyaç ve Fazlalık Resmi Eylem Raporu",
+            title: "Norm Kadro İhtiyaç ve Fazlalık Raporu",
             generatedAt: new Date().toLocaleString("tr-TR"),
             schoolInfo: schoolInfo,
             totalNeeded: normResult.totalNeeded,
@@ -165735,8 +165735,8 @@ class UIComponentManager {
                         </div>
                         <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid rgba(16, 185, 129, 0.25); border-radius: 12px; padding: 1rem; text-align: left;">
                             <div style="font-size: 1.5rem; margin-bottom: 0.35rem;">📜</div>
-                            <div style="font-weight: 800; font-size: 0.92rem; color: var(--text-main);">%100 TTKB & Mevzuat Uyumu</div>
-                            <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">2026-2027 Haftalık Ders Çizelgeleri ve 9 Sayılı Kurul Kararı kuralları tam entegre.</div>
+                            <div style="font-weight: 800; font-size: 0.92rem; color: var(--text-main);">TTKB Çizelgeleri ve Mevzuat Referansı</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.4;">2026-2027 haftalık ders çizelgeleri ve 9 sayılı Kurul Kararı esas alınarak hesaplanır.</div>
                         </div>
                     </div>
                 `
@@ -165799,7 +165799,7 @@ class UIComponentManager {
             },
             {
                 badge: "🖨️ İLÇE MEM RESMÎ TESLİMAT FORMATI",
-                title: "5 Sekmeli Excel ve İmzalı Resmî Cetveller",
+                title: "5 Sekmeli Excel ve İmza Bloklu Cetveller",
                 subtitle: "Yönetici İcmali, Master Yük Matrisi ve Norm İhtiyaç Eylem Planı tek tıkla elinizde!",
                 icon: "📊",
                 contentHtml: `
@@ -165807,7 +165807,7 @@ class UIComponentManager {
                         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem;">
                             <span style="font-size: 1.4rem;">🏛️</span>
                             <div>
-                                <div style="font-weight: 800; font-size: 0.88rem;">İlçe MEM ve Valilik Antetli Resmî Çıktılar</div>
+                                <div style="font-weight: 800; font-size: 0.88rem;">Kendi Antetinizi Tanımlayabildiğiniz Çıktılar</div>
                                 <div style="font-size: 0.72rem; color: var(--text-muted);">Müdür, Başyardımcı ve Şube Müdürü imza onay blokları hazır.</div>
                             </div>
                         </div>
@@ -168587,7 +168587,7 @@ class UIComponentManager {
             // Tek yetki kaynağı: licenseManager.disaAktarimIzinliMi()
             const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
             if (lm && !lm.disaAktarimIzinliMi()) {
-                alert("🔒 LİSANS GEREKLİ: Resmî 5 Sekmeli Excel (.XLSX) Norm Kadro Cetveli indirmek lisanslı sürüme özeldir. Lütfen okulunuz için lisans anahtarı temin ediniz.");
+                alert("🔒 LİSANS GEREKLİ: 5 sekmeli Excel (.XLSX) norm kadro cetveli indirmek lisanslı sürüme özeldir. Lütfen okulunuz için lisans anahtarı temin ediniz.");
                 this.openLicenseModal();
                 return;
             }
@@ -168606,7 +168606,7 @@ class UIComponentManager {
             // Tek yetki kaynağı: licenseManager.disaAktarimIzinliMi()
             const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
             if (lm && !lm.disaAktarimIzinliMi()) {
-                alert("🔒 LİSANS GEREKLİ: Resmî Norm Kadro verilerini dışa aktarmak lisanslı sürüme özeldir. Lütfen lisans anahtarınızı aktifleştiriniz.");
+                alert("🔒 LİSANS GEREKLİ: Norm kadro verilerini dışa aktarmak lisanslı sürüme özeldir. Lütfen lisans anahtarınızı aktifleştiriniz.");
                 this.openLicenseModal();
                 return;
             }
@@ -168652,7 +168652,7 @@ class UIComponentManager {
                     + "Çıktı alabilirsiniz, ancak sayfalara "
                     + "\"DENEME SÜRÜMÜ — RESMÎ GEÇERLİLİĞİ YOKTUR\" filigranı "
                     + "basılacaktır.\n\n"
-                    + "Filigransız resmî çıktı için yıllık lisans gereklidir.");
+                    + "Filigransız çıktı için yıllık lisans gereklidir.");
             }
             window.print();
             // İşaretler yalnızca yazdırma sırasında dursun; ekranda kalmasın.
@@ -169791,7 +169791,7 @@ class UIComponentManager {
                                 <span>⚖️</span> KVKK Aydınlatma Metni ve Veri Güvenliği Merkezi
                             </div>
                             <div class="kvkk-header-subtitle">
-                                6698 Sayılı Kanun, GDPR ve MEB Bilgi Güvenliği Esaslarına %100 Uyum Taahhüdü
+                                6698 sayılı KVKK ve GDPR ilkeleri doğrultusunda: sistemde kişisel veri işlenmez
                             </div>
                         </div>
                         <div class="kvkk-header-actions no-print">
@@ -169866,7 +169866,7 @@ class UIComponentManager {
 
                         <h4 class="kvkk-sub-heading">1. Veri Sorumlusu ve Sistem Mimarı</h4>
                         <p class="kvkk-p">
-                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>NormMatik™ — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi</strong> kapsamında işlenen teknik ve kurumsal veriler bakımından veri sorumlusu ve bağımsız sistem mimarı <strong>NormMatik™ Ar-Ge ve Eğitim Teknolojileri Grubu</strong>’dır.
+                            6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, <strong>NormMatik™</strong> yazılımı kapsamında işlenen teknik ve kurumsal veriler bakımından veri sorumlusu, yazılımın geliştiricisidir. NormMatik bağımsız bir yazılımdır; Millî Eğitim Bakanlığı ile resmî bir bağı bulunmamaktadır.
                         </p>
 
                         <h4 class="kvkk-sub-heading">2. İşlenen Veri Kategorileri ve Kesin Sınırları</h4>
@@ -170459,7 +170459,7 @@ class UIComponentManager {
         
         let statusBadge = "";
         if (lic.isMaster) {
-            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">👑 Master Developer (NormMatik™ Ar-Ge ve Eğitim Teknolojileri Grubu) - Sınırsız</span>`;
+            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">👑 Geliştirici Erişimi - Sınırsız</span>`;
         } else if (lic.isAnnual) {
             statusBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1.5px solid #10b981; color: #10b981; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">🛡️ Yıllık Pro Lisans (${lic.daysRemaining} Gün Kaldı)</span>`;
         } else {
@@ -170489,7 +170489,7 @@ class UIComponentManager {
                                     490 ₺ <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-decoration: line-through;">1.500 ₺</span> <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ 1 Yıllık Okul Lisansı</span>
                                 </div>
                                 <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.1rem;">
-                                    ✨ Sınırsız şube, 5 sekmeli kurumsal Excel (.XLSX) ve filigransız resmî teslimat çıktıları.
+                                    ✨ Sınırsız şube, 5 sekmeli Excel (.XLSX) çıktısı ve filigransız yazdırma.
                                 </div>
                             </div>
                         </div>

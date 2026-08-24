@@ -370,7 +370,7 @@ class MebReportsEngine {
 
         return {
             reportType: "NORM_ACTION_REPORT",
-            title: "Norm Kadro İhtiyaç ve Fazlalık Resmi Eylem Raporu",
+            title: "Norm Kadro İhtiyaç ve Fazlalık Raporu",
             generatedAt: new Date().toLocaleString("tr-TR"),
             schoolInfo: schoolInfo,
             totalNeeded: normResult.totalNeeded,

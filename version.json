@@ -1,6 +1,6 @@
 {
   "appName": "NormMatik™",
-  "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Yönetim Sistemi",
+  "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
   "version": "2.0.1",
   "releaseDate": "2026-08-19",
   "minEngineVersion": "2.0.0",
@@ -12,8 +12,8 @@
   },
   "changelog": [
     "🎉 NormMatik 2.0 SaaS Dönüşümü Tamamlandı!",
-    "Yeni Kurumsal Vitrin ve Pazarlama Ana Sayfası (Landing Page) yayınlandı.",
+    "Yeni tanıtım ana sayfası (landing page) yayınlandı.",
     "MEB Kurum Kodu ve Şifreli Okul Giriş Portalı devreye alındı.",
-    "Google Cloud Realtime Online Veritabanı ile sıfır veri kaybı ve canlı bulut senkronizasyonu sağlandı."
+    "Firebase Realtime Database ile canlı bulut senkronizasyonu ve otomatik yedekleme devreye alındı."
   ]
 }
