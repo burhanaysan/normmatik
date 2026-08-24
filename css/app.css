@@ -4723,6 +4723,31 @@ body {
     flex-direction: column;
 }
 
+/* ==========================================================================
+   2026-08-24 DÜZELTMESİ — kaybolan branş tablosu
+   --------------------------------------------------------------------------
+   Bildirilen belirti: "Yönetici İcmali sekmesinde branş listesi ekranda yok,
+   ama yazdırınca çıkıyor."
+
+   Sebep: .reports-modal-body bir FLEX SÜTUN. Flex çocukları varsayılan
+   olarak SIKIŞIR (flex-shrink: 1). Normal bir <div> içeriği kadar yer
+   kaplamaya direnir (otomatik en-küçük-boy), ama .table-responsive-container
+   üzerinde `overflow: auto` olduğu için o koruma DEVRE DIŞI kalır ve öğe
+   sıfıra kadar ezilebilir.
+
+   Ölçüldü: tablo kabının içerik yüksekliği 478 piksel iken ekrana çizilen
+   yüksekliği 2 PİKSEL. Yani tablo sayfanın en altında görünmez bir şeride
+   sıkışıyordu. Yazdırmada @media print yüksekliği serbest bıraktığı için
+   orada düzgün çıkıyordu — hatanın fark edilmesini geciktiren şey buydu.
+
+   Birisi aynı sorunu daha önce .report-page-header'da yaşayıp ona tek tek
+   flex-shrink: 0 vermiş. Tek tek yerine BÜTÜN doğrudan çocukları koruyoruz;
+   böylece ileride eklenecek bölümler de kendiliğinden güvende olur.
+   ========================================================================== */
+.reports-modal-body > * {
+    flex-shrink: 0;
+}
+
 .report-page-header {
     margin-bottom: 1rem;
     padding-bottom: 0.65rem;

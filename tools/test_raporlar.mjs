@@ -173,6 +173,20 @@ for (const [ad, uret, ciz, arg] of [
             cikti.startsWith("__HATA__") ? cikti.slice(0, 80) : "çıktıda 'undefined' var");
 }
 
+// ------------------------------------------------- yerleşim koruması
+// R12: .reports-modal-body bir FLEX SÜTUN. Çocukları shrink edebilirse,
+// `overflow: auto` taşıyan .table-responsive-container SIFIRA kadar ezilir
+// ve branş tablosu ekranda görünmez olur — yazdırmada görünmeye devam
+// ettiği için fark edilmesi zordur. Ölçüldü (2026-08-24): 478 piksellik
+// tablo 2 piksele düşüyordu. Koruma kuralı silinirse bu test kırılır.
+console.log("\nYerleşim koruması");
+{
+    const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+    const kural = /\.reports-modal-body\s*>\s*\*\s*\{[^}]*flex-shrink:\s*0/.test(css);
+    denetle("R12 rapor gövdesi çocukları ezilmeye karşı korunuyor", kural,
+            ".reports-modal-body > * { flex-shrink: 0 } kuralı bulunamadı");
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
