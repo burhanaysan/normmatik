@@ -74,9 +74,12 @@ if (typeof window !== 'undefined') {
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
     if (typeof MebReportsEngine !== 'undefined') window.MebReportsEngine = MebReportsEngine;
-    if (typeof reportsEngine === 'undefined' && typeof MebReportsEngine !== 'undefined') {
-        window.reportsEngine = new MebReportsEngine();
-    }
+    // NOT: Burada eskiden `window.reportsEngine = new MebReportsEngine()` vardı.
+    // PARAMETRESİZ kuruluyordu, yani db/normEngine/curriculum bağlanmamış bir
+    // örnekti; herhangi bir raporu çağırsanız "Cannot read properties of
+    // undefined" ile çökerdi. Kimse kullanmıyordu ama kullanılmaya hazır
+    // görünüyordu — tuzaktı. Doğru bağlanmış örnek uiComponents.reports'tur
+    // ve app.js `window.uiComponents` üzerinden erişilebilir kılar.
     if (typeof firebaseAuth !== 'undefined') window.firebaseAuth = firebaseAuth;
     if (typeof authService !== 'undefined') window.authService = authService;
     if (typeof cloudDatabaseService !== 'undefined') window.cloudDatabaseService = cloudDatabaseService;

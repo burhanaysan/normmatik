@@ -3913,8 +3913,8 @@ export class UIComponentManager {
                                 <td><strong>${b.totalHours}</strong> Saat</td>
                                 <td><span class="norm-val-badge">${b.calculatedNorm}</span></td>
                                 <td>${b.currentTeachers}</td>
-                                <td><span class="status-badge-lg ${b.statusClass}">${b.statusBadge}</span></td>
-                                <td class="text-muted text-sm">${b.formulaBreakdown || 'MEB Standart Norm Baremi'}</td>
+                                <td><span class="status-badge-lg status-${b.statusType || 'tam'}">${b.statusBadge}</span></td>
+                                <td class="text-muted text-sm">${b.formulaExplanation || 'MEB Standart Norm Baremi'}</td>
                             </tr>
                         `).join("")}
                     </tbody>
@@ -3961,17 +3961,17 @@ export class UIComponentManager {
                     <div class="branch-detail-card">
                         <div class="branch-card-header">
                             <div class="b-title">⚖️ ${b.branchName}</div>
-                            <span class="status-badge-lg ${b.statusClass}">${b.statusBadge}</span>
+                            <span class="status-badge-lg status-${b.statusType || 'tam'}">${b.statusBadge}</span>
                         </div>
                         <div class="branch-card-body">
                             <div class="b-stats-row">
                                 <div class="b-stat"><span>Toplam Ders Yükü:</span> <strong>${b.totalHours} Saat</strong></div>
                                 <div class="b-stat"><span>Hesaplanan Norm:</span> <strong>${b.calculatedNorm} Öğretmen</strong></div>
                                 <div class="b-stat"><span>Mevcut Kadrolu:</span> <strong>${b.currentTeachers} Öğretmen</strong></div>
-                                <div class="b-stat"><span>Net Durum:</span> <strong>${b.difference > 0 ? `+${b.difference} Fazla` : (b.difference < 0 ? `${b.difference} İhtiyaç` : 'Tam')}</strong></div>
+                                <div class="b-stat"><span>Net Durum:</span> <strong>${b.statusText || 'Tam'}</strong></div>
                             </div>
                             <div class="b-rule-box">
-                                <strong>Mevzuat Dayanağı:</strong> ${b.formulaBreakdown}
+                                <strong>Mevzuat Dayanağı:</strong> ${b.formulaExplanation || '—'}
                             </div>
                         </div>
                     </div>
