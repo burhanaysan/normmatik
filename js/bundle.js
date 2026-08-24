@@ -160226,6 +160226,19 @@ class MebDatabaseService {
         return this.getAllBranches();
     }
 
+    /**
+     * Branş -> norma dâhil dersler matrisi.
+     *
+     * ⚠️ 2026-08-24: BU VERİ HİÇBİR HESABA GİRMİYOR. Tek çağıranı
+     * normEngine.setBranchMatrix() idi; o da veriyi saklayıp hiç
+     * okumuyordu. Ölü zincir kaldırıldı, bu okuyucu ileride gerçekten
+     * kullanılmak istenirse dursun diye bırakıldı.
+     *
+     * Kullanılacaksa ÖNCE kaynağı temizlenmeli: meb_master_db.json'daki
+     * 47 branşın bir kısmının ders listesi kirlidir (22 Ağustos 2026
+     * karşılaştırması). Branş ataması şu an
+     * curriculumEngine.getCanonicalCourseAndBranch() ile yapılıyor.
+     */
     getBranchMatrix() {
         return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru?.meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi?.branslar || {};
     }
@@ -161239,13 +161252,28 @@ if (typeof window !== 'undefined') {
 
 class NormEngine {
     constructor() {
-        this.branchMatrix = {};
         this.rules = NORM_RULES_CONFIG;
     }
 
-    setBranchMatrix(matrix) {
-        this.branchMatrix = matrix || {};
-    }
+    // ======================================================================
+    // KALDIRILDI (2026-08-24): branchMatrix / setBranchMatrix
+    //
+    // Motor bir "branş -> norma dâhil dersler" matrisi TUTUYORDU ama onu
+    // HİÇBİR YERDE OKUMUYORDU. app.js her açılışta matrisi yüklüyor,
+    // setBranchMatrix() saklıyor, sonra hiçbir hesap ona bakmıyordu.
+    //
+    // Zararı yalnızca ölü kod olması değildi: bir denetimde "kirli matris
+    // norm hesabını bozuyor" sonucuna varılmasına sebep oldu. Meğer matris
+    // hesaba hiç girmiyormuş. Anlamlı görünen ölü kod, yanlış teşhis üretir.
+    //
+    // Branş ataması GERÇEKTE şurada yapılır:
+    //     curriculumEngine.getCanonicalCourseAndBranch()
+    // ve norm hesabı `course.atananBrans` alanını kullanır.
+    //
+    // İleride matrisi gerçekten kullanmak istenirse (örn. "bu ders bu branşa
+    // atanabilir mi?" doğrulaması), önce kaynağının temizlenmesi gerekir:
+    // meb_master_db.json'daki 47 branşın bir kısmının ders listesi kirlidir.
+    // ======================================================================
 
     /**
      * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).
@@ -170656,7 +170684,6 @@ class MebNormApplication {
             }
             await dbService.loadDatabase();
 
-            normEngine.setBranchMatrix(dbService.getBranchMatrix());
             appState.loadLayout();
 
             // 1. DEMO OKUL SENARYOSU (Tertemiz, Başka Okuldan İz Taşımayan Demo Şablonu)

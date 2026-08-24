@@ -248,6 +248,36 @@ for (const alan of alanlar) {
     }
 }
 
+// ---- M9 genel kültür dersi atölye kovasına düşmemeli ------------------
+// MESEM'de kategori dönüşümü "TEMEL DERSLER" -> "ORTAK DERSLER" yapıyor.
+// Dönüşüm bozulursa Türk Dili, Matematik gibi dersler MESLEK kategorisine
+// düşer ve yükleri Madde 19 atölye kovasına yazılır.
+const GENEL_KULTUR = new Set([
+    "din kulturu ve ahlak bilgisi", "turk dili ve edebiyati", "matematik",
+    "tarih", "tc inkilap tarihi ve ataturkculuk", "cografya", "fizik",
+    "kimya", "biyoloji", "ingilizce", "yabanci dil", "beden egitimi",
+    "gorsel sanatlar", "muzik", "felsefe", "turkce", "fen bilimleri"
+]);
+let genelIhlal = 0;
+for (const alan of alanlar) {
+    for (const gStr of Object.keys(DB[alan].siniflar || {})) {
+        for (const rec of DB[alan].siniflar[gStr] || []) {
+            for (const c of rec.courses || []) {
+                if (!String(c.kategori || "").includes("MESLEK")) continue;
+                if (GENEL_KULTUR.has(norm(c.ders))) {
+                    genelIhlal++;
+                    if (hataOrnek.length < 40) {
+                        hataOrnek.push(`M9: ${alan}/${gStr} -> genel kültür dersi "${c.ders}" ` +
+                            `MESLEK kategorisinde; atölye yüküne yazılır`);
+                    }
+                }
+            }
+        }
+    }
+}
+kontrol++;
+if (genelIhlal > 0) hata++;
+
 console.log(`Dal   : ${toplamDal}`);
 console.log(`Çizelge : ${toplamCizelge}`);
 console.log(`Ders satırı : ${toplamDers}`);

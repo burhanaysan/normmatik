@@ -35,7 +35,6 @@ class MebNormApplication {
             }
             await dbService.loadDatabase();
 
-            normEngine.setBranchMatrix(dbService.getBranchMatrix());
             appState.loadLayout();
 
             // 1. DEMO OKUL SENARYOSU (Tertemiz, Başka Okuldan İz Taşımayan Demo Şablonu)

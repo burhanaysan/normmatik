@@ -528,6 +528,19 @@ export class MebDatabaseService {
         return this.getAllBranches();
     }
 
+    /**
+     * Branş -> norma dâhil dersler matrisi.
+     *
+     * ⚠️ 2026-08-24: BU VERİ HİÇBİR HESABA GİRMİYOR. Tek çağıranı
+     * normEngine.setBranchMatrix() idi; o da veriyi saklayıp hiç
+     * okumuyordu. Ölü zincir kaldırıldı, bu okuyucu ileride gerçekten
+     * kullanılmak istenirse dursun diye bırakıldı.
+     *
+     * Kullanılacaksa ÖNCE kaynağı temizlenmeli: meb_master_db.json'daki
+     * 47 branşın bir kısmının ders listesi kirlidir (22 Ağustos 2026
+     * karşılaştırması). Branş ataması şu an
+     * curriculumEngine.getCanonicalCourseAndBranch() ile yapılıyor.
+     */
     getBranchMatrix() {
         return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru?.meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi?.branslar || {};
     }

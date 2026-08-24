@@ -6,13 +6,28 @@ import { NORM_RULES_CONFIG } from './normRulesConfig.js';
 
 export class NormEngine {
     constructor() {
-        this.branchMatrix = {};
         this.rules = NORM_RULES_CONFIG;
     }
 
-    setBranchMatrix(matrix) {
-        this.branchMatrix = matrix || {};
-    }
+    // ======================================================================
+    // KALDIRILDI (2026-08-24): branchMatrix / setBranchMatrix
+    //
+    // Motor bir "branş -> norma dâhil dersler" matrisi TUTUYORDU ama onu
+    // HİÇBİR YERDE OKUMUYORDU. app.js her açılışta matrisi yüklüyor,
+    // setBranchMatrix() saklıyor, sonra hiçbir hesap ona bakmıyordu.
+    //
+    // Zararı yalnızca ölü kod olması değildi: bir denetimde "kirli matris
+    // norm hesabını bozuyor" sonucuna varılmasına sebep oldu. Meğer matris
+    // hesaba hiç girmiyormuş. Anlamlı görünen ölü kod, yanlış teşhis üretir.
+    //
+    // Branş ataması GERÇEKTE şurada yapılır:
+    //     curriculumEngine.getCanonicalCourseAndBranch()
+    // ve norm hesabı `course.atananBrans` alanını kullanır.
+    //
+    // İleride matrisi gerçekten kullanmak istenirse (örn. "bu ders bu branşa
+    // atanabilir mi?" doğrulaması), önce kaynağının temizlenmesi gerekir:
+    // meb_master_db.json'daki 47 branşın bir kısmının ders listesi kirlidir.
+    // ======================================================================
 
     /**
      * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).

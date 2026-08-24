@@ -244,6 +244,49 @@ for (const alan of alanlar) {
 kontrol++;
 if (atpIsletmeIhlal > 0) hata++;
 
+// ---------------------------------------------------------------- K9
+// GENEL KÜLTÜR DERSİ ATÖLYE KOVASINA DÜŞMEMELİ
+//
+// curriculumEngine `isAtolye = kategori.includes("MESLEK")` diyor.
+// Bir genel kültür dersi yanlışlıkla MESLEK kategorisine yazılırsa
+// yükü Madde 19 (atölye) kovasına gider ve o branşın normu değişir.
+//
+// Eşleştirme TAM AD üzerinden yapılır, önek üzerinden DEĞİL: "Kimyasal
+// Kinetik" ya da "Müzik ve Drama Etkinlikleri" gerçek meslek dersleridir
+// ve önek eşleştirmesi onları yanlışlıkla yakalıyordu.
+const GENEL_KULTUR = new Set([
+    "din kulturu ve ahlak bilgisi", "turk dili ve edebiyati", "turkce",
+    "matematik", "temel matematik", "ileri matematik", "geometri",
+    "tarih", "tc inkilap tarihi ve ataturkculuk", "cografya",
+    "fizik", "kimya", "biyoloji", "fen bilimleri",
+    "ingilizce", "yabanci dil", "yabanci dil (ingilizce)", "almanca",
+    "fransizca", "arapca", "beden egitimi", "beden egitimi ve spor",
+    "beden egitimi ve oyun", "gorsel sanatlar", "muzik", "felsefe",
+    "psikoloji", "sosyoloji", "mantik", "saglik bilgisi ve trafik kulturu",
+    "trafik guvenligi", "sosyal bilgiler", "rehberlik ve yonlendirme",
+    "insan haklari, yurttaslik ve demokrasi", "serbest etkinlikler"
+]);
+
+let genelIhlal = 0;
+for (const alan of alanlar) {
+    for (const gStr of Object.keys(DB[alan])) {
+        for (const rec of DB[alan][gStr] || []) {
+            for (const c of rec.courses || []) {
+                if (!String(c.kategori || "").includes("MESLEK")) continue;
+                if (GENEL_KULTUR.has(norm(c.ders))) {
+                    genelIhlal++;
+                    if (hataOrnek.length < 40) {
+                        hataOrnek.push(`K9: ${alan}/${gStr} -> genel kültür dersi "${c.ders}" ` +
+                            `MESLEK kategorisinde; atölye yüküne yazılır`);
+                    }
+                }
+            }
+        }
+    }
+}
+kontrol++;
+if (genelIhlal > 0) hata++;
+
 // ---------------------------------------------------------------- özet
 console.log(`Çizelge : ${toplamCizelge}  (AMP ${ampSayi} / ATP ${atpSayi})`);
 console.log(`Ders satırı : ${toplamDers}`);
