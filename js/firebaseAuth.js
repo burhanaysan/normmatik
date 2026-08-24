@@ -36,6 +36,13 @@ const OKUL_EPOSTA_ALANI = "okul.normmatik.com.tr";
 
 const DEPO_ANAHTARI = "normmatik_fb_kimlik";
 
+// KALICI DEPOLAMA KULLANILMIYOR (2026-08-24 kararı).
+// Kimlik jetonu sessionStorage'da tutulur: tarayıcı kapandığında oturum
+// kendiliğinden biter ve diskte hiçbir iz kalmaz. Bedeli, her tarayıcı
+// açılışında yeniden giriş yapılması; internet bankacılığındaki gibi.
+// Aynı sekmede sayfalar arası geçiş (index.html -> app.html) etkilenmez.
+const DEPO = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+
 // idToken 1 saat geçerlidir. Süre dolmadan 5 dakika önce yenileriz ki
 // uzun süren bir kaydetme işleminin ortasında token ölmesin.
 const ERKEN_YENILEME_MS = 5 * 60 * 1000;
@@ -54,7 +61,8 @@ export class FirebaseAuthService {
     // --------------------------------------------------------------- depo
     _oku() {
         try {
-            const ham = localStorage.getItem(DEPO_ANAHTARI);
+            const d = DEPO();
+            const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
             return ham ? JSON.parse(ham) : null;
         } catch (e) {
             return null;
@@ -64,8 +72,10 @@ export class FirebaseAuthService {
     _yaz(kimlik) {
         this.kimlik = kimlik;
         try {
-            if (kimlik) localStorage.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
-            else localStorage.removeItem(DEPO_ANAHTARI);
+            const d = DEPO();
+            if (!d) return;
+            if (kimlik) d.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
+            else d.removeItem(DEPO_ANAHTARI);
         } catch (e) { /* özel mod: bellekte tutmaya devam ederiz */ }
     }
 

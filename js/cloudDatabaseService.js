@@ -22,7 +22,7 @@
  * state.js bu yüzden değişmedi.
  */
 
-const RTDB_KOK = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/school_data";
+const RTDB_KOK = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app";
 
 // Geçici hatalarda (ağ koptu, 5xx) kaç kez yeniden denensin.
 // Yetki reddi gibi KALICI hatalarda tekrar denenmez.
@@ -79,7 +79,12 @@ export class CloudDatabaseService {
      *   kalici=true  -> yetki/kural reddi; yeniden denemek anlamsız
      *   kalici=false -> ağ ya da sunucu hatası; yeniden denenebilir
      */
-    async _istek(key, yontem, govde) {
+    /**
+     * @param {string} yol  Veritabanı KÖKÜNE göre yol; örn "school_data/131313",
+     *                      "abonelik/131313". Her parça ayrı kaçışlanır ki
+     *                      bölü işareti yol ayıracı olarak korunsun.
+     */
+    async _istek(yol, yontem, govde) {
         const auth = this._auth();
         if (!auth || !auth.oturumVar()) {
             return { ok: false, mesaj: "Oturum yok. Lütfen yeniden giriş yapın.", kalici: true };
@@ -90,7 +95,9 @@ export class CloudDatabaseService {
             return { ok: false, mesaj: "Oturum yenilenemedi. Bağlantınızı kontrol edin ya da yeniden giriş yapın.", kalici: false };
         }
 
-        const url = `${this.baseUrl}/${encodeURIComponent(key)}.json?auth=${encodeURIComponent(token)}`;
+        const guvenliYol = String(yol).split("/").filter(Boolean)
+            .map(encodeURIComponent).join("/");
+        const url = `${this.baseUrl}/${guvenliYol}.json?auth=${encodeURIComponent(token)}`;
 
         let res;
         try {
@@ -124,10 +131,10 @@ export class CloudDatabaseService {
         return { ok: false, mesaj, kalici };
     }
 
-    async _istekTekrarli(key, yontem, govde) {
+    async _istekTekrarli(yol, yontem, govde) {
         let son = { ok: false, mesaj: "Bilinmeyen hata", kalici: false };
         for (let deneme = 0; deneme < YENIDEN_DENEME; deneme++) {
-            son = await this._istek(key, yontem, govde);
+            son = await this._istek(yol, yontem, govde);
             if (son.ok || son.kalici) return son;
             if (deneme < YENIDEN_DENEME - 1) {
                 await new Promise(r => setTimeout(r, ILK_BEKLEME_MS * Math.pow(2, deneme)));
@@ -141,7 +148,7 @@ export class CloudDatabaseService {
         const key = this.getEffectiveKey(kurumKodu);
         if (!key) return null;
 
-        const sonuc = await this._istekTekrarli(key, "GET", null);
+        const sonuc = await this._istekTekrarli("school_data/" + key, "GET", null);
         if (!sonuc.ok) {
             console.warn("☁️ [NormMatik Bulut] Veri yüklenemedi:", sonuc.mesaj);
             this._durumBildir(false, "Veri yüklenemedi: " + sonuc.mesaj, sonuc.kalici);
@@ -159,6 +166,30 @@ export class CloudDatabaseService {
         // Kayıt yok: yeni okul. Hata değildir.
         this._durumBildir(true, "Bulutta kayıt yok (yeni okul).");
         return null;
+    }
+
+    /**
+     * Okulun abonelik ve kimlik kaydını çeker.
+     *
+     * Bu iki düğümü okul OKUR ama DEĞİŞTİREMEZ (veritabanı kuralı reddeder).
+     * Uygulamanın hakları — şube sınırı, dışa aktarım, bitiş tarihi —
+     * buradan gelir. Eskiden bu bilgi, kullanıcının yapıştırdığı bir lisans
+     * anahtarının içindeydi; yani kullanıcının elindeydi.
+     *
+     * Dönüş: { abonelik, kayit } — okunamayanlar null olur.
+     */
+    async loadLicenceInfo(kurumKodu) {
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key) return { abonelik: null, kayit: null };
+
+        const [a, k] = await Promise.all([
+            this._istekTekrarli("abonelik/" + key, "GET", null),
+            this._istekTekrarli("okul_kayit/" + key, "GET", null),
+        ]);
+        return {
+            abonelik: a.ok ? a.veri : null,
+            kayit: k.ok ? k.veri : null,
+        };
     }
 
     /** Otomatik kayıt (600 ms geciktirmeli). */
@@ -193,7 +224,7 @@ export class CloudDatabaseService {
         };
 
         this.isSaving = true;
-        const sonuc = await this._istekTekrarli(key, "PUT", veri);
+        const sonuc = await this._istekTekrarli("school_data/" + key, "PUT", veri);
         this.isSaving = false;
 
         if (sonuc.ok) {

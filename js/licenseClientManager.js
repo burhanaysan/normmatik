@@ -46,17 +46,12 @@ class MebLicenseClientManager {
             this.currentHardwareId = "HW-STANDALONE-DEVICE";
         }
 
-        const savedToken = this.safeGet(this.licenseKeyStorageKey);
-
-        if (savedToken) {
-            const res = await this.validateToken(savedToken);
-            if (res.isValid) {
-                this.activeLicense = res.payload;
-                this.licenseStatus = res;
-                return this.licenseStatus;
-            }
-        }
-
+        // Başlangıç durumu her zaman DEMO'dur. Giriş yapan okulun gerçek
+        // hakları, bulutdan 'abonelik' kaydı okunduktan sonra
+        // applyCloudSubscription() ile uygulanır (bkz. app.js).
+        //
+        // Eskiden burada localStorage'daki lisans anahtarı okunurdu. Anahtar
+        // sistemi 2026-08-24'te tamamen kaldırıldı.
         return this.initDemoState();
     }
 
@@ -97,39 +92,99 @@ class MebLicenseClientManager {
         return this.licenseStatus;
     }
 
-    async validateToken(token) {
-        try {
-            if (!token || typeof token !== 'string') {
-                return { isValid: false, reason: "Lisans anahtarı boş olamaz." };
-            }
-
-            const cleanToken = token.trim().replace(/^['"]|['"]$/g, '');
-            const currentHwid = this.currentHardwareId || await MebLicenseCore.generateHardwareFingerprint();
-
-            // MebLicenseCore üzerinden asimetrik kriptografik doğrulama
-            const res = await this.core.verifyLicenseToken(cleanToken, null, currentHwid);
-            return res;
-        } catch (e) {
-            return { isValid: false, reason: "Lisans anahtarı doğrulanamadı: " + e.message };
+    /**
+     * ================== ABONELİĞİ BULUTTAN UYGULA (2026-08-24) ==================
+     * Lisans artık bir ANAHTAR DEĞİL, veritabanındaki bir kayıttır.
+     *
+     * ESKİ DÜZEN VE NEDEN BIRAKILDI:
+     *   Okul uygulamayı açar, ekranda cihaza özel uzun bir kod belirirdi.
+     *   Bunu WhatsApp'tan geliştiriciye yollar, karşılığında imzalı bir
+     *   anahtar alır, uygulamaya yapıştırırdı. Anahtar CİHAZA kilitliydi;
+     *   bilgisayar değişince süreç baştan tekrarlanırdı.
+     *
+     *   Daha kötüsü: anahtar localStorage'da tutuluyordu, giriş ekranı ise
+     *   her girişte localStorage'ı temizliyordu. Yani anahtar HER GİRİŞTE
+     *   uçuyor ve uygulama DEMO'ya düşüyordu — ödeme yapmış bir okul
+     *   3 şube sınırına takılıyordu.
+     *
+     * YENİ DÜZEN:
+     *   Haklar 'abonelik/<kurumKodu>' düğümünde durur. Okul bunu OKUR,
+     *   DEĞİŞTİREMEZ (veritabanı kuralı reddeder). Süre dolduğunda
+     *   veritabanı erişimi zaten sunucuda keser — tarayıcıdan aşılamaz.
+     *
+     *   Sonuç: cihaz kodu yok, WhatsApp yok, yapıştırma yok, kaybolan
+     *   anahtar yok. Yenileme, veritabanında bir tarihi güncellemektir.
+     * ===========================================================================
+     *
+     * @param {object} abonelik  { plan, bitis, bitisMs, sinirsizSube, disaAktarim }
+     * @param {object} kimlik    { kurumKodu, okulAdi, okulTuru }
+     */
+    applyCloudSubscription(abonelik, kimlik = {}) {
+        if (!abonelik || typeof abonelik !== 'object') {
+            return this.initDemoState();
         }
+
+        const bitisMs = Number(abonelik.bitisMs || 0);
+        const kalanMs = bitisMs - Date.now();
+        const suresiDoldu = !(bitisMs > 0) || kalanMs <= 0;
+
+        if (suresiDoldu) {
+            // Süresi dolmuşsa demo haklarına düşer. Zaten veritabanı da
+            // erişimi kesmiş olur; bu yalnızca ekranda doğru mesaj çıksın diye.
+            const demo = this.initDemoState();
+            demo.isExpired = true;
+            demo.reason = `Aboneliğiniz ${abonelik.bitis || ''} tarihinde sona erdi. Yenilemek için bizimle iletişime geçin.`;
+            this.licenseStatus = demo;
+            return demo;
+        }
+
+        this.activeLicense = { ...abonelik, ...kimlik };
+        this.licenseStatus = {
+            isValid: true,
+            licenseType: String(abonelik.plan || 'tam').toUpperCase(),
+            isDemo: false,
+            isAnnual: true,
+            isMaster: false,
+            daysRemaining: Math.ceil(kalanMs / 86400000),
+            isExpired: false,
+            // -1 = sınırsız. Lisanslı okulda şube sınırı YOKTUR.
+            maxSections: (abonelik.sinirsizSube === false)
+                ? (parseInt(abonelik.maxSube, 10) || 3)
+                : -1,
+            allowExport: abonelik.disaAktarim !== false,
+            kurumKodu: kimlik.kurumKodu || '',
+            okulAdi: kimlik.okulAdi || '',
+            okulTuru: kimlik.okulTuru || '',
+            hardwareId: this.currentHardwareId,
+            bitis: abonelik.bitis || '',
+            reason: null
+        };
+        return this.licenseStatus;
     }
 
-    async activateLicense(token) {
-        const res = await this.validateToken(token);
-        if (res.isValid) {
-            this.safeSet(this.licenseKeyStorageKey, token.trim());
-            this.activeLicense = res.payload;
-            this.licenseStatus = res;
-            return { success: true, status: res };
-        } else {
-            return { success: false, reason: res.reason || "Geçersiz lisans anahtarı." };
-        }
+    /** Destek/yönetici hesabı: her okulu açabilir, sınır uygulanmaz. */
+    applyAdminAccess(kimlik = {}) {
+        this.licenseStatus = {
+            isValid: true,
+            licenseType: 'YONETICI',
+            isDemo: false,
+            isAnnual: false,
+            isMaster: true,
+            daysRemaining: 9999,
+            isExpired: false,
+            maxSections: -1,
+            allowExport: true,
+            kurumKodu: kimlik.kurumKodu || '',
+            okulAdi: kimlik.okulAdi || '',
+            okulTuru: kimlik.okulTuru || '',
+            hardwareId: this.currentHardwareId,
+            reason: null
+        };
+        return this.licenseStatus;
     }
 
     deactivateLicense() {
-        try {
-            localStorage.removeItem(this.licenseKeyStorageKey);
-        } catch (e) {}
+        // Artık silinecek bir anahtar yok; yalnızca bellekteki durum sıfırlanır.
         this.activeLicense = null;
         return this.initDemoState();
     }

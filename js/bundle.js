@@ -330,17 +330,12 @@ class MebLicenseClientManager {
             this.currentHardwareId = "HW-STANDALONE-DEVICE";
         }
 
-        const savedToken = this.safeGet(this.licenseKeyStorageKey);
-
-        if (savedToken) {
-            const res = await this.validateToken(savedToken);
-            if (res.isValid) {
-                this.activeLicense = res.payload;
-                this.licenseStatus = res;
-                return this.licenseStatus;
-            }
-        }
-
+        // Başlangıç durumu her zaman DEMO'dur. Giriş yapan okulun gerçek
+        // hakları, bulutdan 'abonelik' kaydı okunduktan sonra
+        // applyCloudSubscription() ile uygulanır (bkz. app.js).
+        //
+        // Eskiden burada localStorage'daki lisans anahtarı okunurdu. Anahtar
+        // sistemi 2026-08-24'te tamamen kaldırıldı.
         return this.initDemoState();
     }
 
@@ -381,39 +376,99 @@ class MebLicenseClientManager {
         return this.licenseStatus;
     }
 
-    async validateToken(token) {
-        try {
-            if (!token || typeof token !== 'string') {
-                return { isValid: false, reason: "Lisans anahtarı boş olamaz." };
-            }
-
-            const cleanToken = token.trim().replace(/^['"]|['"]$/g, '');
-            const currentHwid = this.currentHardwareId || await MebLicenseCore.generateHardwareFingerprint();
-
-            // MebLicenseCore üzerinden asimetrik kriptografik doğrulama
-            const res = await this.core.verifyLicenseToken(cleanToken, null, currentHwid);
-            return res;
-        } catch (e) {
-            return { isValid: false, reason: "Lisans anahtarı doğrulanamadı: " + e.message };
+    /**
+     * ================== ABONELİĞİ BULUTTAN UYGULA (2026-08-24) ==================
+     * Lisans artık bir ANAHTAR DEĞİL, veritabanındaki bir kayıttır.
+     *
+     * ESKİ DÜZEN VE NEDEN BIRAKILDI:
+     *   Okul uygulamayı açar, ekranda cihaza özel uzun bir kod belirirdi.
+     *   Bunu WhatsApp'tan geliştiriciye yollar, karşılığında imzalı bir
+     *   anahtar alır, uygulamaya yapıştırırdı. Anahtar CİHAZA kilitliydi;
+     *   bilgisayar değişince süreç baştan tekrarlanırdı.
+     *
+     *   Daha kötüsü: anahtar localStorage'da tutuluyordu, giriş ekranı ise
+     *   her girişte localStorage'ı temizliyordu. Yani anahtar HER GİRİŞTE
+     *   uçuyor ve uygulama DEMO'ya düşüyordu — ödeme yapmış bir okul
+     *   3 şube sınırına takılıyordu.
+     *
+     * YENİ DÜZEN:
+     *   Haklar 'abonelik/<kurumKodu>' düğümünde durur. Okul bunu OKUR,
+     *   DEĞİŞTİREMEZ (veritabanı kuralı reddeder). Süre dolduğunda
+     *   veritabanı erişimi zaten sunucuda keser — tarayıcıdan aşılamaz.
+     *
+     *   Sonuç: cihaz kodu yok, WhatsApp yok, yapıştırma yok, kaybolan
+     *   anahtar yok. Yenileme, veritabanında bir tarihi güncellemektir.
+     * ===========================================================================
+     *
+     * @param {object} abonelik  { plan, bitis, bitisMs, sinirsizSube, disaAktarim }
+     * @param {object} kimlik    { kurumKodu, okulAdi, okulTuru }
+     */
+    applyCloudSubscription(abonelik, kimlik = {}) {
+        if (!abonelik || typeof abonelik !== 'object') {
+            return this.initDemoState();
         }
+
+        const bitisMs = Number(abonelik.bitisMs || 0);
+        const kalanMs = bitisMs - Date.now();
+        const suresiDoldu = !(bitisMs > 0) || kalanMs <= 0;
+
+        if (suresiDoldu) {
+            // Süresi dolmuşsa demo haklarına düşer. Zaten veritabanı da
+            // erişimi kesmiş olur; bu yalnızca ekranda doğru mesaj çıksın diye.
+            const demo = this.initDemoState();
+            demo.isExpired = true;
+            demo.reason = `Aboneliğiniz ${abonelik.bitis || ''} tarihinde sona erdi. Yenilemek için bizimle iletişime geçin.`;
+            this.licenseStatus = demo;
+            return demo;
+        }
+
+        this.activeLicense = { ...abonelik, ...kimlik };
+        this.licenseStatus = {
+            isValid: true,
+            licenseType: String(abonelik.plan || 'tam').toUpperCase(),
+            isDemo: false,
+            isAnnual: true,
+            isMaster: false,
+            daysRemaining: Math.ceil(kalanMs / 86400000),
+            isExpired: false,
+            // -1 = sınırsız. Lisanslı okulda şube sınırı YOKTUR.
+            maxSections: (abonelik.sinirsizSube === false)
+                ? (parseInt(abonelik.maxSube, 10) || 3)
+                : -1,
+            allowExport: abonelik.disaAktarim !== false,
+            kurumKodu: kimlik.kurumKodu || '',
+            okulAdi: kimlik.okulAdi || '',
+            okulTuru: kimlik.okulTuru || '',
+            hardwareId: this.currentHardwareId,
+            bitis: abonelik.bitis || '',
+            reason: null
+        };
+        return this.licenseStatus;
     }
 
-    async activateLicense(token) {
-        const res = await this.validateToken(token);
-        if (res.isValid) {
-            this.safeSet(this.licenseKeyStorageKey, token.trim());
-            this.activeLicense = res.payload;
-            this.licenseStatus = res;
-            return { success: true, status: res };
-        } else {
-            return { success: false, reason: res.reason || "Geçersiz lisans anahtarı." };
-        }
+    /** Destek/yönetici hesabı: her okulu açabilir, sınır uygulanmaz. */
+    applyAdminAccess(kimlik = {}) {
+        this.licenseStatus = {
+            isValid: true,
+            licenseType: 'YONETICI',
+            isDemo: false,
+            isAnnual: false,
+            isMaster: true,
+            daysRemaining: 9999,
+            isExpired: false,
+            maxSections: -1,
+            allowExport: true,
+            kurumKodu: kimlik.kurumKodu || '',
+            okulAdi: kimlik.okulAdi || '',
+            okulTuru: kimlik.okulTuru || '',
+            hardwareId: this.currentHardwareId,
+            reason: null
+        };
+        return this.licenseStatus;
     }
 
     deactivateLicense() {
-        try {
-            localStorage.removeItem(this.licenseKeyStorageKey);
-        } catch (e) {}
+        // Artık silinecek bir anahtar yok; yalnızca bellekteki durum sıfırlanır.
         this.activeLicense = null;
         return this.initDemoState();
     }
@@ -163113,6 +163168,13 @@ const OKUL_EPOSTA_ALANI = "okul.normmatik.com.tr";
 
 const DEPO_ANAHTARI = "normmatik_fb_kimlik";
 
+// KALICI DEPOLAMA KULLANILMIYOR (2026-08-24 kararı).
+// Kimlik jetonu sessionStorage'da tutulur: tarayıcı kapandığında oturum
+// kendiliğinden biter ve diskte hiçbir iz kalmaz. Bedeli, her tarayıcı
+// açılışında yeniden giriş yapılması; internet bankacılığındaki gibi.
+// Aynı sekmede sayfalar arası geçiş (index.html -> app.html) etkilenmez.
+const DEPO = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+
 // idToken 1 saat geçerlidir. Süre dolmadan 5 dakika önce yenileriz ki
 // uzun süren bir kaydetme işleminin ortasında token ölmesin.
 const ERKEN_YENILEME_MS = 5 * 60 * 1000;
@@ -163131,7 +163193,8 @@ class FirebaseAuthService {
     // --------------------------------------------------------------- depo
     _oku() {
         try {
-            const ham = localStorage.getItem(DEPO_ANAHTARI);
+            const d = DEPO();
+            const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
             return ham ? JSON.parse(ham) : null;
         } catch (e) {
             return null;
@@ -163141,8 +163204,10 @@ class FirebaseAuthService {
     _yaz(kimlik) {
         this.kimlik = kimlik;
         try {
-            if (kimlik) localStorage.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
-            else localStorage.removeItem(DEPO_ANAHTARI);
+            const d = DEPO();
+            if (!d) return;
+            if (kimlik) d.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
+            else d.removeItem(DEPO_ANAHTARI);
         } catch (e) { /* özel mod: bellekte tutmaya devam ederiz */ }
     }
 
@@ -163358,7 +163423,9 @@ class AuthService {
 
     getSession() {
         try {
-            const data = sessionStorage.getItem(this.SESSION_KEY) || localStorage.getItem(this.SESSION_KEY);
+            // Yalnızca sessionStorage. localStorage BİLEREK okunmuyor:
+            // tarayıcı kapandıktan sonra oturum devam etmemeli.
+            const data = sessionStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
@@ -163372,15 +163439,36 @@ class AuthService {
                 lastActive: new Date().toISOString()
             });
             sessionStorage.setItem(this.SESSION_KEY, jsonStr);
-            localStorage.setItem(this.SESSION_KEY, jsonStr);
         } catch (e) {}
     }
 
+    /**
+     * Çıkış.
+     *
+     * Okula ait her iz silinir; yalnızca zararsız kullanıcı tercihleri
+     * (tema, panel genişlikleri, tanıtım turu) korunur. Eskiden düpedüz
+     * localStorage.clear() çağrılıyordu ve bu tercihler de her çıkışta
+     * uçuyordu.
+     *
+     * sessionStorage tamamen temizlenir: kimlik jetonu ve oturum orada
+     * durur, bir sonraki kullanıcıya sızmamalıdır.
+     */
     logout() {
+        const KORUNANLAR = [
+            "meb_norm_theme",
+            "MEB_NORM_KADRO_LAYOUT_V1",
+            "normmatik_onboarding_seen"
+        ];
         try {
+            const yedek = {};
+            KORUNANLAR.forEach(k => {
+                const v = localStorage.getItem(k);
+                if (v !== null) yedek[k] = v;
+            });
             localStorage.clear();
-            sessionStorage.clear();
+            Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
         } catch (e) {}
+        try { sessionStorage.clear(); } catch (e) {}
         window.location.href = "index.html";
     }
 
@@ -163454,7 +163542,7 @@ if (typeof window !== 'undefined') {
  * state.js bu yüzden değişmedi.
  */
 
-const RTDB_KOK = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/school_data";
+const RTDB_KOK = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app";
 
 // Geçici hatalarda (ağ koptu, 5xx) kaç kez yeniden denensin.
 // Yetki reddi gibi KALICI hatalarda tekrar denenmez.
@@ -163511,7 +163599,12 @@ class CloudDatabaseService {
      *   kalici=true  -> yetki/kural reddi; yeniden denemek anlamsız
      *   kalici=false -> ağ ya da sunucu hatası; yeniden denenebilir
      */
-    async _istek(key, yontem, govde) {
+    /**
+     * @param {string} yol  Veritabanı KÖKÜNE göre yol; örn "school_data/131313",
+     *                      "abonelik/131313". Her parça ayrı kaçışlanır ki
+     *                      bölü işareti yol ayıracı olarak korunsun.
+     */
+    async _istek(yol, yontem, govde) {
         const auth = this._auth();
         if (!auth || !auth.oturumVar()) {
             return { ok: false, mesaj: "Oturum yok. Lütfen yeniden giriş yapın.", kalici: true };
@@ -163522,7 +163615,9 @@ class CloudDatabaseService {
             return { ok: false, mesaj: "Oturum yenilenemedi. Bağlantınızı kontrol edin ya da yeniden giriş yapın.", kalici: false };
         }
 
-        const url = `${this.baseUrl}/${encodeURIComponent(key)}.json?auth=${encodeURIComponent(token)}`;
+        const guvenliYol = String(yol).split("/").filter(Boolean)
+            .map(encodeURIComponent).join("/");
+        const url = `${this.baseUrl}/${guvenliYol}.json?auth=${encodeURIComponent(token)}`;
 
         let res;
         try {
@@ -163556,10 +163651,10 @@ class CloudDatabaseService {
         return { ok: false, mesaj, kalici };
     }
 
-    async _istekTekrarli(key, yontem, govde) {
+    async _istekTekrarli(yol, yontem, govde) {
         let son = { ok: false, mesaj: "Bilinmeyen hata", kalici: false };
         for (let deneme = 0; deneme < YENIDEN_DENEME; deneme++) {
-            son = await this._istek(key, yontem, govde);
+            son = await this._istek(yol, yontem, govde);
             if (son.ok || son.kalici) return son;
             if (deneme < YENIDEN_DENEME - 1) {
                 await new Promise(r => setTimeout(r, ILK_BEKLEME_MS * Math.pow(2, deneme)));
@@ -163573,7 +163668,7 @@ class CloudDatabaseService {
         const key = this.getEffectiveKey(kurumKodu);
         if (!key) return null;
 
-        const sonuc = await this._istekTekrarli(key, "GET", null);
+        const sonuc = await this._istekTekrarli("school_data/" + key, "GET", null);
         if (!sonuc.ok) {
             console.warn("☁️ [NormMatik Bulut] Veri yüklenemedi:", sonuc.mesaj);
             this._durumBildir(false, "Veri yüklenemedi: " + sonuc.mesaj, sonuc.kalici);
@@ -163591,6 +163686,30 @@ class CloudDatabaseService {
         // Kayıt yok: yeni okul. Hata değildir.
         this._durumBildir(true, "Bulutta kayıt yok (yeni okul).");
         return null;
+    }
+
+    /**
+     * Okulun abonelik ve kimlik kaydını çeker.
+     *
+     * Bu iki düğümü okul OKUR ama DEĞİŞTİREMEZ (veritabanı kuralı reddeder).
+     * Uygulamanın hakları — şube sınırı, dışa aktarım, bitiş tarihi —
+     * buradan gelir. Eskiden bu bilgi, kullanıcının yapıştırdığı bir lisans
+     * anahtarının içindeydi; yani kullanıcının elindeydi.
+     *
+     * Dönüş: { abonelik, kayit } — okunamayanlar null olur.
+     */
+    async loadLicenceInfo(kurumKodu) {
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key) return { abonelik: null, kayit: null };
+
+        const [a, k] = await Promise.all([
+            this._istekTekrarli("abonelik/" + key, "GET", null),
+            this._istekTekrarli("okul_kayit/" + key, "GET", null),
+        ]);
+        return {
+            abonelik: a.ok ? a.veri : null,
+            kayit: k.ok ? k.veri : null,
+        };
     }
 
     /** Otomatik kayıt (600 ms geciktirmeli). */
@@ -163625,7 +163744,7 @@ class CloudDatabaseService {
         };
 
         this.isSaving = true;
-        const sonuc = await this._istekTekrarli(key, "PUT", veri);
+        const sonuc = await this._istekTekrarli("school_data/" + key, "PUT", veri);
         this.isSaving = false;
 
         if (sonuc.ok) {
@@ -170229,8 +170348,8 @@ class UIComponentManager {
                             </div>
 
                             <div style="margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
-                                <span>🖥️ Cihaz Kimliği (HWID): <strong id="disp-hwid" style="font-family: monospace; color: var(--primary);">Hesaplanıyor...</strong></span>
-                                <span style="color: #0284c7; font-weight: 800;">🔒 Cihaza Özel Lisans (HWID Mühürlü)</span>
+                                <span>🔑 Giriş: MEB Kurum Kodu + şifreniz</span>
+                                <span style="color: #0284c7; font-weight: 800;">🔒 Kuruma Özel Lisans</span>
                             </div>
                         </div>
 
@@ -170240,24 +170359,22 @@ class UIComponentManager {
                                 <span style="font-size: 1.25rem;">🟢</span> 📲 WhatsApp ile Hemen Lisans Al (+90 506 277 70 49)
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız teslim edilir.
+                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız tanımlanır.
                             </div>
                         </div>
 
-                        <!-- 4. LİSANS ANAHTARI GİRİŞ ALANI -->
-                        <div class="form-group" style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom: 0;">
-                            <label style="font-weight: 700; font-size: 0.8rem; color: var(--text-main);">Lisans Anahtarınızı Giriniz:</label>
-                            <textarea id="inp-license-token" rows="2" placeholder="Geliştiriciden aldığınız MEBNORM.eyJ... anahtarını buraya yapıştırınız." style="font-family: monospace; font-size: 0.78rem; width: 100%; border: 1.5px solid var(--border-main); border-radius: 8px; padding: 0.55rem; box-sizing: border-box;"></textarea>
-                        </div>
+                        <!--
+                            KALDIRILDI (2026-08-24): lisans anahtarı yapıştırma alanı,
+                            ".lic dosyası yükle" düğmesi ve cihaz kimliği (HWID) satırı.
 
-                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="btn-submit-license" style="flex: 2; min-width: 160px; padding: 0.65rem; font-weight: 800;">
-                                ⚡ Lisansı Aktifleştir
-                            </button>
-                            <button class="btn btn-outline" id="btn-upload-lic-file" style="flex: 1; min-width: 130px; padding: 0.65rem; font-size: 0.78rem;">
-                                📂 .lic Dosyası Yükle
-                            </button>
-                            <input type="file" id="file-lic-input" accept=".lic,.txt,.json" style="display:none;">
+                            Artık lisans anahtarı diye bir şey yok. Ödeme alındığında
+                            okulun aboneliği doğrudan tanımlanıyor; okul yalnızca
+                            MEB kurum kodu ve şifresiyle giriyor. Cihaza kilit de
+                            kalktı — okul istediği bilgisayardan girebiliyor.
+                        -->
+                        <div style="background: var(--bg-soft, #f1f5f9); border: 1px dashed var(--border-main); border-radius: 10px; padding: 0.75rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+                            Lisansınız tanımlandıktan sonra <strong>çıkış yapıp yeniden giriş</strong> yapmanız yeterlidir.<br>
+                            Anahtar girmenize, dosya yüklemenize gerek yoktur.
                         </div>
                     </div>
                 </div>
@@ -170266,13 +170383,8 @@ class UIComponentManager {
 
         this.renderModal(modalHtml);
 
-        // HWID Hesapla ve Ekrana Yaz
-        if (typeof MebLicenseCore !== 'undefined') {
-            MebLicenseCore.generateHardwareFingerprint().then(hwid => {
-                const el = document.getElementById("disp-hwid");
-                if (el) el.textContent = hwid;
-            });
-        }
+        // KALDIRILDI (2026-08-24): cihaz kimliği (HWID) hesaplama.
+        // Lisans cihaza değil kuruma bağlandığı için gereksiz.
 
         // Okul Bilgileri Değiştikçe Canlı Kaydet ve Senkronize Et
         const syncSchoolInputs = () => {
@@ -170331,16 +170443,16 @@ class UIComponentManager {
 
             const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "";
             const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "Belirtilmedi";
-            const hwid = document.getElementById("disp-hwid")?.textContent || "*";
 
+            // Cihaz kodu (HWID) mesajdan ÇIKARILDI (2026-08-24): lisans artık
+            // cihaza değil kuruma bağlı. Okul istediği bilgisayardan girebilir.
             const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
 * MEB Kurum Kodu: ${kKodu}
 * Okul Adı: ${oAdi}
 * İl / İlçe: ${ilIlce}
 * Okul Türü: ${turAdi}
-* Cihaz Kodu (HWID): ${hwid}
 
-Merhaba, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
+Merhaba, okulumuz için 1 yıllık NormMatik™ lisansı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
 
             const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, "_blank");
@@ -170351,42 +170463,11 @@ Merhaba, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum
             this.closeModal("license-modal");
         });
 
-        // Lisans Aktifleştir
-        document.getElementById("btn-submit-license")?.addEventListener("click" , async () => {
-            const tokenInp = document.getElementById("inp-license-token").value.trim();
-            if (!tokenInp) {
-                alert("Lütfen lisans anahtarınızı giriniz.");
-                return;
-            }
+        // KALDIRILDI (2026-08-24): "Lisansı Aktifleştir" ve ".lic dosyası
+        // yükle" işleyicileri. Karşılık geldikleri alanlar da kaldırıldı.
+        // Lisans artık bir anahtar değil, veritabanındaki abonelik kaydıdır;
+        // giriş yapıldığında otomatik okunur.
 
-            let cleanToken = tokenInp;
-            const match = tokenInp.match(/MEBNORM\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/);
-            if (match) cleanToken = match[0];
-
-            if (typeof window !== 'undefined' && window.licenseManager) {
-                const res = await window.licenseManager.activateLicense(cleanToken);
-                if (res.success) {
-                    alert(`🎉 TEBRİKLER!\n\nLisansınız başarıyla aktifleştirildi.\nKurum: ${res.status.okulAdi || 'Pro Kurum'}\nTür: ${res.status.licenseType}`);
-                    this.closeModal("license-modal");
-                    window.location.reload();
-                } else {
-                    alert(`❌ Lisans Doğrulama Başarısız:\n${res.reason}`);
-                }
-            }
-        });
-
-        // Dosyadan Yükleme
-        const fileInput = document.getElementById("file-lic-input");
-        document.getElementById("btn-upload-lic-file")?.addEventListener("click", () => fileInput.click());
-        fileInput?.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("inp-license-token").value = event.target.result;
-            };
-            reader.readAsText(file);
-        });
     }
 
 }
@@ -170458,10 +170539,41 @@ class MebNormApplication {
                 // Google Cloud Realtime Database'den Okulun Verilerini Çek
                 const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
                 if (cloudService) {
+                    // --- ABONELİK VE KİMLİK (2026-08-24) -------------------
+                    // Okulun hakları — şube sınırı, dışa aktarım, bitiş tarihi —
+                    // artık buluttaki 'abonelik' kaydından geliyor. Eskiden bu
+                    // bilgi kullanıcının yapıştırdığı lisans anahtarının içindeydi;
+                    // anahtar her girişte silindiği için ödeme yapmış okullar da
+                    // DEMO'ya (3 şube) düşüyordu.
+                    //
+                    // Okul adı/türü de burada 'okul_kayit'tan alınıyor: veritabanı
+                    // kuralı okulun bunları değiştirmesini zaten reddediyor, bu
+                    // yüzden ekranda da yetkili kaynak burasıdır.
+                    const lisans = await cloudService.loadLicenceInfo(session.kurumKodu);
+                    if (lisans.kayit) {
+                        if (lisans.kayit.okulAdi)  appState.state.okulBilgisi.okulAdi  = lisans.kayit.okulAdi;
+                        if (lisans.kayit.okulTuru) appState.state.okulBilgisi.okulTuru = lisans.kayit.okulTuru;
+                        if (lisans.kayit.il)       appState.state.okulBilgisi.il       = lisans.kayit.il;
+                        if (lisans.kayit.ilce)     appState.state.okulBilgisi.ilce     = lisans.kayit.ilce;
+                    }
+                    if (window.licenseManager) {
+                        window.licenseManager.applyCloudSubscription(lisans.abonelik, {
+                            kurumKodu: session.kurumKodu,
+                            okulAdi: appState.state.okulBilgisi.okulAdi,
+                            okulTuru: appState.state.okulBilgisi.okulTuru
+                        });
+                    }
+
                     const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
                     if (cloudData) {
-                        if (cloudData.okulAdi) appState.state.okulBilgisi.okulAdi = cloudData.okulAdi;
-                        if (cloudData.okulTuru) appState.state.okulBilgisi.okulTuru = cloudData.okulTuru;
+                        // Okul adı/türü yalnızca 'okul_kayit' YOKSA buradan alınır.
+                        // Kural, kaydedilen adın okul_kayit'takiyle birebir aynı
+                        // olmasını şart koşuyor; eski bir kayıttaki farklı ad
+                        // ekrana yazılırsa ilk kaydetme reddedilirdi.
+                        if (!lisans.kayit) {
+                            if (cloudData.okulAdi) appState.state.okulBilgisi.okulAdi = cloudData.okulAdi;
+                            if (cloudData.okulTuru) appState.state.okulBilgisi.okulTuru = cloudData.okulTuru;
+                        }
                         if (cloudData.il) appState.state.okulBilgisi.il = cloudData.il;
                         if (cloudData.ilce) appState.state.okulBilgisi.ilce = cloudData.ilce;
                         if (cloudData.sezon) appState.state.okulBilgisi.sezon = cloudData.sezon;

@@ -343,10 +343,7 @@
 
         demoBtns.forEach(btn => btn?.addEventListener('click', (e) => {
             e.preventDefault();
-            try {
-                localStorage.clear();
-                sessionStorage.clear();
-            } catch (err) {}
+            yerelIzleriTemizle();
             const demoSession = {
                 kurumKodu: "123456",
                 okulAdi: "Atatürk Anadolu Lisesi (Demo)",
@@ -354,7 +351,6 @@
                 isDemo: true,
                 loginTime: new Date().toISOString()
             };
-            localStorage.setItem("normmatik_active_session", JSON.stringify(demoSession));
             sessionStorage.setItem("normmatik_active_session", JSON.stringify(demoSession));
             window.location.href = "app.html";
         }));
@@ -384,6 +380,35 @@
         // Yerine: Google tarafinda dogrulanan kimlik + sunucuda calisan
         // veritabani kurallari. Bkz. 09_firebase_guvenlik/
         // ---------------------------------------------------------------
+
+        /**
+         * Giriş öncesi yerel temizlik.
+         *
+         * Eskiden burada düpedüz localStorage.clear() vardı; bu, kullanıcının
+         * TEMA ve PENCERE DÜZENİ tercihlerini de her girişte siliyordu.
+         * Artık yalnızca okula ait iz bırakabilecek anahtarlar siliniyor,
+         * zararsız tercihler korunuyor.
+         *
+         * sessionStorage tamamen temizlenir: okul verisiyle ilgili her şey
+         * orada durur ve bir sonraki okula sızmamalıdır.
+         */
+        function yerelIzleriTemizle() {
+            const KORUNANLAR = [
+                "meb_norm_theme",             // açık/koyu tema
+                "MEB_NORM_KADRO_LAYOUT_V1",   // panel genişlikleri
+                "normmatik_onboarding_seen"   // tanıtım turu görüldü mü
+            ];
+            try {
+                const yedek = {};
+                KORUNANLAR.forEach(k => {
+                    const v = localStorage.getItem(k);
+                    if (v !== null) yedek[k] = v;
+                });
+                localStorage.clear();
+                Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
+            } catch (e) {}
+            try { sessionStorage.clear(); } catch (e) {}
+        }
 
         // Form Giriş Kontrolü
         document.getElementById('form-login')?.addEventListener('submit', async (e) => {
@@ -419,10 +444,7 @@
             // Oturum başlamadan ÖNCE eski kalıntıları temizliyoruz. Sıra
             // önemli: kimlik jetonu da localStorage'a yazıldığı için
             // temizlik sonradan yapılırsa yeni jetonu da siler.
-            try {
-                localStorage.clear();
-                sessionStorage.clear();
-            } catch (err) {}
+            yerelIzleriTemizle();
 
             let girisCevabi = null;
             let girisHatasi = null;
@@ -466,7 +488,8 @@
 
                 // Kimlik jetonu: js/firebaseAuth.js ile AYNI anahtar ve
                 // aynı biçim. app.html bunu okuyup buluta bağlanıyor.
-                localStorage.setItem("normmatik_fb_kimlik", JSON.stringify({
+                // sessionStorage: tarayici kapaninca oturum biter, diskte iz kalmaz.
+                sessionStorage.setItem("normmatik_fb_kimlik", JSON.stringify({
                     uid: girisCevabi.localId,
                     kurumKodu: kurumKodu,
                     idToken: girisCevabi.idToken,
@@ -490,7 +513,6 @@
                     isDemo: false,
                     loginTime: new Date().toISOString()
                 };
-                localStorage.setItem("normmatik_active_session", JSON.stringify(activeSession));
                 sessionStorage.setItem("normmatik_active_session", JSON.stringify(activeSession));
 
                 window.location.href = "app.html";

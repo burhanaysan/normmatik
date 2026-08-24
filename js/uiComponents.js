@@ -5092,8 +5092,8 @@ export class UIComponentManager {
                             </div>
 
                             <div style="margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
-                                <span>🖥️ Cihaz Kimliği (HWID): <strong id="disp-hwid" style="font-family: monospace; color: var(--primary);">Hesaplanıyor...</strong></span>
-                                <span style="color: #0284c7; font-weight: 800;">🔒 Cihaza Özel Lisans (HWID Mühürlü)</span>
+                                <span>🔑 Giriş: MEB Kurum Kodu + şifreniz</span>
+                                <span style="color: #0284c7; font-weight: 800;">🔒 Kuruma Özel Lisans</span>
                             </div>
                         </div>
 
@@ -5103,24 +5103,22 @@ export class UIComponentManager {
                                 <span style="font-size: 1.25rem;">🟢</span> 📲 WhatsApp ile Hemen Lisans Al (+90 506 277 70 49)
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız teslim edilir.
+                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız tanımlanır.
                             </div>
                         </div>
 
-                        <!-- 4. LİSANS ANAHTARI GİRİŞ ALANI -->
-                        <div class="form-group" style="display:flex; flex-direction:column; gap:0.35rem; margin-bottom: 0;">
-                            <label style="font-weight: 700; font-size: 0.8rem; color: var(--text-main);">Lisans Anahtarınızı Giriniz:</label>
-                            <textarea id="inp-license-token" rows="2" placeholder="Geliştiriciden aldığınız MEBNORM.eyJ... anahtarını buraya yapıştırınız." style="font-family: monospace; font-size: 0.78rem; width: 100%; border: 1.5px solid var(--border-main); border-radius: 8px; padding: 0.55rem; box-sizing: border-box;"></textarea>
-                        </div>
+                        <!--
+                            KALDIRILDI (2026-08-24): lisans anahtarı yapıştırma alanı,
+                            ".lic dosyası yükle" düğmesi ve cihaz kimliği (HWID) satırı.
 
-                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                            <button class="btn btn-primary" id="btn-submit-license" style="flex: 2; min-width: 160px; padding: 0.65rem; font-weight: 800;">
-                                ⚡ Lisansı Aktifleştir
-                            </button>
-                            <button class="btn btn-outline" id="btn-upload-lic-file" style="flex: 1; min-width: 130px; padding: 0.65rem; font-size: 0.78rem;">
-                                📂 .lic Dosyası Yükle
-                            </button>
-                            <input type="file" id="file-lic-input" accept=".lic,.txt,.json" style="display:none;">
+                            Artık lisans anahtarı diye bir şey yok. Ödeme alındığında
+                            okulun aboneliği doğrudan tanımlanıyor; okul yalnızca
+                            MEB kurum kodu ve şifresiyle giriyor. Cihaza kilit de
+                            kalktı — okul istediği bilgisayardan girebiliyor.
+                        -->
+                        <div style="background: var(--bg-soft, #f1f5f9); border: 1px dashed var(--border-main); border-radius: 10px; padding: 0.75rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+                            Lisansınız tanımlandıktan sonra <strong>çıkış yapıp yeniden giriş</strong> yapmanız yeterlidir.<br>
+                            Anahtar girmenize, dosya yüklemenize gerek yoktur.
                         </div>
                     </div>
                 </div>
@@ -5129,13 +5127,8 @@ export class UIComponentManager {
 
         this.renderModal(modalHtml);
 
-        // HWID Hesapla ve Ekrana Yaz
-        if (typeof MebLicenseCore !== 'undefined') {
-            MebLicenseCore.generateHardwareFingerprint().then(hwid => {
-                const el = document.getElementById("disp-hwid");
-                if (el) el.textContent = hwid;
-            });
-        }
+        // KALDIRILDI (2026-08-24): cihaz kimliği (HWID) hesaplama.
+        // Lisans cihaza değil kuruma bağlandığı için gereksiz.
 
         // Okul Bilgileri Değiştikçe Canlı Kaydet ve Senkronize Et
         const syncSchoolInputs = () => {
@@ -5194,16 +5187,16 @@ export class UIComponentManager {
 
             const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "";
             const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "Belirtilmedi";
-            const hwid = document.getElementById("disp-hwid")?.textContent || "*";
 
+            // Cihaz kodu (HWID) mesajdan ÇIKARILDI (2026-08-24): lisans artık
+            // cihaza değil kuruma bağlı. Okul istediği bilgisayardan girebilir.
             const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
 * MEB Kurum Kodu: ${kKodu}
 * Okul Adı: ${oAdi}
 * İl / İlçe: ${ilIlce}
 * Okul Türü: ${turAdi}
-* Cihaz Kodu (HWID): ${hwid}
 
-Merhaba, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
+Merhaba, okulumuz için 1 yıllık NormMatik™ lisansı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
 
             const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, "_blank");
@@ -5214,42 +5207,11 @@ Merhaba, okulumuz için 1 yıllık NormMatik™ lisans anahtarı almak istiyorum
             this.closeModal("license-modal");
         });
 
-        // Lisans Aktifleştir
-        document.getElementById("btn-submit-license")?.addEventListener("click" , async () => {
-            const tokenInp = document.getElementById("inp-license-token").value.trim();
-            if (!tokenInp) {
-                alert("Lütfen lisans anahtarınızı giriniz.");
-                return;
-            }
+        // KALDIRILDI (2026-08-24): "Lisansı Aktifleştir" ve ".lic dosyası
+        // yükle" işleyicileri. Karşılık geldikleri alanlar da kaldırıldı.
+        // Lisans artık bir anahtar değil, veritabanındaki abonelik kaydıdır;
+        // giriş yapıldığında otomatik okunur.
 
-            let cleanToken = tokenInp;
-            const match = tokenInp.match(/MEBNORM\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/);
-            if (match) cleanToken = match[0];
-
-            if (typeof window !== 'undefined' && window.licenseManager) {
-                const res = await window.licenseManager.activateLicense(cleanToken);
-                if (res.success) {
-                    alert(`🎉 TEBRİKLER!\n\nLisansınız başarıyla aktifleştirildi.\nKurum: ${res.status.okulAdi || 'Pro Kurum'}\nTür: ${res.status.licenseType}`);
-                    this.closeModal("license-modal");
-                    window.location.reload();
-                } else {
-                    alert(`❌ Lisans Doğrulama Başarısız:\n${res.reason}`);
-                }
-            }
-        });
-
-        // Dosyadan Yükleme
-        const fileInput = document.getElementById("file-lic-input");
-        document.getElementById("btn-upload-lic-file")?.addEventListener("click", () => fileInput.click());
-        fileInput?.addEventListener("change", (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("inp-license-token").value = event.target.result;
-            };
-            reader.readAsText(file);
-        });
     }
 
 }

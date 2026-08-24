@@ -38,7 +38,9 @@ export class AuthService {
 
     getSession() {
         try {
-            const data = sessionStorage.getItem(this.SESSION_KEY) || localStorage.getItem(this.SESSION_KEY);
+            // Yalnızca sessionStorage. localStorage BİLEREK okunmuyor:
+            // tarayıcı kapandıktan sonra oturum devam etmemeli.
+            const data = sessionStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
@@ -52,15 +54,36 @@ export class AuthService {
                 lastActive: new Date().toISOString()
             });
             sessionStorage.setItem(this.SESSION_KEY, jsonStr);
-            localStorage.setItem(this.SESSION_KEY, jsonStr);
         } catch (e) {}
     }
 
+    /**
+     * Çıkış.
+     *
+     * Okula ait her iz silinir; yalnızca zararsız kullanıcı tercihleri
+     * (tema, panel genişlikleri, tanıtım turu) korunur. Eskiden düpedüz
+     * localStorage.clear() çağrılıyordu ve bu tercihler de her çıkışta
+     * uçuyordu.
+     *
+     * sessionStorage tamamen temizlenir: kimlik jetonu ve oturum orada
+     * durur, bir sonraki kullanıcıya sızmamalıdır.
+     */
     logout() {
+        const KORUNANLAR = [
+            "meb_norm_theme",
+            "MEB_NORM_KADRO_LAYOUT_V1",
+            "normmatik_onboarding_seen"
+        ];
         try {
+            const yedek = {};
+            KORUNANLAR.forEach(k => {
+                const v = localStorage.getItem(k);
+                if (v !== null) yedek[k] = v;
+            });
             localStorage.clear();
-            sessionStorage.clear();
+            Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
         } catch (e) {}
+        try { sessionStorage.clear(); } catch (e) {}
         window.location.href = "index.html";
     }
 

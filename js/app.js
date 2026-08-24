@@ -62,10 +62,41 @@ class MebNormApplication {
                 // Google Cloud Realtime Database'den Okulun Verilerini Çek
                 const cloudService = window.cloudDbService || (typeof cloudDbService !== 'undefined' ? cloudDbService : null);
                 if (cloudService) {
+                    // --- ABONELİK VE KİMLİK (2026-08-24) -------------------
+                    // Okulun hakları — şube sınırı, dışa aktarım, bitiş tarihi —
+                    // artık buluttaki 'abonelik' kaydından geliyor. Eskiden bu
+                    // bilgi kullanıcının yapıştırdığı lisans anahtarının içindeydi;
+                    // anahtar her girişte silindiği için ödeme yapmış okullar da
+                    // DEMO'ya (3 şube) düşüyordu.
+                    //
+                    // Okul adı/türü de burada 'okul_kayit'tan alınıyor: veritabanı
+                    // kuralı okulun bunları değiştirmesini zaten reddediyor, bu
+                    // yüzden ekranda da yetkili kaynak burasıdır.
+                    const lisans = await cloudService.loadLicenceInfo(session.kurumKodu);
+                    if (lisans.kayit) {
+                        if (lisans.kayit.okulAdi)  appState.state.okulBilgisi.okulAdi  = lisans.kayit.okulAdi;
+                        if (lisans.kayit.okulTuru) appState.state.okulBilgisi.okulTuru = lisans.kayit.okulTuru;
+                        if (lisans.kayit.il)       appState.state.okulBilgisi.il       = lisans.kayit.il;
+                        if (lisans.kayit.ilce)     appState.state.okulBilgisi.ilce     = lisans.kayit.ilce;
+                    }
+                    if (window.licenseManager) {
+                        window.licenseManager.applyCloudSubscription(lisans.abonelik, {
+                            kurumKodu: session.kurumKodu,
+                            okulAdi: appState.state.okulBilgisi.okulAdi,
+                            okulTuru: appState.state.okulBilgisi.okulTuru
+                        });
+                    }
+
                     const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
                     if (cloudData) {
-                        if (cloudData.okulAdi) appState.state.okulBilgisi.okulAdi = cloudData.okulAdi;
-                        if (cloudData.okulTuru) appState.state.okulBilgisi.okulTuru = cloudData.okulTuru;
+                        // Okul adı/türü yalnızca 'okul_kayit' YOKSA buradan alınır.
+                        // Kural, kaydedilen adın okul_kayit'takiyle birebir aynı
+                        // olmasını şart koşuyor; eski bir kayıttaki farklı ad
+                        // ekrana yazılırsa ilk kaydetme reddedilirdi.
+                        if (!lisans.kayit) {
+                            if (cloudData.okulAdi) appState.state.okulBilgisi.okulAdi = cloudData.okulAdi;
+                            if (cloudData.okulTuru) appState.state.okulBilgisi.okulTuru = cloudData.okulTuru;
+                        }
                         if (cloudData.il) appState.state.okulBilgisi.il = cloudData.il;
                         if (cloudData.ilce) appState.state.okulBilgisi.ilce = cloudData.ilce;
                         if (cloudData.sezon) appState.state.okulBilgisi.sezon = cloudData.sezon;
