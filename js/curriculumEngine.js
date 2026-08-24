@@ -1,4 +1,5 @@
 import { STRICT_PDF_CURRICULUM_DB } from './strict_pdf_curriculum_db.js';
+import { MESEM_CURRICULUM_DB } from './mesem_curriculum_db.js';
 // MEB Norm Kadro ve Ders Yükü Hesaplama Sistemi
 // Kurumsal Müfredat ve Ders Çözümleme Motoru (CurriculumEngine)
 // TTKB Haftalık Ders Çizelgeleri ve MEB Norm Standartları (v5.3 - 2026-2027)
@@ -640,47 +641,88 @@ class MebCurriculumEngine {
             if (İLKOKUL_CURRICULUM[gStr]) return İLKOKUL_CURRICULUM[gStr];
         }
 
-                // 1.2. MESLEKİ EĞİTİM MERKEZİ (MESEM / ÇIRAKLIK)
-        if (schoolTypeStr.includes("mesleki_egitim_merkezi") || schoolTypeStr.includes("mesem")) {
-            const areaNameStr = areaId ? this.toTurkishTitleCase(areaId.replace(/_/g, ' ')) : "Alan";
-            const dalNameStr = dalName ? this.toTurkishTitleCase(dalName.replace(/_/g, ' ')) : "Meslek";
-            const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");
-            const vocBranch = this.getCanonicalCourseAndBranch(dalNameStr, null, areaCode, "ALAN VE DAL MESLEK DERSLERİ").branchName;
+        // 1.2. MESLEKİ EĞİTİM MERKEZİ (MESEM / ÇIRAKLIK)
+        //
+        // KAYNAK: js/mesem_curriculum_db.js — 40 resmî MESEM çerçeve program
+        // PDF'inden üretilir (tools/rebuild_mesem_db.py). 38 alan, 192 dal,
+        // 768 çizelge. Her çizelge, PDF'teki kendi TOPLAM satırıyla
+        // doğrulanmıştır; doğrulamayı geçemeyen sayfa veriye yazılmaz.
+        //
+        // ÖNCESİ (2026-08-24'te kaldırıldı): burada elle yazılmış 4 sınıflık
+        // sabit bir liste vardı ve meslek dersi adları uydurmaydı
+        // ("... Meslek Teknolojisi", "... Ustalık Eğitimi ve Ahilik").
+        // MEB programlarında böyle dersler yoktur; 192 dalın hepsi aynı beş
+        // satırı görüyordu.
+        const mesemOkulu = schoolTypeStr.includes("mesleki_egitim_merkezi") || schoolTypeStr.includes("mesem");
+        if (mesemOkulu) {
+            const mesemDb = (typeof MESEM_CURRICULUM_DB !== 'undefined')
+                ? MESEM_CURRICULUM_DB
+                : ((typeof window !== 'undefined' && window.MESEM_CURRICULUM_DB) ? window.MESEM_CURRICULUM_DB : null);
+            const mesemArea = (mesemDb && areaId) ? mesemDb[String(areaId).toLowerCase()] : null;
+            const mesemSchedules = mesemArea ? (mesemArea.siniflar || {})[gStr] : null;
 
-            const MESEM_CURRICULUM = {
-                "9": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Matematik", saat: 2, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: `${areaNameStr} Temel Meslek ve İSG`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
-                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
-                ],
-                "10": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Matematik", saat: 2, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: `${dalNameStr} Meslek Teknolojisi`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
-                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
-                ],
-                "11": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Matematik", saat: 1, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: `${dalNameStr} İleri Uygulamaları`, saat: 5, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
-                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
-                ],
-                "12": [
-                    { ders: "Türk Dili ve Edebiyatı", saat: 2, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
-                    { ders: `${dalNameStr} Ustalık Eğitimi ve Ahilik`, saat: 4, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: false, isAtolye: true },
-                    { ders: "İşletmelerde Mesleki Eğitim", saat: 32, atananBrans: vocBranch, kategori: "ALAN VE DAL MESLEK DERSLERİ", baraj_ders: true, isAtolye: true }
-                ]
-            };
-            if (MESEM_CURRICULUM[gStr]) return MESEM_CURRICULUM[gStr];
+            if (mesemSchedules && mesemSchedules.length > 0) {
+                let matched = null;
+                if (dalName) {
+                    // MTEGM tarafındaki eşleştiricinin aynısı: başlığın İLK
+                    // parantezi dal adıdır, tam eşleşme 200 puan, kısmi 100,
+                    // sözcük örtüşmesi 40/15.
+                    const normDal = this.normalizeName(dalName).toLowerCase();
+                    const STOP_WORDS = new Set(["alani", "teknolojisi", "teknolojileri", "programi", "haftalik", "ders", "cizelgesi", "dali", "ve", "sistemleri", "bolumu", "merkezi", "mesleki", "egitim"]);
+                    const dalTokens = normDal.split(/[\s\-_/]+/).filter(t => t.length > 1 && !STOP_WORDS.has(t));
+                    let bestScore = -1;
+                    for (let s of mesemSchedules) {
+                        const normTitle = this.normalizeName(s.title || "").toLowerCase();
+                        // Dal adı, "haftalik" sözcüğünden önceki parantezin
+                        // TAMAMIDIR. İlk parantezi almak yetmez: bazı dal
+                        // adlarının kendisinde parantez vardır
+                        // ("TEKSTİL BİTİM İŞLEMLERİ (APRE) DALI").
+                        const parenMatch = normTitle.match(/\((.+)\)\s*haftalik/) || normTitle.match(/\((.*?)\)/);
+                        const parenContent = parenMatch ? parenMatch[1] : "";
+                        let score = 0;
+                        if (parenContent && parenContent.includes(normDal)) score += 200;
+                        else if (normTitle.includes(normDal)) score += 100;
+                        for (let t of dalTokens) {
+                            if (parenContent.includes(t)) score += 40;
+                            else if (normTitle.includes(t)) score += 15;
+                        }
+                        if (score > bestScore) { bestScore = score; matched = s; }
+                    }
+                }
+                if (!matched) matched = mesemSchedules[0];
+
+                // Alanın MEB atama branşı veride hazır durur (TTKB atamaya
+                // esas alanlar çizelgesi). AREA_BRANCH_MAP'e bağlı değildir:
+                // MESEM alan anahtarları MTEGM dosya kısaltmalarıyla aynı
+                // değildir ve orada karşılığı olmayanlar vardır.
+                const areaCode = mesemArea.brans || this.AREA_BRANCH_MAP[areaId] || "Meslek";
+
+                for (let c of matched.courses) {
+                    const cNorm = this.normalizeName(c.ders);
+                    if (seenNorms.has(cNorm)) continue;
+                    seenNorms.add(cNorm);
+                    const assignedBranch = this.getCanonicalCourseAndBranch(c.ders, null, areaCode, c.kategori).branchName;
+                    result.push({
+                        ders: this.toTurkishTitleCase(c.ders),
+                        saat: c.saat,
+                        kategori: c.kategori,
+                        atananBrans: assignedBranch,
+                        baraj_ders: !!c.baraj_ders,
+                        isAtolye: c.kategori.includes("MESLEK")
+                    });
+                }
+                if (result.length > 0) return result;
+            }
+            // Alan seçilmemişse ya da veride yoksa BOŞ dönülür. Aşağıdaki
+            // bloklara düşmek, mesleki eğitim merkezine meslek lisesi ya da
+            // Anadolu lisesi çizelgesi yazmak demektir; ikisi de MESEM'de
+            // okutulmayan derslerdir ve normu sessizce şişirir.
+            return result;
         }
 
         // 2. MTEGM (DOĞRUDAN VE SADECE İLGİLİ SINIF KLASÖRÜNDEKİ PDF TABLOSUNDAN ALMA)
+        //
+        // MESEM buraya hiç ulaşmaz: 1.2 bloğu her durumda dönüş yapar.
         if (schoolTypeStr.includes("meslek") || schoolTypeStr.includes("teknik") || schoolTypeStr.includes("mtegm") || areaId) {
             const ALIAS_MAP = {
                 "tesisat_teknolojisi_ve_iklimlendirme": "tesisat",

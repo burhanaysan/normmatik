@@ -1,0 +1,45 @@
+# NormMatik — depoya ALINMAYACAK dosyalar
+#
+# NEDEN VAR (2026-08-24):
+# Bu depo aynı zamanda CANLI SİTENİN kök dizinidir. Buraya konan her şey
+# www.normmatik.com.tr üzerinden herkese açık hâle gelir. .gitignore hiç
+# yoktu; sonuçta yedek klasörleri de yayımlanıyordu. Ölçüldü: depoda iki
+# eski bundle (4,7 MB + 4,3 MB) ve meb_master_db.json'ın ikinci bir kopyası
+# (15,5 MB) duruyordu.
+
+# --- Yedek ve arşiv klasörleri -------------------------------------------
+# Yerelde kalsınlar; sürüm geçmişi zaten git'te.
+_yedek*/
+_arsiv*/
+**/_yedek*/
+**/_arsiv*/
+
+# --- Geliştirme kalıntıları ----------------------------------------------
+*.log
+*.tmp
+*.bak
+*.orig
+*.oncesi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Firebase / gizli olabilecek dosyalar ---------------------------------
+# Servis hesabı anahtarları ASLA depoya girmemeli. Şu an kullanılmıyor
+# (kimlik doğrulama + kural tabanlı tasarım servis hesabı gerektirmiyor),
+# ama ileride biri indirirse yanlışlıkla yayımlanmasın.
+*serviceAccount*.json
+*service-account*.json
+.firebase/
+firebase-debug*.log
+.runtimeconfig.json
+
+# --- Ortam değişkenleri ---------------------------------------------------
+.env
+.env.*

@@ -1,4 +1,5 @@
 import { STRICT_PDF_CURRICULUM_DB } from './strict_pdf_curriculum_db.js';
+import { MESEM_CURRICULUM_DB } from './mesem_curriculum_db.js';
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
 // Bu modül, 69 Meslek Alanı, 21 OGM Çizelgesi, DÖGM Çizelgeleri, 2.662 Seçmeli Dersi ve 47 Branş Matrisini yönetir.
 
@@ -126,15 +127,27 @@ export class MebDatabaseService {
     }
 
     getVocationalAreas(schoolType = "") {
-        if (!this.masterData) return [];
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
-        
-        let targetAlanlar = {};
-        if (isMesem && this.masterData.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
-            targetAlanlar = this.masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem.alanlar;
-        } else {
-            targetAlanlar = this.masterData.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
+
+        // MESEM alanları kendi veri tabanından gelir (js/mesem_curriculum_db.js).
+        // Bu blok masterData KONTROLÜNDEN ÖNCEDİR ve bilerek öyledir: MESEM
+        // listesi meb_master_db.json'a hiç bakmaz, dolayısıyla o dosya
+        // yüklenmemişken de (çevrimdışı ilk açılış) alan listesi dolu gelir.
+        // Eskiden masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem
+        // okunuyordu; O ANAHTAR meb_master_db.json içinde HİÇ YOKTU, bu yüzden
+        // liste her zaman MTEGM alanlarına düşüyordu ve mesleki eğitim merkezi
+        // için meslek lisesi alanları listeleniyordu.
+        if (isMesem) {
+            const mesemDb = (typeof MESEM_CURRICULUM_DB !== 'undefined') ? MESEM_CURRICULUM_DB : ((typeof window !== 'undefined' && window.MESEM_CURRICULUM_DB) ? window.MESEM_CURRICULUM_DB : null);
+            if (mesemDb) {
+                return Object.keys(mesemDb)
+                    .map(k => ({ id: k, name: mesemDb[k].gorunen_ad || mesemDb[k].alan_adi, data: mesemDb[k] }))
+                    .sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+            }
         }
+
+        if (!this.masterData) return [];
+        const targetAlanlar = this.masterData.okul_turleri_ve_cizelgeler?.mesleki_ve_teknik_egitim_mtegm?.alanlar || {};
 
         const CANONICAL_ALAN_NAMES = {
             'adalet': 'Adalet Alanı',
@@ -244,13 +257,35 @@ export class MebDatabaseService {
         if (!areaId) return [];
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
         
-        // 1. MESEM Kontrolü
-        if (isMesem && this.masterData?.okul_turleri_ve_cizelgeler?.mesleki_egitim_merkezi_mesem?.alanlar) {
-            const mesemArea = this.masterData.okul_turleri_ve_cizelgeler.mesleki_egitim_merkezi_mesem.alanlar[areaId];
-            if (mesemArea?.dallar) {
-                const dalNames = Object.values(mesemArea.dallar).map(d => d.dal_adi || d.dal_kodu);
+        // 1. MESEM: dal listesi kendi veri tabanından gelir. Aşağıdaki MTEGM
+        //    taramasına düşmemelidir; MESEM dalları meslek lisesi dallarıyla
+        //    birebir aynı değildir (örn. "Motosiklet Tamirciliği" yalnızca
+        //    MESEM'de vardır).
+        if (isMesem) {
+            const mesemDb = (typeof MESEM_CURRICULUM_DB !== 'undefined') ? MESEM_CURRICULUM_DB : ((typeof window !== 'undefined' && window.MESEM_CURRICULUM_DB) ? window.MESEM_CURRICULUM_DB : null);
+            const mesemArea = mesemDb ? mesemDb[String(areaId).toLowerCase()] : null;
+            if (mesemArea) {
+                const gNum = (gradeLevel && String(gradeLevel).toLowerCase() !== 'all') ? String(gradeLevel).replace(/[^0-9]/g, '') : null;
+                const siniflar = mesemArea.siniflar || {};
+                const kaynak = (gNum && siniflar[gNum]) ? [siniflar[gNum]] : Object.values(siniflar);
+                const set = new Set();
+                for (let lst of kaynak) {
+                    for (let c of lst) {
+                        // Dal adı, "HAFTALIK" sözcüğünden önceki parantezin
+                        // TAMAMIDIR — bazı dal adlarının içinde parantez var
+                        // ("TEKSTİL BİTİM İŞLEMLERİ (APRE) DALI").
+                        const t = String(c.title || "");
+                        const m = t.match(/\((.+)\)\s*HAFTALIK/u) || t.match(/\(([^)]+)\)/u);
+                        if (m && m[1]) set.add(m[1].trim().toUpperCase());
+                    }
+                }
+                const dalNames = Array.from(set);
                 if (dalNames.length > 0) return dalNames.sort((a, b) => a.localeCompare(b, 'tr'));
+                if (Array.isArray(mesemArea.dallar) && mesemArea.dallar.length > 0) {
+                    return mesemArea.dallar.slice().sort((a, b) => a.localeCompare(b, 'tr'));
+                }
             }
+            return [];
         }
 
         const ALIAS_MAP = {

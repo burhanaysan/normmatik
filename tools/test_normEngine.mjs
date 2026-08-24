@@ -316,6 +316,100 @@ check("Branş yükünden fazla saat girilirse yük eksiye düşmez", matAsim.tot
 check("Yükü sıfırlanan branş listede kalır", !!matAsim, true);
 check("Sıfırlanan branşın normu 0", matAsim.calculatedNorm, 0);
 
+/* =========================================================================
+ * MADDE 21/2 ve 21/3 — Okul rehberlik servisi (rehber öğretmen) normu
+ * 21/2-a özel eğitim 25 · 21/2-b ilkokul 300, ortaokul/anaokulu 150
+ * 21/2-c ortaöğretim 150 · 21/2-ç yatılı/pansiyonlu şartsız 1
+ * 21/2-d ilçenin en kalabalık kurumu şartsız 1 · 21/2-e MESEM 200
+ * 21/3 ilave: özel eğitimde her 100, diğerlerinde her 500
+ * ========================================================================= */
+section("MADDE 21/2 — Rehber öğretmen ilk norm eşikleri");
+
+const reh = (tur, ogr, opt = {}) => engine.calculateGuidanceCounselorNorm(tur, ogr, opt);
+
+check("Ortaöğretim 149 öğrenci -> 0 norm", reh("anadolu_lisesi", 149).norm, 0);
+check("Ortaöğretim 150 öğrenci -> 1 norm (Md. 21/2-c)", reh("anadolu_lisesi", 150).norm, 1);
+check("Ortaöğretim eşiği 150", reh("anadolu_lisesi", 150).esik, 150);
+check("Ortaöğretim dayanağı Md. 21/2-c", reh("anadolu_lisesi", 150).esikMadde, "Md. 21/2-c");
+check("Fen lisesi de ortaöğretim eşiğinde", reh("fen_lisesi", 150).norm, 1);
+check("MTAL de ortaöğretim eşiğinde (150, 100 değil)", reh("mesleki_ve_teknik_anadolu_lisesi", 150).esik, 150);
+check("MTAL 149 öğrenci -> 0 norm", reh("mesleki_ve_teknik_anadolu_lisesi", 149).norm, 0);
+
+check("Ortaokul 149 -> 0 norm", reh("ortaokul_temel_egitim", 149).norm, 0);
+check("Ortaokul 150 -> 1 norm (Md. 21/2-b)", reh("ortaokul_temel_egitim", 150).norm, 1);
+check("İmam hatip ortaokulu eşiği 150", reh("imam_hatip_ortaokulu", 150).esik, 150);
+check("İmam hatip ortaokulu dayanağı Md. 21/2-b", reh("imam_hatip_ortaokulu", 150).esikMadde, "Md. 21/2-b");
+
+check("Anaokulu eşiği 150", reh("anaokulu", 150).esik, 150);
+check("İlkokul eşiği 300 (Md. 21/2-b)", reh("ilkokul", 300).esik, 300);
+check("İlkokul 299 -> 0 norm", reh("ilkokul", 299).norm, 0);
+check("İlkokul 300 -> 1 norm", reh("ilkokul", 300).norm, 1);
+
+check("Özel eğitim eşiği 25 (Md. 21/2-a)", reh("ozel_egitim_uygulama_okulu", 25).esik, 25);
+check("Özel eğitim 24 -> 0 norm", reh("ozel_egitim_uygulama_okulu", 24).norm, 0);
+check("Özel eğitim 25 -> 1 norm", reh("ozel_egitim_uygulama_okulu", 25).norm, 1);
+check("Özel eğitim MESLEK okulu MESEM sayılmaz, eşiği 25", reh("ozel_egitim_meslek_okulu", 25).esik, 25);
+check("Özel eğitim meslek okulu dayanağı Md. 21/2-a", reh("ozel_egitim_meslek_okulu", 25).esikMadde, "Md. 21/2-a");
+
+check("MESEM eşiği 200 (Md. 21/2-e)", reh("mesleki_egitim_merkezi", 200).esik, 200);
+check("MESEM 199 çırak -> 0 norm", reh("mesleki_egitim_merkezi", 199).norm, 0);
+check("MESEM 200 çırak -> 1 norm", reh("mesleki_egitim_merkezi", 200).norm, 1);
+check("MESEM dayanağı Md. 21/2-e", reh("mesleki_egitim_merkezi", 200).esikMadde, "Md. 21/2-e");
+
+section("MADDE 21/2-ç ve 21/2-d — Öğrenci sayısına bakılmayan hâller");
+
+check("Pansiyonlu okul 10 öğrenci -> 1 norm (Md. 21/2-ç)", reh("anadolu_lisesi", 10, { isPansiyonlu: true }).norm, 1);
+check("Pansiyonlu okul eşik altında da olsa ilk norm 1", reh("anadolu_lisesi", 10, { isPansiyonlu: true }).ilkNorm, 1);
+check("İlçenin en kalabalık kurumu 100 öğrenci -> 1 norm (Md. 21/2-d)", reh("anadolu_lisesi", 100, { isIlceEnKalabalikKurum: true }).norm, 1);
+check("İlçe kuralı işaretli değilse eşik altı -> 0 norm", reh("anadolu_lisesi", 100).norm, 0);
+
+section("MADDE 21/3 — İlave normlar (özel eğitimde 100, diğerlerinde 500)");
+
+check("Ortaöğretim aralığı 500", reh("anadolu_lisesi", 500).aralik, 500);
+check("Ortaöğretim 499 -> 1 norm", reh("anadolu_lisesi", 499).norm, 1);
+check("Ortaöğretim 500 -> 2 norm", reh("anadolu_lisesi", 500).norm, 2);
+check("Ortaöğretim 999 -> 2 norm", reh("anadolu_lisesi", 999).norm, 2);
+check("Ortaöğretim 1000 -> 3 norm", reh("anadolu_lisesi", 1000).norm, 3);
+check("1000 öğrencide ilk norm 1", reh("anadolu_lisesi", 1000).ilkNorm, 1);
+check("1000 öğrencide ilave norm 2", reh("anadolu_lisesi", 1000).ilaveNorm, 2);
+check("Özel eğitim aralığı 100", reh("ozel_egitim_uygulama_okulu", 100).aralik, 100);
+check("Özel eğitim 99 -> 1 norm", reh("ozel_egitim_uygulama_okulu", 99).norm, 1);
+check("Özel eğitim 100 -> 2 norm", reh("ozel_egitim_uygulama_okulu", 100).norm, 2);
+check("Özel eğitim 200 -> 3 norm", reh("ozel_egitim_uygulama_okulu", 200).norm, 3);
+check("Eşik altındaysa ilave norm da yok", reh("anadolu_lisesi", 149).ilaveNorm, 0);
+check("Pansiyonlu 600 öğrenci -> 1 + 1 = 2 norm", reh("anadolu_lisesi", 600, { isPansiyonlu: true }).norm, 2);
+
+section("Rehber öğretmen — mevcut karşılaştırması ve Md. 21/4 uyarısı");
+
+check("Norm 2, mevcut 1 -> ihtiyaç", reh("anadolu_lisesi", 500, { mevcutRehberOgretmeni: 1 }).karsilastirma.durum, "ihtiyac");
+check("Norm 2, mevcut 1 -> '1 İhtiyaç'", reh("anadolu_lisesi", 500, { mevcutRehberOgretmeni: 1 }).karsilastirma.etiket, "1 İhtiyaç");
+check("Norm 2, mevcut 2 -> Tam", reh("anadolu_lisesi", 500, { mevcutRehberOgretmeni: 2 }).karsilastirma.etiket, "Tam");
+check("Norm 2, mevcut 3 -> '1 Fazla'", reh("anadolu_lisesi", 500, { mevcutRehberOgretmeni: 3 }).karsilastirma.etiket, "1 Fazla");
+check("Mevcut girilmezse 0 kabul edilir", reh("anadolu_lisesi", 500).karsilastirma.mevcut, 0);
+check("Norma esas öğrenci sayısı raporlanıyor", reh("anadolu_lisesi", 500).normaEsasOgrenciSayisi, 500);
+check("Norm 2 olduğunda Md. 21/4 atama kısıtı açıklaması eklenir",
+    reh("anadolu_lisesi", 500).explanations.some(e => e.includes("21/4")), true);
+check("Norm 1 iken Md. 21/4 kısıtı eklenmez",
+    reh("anadolu_lisesi", 200).explanations.some(e => e.includes("21/4")), false);
+check("Özel eğitimde Md. 21/4 kısıtı eklenmez",
+    reh("ozel_egitim_uygulama_okulu", 200).explanations.some(e => e.includes("21/4")), false);
+
+section("Rehber öğretmen normu ana hesaba bağlı mı?");
+
+const subelerReh = [{
+    id: "r9", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 600,
+    zorunluDersler: [{ ders: "MATEMATİK", saat: 6, atananBrans: "Matematik" }],
+    secmeliDersler: []
+}];
+const resReh = engine.calculateSchoolNorms(subelerReh, {}, "anadolu_lisesi", {
+    adminOptions: { mevcutRehberOgretmeni: 1 }
+});
+check("calculateSchoolNorms guidanceNorms döndürüyor", !!resReh.guidanceNorms, true);
+check("600 öğrencili lise -> 2 rehber öğretmen normu", resReh.guidanceNorms.norm, 2);
+check("Mevcut rehber öğretmen ana hesaba geçiyor", resReh.guidanceNorms.karsilastirma.mevcut, 1);
+check("Rehberlik branş raporunda YER ALMAZ (ders yükü normu değil)",
+    resReh.branchReport.some(b => String(b.branchName).includes("Rehberlik")), false);
+
 /* ===================================================================== */
 console.log("\n" + "=".repeat(70));
 if (failed === 0) {

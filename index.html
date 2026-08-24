@@ -359,90 +359,31 @@
             window.location.href = "app.html";
         }));
 
-        // Güvenli Kriptografik Şifre Doğrulama Algoritması
-        async function computeSecureSchoolPassword(kurumKodu) {
-            const salt = "NormMatik_Sec_2026_Burhan_Aysan_Key";
-            const text = `${kurumKodu}:${salt}`;
-            const msgBuffer = new TextEncoder().encode(text);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            const numPart = (parseInt(hex.substring(0, 8), 16) % 900000 + 100000);
-            return `N${numPart}`;
-        }
-
-        // Master Üretici Doğrulama (Tek yönlü Kriptografik SHA-256 Hash Kontrolü)
-        async function verifyMasterDeveloperPassword(pwd) {
-            if (!pwd) return false;
-            const salt = "NormMatik_Master_Developer_Salt_2026";
-            const text = `${pwd.trim().toLowerCase()}${salt}`;
-            const msgBuffer = new TextEncoder().encode(text);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            return hex === "9d13832da293546d8884b86bbd2b70d3b290860ee05c95bda53ef5d7826e288d";
-        }
-
-        // Asimetrik Kriptografik Lisans Doğrulama (ECDSA P-256 / SHA-256)
-        async function verifyDigitalLicenseToken(licenseToken, expectedKurumKodu) {
-            try {
-                if (!licenseToken || typeof licenseToken !== 'string') return false;
-                const parts = licenseToken.trim().split('.');
-                if (parts.length !== 3 || parts[0] !== 'MEBNORM') return false;
-
-                const payloadB64 = parts[1];
-                const signatureB64 = parts[2];
-
-                // Base64URL Decode
-                let base64 = payloadB64.replace(/-/g, '+').replace(/_/g, '/');
-                while (base64.length % 4) base64 += '=';
-                const payload = JSON.parse(decodeURIComponent(escape(atob(base64))));
-
-                // Kurum Kodu ve Süre Uyumu
-                if (payload.kurumKodu && String(payload.kurumKodu) !== String(expectedKurumKodu)) {
-                    return false;
-                }
-                if (payload.expireDate && new Date() > new Date(payload.expireDate)) {
-                    return false;
-                }
-
-                // ECDSA Açık Anahtar ile Dijital İmza Doğrulaması
-                const MASTER_PUB_KEY_JWK = {
-                    "kty": "EC",
-                    "x": "Ixop_Vp8qOnI_cJ555RRs4c7A9karZ8JlyIrwojiRwA",
-                    "y": "8mAoQOD1uzeBqcJcgwTprG69YI8jzH1BsP9mLMap3E8",
-                    "crv": "P-256",
-                    "kid": "meb-norm-master-key-2026",
-                    "alg": "ES256",
-                    "key_ops": ["verify"]
-                };
-
-                const cryptoKey = await crypto.subtle.importKey(
-                    "jwk",
-                    MASTER_PUB_KEY_JWK,
-                    { name: "ECDSA", namedCurve: "P-256" },
-                    false,
-                    ["verify"]
-                );
-
-                const dataToVerify = new TextEncoder().encode(`MEBNORM.${payloadB64}`);
-                
-                let sigBase64 = signatureB64.replace(/-/g, '+').replace(/_/g, '/');
-                while (sigBase64.length % 4) sigBase64 += '=';
-                const binSig = atob(sigBase64);
-                const sigBytes = new Uint8Array(binSig.length);
-                for (let i = 0; i < binSig.length; i++) sigBytes[i] = binSig.charCodeAt(i);
-
-                return await crypto.subtle.verify(
-                    { name: "ECDSA", hash: { name: "SHA-256" } },
-                    cryptoKey,
-                    sigBytes,
-                    dataToVerify
-                );
-            } catch(e) {
-                return false;
-            }
-        }
+        // ---------------------------------------------------------------
+        // KALDIRILDI (2026-08-24) — istemci tarafi parola dogrulama
+        //
+        // Burada uc fonksiyon vardi ve ucu de artik YOK:
+        //
+        //   computeSecureSchoolPassword()
+        //       Okul parolasini, herkese acik kurum kodundan sabit bir
+        //       tuzla (salt) uretiyordu. Tuz dosyanin icinde yaziliydi.
+        //       Yani parola sir DEGILDI: kurum kodunu bilen herkes o
+        //       okulun parolasini hesaplayabiliyordu. Toplam uzay 900.000.
+        //
+        //   verifyMasterDeveloperPassword()
+        //       Tek turlu SHA-256 karsilastirmasi; tuz yine dosyada acikti.
+        //       Karma degeri kaynakta durdugu icin cevrimdisi sozluk
+        //       saldirisina aciktI. Kirilirsa HER okulun kopyasina acilan
+        //       evrensel anahtar olurdu.
+        //
+        //   verifyDigitalLicenseToken()
+        //       Kriptografik olarak saglamdi, ama giris karari dort kollu
+        //       bir VEYA zinciriydi; yukaridaki zayif kollar bunu zaten
+        //       baypas ediyordu.
+        //
+        // Yerine: Google tarafinda dogrulanan kimlik + sunucuda calisan
+        // veritabani kurallari. Bkz. 09_firebase_guvenlik/
+        // ---------------------------------------------------------------
 
         // Form Giriş Kontrolü
         document.getElementById('form-login')?.addEventListener('submit', async (e) => {
@@ -456,59 +397,95 @@
             submitBtn.innerHTML = "🔄 Giriş Yapılıyor...";
             submitBtn.disabled = true;
 
-            const expectedSecurePwd = await computeSecureSchoolPassword(kurumKodu);
-            const cleanInputPwd = password.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-            const cleanExpectedPwd = expectedSecurePwd.toUpperCase().replace(/[^A-Z0-9]/g, '');
+            // ---------------------------------------------------------------
+            // GİRİŞ ARTIK GOOGLE TARAFINDA DOĞRULANIYOR (2026-08-24)
+            //
+            // ÖNCESİ: parola, herkese açık kurum kodundan sabit bir kuralla
+            // TARAYICIDA hesaplanıyordu (computeSecureSchoolPassword). Yani
+            // parola sır değildi — kurum kodunu bilen herkes her okulun
+            // parolasını üretebiliyordu. Üstelik karar dört kollu bir VEYA
+            // zinciriydi ve konsoldan aşılabiliyordu.
+            //
+            // ŞİMDİ: kimliği Google doğruluyor, veritabanı kuralları da
+            // erişimi auth.uid üzerinden sunucuda sınırlıyor. Tarayıcıdaki
+            // kodu değiştirmek hiçbir şey kazandırmaz.
+            //
+            // Kullanıcı için değişen bir şey yok: yine kurum kodu + parola.
+            // E-posta adresi kurum kodundan türetiliyor ve gösterilmiyor.
+            // ---------------------------------------------------------------
+            const FB_API_KEY = "AIzaSyBakAOLvTgNi66MOcaFIxccusWaCKA-p3E";
+            const FB_EPOSTA_ALANI = "okul.normmatik.com.tr";
 
-            const isMasterKey = await verifyMasterDeveloperPassword(password);
-            const isSignedLicense = password.startsWith("MEBNORM.") ? (await verifyDigitalLicenseToken(password, kurumKodu)) : false;
+            // Oturum başlamadan ÖNCE eski kalıntıları temizliyoruz. Sıra
+            // önemli: kimlik jetonu da localStorage'a yazıldığı için
+            // temizlik sonradan yapılırsa yeni jetonu da siler.
+            try {
+                localStorage.clear();
+                sessionStorage.clear();
+            } catch (err) {}
 
-            const isMatch = (
-                cleanInputPwd === cleanExpectedPwd ||
-                password.trim() === expectedSecurePwd ||
-                isMasterKey ||
-                isSignedLicense
-            );
+            let girisCevabi = null;
+            let girisHatasi = null;
+            try {
+                const res = await fetch(
+                    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FB_API_KEY}`,
+                    {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            email: `${kurumKodu.toLowerCase().replace(/[^a-z0-9]/g, '')}@${FB_EPOSTA_ALANI}`,
+                            password: password,
+                            returnSecureToken: true
+                        })
+                    }
+                );
+                const cevap = await res.json();
+                if (res.ok && cevap.idToken) {
+                    girisCevabi = cevap;
+                } else {
+                    const kod = cevap?.error?.message || "";
+                    if (kod.startsWith("TOO_MANY_ATTEMPTS")) {
+                        girisHatasi = "⏳ Çok fazla hatalı deneme yapıldı. Lütfen bir süre sonra tekrar deneyin.";
+                    } else if (kod === "USER_DISABLED") {
+                        girisHatasi = "🚫 Bu okul hesabı devre dışı bırakılmış. Lütfen bizimle iletişime geçin.";
+                    } else if (kod === "CONFIGURATION_NOT_FOUND") {
+                        girisHatasi = "⚙️ Giriş sistemi şu anda hizmet veremiyor. Lütfen bizimle iletişime geçin.";
+                    } else {
+                        // "Kullanıcı yok" ile "parola yanlış" ayrımı BİLEREK
+                        // yapılmıyor; ayrım, hangi kurum kodlarının kayıtlı
+                        // olduğunu sızdırır.
+                        girisHatasi = "❌ Kurum kodu veya şifre hatalı. Lütfen lisans belgenizdeki bilgileri kontrol ediniz.";
+                    }
+                }
+            } catch (err) {
+                girisHatasi = "🌐 Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.";
+            }
 
-            if (isMatch) {
+            if (girisCevabi) {
                 submitBtn.innerHTML = "🔄 Okul Yükleniyor...";
 
-                // Master CRM veya Buluttan Okul Adı & Türünü Çek
-                let resolvedOkulAdi = (kurumKodu === "131313") ? "Akşehir Nasreddin Hoca Mesleki ve Teknik Anadolu Lisesi" : (kurumKodu === "754123" ? "Kadıköy Anadolu Lisesi" : `MEB Okulu (${kurumKodu})`);
-                let resolvedOkulTuru = (kurumKodu === "131313") ? "mesleki_ve_teknik_anadolu_lisesi" : "anadolu_lisesi";
+                // Kimlik jetonu: js/firebaseAuth.js ile AYNI anahtar ve
+                // aynı biçim. app.html bunu okuyup buluta bağlanıyor.
+                localStorage.setItem("normmatik_fb_kimlik", JSON.stringify({
+                    uid: girisCevabi.localId,
+                    kurumKodu: kurumKodu,
+                    idToken: girisCevabi.idToken,
+                    refreshToken: girisCevabi.refreshToken,
+                    bitis: Date.now() + (parseInt(girisCevabi.expiresIn, 10) || 3600) * 1000
+                }));
 
-                try {
-                    // 1. Bulut Veritabanından okul bilgilerini kontrol et
-                    const cloudRes = await fetch(`https://kvstore-normmatik-default-rtdb.firebaseio.com/licenses/${encodeURIComponent(kurumKodu)}.json`);
-                    if (cloudRes.ok) {
-                        const licData = await cloudRes.json();
-                        if (licData && licData.okulAdi) {
-                            resolvedOkulAdi = licData.okulAdi;
-                            resolvedOkulTuru = licData.okulTuru || resolvedOkulTuru;
-                        }
-                    }
-                } catch(e) {}
-
-                // 2. Eğer aynı tarayıcıdaki Master Üreteçte bu kurum kodu varsa oradan al
-                try {
-                    const crmData = JSON.parse(localStorage.getItem('normmatik_master_clients_db') || '[]');
-                    const matched = crmData.find(c => c.kurumKodu === kurumKodu);
-                    if (matched) {
-                        resolvedOkulAdi = matched.okulAdi || resolvedOkulAdi;
-                        resolvedOkulTuru = matched.okulTuru || resolvedOkulTuru;
-                    }
-                } catch(e) {}
-
-                // Aktif oturumu kaydet ve yerel kalıntıları temizle
-                try {
-                    localStorage.clear();
-                    sessionStorage.clear();
-                } catch (err) {}
+                // Okul adı/türü için başlangıç değeri. Buluttaki kayıt
+                // varsa app.js bunları oradan gelen değerlerle değiştirir.
+                const BILINEN_OKULLAR = {
+                    "131313": { okulAdi: "Akşehir Nasreddin Hoca Mesleki ve Teknik Anadolu Lisesi", okulTuru: "mesleki_ve_teknik_anadolu_lisesi" },
+                    "754123": { okulAdi: "Kadıköy Anadolu Lisesi", okulTuru: "anadolu_lisesi" }
+                };
+                const bilinen = BILINEN_OKULLAR[kurumKodu];
 
                 const activeSession = {
                     kurumKodu: kurumKodu,
-                    okulAdi: resolvedOkulAdi,
-                    okulTuru: resolvedOkulTuru,
+                    okulAdi: bilinen ? bilinen.okulAdi : `MEB Okulu (${kurumKodu})`,
+                    okulTuru: bilinen ? bilinen.okulTuru : "anadolu_lisesi",
                     okulTuruKilitli: true,
                     isDemo: false,
                     loginTime: new Date().toISOString()
@@ -518,7 +495,7 @@
 
                 window.location.href = "app.html";
             } else {
-                alert("❌ Hatalı Kurum Kodu veya Şifre! Lütfen lisans belgenizdeki şifreyi kontrol ediniz.");
+                alert(girisHatasi || "❌ Giriş yapılamadı.");
                 submitBtn.innerHTML = "🚀 Güvenli Giriş Yap";
                 submitBtn.disabled = false;
             }

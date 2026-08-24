@@ -217,16 +217,57 @@ export const NORM_RULES_CONFIG = {
     },
 
     /* =====================================================================
-     * 6. REHBERLİK NORMU — MADDE 21
+     * 6. OKUL REHBERLİK SERVİSİ (REHBER ÖĞRETMEN) NORMU — MADDE 21/2, 21/3
      * ---------------------------------------------------------------------
-     * NOT: Bu bölüm de henüz motora bağlanmamıştır. Aynı uyarı geçerlidir.
+     * Madde metni (21/2): "Okul rehberlik servislerine;
+     *   a) Her derece ve türdeki özel eğitim kurumlarına ... toplam öğrenci
+     *      sayısı 25 ve daha fazlası için 1,
+     *   b) İlkokullarda öğrenci sayısı 300, ortaokul, imam hatip ortaokulları
+     *      ve anaokullarında öğrenci sayısı 150 ve daha fazla olanların her
+     *      birine 1,
+     *   c) Ortaöğretim kurumlarından öğrenci sayısı 150 ve daha fazla
+     *      olanların her birine 1,
+     *   ç) Yatılı veya pansiyonlu eğitim kurumlarının öğrenci sayılarına
+     *      BAKILMAKSIZIN her birine 1,
+     *   d) İlçe merkezindeki ilköğretim ve ortaöğretim kurumlarında öğrenci
+     *      sayısının yetersiz olması nedeniyle norm kadro verilememesi
+     *      hâlinde öğrenci sayısı en fazla olan eğitim kurumuna 1,
+     *   e) Meslekî eğitim merkezlerinden çırak ve kursiyer sayısı 200 ve daha
+     *      fazla olanların her birine 1,
+     *   rehberlik alan öğretmeni norm kadrosu verilir."
+     *
+     * Madde 21/3: "Özel eğitim kurumlarında çırak/öğrenci sayısının 100 ve
+     * 100'ün katlarına, diğer eğitim kurumlarında ise çırak/öğrenci sayısının
+     * 500 ve 500'ün katlarına ulaşması hâlinde her defasında ilave olarak 1
+     * rehberlik alan öğretmeni norm kadrosu daha verilir."
+     *
+     * DİKKAT — 2026-08-23'te kaynak yönetmelikten teyit edildi. Bu dosyadaki
+     * ESKİ değerler (mesleki 100+200, genel 150+250, özel eğitim 20+50)
+     * YANLIŞTI; hiçbir maddede karşılığı yok. Motora bağlanırken düzeltildi.
      * ===================================================================== */
     guidanceCounselorRules: {
-        _WARNING: "MOTORA HENÜZ BAĞLI DEĞİL — bir sonraki aşamada bağlanacak.",
-        legalRef: "Norm Kadro Yönetmeliği Madde 21",
-        generalHighSchool: { firstNormThreshold: 150, subsequentInterval: 250 },
-        vocationalSchool: { firstNormThreshold: 100, subsequentInterval: 200 },
-        specialEducation: { firstNormThreshold: 20, subsequentInterval: 50 }
+        legalRef: "Norm Kadro Yönetmeliği Madde 21/2 ve 21/3",
+        // İlk norm için gereken öğrenci sayısı (kurum türüne göre)
+        firstNormThresholds: {
+            ozelEgitim: 25,       // Md. 21/2-a
+            ilkokul: 300,         // Md. 21/2-b
+            ortaokul: 150,        // Md. 21/2-b (imam hatip ortaokulu dâhil)
+            anaokulu: 150,        // Md. 21/2-b
+            ortaogretim: 150,     // Md. 21/2-c (tüm liseler; MTAL dâhil)
+            mesem: 200            // Md. 21/2-e (çırak + kursiyer)
+        },
+        // Öğrenci sayısına BAKILMAKSIZIN 1 norm veren hâller
+        unconditionalFirstNorm: {
+            yatiliVeyaPansiyonlu: true,   // Md. 21/2-ç
+            ilceEnKalabalikKurum: true    // Md. 21/2-d
+        },
+        // Md. 21/3 — ilave normlar
+        subsequentInterval: {
+            ozelEgitim: 100,
+            diger: 500
+        },
+        // Md. 21/4 — norm değil, ATAMA kısıtı. Hesabı etkilemez, not düşülür.
+        atamaKisiti: "Özel eğitim kurumları hariç, bir yerleşim merkezindeki her eğitim kurumunda en az 1 rehberlik alan öğretmeni norm kadrosu doldurulmadan ikinci ve müteakip norm kadrolara öğretmen atanamaz (Md. 21/4)."
     },
 
     /* =====================================================================

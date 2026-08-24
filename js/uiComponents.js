@@ -2356,6 +2356,24 @@ export class UIComponentManager {
                             </div>
 
                             <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #0d9488; margin-bottom: 0.15rem;">🧭 Okul Rehberlik Servisi Normu (Md. 21/2, 21/3)</div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
+                                    Rehber öğretmen (psikolojik danışman) normu ders yükünden değil, öğrenci sayısından hesaplanır. Sınıf rehberlik dersinin bu hesapla ilgisi yoktur; o 1 saat verildiği branşın yüküne yazılır.
+                                </div>
+                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; margin-bottom: 0.45rem;">
+                                    <input type="checkbox" id="chk-guidance-ilce" ${adminOpts.isIlceEnKalabalikKurum ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <div>
+                                        <strong>🏙️ İlçe Merkezinde Öğrencisi En Fazla Olan Kurum</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Öğrenci sayısı yetersizliği nedeniyle ilçede norm verilemiyorsa en kalabalık kuruma 1 norm (Md. 21/2-d)</div>
+                                    </div>
+                                </label>
+                                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                                    <input type="number" id="inp-mevcut-rehber" value="${parseInt(mevcutIdareci.rehberOgretmeni || 0, 10)}" min="0" max="20" class="form-control" style="max-width: 96px; padding: 0.25rem 0.35rem; text-align: center; font-weight: 800; color: #0d9488;">
+                                    <span style="font-size: 0.72rem; color: var(--text-muted);">Kurumda hâlen görevli rehber öğretmen sayısı</span>
+                                </div>
+                            </div>
+
+                            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
                                 <div style="font-size: 0.78rem; font-weight: 800; color: #b45309; margin-bottom: 0.15rem;">📉 Yöneticilerin Okuttuğu Ders Saatleri (Md. 22/6)</div>
                                 <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
                                     Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir. Hangi branşta kaç saat derse giriliyorsa o branşa yazın.
@@ -2452,6 +2470,8 @@ export class UIComponentManager {
                     isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                     isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
                     ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
+                    isIlceEnKalabalikKurum: !!document.getElementById("chk-guidance-ilce")?.checked,
+                    mevcutRehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0,
                     mevcutIdareciler: {
                         mudur: parseInt(document.getElementById("inp-mevcut-mudur")?.value, 10) || 0,
                         mudurBasyardimcisi: parseInt(document.getElementById("inp-mevcut-basyrd")?.value, 10) || 0,
@@ -2461,6 +2481,9 @@ export class UIComponentManager {
 
                 const normEng = this.norm || this.normEngine || (typeof window !== 'undefined' ? window.normEngine : null);
                 const res = normEng ? normEng.calculateAdminNorms(schoolType, totalStudents, opts) : { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisiTotal: 1, toplamYonetici: 2, explanations: [] };
+                const resReh = (normEng && normEng.calculateGuidanceCounselorNorm)
+                    ? normEng.calculateGuidanceCounselorNorm(schoolType, totalStudents, opts)
+                    : null;
 
                 const k = res.karsilastirma;
                 const mevcutToplam = opts.mevcutIdareciler.mudur + opts.mevcutIdareciler.mudurBasyardimcisi + opts.mevcutIdareciler.mudurYardimcisi;
@@ -2486,6 +2509,30 @@ export class UIComponentManager {
                     </div>
                 ` : '';
 
+                const rehberHtml = resReh ? `
+                    <div style="border-top: 1px solid var(--border-subtle); margin-bottom: 0.5rem; padding-top: 0.45rem;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-card-subtle); padding: 0.4rem 0.55rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                            <div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted);">OKUL REHBERLİK SERVİSİ (Md. 21)</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">Eşik: ${resReh.esik} öğrenci (${resReh.esikMadde}) · İlave: her ${resReh.aralik} öğrenci</div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #0d9488;">${resReh.norm}</div>
+                                ${resReh.karsilastirma.mevcut > 0 ? `
+                                    <span style="font-size: 0.72rem; font-weight: 800; color: ${resReh.karsilastirma.durum === "tam" ? "#16a34a" : (resReh.karsilastirma.durum === "fazla" ? "#b45309" : "#dc2626")};">
+                                        ${resReh.karsilastirma.mevcut} / ${resReh.karsilastirma.norm} · ${resReh.karsilastirma.etiket}
+                                    </span>
+                                ` : ''}
+                            </div>
+                        </div>
+                        ${resReh.explanations && resReh.explanations.length > 0 ? `
+                            <div style="font-size: 0.68rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.35rem;">
+                                ${resReh.explanations.map(e => `<div>• ${e}</div>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                ` : '';
+
                 previewEl.innerHTML = `
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.35rem;">
                         <span style="font-size: 0.82rem; font-weight: 800; color: #1e3a8a;">📊 MEB Yönetici Norm Kadro Dağılımı</span>
@@ -2506,6 +2553,7 @@ export class UIComponentManager {
                         </div>
                     </div>
                     ${kiyasHtml}
+                    ${rehberHtml}
                     ${res.explanations && res.explanations.length > 0 ? `
                         <div style="font-size: 0.68rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.15rem;">
                             ${res.explanations.map(e => `<div>• ${e}</div>`).join('')}
@@ -2527,7 +2575,8 @@ export class UIComponentManager {
             "chk-admin-tasima",
             "chk-admin-kampus",
             "chk-admin-aynibina",
-            "chk-admin-birlestirilmis"
+            "chk-admin-birlestirilmis",
+            "chk-guidance-ilce"
         ].forEach(id => {
             document.getElementById(id)?.addEventListener("change", updateAdminPreview);
         });
@@ -2535,7 +2584,8 @@ export class UIComponentManager {
             "inp-admin-ek-ogrenci",
             "inp-mevcut-mudur",
             "inp-mevcut-basyrd",
-            "inp-mevcut-mdryrd"
+            "inp-mevcut-mdryrd",
+            "inp-mevcut-rehber"
         ].forEach(id => {
             document.getElementById(id)?.addEventListener("input", updateAdminPreview);
         });
@@ -2606,10 +2656,13 @@ export class UIComponentManager {
                 isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                 isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
                 ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
+                isIlceEnKalabalikKurum: !!document.getElementById("chk-guidance-ilce")?.checked,
+                mevcutRehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0,
                 mevcutIdareciler: {
                     mudur: parseInt(document.getElementById("inp-mevcut-mudur")?.value, 10) || 0,
                     mudurBasyardimcisi: parseInt(document.getElementById("inp-mevcut-basyrd")?.value, 10) || 0,
-                    mudurYardimcisi: parseInt(document.getElementById("inp-mevcut-mdryrd")?.value, 10) || 0
+                    mudurYardimcisi: parseInt(document.getElementById("inp-mevcut-mdryrd")?.value, 10) || 0,
+                    rehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0
                 },
                 yoneticiDersYukleri: yoneticiDersYukleri
             };
@@ -3759,6 +3812,60 @@ export class UIComponentManager {
                 ${data.adminNorms.explanations && data.adminNorms.explanations.length > 0 ? `
                     <div style="font-size: 0.72rem; color: var(--text-muted); background: var(--bg-card); border-radius: 6px; padding: 0.5rem 0.75rem; border-left: 3px solid #2563eb; display: flex; flex-direction: column; gap: 0.2rem;">
                         ${data.adminNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
+                    </div>
+                ` : ''}
+            </div>
+            ` : ''}
+
+            <!-- Okul Rehberlik Servisi Normu (MEB Md. 21) -->
+            ${data.guidanceNorms ? `
+            <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
+                    <div style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🧭 OKUL REHBERLİK SERVİSİ NORM KADRO DURUMU</span>
+                        <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); background: var(--bg-badge); padding: 0.15rem 0.5rem; border-radius: 6px;">MEB 2014/6459 Yönetmeliği Md. 21/2, 21/3</span>
+                    </div>
+                    <div style="font-size: 0.85rem; font-weight: 800; color: #0d9488;">
+                        Rehber Öğretmen Normu: <span style="font-size: 1.1rem; background: rgba(13, 148, 136, 0.12); padding: 0.1rem 0.55rem; border-radius: 6px;">${data.guidanceNorms.norm}</span>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.65rem; margin-bottom: 0.75rem;">
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">İLK NORM</div>
+                        <div style="font-size: 1.35rem; font-weight: 800; color: #0d9488; margin: 0.15rem 0;">${data.guidanceNorms.ilkNorm}</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted);">Eşik: ${data.guidanceNorms.esik} öğrenci (${data.guidanceNorms.esikMadde})</div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">İLAVE NORM</div>
+                        <div style="font-size: 1.35rem; font-weight: 800; color: #7c3aed; margin: 0.15rem 0;">${data.guidanceNorms.ilaveNorm}</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted);">Her ${data.guidanceNorms.aralik} öğrenci için +1 (Md. 21/3)</div>
+                    </div>
+                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
+                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">NORMA ESAS ÖĞRENCİ</div>
+                        <div style="font-size: 1.35rem; font-weight: 800; color: #059669; margin: 0.15rem 0;">${data.guidanceNorms.normaEsasOgrenciSayisi}</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted);">Şubelere kayıtlı toplam öğrenci</div>
+                    </div>
+                </div>
+
+                ${(data.guidanceNorms.karsilastirma && data.guidanceNorms.karsilastirma.mevcut > 0) ? `
+                    <div style="margin-bottom: 0.75rem;">
+                        ${(() => {
+                            const c = data.guidanceNorms.karsilastirma;
+                            const renk = c.durum === "tam" ? "#16a34a" : (c.durum === "fazla" ? "#b45309" : "#dc2626");
+                            return `
+                                <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-left: 3px solid ${renk}; border-radius: 8px; padding: 0.45rem 0.6rem;">
+                                    <div style="font-size: 0.66rem; font-weight: 700; color: var(--text-muted);">REHBER ÖĞRETMEN (Mevcut / Norm)</div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: ${renk};">${c.mevcut} / ${c.norm} · ${c.etiket}</div>
+                                </div>
+                            `;
+                        })()}
+                    </div>
+                ` : ''}
+
+                ${data.guidanceNorms.explanations && data.guidanceNorms.explanations.length > 0 ? `
+                    <div style="font-size: 0.72rem; color: var(--text-muted); background: var(--bg-card); border-radius: 6px; padding: 0.5rem 0.75rem; border-left: 3px solid #0d9488; display: flex; flex-direction: column; gap: 0.2rem;">
+                        ${data.guidanceNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
                     </div>
                 ` : ''}
             </div>

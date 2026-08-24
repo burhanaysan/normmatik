@@ -90,8 +90,6 @@ class MebNormApplication {
             this.bindResizers();
             this.bindKeyboardShortcuts();
             this.render();
-            this.initEventListeners();
-            this.initSplitter();
 
             console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
         } catch (error) {

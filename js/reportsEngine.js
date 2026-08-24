@@ -67,9 +67,11 @@ class MebReportsEngine {
                 tamBranchesCount: tamCount,
                 ihtiyacBranchesCount: ihtiyacCount,
                 fazlaBranchesCount: fazlaCount,
-                adminNorms: normResult.adminNorms
+                adminNorms: normResult.adminNorms,
+                guidanceNorms: normResult.guidanceNorms
             },
             adminNorms: normResult.adminNorms,
+            guidanceNorms: normResult.guidanceNorms,
             gradeCounts: gradeCounts,
             branchReport: normResult.branchReport
         };
@@ -542,6 +544,22 @@ class MebReportsEngine {
             }
         }
 
+        // Okul Rehberlik Servisi Normu (Md. 21)
+        if (execData.guidanceNorms) {
+            const gn = execData.guidanceNorms;
+            wsExecRows.push(["--- OKUL REHBERLİK SERVİSİ NORM KADROSU (MD. 21/2, 21/3) ---"]);
+            wsExecRows.push(["Görev", "Norm Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Mevzuat Açıklaması"]);
+            wsExecRows.push([
+                "Rehber Öğretmen (Psikolojik Danışman)",
+                gn.norm,
+                gn.karsilastirma.mevcut,
+                gn.karsilastirma.etiket,
+                `İlk norm eşiği: ${gn.esik} öğrenci (${gn.esikMadde}) · İlave norm aralığı: her ${gn.aralik} öğrenci (Md. 21/3)`
+            ]);
+            (gn.explanations || []).forEach(exp => wsExecRows.push(["", "", "", "", exp]));
+            wsExecRows.push([]);
+        }
+
         // Branş Norm Tablosu
         wsExecRows.push(["--- BRANŞ BAZLI DERS YÜKÜ VE NORM KADRO TABLOSU ---"]);
         wsExecRows.push(["Sıra", "Branş Adı", "Haftalık Ders Yükü (Saat)", "Hesaplanan Norm", "Mevcut Kadrolu", "Norm Durumu", "Fark / İhtiyaç"]);
@@ -763,6 +781,20 @@ class MebReportsEngine {
                 csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
                 csvRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
                 csvRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
+                csvRows.push([]);
+            }
+
+            if (reportData.guidanceNorms && reportData.reportType === "EXECUTIVE_SUMMARY") {
+                const gn = reportData.guidanceNorms;
+                csvRows.push(["--- OKUL REHBERLİK SERVİSİ NORM KADROSU (MEB MD. 21) ---"]);
+                csvRows.push(["Görev", "Norm Kadro Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Açıklama"]);
+                csvRows.push([
+                    "Rehber Öğretmen (Psikolojik Danışman)",
+                    gn.norm,
+                    gn.karsilastirma.mevcut,
+                    gn.karsilastirma.etiket,
+                    `İlk norm eşiği: ${gn.esik} öğrenci (${gn.esikMadde}) - İlave: her ${gn.aralik} öğrenci (Md. 21/3)`
+                ]);
                 csvRows.push([]);
             }
 

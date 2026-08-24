@@ -753,6 +753,11 @@ export class NormEngine {
         // Yönetici / İdareci Norm Kadro Hesabı (Madde 5 - 14)
         const adminNorms = this.calculateAdminNorms(schoolType, totalStudents, coordinatorHoursMap?.adminOptions || {});
 
+        // Okul rehberlik servisi (rehber öğretmen) normu — Madde 21/2, 21/3
+        const guidanceNorms = this.calculateGuidanceCounselorNorm(
+            schoolType, totalStudents, coordinatorHoursMap?.adminOptions || {}
+        );
+
         return {
             branchReport,
             totalHours: grandTotalHours,
@@ -761,7 +766,8 @@ export class NormEngine {
             totalSurplus,
             totalNeeded,
             totalStudents,
-            adminNorms
+            adminNorms,
+            guidanceNorms
         };
     }
 
@@ -962,6 +968,103 @@ export class NormEngine {
                 toplam: kiyas(grandTotal, mevcutToplam)
             },
             explanations: explanations
+        };
+    }
+
+    /**
+     * MEB Norm Kadro Yönetmeliği Madde 21/2 ve 21/3
+     * Okul rehberlik servisi (rehber öğretmen / psikolojik danışman) norm kadrosu.
+     *
+     * Bu norm DERS YÜKÜNDEN DEĞİL, öğrenci sayısından hesaplanır. Sınıf rehberlik
+     * dersinin (1 saat) yüküyle ilgisi yoktur; o saat hangi branşa verilirse o
+     * branşın Md.18 yüküne yazılır ve bu hesabı etkilemez.
+     *
+     * @param {string} schoolType
+     * @param {number} totalStudents - Şubelerden gelen toplam öğrenci/çırak sayısı
+     * @param {Object} options - { isPansiyonlu, isIlceEnKalabalikKurum, mevcutRehberOgretmeni }
+     */
+    calculateGuidanceCounselorNorm(schoolType = "", totalStudents = 0, options = {}) {
+        const cfg = this.rules.guidanceCounselorRules;
+        const sType = String(schoolType || "").toLowerCase();
+
+        // Sıralama önemli: "ozel_egitim_meslek_okulu" hem ozel_egitim hem meslek içerir.
+        const isOzelEgitim = sType.includes("ozel_egitim");
+        const isMesem = !isOzelEgitim && (sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem"));
+        const isIlkokul = !isOzelEgitim && sType.includes("ilkokul");
+        const isOrtaokul = !isOzelEgitim && sType.includes("ortaokul");
+        const isAnaokulu = !isOzelEgitim && (sType.includes("anaokulu") || sType.includes("okul_oncesi"));
+
+        let esik, esikMadde, kurumEtiketi;
+        if (isOzelEgitim) {
+            esik = cfg.firstNormThresholds.ozelEgitim; esikMadde = "Md. 21/2-a"; kurumEtiketi = "özel eğitim kurumu";
+        } else if (isMesem) {
+            esik = cfg.firstNormThresholds.mesem; esikMadde = "Md. 21/2-e"; kurumEtiketi = "meslekî eğitim merkezi";
+        } else if (isIlkokul) {
+            esik = cfg.firstNormThresholds.ilkokul; esikMadde = "Md. 21/2-b"; kurumEtiketi = "ilkokul";
+        } else if (isOrtaokul) {
+            esik = cfg.firstNormThresholds.ortaokul; esikMadde = "Md. 21/2-b"; kurumEtiketi = "ortaokul / imam hatip ortaokulu";
+        } else if (isAnaokulu) {
+            esik = cfg.firstNormThresholds.anaokulu; esikMadde = "Md. 21/2-b"; kurumEtiketi = "anaokulu";
+        } else {
+            esik = cfg.firstNormThresholds.ortaogretim; esikMadde = "Md. 21/2-c"; kurumEtiketi = "ortaöğretim kurumu";
+        }
+
+        const count = Math.max(0, parseInt(totalStudents, 10) || 0);
+        const sayimBirimi = isMesem ? "çırak/kursiyer" : "öğrenci";
+        const explanations = [];
+
+        // Md. 22/1-b (ana sınıfı / uygulama sınıfı / alt özel eğitim sınıfı öğrencilerinin
+        // eklenmesi) YALNIZCA müdür yardımcısı normu için yazılmıştır. Madde 21'de böyle
+        // bir hüküm yok; bu yüzden buraya eklenmiyor.
+        let ilkNorm = 0;
+        if (options.isPansiyonlu) {
+            ilkNorm = 1;
+            explanations.push("Yatılı/pansiyonlu eğitim kurumu: öğrenci sayısına bakılmaksızın 1 rehber öğretmen normu (Md. 21/2-ç).");
+        } else if (count >= esik) {
+            ilkNorm = 1;
+            explanations.push(`${count} ${sayimBirimi} (${esik} ve daha fazlası): 1 rehber öğretmen normu — ${kurumEtiketi} (${esikMadde}).`);
+        } else if (options.isIlceEnKalabalikKurum) {
+            ilkNorm = 1;
+            explanations.push(`Öğrenci sayısı ${esik} eşiğinin altında (${count}) ancak ilçe merkezinde norm verilebilen kurum bulunmadığı için en kalabalık kurum olarak 1 norm verildi (Md. 21/2-d).`);
+        } else {
+            explanations.push(`${count} ${sayimBirimi}, ${esikMadde} eşiği olan ${esik} sayısının altında: rehber öğretmen normu verilmez.`);
+        }
+
+        // Md. 21/3 — ilave normlar
+        const aralik = isOzelEgitim ? cfg.subsequentInterval.ozelEgitim : cfg.subsequentInterval.diger;
+        let ilaveNorm = 0;
+        if (ilkNorm > 0) {
+            ilaveNorm = Math.floor(count / aralik);
+            if (ilaveNorm > 0) {
+                explanations.push(`${sayimBirimi} sayısı ${aralik} ve katlarına ulaştıkça her defasında +1: ${count} / ${aralik} = ${ilaveNorm} ilave norm (Md. 21/3).`);
+            }
+        }
+
+        const toplamNorm = ilkNorm + ilaveNorm;
+
+        if (toplamNorm >= 2 && !isOzelEgitim) {
+            explanations.push(cfg.atamaKisiti);
+        }
+
+        const mevcut = Math.max(0, parseInt(options.mevcutRehberOgretmeni, 10) || 0);
+        const fark = mevcut - toplamNorm;
+
+        return {
+            norm: toplamNorm,
+            ilkNorm,
+            ilaveNorm,
+            esik,
+            esikMadde,
+            aralik,
+            normaEsasOgrenciSayisi: count,
+            karsilastirma: {
+                norm: toplamNorm,
+                mevcut,
+                fark,
+                durum: fark === 0 ? "tam" : (fark > 0 ? "fazla" : "ihtiyac"),
+                etiket: fark === 0 ? "Tam" : (fark > 0 ? `${fark} Fazla` : `${Math.abs(fark)} İhtiyaç`)
+            },
+            explanations
         };
     }
 }

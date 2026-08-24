@@ -41,10 +41,12 @@ BUNDLE_FILES = [
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
     "strict_elective_courses_db.js",
+    "mesem_curriculum_db.js",    # database.js ve curriculumEngine.js'ten ÖNCE
     "database.js",
     "curriculumEngine.js",
     "normEngine.js",
     "reportsEngine.js",
+    "firebaseAuth.js",           # cloudDatabaseService.js'ten ÖNCE olmalı
     "authService.js",
     "cloudDatabaseService.js",
     "state.js",
@@ -67,6 +69,7 @@ if (typeof window !== 'undefined') {
     }
     if (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') window.STRICT_PDF_CURRICULUM_DB = STRICT_PDF_CURRICULUM_DB;
     if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
+    if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
@@ -74,6 +77,7 @@ if (typeof window !== 'undefined') {
     if (typeof reportsEngine === 'undefined' && typeof MebReportsEngine !== 'undefined') {
         window.reportsEngine = new MebReportsEngine();
     }
+    if (typeof firebaseAuth !== 'undefined') window.firebaseAuth = firebaseAuth;
     if (typeof authService !== 'undefined') window.authService = authService;
     if (typeof cloudDatabaseService !== 'undefined') window.cloudDatabaseService = cloudDatabaseService;
     if (typeof cloudDbService !== 'undefined') window.cloudDbService = cloudDbService;

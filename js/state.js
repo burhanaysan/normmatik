@@ -47,7 +47,9 @@ export class AppStateService {
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
                     ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
+                    isIlceEnKalabalikKurum: false,
+                    mevcutRehberOgretmeni: 0,
+                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0, rehberOgretmeni: 0 },
                     yoneticiDersYukleri: {}
                 }
             },
@@ -239,7 +241,9 @@ export class AppStateService {
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
                     ekSinifOgrencileri: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0 },
+                    isIlceEnKalabalikKurum: false,
+                    mevcutRehberOgretmeni: 0,
+                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0, rehberOgretmeni: 0 },
                     yoneticiDersYukleri: {}
                 }
             },
