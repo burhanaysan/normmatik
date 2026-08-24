@@ -5577,7 +5577,37 @@ body {
         padding: 0 !important;
     }
 
-    /* Diğer tüm ekran panellerini ve butonları gizle */
+    /* ======================================================================
+       YAZDIRMADA YALNIZCA RAPOR ÇIKAR
+       ----------------------------------------------------------------------
+       2026-08-24: Yazdırırken uygulamanın kendi ekranı (şube ders listesi)
+       da kâğıda basılıyordu; rapor 2. sayfada başlıyordu.
+
+       Aşağıda tek tek kimlik sayan bir gizleme listesi vardı
+       (#app-header, .main-workspace, .middle-canvas ...). Bu yaklaşım
+       kırılgan: listeye girmeyen ya da sonradan eklenen her kap yazdırmaya
+       sızar ve kimse fark etmez.
+
+       Bunun yerine TERSİNE çeviriyoruz: yazdırma düğmesi gövdeye
+       `yazdir-rapor` sınıfını koyar ve o sınıf varken RAPOR PENCERESİ
+       DIŞINDAKİ her şey gizlenir.
+
+       Neden `:not(.modal-overlay)` değil de doğrudan kimlik? Çünkü
+       aşağıdaki kural `.modal-overlay`'in TAMAMINI yazdırılabilir yapıyor;
+       o sırada açık olan başka bir pencere de kâğıda basılırdı. Kimliğe
+       bağlayınca yalnızca rapor çıkar.
+
+       Sınıf yazdırma düğmesine bağlı olduğu için, KVKK penceresindeki
+       ayrı yazdırma düğmesi bu kuraldan etkilenmez.
+
+       Alttaki tek tek liste, eski tarayıcılar :not() zincirini
+       desteklemezse diye yedek olarak bırakıldı.
+       ====================================================================== */
+    body.yazdir-rapor > *:not(#reports-center-modal) {
+        display: none !important;
+    }
+
+    /* Yedek: tek tek gizleme listesi */
     .no-print,
     #app-header,
     #sidebar-left,

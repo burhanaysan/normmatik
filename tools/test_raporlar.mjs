@@ -187,6 +187,22 @@ console.log("\nYerleşim koruması");
             ".reports-modal-body > * { flex-shrink: 0 } kuralı bulunamadı");
 }
 
+// R13: Yazdırırken YALNIZCA rapor penceresi kâğıda gitmeli.
+// 2026-08-24: yazdırma çıktısının 1. sayfası uygulamanın kendi ekranı /
+// arkada açık kalmış başka bir pencereydi; rapor 2. sayfada başlıyordu.
+// Sebep: print stilleri `.modal-overlay`in TAMAMINI yazdırılabilir
+// yapıyordu. Artık yazdırma düğmesi gövdeye `yazdir-rapor` koyuyor ve
+// o sınıf varken rapor dışındaki her şey gizleniyor.
+{
+    const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+    const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    const kuralVar = /body\.yazdir-rapor\s*>\s*\*:not\(#reports-center-modal\)\s*\{[^}]*display:\s*none/.test(css);
+    const sinifKonuyor = /classList\.add\("yazdir-rapor"\)/.test(ui);
+    denetle("R13 yazdırmada yalnızca rapor penceresi basılıyor",
+            kuralVar && sinifKonuyor,
+            `css kuralı: ${kuralVar}, sınıf ekleme: ${sinifKonuyor}`);
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);

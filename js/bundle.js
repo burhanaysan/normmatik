@@ -168643,6 +168643,9 @@ class UIComponentManager {
         document.getElementById("btn-report-print")?.addEventListener("click", () => {
             const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
             const deneme = lm ? lm.denemeSurumuMu() : false;
+            // Yalnızca rapor penceresi kâğıda gitsin; arkadaki uygulama
+            // ekranı ve açık olabilecek diğer pencereler basılmasın.
+            document.body.classList.add("yazdir-rapor");
             if (deneme) {
                 document.body.classList.add("deneme-filigran");
                 alert("🔒 DENEME SÜRÜMÜ\n\n"
@@ -168652,8 +168655,11 @@ class UIComponentManager {
                     + "Filigransız resmî çıktı için yıllık lisans gereklidir.");
             }
             window.print();
-            // Filigran yalnızca yazdırma sırasında dursun; ekranda kalmasın.
-            setTimeout(() => document.body.classList.remove("deneme-filigran"), 1500);
+            // İşaretler yalnızca yazdırma sırasında dursun; ekranda kalmasın.
+            setTimeout(() => {
+                document.body.classList.remove("deneme-filigran");
+                document.body.classList.remove("yazdir-rapor");
+            }, 1500);
         });
 
         // Kapatma
