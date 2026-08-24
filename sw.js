@@ -20,12 +20,13 @@
 // Çözüm: eşleştirmede { ignoreSearch: true } ve app.html'in listeye
 // eklenmesi. Ayrıca çalışma anında indirilen dosyalar da önbelleğe alınıyor.
 // ===================================================================
-const CACHE_NAME = "meb-normmatik-20260824_1659";
+const CACHE_NAME = "meb-normmatik-20260824_1750";
 
 const ASSETS_TO_CACHE = [
     "./",
     "./index.html",
     "./app.html",
+    "./yonetim.html",
     "./css/app.css",
     "./js/bundle.js",
     "./js/xlsx.full.min.js",

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NormMatik™ — Yönetim Paneli</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="css/app.css?v=20260823_1">
+<style>
+/*
+   Yönetim paneli — yalnızca destek hesabı içindir.
+   Uygulamanın kendi renk değişkenlerini kullanır; ayrı bir tasarım dili
+   getirmez. Sayfa arama motorlarına kapalıdır (noindex).
+*/
+body { background: var(--bg-base); margin: 0; font-family: inherit; color: var(--text-main); }
+.yp-ust {
+    background: #0f172a; color: #fff; padding: 0.9rem 1.4rem;
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.yp-ust h1 { font-size: 1.05rem; margin: 0; font-weight: 800; letter-spacing: .2px; }
+.yp-rozet {
+    background: #b91c1c; color: #fff; font-size: .68rem; font-weight: 800;
+    padding: .2rem .5rem; border-radius: 6px; letter-spacing: .4px;
+}
+.yp-ust .yp-sag { margin-left: auto; display: flex; gap: .6rem; align-items: center; }
+.yp-govde { max-width: 1100px; margin: 1.4rem auto; padding: 0 1rem; }
+.yp-kart {
+    background: var(--bg-card); border: 1px solid var(--border-main);
+    border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem;
+}
+.yp-arama {
+    width: 100%; box-sizing: border-box; padding: .7rem .9rem; font-size: .95rem;
+    border: 1.5px solid var(--border-main); border-radius: 10px; background: var(--bg-input);
+    color: var(--text-main);
+}
+table.yp-tablo { width: 100%; border-collapse: collapse; font-size: .88rem; }
+table.yp-tablo th {
+    text-align: left; padding: .55rem .6rem; border-bottom: 2px solid var(--border-main);
+    font-size: .74rem; text-transform: uppercase; letter-spacing: .4px; color: var(--text-muted);
+}
+table.yp-tablo td { padding: .6rem; border-bottom: 1px solid var(--border-subtle); vertical-align: middle; }
+table.yp-tablo tr:hover td { background: var(--bg-hover); }
+.yp-kod { font-family: ui-monospace, monospace; font-weight: 700; color: var(--primary-text); }
+.yp-durum { font-size: .72rem; font-weight: 800; padding: .18rem .45rem; border-radius: 5px; white-space: nowrap; }
+.yp-aktif { background: #dcfce7; color: #15803d; }
+.yp-yakin { background: #fef3c7; color: #b45309; }
+.yp-dolmus { background: #fee2e2; color: #b91c1c; }
+.yp-bos { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); }
+.yp-uyari {
+    background: #fef3c7; border: 1px solid #fcd34d; color: #78350f;
+    border-radius: 10px; padding: .8rem 1rem; font-size: .84rem; margin-bottom: 1rem;
+}
+.yp-ozet { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: .82rem; color: var(--text-muted); }
+.yp-ozet strong { color: var(--text-main); font-size: 1.15rem; display: block; }
+</style>
+</head>
+<body>
+
+<div class="yp-ust">
+    <h1>NormMatik™ Yönetim Paneli</h1>
+    <span class="yp-rozet">DESTEK ERİŞİMİ</span>
+    <div class="yp-sag">
+        <span id="yp-kimlik" style="font-size:.8rem; opacity:.85;"></span>
+        <button class="btn btn-outline" id="yp-cikis" style="padding:.4rem .8rem; font-size:.8rem;">Çıkış</button>
+    </div>
+</div>
+
+<div class="yp-govde">
+
+    <div class="yp-uyari">
+        <strong>Dikkat:</strong> Bu panelden açtığınız her okulun verisini görür ve
+        <u>değiştirebilirsiniz</u>. Yaptığınız değişiklikler o okulun gerçek verisine yazılır.
+    </div>
+
+    <div class="yp-kart">
+        <div class="yp-ozet" id="yp-ozet">
+            <div><strong id="yp-say-toplam">—</strong> kayıtlı okul</div>
+            <div><strong id="yp-say-aktif">—</strong> aboneliği süren</div>
+            <div><strong id="yp-say-yakin">—</strong> 30 günden az kalan</div>
+            <div><strong id="yp-say-dolmus">—</strong> süresi dolmuş</div>
+        </div>
+    </div>
+
+    <div class="yp-kart">
+        <input type="text" id="yp-arama" class="yp-arama"
+               placeholder="Okul adı, kurum kodu, il veya ilçe ile arayın...">
+    </div>
+
+    <div class="yp-kart" style="padding:.4rem .6rem;">
+        <table class="yp-tablo">
+            <thead>
+                <tr>
+                    <th style="width:96px;">Kurum Kodu</th>
+                    <th>Okul</th>
+                    <th style="width:150px;">İl / İlçe</th>
+                    <th style="width:120px;">Abonelik</th>
+                    <th style="width:120px;">Durum</th>
+                    <th style="width:90px;"></th>
+                </tr>
+            </thead>
+            <tbody id="yp-satirlar">
+                <tr><td colspan="6" class="yp-bos">Yükleniyor…</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+(async function () {
+    "use strict";
+
+    const RTDB = "https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app";
+    const API_KEY = "AIzaSyBakAOLvTgNi66MOcaFIxccusWaCKA-p3E";
+
+    // --- kimlik -----------------------------------------------------------
+    function kimlikOku() {
+        try { return JSON.parse(sessionStorage.getItem("normmatik_fb_kimlik") || "null"); }
+        catch (e) { return null; }
+    }
+
+    async function tokenAl() {
+        const k = kimlikOku();
+        if (!k || !k.refreshToken) return null;
+        if (k.idToken && k.bitis && Date.now() < k.bitis - 300000) return k.idToken;
+        try {
+            const r = await fetch(`https://securetoken.googleapis.com/v1/token?key=${API_KEY}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "grant_type=refresh_token&refresh_token=" + encodeURIComponent(k.refreshToken)
+            });
+            const c = await r.json();
+            if (!r.ok || !c.id_token) return null;
+            sessionStorage.setItem("normmatik_fb_kimlik", JSON.stringify({
+                ...k, idToken: c.id_token,
+                refreshToken: c.refresh_token || k.refreshToken,
+                bitis: Date.now() + (parseInt(c.expires_in, 10) || 3600) * 1000
+            }));
+            return c.id_token;
+        } catch (e) { return null; }
+    }
+
+    async function oku(yol) {
+        const t = await tokenAl();
+        if (!t) return null;
+        try {
+            const r = await fetch(`${RTDB}/${yol}.json?auth=${encodeURIComponent(t)}`);
+            if (!r.ok) return null;
+            return await r.json();
+        } catch (e) { return null; }
+    }
+
+    const kimlik = kimlikOku();
+    if (!kimlik) { location.href = "index.html"; return; }
+
+    // Yetki kontrolü: hesap KENDİ yönetici satırını okuyabilir.
+    // Yetkisi yoksa buraya girmesinin anlamı yok — zaten veritabanı da
+    // hiçbir okulun verisini vermez, ama boş bir ekranla baş başa
+    // bırakmaktansa uygulamaya geri gönderiyoruz.
+    const yonetici = await oku("yoneticiler/" + kimlik.uid);
+    if (yonetici !== true) { location.href = "app.html"; return; }
+
+    document.getElementById("yp-kimlik").textContent = "Kurum kodu: " + (kimlik.kurumKodu || "—");
+
+    document.getElementById("yp-cikis").addEventListener("click", () => {
+        try { sessionStorage.clear(); } catch (e) {}
+        location.href = "index.html";
+    });
+
+    // --- veri -------------------------------------------------------------
+    const [kayitlar, abonelikler] = await Promise.all([
+        oku("okul_kayit"), oku("abonelik")
+    ]);
+
+    const okullar = Object.keys(kayitlar || {}).map(kod => {
+        const k = kayitlar[kod] || {};
+        const a = (abonelikler || {})[kod] || {};
+        const kalanGun = a.bitisMs ? Math.ceil((a.bitisMs - Date.now()) / 86400000) : -1;
+        return {
+            kod,
+            okulAdi: k.okulAdi || "—",
+            okulTuru: k.okulTuru || "",
+            il: k.il || "", ilce: k.ilce || "",
+            bitis: a.bitis || "—",
+            kalanGun
+        };
+    }).sort((x, y) => x.okulAdi.localeCompare(y.okulAdi, "tr"));
+
+    // --- özet -------------------------------------------------------------
+    const say = (f) => okullar.filter(f).length;
+    document.getElementById("yp-say-toplam").textContent = okullar.length;
+    document.getElementById("yp-say-aktif").textContent  = say(o => o.kalanGun >= 30);
+    document.getElementById("yp-say-yakin").textContent  = say(o => o.kalanGun >= 0 && o.kalanGun < 30);
+    document.getElementById("yp-say-dolmus").textContent = say(o => o.kalanGun < 0);
+
+    // --- tablo ------------------------------------------------------------
+    const govde = document.getElementById("yp-satirlar");
+
+    function kacisla(s) {
+        return String(s).replace(/[&<>"']/g, c =>
+            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    function ciz(liste) {
+        if (!liste.length) {
+            govde.innerHTML = '<tr><td colspan="6" class="yp-bos">Kayıt bulunamadı.</td></tr>';
+            return;
+        }
+        govde.innerHTML = liste.map(o => {
+            let sinif = "yp-aktif", metin = o.kalanGun + " gün";
+            if (o.kalanGun < 0) { sinif = "yp-dolmus"; metin = "Süresi dolmuş"; }
+            else if (o.kalanGun < 30) { sinif = "yp-yakin"; metin = o.kalanGun + " gün kaldı"; }
+            return `<tr>
+                <td class="yp-kod">${kacisla(o.kod)}</td>
+                <td>${kacisla(o.okulAdi)}<br>
+                    <span style="font-size:.72rem;color:var(--text-subtle);">${kacisla(o.okulTuru)}</span></td>
+                <td style="font-size:.8rem;">${kacisla(o.il)}${o.ilce ? " / " + kacisla(o.ilce) : ""}</td>
+                <td style="font-size:.8rem;">${kacisla(o.bitis)}</td>
+                <td><span class="yp-durum ${sinif}">${metin}</span></td>
+                <td><button class="btn btn-primary yp-ac" data-kod="${kacisla(o.kod)}"
+                        style="padding:.35rem .7rem;font-size:.78rem;">Aç</button></td>
+            </tr>`;
+        }).join("");
+    }
+
+    ciz(okullar);
+
+    // --- arama ------------------------------------------------------------
+    document.getElementById("yp-arama").addEventListener("input", (e) => {
+        const q = e.target.value.trim().toLocaleLowerCase("tr");
+        if (!q) return ciz(okullar);
+        ciz(okullar.filter(o =>
+            (o.okulAdi + " " + o.kod + " " + o.il + " " + o.ilce)
+                .toLocaleLowerCase("tr").includes(q)));
+    });
+
+    // --- okulu aç ---------------------------------------------------------
+    // Seçilen okul oturuma yazılır ve uygulama normal akışıyla açılır.
+    // 'yoneticiModu' bayrağı app.js'e "bu kişinin kendi aboneliği yok,
+    // yönetici haklarıyla çalışıyor" der.
+    govde.addEventListener("click", (e) => {
+        const btn = e.target.closest(".yp-ac");
+        if (!btn) return;
+        const kod = btn.getAttribute("data-kod");
+        const o = okullar.find(x => x.kod === kod);
+        if (!o) return;
+        sessionStorage.setItem("normmatik_active_session", JSON.stringify({
+            kurumKodu: o.kod,
+            okulAdi: o.okulAdi,
+            okulTuru: o.okulTuru || "anadolu_lisesi",
+            okulTuruKilitli: true,
+            isDemo: false,
+            yoneticiModu: true,
+            loginTime: new Date().toISOString()
+        }));
+        location.href = "app.html";
+    });
+})();
+</script>
+</body>
+</html>

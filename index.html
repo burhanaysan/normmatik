@@ -515,7 +515,17 @@
                 };
                 sessionStorage.setItem("normmatik_active_session", JSON.stringify(activeSession));
 
-                window.location.href = "app.html";
+                // Yönetici (destek) hesabı mı? Hesap KENDİ yönetici satırını
+                // okuyabilir; başkasınınkini okuyamaz. Yöneticiyse okul
+                // listesine, değilse doğrudan uygulamaya gider.
+                let yoneticiMi = false;
+                try {
+                    const yr = await fetch(
+                        `https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app/yoneticiler/${encodeURIComponent(girisCevabi.localId)}.json?auth=${encodeURIComponent(girisCevabi.idToken)}`);
+                    if (yr.ok) yoneticiMi = (await yr.json()) === true;
+                } catch (err) { /* ulaşılamazsa normal okul gibi devam */ }
+
+                window.location.href = yoneticiMi ? "yonetim.html" : "app.html";
             } else {
                 alert(girisHatasi || "❌ Giriş yapılamadı.");
                 submitBtn.innerHTML = "🚀 Güvenli Giriş Yap";

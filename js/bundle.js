@@ -170557,11 +170557,19 @@ class MebNormApplication {
                         if (lisans.kayit.ilce)     appState.state.okulBilgisi.ilce     = lisans.kayit.ilce;
                     }
                     if (window.licenseManager) {
-                        window.licenseManager.applyCloudSubscription(lisans.abonelik, {
+                        const kimlikBilgisi = {
                             kurumKodu: session.kurumKodu,
                             okulAdi: appState.state.okulBilgisi.okulAdi,
                             okulTuru: appState.state.okulBilgisi.okulTuru
-                        });
+                        };
+                        if (session.yoneticiModu) {
+                            // Destek hesabı yönetim panelinden bir okul açtı.
+                            // Kendi aboneliği yoktur; abonelik aranırsa DEMO'ya
+                            // düşer ve 3 şube sınırına takılırdı.
+                            window.licenseManager.applyAdminAccess(kimlikBilgisi);
+                        } else {
+                            window.licenseManager.applyCloudSubscription(lisans.abonelik, kimlikBilgisi);
+                        }
                     }
 
                     const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
