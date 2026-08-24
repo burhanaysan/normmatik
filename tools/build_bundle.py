@@ -119,9 +119,19 @@ def surum_damgala():
     damga = datetime.datetime.now().strftime("%Y%m%d_%H%M")
     sonuc = []
 
+    # CSS etiketi de tazelenmeli. 2026-08-24'e kadar tazelenmiyordu:
+    # app.css'te yapılan bir değişiklik, sürüm etiketi aynı kaldığı için
+    # tarayıcıda eski hâliyle kalabiliyordu. Sessiz bir hata sınıfıydı —
+    # "stil neden değişmedi?" sorusunun cevabı buradaydı.
+    YONETIM_HTML = os.path.join(BASE_DIR, "yonetim.html")
+
     for yol, desen, yeni, ad in [
             (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
              "app.html ?v="),
+            (APP_HTML, r'(css/app\.css\?v=)[^"\']+', r'\g<1>' + damga,
+             "app.html app.css ?v="),
+            (YONETIM_HTML, r'(css/app\.css\?v=)[^"\']+', r'\g<1>' + damga,
+             "yonetim.html app.css ?v="),
             (SW_JS, r'(const CACHE_NAME\s*=\s*")[^"]+(")',
              r'\g<1>meb-normmatik-' + damga + r'\g<2>', "sw.js CACHE_NAME")]:
         if not os.path.exists(yol):

@@ -189,6 +189,27 @@ class MebLicenseClientManager {
         return this.initDemoState();
     }
 
+    /**
+     * Resmî çıktı (Excel / CSV / antet düzenleme) hakkı var mı?
+     *
+     * TEK YETKİ KAYNAĞI. Önceden bu karar üç ayrı yerde
+     * `!isMaster && !isAnnual` diye elle yazılmıştı; `allowExport` alanı
+     * tanımlıydı ama HİÇ OKUNMUYORDU. İki ayrı doğruluk kaynağı olması,
+     * ileride birinin güncellenip diğerinin unutulması demekti.
+     */
+    disaAktarimIzinliMi() {
+        const d = this.licenseStatus || {};
+        if (d.isMaster) return true;
+        if (d.isDemo) return false;
+        return d.allowExport !== false && !!d.isValid;
+    }
+
+    /** Deneme sürümü mü? Filigran ve uyarılar buna bakar. */
+    denemeSurumuMu() {
+        const d = this.licenseStatus || {};
+        return !d.isMaster && (!!d.isDemo || !this.disaAktarimIzinliMi());
+    }
+
     canAddSection(currentSectionCount) {
         if (!this.licenseStatus.isValid) return false;
         if (this.licenseStatus.maxSections === -1 || this.licenseStatus.isMaster) return true;

@@ -7733,3 +7733,57 @@ body.resizing .middle-canvas {
     border-color: #f59e0b !important;
     transform: translateY(-1px) !important;
 }
+
+/* ==========================================================================
+   DENEME SÜRÜMÜ FİLİGRANI
+   --------------------------------------------------------------------------
+   Deneme sürümünde Excel ve CSV kilitlidir, ama YAZDIRMA bilerek açık
+   bırakılmıştır: kullanıcı ürünün gerçekten işe yaradığını görmeli.
+   Buna karşılık çıktıya filigran basılır; müdürlüğe sunulamaz.
+
+   Bu yol 2026-08-24'e kadar hiç kontrol edilmiyordu — deneme kullanıcısı
+   raporu PDF'e yazdırıp resmî işinde kullanabiliyordu.
+
+   Filigran, tekrarlanan bir SVG zemin olarak veriliyor; tek bir katman
+   yerine bütün sayfalara ve sayfa sonlarına yayılır.
+   `print-color-adjust` olmadan tarayıcılar zemin resimlerini yazdırırken
+   atar; o yüzden şart.
+   ========================================================================== */
+@media print {
+    body.deneme-filigran::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        background-repeat: repeat;
+        background-size: 420px 300px;
+        background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='420' height='300'>\
+<text x='210' y='150' fill='%23d92626' fill-opacity='0.16' font-size='27' \
+font-family='Segoe UI, Arial, sans-serif' font-weight='bold' \
+text-anchor='middle' transform='rotate(-32 210 150)'>DENEME S%C3%9CR%C3%9CM%C3%9C</text>\
+<text x='210' y='182' fill='%23d92626' fill-opacity='0.16' font-size='15' \
+font-family='Segoe UI, Arial, sans-serif' \
+text-anchor='middle' transform='rotate(-32 210 150)'>RESM%C3%8E GE%C3%87ERL%C4%B0L%C4%B0%C4%9E%C4%B0 YOKTUR</text>\
+</svg>");
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Sayfa altına da tek satırlık açık uyarı. */
+    body.deneme-filigran::after {
+        content: "NormMatik™ DENEME SÜRÜMÜ — Bu çıktı resmî işlemlerde kullanılamaz. Lisanslı sürümde bu uyarı yer almaz.";
+        position: fixed;
+        bottom: 2mm;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 7pt;
+        font-weight: bold;
+        color: #b91c1c;
+        z-index: 10000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

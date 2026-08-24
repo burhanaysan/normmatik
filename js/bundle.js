@@ -473,6 +473,27 @@ class MebLicenseClientManager {
         return this.initDemoState();
     }
 
+    /**
+     * Resmî çıktı (Excel / CSV / antet düzenleme) hakkı var mı?
+     *
+     * TEK YETKİ KAYNAĞI. Önceden bu karar üç ayrı yerde
+     * `!isMaster && !isAnnual` diye elle yazılmıştı; `allowExport` alanı
+     * tanımlıydı ama HİÇ OKUNMUYORDU. İki ayrı doğruluk kaynağı olması,
+     * ileride birinin güncellenip diğerinin unutulması demekti.
+     */
+    disaAktarimIzinliMi() {
+        const d = this.licenseStatus || {};
+        if (d.isMaster) return true;
+        if (d.isDemo) return false;
+        return d.allowExport !== false && !!d.isValid;
+    }
+
+    /** Deneme sürümü mü? Filigran ve uyarılar buna bakar. */
+    denemeSurumuMu() {
+        const d = this.licenseStatus || {};
+        return !d.isMaster && (!!d.isDemo || !this.disaAktarimIzinliMi());
+    }
+
     canAddSection(currentSectionCount) {
         if (!this.licenseStatus.isValid) return false;
         if (this.licenseStatus.maxSections === -1 || this.licenseStatus.isMaster) return true;
@@ -168493,8 +168514,9 @@ class UIComponentManager {
 
         // Resmî Antet & İmzaları Düzenle Modalı
         document.getElementById("btn-report-edit-antet")?.addEventListener("click", () => {
-            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
-            if (lic && !lic.isMaster && !lic.isAnnual) {
+            // Tek yetki kaynağı: licenseManager.disaAktarimIzinliMi()
+            const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
+            if (lm && !lm.disaAktarimIzinliMi()) {
                 alert("🔒 LİSANS GEREKLİ: Resmî Valilik / İlçe MEM Başlığı ve Onay İmzacılarını düzenlemek lisanslı sürüme özeldir.");
                 this.openLicenseModal();
                 return;
@@ -168534,8 +168556,9 @@ class UIComponentManager {
 
         // Excel (.XLSX) İndirme (Çok Sekmeli & Renkli) - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-xlsx")?.addEventListener("click", () => {
-            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
-            if (lic && !lic.isMaster && !lic.isAnnual) {
+            // Tek yetki kaynağı: licenseManager.disaAktarimIzinliMi()
+            const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
+            if (lm && !lm.disaAktarimIzinliMi()) {
                 alert("🔒 LİSANS GEREKLİ: Resmî 5 Sekmeli Excel (.XLSX) Norm Kadro Cetveli indirmek lisanslı sürüme özeldir. Lütfen okulunuz için lisans anahtarı temin ediniz.");
                 this.openLicenseModal();
                 return;
@@ -168552,8 +168575,9 @@ class UIComponentManager {
 
         // CSV İndirme - LİSANS KONTROLÜ
         document.getElementById("btn-report-export-csv")?.addEventListener("click", () => {
-            const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : null;
-            if (lic && !lic.isMaster && !lic.isAnnual) {
+            // Tek yetki kaynağı: licenseManager.disaAktarimIzinliMi()
+            const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
+            if (lm && !lm.disaAktarimIzinliMi()) {
                 alert("🔒 LİSANS GEREKLİ: Resmî Norm Kadro verilerini dışa aktarmak lisanslı sürüme özeldir. Lütfen lisans anahtarınızı aktifleştiriniz.");
                 this.openLicenseModal();
                 return;
@@ -168581,8 +168605,27 @@ class UIComponentManager {
         });
 
         // Yazdırma (Print)
+        //
+        // Yazdırma BİLEREK engellenmiyor: kullanıcı ürünün gerçekten
+        // işe yaradığını görmeli, satış öyle olur. Ama deneme sürümünde
+        // çıktıya filigran basılır; müdürlüğe sunulamaz.
+        //
+        // Bu yol daha önce hiç kontrol edilmiyordu: Excel ve CSV kilitliyken
+        // deneme kullanıcısı raporu PDF'e yazdırıp kullanabiliyordu.
         document.getElementById("btn-report-print")?.addEventListener("click", () => {
+            const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
+            const deneme = lm ? lm.denemeSurumuMu() : false;
+            if (deneme) {
+                document.body.classList.add("deneme-filigran");
+                alert("🔒 DENEME SÜRÜMÜ\n\n"
+                    + "Çıktı alabilirsiniz, ancak sayfalara "
+                    + "\"DENEME SÜRÜMÜ — RESMÎ GEÇERLİLİĞİ YOKTUR\" filigranı "
+                    + "basılacaktır.\n\n"
+                    + "Filigransız resmî çıktı için yıllık lisans gereklidir.");
+            }
             window.print();
+            // Filigran yalnızca yazdırma sırasında dursun; ekranda kalmasın.
+            setTimeout(() => document.body.classList.remove("deneme-filigran"), 1500);
         });
 
         // Kapatma
