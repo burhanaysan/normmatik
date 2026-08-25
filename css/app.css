@@ -5393,6 +5393,239 @@ body {
 .stat-ihtiyac .dot { background: #dc2626; }
 .stat-fazla .dot { background: #ea580c; }
 
+/* ==========================================================================
+   🏛️ YENİ MİNİMALİST YÖNETİCİ İCMALİ & KADRO CETVELİ DİZAYNI
+   ========================================================================== */
+
+.exec-minimal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 0.95rem;
+}
+
+/* 1. Kompakt Metrik Şeridi (5 KPI Tek İnce Şerit) */
+.exec-stat-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.45rem;
+    background: var(--bg-card-subtle);
+    padding: 0.45rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-main);
+}
+
+.exec-stat-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.exec-stat-cell.highlight-blue { border-left: 3px solid #0284c7; }
+.exec-stat-cell.highlight-green { border-left: 3px solid #16a34a; }
+.exec-stat-cell.highlight-purple { border-left: 3px solid #9333ea; }
+.exec-stat-cell.highlight-red { border-left: 3px solid #dc2626; }
+.exec-stat-cell.highlight-orange { border-left: 3px solid #ea580c; }
+.exec-stat-cell.highlight-neutral { border-left: 3px solid #64748b; }
+
+.exec-stat-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exec-stat-val-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+}
+
+.exec-stat-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.exec-stat-val.c-blue { color: #0284c7; }
+.exec-stat-val.c-green { color: #16a34a; }
+.exec-stat-val.c-purple { color: #9333ea; }
+.exec-stat-val.c-red { color: #dc2626; }
+.exec-stat-val.c-orange { color: #ea580c; }
+.exec-stat-val.c-neutral { color: var(--text-muted); }
+
+.exec-stat-unit {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.exec-stat-sub {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 2. Durum Rozetleri Şeridi */
+.exec-status-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    padding: 0.1rem 0.2rem;
+}
+
+.exec-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 1px solid transparent;
+}
+
+.exec-pill.pill-tam {
+    background: rgba(22, 163, 74, 0.08);
+    color: #16a34a;
+    border-color: rgba(22, 163, 74, 0.2);
+}
+
+.exec-pill.pill-ihtiyac {
+    background: rgba(220, 38, 38, 0.08);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, 0.2);
+}
+
+.exec-pill.pill-fazla {
+    background: rgba(234, 88, 12, 0.08);
+    color: #ea580c;
+    border-color: rgba(234, 88, 12, 0.2);
+}
+
+/* 3. Yönetici ve Rehberlik Birleşik Minimalist 2-Sütunlu Grid */
+.exec-dual-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 0.65rem;
+}
+
+.exec-compact-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-main);
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.exec-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.exec-panel-title {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    letter-spacing: 0.02em;
+}
+
+.exec-panel-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+}
+
+.badge-admin-total {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.badge-guidance-total {
+    background: rgba(13, 148, 136, 0.1);
+    color: #0d9488;
+    border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+/* Mini Key-Value Tablo Satırları */
+.exec-mini-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+}
+
+.exec-mini-cell {
+    background: var(--bg-card-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    padding: 0.35rem 0.45rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.08rem;
+}
+
+.exec-mini-cell-title {
+    font-size: 0.58rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exec-mini-cell-num {
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.exec-mini-cell-sub {
+    font-size: 0.56rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exec-footnotes {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+    padding: 0.3rem 0.5rem;
+    background: var(--bg-card-subtle);
+    border-radius: 6px;
+    border-left: 2px solid var(--border-main);
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
 /* Rapor Tabloları */
 .table-responsive-container {
     overflow-x: auto;

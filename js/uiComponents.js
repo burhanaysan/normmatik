@@ -3745,159 +3745,132 @@ export class UIComponentManager {
                 <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Eğitim-Öğretim Sezonu: ${data.schoolInfo.sezon || '2024-2025'}</div>
             </div>
 
-            <!-- KPI Kartları -->
-            <div class="kpi-dashboard-grid">
-                <div class="kpi-card kpi-blue">
-                    <div class="kpi-label">TOPLAM HAFTALIK DERS YÜKÜ</div>
-                    <div class="kpi-value">${kpis.totalHours} <span class="kpi-unit">Saat</span></div>
-                    <div class="kpi-foot">${kpis.totalSections} Şube • ${kpis.totalStudents} Öğrenci</div>
+            <!-- Minimalist Yönetici İcmali Konteyneri -->
+            <div class="exec-minimal-container">
+                <!-- 1. Kompakt Metrik Şeridi (5 KPI Tek İnce Şerit) -->
+                <div class="exec-stat-strip">
+                    <div class="exec-stat-cell highlight-blue">
+                        <div class="exec-stat-label">Haftalık Ders Yükü</div>
+                        <div class="exec-stat-val-row">
+                            <span class="exec-stat-val c-blue">${kpis.totalHours}</span>
+                            <span class="exec-stat-unit">Saat</span>
+                        </div>
+                        <div class="exec-stat-sub">${kpis.totalSections} Şube • ${kpis.totalStudents} Öğrenci</div>
+                    </div>
+
+                    <div class="exec-stat-cell highlight-green">
+                        <div class="exec-stat-label">Hesaplanan Norm</div>
+                        <div class="exec-stat-val-row">
+                            <span class="exec-stat-val c-green">${kpis.totalCalculatedNorm}</span>
+                            <span class="exec-stat-unit">Öğretmen</span>
+                        </div>
+                        <div class="exec-stat-sub">MEB Norm Yönetmeliği</div>
+                    </div>
+
+                    <div class="exec-stat-cell highlight-purple">
+                        <div class="exec-stat-label">Mevcut Kadrolu</div>
+                        <div class="exec-stat-val-row">
+                            <span class="exec-stat-val c-purple">${kpis.totalCurrentTeachers}</span>
+                            <span class="exec-stat-unit">Öğretmen</span>
+                        </div>
+                        <div class="exec-stat-sub">Görevli Kadrolar</div>
+                    </div>
+
+                    <div class="exec-stat-cell ${kpis.totalNeeded > 0 ? 'highlight-red' : 'highlight-neutral'}">
+                        <div class="exec-stat-label">Net Norm İhtiyacı</div>
+                        <div class="exec-stat-val-row">
+                            <span class="exec-stat-val ${kpis.totalNeeded > 0 ? 'c-red' : 'c-neutral'}">${kpis.totalNeeded}</span>
+                            <span class="exec-stat-unit">Açık</span>
+                        </div>
+                        <div class="exec-stat-sub">${kpis.ihtiyacBranchesCount} Branşta Açık</div>
+                    </div>
+
+                    <div class="exec-stat-cell ${kpis.totalSurplus > 0 ? 'highlight-orange' : 'highlight-neutral'}">
+                        <div class="exec-stat-label">Net Norm Fazlası</div>
+                        <div class="exec-stat-val-row">
+                            <span class="exec-stat-val ${kpis.totalSurplus > 0 ? 'c-orange' : 'c-neutral'}">${kpis.totalSurplus}</span>
+                            <span class="exec-stat-unit">Fazla</span>
+                        </div>
+                        <div class="exec-stat-sub">${kpis.fazlaBranchesCount} Branşta Fazlalık</div>
+                    </div>
                 </div>
-                <div class="kpi-card kpi-green">
-                    <div class="kpi-label">HESAPLANAN TOPLAM NORM</div>
-                    <div class="kpi-value">${kpis.totalCalculatedNorm} <span class="kpi-unit">Öğretmen</span></div>
-                    <div class="kpi-foot">MEB Norm Yönetmeliği Uygun</div>
+
+                <!-- 2. Durum Rozetleri Şeridi -->
+                <div class="exec-status-pills">
+                    <span class="exec-pill pill-tam">● Kadrosu Tam: ${kpis.tamBranchesCount} Branş</span>
+                    <span class="exec-pill pill-ihtiyac">● Norm İhtiyacı: ${kpis.ihtiyacBranchesCount} Branş</span>
+                    <span class="exec-pill pill-fazla">● Norm Fazlası: ${kpis.fazlaBranchesCount} Branş</span>
                 </div>
-                <div class="kpi-card kpi-purple">
-                    <div class="kpi-label">MEVCUT KADROLU ÖĞRETMEN</div>
-                    <div class="kpi-value">${kpis.totalCurrentTeachers} <span class="kpi-unit">Öğretmen</span></div>
-                    <div class="kpi-foot">Okulda Görevli Kadrolar</div>
-                </div>
-                <div class="kpi-card ${kpis.totalNeeded > 0 ? 'kpi-red' : 'kpi-neutral'}">
-                    <div class="kpi-label">NET NORM İHTİYACI (AÇIK)</div>
-                    <div class="kpi-value">${kpis.totalNeeded} <span class="kpi-unit">Öğretmen</span></div>
-                    <div class="kpi-foot">${kpis.ihtiyacBranchesCount} Branşta Açık Var</div>
-                </div>
-                <div class="kpi-card ${kpis.totalSurplus > 0 ? 'kpi-orange' : 'kpi-neutral'}">
-                    <div class="kpi-label">NET NORM FAZLASI</div>
-                    <div class="kpi-value">${kpis.totalSurplus} <span class="kpi-unit">Öğretmen</span></div>
-                    <div class="kpi-foot">${kpis.fazlaBranchesCount} Branşta Fazlalık Var</div>
+
+                <!-- 3. Yönetici ve Rehberlik Birleşik Minimalist 2-Sütunlu Grid -->
+                <div class="exec-dual-panel-grid">
+                    ${data.adminNorms ? `
+                    <div class="exec-compact-panel">
+                        <div class="exec-panel-header">
+                            <div class="exec-panel-title">
+                                <span>🏛️ İdareci Norm Kadro Durumu</span>
+                            </div>
+                            <span class="exec-panel-badge badge-admin-total">Toplam Norm: ${data.adminNorms.toplamYonetici}</span>
+                        </div>
+                        <div class="exec-mini-table">
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">Müdür</div>
+                                <div class="exec-mini-cell-num" style="color: #0284c7;">${data.adminNorms.mudur}</div>
+                                <div class="exec-mini-cell-sub">Md. 5/1</div>
+                            </div>
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">Mdr. Başyrd.</div>
+                                <div class="exec-mini-cell-num" style="color: #7c3aed;">${data.adminNorms.mudurBasyardimcisi}</div>
+                                <div class="exec-mini-cell-sub">${data.adminNorms.mudurBasyardimcisi > 0 ? 'Pansiyon/Yatılı' : 'Oluşmadı'}</div>
+                            </div>
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">Mdr. Yrd.</div>
+                                <div class="exec-mini-cell-num" style="color: #059669;">${data.adminNorms.mudurYardimcisiTotal}</div>
+                                <div class="exec-mini-cell-sub">T:${data.adminNorms.mudurYardimcisiBase} + İ:${data.adminNorms.mudurYardimcisiExtra}</div>
+                            </div>
+                        </div>
+                        ${data.adminNorms.explanations && data.adminNorms.explanations.length > 0 ? `
+                        <div class="exec-footnotes">
+                            ${data.adminNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
+                        </div>
+                        ` : ''}
+                    </div>
+                    ` : ''}
+
+                    ${data.guidanceNorms ? `
+                    <div class="exec-compact-panel">
+                        <div class="exec-panel-header">
+                            <div class="exec-panel-title">
+                                <span>🧭 Rehberlik Servisi Normu</span>
+                            </div>
+                            <span class="exec-panel-badge badge-guidance-total">Rehber Norm: ${data.guidanceNorms.norm}</span>
+                        </div>
+                        <div class="exec-mini-table">
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">İlk Norm</div>
+                                <div class="exec-mini-cell-num" style="color: #0d9488;">${data.guidanceNorms.ilkNorm}</div>
+                                <div class="exec-mini-cell-sub">Eşik: ${data.guidanceNorms.esik} Öğr.</div>
+                            </div>
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">İlave Norm</div>
+                                <div class="exec-mini-cell-num" style="color: #7c3aed;">${data.guidanceNorms.ilaveNorm}</div>
+                                <div class="exec-mini-cell-sub">Her ${data.guidanceNorms.aralik} Öğr. +1</div>
+                            </div>
+                            <div class="exec-mini-cell">
+                                <div class="exec-mini-cell-title">Esas Öğrenci</div>
+                                <div class="exec-mini-cell-num" style="color: #059669;">${data.guidanceNorms.normaEsasOgrenciSayisi}</div>
+                                <div class="exec-mini-cell-sub">Kayıtlı Öğrenci</div>
+                            </div>
+                        </div>
+                        ${data.guidanceNorms.explanations && data.guidanceNorms.explanations.length > 0 ? `
+                        <div class="exec-footnotes">
+                            ${data.guidanceNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
+                        </div>
+                        ` : ''}
+                    </div>
+                    ` : ''}
                 </div>
             </div>
-
-            <!-- Durum Dağılım Çubuğu -->
-            <div class="norm-status-summary-bar">
-                <div class="status-summary-item stat-tam">
-                    <span class="dot"></span> Kadrosu Tam: <strong>${kpis.tamBranchesCount} Branş</strong>
-                </div>
-                <div class="status-summary-item stat-ihtiyac">
-                    <span class="dot"></span> Norm İhtiyacı: <strong>${kpis.ihtiyacBranchesCount} Branş</strong>
-                </div>
-                <div class="status-summary-item stat-fazla">
-                    <span class="dot"></span> Norm Fazlası: <strong>${kpis.fazlaBranchesCount} Branş</strong>
-                </div>
-            </div>
-
-            <!-- Yönetici ve İdareci Kadro Normu (MEB Md. 5 - 14) -->
-            ${data.adminNorms ? `
-            <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-                    <div style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
-                        <span>🏛️ YÖNETİCİ VE İDARECİ NORM KADRO DURUMU</span>
-                        <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); background: var(--bg-badge); padding: 0.15rem 0.5rem; border-radius: 6px;">MEB 2014/6459 Yönetmeliği Md. 5 - 14</span>
-                    </div>
-                    <div style="font-size: 0.85rem; font-weight: 800; color: #2563eb;">
-                        Toplam Yönetici Normu: <span style="font-size: 1.1rem; background: rgba(37, 99, 235, 0.12); padding: 0.1rem 0.55rem; border-radius: 6px;">${data.adminNorms.toplamYonetici}</span>
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.65rem; margin-bottom: 0.75rem;">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">OKUL MÜDÜRÜ</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #0284c7; margin: 0.15rem 0;">${data.adminNorms.mudur}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">MEB Md. 5/1 Hükmü</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">MÜDÜR BAŞYARDIMCISI</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #7c3aed; margin: 0.15rem 0;">${data.adminNorms.mudurBasyardimcisi}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">${data.adminNorms.mudurBasyardimcisi > 0 ? 'Pansiyon/Yatılı veya 6 Mdr. Yrd. (Md. 6)' : 'Şartlar Oluşmadı'}</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">MÜDÜR YARDIMCISI</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #059669; margin: 0.15rem 0;">${data.adminNorms.mudurYardimcisiTotal}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">Temel: ${data.adminNorms.mudurYardimcisiBase} + İlave Haklar: ${data.adminNorms.mudurYardimcisiExtra}</div>
-                    </div>
-                </div>
-
-                ${(data.adminNorms.karsilastirma && data.adminNorms.karsilastirma.toplam.mevcut > 0) ? `
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem;">
-                        ${[
-                            ["OKUL MÜDÜRÜ", data.adminNorms.karsilastirma.mudur],
-                            ["MÜDÜR BAŞYRD.", data.adminNorms.karsilastirma.mudurBasyardimcisi],
-                            ["MÜDÜR YRD.", data.adminNorms.karsilastirma.mudurYardimcisi],
-                            ["TOPLAM", data.adminNorms.karsilastirma.toplam]
-                        ].map(([baslik, c]) => {
-                            const renk = c.durum === "tam" ? "#16a34a" : (c.durum === "fazla" ? "#b45309" : "#dc2626");
-                            return `
-                                <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-left: 3px solid ${renk}; border-radius: 8px; padding: 0.45rem 0.6rem;">
-                                    <div style="font-size: 0.66rem; font-weight: 700; color: var(--text-muted);">${baslik} (Mevcut / Norm)</div>
-                                    <div style="font-size: 0.85rem; font-weight: 800; color: ${renk};">${c.mevcut} / ${c.norm} · ${c.etiket}</div>
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
-                ` : ''}
-
-                ${data.adminNorms.explanations && data.adminNorms.explanations.length > 0 ? `
-                    <div style="font-size: 0.72rem; color: var(--text-muted); background: var(--bg-card); border-radius: 6px; padding: 0.5rem 0.75rem; border-left: 3px solid #2563eb; display: flex; flex-direction: column; gap: 0.2rem;">
-                        ${data.adminNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
-                    </div>
-                ` : ''}
-            </div>
-            ` : ''}
-
-            <!-- Okul Rehberlik Servisi Normu (MEB Md. 21) -->
-            ${data.guidanceNorms ? `
-            <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem;">
-                    <div style="font-size: 0.92rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
-                        <span>🧭 OKUL REHBERLİK SERVİSİ NORM KADRO DURUMU</span>
-                        <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-muted); background: var(--bg-badge); padding: 0.15rem 0.5rem; border-radius: 6px;">MEB 2014/6459 Yönetmeliği Md. 21/2, 21/3</span>
-                    </div>
-                    <div style="font-size: 0.85rem; font-weight: 800; color: #0d9488;">
-                        Rehber Öğretmen Normu: <span style="font-size: 1.1rem; background: rgba(13, 148, 136, 0.12); padding: 0.1rem 0.55rem; border-radius: 6px;">${data.guidanceNorms.norm}</span>
-                    </div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.65rem; margin-bottom: 0.75rem;">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">İLK NORM</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #0d9488; margin: 0.15rem 0;">${data.guidanceNorms.ilkNorm}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">Eşik: ${data.guidanceNorms.esik} öğrenci (${data.guidanceNorms.esikMadde})</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">İLAVE NORM</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #7c3aed; margin: 0.15rem 0;">${data.guidanceNorms.ilaveNorm}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">Her ${data.guidanceNorms.aralik} öğrenci için +1 (Md. 21/3)</div>
-                    </div>
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-radius: 8px; padding: 0.65rem; text-align: center;">
-                        <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">NORMA ESAS ÖĞRENCİ</div>
-                        <div style="font-size: 1.35rem; font-weight: 800; color: #059669; margin: 0.15rem 0;">${data.guidanceNorms.normaEsasOgrenciSayisi}</div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">Şubelere kayıtlı toplam öğrenci</div>
-                    </div>
-                </div>
-
-                ${(data.guidanceNorms.karsilastirma && data.guidanceNorms.karsilastirma.mevcut > 0) ? `
-                    <div style="margin-bottom: 0.75rem;">
-                        ${(() => {
-                            const c = data.guidanceNorms.karsilastirma;
-                            const renk = c.durum === "tam" ? "#16a34a" : (c.durum === "fazla" ? "#b45309" : "#dc2626");
-                            return `
-                                <div style="background: var(--bg-card); border: 1px solid var(--border-main); border-left: 3px solid ${renk}; border-radius: 8px; padding: 0.45rem 0.6rem;">
-                                    <div style="font-size: 0.66rem; font-weight: 700; color: var(--text-muted);">REHBER ÖĞRETMEN (Mevcut / Norm)</div>
-                                    <div style="font-size: 0.85rem; font-weight: 800; color: ${renk};">${c.mevcut} / ${c.norm} · ${c.etiket}</div>
-                                </div>
-                            `;
-                        })()}
-                    </div>
-                ` : ''}
-
-                ${data.guidanceNorms.explanations && data.guidanceNorms.explanations.length > 0 ? `
-                    <div style="font-size: 0.72rem; color: var(--text-muted); background: var(--bg-card); border-radius: 6px; padding: 0.5rem 0.75rem; border-left: 3px solid #0d9488; display: flex; flex-direction: column; gap: 0.2rem;">
-                        ${data.guidanceNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
-                    </div>
-                ` : ''}
-            </div>
-            ` : ''}
 
             <!-- Branşlar Tablosu -->
             <div class="table-responsive-container">
