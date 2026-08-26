@@ -60,7 +60,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+/* `height: auto` ŞART. Yoksa etiketteki height="1559" harfi harfine
+   uygulanır, genişlik ise max-width ile küçülür; görsel dikey olarak
+   gerilir. İlk yazımda unutulmuştu ve ürün ekranı 4,55 kat uzamıştı.
+   width/height etiketleri yine de duruyor: tarayıcı yeri baştan ayırır,
+   sayfa yüklenirken zıplama olmaz. */
+img { max-width: 100%; height: auto; display: block; }
 
 .kap {
     width: 100%;
