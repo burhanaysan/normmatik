@@ -1380,8 +1380,16 @@ class MebNormApplication {
                 </div>
                 <div class="norm-kpi-grid-compact">
                     <!-- Toplam Yük İnce Şerit -->
-                    <div class="kpi-banner-load">
-                        <span class="kpi-banner-label">⏱️ Toplam Okul Yükü</span>
+                    <!-- Etiket "Toplam Okul Yükü" idi ve yanıltıyordu: bu sayı
+                         okulun TÜM ders saatleri değil, norm tablosunda görünen
+                         branşların toplamıdır. Rehberlik ve Yönlendirme saatleri
+                         (sınıf rehberliği, branş yüküne yazılmaz) ile tek başına
+                         norm doğurmayan yan dersler bu toplamın dışındadır.
+                         Kullanıcı şube rozetlerini (33/40 gibi) toplayıp buradaki
+                         sayıyla karşılaştırınca tutmuyordu. Sayı doğruydu, adı
+                         yanlıştı. -->
+                    <div class="kpi-banner-load" title="Norm hesabına giren ders saatlerinin toplamı. Sınıf rehberliği saatleri ve okulda o branştan öğretmen bulunmayan yan dersler bu toplama dâhil değildir; bu yüzden şubelerin haftalık saat toplamından düşük olabilir.">
+                        <span class="kpi-banner-label">⏱️ Norma Esas Ders Yükü</span>
                         <span class="kpi-banner-val">${normResult.totalHours} <span style="font-size: 0.72rem; font-weight: 600;">Saat</span></span>
                     </div>
 
