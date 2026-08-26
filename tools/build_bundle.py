@@ -127,6 +127,7 @@ def surum_damgala():
     # tarayıcıda eski hâliyle kalabiliyordu. Sessiz bir hata sınıfıydı —
     # "stil neden değişmedi?" sorusunun cevabı buradaydı.
     YONETIM_HTML = os.path.join(BASE_DIR, "yonetim.html")
+    INDEX_HTML = os.path.join(BASE_DIR, "index.html")
 
     for yol, desen, yeni, ad in [
             (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
@@ -135,6 +136,12 @@ def surum_damgala():
              "app.html app.css ?v="),
             (YONETIM_HTML, r'(css/app\.css\?v=)[^"\']+', r'\g<1>' + damga,
              "yonetim.html app.css ?v="),
+            # Karşılama sayfası 26.08.2026'da sıfırdan yazıldı. O güne kadar
+            # landing.css HİÇ damgalanmıyordu: tasarım değişse bile daha önce
+            # siteye girmiş biri ESKİ hâlini önbellekten görmeye devam ederdi.
+            # Aynı sessiz hata sınıfı app.css'te 2026-08-24'te düzeltilmişti.
+            (INDEX_HTML, r'(css/landing\.css\?v=)[^"\']+', r'\g<1>' + damga,
+             "index.html landing.css ?v="),
             (SW_JS, r'(const CACHE_NAME\s*=\s*")[^"]+(")',
              r'\g<1>meb-normmatik-' + damga + r'\g<2>', "sw.js CACHE_NAME")]:
         if not os.path.exists(yol):

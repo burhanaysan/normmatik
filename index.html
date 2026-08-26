@@ -5,320 +5,371 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı</title>
     <meta name="description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
-    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/landing.css?v=20260827_0002">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
 
-    <!-- 1. ÜST RESMÎ GEZİNME ÇUBUĞU (NAVBAR) -->
-    <nav class="navbar">
-        <a href="#" class="nav-brand">
-            <span class="brand-icon">📊</span>
-            <div>
-                <span class="brand-title">NormMatik™</span>
-                <span class="brand-badge">MEB 2026-2027</span>
-            </div>
+<!-- ÜST ÇUBUK -->
+<header class="ust">
+    <div class="ust-ic">
+        <a href="#" class="marka">
+            <span class="marka-im">N</span>
+            <span>NormMatik</span>
         </a>
 
-        <ul class="nav-links">
-            <li><a href="#kapsam">Kapsam & Kademeler</a></li>
-            <li><a href="#galeri">Ekran Görüntüleri</a></li>
-            <li><a href="#raporlar">Raporlar ve Çıktılar</a></li>
-            <li><a href="#faq">Sık Sorulanlar</a></li>
+        <ul class="ust-menu">
+            <li><a href="#nedir">Ne işe yarar</a></li>
+            <li><a href="#kademeler">Kademeler</a></li>
+            <li><a href="#galeri">Ekranlar</a></li>
+            <li><a href="#sorular">Sorular</a></li>
         </ul>
 
-        <div class="nav-actions">
-            <button class="btn-nav-demo" id="btn-open-demo-school">⚡ Demo Okulu İncele</button>
-            <button class="btn-nav-login" id="btn-trigger-login">🔑 Kurum Girişi</button>
-        </div>
-    </nav>
+        <button class="dugme dugme-birincil" id="btn-trigger-login">Kurum Girişi</button>
+    </div>
+</header>
 
-    <!-- 2. HERO / RESMÎ KARŞILAMA BÖLÜMÜ -->
-    <header class="hero-section">
-        <div class="hero-pill-badge">
-            <span>📘 Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilmiştir</span>
-        </div>
+<!-- GİRİŞ -->
+<section class="giris">
+    <div class="kap">
+        <div class="giris-ic">
+            <span class="rozet">Norm Kadro Yönetmeliği ve TTKB çizelgeleri esas alınır</span>
 
-        <h1 class="hero-title">
-            MEB Norm Kadro ve Haftalık Ders Yükü <br>
-            Yönetim ve Planlama Platformu
-        </h1>
+            <h1>Okulunuzun norm kadrosunu<br><span class="vurgu">Excel'siz</span> hesaplayın.</h1>
 
-        <p class="hero-subtitle">
-            Temel Eğitim (Ortaokul / İHO), Ortaöğretim (Anadolu, Fen, Sosyal Bilimler, GSL, Spor), Din Öğretimi (İHL), Mesleki ve Teknik Eğitim (69 Alan / 100+ Dal), MESEM ve Özel Eğitim kurumları için norm kadro ve haftalık ders yükü hesaplama aracı.
-        </p>
+            <p class="giris-alt">
+                Şubelerinizi girin, haftalık ders yükü ve branş bazlı öğretmen
+                ihtiyacı anında karşınıza çıksın. Hesaplamalar MEB'in yayımladığı
+                çizelgelere ve Norm Kadro Yönetmeliği'ne dayanır.
+            </p>
 
-        <div class="hero-cta-group">
-            <button class="btn-hero-primary" id="btn-hero-login">
-                <span>🔑 Kurum Kodu ile Giriş Yap</span>
-            </button>
-            <button class="btn-hero-secondary" id="btn-hero-demo">
-                <span>⚡ Ücretsiz Demo Okulu Başlat</span>
-            </button>
-        </div>
-    </header>
+            <div class="giris-dugmeler">
+                <button class="dugme dugme-birincil dugme-buyuk" id="btn-hero-login">Kurum Kodu ile Giriş</button>
+                <button class="dugme dugme-ikincil dugme-buyuk" id="btn-hero-demo">Önce Demo Okulu Deneyin</button>
+            </div>
 
-    <!-- 3. OKUL KADEMELERİ VE MEB KAPSAMI (6 TEMEL KATEGORİ) -->
-    <section class="section-container" id="kapsam">
-        <div class="section-header">
-            <span class="section-tag">Kurumsal Kapsam</span>
-            <h2 class="section-title">Kapsanan Okul Kademeleri</h2>
-            <p class="section-desc">Ders çizelgeleri, MEB'in yayımladığı 242 resmî çerçeve program PDF'inden çıkarılmıştır. Her çizelge, kaynak belgenin kendi toplam satırıyla doğrulanmıştır.</p>
+            <p class="giris-not">Demo için kayıt gerekmez. Kurulum yok, tarayıcıdan çalışır.</p>
         </div>
 
-        <div class="cards-grid">
-            <!-- 1. Ortaokul ve İHO -->
-            <div class="scope-card">
-                <span class="scope-card-icon">🏫</span>
-                <h3 class="scope-card-title">Ortaokul ve İmam Hatip Ortaokulları (İHO)</h3>
-                <p class="scope-card-text">5, 6, 7 ve 8. sınıf zorunlu ve seçmeli ders çizelgeleri, haftalık hedef saat denetimleri ve branş bazlı öğretmen norm hesaplamaları.</p>
+        <!-- Ürünün kendisi ilk ekranda görünür: en iyi anlatım bu. -->
+        <div class="ekran-cerceve">
+            <div class="ekran-cubuk">
+                <span class="ekran-nokta"></span>
+                <span class="ekran-nokta"></span>
+                <span class="ekran-nokta"></span>
+                <span class="ekran-adres">normmatik.com.tr</span>
             </div>
-
-            <!-- 2. OGM Liseleri -->
-            <div class="scope-card">
-                <span class="scope-card-icon">🏛️</span>
-                <h3 class="scope-card-title">Ortaöğretim Liseleri (OGM)</h3>
-                <p class="scope-card-text">Anadolu Liseleri, Fen Liseleri, Sosyal Bilimler Liseleri, Güzel Sanatlar ve Spor Liselerinin tüm sınıf seviyeleri ve baraj ders kuralları.</p>
-            </div>
-
-            <!-- 3. Din Öğretimi -->
-            <div class="scope-card">
-                <span class="scope-card-icon">🕌</span>
-                <h3 class="scope-card-title">Anadolu İmam Hatip Liseleri (DÖGM)</h3>
-                <p class="scope-card-text">Temel İslam Bilimleri ve meslek dersleri, fen/sosyal programı uygulayan İHL modelleri ve kademe bazlı haftalık yük dağıtımları.</p>
-            </div>
-
-            <!-- 4. MTAL (69 Alan) -->
-            <div class="scope-card">
-                <span class="scope-card-icon">🏢</span>
-                <h3 class="scope-card-title">Mesleki ve Teknik Anadolu Liseleri (MTAL)</h3>
-                <p class="scope-card-text">69 mesleki alan, 100'ü aşkın dal programı, 10, 11, 12. sınıf atölye grup bölünmeleri ve 12. sınıf işletmelerde mesleki eğitim (koordinatörlük) yükleri.</p>
-            </div>
-
-            <!-- 5. MESEM -->
-            <div class="scope-card">
-                <span class="scope-card-icon">⚙️</span>
-                <h3 class="scope-card-title">Mesleki Eğitim Merkezleri (MESEM)</h3>
-                <p class="scope-card-text">Kalfalık ve ustalık programı teorik ders yükleri, haftalık okul eğitimi ve koordinatörlük saatlerinin branş normlarına yansıması.</p>
-            </div>
-
-            <!-- 6. Özel Eğitim -->
-            <div class="scope-card">
-                <span class="scope-card-icon">🟣</span>
-                <h3 class="scope-card-title">Özel Eğitim Kurumları ve Sınıfları</h3>
-                <p class="scope-card-text">Hafif, orta-ağır düzey özel eğitim sınıfları ve uygulama okulları için 30 saatlik standart program ve özel eğitim öğretmen norm standartları.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. GERÇEK EKRAN GÖRÜNTÜLERİ GALERİSİ (LIGHTBOX DESTEKLİ) -->
-    <section class="gallery-section" id="galeri">
-        <div class="section-header">
-            <span class="section-tag">Uygulama Görselleri</span>
-            <h2 class="section-title">NormMatik™ Çalışma Ortamı ve Rapor Ekranları</h2>
-            <p class="section-desc">Görsellerin üzerine tıklayarak yüksek çözünürlükte detaylı olarak inceleyebilirsiniz.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <!-- Görsel 1 -->
-            <div class="gallery-card" data-img="screenshots/ekran_1.jpg" data-title="3 Panelli Canlı Norm ve Ders Dağıtım Çalışma Alanı">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_1.jpg" alt="Canlı Çalışma Alanı" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">3 Panelli Canlı Çalışma Alanı</h4>
-                    <p class="gallery-caption-desc">Şubeler, ders yükleri ve canlı norm tablosu aynı ekranda anlık etkileşimli çalışır.</p>
-                </div>
-            </div>
-
-            <!-- Görsel 2 -->
-            <div class="gallery-card" data-img="screenshots/ekran_2.jpg" data-title="TTKB Haftalık Ders Seçimi ve Baraj Ders Kontrolleri">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_2.jpg" alt="Ders Seçimi" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">Haftalık Ders Dağıtımı</h4>
-                    <p class="gallery-caption-desc">Zorunlu ve seçmeli ders havuzları, saat hedefleri ve baraj ders uyarıları.</p>
-                </div>
-            </div>
-
-            <!-- Görsel 3 -->
-            <div class="gallery-card" data-img="screenshots/ekran_3.jpg" data-title="Canlı Norm Kadro İhtiyaç ve Fazlalık Matrisi">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_3.jpg" alt="Norm Matrisi" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">Canlı Norm & Fazlalık Analizi</h4>
-                    <p class="gallery-caption-desc">Hesaplanan norm ile mevcut öğretmen sayılarını karşılaştırıp fazla ve ihtiyaçları belirler.</p>
-                </div>
-            </div>
-
-            <!-- Görsel 4 -->
-            <div class="gallery-card" data-img="screenshots/ekran_4.jpg" data-title="Kadrolu Öğretmen Dağılımı ve 12. Sınıf Koordinatörlük Yükleri">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_4.jpg" alt="Kadro Yönetimi" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">Kadro ve Koordinatörlük</h4>
-                    <p class="gallery-caption-desc">Okulun kadrolu öğretmen sayıları ve meslek liseleri 12. sınıf koordinatörlük saatleri.</p>
-                </div>
-            </div>
-
-            <!-- Görsel 5 -->
-            <div class="gallery-card" data-img="screenshots/ekran_5.jpg" data-title="Yönetici İcmali ve Branş Norm Cetveli">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_5.jpg" alt="Yönetici İcmali" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">Yönetici İcmali</h4>
-                    <p class="gallery-caption-desc">Kurum bilgileri ve imza bloklarıyla birlikte yazdırılabilen antetli icmal çıktısı.</p>
-                </div>
-            </div>
-
-            <!-- Görsel 6 -->
-            <div class="gallery-card" data-img="screenshots/ekran_6.jpg" data-title="5 Sekmeli Kurumsal Excel (.XLSX) Rapor Çıktıları">
-                <div class="gallery-thumb-wrap">
-                    <img src="screenshots/ekran_6.jpg" alt="Excel Raporu" class="gallery-thumb">
-                    <div class="gallery-zoom-badge">🔍 Büyüt</div>
-                </div>
-                <div class="gallery-caption">
-                    <h4 class="gallery-caption-title">5 Sekmeli Kurumsal Excel</h4>
-                    <p class="gallery-caption-desc">İcmal, master matris ve branş detaylarını içeren tam kapsamlı Excel çıktısı.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. RESMÎ RAPORLAR VE DİJİTAL ÇIKTILAR -->
-    <section class="section-container" id="raporlar">
-        <div class="section-header">
-            <span class="section-tag">Yönetim Belgeleri</span>
-            <h2 class="section-title">Yazdırılabilir ve Arşivlenebilir Çıktılar</h2>
-            <p class="section-desc">MEB mevzuatına uygun olarak tasarlanan antetli çizelgeler ile tüm bürokratik süreçlerinizi hızlandırın.</p>
-        </div>
-
-        <div class="reports-features-list">
-            <div class="report-item-box">
-                <div class="report-item-icon">📑</div>
-                <div>
-                    <h4 class="report-item-title">Yönetici İcmali</h4>
-                    <p class="report-item-desc">Kurum kodu, şube sayıları, toplam ders yükü ve onay imza bloklarını içeren özet icmal belgesi.</p>
-                </div>
-            </div>
-
-            <div class="report-item-box">
-                <div class="report-item-icon">📊</div>
-                <div>
-                    <h4 class="report-item-title">Master Ders Dağıtım Matrisi</h4>
-                    <p class="report-item-desc">Tüm sınıf ve şubelerin branşlar bazında haftalık ders saatlerini gösteren kapsamlı matris.</p>
-                </div>
-            </div>
-
-            <div class="report-item-box">
-                <div class="report-item-icon">👨‍🏫</div>
-                <div>
-                    <h4 class="report-item-title">Branş Norm Dağılım Çizelgesi</h4>
-                    <p class="report-item-desc">Her branşın haftalık toplam ders yükü, hesaplanan normu, mevcut öğretmeni ve ihtiyaç/fazlalık durumu.</p>
-                </div>
-            </div>
-
-            <div class="report-item-box">
-                <div class="report-item-icon">📗</div>
-                <div>
-                    <h4 class="report-item-title">5 Sekmeli Excel (.XLSX)</h4>
-                    <p class="report-item-desc">İnternetsiz ortamda arşivlenebilir, kurum içi yazışmalara eklenebilir tam Excel çıktısı.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SSS / SIK SORULAN SORULAR -->
-    <section class="section-container" id="faq" style="border-top: 1px solid var(--border-dark);">
-        <div class="section-header">
-            <span class="section-tag">Bilgilendirme</span>
-            <h2 class="section-title">Sık Sorulan Sorular</h2>
-        </div>
-
-        <div class="cards-grid" style="grid-template-columns: 1fr 1fr;">
-            <div class="scope-card">
-                <h3 class="scope-card-title">❓ Verilerimiz KVKK'ya uygun olarak saklanıyor mu?</h3>
-                <p class="scope-card-text">NormMatik hiçbir kişisel veri işlemez: öğrenci veya öğretmene ait T.C. Kimlik No, ad, soyad ya da iletişim bilgisi <strong>hiçbir şekilde tutulmaz.</strong> Yalnızca şube başına öğrenci <em>sayısı</em> ve branş başına öğretmen <em>sayısı</em> saklanır.</p>
-            </div>
-
-            <div class="scope-card">
-                <h3 class="scope-card-title">❓ Bilgisayar değiştiğinde veriler kaybolur mu?</h3>
-                <p class="scope-card-text">Hayır! Verileriniz Google Cloud altyapısında Kurum Kodunuz altında şifreli olarak güvenle saklanır. Farklı bir bilgisayardan kurum kodunuzla giriş yaptığınızda tüm okulunuz saniyeler içinde açılır.</p>
-            </div>
-
-            <div class="scope-card">
-                <h3 class="scope-card-title">❓ e-Okul'daki şubeleri tek tek girmek zorunda mıyız?</h3>
-                <p class="scope-card-text">Hayır! e-Okul'dan alacağınız Şube ve Öğrenci Sayıları Excel dosyasını sisteme yükleyerek tüm şubelerinizi ve öğrenci mevcutlarınızı 1 saniyede otomatik oluşturabilirsiniz.</p>
-            </div>
-
-            <div class="scope-card">
-                <h3 class="scope-card-title">❓ İnternet bağlantısı kesilirse çalışabilir miyiz?</h3>
-                <p class="scope-card-text">Evet! Uygulama PWA ve yerel motor altyapısına sahiptir; internet bağlantısı kopsa dahi kesintisiz çalışmaya devam eder ve bağlantı sağlandığında bulutla eşitlenir.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. GİRİŞ YAP MODALI -->
-    <div class="auth-modal-overlay" id="auth-modal">
-        <div class="auth-modal-box">
-            <div class="auth-modal-header">
-                <button class="auth-modal-close" id="btn-close-auth-modal">✕</button>
-                <div style="font-size: 2.2rem; margin-bottom: 0.4rem;">🏛️</div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff;">NormMatik™ Kurum Girişi</h3>
-                <p style="font-size: 0.82rem; color: #94a3b8;">Okulunuzun çalışma alanına erişmek için bilgilerinizi giriniz.</p>
-            </div>
-
-            <form id="form-login">
-                <div class="auth-form-group">
-                    <label class="auth-form-label">MEB Kurum Kodu *</label>
-                    <input type="text" id="auth-kurum-kodu" class="auth-form-input" placeholder="Örn: 754123" maxlength="10" required autofocus>
-                </div>
-
-                <div class="auth-form-group">
-                    <label class="auth-form-label">Giriş Şifresi veya Lisans Anahtarı *</label>
-                    <input type="password" id="auth-password" class="auth-form-input" placeholder="Şifrenizi veya MEBNORM... anahtarınızı giriniz" required>
-                </div>
-
-                <button type="submit" class="btn-auth-submit" id="btn-submit-auth">
-                    🚀 Güvenli Giriş Yap
-                </button>
-
-                <div style="margin-top: 1.2rem; text-align: center; font-size: 0.8rem; color: #94a3b8; display: flex; flex-direction: column; gap: 0.4rem;">
-                    <a href="#" id="link-demo-school" style="color: #38bdf8; text-decoration: none; font-weight: 700;">⚡ Demo Okul ile İncele</a>
-                    <a href="https://wa.me/905062777049?text=Merhaba,%20NormMatik%20Kurumsal%20Destek,%20%20NormMatik%20giri%C5%9F%20%C5%9Fifremi%20unuttum." target="_blank" style="color: #64748b; text-decoration: none; font-size: 0.75rem;">Şifre veya Lisans Desteği</a>
-                </div>
-            </form>
+            <img src="screenshots/ekran_1.jpg" alt="NormMatik çalışma alanı: solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu" width="2847" height="1559" loading="eager">
         </div>
     </div>
+</section>
 
-    <!-- 8. LIGHTBOX MODALI (TAM EKRAN RESİM GÖRÜNTÜLEYİCİ) -->
-    <div class="lightbox-modal" id="lightbox-modal">
-        <button class="lightbox-close" id="lightbox-close">✕</button>
-        <div class="lightbox-img-box">
-            <img src="" alt="Büyütülmüş Görsel" class="lightbox-img" id="lightbox-img">
+<!-- NE İŞE YARAR -->
+<section class="bolum" id="nedir">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Ne işe yarar?</h2>
+            <p>Norm kadro çalışmasında en çok vakit alan dört işi üstlenir.</p>
         </div>
-        <div class="lightbox-title" id="lightbox-title"></div>
+
+        <div class="izgara">
+            <div class="kutu">
+                <div class="kutu-im">1</div>
+                <h3>Ders çizelgesini hazır getirir</h3>
+                <p>Okul türünü ve sınıf seviyesini seçtiğinizde zorunlu dersler ve
+                   saatleri kendiliğinden gelir. Elle tablo doldurmazsınız.</p>
+            </div>
+
+            <div class="kutu">
+                <div class="kutu-im">2</div>
+                <h3>Branş yükünü toplar</h3>
+                <p>Bütün şubelerin ders saatlerini branş branş toplar. Şube birleştirme
+                   ve atölye grup bölünmeleri hesaba katılır.</p>
+            </div>
+
+            <div class="kutu">
+                <div class="kutu-im">3</div>
+                <h3>Normu ve farkı gösterir</h3>
+                <p>Her branş için norm kadro sayısını hesaplar; mevcut öğretmen sayısını
+                   girdiğinizde ihtiyaç ve fazlalığı yan yana görürsünüz.</p>
+            </div>
+
+            <div class="kutu">
+                <div class="kutu-im">4</div>
+                <h3>Çıktı üretir</h3>
+                <p>Yönetici icmali, branş cetveli, şube çizelgesi ve norm eylem raporu.
+                   Yazdırılabilir; beş sekmeli Excel olarak da indirilir.</p>
+            </div>
+
+            <div class="kutu">
+                <div class="kutu-im">5</div>
+                <h3>İdareci ve rehberlik normu</h3>
+                <p>Müdür ve müdür yardımcısı normlarını Madde 5-14'e, rehber öğretmen
+                   normunu Madde 21'e göre hesaplar.</p>
+            </div>
+
+            <div class="kutu">
+                <div class="kutu-im">6</div>
+                <h3>Sezon geçişini yapar</h3>
+                <p>Yeni öğretim yılında şubeleri bir üst sınıfa taşır, mezunları
+                   arşivler ve yeni çizelgeyi yükler.</p>
+            </div>
+        </div>
     </div>
+</section>
 
-    <!-- 9. RESMÎ FOOTER -->
-    <footer class="landing-footer">
-        <p>© 2026 NormMatik™ — Norm kadro ve ders yükü hesaplama yazılımı.</p>
-        <p style="margin-top: 0.35rem; font-size: 0.76rem; color: #64748b;">
-            Bağımsız eğitim teknolojisi yazılımı · 5846 sayılı FSEK kapsamında korunmaktadır.<br>
-            <span style="opacity:.85;">Millî Eğitim Bakanlığı ile resmî bir bağı yoktur; Bakanlıkça onaylanmış ya da yetkilendirilmiş değildir.</span>
-        </p>
-    </footer>
+<!-- KADEMELER -->
+<section class="bolum bolum-gri" id="kademeler">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Hangi okullar için?</h2>
+            <p>Ders çizelgeleri, MEB'in yayımladığı resmî çerçeve programlardan çıkarılmıştır.</p>
+        </div>
 
-    <!-- ETKİLEŞİM VE GİRİŞ BETİĞİ -->
+        <div class="kademe-liste">
+            <div class="kademe"><b>Ortaokul</b> <span>5-8. sınıf</span></div>
+            <div class="kademe"><b>İmam Hatip Ortaokulu</b> <span>5-8. sınıf</span></div>
+            <div class="kademe"><b>Anadolu Lisesi</b> <span>9-12. sınıf</span></div>
+            <div class="kademe"><b>Fen Lisesi</b> <span>9-12. sınıf</span></div>
+            <div class="kademe"><b>Sosyal Bilimler Lisesi</b> <span>9-12. sınıf</span></div>
+            <div class="kademe"><b>Anadolu İmam Hatip Lisesi</b> <span>hazırlık dâhil</span></div>
+            <div class="kademe"><b>Mesleki ve Teknik Anadolu Lisesi</b> <span>69 alan</span></div>
+            <div class="kademe"><b>Mesleki Eğitim Merkezi</b> <span>MESEM · 38 alan</span></div>
+            <div class="kademe"><b>Güzel Sanatlar ve Spor Lisesi</b> <span>9-12. sınıf</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- EKRANLAR -->
+<section class="bolum" id="galeri">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Ekranlar</h2>
+            <p>Görselin üzerine tıklayarak büyütebilirsiniz.</p>
+        </div>
+
+        <div class="galeri">
+            <div class="gallery-card" data-img="screenshots/ekran_1.jpg" data-title="Çalışma alanı: şubeler, ders dağıtımı ve canlı norm tablosu">
+                <img src="screenshots/ekran_1.jpg" alt="Çalışma alanı" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Çalışma alanı</h4>
+                    <p>Şubeler, ders dağıtımı ve norm tablosu aynı ekranda.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-img="screenshots/ekran_2.jpg" data-title="Haftalık ders seçimi ve baraj ders kontrolleri">
+                <img src="screenshots/ekran_2.jpg" alt="Ders seçimi" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Ders seçimi</h4>
+                    <p>Zorunlu ve seçmeli ders havuzları, saat hedefi uyarıları.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-img="screenshots/ekran_3.jpg" data-title="Branş bazlı norm kadro dağılımı">
+                <img src="screenshots/ekran_3.jpg" alt="Branş dağılımı" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Branş dağılımı</h4>
+                    <p>Her branşın yükü, normu ve mevcut kadroyla farkı.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-img="screenshots/ekran_4.jpg" data-title="Okul geneli ders yükü matrisi">
+                <img src="screenshots/ekran_4.jpg" alt="Yük matrisi" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Yük matrisi</h4>
+                    <p>Bütün şubelerin ders saatleri tek tabloda.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-img="screenshots/ekran_5.jpg" data-title="Yönetici icmali ve branş norm cetveli">
+                <img src="screenshots/ekran_5.jpg" alt="Yönetici icmali" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Yönetici icmali</h4>
+                    <p>Kurum bilgileri ve imza bloklarıyla yazdırılabilir çıktı.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-img="screenshots/ekran_6.jpg" data-title="Atölye grup analizi ve seçmeli ders dengesi">
+                <img src="screenshots/ekran_6.jpg" alt="Atölye analizi" loading="lazy">
+                <div class="galeri-yazi">
+                    <h4>Atölye ve seçmeli</h4>
+                    <p>Grup bölünmeleri ve seçmeli ders dengesi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GÜVEN -->
+<section class="bolum bolum-gri">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Bilmeniz gerekenler</h2>
+        </div>
+
+        <div class="guven-liste">
+            <div class="guven">
+                <div>
+                    <b>Kişisel veri işlenmez</b>
+                    <span>Öğrenci veya öğretmene ait T.C. Kimlik No, ad, soyad ya da
+                    iletişim bilgisi hiçbir şekilde tutulmaz. Yalnızca şube başına
+                    öğrenci <em>sayısı</em> ve branş başına öğretmen <em>sayısı</em> saklanır.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Kaynağı resmî belgelerdir</b>
+                    <span>Ders çizelgeleri MEB'in yayımladığı çerçeve programlardan,
+                    norm kuralları Norm Kadro Yönetmeliği'nin madde metinlerinden
+                    çıkarılmıştır.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Karar destek amaçlıdır</b>
+                    <span>Resmî norm belirleme yetkisi Millî Eğitim Bakanlığı ve il/ilçe
+                    müdürlüklerine aittir. Resmî işlemlerde MEBBİS verileri esastır.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Kurulum gerektirmez</b>
+                    <span>Tarayıcıdan çalışır. Verileriniz kurum kodunuza bağlı olarak
+                    saklanır; bilgisayar değiştirseniz de kaldığınız yerden devam edersiniz.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SORULAR -->
+<section class="bolum" id="sorular">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Sık sorulanlar</h2>
+        </div>
+
+        <div class="sss">
+            <details>
+                <summary>Hesaplamalar resmî midir?</summary>
+                <div class="cevap">
+                    Hayır. NormMatik bir karar destek aracıdır; okul içi ön hazırlık için
+                    kullanılır. Resmî norm kadro belirleme yetkisi Bakanlık ve il/ilçe
+                    millî eğitim müdürlüklerindedir, resmî işlemlerde MEBBİS esastır.
+                </div>
+            </details>
+
+            <details>
+                <summary>Öğrenci ve öğretmen bilgileri sisteme girilecek mi?</summary>
+                <div class="cevap">
+                    Hayır. Sistem isim, T.C. Kimlik No veya iletişim bilgisi istemez ve
+                    saklamaz. Yalnızca sayılarla çalışır: şubedeki öğrenci sayısı,
+                    branştaki öğretmen sayısı.
+                </div>
+            </details>
+
+            <details>
+                <summary>Kurulum gerekiyor mu?</summary>
+                <div class="cevap">
+                    Hayır. Tarayıcıdan açılır. Okul bilgisayarına program kurmanız,
+                    yönetici izni almanız gerekmez.
+                </div>
+            </details>
+
+            <details>
+                <summary>Ders çizelgeleri güncel mi?</summary>
+                <div class="cevap">
+                    Çizelgeler MEB'in yayımladığı çerçeve programlardan çıkarılır ve
+                    Kurul kararları yenilendikçe güncellenir. Her çizelgenin hangi karara
+                    dayandığı kayıt altında tutulur.
+                </div>
+            </details>
+
+            <details>
+                <summary>Demo ile lisanslı sürüm arasındaki fark nedir?</summary>
+                <div class="cevap">
+                    Demoda en fazla üç şube oluşturabilir, çıktıları filigranlı alırsınız.
+                    Lisanslı sürümde şube sınırı yoktur, Excel dışa aktarımı ve filigransız
+                    çıktı açılır.
+                </div>
+            </details>
+
+            <details>
+                <summary>Verilerimi kaybeder miyim?</summary>
+                <div class="cevap">
+                    Çalışmanız kurum kodunuza bağlı olarak bulutta saklanır. Bilgisayar
+                    değişse veya tarayıcı temizlense de okulunuzun verisi durur.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- KAPANIŞ -->
+<section class="kapanis bolum-gri">
+    <div class="kap">
+        <h2>Önce deneyin, sonra karar verin.</h2>
+        <p>Demo okulda bütün özellikler açıktır. Kayıt istemez.</p>
+        <div class="kapanis-dugmeler">
+            <button class="dugme dugme-birincil dugme-buyuk" id="btn-open-demo-school">Demo Okulu Başlat</button>
+            <button class="dugme dugme-ikincil dugme-buyuk" onclick="document.getElementById('btn-trigger-login').click()">Kurum Girişi</button>
+        </div>
+    </div>
+</section>
+
+<!-- GİRİŞ KUTUSU -->
+<div class="auth-modal-overlay" id="auth-modal">
+    <div class="auth-modal-box">
+        <div class="auth-modal-header">
+            <button class="auth-modal-close" id="btn-close-auth-modal">✕</button>
+            <h3 style="font-size: 1.15rem; font-weight: 800;">Kurum Girişi</h3>
+            <p style="font-size: .84rem; color: var(--metin-soluk); margin-top: .25rem;">
+                Okulunuzun çalışma alanına erişmek için bilgilerinizi giriniz.
+            </p>
+        </div>
+
+        <form id="form-login">
+            <div class="auth-form-group">
+                <label class="auth-form-label" for="auth-kurum-kodu">MEB Kurum Kodu</label>
+                <input type="text" id="auth-kurum-kodu" class="auth-form-input" placeholder="Örn: 754123" maxlength="10" required autofocus>
+            </div>
+
+            <div class="auth-form-group">
+                <label class="auth-form-label" for="auth-password">Şifre</label>
+                <input type="password" id="auth-password" class="auth-form-input" placeholder="Okulunuza verilen şifre" required>
+            </div>
+
+            <button type="submit" class="btn-auth-submit" id="btn-submit-auth">Giriş Yap</button>
+
+            <div style="margin-top: 1.1rem; text-align: center; font-size: .82rem; display: flex; flex-direction: column; gap: .45rem;">
+                <a href="#" id="link-demo-school" style="color: var(--mavi); text-decoration: none; font-weight: 700;">Demo okul ile incele</a>
+                <a href="https://wa.me/905062777049?text=Merhaba,%20NormMatik%20giri%C5%9F%20%C5%9Fifremi%20unuttum." target="_blank" rel="noopener" style="color: var(--metin-soluk); text-decoration: none; font-size: .78rem;">Şifremi unuttum</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- GÖRSEL BÜYÜTÜCÜ -->
+<div class="lightbox-modal" id="lightbox-modal">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <div class="lightbox-img-box">
+        <img src="" alt="Büyütülmüş görsel" class="lightbox-img" id="lightbox-img">
+    </div>
+    <div class="lightbox-title" id="lightbox-title"></div>
+</div>
+
+<!-- ALT BİLGİ -->
+<footer class="landing-footer">
+    <p>© 2026 NormMatik™ — Norm kadro ve ders yükü hesaplama yazılımı.</p>
+    <p>
+        Bağımsız eğitim teknolojisi yazılımı · 5846 sayılı FSEK kapsamında korunmaktadır.<br>
+        Millî Eğitim Bakanlığı ile resmî bir bağı yoktur; Bakanlıkça onaylanmış ya da yetkilendirilmiş değildir.
+    </p>
+</footer>
+
     <script>
         // Modal Kontrolleri
         const authModal = document.getElementById('auth-modal');
