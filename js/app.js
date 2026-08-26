@@ -41,7 +41,7 @@ class MebNormApplication {
             if (session && session.isDemo) {
                 appState.state = appState.getDefaultState();
                 appState.state.okulBilgisi.kurumKodu = "123456";
-                appState.state.okulBilgisi.okulAdi = "Atatürk Anadolu Lisesi (Demo)";
+                appState.state.okulBilgisi.okulAdi = "DEMO LİSESİ";
                 appState.state.okulBilgisi.okulTuru = "anadolu_lisesi";
                 appState.state.okulBilgisi.okulTuruKilitli = true;
                 appState.state.okulBilgisi.isDemo = true;

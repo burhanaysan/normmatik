@@ -17,7 +17,7 @@ export const REGISTERED_SCHOOLS = {
         ilce: "KADIKÖY"
     },
     "123456": {
-        okulAdi: "Atatürk Anadolu Lisesi (Demo)",
+        okulAdi: "DEMO LİSESİ",
         okulTuru: "anadolu_lisesi",
         il: "ANKARA",
         ilce: "ÇANKAYA"
