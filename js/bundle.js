@@ -161987,6 +161987,42 @@ class NormEngine {
                 return;
             }
 
+            // ----------------------------------------------------------------
+            // TEK BAŞINA NORM DOĞURMAYAN YAN DERSLER
+            // ----------------------------------------------------------------
+            // Norm Kadroya Esas Dersler Çizelgesi bazı dersleri bir branşın
+            // "norma dahil" listesine yazar, ama o ders okulun asıl dersi
+            // değildir; yalnızca o branştan öğretmen VARSA ona verilir.
+            //
+            //   Sağlık Bilgisi ve Trafik Kültürü -> Sağlık / Sağlık Hizmetleri
+            //   Trafik Güvenliği (İlkokul)       -> Beden Eğitimi
+            //
+            // Uygulamada bu, olmayan bir ihtiyaç üretiyordu: 6 şubeli bir
+            // Anadolu Lisesi'nde 6 saat Sağlık Bilgisi birikiyor, Madde 18
+            // barajını aşıyor ve "1 Sağlık Hizmetleri öğretmeni ihtiyacı"
+            // görünüyordu. Aynısı ilkokulda Trafik Güvenliği için oluyordu:
+            // Beden Eğitimi ve Oyun dersini sınıf öğretmeni okuttuğu için
+            // Beden Eğitimi branşının TEK yükü Trafik Güvenliği kalıyordu.
+            //
+            // Sahadaki karşılığı (kullanıcı teyidi): idareci, elinde o branştan
+            // öğretmen yoksa dersi boş bırakır; norm talebi doğmaz.
+            //
+            // Kural: okulda o branştan öğretmen VARSA saat normuna sayılır
+            // (çizelge böyle diyor); YOKSA branş listede gösterilmez.
+            const YAN_DERSLER = {
+                "Sağlık Hizmetleri": ["ağlık Bilgisi"],
+                "Beden Eğitimi": ["rafik Güvenliği"]
+            };
+            if (currentTeachers === 0 && YAN_DERSLER[branchName]) {
+                const dersler = branchCourseDetails[branchName] || [];
+                const parcalar = YAN_DERSLER[branchName];
+                const hepsiYanDers = dersler.length > 0 && dersler.every(d =>
+                    parcalar.some(p => String(d.courseName || "").indexOf(p) >= 0));
+                if (hepsiYanDers) {
+                    return;
+                }
+            }
+
             const normCalc = this.calculateBranchNorm(
                 totalHours, schoolType, branchName, branchLoadSplit[branchName] || null
             );
