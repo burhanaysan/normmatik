@@ -43,3 +43,4 @@ firebase-debug*.log
 # --- Ortam değişkenleri ---------------------------------------------------
 .env
 .env.*
+_onizleme_rapor.html

@@ -5613,6 +5613,47 @@ body {
     text-overflow: ellipsis;
 }
 
+/* Mevcut kadro / norm kıyas şeridi.
+   Yönetici ve rehberlik panellerinin altında tek satır halinde durur.
+   1cf20aa'daki sadeleştirmede bu bilgi tamamen düşmüştü; kullanıcı
+   etiketlerin KÜÇÜLMESİNİ istemişti, bilginin kaybolmasını değil.
+   Bu yüzden eski büyük kartlar geri getirilmedi; kıyas ince bir
+   şeride sığdırıldı. */
+.exec-mevcut-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.15rem 0.6rem;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    padding: 0.28rem 0.5rem;
+    margin-top: 0.35rem;
+    background: var(--bg-card-subtle);
+    border-radius: 6px;
+    border-left: 2px solid var(--border-main);
+}
+
+.exec-mevcut-strip .strip-label {
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.exec-mevcut-strip .strip-item {
+    white-space: nowrap;
+    color: var(--text-main);
+}
+
+.exec-mevcut-strip .strip-item b {
+    font-weight: 800;
+}
+
+/* Durum renkleri; yalnız renge güvenilmez, etiket metni de yazılır. */
+.exec-mevcut-strip .d-tam     { color: #16a34a; font-weight: 800; }
+.exec-mevcut-strip .d-fazla   { color: #b45309; font-weight: 800; }
+.exec-mevcut-strip .d-ihtiyac { color: #dc2626; font-weight: 800; }
+
 .exec-footnotes {
     font-size: 0.65rem;
     color: var(--text-muted);
@@ -5789,6 +5830,38 @@ body {
     @page {
         size: A4 landscape;
         margin: 8mm 6mm;
+    }
+
+    /* ------------------------------------------------------------------
+       KÂĞIT OKUNAKLILIĞI  (2026-08-26, ölçümle bulundu)
+       ------------------------------------------------------------------
+       İki sorun ölçüldü ve burada giderilir:
+
+       1) Kök punto ekran için akışkan ayarlanmış:
+              html { font-size: clamp(11.5px, 0.22rem + 0.75vw, 15.5px) }
+          Bu kural üst düzeydedir, yani KÂĞITTA DA geçerli. `vw` kâğıt
+          genişliğine göre çözüldüğü için yatay A4'te kök 11,6px'e
+          (8,7 punto) düşüyordu. Rapordaki her ölçü `rem` cinsinden
+          olduğundan gövde metni 4,9-7,0 puntoya iniyordu. Karşılaştırma:
+          normal belge metni 10-12 punto.
+
+       2) `html, body { min-width: 1200px !important }` (masaüstü düzeni
+          için konmuş) kâğıtta da geçerli kalıyordu. Yatay A4'ün
+          basılabilir genişliği ~1078px olduğundan içerik 122px taşıyordu.
+
+       Kök punto burada SABİT verilir; ekran davranışı değişmez.
+       16px = tarayıcı varsayılanı. Ölçülen sonuç: tablo metni 7,0 -> 9,6
+       punto, en küçük etiket 4,9 -> 6,7 punto. Bedeli ~%20 daha fazla
+       sayfa; imzalanacak bir belgede bu takas kabul edildi.
+       Yatay taşma yok: içerik 1046px, yatay A4 basılabilir alan 1078px. */
+    html {
+        font-size: 16px !important;
+    }
+
+    html, body {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     *, *::before, *::after {

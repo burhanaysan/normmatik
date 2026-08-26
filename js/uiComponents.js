@@ -3829,6 +3829,19 @@ export class UIComponentManager {
                                 <div class="exec-mini-cell-sub">T:${data.adminNorms.mudurYardimcisiBase} + İ:${data.adminNorms.mudurYardimcisiExtra}</div>
                             </div>
                         </div>
+                        ${data.adminNorms.karsilastirma ? `
+                        <div class="exec-mevcut-strip">
+                            <span class="strip-label">Mevcut / Norm</span>
+                            ${[["Müdür", data.adminNorms.karsilastirma.mudur],
+                               ["Başyrd.", data.adminNorms.karsilastirma.mudurBasyardimcisi],
+                               ["Mdr. Yrd.", data.adminNorms.karsilastirma.mudurYardimcisi],
+                               ["Toplam", data.adminNorms.karsilastirma.toplam]
+                            ].map(([ad, c]) => `
+                                <span class="strip-item">${ad} <b>${c.mevcut} / ${c.norm}</b>
+                                    <span class="d-${c.durum}">${c.etiket}</span></span>
+                            `).join('')}
+                        </div>
+                        ` : ''}
                         ${data.adminNorms.explanations && data.adminNorms.explanations.length > 0 ? `
                         <div class="exec-footnotes">
                             ${data.adminNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
@@ -3862,6 +3875,15 @@ export class UIComponentManager {
                                 <div class="exec-mini-cell-sub">Kayıtlı Öğrenci</div>
                             </div>
                         </div>
+                        ${data.guidanceNorms.karsilastirma ? `
+                        <div class="exec-mevcut-strip">
+                            <span class="strip-label">Mevcut / Norm</span>
+                            <span class="strip-item">Rehber Öğretmen
+                                <b>${data.guidanceNorms.karsilastirma.mevcut} / ${data.guidanceNorms.karsilastirma.norm}</b>
+                                <span class="d-${data.guidanceNorms.karsilastirma.durum}">${data.guidanceNorms.karsilastirma.etiket}</span></span>
+                            <span class="strip-item">Dayanak <b>${data.guidanceNorms.esikMadde}</b></span>
+                        </div>
+                        ` : ''}
                         ${data.guidanceNorms.explanations && data.guidanceNorms.explanations.length > 0 ? `
                         <div class="exec-footnotes">
                             ${data.guidanceNorms.explanations.map(exp => `<div>• ${exp}</div>`).join('')}
