@@ -160634,13 +160634,13 @@ class MebCurriculumEngine {
             'fenbilimleriuygulamalari': { course: 'Fen Bilimleri Uygulamaları', branch: 'Fizik' },
             'astronomiveuzaybilimleri': { course: 'Astronomi ve Uzay Bilimleri', branch: 'Fizik' },
 
-            'saglikbilgisivetrafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetrafigikulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetraffikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetraffik': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisi': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'trafikguvenligi': { course: 'Trafik Güvenliği', branch: 'Biyoloji' },
+            'saglikbilgisivetrafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetrafigikulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetraffikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetraffik': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisi': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'trafikguvenligi': { course: 'Trafik Güvenliği', branch: 'Beden Eğitimi' },
 
             'cografya': { course: 'Coğrafya', branch: 'Coğrafya' },
             'secmelicografya': { course: 'Seçmeli Coğrafya', branch: 'Coğrafya' },
@@ -160926,7 +160926,7 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Oyun", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
-                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     // Dersin resmî adı "Vatandaşlık"tır; "Yurttaşlık" yazılmıştı.
                     // Kaynak: TTKB Sayı 04, 09/05/2025 İlköğretim çizelgesi.
                     { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
@@ -164108,7 +164108,7 @@ class AppStateService {
 
         const demoState = {
             okulBilgisi: {
-                okulAdi: "Örnek Atatürk Anadolu Lisesi",
+                okulAdi: "DEMO LİSESİ",
                 kurumKodu: "754123",
                 il: "ANKARA",
                 ilce: "ÇANKAYA",
@@ -164119,7 +164119,7 @@ class AppStateService {
                 antet: {
                     ilValiligi: "ANKARA VALİLİĞİ",
                     ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
-                    resmiOkulAdi: "Örnek Atatürk Anadolu Lisesi",
+                    resmiOkulAdi: "DEMO LİSESİ",
                     kurumKodu: "754123",
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
@@ -164693,7 +164693,17 @@ class AppStateService {
                 else if (norm.includes("inkilap")) { d.ders = "T.C. İnkılap Tarihi ve Atatürkçülük"; d.atananBrans = "Tarih"; }
                 else if (norm === "turkdiliveedebiyati" || norm === "turkedebiyati") { d.ders = "Türk Dili ve Edebiyatı"; d.atananBrans = "Türk Dili ve Edebiyatı"; }
                 else if (norm.includes("dinkulturu")) { d.ders = "Din Kültürü ve Ahlak Bilgisi"; d.atananBrans = "Din Kültürü ve Ahlak Bilgisi"; }
-                else if (norm.includes("saglikbilgisi") || norm.includes("trafik")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Biyoloji"; }
+                // Resmî çizelge bu dersi Sağlık branşının NORMA DAHİL dersleri
+                // arasında sayar ("Tüm Liseler"); Biyoloji'nin ve Beden
+                // Eğitimi'nin ise norma dahil EDİLMEYEN dersleri arasında.
+                // Önceden Biyoloji'ye yazılıyordu.
+                else if (norm.includes("saglikbilgisi")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Sağlık Hizmetleri"; }
+                // İlkokul 4. sınıf dersi; çizelgede Beden Eğitimi'nin norma
+                // dahil dersidir. Eskiden "trafik" geçen HER ders Sağlık
+                // Bilgisi'ne dönüştürülüyordu — Trafik Güvenliği dersinin adı
+                // da bu yüzden bozuluyordu.
+                else if (norm.includes("trafikguvenligi")) { d.ders = "Trafik Güvenliği"; d.atananBrans = "Beden Eğitimi"; }
+                else if (norm.includes("trafik")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Sağlık Hizmetleri"; }
                 else if (norm.includes("yabancidil") || norm === "ingilizce" || norm === "birinciyabancidil") { d.ders = "İngilizce"; d.atananBrans = "İngilizce"; }
                 else if (norm === "ikinciyabancidil" || norm === "almanca") { d.ders = "Almanca"; d.atananBrans = "Almanca"; }
             }
@@ -166056,7 +166066,7 @@ class UIComponentManager {
                         <div id="setup-form-demo" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
                             <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">🚀 Hızlı Başlangıç Demo Paketi</div>
                             <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
+                                Sisteme <strong>"DEMO LİSESİ"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
                             </p>
                             <button class="btn btn-success" id="btn-load-demo-school" style="width: 100%; padding: 0.85rem; font-weight: 800; font-size: 0.95rem;">
                                 🚀 Örnek Okul ile Sistemi Hemen Başlat
@@ -166105,7 +166115,7 @@ class UIComponentManager {
         document.getElementById("btn-load-demo-school")?.addEventListener("click", () => {
             this.state.loadDemoSchool(this.db, this.curriculum);
             this.closeModal("school-setup-modal");
-            this.showToast("🚀 Örnek Atatürk Anadolu Lisesi verileri başarıyla yüklendi!", "success");
+            this.showToast("🚀 DEMO LİSESİ verileri başarıyla yüklendi!", "success");
         });
 
         // Kendi Okulunu Kur Butonu

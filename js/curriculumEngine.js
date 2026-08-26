@@ -356,13 +356,13 @@ class MebCurriculumEngine {
             'fenbilimleriuygulamalari': { course: 'Fen Bilimleri Uygulamaları', branch: 'Fizik' },
             'astronomiveuzaybilimleri': { course: 'Astronomi ve Uzay Bilimleri', branch: 'Fizik' },
 
-            'saglikbilgisivetrafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetrafigikulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetraffikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisivetraffik': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'saglikbilgisi': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Biyoloji' },
-            'trafikguvenligi': { course: 'Trafik Güvenliği', branch: 'Biyoloji' },
+            'saglikbilgisivetrafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetafikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetrafigikulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetraffikkulturu': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisivetraffik': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'saglikbilgisi': { course: 'Sağlık Bilgisi ve Trafik Kültürü', branch: 'Sağlık Hizmetleri' },
+            'trafikguvenligi': { course: 'Trafik Güvenliği', branch: 'Beden Eğitimi' },
 
             'cografya': { course: 'Coğrafya', branch: 'Coğrafya' },
             'secmelicografya': { course: 'Seçmeli Coğrafya', branch: 'Coğrafya' },
@@ -648,7 +648,7 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Oyun", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
-                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     // Dersin resmî adı "Vatandaşlık"tır; "Yurttaşlık" yazılmıştı.
                     // Kaynak: TTKB Sayı 04, 09/05/2025 İlköğretim çizelgesi.
                     { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }

@@ -617,7 +617,7 @@ export class UIComponentManager {
                         <div id="setup-form-demo" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1.5px dashed #10b981; border-radius: 12px; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
                             <div style="font-size: 1.1rem; font-weight: 800; color: #10b981; margin-bottom: 0.5rem;">🚀 Hızlı Başlangıç Demo Paketi</div>
                             <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem;">
-                                Sisteme <strong>"Örnek Atatürk Anadolu Lisesi"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
+                                Sisteme <strong>"DEMO LİSESİ"</strong> adı altında örnek sınıf şubeleri, seçmeli ders dağılımları ve norm hesaplama tablosu vitrin olarak yüklenecektir. (Resmî teslimat ve Excel çıktısı lisanslı sürüme özeldir). İstediğiniz an ayarlar menüsünden okulu sıfırlayabilirsiniz.
                             </p>
                             <button class="btn btn-success" id="btn-load-demo-school" style="width: 100%; padding: 0.85rem; font-weight: 800; font-size: 0.95rem;">
                                 🚀 Örnek Okul ile Sistemi Hemen Başlat
@@ -666,7 +666,7 @@ export class UIComponentManager {
         document.getElementById("btn-load-demo-school")?.addEventListener("click", () => {
             this.state.loadDemoSchool(this.db, this.curriculum);
             this.closeModal("school-setup-modal");
-            this.showToast("🚀 Örnek Atatürk Anadolu Lisesi verileri başarıyla yüklendi!", "success");
+            this.showToast("🚀 DEMO LİSESİ verileri başarıyla yüklendi!", "success");
         });
 
         // Kendi Okulunu Kur Butonu

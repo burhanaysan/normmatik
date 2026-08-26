@@ -228,7 +228,7 @@ export class AppStateService {
 
         const demoState = {
             okulBilgisi: {
-                okulAdi: "Örnek Atatürk Anadolu Lisesi",
+                okulAdi: "DEMO LİSESİ",
                 kurumKodu: "754123",
                 il: "ANKARA",
                 ilce: "ÇANKAYA",
@@ -239,7 +239,7 @@ export class AppStateService {
                 antet: {
                     ilValiligi: "ANKARA VALİLİĞİ",
                     ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
-                    resmiOkulAdi: "Örnek Atatürk Anadolu Lisesi",
+                    resmiOkulAdi: "DEMO LİSESİ",
                     kurumKodu: "754123",
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
@@ -813,7 +813,17 @@ export class AppStateService {
                 else if (norm.includes("inkilap")) { d.ders = "T.C. İnkılap Tarihi ve Atatürkçülük"; d.atananBrans = "Tarih"; }
                 else if (norm === "turkdiliveedebiyati" || norm === "turkedebiyati") { d.ders = "Türk Dili ve Edebiyatı"; d.atananBrans = "Türk Dili ve Edebiyatı"; }
                 else if (norm.includes("dinkulturu")) { d.ders = "Din Kültürü ve Ahlak Bilgisi"; d.atananBrans = "Din Kültürü ve Ahlak Bilgisi"; }
-                else if (norm.includes("saglikbilgisi") || norm.includes("trafik")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Biyoloji"; }
+                // Resmî çizelge bu dersi Sağlık branşının NORMA DAHİL dersleri
+                // arasında sayar ("Tüm Liseler"); Biyoloji'nin ve Beden
+                // Eğitimi'nin ise norma dahil EDİLMEYEN dersleri arasında.
+                // Önceden Biyoloji'ye yazılıyordu.
+                else if (norm.includes("saglikbilgisi")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Sağlık Hizmetleri"; }
+                // İlkokul 4. sınıf dersi; çizelgede Beden Eğitimi'nin norma
+                // dahil dersidir. Eskiden "trafik" geçen HER ders Sağlık
+                // Bilgisi'ne dönüştürülüyordu — Trafik Güvenliği dersinin adı
+                // da bu yüzden bozuluyordu.
+                else if (norm.includes("trafikguvenligi")) { d.ders = "Trafik Güvenliği"; d.atananBrans = "Beden Eğitimi"; }
+                else if (norm.includes("trafik")) { d.ders = "Sağlık Bilgisi ve Trafik Kültürü"; d.atananBrans = "Sağlık Hizmetleri"; }
                 else if (norm.includes("yabancidil") || norm === "ingilizce" || norm === "birinciyabancidil") { d.ders = "İngilizce"; d.atananBrans = "İngilizce"; }
                 else if (norm === "ikinciyabancidil" || norm === "almanca") { d.ders = "Almanca"; d.atananBrans = "Almanca"; }
             }
