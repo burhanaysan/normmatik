@@ -1,0 +1,334 @@
+{
+ "belge_adi": "İlköğretim Kurumları (İlkokul ve Ortaokul) Haftalık Ders Çizelgesi",
+ "karar": "TTKB Sayı 04, 09/05/2025",
+ "yururluk": "2025-2026 eğitim ve öğretim yılından itibaren",
+ "kaynak_pdf": "2025-05-16__ilkogretim-kurumlari-ilkokul-ve-ortaokul-haftalik-ders-cizel__16094742_4nolukararilkogretimkurumlariilkokulveortaokulhaftalikderscizelgesi.pdf",
+ "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ilkogretim_mufredat.py üretir.",
+ "ana_cizelge": {
+  "zorunlu_dersler": [
+   {
+    "ders_adi": "Türkçe",
+    "saatler": {
+     "1": {
+      "saat": 10
+     },
+     "2": {
+      "saat": 10
+     },
+     "3": {
+      "saat": 8
+     },
+     "4": {
+      "saat": 8
+     },
+     "5": {
+      "saat": 6
+     },
+     "6": {
+      "saat": 6
+     },
+     "7": {
+      "saat": 5
+     },
+     "8": {
+      "saat": 5
+     }
+    }
+   },
+   {
+    "ders_adi": "Matematik",
+    "saatler": {
+     "1": {
+      "saat": 5
+     },
+     "2": {
+      "saat": 5
+     },
+     "3": {
+      "saat": 5
+     },
+     "4": {
+      "saat": 5
+     },
+     "5": {
+      "saat": 5
+     },
+     "6": {
+      "saat": 5
+     },
+     "7": {
+      "saat": 5
+     },
+     "8": {
+      "saat": 5
+     }
+    }
+   },
+   {
+    "ders_adi": "Hayat Bilgisi",
+    "saatler": {
+     "1": {
+      "saat": 4
+     },
+     "2": {
+      "saat": 4
+     },
+     "3": {
+      "saat": 3
+     }
+    }
+   },
+   {
+    "ders_adi": "Fen Bilimleri",
+    "saatler": {
+     "3": {
+      "saat": 3
+     },
+     "4": {
+      "saat": 3
+     },
+     "5": {
+      "saat": 4
+     },
+     "6": {
+      "saat": 4
+     },
+     "7": {
+      "saat": 4
+     },
+     "8": {
+      "saat": 4
+     }
+    }
+   },
+   {
+    "ders_adi": "Sosyal Bilgiler",
+    "saatler": {
+     "4": {
+      "saat": 3
+     },
+     "5": {
+      "saat": 3
+     },
+     "6": {
+      "saat": 3
+     },
+     "7": {
+      "saat": 3
+     }
+    }
+   },
+   {
+    "ders_adi": "Görsel Sanatlar",
+    "saatler": {
+     "1": {
+      "saat": 1
+     },
+     "2": {
+      "saat": 1
+     },
+     "3": {
+      "saat": 1
+     },
+     "4": {
+      "saat": 1
+     },
+     "5": {
+      "saat": 1
+     },
+     "6": {
+      "saat": 1
+     },
+     "7": {
+      "saat": 1
+     },
+     "8": {
+      "saat": 1
+     }
+    }
+   },
+   {
+    "ders_adi": "T.C. İnkılap Tarihi ve Atatürkçülük",
+    "saatler": {
+     "8": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Yabancı Dil",
+    "saatler": {
+     "2": {
+      "saat": 2
+     },
+     "3": {
+      "saat": 2
+     },
+     "4": {
+      "saat": 2
+     },
+     "5": {
+      "saat": 3
+     },
+     "6": {
+      "saat": 3
+     },
+     "7": {
+      "saat": 4
+     },
+     "8": {
+      "saat": 4
+     }
+    }
+   },
+   {
+    "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
+    "saatler": {
+     "4": {
+      "saat": 2
+     },
+     "5": {
+      "saat": 2
+     },
+     "6": {
+      "saat": 2
+     },
+     "7": {
+      "saat": 2
+     },
+     "8": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Müzik",
+    "saatler": {
+     "1": {
+      "saat": 1
+     },
+     "2": {
+      "saat": 1
+     },
+     "3": {
+      "saat": 1
+     },
+     "4": {
+      "saat": 1
+     },
+     "5": {
+      "saat": 1
+     },
+     "6": {
+      "saat": 1
+     },
+     "7": {
+      "saat": 1
+     },
+     "8": {
+      "saat": 1
+     }
+    }
+   },
+   {
+    "ders_adi": "Beden Eğitimi ve Oyun",
+    "saatler": {
+     "1": {
+      "saat": 5
+     },
+     "2": {
+      "saat": 5
+     },
+     "3": {
+      "saat": 5
+     },
+     "4": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Beden Eğitimi ve Spor",
+    "saatler": {
+     "5": {
+      "saat": 2
+     },
+     "6": {
+      "saat": 2
+     },
+     "7": {
+      "saat": 2
+     },
+     "8": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Teknoloji ve Tasarım",
+    "saatler": {
+     "7": {
+      "saat": 2
+     },
+     "8": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Trafik Güvenliği",
+    "saatler": {
+     "4": {
+      "saat": 1
+     }
+    }
+   },
+   {
+    "ders_adi": "Bilişim Teknolojileri ve Yazılım",
+    "saatler": {
+     "5": {
+      "saat": 2
+     },
+     "6": {
+      "saat": 2
+     }
+    }
+   },
+   {
+    "ders_adi": "Rehberlik ve Yönlendirme",
+    "saatler": {
+     "5": {
+      "saat": 1
+     },
+     "6": {
+      "saat": 1
+     },
+     "7": {
+      "saat": 1
+     },
+     "8": {
+      "saat": 1
+     }
+    }
+   },
+   {
+    "ders_adi": "İnsan Hakları, Vatandaşlık ve Demokrasi",
+    "saatler": {
+     "4": {
+      "saat": 2
+     }
+    }
+   }
+  ]
+ },
+ "cizelge_zorunlu_toplami": {
+  "1": 26,
+  "2": 28,
+  "3": 28,
+  "4": 30,
+  "5": 30,
+  "6": 30,
+  "7": 30,
+  "8": 29
+ }
+}

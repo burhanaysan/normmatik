@@ -480,10 +480,13 @@ class MebCurriculumEngine {
                     { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
                     { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
                     { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
-                    { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    // 5. sınıf Beden Eğitimi 2 saattir (çizelgede 1 yazılmıştı),
+                    // Bilişim 1 saattir (2 yazılmıştı). Kaynak: DÖGM İmam Hatip
+                    // Ortaokulu Haftalık Ders Çizelgesi, 2025-2026'dan itibaren.
+                    { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "6": [
                     { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -499,7 +502,8 @@ class MebCurriculumEngine {
                     { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    // 6. sınıf Bilişim 1 saattir; 2 yazılmıştı. Kaynak: aynı çizelge.
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
                 ],
                 "7": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -511,10 +515,14 @@ class MebCurriculumEngine {
                     { ders: "Kur'an-ı Kerim", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
                     { ders: "Arapça", saat: 2, atananBrans: "Arapça", kategori: "ORTAK DERSLER" },
                     { ders: "Peygamberimizin Hayatı", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
+                    // 7. sınıfta Temel Dinî Bilgiler dersi hiç yazılmamıştı;
+                    // çizelgede 6 VE 7. sınıfta 1'er saat vardır.
+                    { ders: "Temel Dini Bilgiler", saat: 1, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Spor", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
+                    // 7. sınıf Teknoloji ve Tasarım 1 saattir; 2 yazılmıştı.
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
                 ],
                 "8": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -635,7 +643,9 @@ class MebCurriculumEngine {
                     { ders: "Müzik", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Oyun", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
                     { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
-                    { ders: "İnsan Hakları, Yurttaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
+                    // Dersin resmî adı "Vatandaşlık"tır; "Yurttaşlık" yazılmıştı.
+                    // Kaynak: TTKB Sayı 04, 09/05/2025 İlköğretim çizelgesi.
+                    { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" }
                 ]
             };
             if (İLKOKUL_CURRICULUM[gStr]) return İLKOKUL_CURRICULUM[gStr];
@@ -844,21 +854,31 @@ class MebCurriculumEngine {
         }
 
         // 3. OGM & DÖGM STANDARTLARI (Varsayılan)
+        // --------------------------------------------------------------------
+        // ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN.
+        // Kaynak : 2025-05-20__anadolu-lisesi-haftalik-ders-cizelgesi-fen-lisesi-haftalik-d__20144001_202505.pdf
+        //          TTKB Sayı 05, 20/05/2025
+        // Branş  : norm_kadro_esas_dersler_cizelgesi.json
+        // Üreteç : tools/uret_ortaogretim_mufredat.py
+        // Elle yazılmış hâlinde iki hata vardı: (1) zorunlu görünen bir
+        // 'İkinci Yabancı Dil (Almanca)' dersi — çizelgede seçmelidir,
+        // (2) 12. sınıfta Beden Eğitimi ve Görsel Sanatlar ayrı ayrı
+        // yazılmıştı — çizelgede tek satırdır ve okul birini seçer.
+        // --------------------------------------------------------------------
         const ANADOLU_CURRICULUM = {
             "9": [
                 { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
                 { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
                 { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
                 { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER" },
+                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
                 { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
                 { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER" },
-                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
                 { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },   // okul seçer: İngilizce / Almanca / Fransızca
                 { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
-                { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },   // okul seçer: Görsel Sanatlar / Müzik
+                { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Sağlık Hizmetleri", kategori: "ORTAK DERSLER" },
                 { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "10": [
@@ -866,15 +886,14 @@ class MebCurriculumEngine {
                 { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
                 { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
                 { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER" },
-                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER" },
+                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
                 { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
                 { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER" },
-                { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
                 { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },   // okul seçer: İngilizce / Almanca / Fransızca
                 { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },   // okul seçer: Görsel Sanatlar / Müzik
                 { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "11": [
@@ -882,20 +901,17 @@ class MebCurriculumEngine {
                 { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
                 { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
                 { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },   // okul seçer: İngilizce / Almanca / Fransızca
                 { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },   // okul seçer: Görsel Sanatlar / Müzik
                 { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ],
             "12": [
                 { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER" },
                 { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
                 { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER" },
-                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
-                { ders: "İkinci Yabancı Dil (Almanca)", saat: 2, atananBrans: "Almanca", kategori: "ORTAK DERSLER" },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                { ders: "Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },   // okul seçer: İngilizce / Almanca / Fransızca
+                { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },   // okul seçer: Beden Eğitimi / Görsel Sanatlar / Müzik
                 { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
             ]
         };

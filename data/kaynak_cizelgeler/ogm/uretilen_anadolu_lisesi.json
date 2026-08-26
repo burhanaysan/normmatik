@@ -1,0 +1,317 @@
+{
+ "kaynak_cizelge": "2025-05-20__anadolu-lisesi-haftalik-ders-cizelgesi-fen-lisesi-haftalik-d__20144001_202505.pdf",
+ "kaynak_brans": "norm_kadro_esas_dersler_cizelgesi.json",
+ "karar": "TTKB Sayı 05, 20/05/2025",
+ "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ortaogretim_mufredat.py üretir.",
+ "cizelge_toplamlari": {
+  "ORTAK DERS SAATİ TOPLAMI": [
+   32,
+   33,
+   19,
+   15
+  ],
+  "SEÇİLEBİLECEK DERS SAATİ SAYISI": [
+   7,
+   6,
+   20,
+   24
+  ],
+  "TOPLAM DERS SAATİ": [
+   40,
+   40,
+   40,
+   40
+  ]
+ },
+ "dersler": {
+  "9": [
+   {
+    "ders": "Türk Dili ve Edebiyatı",
+    "saat": 5,
+    "atananBrans": "Türk Dili ve Edebiyatı",
+    "kategori": "ORTAK DERSLER",
+    "baraj_ders": true
+   },
+   {
+    "ders": "Din Kültürü ve Ahlak Bilgisi",
+    "saat": 2,
+    "atananBrans": "Din Kültürü ve Ahlak Bilgisi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Tarih",
+    "saat": 2,
+    "atananBrans": "Tarih",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Coğrafya",
+    "saat": 2,
+    "atananBrans": "Coğrafya",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Kimya",
+    "saat": 2,
+    "atananBrans": "Kimya",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Matematik",
+    "saat": 6,
+    "atananBrans": "Matematik",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Fizik",
+    "saat": 2,
+    "atananBrans": "Fizik",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Biyoloji",
+    "saat": 2,
+    "atananBrans": "Biyoloji",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Birinci Yabancı Dil (İngilizce)",
+    "saat": 4,
+    "atananBrans": "İngilizce",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "İngilizce",
+     "Almanca",
+     "Fransızca"
+    ]
+   },
+   {
+    "ders": "Beden Eğitimi ve Spor",
+    "saat": 2,
+    "atananBrans": "Beden Eğitimi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Görsel Sanatlar/Müzik",
+    "saat": 2,
+    "atananBrans": "Görsel Sanatlar",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "Görsel Sanatlar",
+     "Müzik"
+    ]
+   },
+   {
+    "ders": "Sağlık Bilgisi ve Trafik Kültürü",
+    "saat": 1,
+    "atananBrans": "Sağlık Hizmetleri",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Rehberlik ve Yönlendirme",
+    "saat": 1,
+    "atananBrans": "Rehberlik",
+    "kategori": "REHBERLİK"
+   }
+  ],
+  "10": [
+   {
+    "ders": "Türk Dili ve Edebiyatı",
+    "saat": 5,
+    "atananBrans": "Türk Dili ve Edebiyatı",
+    "kategori": "ORTAK DERSLER",
+    "baraj_ders": true
+   },
+   {
+    "ders": "Din Kültürü ve Ahlak Bilgisi",
+    "saat": 2,
+    "atananBrans": "Din Kültürü ve Ahlak Bilgisi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Tarih",
+    "saat": 2,
+    "atananBrans": "Tarih",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Coğrafya",
+    "saat": 2,
+    "atananBrans": "Coğrafya",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Kimya",
+    "saat": 2,
+    "atananBrans": "Kimya",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Matematik",
+    "saat": 6,
+    "atananBrans": "Matematik",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Fizik",
+    "saat": 2,
+    "atananBrans": "Fizik",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Biyoloji",
+    "saat": 2,
+    "atananBrans": "Biyoloji",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Felsefe",
+    "saat": 2,
+    "atananBrans": "Felsefe",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Birinci Yabancı Dil (İngilizce)",
+    "saat": 4,
+    "atananBrans": "İngilizce",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "İngilizce",
+     "Almanca",
+     "Fransızca"
+    ]
+   },
+   {
+    "ders": "Beden Eğitimi ve Spor",
+    "saat": 2,
+    "atananBrans": "Beden Eğitimi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Görsel Sanatlar/Müzik",
+    "saat": 2,
+    "atananBrans": "Görsel Sanatlar",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "Görsel Sanatlar",
+     "Müzik"
+    ]
+   },
+   {
+    "ders": "Rehberlik ve Yönlendirme",
+    "saat": 1,
+    "atananBrans": "Rehberlik",
+    "kategori": "REHBERLİK"
+   }
+  ],
+  "11": [
+   {
+    "ders": "Türk Dili ve Edebiyatı",
+    "saat": 5,
+    "atananBrans": "Türk Dili ve Edebiyatı",
+    "kategori": "ORTAK DERSLER",
+    "baraj_ders": true
+   },
+   {
+    "ders": "Din Kültürü ve Ahlak Bilgisi",
+    "saat": 2,
+    "atananBrans": "Din Kültürü ve Ahlak Bilgisi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Tarih",
+    "saat": 2,
+    "atananBrans": "Tarih",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Felsefe",
+    "saat": 2,
+    "atananBrans": "Felsefe",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Birinci Yabancı Dil (İngilizce)",
+    "saat": 4,
+    "atananBrans": "İngilizce",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "İngilizce",
+     "Almanca",
+     "Fransızca"
+    ]
+   },
+   {
+    "ders": "Beden Eğitimi ve Spor",
+    "saat": 2,
+    "atananBrans": "Beden Eğitimi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Görsel Sanatlar/Müzik",
+    "saat": 2,
+    "atananBrans": "Görsel Sanatlar",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "Görsel Sanatlar",
+     "Müzik"
+    ]
+   },
+   {
+    "ders": "Rehberlik ve Yönlendirme",
+    "saat": 1,
+    "atananBrans": "Rehberlik",
+    "kategori": "REHBERLİK"
+   }
+  ],
+  "12": [
+   {
+    "ders": "Türk Dili ve Edebiyatı",
+    "saat": 5,
+    "atananBrans": "Türk Dili ve Edebiyatı",
+    "kategori": "ORTAK DERSLER",
+    "baraj_ders": true
+   },
+   {
+    "ders": "Din Kültürü ve Ahlak Bilgisi",
+    "saat": 2,
+    "atananBrans": "Din Kültürü ve Ahlak Bilgisi",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "T.C. İnkılap Tarihi ve Atatürkçülük",
+    "saat": 2,
+    "atananBrans": "Tarih",
+    "kategori": "ORTAK DERSLER"
+   },
+   {
+    "ders": "Birinci Yabancı Dil (İngilizce)",
+    "saat": 4,
+    "atananBrans": "İngilizce",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "İngilizce",
+     "Almanca",
+     "Fransızca"
+    ]
+   },
+   {
+    "ders": "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik",
+    "saat": 2,
+    "atananBrans": "Beden Eğitimi",
+    "kategori": "ORTAK DERSLER",
+    "secenekler": [
+     "Beden Eğitimi",
+     "Görsel Sanatlar",
+     "Müzik"
+    ]
+   },
+   {
+    "ders": "Rehberlik ve Yönlendirme",
+    "saat": 1,
+    "atananBrans": "Rehberlik",
+    "kategori": "REHBERLİK"
+   }
+  ]
+ }
+}
