@@ -164087,6 +164087,25 @@ class AppStateService {
 
         loadDemoSchool(dbService, curriculumEngine) {
         this.pushHistory();
+        // Demo şubelerin dersleri ELLE YAZILMAZ; müfredat motorundan alınır.
+        // Daha önce elle yazılıyordu ve motordaki düzeltmeler demo okula
+        // ulaşmıyordu (hayalet "Almanca" dersi bu yüzden ekranda kalmıştı).
+        const demoDersler = (sinif) => {
+            const ce = curriculumEngine || (typeof window !== 'undefined' && window.curriculumEngine);
+            const liste = (ce && typeof ce.getMandatoryCourses === 'function')
+                ? (ce.getMandatoryCourses("anadolu_lisesi", String(sinif), null, null) || [])
+                : [];
+            // Kopyalanır: şubede yapılan düzenleme müfredat sabitini bozmasın.
+            return liste.map(d => ({
+                ders: d.ders,
+                saat: d.saat,
+                kategori: d.kategori || "ORTAK DERSLER",
+                atananBrans: d.atananBrans,
+                baraj_ders: !!d.baraj_ders,
+                isAtolye: false
+            }));
+        };
+
         const demoState = {
             okulBilgisi: {
                 okulAdi: "Örnek Atatürk Anadolu Lisesi",
@@ -164133,23 +164152,7 @@ class AppStateService {
                     subeAdi: "9-A",
                     sinifSeviyesi: "9",
                     ogrenciSayisi: 30,
-                    zorunluDersler: [
-                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
-                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
-                        { ders: "Coğrafya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Coğrafya", baraj_ders: false, isAtolye: false },
-                        { ders: "Matematik", saat: 6, kategori: "ORTAK DERSLER", atananBrans: "Matematik", baraj_ders: false, isAtolye: false },
-                        { ders: "Fizik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Fizik", baraj_ders: false, isAtolye: false },
-                        { ders: "Kimya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Kimya", baraj_ders: false, isAtolye: false },
-                        { ders: "Biyoloji", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
-                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
-                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
-                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
-                        { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
-                        { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Bilişim Teknolojileri", baraj_ders: false, isAtolye: false },
-                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
-                    ],
+                    zorunluDersler: demoDersler(9),
                     secmeliDersler: [
                         { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" },
                         { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 2, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" }
@@ -164161,22 +164164,7 @@ class AppStateService {
                     subeAdi: "10-A",
                     sinifSeviyesi: "10",
                     ogrenciSayisi: 30,
-                    zorunluDersler: [
-                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
-                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
-                        { ders: "Coğrafya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Coğrafya", baraj_ders: false, isAtolye: false },
-                        { ders: "Felsefe", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Felsefe", baraj_ders: false, isAtolye: false },
-                        { ders: "Matematik", saat: 6, kategori: "ORTAK DERSLER", atananBrans: "Matematik", baraj_ders: false, isAtolye: false },
-                        { ders: "Fizik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Fizik", baraj_ders: false, isAtolye: false },
-                        { ders: "Kimya", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Kimya", baraj_ders: false, isAtolye: false },
-                        { ders: "Biyoloji", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Biyoloji", baraj_ders: false, isAtolye: false },
-                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
-                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
-                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Müzik", baraj_ders: false, isAtolye: false },
-                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
-                    ],
+                    zorunluDersler: demoDersler(10),
                     secmeliDersler: [
                         { dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
                         { dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" }
@@ -164188,17 +164176,7 @@ class AppStateService {
                     subeAdi: "11-A",
                     sinifSeviyesi: "11",
                     ogrenciSayisi: 30,
-                    zorunluDersler: [
-                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
-                        { ders: "Tarih", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
-                        { ders: "Felsefe", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Felsefe", baraj_ders: false, isAtolye: false },
-                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
-                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
-                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
-                        { ders: "Rehberlik ve Yönlendirme", saat: 1, kategori: "ORTAK DERSLER", atananBrans: "Rehberlik", baraj_ders: false, isAtolye: false }
-                    ],
+                    zorunluDersler: demoDersler(11),
                     secmeliDersler: [
                         { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
                         { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
@@ -164212,15 +164190,7 @@ class AppStateService {
                     subeAdi: "12-A",
                     sinifSeviyesi: "12",
                     ogrenciSayisi: 30,
-                    zorunluDersler: [
-                        { ders: "Türk Dili ve Edebiyatı", saat: 5, kategori: "ORTAK DERSLER", atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, isAtolye: false },
-                        { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Tarih", baraj_ders: false, isAtolye: false },
-                        { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                        { ders: "İngilizce", saat: 4, kategori: "ORTAK DERSLER", atananBrans: "İngilizce", baraj_ders: false, isAtolye: false },
-                        { ders: "Almanca", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Almanca", baraj_ders: false, isAtolye: false },
-                        { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                        { ders: "Görsel Sanatlar/Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Müzik", baraj_ders: false, isAtolye: false }
-                    ],
+                    zorunluDersler: demoDersler(12),
                     secmeliDersler: [
                         { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
                         { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
