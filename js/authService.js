@@ -70,7 +70,6 @@ export class AuthService {
      */
     logout() {
         const KORUNANLAR = [
-            "meb_norm_theme",
             "MEB_NORM_KADRO_LAYOUT_V1",
             "normmatik_onboarding_seen"
         ];

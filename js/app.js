@@ -160,23 +160,14 @@ class MebNormApplication {
         }
     }
 
+    // Koyu tema 2026-08-26'da kaldırıldı (bkz. tools/kaldir_koyu_tema.py).
+    // Uygulama tek temayla çalışır. Daha önce koyu tema seçmiş kullanıcıların
+    // kaydı burada temizlenir, yoksa hiçbir şey yapmayan bir anahtar kalırdı.
     initTheme() {
-        let savedTheme = "light";
+        document.documentElement.setAttribute("data-theme", "light");
         try {
-            savedTheme = localStorage.getItem("meb_norm_theme") || "light";
+            localStorage.removeItem("meb_norm_theme");
         } catch (e) {}
-        document.documentElement.setAttribute("data-theme", savedTheme);
-    }
-
-    toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        try {
-            localStorage.setItem("meb_norm_theme", newTheme);
-        } catch (e) {}
-        this.renderHeader();
-        this.ui.showToast(`${newTheme === 'dark' ? '🌙 Koyu (Gece)' : '☀️ Açık (Gündüz)'} temaya geçildi.`, "success");
     }
 
     bindKeyboardShortcuts() {
@@ -387,9 +378,6 @@ class MebNormApplication {
             <option value="${s}" ${info.sezon === s ? 'selected' : ''}>${s}</option>
         `).join("");
 
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-        const themeBtnText = currentTheme === "dark" ? "☀️" : "🌙";
-
         const schoolType = info.okulTuru || "";
         const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || (appState.state.subeler || []).some(s => s.alanId);
         const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
@@ -472,9 +460,6 @@ class MebNormApplication {
                     <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
                         ⚖️ KVKK
                     </button>
-                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Tema">
-                        ${themeBtnText}
-                    </button>
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
                     </button>
@@ -505,8 +490,6 @@ class MebNormApplication {
         document.getElementById("btn-open-kvkk")?.addEventListener("click", () => {
             this.ui.openKvkkModal("AYDINLATMA");
         });
-
-        document.getElementById("btn-theme-toggle")?.addEventListener("click", () => this.toggleTheme());
 
         document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
             this.ui.openEditSchoolInfoModal();

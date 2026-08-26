@@ -31,7 +31,7 @@ export class AppStateService {
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "",
-                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolUnvan: "Müdür Yardımcısı",
                     kontrolAdSoyad: "",
                     onaylayanUnvan: "Okul Müdürü",
                     onaylayanAdSoyad: ""
@@ -225,7 +225,7 @@ export class AppStateService {
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "Ahmet YILMAZ",
-                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolUnvan: "Müdür Yardımcısı",
                     kontrolAdSoyad: "Mehmet DEMİR",
                     onaylayanUnvan: "Okul Müdürü",
                     onaylayanAdSoyad: "Burhan AYSAN"

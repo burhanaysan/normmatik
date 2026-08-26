@@ -529,7 +529,11 @@ class MebReportsEngine {
             wsExecRows.push(["--- MEB YÖNETİCİ VE İDARECİ NORM KADRO CETVELİ (MD. 5 - 14) ---"]);
             wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Mevzuat Açıklaması"]);
             wsExecRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-            wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+            // Ünvan kaldırıldı (normEngine.mudurBasyardimcisiUnvaniYururlukte).
+            // Kapalıyken satır dışa aktarıma hiç yazılmaz.
+            if (an.mudurBasyardimcisiAktif !== false) {
+                wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+            }
             wsExecRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
             wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
             (an.explanations || []).forEach(exp => wsExecRows.push(["", "", "", "", exp]));
@@ -778,7 +782,11 @@ class MebReportsEngine {
                 csvRows.push(["--- YÖNETİCİ VE İDARECİ NORM KADRO DURUMU (MEB MD. 5 - 14) ---"]);
                 csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Açıklama"]);
                 csvRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-                csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+                // Ünvan kaldırıldı (normEngine.mudurBasyardimcisiUnvaniYururlukte).
+                // Kapalıyken satır dışa aktarıma hiç yazılmaz.
+                if (an.mudurBasyardimcisiAktif !== false) {
+                    csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+                }
                 csvRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
                 csvRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
                 csvRows.push([]);

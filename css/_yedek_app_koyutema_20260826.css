@@ -28,6 +28,12 @@
     --durum-ihtiyac: #dc2626;
 }
 
+[data-theme="dark"] {
+    --durum-tam: #4ade80;
+    --durum-fazla: #fb923c;
+    --durum-ihtiyac: #f87171;
+}
+
 :root {
     /* Ana Marka Renkleri (Kurumsal MEB Mavisi) */
     --primary: #0284c7;
@@ -112,6 +118,81 @@
 }
 
 /* --- 2. KOYU TEMA (DARK MODE - AÇIK RENKLİ ZEMİN ÜZERİNDE YÜZEN KOYU ADALAR) --- */
+[data-theme="dark"] {
+    --primary: #38bdf8;
+    --primary-hover: #0ea5e9;
+    --primary-light: rgba(56, 189, 248, 0.16);
+    --primary-border: rgba(56, 189, 248, 0.4);
+    --primary-text: #38bdf8;
+
+    /* Nötr Zemin ve Kart Renkleri (Koyu Tema - Açık Slate Zemin & Koyu Ada Kartları) */
+    --bg-base: #2d3748;        /* Açık ve belirgin çelik-arduvaz zemin (Panellerin etrafında net görünür) */
+    --bg-panel: #0f172a;       /* Slate-900 derin ve şık koyu ada panelleri */
+    --bg-card: #0f172a;        /* Slate-900 derin ve şık koyu ada kartları */
+    --bg-card-subtle: #1e293b; /* İç kutucuklar, alt alanlar ve sekme butonları */
+    --bg-input: #1e293b;       /* Form girdi alanları */
+    --bg-hover: #1e293b;       /* Hover aydınlatması */
+
+    /* Tipografi ve Kenarlıklar (Koyu Tema) */
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --text-subtle: #94a3b8;
+
+    --border-main: #475569;
+    --border-subtle: #334155;
+    --border-focus: #38bdf8;
+
+    /* Kategori Renkleri (Koyu Tema) */
+    --cat-ortak-bg: rgba(56, 189, 248, 0.16);
+    --cat-ortak-text: #7dd3fc;
+    --cat-ortak-border: rgba(56, 189, 248, 0.4);
+
+    --cat-meslek-bg: rgba(192, 132, 252, 0.16);
+    --cat-meslek-text: #d8b4fe;
+    --cat-meslek-border: rgba(192, 132, 252, 0.4);
+
+    --cat-secmeli-bg: rgba(251, 191, 36, 0.16);
+    --cat-secmeli-text: #fde68a;
+    --cat-secmeli-border: rgba(251, 191, 36, 0.4);
+
+    --cat-rehberlik-bg: rgba(74, 222, 128, 0.16);
+    --cat-rehberlik-text: #86efac;
+    --cat-rehberlik-border: rgba(74, 222, 128, 0.4);
+
+    /* Durum Rozetleri (Koyu Tema) */
+    --status-success-bg: rgba(34, 197, 94, 0.18);
+    --status-success-text: #86efac;
+    --status-success-border: rgba(34, 197, 94, 0.4);
+
+    --status-warning-bg: rgba(245, 158, 11, 0.18);
+    --status-warning-text: #fde68a;
+    --status-warning-border: rgba(245, 158, 11, 0.4);
+
+    --status-danger-bg: rgba(239, 68, 68, 0.18);
+    --status-danger-text: #fca5a5;
+    --status-danger-border: rgba(239, 68, 68, 0.4);
+
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 18px -2px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 16px 32px -4px rgba(0, 0, 0, 0.65);
+
+    /* Modal & Dialog Tokens (Koyu Tema) */
+    --modal-overlay-bg: rgba(3, 7, 18, 0.80);
+    --modal-bg: #1e293b;
+    --modal-header-bg: #16202e;
+    --modal-footer-bg: #16202e;
+    --modal-border: #3b4c68;
+    --modal-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    --modal-title-color: #f8fafc;
+    --input-border: #3b4c68;
+    --input-bg: #16202e;
+    --input-focus-border: #38bdf8;
+    --input-focus-shadow: rgba(56, 189, 248, 0.25);
+
+    --scrollbar-track: #0b1320;
+    --scrollbar-thumb: #3b4c68;
+    --scrollbar-thumb-hover: #64748b;
+}
 
 /* --- 3. TEMEL YAPI VE SIFIRLAMA (BASE STYLES) --- */
 * {
@@ -157,6 +238,12 @@ body {
     transition: all 0.25s ease;
 }
 
+[data-theme="dark"] .app-header {
+    background: linear-gradient(135deg, #334155 0%, #293544 50%, #1e293b 100%);
+    border: 1.5px solid #475569;
+    box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.55), 0 0 18px rgba(0, 0, 0, 0.3);
+}
+
 .header-left-terminal,
 .header-right-terminal {
     display: flex;
@@ -175,6 +262,12 @@ body {
     border-radius: var(--radius-lg);
     box-shadow: 0 2px 10px rgba(30, 58, 138, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
     transition: all 0.25s ease;
+}
+
+[data-theme="dark"] .logo-badge-executive {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);
+    border-color: #38bdf8;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
 }
 
 .logo-badge-executive:hover {
@@ -236,6 +329,10 @@ body {
     margin: 0 0.55rem;
 }
 
+[data-theme="dark"] .header-terminal-divider {
+    background: linear-gradient(180deg, transparent 0%, rgba(56, 189, 248, 0.45) 50%, transparent 100%);
+}
+
 .school-executive-cluster {
     display: flex;
     flex-direction: column;
@@ -270,12 +367,27 @@ body {
     max-width: 100%;
 }
 
+[data-theme="dark"] .school-title-executive {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1.5px solid #475569;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
 .school-title-executive:hover {
     background: #1e293b;
     border-color: #f59e0b;
     color: #fef08a;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .school-title-executive:hover {
+    background: #1e293b;
+    border-color: #f59e0b;
+    color: #fef08a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .school-title-executive .edit-pen-icon {
@@ -311,6 +423,12 @@ body {
     gap: 0.4rem;
 }
 
+[data-theme="dark"] .school-type-tag {
+    background: rgba(15, 23, 42, 0.65);
+    color: #94a3b8;
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
 /* Sezon Seçici Kapsülü */
 .season-pill-box {
     display: inline-flex;
@@ -322,6 +440,11 @@ body {
     border-radius: var(--radius-full);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .season-pill-box {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(51, 65, 85, 0.9);
 }
 
 .season-pill-box:hover {
@@ -358,6 +481,11 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+[data-theme="dark"] .history-controls-minimal {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
 .btn-history-circle {
     width: 28px;
     height: 28px;
@@ -379,12 +507,24 @@ body {
     margin: 0;
 }
 
+[data-theme="dark"] .btn-history-circle {
+    background: #1e293b;
+    border-color: #475569;
+    color: #38bdf8;
+}
+
 .btn-history-circle:hover {
     background: #0284c7;
     color: #ffffff;
     border-color: #38bdf8;
     transform: scale(1.08);
     box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+[data-theme="dark"] .btn-history-circle:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-color: #0284c7;
 }
 
 .btn-history-circle:active {
@@ -447,6 +587,11 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+[data-theme="dark"] .header-toolbar-group {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
 .btn-header-tool {
     display: inline-flex !important;
     align-items: center !important;
@@ -468,6 +613,12 @@ body {
     transition: all 0.2s ease;
 }
 
+[data-theme="dark"] .btn-header-tool {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #f8fafc !important;
+}
+
 .btn-header-tool:hover {
     border-color: #38bdf8 !important;
     color: #38bdf8 !important;
@@ -476,6 +627,35 @@ body {
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
+[data-theme="dark"] .btn-header-tool:hover {
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
+    background: #334155 !important;
+}
+
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    background: #1e293b;
+    color: #f1f5f9;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
 
 .header-toolbar-group .btn-danger-outline {
     height: 28px !important;
@@ -590,6 +770,19 @@ body {
     box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
 }
 
+[data-theme="dark"] .btn-panel-toggle {
+    background: #1e293b;
+    border-color: #475569;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .btn-panel-toggle:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    border-color: #38bdf8;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+}
+
 /* Yüzen Panel Açma / Genişletme Dalgakıran Butonları (Gizleme Butonuyla Birebir Aynı Hizada & Akıcı Animasyonlu) */
 .btn-floating-expand {
     position: absolute;
@@ -670,6 +863,12 @@ body {
     }
 }
 
+[data-theme="dark"] .btn-floating-expand {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border-color: rgba(56, 189, 248, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.55);
+}
+
 /* --- 6. SOL PANEL: BAĞIMSIZ YÜZEN ŞUBE VE SINIF ADASI (FLOATING LEFT ISLAND) --- */
 .sidebar-left {
     background: var(--bg-card);
@@ -685,6 +884,12 @@ body {
     position: relative;
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease, margin 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: width, opacity, transform;
+}
+
+[data-theme="dark"] .sidebar-left {
+    background: var(--bg-card);
+    border-color: var(--border-main);
+    box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-left.collapsed {
@@ -752,6 +957,24 @@ body {
     color: #ffffff;
     border-color: #0284c7;
     box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+}
+
+[data-theme="dark"] .grade-tab-btn {
+    background: #334155;
+    border-color: #475569;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .grade-tab-btn:hover {
+    background: #475569;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .grade-tab-btn.active {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border-color: #38bdf8;
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
 }
 
 .search-box {
@@ -882,6 +1105,75 @@ body {
 }
 
 /* Koyu Tema Uyumu */
+[data-theme="dark"] .section-card {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .section-card.card-grade-9 {
+    background: linear-gradient(135deg, #1e293b 0%, #0c2a4d 100%);
+    border-color: #0369a1;
+    border-left: 5px solid #38bdf8;
+}
+[data-theme="dark"] .section-card.card-grade-9 .sec-branch-text {
+    color: #7dd3fc;
+}
+
+[data-theme="dark"] .section-card.card-grade-10 {
+    background: linear-gradient(135deg, #1e293b 0%, #2e1065 100%);
+    border-color: #6d28d9;
+    border-left: 5px solid #a855f7;
+}
+[data-theme="dark"] .section-card.card-grade-10 .sec-branch-text {
+    color: #c4b5fd;
+}
+
+[data-theme="dark"] .section-card.card-grade-11 {
+    background: linear-gradient(135deg, #1e293b 0%, #451a03 100%);
+    border-color: #b45309;
+    border-left: 5px solid #fbbf24;
+}
+[data-theme="dark"] .section-card.card-grade-11 .sec-branch-text {
+    color: #fcd34d;
+}
+
+[data-theme="dark"] .section-card.card-grade-12 {
+    background: linear-gradient(135deg, #1e293b 0%, #064e3b 100%);
+    border-color: #047857;
+    border-left: 5px solid #34d399;
+}
+[data-theme="dark"] .section-card.card-grade-12 .sec-branch-text {
+    color: #86efac;
+}
+
+[data-theme="dark"] .section-card.card-grade-hazirlik {
+    background: linear-gradient(135deg, #1e293b 0%, #134e4a 100%);
+    border-color: #0f766e;
+    border-left: 5px solid #2dd4bf;
+}
+[data-theme="dark"] .section-card.card-grade-hazirlik .sec-branch-text {
+    color: #5eead4;
+}
+
+[data-theme="dark"] .section-card.card-grade-special-edu {
+    background: linear-gradient(135deg, #1e293b 0%, #3b0764 100%) !important;
+    border-color: #7e22ce !important;
+    border-left: 5px solid #c084fc !important;
+}
+[data-theme="dark"] .section-card.card-grade-special-edu .sec-branch-text {
+    color: #d8b4fe;
+}
+
+[data-theme="dark"] .section-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .section-card.active {
+    background: #1e293b !important;
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px #38bdf8, 0 8px 22px rgba(56, 189, 248, 0.25) !important;
+}
 
 /* 1. ÜST SATIR DÜZENİ */
 .sec-card-top-row {
@@ -908,6 +1200,10 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+[data-theme="dark"] .sec-card-name {
+    color: #f8fafc;
 }
 
 /* SAĞ ÜST GRUP (METRİKLER + HOVER AKSİYONLARI) */
@@ -951,6 +1247,11 @@ body {
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
 }
 
+[data-theme="dark"] .sec-badge-pill.student-pill {
+    background: #334155;
+    color: #f8fafc;
+}
+
 .sec-badge-pill.hour-pill.status-ok {
     background: #dcfce7;
     color: #15803d;
@@ -967,6 +1268,24 @@ body {
     background: #fef3c7;
     color: #b45309;
     border: 1px solid #fde68a;
+}
+
+[data-theme="dark"] .sec-badge-pill.hour-pill.status-ok {
+    background: rgba(16, 185, 129, 0.22);
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.4);
+}
+
+[data-theme="dark"] .sec-badge-pill.hour-pill.status-over {
+    background: rgba(239, 68, 68, 0.22);
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.4);
+}
+
+[data-theme="dark"] .sec-badge-pill.hour-pill.status-under {
+    background: rgba(245, 158, 11, 0.22);
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.4);
 }
 
 .chip-pulse-dot {
@@ -1040,6 +1359,22 @@ body {
     box-shadow: 0 3px 10px rgba(2, 132, 199, 0.35);
 }
 
+[data-theme="dark"] .sec-action-btn {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(71, 85, 105, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #f8fafc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .sec-action-btn:hover {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+}
+
 .sec-action-btn.split {
     color: #0284c7;
 }
@@ -1072,6 +1407,10 @@ body {
     color: #475569;
 }
 
+[data-theme="dark"] .sec-branch-desc {
+    color: #94a3b8;
+}
+
 .sec-branch-bullet {
     font-size: 0.65rem;
     opacity: 0.6;
@@ -1093,6 +1432,12 @@ body {
     overflow: hidden;
     position: relative;
     box-shadow: 0 10px 28px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="dark"] .middle-canvas {
+    background: var(--bg-card);
+    border-color: var(--border-main);
+    box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 /* --- 7. ORTA PANEL: SABİT ÜST KART BAŞLIĞI & ÇOK RENKLİ AKIŞ ÇİZGİSİ --- */
@@ -1131,6 +1476,12 @@ body {
     height: 4px;
     background: linear-gradient(90deg, #38bdf8 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
     box-shadow: 0 1px 10px rgba(59, 130, 246, 0.5);
+}
+
+[data-theme="dark"] .section-hero-banner {
+    background: linear-gradient(135deg, #0b1329 0%, #0f172a 50%, #1e293b 100%);
+    border-bottom: 1.5px solid #334155;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Sol Blok: Master Kimlik & Hiyerarşik Yol (Geniş, Ferah, Asla Çarpışmaz) */
@@ -1179,6 +1530,12 @@ body {
     line-height: 1;
 }
 
+[data-theme="dark"] .hero-avatar-box {
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+    border-color: #38bdf8;
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+}
+
 .hero-identity-details {
     display: flex;
     flex-direction: column;
@@ -1206,6 +1563,11 @@ body {
     white-space: nowrap;
 }
 
+[data-theme="dark"] .hero-section-title {
+    color: #f8fafc;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
 .hero-student-pill {
     height: 26px;
     padding: 0 0.65rem;
@@ -1222,6 +1584,12 @@ body {
     white-space: nowrap;
     user-select: none;
     box-sizing: border-box;
+}
+
+[data-theme="dark"] .hero-student-pill {
+    background: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
 }
 
 .hero-title-btn-group {
@@ -1279,6 +1647,18 @@ body {
     background: #ecfdf5;
     border-color: #059669;
     color: #059669;
+}
+
+[data-theme="dark"] .hero-btn-pill {
+    background: #1e293b;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .hero-btn-pill:hover {
+    background: #0f172a;
+    border-color: #38bdf8;
+    color: #38bdf8;
 }
 
 /* Hiyerarşik Kurumsal Yol (Breadcrumb) */
@@ -1345,6 +1725,36 @@ body {
     user-select: none;
 }
 
+[data-theme="dark"] .path-badge.school {
+    background: rgba(37, 99, 235, 0.2);
+    color: #93c5fd;
+    border-color: rgba(37, 99, 235, 0.4);
+}
+
+[data-theme="dark"] .path-badge.grade {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .path-badge.area {
+    background: rgba(37, 99, 235, 0.25);
+    color: #bfdbfe;
+    border-color: rgba(37, 99, 235, 0.5);
+}
+
+[data-theme="dark"] .path-badge.dal {
+    background: rgba(147, 51, 234, 0.25);
+    color: #e9d5ff;
+    border-color: rgba(147, 51, 234, 0.5);
+}
+
+[data-theme="dark"] .path-badge.special {
+    background: rgba(126, 34, 206, 0.3);
+    color: #f3e8ff;
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
 /* Sağ Blok: Telemetri HUD & Neon Aksiyon Butonu */
 .hero-telemetry-block {
     display: flex;
@@ -1387,6 +1797,12 @@ body {
     box-shadow: 0 1px 3px rgba(126, 34, 206, 0.25);
 }
 
+[data-theme="dark"] .meta-chip.student-chip {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
 .neon-status-card {
     height: 48px;
     min-height: 48px;
@@ -1406,6 +1822,12 @@ body {
     transition: all 0.2s ease;
 }
 
+[data-theme="dark"] .neon-status-card {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 .neon-status-card.warning {
     background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 60%, #fed7aa 100%) !important;
     border: 2px solid #f59e0b !important;
@@ -1420,6 +1842,20 @@ body {
     background: linear-gradient(135deg, #f7fef9 0%, #dcfce7 100%) !important;
     border: 2px solid #10b981 !important;
     box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2) !important;
+}
+
+[data-theme="dark"] .neon-status-card.warning {
+    background: linear-gradient(135deg, rgba(120, 53, 15, 0.5) 0%, rgba(180, 83, 9, 0.35) 100%) !important;
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35) !important;
+}
+[data-theme="dark"] .neon-status-card.danger {
+    background: rgba(239, 68, 68, 0.2) !important;
+    border-color: rgba(239, 68, 68, 0.6) !important;
+}
+[data-theme="dark"] .neon-status-card.success {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: rgba(16, 185, 129, 0.6) !important;
 }
 
 .neon-status-left {
@@ -1480,6 +1916,10 @@ body {
     color: #9a3412 !important;
 }
 
+[data-theme="dark"] .neon-status-card.warning .neon-status-title {
+    color: #fdba74 !important;
+}
+
 .metric-value {
     font-size: 0.92rem;
     font-weight: 900;
@@ -1487,6 +1927,10 @@ body {
     letter-spacing: -0.01em;
     white-space: nowrap;
     line-height: 1.1;
+}
+
+[data-theme="dark"] .metric-value {
+    color: #f8fafc !important;
 }
 
 /* 2 Satırlı Net ve Ferah Durum Rozeti (Hiçbir Karışıklığa Yer Bırakmaz) */
@@ -1534,6 +1978,25 @@ body {
     background: #fee2e2;
     color: #b91c1c;
     border: 1px solid #fca5a5;
+}
+
+[data-theme="dark"] .metric-badge-stacked.warning {
+    background: #ea580c !important;
+    color: #ffffff !important;
+    border-color: #f97316 !important;
+    box-shadow: 0 2px 10px rgba(234, 88, 12, 0.5) !important;
+}
+
+[data-theme="dark"] .metric-badge-stacked.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+[data-theme="dark"] .metric-badge-stacked.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.4);
 }
 
 /* Neon Aksiyon Butonu - 48px Yükseklik ile Telemetri Kartı ile %100 Uyumlu */
@@ -1641,6 +2104,28 @@ body {
     transform: translateY(-1px);
 }
 
+[data-theme="dark"] .btn-sidebar-staff-action.voc {
+    background: rgba(147, 51, 234, 0.22);
+    border-color: rgba(168, 85, 247, 0.45);
+    color: #d8b4fe;
+}
+
+[data-theme="dark"] .btn-sidebar-staff-action.voc:hover {
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .btn-sidebar-staff-action.acad {
+    background: rgba(2, 132, 199, 0.2);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #7dd3fc;
+}
+
+[data-theme="dark"] .btn-sidebar-staff-action.acad:hover {
+    background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+    color: #ffffff;
+}
+
 .action-btn-sparkle {
     font-size: 0.95rem;
     animation: sparkle-pulse 2s infinite ease-in-out;
@@ -1681,6 +2166,10 @@ body {
     overflow: visible;
 }
 
+[data-theme="dark"] .unified-course-card {
+    box-shadow: none;
+}
+
 .unified-card-toolbar {
     padding: 0.35rem 1.35rem;
     background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
@@ -1691,6 +2180,12 @@ body {
     gap: 0.75rem;
     flex-shrink: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .unified-card-toolbar {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    border-bottom: 1.5px solid #334155;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .category-filter-tabs {
@@ -1719,6 +2214,12 @@ body {
     user-select: none;
 }
 
+[data-theme="dark"] .category-filter-btn {
+    background: #1e293b;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
 .category-filter-btn:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -1731,6 +2232,10 @@ body {
     font-weight: 800;
     background: rgba(0, 0, 0, 0.06);
     color: inherit;
+}
+
+[data-theme="dark"] .category-filter-btn .tab-hour-badge {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Kategori Bazlı Canlı Renk Vurguları */
@@ -1815,6 +2320,13 @@ body {
     letter-spacing: 0.02em;
 }
 
+[data-theme="dark"] .toolbar-total-chip {
+    background: #1e293b;
+    border-color: #0284c7;
+    color: #38bdf8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
 /* --- DİKEY KATEGORİ ŞERİDİ (VERTICAL CATEGORY GUTTER RIBBON) --- */
 .category-vertical-cell {
     padding: 0 !important;
@@ -1878,6 +2390,30 @@ body {
     border-left: 3.5px solid #16a34a;
 }
 
+[data-theme="dark"] .category-cell-ortak {
+    background: rgba(2, 132, 199, 0.12) !important;
+    color: #38bdf8;
+    border-left: 3.5px solid #38bdf8;
+}
+
+[data-theme="dark"] .category-cell-meslek {
+    background: rgba(147, 51, 234, 0.12) !important;
+    color: #c084fc;
+    border-left: 3.5px solid #c084fc;
+}
+
+[data-theme="dark"] .category-cell-secmeli {
+    background: rgba(217, 119, 6, 0.12) !important;
+    color: #fbbf24;
+    border-left: 3.5px solid #fbbf24;
+}
+
+[data-theme="dark"] .category-cell-rehberlik {
+    background: rgba(22, 163, 74, 0.12) !important;
+    color: #4ade80;
+    border-left: 3.5px solid #4ade80;
+}
+
 /* --- KATEGORİ BÖLÜM BAŞLIK ŞERİTLERİ (CATEGORY DIVIDER BANNERS) --- */
 .category-divider-row td {
     padding: 0 !important;
@@ -1902,12 +2438,22 @@ body {
     border-left: 4px solid #0284c7;
     color: #0369a1;
 }
+[data-theme="dark"] .cat-ortak .category-divider-content {
+    background: linear-gradient(90deg, rgba(56, 189, 248, 0.18) 0%, rgba(56, 189, 248, 0.03) 100%);
+    border-left: 4px solid #38bdf8;
+    color: #38bdf8;
+}
 
 /* Meslek Dersleri Başlığı */
 .cat-meslek .category-divider-content {
     background: linear-gradient(90deg, rgba(147, 51, 234, 0.12) 0%, rgba(147, 51, 234, 0.02) 100%);
     border-left: 4px solid #9333ea;
     color: #7e22ce;
+}
+[data-theme="dark"] .cat-meslek .category-divider-content {
+    background: linear-gradient(90deg, rgba(192, 132, 252, 0.18) 0%, rgba(192, 132, 252, 0.03) 100%);
+    border-left: 4px solid #c084fc;
+    color: #c084fc;
 }
 
 /* Seçmeli Dersler Başlığı */
@@ -1916,12 +2462,22 @@ body {
     border-left: 4px solid #d97706;
     color: #b45309;
 }
+[data-theme="dark"] .cat-secmeli .category-divider-content {
+    background: linear-gradient(90deg, rgba(251, 191, 36, 0.18) 0%, rgba(251, 191, 36, 0.03) 100%);
+    border-left: 4px solid #fbbf24;
+    color: #fbbf24;
+}
 
 /* Rehberlik Başlığı */
 .cat-rehberlik .category-divider-content {
     background: linear-gradient(90deg, rgba(22, 163, 74, 0.12) 0%, rgba(22, 163, 74, 0.02) 100%);
     border-left: 4px solid #16a34a;
     color: #15803d;
+}
+[data-theme="dark"] .cat-rehberlik .category-divider-content {
+    background: linear-gradient(90deg, rgba(74, 222, 128, 0.18) 0%, rgba(74, 222, 128, 0.03) 100%);
+    border-left: 4px solid #4ade80;
+    color: #4ade80;
 }
 
 .category-divider-left {
@@ -2015,6 +2571,13 @@ body {
     user-select: none;
 }
 
+[data-theme="dark"] .modern-table thead,
+[data-theme="dark"] .modern-table th {
+    background: #1e293b;
+    color: #94a3b8;
+    border-color: #334155;
+}
+
 .modern-table td {
     padding: 0.22rem 0.65rem;
     border-bottom: 1px solid var(--border-subtle);
@@ -2032,8 +2595,16 @@ body {
     background-color: rgba(15, 23, 42, 0.015);
 }
 
+[data-theme="dark"] .modern-table tbody tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.015);
+}
+
 .modern-table tbody tr:hover td {
     background-color: #f0f7ff !important;
+}
+
+[data-theme="dark"] .modern-table tbody tr:hover td {
+    background-color: rgba(56, 189, 248, 0.08) !important;
 }
 
 /* Sıra Numarası Hücre ve Rozet Stilleri (Sequence Number Column) */
@@ -2076,6 +2647,24 @@ body {
     background: rgba(245, 158, 11, 0.12);
     color: #b45309;
     border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="dark"] .course-index-badge.badge-ortak {
+    background: rgba(56, 189, 248, 0.18);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+[data-theme="dark"] .course-index-badge.badge-meslek {
+    background: rgba(192, 132, 252, 0.18);
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.4);
+}
+
+[data-theme="dark"] .course-index-badge.badge-secmeli {
+    background: rgba(251, 191, 36, 0.18);
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.4);
 }
 
 /* Satır içi öğelerin kusursuz dikey hizalanması (Pixel-Perfect Vertical Center Alignment - Kompakt %20 İnce Yapı) */
@@ -2142,6 +2731,12 @@ body {
     align-items: center;
 }
 
+[data-theme="dark"] .baraj-pill {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
 .group-multiplier-pill {
     font-size: 0.65rem;
     font-weight: 700;
@@ -2154,6 +2749,12 @@ body {
     align-items: center;
     white-space: nowrap;
     line-height: 1;
+}
+
+[data-theme="dark"] .group-multiplier-pill {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border-color: rgba(168, 85, 247, 0.3);
 }
 
 .unassigned-badge {
@@ -2260,6 +2861,11 @@ body {
     box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
 }
 
+[data-theme="dark"] .btn-delete-course:hover {
+    background: #dc2626;
+    color: #ffffff;
+}
+
 .dash-muted {
     color: var(--text-subtle);
     font-weight: 600;
@@ -2281,6 +2887,12 @@ body {
     position: relative;
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease, margin 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: width, opacity, transform;
+}
+
+[data-theme="dark"] .sidebar-right {
+    background: var(--bg-card);
+    border-color: var(--border-main);
+    box-shadow: 0 14px 30px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .sidebar-right.collapsed {
@@ -2378,6 +2990,12 @@ body {
     border: 1.5px solid rgba(239, 68, 68, 0.3);
 }
 
+[data-theme="dark"] .kpi-card-amber { background: rgba(245, 158, 11, 0.2); border-color: rgba(251, 191, 36, 0.4); }
+[data-theme="dark"] .kpi-card-blue { background: rgba(2, 132, 199, 0.2); border-color: rgba(56, 189, 248, 0.4); }
+[data-theme="dark"] .kpi-card-slate { background: rgba(100, 116, 139, 0.2); border-color: rgba(148, 163, 184, 0.4); }
+[data-theme="dark"] .kpi-card-purple { background: rgba(147, 51, 234, 0.2); border-color: rgba(168, 85, 247, 0.4); }
+[data-theme="dark"] .kpi-card-red { background: rgba(239, 68, 68, 0.2); border-color: rgba(248, 113, 113, 0.4); }
+
 .kpi-label {
     font-size: 0.62rem;
     color: var(--text-muted);
@@ -2396,6 +3014,11 @@ body {
 .kpi-val.blue { color: #0284c7; }
 .kpi-val.purple { color: #9333ea; }
 .kpi-val.red { color: var(--durum-ihtiyac); }
+
+[data-theme="dark"] .kpi-val.amber { color: #fbbf24; }
+[data-theme="dark"] .kpi-val.blue { color: #38bdf8; }
+[data-theme="dark"] .kpi-val.purple { color: #c084fc; }
+[data-theme="dark"] .kpi-val.red { color: #f87171; }
 
 .norm-table-container {
     flex: 1 1 0;
@@ -2478,6 +3101,12 @@ body {
     white-space: nowrap;
 }
 
+[data-theme="dark"] .norm-chip-load {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
 .norm-dual-chip {
     display: inline-flex;
     align-items: center;
@@ -2502,6 +3131,10 @@ body {
 
 .norm-dual-chip .chip-mev {
     color: var(--text-main);
+}
+
+[data-theme="dark"] .norm-dual-chip .chip-norm {
+    color: #38bdf8;
 }
 
 .norm-status-chip {
@@ -2531,6 +3164,24 @@ body {
     background: #fee2e2;
     color: #dc2626;
     border: 1px solid #fca5a5;
+}
+
+[data-theme="dark"] .norm-status-chip.tam {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+[data-theme="dark"] .norm-status-chip.ihtiyac {
+    background: rgba(2, 132, 199, 0.22);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="dark"] .norm-status-chip.fazla {
+    background: rgba(239, 68, 68, 0.22);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.45);
 }
 
 /* --- 9. İNTERAKTİF SOHBET BALONU (ŞUBE KARTLARI CHIP YAPISI) --- */
@@ -3011,6 +3662,11 @@ body {
     background: var(--primary-light) !important;
 }
 
+[data-theme="dark"] .split-current-banner {
+    background: rgba(56, 189, 248, 0.1) !important;
+    border-color: rgba(56, 189, 248, 0.3) !important;
+}
+
 /* Seçmeli Ders Modal / Çekmece Özel Kartları */
 .elective-course-card {
     background: var(--bg-card) !important;
@@ -3128,6 +3784,25 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 16px rgba(239, 68, 68, 0.3);
 }
 
+[data-theme="dark"] .toast.toast-success, [data-theme="dark"] .toast.success {
+    background: rgba(6, 78, 59, 0.78);
+    border-color: rgba(52, 211, 153, 0.6);
+    color: #f0fdf4;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 18px rgba(52, 211, 153, 0.35);
+}
+
+[data-theme="dark"] .toast.toast-warning, [data-theme="dark"] .toast.warning {
+    background: rgba(120, 53, 15, 0.78);
+    border-color: rgba(251, 191, 36, 0.6);
+    color: #fffbeb;
+}
+
+[data-theme="dark"] .toast.toast-danger, [data-theme="dark"] .toast.danger {
+    background: rgba(127, 29, 29, 0.78);
+    border-color: rgba(248, 113, 113, 0.6);
+    color: #fef2f2;
+}
+
 .toast-icon {
     font-size: 1rem;
 }
@@ -3185,6 +3860,12 @@ body {
     border: 1px solid rgba(14, 165, 233, 0.3);
 }
 
+[data-theme="dark"] .theme-advisory-badge {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
 .theme-advisory-chips {
     display: flex;
     flex-wrap: wrap;
@@ -3212,6 +3893,11 @@ body {
     font-weight: 700;
 }
 
+[data-theme="dark"] .theme-chip.selected {
+    background: rgba(96, 165, 250, 0.12);
+    border-color: #60a5fa;
+}
+
 .theme-advisory-text {
     font-size: 0.68rem;
     color: var(--text-muted);
@@ -3225,11 +3911,21 @@ body {
     color: #0891b2 !important;
     border: 1px solid rgba(8, 145, 178, 0.3) !important;
 }
+[data-theme="dark"] .theme-badge-bilim {
+    background: rgba(34, 211, 238, 0.15) !important;
+    color: #22d3ee !important;
+    border-color: rgba(34, 211, 238, 0.35) !important;
+}
 
 .theme-badge-deger {
     background: rgba(5, 150, 105, 0.12) !important;
     color: #059669 !important;
     border: 1px solid rgba(5, 150, 105, 0.3) !important;
+}
+[data-theme="dark"] .theme-badge-deger {
+    background: rgba(52, 211, 153, 0.15) !important;
+    color: #34d399 !important;
+    border-color: rgba(52, 211, 153, 0.35) !important;
 }
 
 .theme-badge-sanat {
@@ -3237,11 +3933,21 @@ body {
     color: #d97706 !important;
     border: 1px solid rgba(217, 119, 6, 0.3) !important;
 }
+[data-theme="dark"] .theme-badge-sanat {
+    background: rgba(251, 191, 36, 0.15) !important;
+    color: #fbbf24 !important;
+    border-color: rgba(251, 191, 36, 0.35) !important;
+}
 
 .theme-badge-dil {
     background: rgba(37, 99, 235, 0.12) !important;
     color: #2563eb !important;
     border: 1px solid rgba(37, 99, 235, 0.3) !important;
+}
+[data-theme="dark"] .theme-badge-dil {
+    background: rgba(96, 165, 250, 0.15) !important;
+    color: #60a5fa !important;
+    border-color: rgba(96, 165, 250, 0.35) !important;
 }
 
 .theme-badge-bilisim {
@@ -3249,11 +3955,21 @@ body {
     color: #0284c7 !important;
     border: 1px solid rgba(2, 132, 199, 0.3) !important;
 }
+[data-theme="dark"] .theme-badge-bilisim {
+    background: rgba(56, 189, 248, 0.15) !important;
+    color: #38bdf8 !important;
+    border-color: rgba(56, 189, 248, 0.35) !important;
+}
 
 .theme-badge-voc {
     background: rgba(147, 51, 234, 0.12) !important;
     color: #9333ea !important;
     border: 1px solid rgba(147, 51, 234, 0.3) !important;
+}
+[data-theme="dark"] .theme-badge-voc {
+    background: rgba(192, 132, 252, 0.15) !important;
+    color: #c084fc !important;
+    border-color: rgba(192, 132, 252, 0.35) !important;
 }
 
 /* ==========================================================================
@@ -3437,6 +4153,10 @@ body {
     background: #f8fafc !important;
 }
 
+[data-theme="dark"] .elective-calm-body {
+    background: #0f172a !important;
+}
+
 .theme-group-block {
     display: flex;
     flex-direction: column;
@@ -3456,6 +4176,11 @@ body {
     border-left-width: 4.5px;
 }
 
+[data-theme="dark"] .theme-group-header {
+    background: #1e293b;
+    border-color: #334155;
+}
+
 .theme-group-title {
     display: flex;
     align-items: center;
@@ -3473,6 +4198,10 @@ body {
     color: #0f172a;
 }
 
+[data-theme="dark"] .group-name {
+    color: #f8fafc;
+}
+
 .group-count-badge {
     font-size: 0.68rem;
     font-weight: 700;
@@ -3481,6 +4210,12 @@ body {
     padding: 0.1rem 0.45rem;
     border-radius: var(--radius-full);
     color: #475569;
+}
+
+[data-theme="dark"] .group-count-badge {
+    background: #0f172a;
+    border-color: #475569;
+    color: #cbd5e1;
 }
 
 .theme-group-items {
@@ -3508,10 +4243,20 @@ body {
     user-select: none;
 }
 
+[data-theme="dark"] .elective-table-row {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+}
+
 .elective-table-row:hover {
     border-color: #94a3b8 !important;
     background: #f8fafc !important;
     transform: translateX(2px);
+}
+
+[data-theme="dark"] .elective-table-row:hover {
+    background: #273549 !important;
+    border-color: #475569 !important;
 }
 
 /* SEÇİLEN SATIR RENKLENMESİ */
@@ -3519,6 +4264,12 @@ body {
     background: #ecfdf5 !important;
     border-color: #10b981 !important;
     box-shadow: 0 0 0 1px #10b981, 0 3px 10px rgba(16, 185, 129, 0.15) !important;
+}
+
+[data-theme="dark"] .elective-table-row.row-is-selected {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 1px #10b981, 0 3px 10px rgba(16, 185, 129, 0.25) !important;
 }
 
 .row-selection-indicator {
@@ -3552,9 +4303,17 @@ body {
     line-height: 1.3;
 }
 
+[data-theme="dark"] .row-course-title {
+    color: #f1f5f9 !important;
+}
+
 .elective-table-row.row-is-selected .row-course-title {
     font-weight: 800;
     color: #064e3b !important;
+}
+
+[data-theme="dark"] .elective-table-row.row-is-selected .row-course-title {
+    color: #34d399 !important;
 }
 
 .row-action-col {
@@ -3579,6 +4338,12 @@ body {
     color: #64748b;
     cursor: pointer;
     transition: all 0.15s ease;
+}
+
+[data-theme="dark"] .table-hour-btn {
+    background: #0f172a;
+    border-color: #475569;
+    color: #cbd5e1;
 }
 
 .table-hour-btn:hover {
@@ -3616,6 +4381,12 @@ body {
     background: #f1f5f9;
     color: #64748b;
     border: 1px solid #cbd5e1;
+}
+
+[data-theme="dark"] .row-status-pill.pill-unselected {
+    background: #0f172a;
+    border-color: #475569;
+    color: #94a3b8;
 }
 
 .row-status-pill.pill-selected {
@@ -3873,6 +4644,17 @@ body {
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
 }
 
+[data-theme="dark"] .btn-report-action.btn-report-excel {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    border-color: rgba(16, 185, 129, 0.45);
+}
+
+[data-theme="dark"] .btn-report-action.btn-report-excel:hover {
+    background: #059669;
+    color: #ffffff;
+}
+
 .btn-report-action.btn-report-print {
     background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
     color: #ffffff;
@@ -4068,6 +4850,12 @@ body {
     border-left: 1.5px solid var(--border-main);
 }
 
+[data-theme="dark"] .master-grid-table th {
+    background: #1e293b;
+    border-bottom-color: #38bdf8;
+    border-right-color: #475569;
+}
+
 /* 1. KATMAN: KADEME GRUPLANDIRMA ÜST BAŞLIĞI */
 .grade-group-header-row th {
     padding: 0.45rem 0.6rem;
@@ -4100,6 +4888,12 @@ body {
 .grade-super-header.grade-11 { background: #f3e8ff; color: #6b21a8; border-left: 2px solid #a855f7; border-right: 2px solid #a855f7; }
 .grade-super-header.grade-12 { background: #fce7f3; color: #9d174d; border-left: 2px solid #ec4899; border-right: 2px solid #ec4899; }
 
+[data-theme="dark"] .grade-super-header.grade-hazirlik { background: #78350f; color: #fde68a; }
+[data-theme="dark"] .grade-super-header.grade-9 { background: #1e3a8a; color: #93c5fd; }
+[data-theme="dark"] .grade-super-header.grade-10 { background: #312e81; color: #c7d2fe; }
+[data-theme="dark"] .grade-super-header.grade-11 { background: #581c87; color: #e9d5ff; }
+[data-theme="dark"] .grade-super-header.grade-12 { background: #831843; color: #fbcfe8; }
+
 .sticky-col-header {
     position: sticky;
     left: 0;
@@ -4130,6 +4924,15 @@ body {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+}
+
+[data-theme="dark"] .sticky-col-header {
+    background: #1e293b !important;
+    border-right-color: #475569 !important;
+}
+
+[data-theme="dark"] .branch-course-head-inner {
+    color: #f1f5f9;
 }
 
 .total-col-header, .norm-col-header {
@@ -4186,6 +4989,10 @@ body {
     max-width: 220px !important;
 }
 
+[data-theme="dark"] .sticky-col-cell {
+    border-right-color: #475569 !important;
+}
+
 /* Sütun Başlıkları - Dinamik Dikey Hizalama */
 .sec-col-header {
     vertical-align: bottom !important;
@@ -4227,10 +5034,18 @@ body {
     color: #1e40af;
 }
 
+[data-theme="dark"] .vertical-sec-box .sec-header-title {
+    color: #38bdf8;
+}
+
 .vertical-sec-box .sec-header-meta {
     font-size: 0.60rem;
     font-weight: 700;
     color: #64748b;
+}
+
+[data-theme="dark"] .vertical-sec-box .sec-header-meta {
+    color: #94a3b8;
 }
 
 /* Branş ve Alan Başlık Şeritleri (Düz ve Net Hatlar) */
@@ -4242,12 +5057,26 @@ body {
     box-sizing: border-box;
 }
 
+[data-theme="dark"] .branch-summary-strip td {
+    background: #082f49 !important;
+    border-top: 2px solid #38bdf8 !important;
+    border-bottom: 2px solid #38bdf8 !important;
+    border-right: 1.5px solid var(--border-main) !important;
+}
+
 .area-summary-strip td {
     background: #f3e8ff !important;
     border-top: 2px solid #9333ea !important;
     border-bottom: 2px solid #9333ea !important;
     border-right: 1.5px solid var(--border-main) !important;
     box-sizing: border-box;
+}
+
+[data-theme="dark"] .area-summary-strip td {
+    background: #3b0764 !important;
+    border-top: 2px solid #c084fc !important;
+    border-bottom: 2px solid #c084fc !important;
+    border-right: 1.5px solid var(--border-main) !important;
 }
 
 .branch-strip-content {
@@ -4266,9 +5095,15 @@ body {
 .branch-summary-strip .branch-title-text {
     color: #0369a1;
 }
+[data-theme="dark"] .branch-summary-strip .branch-title-text {
+    color: #38bdf8;
+}
 
 .area-summary-strip .branch-title-text {
     color: #7e22ce;
+}
+[data-theme="dark"] .area-summary-strip .branch-title-text {
+    color: #c084fc;
 }
 
 .branch-strip-metrics {
@@ -4287,9 +5122,18 @@ body {
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
+[data-theme="dark"] .badge-metric {
+    background: #1e293b;
+    border-color: #475569;
+}
+
 .badge-metric.status-tam { background: #dcfce7; color: #15803d; border-color: #86efac; }
 .badge-metric.status-ihtiyac { background: #e0f2fe; color: #0284c7; border-color: #7dd3fc; }
 .badge-metric.status-fazla { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
+
+[data-theme="dark"] .badge-metric.status-tam { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.4); }
+[data-theme="dark"] .badge-metric.status-ihtiyac { background: rgba(2, 132, 199, 0.22); color: #38bdf8; border-color: rgba(56, 189, 248, 0.45); }
+[data-theme="dark"] .badge-metric.status-fazla { background: rgba(239, 68, 68, 0.22); color: #f87171; border-color: rgba(239, 68, 68, 0.45); }
 
 /* Ders Satırları - Excel Tarzı Düz ve Net Izgara Hücreleri */
 .course-data-row td {
@@ -4307,6 +5151,14 @@ body {
 
 .course-data-row.row-even td {
     background-color: #f8fafc;
+}
+
+[data-theme="dark"] .course-data-row.row-odd td {
+    background-color: #0f172a;
+}
+
+[data-theme="dark"] .course-data-row.row-even td {
+    background-color: #1e293b;
 }
 
 .course-data-row:hover td {
@@ -4384,10 +5236,20 @@ body {
     background-color: rgba(37, 99, 235, 0.04) !important;
 }
 
+[data-theme="dark"] .cell-hour.active-hour {
+    color: #38bdf8 !important;
+    background-color: rgba(56, 189, 248, 0.06) !important;
+}
+
 .cell-hour.cell-merged-hour {
     color: #7c3aed !important;
     background-color: rgba(124, 58, 237, 0.08) !important;
     font-weight: 800 !important;
+}
+
+[data-theme="dark"] .cell-hour.cell-merged-hour {
+    color: #c084fc !important;
+    background-color: rgba(192, 132, 252, 0.12) !important;
 }
 
 .merge-badge-icon {
@@ -4418,6 +5280,12 @@ body {
     font-size: 0.82rem;
     border: 1.5px solid #7dd3fc;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .hour-bubble {
+    background: #0c4a6e;
+    color: #38bdf8;
+    border-color: #0369a1;
 }
 
 .cell-hour.empty-hour {
@@ -5020,6 +5888,20 @@ body {
         font-size: 16px !important;
     }
 
+    /* KOYU TEMADA YAZDIRMA TUZAĞI
+       Yazdırırken zemin beyaza zorlanıyor (background: #ffffff !important),
+       ancak <html data-theme="dark"> kalıyor. Değişkenler tema seçicisine
+       bağlı olduğu için koyu tema renkleri BEYAZ KÂĞIDA basılıyordu:
+       açık yeşil #4ade80 beyaz üzerinde 1,74:1 — okunmaz.
+       Kâğıt her zaman beyaz olduğuna göre, yazdırmada tema ne olursa olsun
+       AÇIK TEMA paleti zorlanır. */
+    :root,
+    [data-theme="dark"] {
+        --durum-tam: #15803d !important;
+        --durum-fazla: #c2410c !important;
+        --durum-ihtiyac: #dc2626 !important;
+    }
+
     html, body {
         min-width: 0 !important;
         width: 100% !important;
@@ -5600,6 +6482,21 @@ body {
     color: #991b1b;
 }
 
+[data-theme="dark"] .kvkk-alert-card.info {
+    background: rgba(37, 99, 235, 0.15);
+    color: #93c5fd;
+}
+
+[data-theme="dark"] .kvkk-alert-card.warning {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fde047;
+}
+
+[data-theme="dark"] .kvkk-alert-card.danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+}
+
 .kvkk-architecture-diagram {
     display: flex;
     align-items: center;
@@ -5831,6 +6728,11 @@ body {
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
 }
+
+
+
+
+
 
 
 /* ==========================================================================
@@ -6203,6 +7105,9 @@ body {
 }
 
 
+
+
+
 /* ==========================================================================
    🖥️ OTOMATİK MASAÜSTÜ SİTESİ VE AKIŞKAN 3 PANELLİ DÜZEN (TÜM CİHAZLAR)
    ========================================================================== */
@@ -6502,6 +7407,10 @@ html, body {
     color: #d97706 !important;
 }
 
+[data-theme="dark"] .kpi-banner-val {
+    color: #fbbf24 !important;
+}
+
 .kpi-row-quad {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
@@ -6566,6 +7475,17 @@ html, body {
     color: #b45309 !important;
 }
 
+[data-theme="dark"] .sidebar-right-disclaimer-distinct {
+    background: rgba(245, 158, 11, 0.12) !important;
+    border: 1.5px solid #d97706 !important;
+    color: #fef08a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .disclaimer-body strong {
+    color: #fbbf24 !important;
+}
+
 
 /* ==========================================================================
    🎯 SOL PANEL KURUMSAL VE ŞIK BAŞLIK DÜZENİ (EXECUTIVE SIDEBAR)
@@ -6614,6 +7534,12 @@ html, body {
     font-weight: 800 !important;
     padding: 0.12rem 0.5rem !important;
     border-radius: 9999px !important;
+}
+
+[data-theme="dark"] .badge-total-sections {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-color: #38bdf8 !important;
+    color: #38bdf8 !important;
 }
 
 /* 3'LÜ KURUMSAL AKSİYON BUTONLARI */
@@ -6671,6 +7597,11 @@ html, body {
     background: #334155 !important;
     border-color: #94a3b8 !important;
     transform: translateY(-1px) !important;
+}
+
+[data-theme="dark"] .btn-sec-bulk {
+    background: #334155 !important;
+    border-color: #64748b !important;
 }
 
 /* 3. e-Okul Aktar: Zümrüt Yeşili */
@@ -6828,6 +7759,13 @@ body.resizing .middle-canvas {
     color: #10b981 !important;
 }
 
+[data-theme="dark"] .cloud-sync-badge.saved {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #34d399 !important;
+    color: #34d399 !important;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.25) !important;
+}
+
 .cloud-sync-badge.syncing {
     background: rgba(2, 132, 199, 0.15) !important;
     border: 1.5px solid #0284c7 !important;
@@ -6876,6 +7814,13 @@ body.resizing .middle-canvas {
     background: rgba(16, 185, 129, 0.15) !important;
     border: 1px solid #10b981 !important;
     color: #10b981 !important;
+}
+
+[data-theme="dark"] .cloud-sync-badge-compact.saved {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #34d399 !important;
+    color: #34d399 !important;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.25) !important;
 }
 
 .cloud-sync-badge-compact.syncing {

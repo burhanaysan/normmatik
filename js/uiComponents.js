@@ -2339,15 +2339,14 @@ export class UIComponentManager {
                                 <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
                                     Norm ile karşılaştırılıp "İhtiyaç / Fazla" durumu gösterilir. Bilinmiyorsa 0 bırakın.
                                 </div>
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">OKUL MÜDÜRÜ</div>
                                         <input type="number" id="inp-mevcut-mudur" value="${parseInt(mevcutIdareci.mudur || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #0284c7;">
                                     </div>
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR BAŞYRD.</div>
-                                        <input type="number" id="inp-mevcut-basyrd" value="${parseInt(mevcutIdareci.mudurBasyardimcisi || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #7c3aed;">
-                                    </div>
+                                    <!-- Müdür başyardımcısı ünvanı kaldırıldı; alan gizli tutulur ki
+                                         mevcut kayıtlardaki değer 0'a düşsün ve kod kırılmasın. -->
+                                    <input type="hidden" id="inp-mevcut-basyrd" value="0">
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR YARDIMCISI</div>
                                         <input type="number" id="inp-mevcut-mdryrd" value="${parseInt(mevcutIdareci.mudurYardimcisi || 0, 10)}" min="0" max="20" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #059669;">
@@ -2500,9 +2499,9 @@ export class UIComponentManager {
                 const kiyasHtml = (k && mevcutToplam > 0) ? `
                     <div style="border-top: 1px solid var(--border-subtle); margin-bottom: 0.5rem; padding-top: 0.45rem;">
                         <div style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted); margin-bottom: 0.3rem;">MEVCUT / NORM KARŞILAŞTIRMASI</div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; text-align: center;">
+                        <div style="display: grid; grid-template-columns: repeat(${res.mudurBasyardimcisiAktif === false ? 3 : 4}, 1fr); gap: 0.35rem; text-align: center;">
                             ${kiyasCell("MÜDÜR", k.mudur)}
-                            ${kiyasCell("BAŞYRD.", k.mudurBasyardimcisi)}
+                            ${res.mudurBasyardimcisiAktif === false ? '' : kiyasCell("BAŞYRD.", k.mudurBasyardimcisi)}
                             ${kiyasCell("MDR. YRD.", k.mudurYardimcisi)}
                             ${kiyasCell("TOPLAM", k.toplam)}
                         </div>
@@ -2538,15 +2537,16 @@ export class UIComponentManager {
                         <span style="font-size: 0.82rem; font-weight: 800; color: #1e3a8a;">📊 MEB Yönetici Norm Kadro Dağılımı</span>
                         <span style="font-size: 0.78rem; font-weight: 800; color: #2563eb; background: rgba(37, 99, 235, 0.1); padding: 0.1rem 0.5rem; border-radius: 4px;">Toplam: ${res.toplamYonetici} Yönetici</span>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(${res.mudurBasyardimcisiAktif === false ? 2 : 3}, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.5rem;">
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">OKUL MÜDÜRÜ</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7;">${res.mudur}</div>
                         </div>
+                        ${res.mudurBasyardimcisiAktif === false ? '' : `
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">MÜDÜR BAŞYRD.</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed;">${res.mudurBasyardimcisi}</div>
-                        </div>
+                        </div>`}
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">MÜDÜR YARDIMCISI</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #059669;">${res.mudurYardimcisiTotal}</div>
@@ -3080,7 +3080,7 @@ export class UIComponentManager {
                         <p class="sign-dots">İmza: ........................</p>
                     </div>
                     <div class="print-sign-box">
-                        <p class="sign-title">${antet.kontrolUnvan || 'Müdür Başyardımcısı'}</p>
+                        <p class="sign-title">${antet.kontrolUnvan || 'Müdür Yardımcısı'}</p>
                         <p class="sign-name">${antet.kontrolAdSoyad || '........................'}</p>
                         <p class="sign-dots">İmza: ........................</p>
                     </div>
@@ -3275,7 +3275,9 @@ export class UIComponentManager {
             logoBase64: null,
             hazirlayanUnvan: "Müdür Yardımcısı",
             hazirlayanAdSoyad: "",
-            kontrolUnvan: "Müdür Başyardımcısı",
+            // Ünvan kaldırıldığı için varsayılan imzacı Müdür Yardımcısı.
+            // Alan kullanıcı tarafından düzenlenebilir (inp-kontrol-unvan).
+            kontrolUnvan: "Müdür Yardımcısı",
             kontrolAdSoyad: "",
             onaylayanUnvan: "Okul Müdürü",
             onaylayanAdSoyad: ""
@@ -3400,7 +3402,7 @@ export class UIComponentManager {
                 logoBase64: uploadedLogoBase64,
                 hazirlayanUnvan: document.getElementById("inp-hazirlayan-unvan")?.value || "Müdür Yardımcısı",
                 hazirlayanAdSoyad: document.getElementById("inp-hazirlayan-ad")?.value || "",
-                kontrolUnvan: document.getElementById("inp-kontrol-unvan")?.value || "Müdür Başyardımcısı",
+                kontrolUnvan: document.getElementById("inp-kontrol-unvan")?.value || "Müdür Yardımcısı",
                 kontrolAdSoyad: document.getElementById("inp-kontrol-ad")?.value || "",
                 onaylayanUnvan: document.getElementById("inp-onay-unvan")?.value || "Okul Müdürü",
                 onaylayanAdSoyad: document.getElementById("inp-onay-ad")?.value || ""
@@ -3818,11 +3820,12 @@ export class UIComponentManager {
                                 <div class="exec-mini-cell-num" style="color: #0284c7;">${data.adminNorms.mudur}</div>
                                 <div class="exec-mini-cell-sub">Md. 5/1</div>
                             </div>
+${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <div class="exec-mini-cell">
                                 <div class="exec-mini-cell-title">Mdr. Başyrd.</div>
                                 <div class="exec-mini-cell-num" style="color: #7c3aed;">${data.adminNorms.mudurBasyardimcisi}</div>
                                 <div class="exec-mini-cell-sub">${data.adminNorms.mudurBasyardimcisi > 0 ? 'Pansiyon/Yatılı' : 'Oluşmadı'}</div>
-                            </div>
+                            </div>`}
                             <div class="exec-mini-cell">
                                 <div class="exec-mini-cell-title">Mdr. Yrd.</div>
                                 <div class="exec-mini-cell-num" style="color: #059669;">${data.adminNorms.mudurYardimcisiTotal}</div>
@@ -3833,7 +3836,8 @@ export class UIComponentManager {
                         <div class="exec-mevcut-strip">
                             <span class="strip-label">Mevcut / Norm</span>
                             ${[["Müdür", data.adminNorms.karsilastirma.mudur],
-                               ["Başyrd.", data.adminNorms.karsilastirma.mudurBasyardimcisi],
+                               ...(data.adminNorms.mudurBasyardimcisiAktif === false ? []
+                                   : [["Başyrd.", data.adminNorms.karsilastirma.mudurBasyardimcisi]]),
                                ["Mdr. Yrd.", data.adminNorms.karsilastirma.mudurYardimcisi],
                                ["Toplam", data.adminNorms.karsilastirma.toplam]
                             ].map(([ad, c]) => `

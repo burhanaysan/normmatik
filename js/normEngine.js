@@ -5,6 +5,12 @@
 import { NORM_RULES_CONFIG } from './normRulesConfig.js';
 
 export class NormEngine {
+    // Müdür başyardımcısı ünvanı yürürlükte mi? Ayrıntılı gerekçe
+    // calculateAdminNorms() içinde, Madde 6 bölümünün başındadır.
+    // false  -> norm üretilmez, arayüz ve raporlarda hiç görünmez
+    // true   -> Madde 6 kuralı aynen işler (kural silinmedi, kapatıldı)
+    mudurBasyardimcisiUnvaniYururlukte = false;
+
     constructor() {
         this.rules = NORM_RULES_CONFIG;
     }
@@ -934,8 +940,34 @@ export class NormEngine {
         }
 
         // 6. Müdür Başyardımcısı Normu (Madde 6)
+        //
+        // ⚠️ ÜNVAN KAPATILDI — 2026-08-26, kullanıcı kararı.
+        //
+        // OLGULAR (doğrulandı, yorum değil):
+        //   · Norm Kadro Yönetmeliği'nin GÜNCEL resmî metninde (son değişiklik
+        //     18/8/2022, C.K. 5975) Madde 6 "Müdür başyardımcısı norm kadrosu"
+        //     hâlâ yürürlüktedir; Madde 4/m'deki "yönetici" tanımı da ünvanı sayar.
+        //     Doğrulama: python -X utf8 tools/denetim_mevzuat_guncel.py
+        //   · 7528 sayılı Öğretmenlik Mesleği Kanunu'nda (10/10/2024) "müdür
+        //     başyardımcısı" ifadesi HİÇ GEÇMEZ. Kanun "yönetici" kelimesini
+        //     45 kez kullanır ama ünvanları tek tek saymaz.
+        //
+        // KARAR: Kullanıcı (okul idarecisi), kanunun yönetmelikten üstün olduğu
+        // ve ünvanın fiilen kaldırıldığı değerlendirmesiyle hesabın kapatılmasını
+        // istedi. Bu hukuki bir değerlendirmedir; koda olgu olarak değil, KARAR
+        // olarak işlenmiştir.
+        //
+        // KURAL SİLİNMEDİ, KAPATILDI: aşağıdaki Madde 6 mantığı olduğu gibi
+        // duruyor ve testleri hâlâ çalışıyor. Ünvan geri gelirse ya da bu
+        // değerlendirme değişirse, tek yapılacak şey bayrağı true'ya çevirmektir:
+        //     normEngine.mudurBasyardimcisiUnvaniYururlukte = true;
+        const basyrdAktif = this.mudurBasyardimcisiUnvaniYururlukte !== false;
+
         let mudurBasYrd = 0;
-        if (isKampusIcinde) {
+        if (!basyrdAktif) {
+            // Ünvan kapalı: norm üretilmez, açıklama da yazılmaz (raporda
+            // hiç görünmemesi isteniyor).
+        } else if (isKampusIcinde) {
             explanations.push("Eğitim kampüsü içindeki kuruma müdür başyardımcısı normu verilmez (Md. 6/2).");
         } else if (mudurNorm === 0) {
             explanations.push("Müdür normu verilmeyen kuruma müdür başyardımcısı normu da verilmez (Md. 22/1-a).");
@@ -971,6 +1003,8 @@ export class NormEngine {
         return {
             mudur: mudurNorm,
             mudurBasyardimcisi: mudurBasYrd,
+            // Arayüz ve raporlar bu bayrağa bakarak başyardımcı satırını gizler.
+            mudurBasyardimcisiAktif: basyrdAktif,
             mudurYardimcisiBase: baseMdrYrd,
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,

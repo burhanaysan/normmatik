@@ -123,7 +123,12 @@ if (!an) {
 } else {
     const k = an.karsilastirma;
     denetle("A1  müdür normu", gecer(an.mudur));
-    denetle("A2  müdür başyardımcısı normu", gecer(an.mudurBasyardimcisi));
+    // Müdür başyardımcısı ünvanı 2026-08-26'da kapatıldı; raporda GÖRÜNMEMELİ.
+    denetle("A2  müdür başyardımcısı raporda YOK",
+        an.mudurBasyardimcisiAktif === false
+            ? !/Başyrd|Başyardımcı/i.test(metin)
+            : gecer(an.mudurBasyardimcisi),
+        "ünvan kapalı olmasına rağmen raporda geçiyor");
     denetle("A3  müdür yardımcısı toplamı", gecer(an.mudurYardimcisiTotal));
     denetle("A4  toplam yönetici normu", gecer(an.toplamYonetici));
     denetle("A5  müdür yrd. TEMEL/İLAVE ayrımı",
@@ -136,7 +141,9 @@ if (!an) {
     // DİKKAT: çıplak "Tam"/"Fazla" aranmaz — bu kelimeler BRANŞ
     // istatistiğinde de geçiyor ve kontrolü yanlış geçiriyordu.
     // Etiket, "mevcut / norm" ikilisinin yanında aranır.
-    const yoneticiKiyas = [k.mudur, k.mudurBasyardimcisi, k.mudurYardimcisi, k.toplam]
+    const yoneticiKiyas = [k.mudur,
+            ...(an.mudurBasyardimcisiAktif === false ? [] : [k.mudurBasyardimcisi]),
+            k.mudurYardimcisi, k.toplam]
         .some(c => metin.includes(`${c.mevcut} / ${c.norm}`) && metin.includes(c.etiket));
     denetle("A7  yönetici TAM/FAZLA/İHTİYAÇ etiketi", yoneticiKiyas,
         `beklenen "${k.toplam.mevcut} / ${k.toplam.norm} · ${k.toplam.etiket}" biçiminde bir kıyas`);

@@ -161251,6 +161251,12 @@ if (typeof window !== 'undefined') {
 // Bu dosyaya sabit sayı yazmayın; yönetmelik değişikliği config'ten yapılır.
 
 class NormEngine {
+    // Müdür başyardımcısı ünvanı yürürlükte mi? Ayrıntılı gerekçe
+    // calculateAdminNorms() içinde, Madde 6 bölümünün başındadır.
+    // false  -> norm üretilmez, arayüz ve raporlarda hiç görünmez
+    // true   -> Madde 6 kuralı aynen işler (kural silinmedi, kapatıldı)
+    mudurBasyardimcisiUnvaniYururlukte = false;
+
     constructor() {
         this.rules = NORM_RULES_CONFIG;
     }
@@ -162180,8 +162186,34 @@ class NormEngine {
         }
 
         // 6. Müdür Başyardımcısı Normu (Madde 6)
+        //
+        // ⚠️ ÜNVAN KAPATILDI — 2026-08-26, kullanıcı kararı.
+        //
+        // OLGULAR (doğrulandı, yorum değil):
+        //   · Norm Kadro Yönetmeliği'nin GÜNCEL resmî metninde (son değişiklik
+        //     18/8/2022, C.K. 5975) Madde 6 "Müdür başyardımcısı norm kadrosu"
+        //     hâlâ yürürlüktedir; Madde 4/m'deki "yönetici" tanımı da ünvanı sayar.
+        //     Doğrulama: python -X utf8 tools/denetim_mevzuat_guncel.py
+        //   · 7528 sayılı Öğretmenlik Mesleği Kanunu'nda (10/10/2024) "müdür
+        //     başyardımcısı" ifadesi HİÇ GEÇMEZ. Kanun "yönetici" kelimesini
+        //     45 kez kullanır ama ünvanları tek tek saymaz.
+        //
+        // KARAR: Kullanıcı (okul idarecisi), kanunun yönetmelikten üstün olduğu
+        // ve ünvanın fiilen kaldırıldığı değerlendirmesiyle hesabın kapatılmasını
+        // istedi. Bu hukuki bir değerlendirmedir; koda olgu olarak değil, KARAR
+        // olarak işlenmiştir.
+        //
+        // KURAL SİLİNMEDİ, KAPATILDI: aşağıdaki Madde 6 mantığı olduğu gibi
+        // duruyor ve testleri hâlâ çalışıyor. Ünvan geri gelirse ya da bu
+        // değerlendirme değişirse, tek yapılacak şey bayrağı true'ya çevirmektir:
+        //     normEngine.mudurBasyardimcisiUnvaniYururlukte = true;
+        const basyrdAktif = this.mudurBasyardimcisiUnvaniYururlukte !== false;
+
         let mudurBasYrd = 0;
-        if (isKampusIcinde) {
+        if (!basyrdAktif) {
+            // Ünvan kapalı: norm üretilmez, açıklama da yazılmaz (raporda
+            // hiç görünmemesi isteniyor).
+        } else if (isKampusIcinde) {
             explanations.push("Eğitim kampüsü içindeki kuruma müdür başyardımcısı normu verilmez (Md. 6/2).");
         } else if (mudurNorm === 0) {
             explanations.push("Müdür normu verilmeyen kuruma müdür başyardımcısı normu da verilmez (Md. 22/1-a).");
@@ -162217,6 +162249,8 @@ class NormEngine {
         return {
             mudur: mudurNorm,
             mudurBasyardimcisi: mudurBasYrd,
+            // Arayüz ve raporlar bu bayrağa bakarak başyardımcı satırını gizler.
+            mudurBasyardimcisiAktif: basyrdAktif,
             mudurYardimcisiBase: baseMdrYrd,
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
@@ -162866,7 +162900,11 @@ class MebReportsEngine {
             wsExecRows.push(["--- MEB YÖNETİCİ VE İDARECİ NORM KADRO CETVELİ (MD. 5 - 14) ---"]);
             wsExecRows.push(["Yönetici Görevi", "Norm Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Mevzuat Açıklaması"]);
             wsExecRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-            wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+            // Ünvan kaldırıldı (normEngine.mudurBasyardimcisiUnvaniYururlukte).
+            // Kapalıyken satır dışa aktarıma hiç yazılmaz.
+            if (an.mudurBasyardimcisiAktif !== false) {
+                wsExecRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+            }
             wsExecRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
             wsExecRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
             (an.explanations || []).forEach(exp => wsExecRows.push(["", "", "", "", exp]));
@@ -163115,7 +163153,11 @@ class MebReportsEngine {
                 csvRows.push(["--- YÖNETİCİ VE İDARECİ NORM KADRO DURUMU (MEB MD. 5 - 14) ---"]);
                 csvRows.push(["Yönetici Görevi", "Norm Kadro Sayısı", "Mevcut", "Fark / Durum", "Yasal Dayanak ve Açıklama"]);
                 csvRows.push(["Okul Müdürü", an.mudur, kr ? kr.mudur.mevcut : "—", kr ? kr.mudur.etiket : "—", "MEB Norm Kadro Yön. Madde 5"]);
-                csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+                // Ünvan kaldırıldı (normEngine.mudurBasyardimcisiUnvaniYururlukte).
+                // Kapalıyken satır dışa aktarıma hiç yazılmaz.
+                if (an.mudurBasyardimcisiAktif !== false) {
+                    csvRows.push(["Müdür Başyardımcısı", an.mudurBasyardimcisi, kr ? kr.mudurBasyardimcisi.mevcut : "—", kr ? kr.mudurBasyardimcisi.etiket : "—", "MEB Norm Kadro Yön. Madde 6"]);
+                }
                 csvRows.push(["Müdür Yardımcısı (Toplam)", an.mudurYardimcisiTotal, kr ? kr.mudurYardimcisi.mevcut : "—", kr ? kr.mudurYardimcisi.etiket : "—", `Temel: ${an.mudurYardimcisiBase} + İlave: ${an.mudurYardimcisiExtra} (MEB Md. 7-12 & Md. 14)`]);
                 csvRows.push(["TOPLAM YÖNETİCİ NORMU", an.toplamYonetici, kr ? kr.toplam.mevcut : "—", kr ? kr.toplam.etiket : "—", `Norma esas öğrenci sayısı: ${an.normaEsasOgrenciSayisi} (Md. 22/1-b)`]);
                 csvRows.push([]);
@@ -163504,7 +163546,6 @@ class AuthService {
      */
     logout() {
         const KORUNANLAR = [
-            "meb_norm_theme",
             "MEB_NORM_KADRO_LAYOUT_V1",
             "normmatik_onboarding_seen"
         ];
@@ -163848,7 +163889,7 @@ class AppStateService {
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "",
-                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolUnvan: "Müdür Yardımcısı",
                     kontrolAdSoyad: "",
                     onaylayanUnvan: "Okul Müdürü",
                     onaylayanAdSoyad: ""
@@ -164042,7 +164083,7 @@ class AppStateService {
                     logoBase64: null,
                     hazirlayanUnvan: "Müdür Yardımcısı",
                     hazirlayanAdSoyad: "Ahmet YILMAZ",
-                    kontrolUnvan: "Müdür Başyardımcısı",
+                    kontrolUnvan: "Müdür Yardımcısı",
                     kontrolAdSoyad: "Mehmet DEMİR",
                     onaylayanUnvan: "Okul Müdürü",
                     onaylayanAdSoyad: "Burhan AYSAN"
@@ -167745,15 +167786,14 @@ class UIComponentManager {
                                 <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
                                     Norm ile karşılaştırılıp "İhtiyaç / Fazla" durumu gösterilir. Bilinmiyorsa 0 bırakın.
                                 </div>
-                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">OKUL MÜDÜRÜ</div>
                                         <input type="number" id="inp-mevcut-mudur" value="${parseInt(mevcutIdareci.mudur || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #0284c7;">
                                     </div>
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR BAŞYRD.</div>
-                                        <input type="number" id="inp-mevcut-basyrd" value="${parseInt(mevcutIdareci.mudurBasyardimcisi || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #7c3aed;">
-                                    </div>
+                                    <!-- Müdür başyardımcısı ünvanı kaldırıldı; alan gizli tutulur ki
+                                         mevcut kayıtlardaki değer 0'a düşsün ve kod kırılmasın. -->
+                                    <input type="hidden" id="inp-mevcut-basyrd" value="0">
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR YARDIMCISI</div>
                                         <input type="number" id="inp-mevcut-mdryrd" value="${parseInt(mevcutIdareci.mudurYardimcisi || 0, 10)}" min="0" max="20" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #059669;">
@@ -167906,9 +167946,9 @@ class UIComponentManager {
                 const kiyasHtml = (k && mevcutToplam > 0) ? `
                     <div style="border-top: 1px solid var(--border-subtle); margin-bottom: 0.5rem; padding-top: 0.45rem;">
                         <div style="font-size: 0.7rem; font-weight: 800; color: var(--text-muted); margin-bottom: 0.3rem;">MEVCUT / NORM KARŞILAŞTIRMASI</div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; text-align: center;">
+                        <div style="display: grid; grid-template-columns: repeat(${res.mudurBasyardimcisiAktif === false ? 3 : 4}, 1fr); gap: 0.35rem; text-align: center;">
                             ${kiyasCell("MÜDÜR", k.mudur)}
-                            ${kiyasCell("BAŞYRD.", k.mudurBasyardimcisi)}
+                            ${res.mudurBasyardimcisiAktif === false ? '' : kiyasCell("BAŞYRD.", k.mudurBasyardimcisi)}
                             ${kiyasCell("MDR. YRD.", k.mudurYardimcisi)}
                             ${kiyasCell("TOPLAM", k.toplam)}
                         </div>
@@ -167944,15 +167984,16 @@ class UIComponentManager {
                         <span style="font-size: 0.82rem; font-weight: 800; color: #1e3a8a;">📊 MEB Yönetici Norm Kadro Dağılımı</span>
                         <span style="font-size: 0.78rem; font-weight: 800; color: #2563eb; background: rgba(37, 99, 235, 0.1); padding: 0.1rem 0.5rem; border-radius: 4px;">Toplam: ${res.toplamYonetici} Yönetici</span>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(${res.mudurBasyardimcisiAktif === false ? 2 : 3}, 1fr); gap: 0.5rem; text-align: center; margin-bottom: 0.5rem;">
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">OKUL MÜDÜRÜ</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7;">${res.mudur}</div>
                         </div>
+                        ${res.mudurBasyardimcisiAktif === false ? '' : `
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">MÜDÜR BAŞYRD.</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed;">${res.mudurBasyardimcisi}</div>
-                        </div>
+                        </div>`}
                         <div style="background: var(--bg-card-subtle); padding: 0.4rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                             <div style="font-size: 0.68rem; color: var(--text-muted);">MÜDÜR YARDIMCISI</div>
                             <div style="font-size: 1.15rem; font-weight: 800; color: #059669;">${res.mudurYardimcisiTotal}</div>
@@ -168486,7 +168527,7 @@ class UIComponentManager {
                         <p class="sign-dots">İmza: ........................</p>
                     </div>
                     <div class="print-sign-box">
-                        <p class="sign-title">${antet.kontrolUnvan || 'Müdür Başyardımcısı'}</p>
+                        <p class="sign-title">${antet.kontrolUnvan || 'Müdür Yardımcısı'}</p>
                         <p class="sign-name">${antet.kontrolAdSoyad || '........................'}</p>
                         <p class="sign-dots">İmza: ........................</p>
                     </div>
@@ -168681,7 +168722,9 @@ class UIComponentManager {
             logoBase64: null,
             hazirlayanUnvan: "Müdür Yardımcısı",
             hazirlayanAdSoyad: "",
-            kontrolUnvan: "Müdür Başyardımcısı",
+            // Ünvan kaldırıldığı için varsayılan imzacı Müdür Yardımcısı.
+            // Alan kullanıcı tarafından düzenlenebilir (inp-kontrol-unvan).
+            kontrolUnvan: "Müdür Yardımcısı",
             kontrolAdSoyad: "",
             onaylayanUnvan: "Okul Müdürü",
             onaylayanAdSoyad: ""
@@ -168806,7 +168849,7 @@ class UIComponentManager {
                 logoBase64: uploadedLogoBase64,
                 hazirlayanUnvan: document.getElementById("inp-hazirlayan-unvan")?.value || "Müdür Yardımcısı",
                 hazirlayanAdSoyad: document.getElementById("inp-hazirlayan-ad")?.value || "",
-                kontrolUnvan: document.getElementById("inp-kontrol-unvan")?.value || "Müdür Başyardımcısı",
+                kontrolUnvan: document.getElementById("inp-kontrol-unvan")?.value || "Müdür Yardımcısı",
                 kontrolAdSoyad: document.getElementById("inp-kontrol-ad")?.value || "",
                 onaylayanUnvan: document.getElementById("inp-onay-unvan")?.value || "Okul Müdürü",
                 onaylayanAdSoyad: document.getElementById("inp-onay-ad")?.value || ""
@@ -169224,11 +169267,12 @@ class UIComponentManager {
                                 <div class="exec-mini-cell-num" style="color: #0284c7;">${data.adminNorms.mudur}</div>
                                 <div class="exec-mini-cell-sub">Md. 5/1</div>
                             </div>
+${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <div class="exec-mini-cell">
                                 <div class="exec-mini-cell-title">Mdr. Başyrd.</div>
                                 <div class="exec-mini-cell-num" style="color: #7c3aed;">${data.adminNorms.mudurBasyardimcisi}</div>
                                 <div class="exec-mini-cell-sub">${data.adminNorms.mudurBasyardimcisi > 0 ? 'Pansiyon/Yatılı' : 'Oluşmadı'}</div>
-                            </div>
+                            </div>`}
                             <div class="exec-mini-cell">
                                 <div class="exec-mini-cell-title">Mdr. Yrd.</div>
                                 <div class="exec-mini-cell-num" style="color: #059669;">${data.adminNorms.mudurYardimcisiTotal}</div>
@@ -169239,7 +169283,8 @@ class UIComponentManager {
                         <div class="exec-mevcut-strip">
                             <span class="strip-label">Mevcut / Norm</span>
                             ${[["Müdür", data.adminNorms.karsilastirma.mudur],
-                               ["Başyrd.", data.adminNorms.karsilastirma.mudurBasyardimcisi],
+                               ...(data.adminNorms.mudurBasyardimcisiAktif === false ? []
+                                   : [["Başyrd.", data.adminNorms.karsilastirma.mudurBasyardimcisi]]),
                                ["Mdr. Yrd.", data.adminNorms.karsilastirma.mudurYardimcisi],
                                ["Toplam", data.adminNorms.karsilastirma.toplam]
                             ].map(([ad, c]) => `
@@ -170810,23 +170855,14 @@ class MebNormApplication {
         }
     }
 
+    // Koyu tema 2026-08-26'da kaldırıldı (bkz. tools/kaldir_koyu_tema.py).
+    // Uygulama tek temayla çalışır. Daha önce koyu tema seçmiş kullanıcıların
+    // kaydı burada temizlenir, yoksa hiçbir şey yapmayan bir anahtar kalırdı.
     initTheme() {
-        let savedTheme = "light";
+        document.documentElement.setAttribute("data-theme", "light");
         try {
-            savedTheme = localStorage.getItem("meb_norm_theme") || "light";
+            localStorage.removeItem("meb_norm_theme");
         } catch (e) {}
-        document.documentElement.setAttribute("data-theme", savedTheme);
-    }
-
-    toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        try {
-            localStorage.setItem("meb_norm_theme", newTheme);
-        } catch (e) {}
-        this.renderHeader();
-        this.ui.showToast(`${newTheme === 'dark' ? '🌙 Koyu (Gece)' : '☀️ Açık (Gündüz)'} temaya geçildi.`, "success");
     }
 
     bindKeyboardShortcuts() {
@@ -171037,9 +171073,6 @@ class MebNormApplication {
             <option value="${s}" ${info.sezon === s ? 'selected' : ''}>${s}</option>
         `).join("");
 
-        const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-        const themeBtnText = currentTheme === "dark" ? "☀️" : "🌙";
-
         const schoolType = info.okulTuru || "";
         const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || (appState.state.subeler || []).some(s => s.alanId);
         const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
@@ -171122,9 +171155,6 @@ class MebNormApplication {
                     <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
                         ⚖️ KVKK
                     </button>
-                    <button class="theme-toggle-btn" id="btn-theme-toggle" title="Tema">
-                        ${themeBtnText}
-                    </button>
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
                     </button>
@@ -171155,8 +171185,6 @@ class MebNormApplication {
         document.getElementById("btn-open-kvkk")?.addEventListener("click", () => {
             this.ui.openKvkkModal("AYDINLATMA");
         });
-
-        document.getElementById("btn-theme-toggle")?.addEventListener("click", () => this.toggleTheme());
 
         document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
             this.ui.openEditSchoolInfoModal();

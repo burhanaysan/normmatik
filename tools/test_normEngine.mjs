@@ -232,7 +232,13 @@ check("1201 çırak -> 4 Mdr. Yrd. (Md. 12/1-ç)", admMesem(1201), 4);
 section("MADDE 14 — İlave müdür yardımcısı normları ve tavan");
 
 check("Pansiyon +1 ilave (Md. 14/1-a)", adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal, 2);
-check("Pansiyon -> 1 müdür başyardımcısı (Md. 6/1-a)", adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 1);
+// Md. 6 kuralı ünvan kaldırıldığı için varsayılan olarak KAPALI
+// (normEngine.mudurBasyardimcisiUnvaniYururlukte = false).
+// Kural silinmedi; bu yüzden testi de silinmiyor. Bayrak geçici açılıp
+// kuralın hâlâ doğru işlediği doğrulanır, sonra tekrar kapatılır.
+engine.mudurBasyardimcisiUnvaniYururlukte = true;
+check("[bayrak AÇIK] Pansiyon -> 1 müdür başyardımcısı (Md. 6/1-a)",
+      adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 1);
 check("Döner sermaye +1 (Md. 14/1-b)", adm(500, { hasDonerSermaye: true }).mudurYardimcisiTotal, 2);
 check("Taşıma merkezi +1 (Md. 14/1-e)", adm(500, { isTasimaMerkezi: true }).mudurYardimcisiTotal, 2);
 
@@ -242,7 +248,20 @@ const altiIlave = {
 };
 check("1000 öğrenci + 6 ilave -> tavan 6 (Md. 14/2)", adm(1000, altiIlave).mudurYardimcisiTotal, 6);
 check("1600 öğrenci + 6 ilave -> tavan 7 (Md. 14/2)", adm(1600, altiIlave).mudurYardimcisiTotal, 7);
-check("6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)", adm(1000, altiIlave).mudurBasyardimcisi, 1);
+check("[bayrak AÇIK] 6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)",
+      adm(1000, altiIlave).mudurBasyardimcisi, 1);
+engine.mudurBasyardimcisiUnvaniYururlukte = false;
+
+// Ünvan kapalıyken, Md. 6 şartları OLUŞSA BİLE norm üretilmemeli.
+check("[bayrak KAPALI] Pansiyon -> başyardımcı normu 0",
+      adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 0);
+check("[bayrak KAPALI] 6 Mdr. Yrd. -> başyardımcı normu 0",
+      adm(1000, altiIlave).mudurBasyardimcisi, 0);
+check("[bayrak KAPALI] toplam yöneticiye başyardımcı eklenmiyor",
+      adm(500, { isPansiyonlu: true }).toplamYonetici,
+      adm(500, { isPansiyonlu: true }).mudur + adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal);
+check("[bayrak KAPALI] arayüz bayrağı false geliyor",
+      adm(500).mudurBasyardimcisiAktif, false);
 
 section("MADDE 5/3, 5/5, 6/2, 22/1-a, 22/7 — Müdür normu verilmeyen kurumlar");
 
