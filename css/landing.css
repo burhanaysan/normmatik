@@ -229,6 +229,52 @@ img { max-width: 100%; height: auto; display: block; }
     border-bottom: 1px solid var(--cizgi);
 }
 .ekran-nokta { width: 9px; height: 9px; border-radius: 50%; background: var(--cizgi-koyu); }
+
+/* Görselin alt kenarı — kullanıcı geri bildirimi, 27.08.2026
+   ---------------------------------------------------------
+   Ekran görüntüsündeki üç panelin de altı kesik (uygulamada kaydırılarak
+   görülüyorlar). Düz bir kesik, gözün "sayfanın devamı var, kaydırayım"
+   demesine yol açıyordu; oysa o bir resim.
+
+   İki şey yapıldı:
+   1. Alt kenara beyaza doğru yumuşak geçiş — bunun bir ÖNİZLEME olduğunu
+      söyler, kesilmiş bir sayfa değil.
+   2. Görsel tıklanabilir (gallery-card) — "tamamını göreyim" isteği artık
+      kaydırmayla değil tıklamayla karşılanıyor. */
+.ekran-govde { position: relative; }
+
+.ekran-govde::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 90px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 92%);
+    pointer-events: none;
+}
+
+.ekran-ipucu {
+    position: absolute;
+    left: 50%;
+    bottom: .7rem;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: var(--beyaz);
+    border: 1px solid var(--cizgi-koyu);
+    border-radius: 999px;
+    padding: .3rem .8rem;
+    font-size: .76rem;
+    font-weight: 700;
+    color: var(--metin-soluk);
+    white-space: nowrap;
+    box-shadow: var(--golge);
+}
+
+/* Hero çerçevesi galeri kartı sınıfını da taşıyor; galeri görünümü
+   buraya sızmasın. */
+.ekran-cerceve.gallery-card { border-color: var(--cizgi); }
+.ekran-cerceve.gallery-card:hover { box-shadow: var(--golge-kalk); }
+.ekran-cerceve.gallery-card img { border-bottom: none; }
+.ekran-cerceve.gallery-card:hover .ekran-ipucu { border-color: var(--mavi); color: var(--mavi); }
 .ekran-adres {
     margin-left: .5rem;
     font-size: .7rem;

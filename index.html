@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı</title>
     <meta name="description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
-    <link rel="stylesheet" href="css/landing.css?v=20260827_0007">
+    <link rel="stylesheet" href="css/landing.css?v=20260827_0011">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -52,14 +52,24 @@
         </div>
 
         <!-- Ürünün kendisi ilk ekranda görünür: en iyi anlatım bu. -->
-        <div class="ekran-cerceve">
+        <!-- gallery-card sinifi bilerek: betikteki ayni baglama bu goruntuyu
+             de buyutulebilir yapiyor. Panellerin alti kesik oldugu icin goz
+             "devami var, kaydirayim" diyordu; artik tiklayarak tamamini
+             gorebiliyorsunuz ve alt kenardaki yumusak gecis bunun bir
+             onizleme oldugunu soyluyor. -->
+        <div class="ekran-cerceve gallery-card"
+             data-img="screenshots/ekran_1.jpg"
+             data-title="NormMatik çalışma alanı — solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu">
             <div class="ekran-cubuk">
                 <span class="ekran-nokta"></span>
                 <span class="ekran-nokta"></span>
                 <span class="ekran-nokta"></span>
                 <span class="ekran-adres">normmatik.com.tr</span>
             </div>
-            <img src="screenshots/ekran_1.jpg" alt="NormMatik çalışma alanı: solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu" width="2847" height="1559" loading="eager">
+            <div class="ekran-govde">
+                <img src="screenshots/ekran_1.jpg" alt="NormMatik çalışma alanı: solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu" width="2847" height="1559" loading="eager">
+                <span class="ekran-ipucu">Büyütmek için tıklayın</span>
+            </div>
         </div>
     </div>
 </section>
