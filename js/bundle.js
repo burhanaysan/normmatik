@@ -160764,7 +160764,8 @@ class MebCurriculumEngine {
                     { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "6": [
                     { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160781,7 +160782,8 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     // 6. sınıf Bilişim 1 saattir; 2 yazılmıştı. Kaynak: aynı çizelge.
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "7": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160800,7 +160802,8 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     // 7. sınıf Teknoloji ve Tasarım 1 saattir; 2 yazılmıştı.
-                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "8": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160816,7 +160819,7 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
-                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ]
             };
             if (IHO_CURRICULUM[gStr]) return IHO_CURRICULUM[gStr];
@@ -160834,7 +160837,8 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "6": [
                     { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160846,7 +160850,8 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" }
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "7": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160858,7 +160863,8 @@ class MebCurriculumEngine {
                     { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
-                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" }
+                    { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ],
                 "8": [
                     { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
@@ -160871,7 +160877,7 @@ class MebCurriculumEngine {
                     { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
                     { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
                     { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
-                    { ders: "Rehberlik ve Kariyer Planlama", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" }
                 ]
             };
             if (ORTAOKUL_CURRICULUM[gStr]) return ORTAOKUL_CURRICULUM[gStr];
