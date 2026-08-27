@@ -10,7 +10,12 @@
  *   "Sağlık Bilgisi dersine Biyoloji yazmak isterse kullanıcı, bu onun
  *    sorumluluğundadır; Biyoloji yüküne ilave edilsin."
  *
- * Bu testin koruduğu iki davranış:
+ *   "Yönetici, norm hesabına dahil edilemeyecek bir branşı derse eklerse
+ *    herhangi bir kısıtlama yok; sorumluluk yöneticide. Biyoloji branşında
+ *    4 saat Biyoloji + 2 saat Matematik + 2 saat Sağlık Bilgisi olsa bile
+ *    Biyoloji'nin ders yükü 4+2+2 = 8 saat yazacak."
+ *
+ * Bu testin koruduğu üç davranış:
  *
  *   1) YÜKÜ OLAN HER BRANŞ LİSTELENİR — okulda o branştan öğretmen olmasa da.
  *      Bir süre tersi yapılıyordu (yan ders kuralı); kaldırıldı.
@@ -22,6 +27,10 @@
  *      için, idarecinin bu branşlara yaptığı HER atama kayboluyordu.
  *      Ekranda hata görünmüyordu: seçim yapılıyor, kaydediliyor, sonra
  *      açılışta eski hâline dönüyordu.
+ *
+ *   3) HİÇBİR SAAT ELENMEZ — bir branşa atanan dersler, o branşın resmî ders
+ *      listesinde olsun olmasın, olduğu gibi toplanır. Uygulama burada
+ *      "düzeltme" yapmaz; karar idarecinindir.
  *
  * Çalıştırma: node tools/test_bransSecimi.mjs
  */
@@ -140,8 +149,48 @@ console.log("── 2. İdarecinin branş seçimi yeniden yüklemede silinmez");
         rapor.find(b => b.branchName === "Sağlık Hizmetleri"), undefined);
 }
 
-// -------------------------------------- 3. Gerçekten sahte olan değerler düzeltilir
-console.log("── 3. Branş olmayan değerler yine de düzeltilir");
+// ------------------------- 3. Kısıtlama yok: atanan ne olursa olsun yüke eklenir
+// Kullanıcının kendi verdiği örnek (27.08.2026 teyidi):
+//   "Yönetici, norm hesabına dahil edilemeyecek bir branşı derse eklerse
+//    herhangi bir kısıtlama yok, sorumluluk yöneticide. Biyoloji branşında
+//    4 saat Biyoloji + 2 saat Matematik + 2 saat Sağlık Bilgisi olsa bile
+//    Biyoloji'nin ders yükü 4+2+2=8 saat yazacak."
+console.log("── 3. Atanan ders ne olursa olsun yüke eklenir (kısıtlama yok)");
+{
+    const w = ortam();
+    const st = w.appState;
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "anadolu_lisesi";
+    st.addSection({
+        subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: [
+            { ders: "Biyoloji", saat: 4, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false }
+        ]
+    });
+
+    const dersler = () => st.state.subeler[0].zorunluDersler || [];
+    kontrol("üç ders de şubede duruyor", dersler().length, 3);
+    kontrol("hepsi Biyoloji'ye atanmış",
+        dersler().every(d => d.atananBrans === "Biyoloji"), true);
+
+    st.sanitizeExistingState();
+    kontrol("yeniden yüklemeden sonra da hepsi Biyoloji'de",
+        dersler().every(d => d.atananBrans === "Biyoloji"), true);
+
+    const rapor = raporla(w, st, {});
+    const bio = rapor.find(b => b.branchName === "Biyoloji");
+    kontrol("Biyoloji ders yükü 4+2+2 = 8", bio?.totalHours, 8);
+    kontrol("8 saat -> 1 norm (Madde 18 barajı 6)", bio?.calculatedNorm, 1);
+    kontrol("Matematik ayrı bir satır olarak sayılmıyor",
+        rapor.find(b => b.branchName === "Matematik"), undefined);
+    kontrol("Sağlık Hizmetleri ayrı bir satır olarak sayılmıyor",
+        rapor.find(b => b.branchName === "Sağlık Hizmetleri"), undefined);
+}
+
+// -------------------------------------- 4. Gerçekten sahte olan değerler düzeltilir
+console.log("── 4. Branş olmayan değerler yine de düzeltilir");
 {
     const w = ortam();
     const ce = w.curriculumEngine;
