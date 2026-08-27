@@ -78,6 +78,12 @@ TABLOLAR = [
     ("guzel_sanatlar_muzik",      "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json", "Güzel Sanatlar Lisesi - Müzik"),
     ("guzel_sanatlar_turk_muzigi", "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json", "Güzel Sanatlar Lisesi - Türk Müziği"),
     ("spor_lisesi",               "ogm/sayi09_spor_lisesi.json",                None),
+    # Meslek lisesi hazırlık sınıfı: YALNIZCA hazırlık sütununu tanımlar.
+    # 9-12. sınıflar okulun alanına göre ayrı çizelgeden (strict_pdf_curriculum_db)
+    # gelmeye devam eder. Bu yüzden bu iki tür için üretilen tabloda sadece
+    # "hazirlik" anahtarı bulunur.
+    ("mesleki_ve_teknik_anadolu_lisesi", "mtegm/hazirlik_sinifi_sayi63.json", None),
+    ("anadolu_teknik_programi",          "mtegm/hazirlik_sinifi_sayi63.json", None),
     ("anadolu_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", "__AIHL__"),
     ("hazirlik_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", "__AIHL__"),
 ]

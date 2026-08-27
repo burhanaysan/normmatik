@@ -100,6 +100,14 @@ export class MebDatabaseService {
     }
 
     getSchoolTypes() {
+        // NOT: Meslek lisesi (AMP) ve Anadolu Teknik Programı'nda hazırlık
+        // sınıfı, AYRI BİR OKUL TÜRÜ olarak değil, mevcut türün sınıf
+        // listesine eklenerek tanımlandı (TTKB Sayı 63, 16/07/2026).
+        // Gerekçe: lise tarafında hazırlıklı/hazırlıksız ayrı türler var ve
+        // kullanıcı bunu kaçırdı — "Anadolu Lisesi" seçip 4 sekme görünce
+        // hazırlığın hiç olmadığını sandı. Sekmenin hep görünmesi,
+        // hazırlığı olmayan okul için yalnızca kullanılmayan bir sekmedir;
+        // kaçırılması ise imkânsızdır.
         return [
             { id: "anadolu_lisesi", name: "Anadolu Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "hazirlik_anadolu_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
@@ -108,8 +116,8 @@ export class MebDatabaseService {
             { id: "sosyal_bilimler_lisesi", name: "Sosyal Bilimler Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
-            { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
-            { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
+            { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
             { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },

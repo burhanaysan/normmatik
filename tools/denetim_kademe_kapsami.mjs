@@ -79,8 +79,22 @@ for (const g of ["9", "10", "11", "12"]) TABAN[g] = imza("anadolu_lisesi", g);
 console.log("\n%s %s %s", "OKUL TÜRÜ".padEnd(34), "DERS SAYISI".padEnd(22), "DURUM");
 console.log("-".repeat(76));
 
+// Alan isteyen türlerin 9-12 sınıfları alan çizelgesinden gelir ve alan
+// verilmeden boş dönmesi doğrudur. Ama HAZIRLIK sınıfı alandan bağımsızdır:
+// meslek lisesi hazırlığı (TTKB Sayı 63) alan seçilmeden de dolu gelmelidir.
+// Bu yüzden onların hazırlığı ayrıca denetlenir.
 for (const t of turler) {
-    if (KAPSAM_DISI.has(t.id)) continue;
+    if (KAPSAM_DISI.has(t.id)) {
+        if ((t.gradeLevels || []).includes("hazirlik")) {
+            const n = (ce.getMandatoryCourses(t.id, "hazirlik", null, null) || []).length;
+            console.log("%s %s %s", t.id.padEnd(34),
+                ("hazırlık: " + n + " ders").padEnd(22),
+                n > 0 ? "hazırlık çizelgesi var" : "!! HAZIRLIK BOŞ");
+            denetle(`${t.id}: hazırlık sınıfı çizelgesi dolu (alan olmadan)`, n > 0,
+                "alan seçilmeden hazırlık dersleri gelmiyor");
+        }
+        continue;
+    }
     const siniflar = (t.gradeLevels || []).filter(g => g !== "hazirlik");
     const sayilar = siniflar.map(g => (ce.getMandatoryCourses(t.id, g, null, null) || []).length);
     const bosVar = sayilar.some(n => n === 0);

@@ -129,6 +129,16 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ]
     },
+    "anadolu_teknik_programi": {
+        "hazirlik": [
+            { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 3, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Yabancı Dil", saat: 24, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 4, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ]
+    },
     "fen_lisesi": {
         "9": [
             { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
@@ -647,6 +657,16 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Dinler Tarihi", saat: 1, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Kelam", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "İslam Kültür ve Medeniyeti", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER", isAtolye: false }
+        ]
+    },
+    "mesleki_ve_teknik_anadolu_lisesi": {
+        "hazirlik": [
+            { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 3, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Yabancı Dil", saat: 24, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 4, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ]
     },
     "ozel_program_fen_lisesi": {

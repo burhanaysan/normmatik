@@ -502,6 +502,24 @@ class MebCurriculumEngine {
         const seenNorms = new Set();
         const schoolTypeStr = String(schoolType || "").toLowerCase();
 
+        // ---------------------------------------------------------------
+        // 0a. HAZIRLIK SINIFI — her okul türünden ÖNCE bakılır
+        // ---------------------------------------------------------------
+        // Hazırlık sınıfı, alandan/daldan bağımsız ortak bir yıldır. Meslek
+        // lisesinde bu kontrol aşağıdaki "meslek/teknik" dalından SONRA
+        // yapılsaydı hiç çalışmazdı: o dal alan çizelgesine bakar, hazırlık
+        // için kayıt bulamaz ve boş döner. Bu yüzden en başta duruyor.
+        //
+        // Meslek lisesi hazırlığı: TTKB Sayı 63, 16/07/2026 (2026-2027'den
+        // itibaren kademeli). 9-12. sınıflar yine alan çizelgesinden gelir.
+        if (gStr.toLowerCase() === "hazirlik"
+            && typeof ORTAOGRETIM_CIZELGELERI !== 'undefined' && ORTAOGRETIM_CIZELGELERI) {
+            const hazirlik = (ORTAOGRETIM_CIZELGELERI[schoolTypeStr] || {})["hazirlik"];
+            if (hazirlik && hazirlik.length) {
+                return hazirlik.map(d => ({ ...d }));
+            }
+        }
+
         // 0. ÖZEL EĞİTİM
         if (areaId === "ozel_egitim" || schoolTypeStr.includes("ozel_egitim") || String(dalName || "").includes("Özel Eğit")) {
             return [

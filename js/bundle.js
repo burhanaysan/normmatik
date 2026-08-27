@@ -159829,6 +159829,16 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ]
     },
+    "anadolu_teknik_programi": {
+        "hazirlik": [
+            { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 3, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Yabancı Dil", saat: 24, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 4, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ]
+    },
     "fen_lisesi": {
         "9": [
             { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
@@ -160349,6 +160359,16 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "İslam Kültür ve Medeniyeti", saat: 2, atananBrans: "İHL Meslek Dersleri", kategori: "ORTAK DERSLER", isAtolye: false }
         ]
     },
+    "mesleki_ve_teknik_anadolu_lisesi": {
+        "hazirlik": [
+            { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 4, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 3, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Yabancı Dil", saat: 24, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 4, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ]
+    },
     "ozel_program_fen_lisesi": {
         "hazirlik": [
             { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 3, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
@@ -160726,6 +160746,14 @@ class MebDatabaseService {
     }
 
     getSchoolTypes() {
+        // NOT: Meslek lisesi (AMP) ve Anadolu Teknik Programı'nda hazırlık
+        // sınıfı, AYRI BİR OKUL TÜRÜ olarak değil, mevcut türün sınıf
+        // listesine eklenerek tanımlandı (TTKB Sayı 63, 16/07/2026).
+        // Gerekçe: lise tarafında hazırlıklı/hazırlıksız ayrı türler var ve
+        // kullanıcı bunu kaçırdı — "Anadolu Lisesi" seçip 4 sekme görünce
+        // hazırlığın hiç olmadığını sandı. Sekmenin hep görünmesi,
+        // hazırlığı olmayan okul için yalnızca kullanılmayan bir sekmedir;
+        // kaçırılması ise imkânsızdır.
         return [
             { id: "anadolu_lisesi", name: "Anadolu Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "hazirlik_anadolu_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
@@ -160734,8 +160762,8 @@ class MebDatabaseService {
             { id: "sosyal_bilimler_lisesi", name: "Sosyal Bilimler Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
-            { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
-            { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
+            { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
             { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
@@ -161713,6 +161741,24 @@ class MebCurriculumEngine {
         const result = [];
         const seenNorms = new Set();
         const schoolTypeStr = String(schoolType || "").toLowerCase();
+
+        // ---------------------------------------------------------------
+        // 0a. HAZIRLIK SINIFI — her okul türünden ÖNCE bakılır
+        // ---------------------------------------------------------------
+        // Hazırlık sınıfı, alandan/daldan bağımsız ortak bir yıldır. Meslek
+        // lisesinde bu kontrol aşağıdaki "meslek/teknik" dalından SONRA
+        // yapılsaydı hiç çalışmazdı: o dal alan çizelgesine bakar, hazırlık
+        // için kayıt bulamaz ve boş döner. Bu yüzden en başta duruyor.
+        //
+        // Meslek lisesi hazırlığı: TTKB Sayı 63, 16/07/2026 (2026-2027'den
+        // itibaren kademeli). 9-12. sınıflar yine alan çizelgesinden gelir.
+        if (gStr.toLowerCase() === "hazirlik"
+            && typeof ORTAOGRETIM_CIZELGELERI !== 'undefined' && ORTAOGRETIM_CIZELGELERI) {
+            const hazirlik = (ORTAOGRETIM_CIZELGELERI[schoolTypeStr] || {})["hazirlik"];
+            if (hazirlik && hazirlik.length) {
+                return hazirlik.map(d => ({ ...d }));
+            }
+        }
 
         // 0. ÖZEL EĞİTİM
         if (areaId === "ozel_egitim" || schoolTypeStr.includes("ozel_egitim") || String(dalName || "").includes("Özel Eğit")) {

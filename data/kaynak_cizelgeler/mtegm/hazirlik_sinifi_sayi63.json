@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "belge_adi": "Hazırlık Sınıfı Bulunan Anadolu Meslek ve Anadolu Teknik Programları Haftalık Ders Çizelgesi",
+    "karar": "TTKB Sayı 63, 16/07/2026",
+    "kurulda_gorusulme": "30/06/2026",
+    "onceki_karar": "03/09/2024 - 42 (yürürlükten kaldırıldı)",
+    "yururluk": "2026-2027 eğitim ve öğretim yılından itibaren hazırlık sınıfından başlayarak kademeli olarak",
+    "kaynak_dosya": "03_meb_mevzuat_ve_cizelgeler/temel_egitim_ortaokul/HAZIRLIK_SINIFI_KURUL_KARARI.pdf",
+
+    "cikarim_yontemi": "ELLE OKUNDU. Kaynak PDF'in 3. sayfasındaki çizelge METİN DEĞİL, taranmış GÖRÜNTÜdür (1240x1754 raster); metin katmanı yoktur ve geometrik çözümleyici çalışmaz. Makinede OCR motoru da bulunmadığı için (tesseract kurulu değil) sayfa 2.6 kat büyütülerek görüntüye çevrilmiş ve gözle okunmuştur.",
+
+    "dogrulama": "Elle okuma iki BAĞIMSIZ toplam satırıyla doğrulandı: (1) ortak derslerin toplamı 4+3+24+4+2 = 37, çizelgedeki TOPLAM satırı da 37. (2) 37 + 2 seçmeli + 1 rehberlik = 40, çizelgedeki TOPLAM DERS SAATİ satırı da 40. İki toplam da tuttuğu için okumada atlanan ya da yanlış okunan bir satır bulunmamaktadır.",
+
+    "not_meslek_dersleri": "Hazırlık sınıfında meslek dersi YOKTUR; çizelgede MESLEK DERSLERİ bölümünün hazırlık sütunu boştur ve MESLEK DERS SAATİ TOPLAMI '-' olarak yazılıdır. Hazırlık bir yabancı dil yılıdır (yabancı dil 24 saat).",
+
+    "not_9_12": "Bu çizelgenin 9-12. sınıf sütunları BOŞTUR; başlıktaki '............ ALANI' ifadesinden de anlaşılacağı gibi o sütunlar okulun alanına göre ayrı çizelgeden gelir. Bu dosya YALNIZCA hazırlık sınıfını tanımlar."
+  },
+  "aciklamalar": [
+    "1. Haftalık ders çizelgesinde yer alan ortak derslerde Talim ve Terbiye Kurulunun belirlemiş olduğu güncel öğretim programları uygulanır.",
+    "2. Öğrenciler; ilgi, istek ve okulun imkânları doğrultusunda \"Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik\" derslerinden sadece birini seçer.",
+    "3. Hazırlık sınıfındaki 2 ders saati olan seçmeli dersler, Talim ve Terbiye Kurulunca onaylanmış ve Tebliğler Dergisi'nde yayımlanan kararları doğrultusunda \"Meslekî ve Teknik Ortaöğretim Okul ve Kurumlarında Uygulanacak Seçmeli Dersler Tablosu\"ndan seçilecektir.",
+    "4. Yabancı dil dersinde Bakanlar Kurulu Kararı ile öğretiminin yapılması kabul edilen yabancı diller okutulacaktır."
+  ],
+  "tablolar": [
+    {
+      "tablo_adi": "Hazırlık Sınıfı Bulunan Anadolu Meslek ve Anadolu Teknik Programı",
+      "sinif_seviyeleri": ["hazirlik"],
+      "gruplar": [
+        {
+          "grup_adi": "ORTAK DERSLER",
+          "dersler": [
+            { "ders_adi": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI", "saatler": { "hazirlik": { "tip": "sabit", "saat": 4 } } },
+            { "ders_adi": "TÜRK DİLİ VE EDEBİYATI", "saatler": { "hazirlik": null } },
+            { "ders_adi": "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ", "saatler": { "hazirlik": null } },
+            { "ders_adi": "TARİH", "saatler": { "hazirlik": null } },
+            { "ders_adi": "T.C. İNKILAP TARİHİ VE ATATÜRKÇÜLÜK", "saatler": { "hazirlik": null } },
+            { "ders_adi": "COĞRAFYA", "saatler": { "hazirlik": null } },
+            { "ders_adi": "MATEMATİK", "saatler": { "hazirlik": { "tip": "sabit", "saat": 3 } } },
+            { "ders_adi": "FİZİK", "saatler": { "hazirlik": null } },
+            { "ders_adi": "KİMYA", "saatler": { "hazirlik": null } },
+            { "ders_adi": "BİYOLOJİ", "saatler": { "hazirlik": null } },
+            { "ders_adi": "FELSEFE", "saatler": { "hazirlik": null } },
+            { "ders_adi": "YABANCI DİL", "saatler": { "hazirlik": { "tip": "sabit", "saat": 24 } } },
+            { "ders_adi": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM", "saatler": { "hazirlik": { "tip": "sabit", "saat": 4 } } },
+            { "ders_adi": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK", "saatler": { "hazirlik": { "tip": "sabit", "saat": 2 } } },
+            { "ders_adi": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ", "saatler": { "hazirlik": null } }
+          ]
+        }
+      ],
+      "rehberlik_ve_yonlendirme": { "hazirlik": { "tip": "sabit", "saat": 1 } },
+      "ortak_dersler_toplami": { "hazirlik": 37 },
+      "secmeli_ders_saati_toplami": { "hazirlik": 2 },
+      "meslek_ders_saati_toplami": { "hazirlik": null },
+      "toplam_ders_saati": { "hazirlik": { "tip": "sabit", "saat": 40 } }
+    }
+  ]
+}
