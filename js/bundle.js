@@ -160594,6 +160594,35 @@ class MebCurriculumEngine {
      * MEB Talim ve Terbiye Kurulu 9 Sayılı Kararına Göre Ders ve Branş Kanonik Normalizasyonu
      * (Küçük/Büyük Harf, Şapkalı Karakterler ve Sahte Branşları Önler)
      */
+    /**
+     * Verilen ad, uygulamanın tanıdığı bir BRANŞ mı?
+     *
+     * Liste burada elle tutulmaz; database.js'teki kanonik branş listelerinden
+     * okunur. Aksi hâlde uygulamada bir branş adı değişince burası fark etmez
+     * ve idarecinin seçimi yeniden sessizce silinmeye başlar.
+     */
+    isKnownBranch(name) {
+        if (!name) return false;
+        if (!this._bransSeti) {
+            const kaynak = (this.db && typeof this.db.getAllBranchesList === "function")
+                ? (this.db.getAllBranchesList() || [])
+                : [];
+            const set = new Set();
+            for (const b of kaynak) {
+                const ad = (b && (b.brans_adi || b.brans)) || b;
+                if (typeof ad === "string" && ad.trim()) set.add(this.normalizeName(ad));
+            }
+            // Rehberlik norm listesinden düşürülse de geçerli bir branştır.
+            set.add(this.normalizeName("Rehberlik"));
+            // Liste beklenmedik şekilde boş gelirse kuralı uygulamıyoruz:
+            // her seçimi "sahte" sayıp hepsini ezmektense hiçbirine dokunmamak
+            // yeğdir. Boş set, aşağıda "bilinmiyor" olarak ele alınır.
+            this._bransSeti = set.size >= 20 ? set : null;
+        }
+        if (!this._bransSeti) return true;   // liste okunamadı: seçime dokunma
+        return this._bransSeti.has(this.normalizeName(name));
+    }
+
     getCanonicalCourseAndBranch(rawCourseName, rawBranchName = null, defaultArea = null, category = "ORTAK DERSLER") {
         if (!rawCourseName) return { courseName: "Ders", branchName: "— Branş Atanmadı —" };
         
@@ -160698,8 +160727,28 @@ class MebCurriculumEngine {
         if (STANDARDS[normKey]) {
             canonicalCourse = STANDARDS[normKey].course;
             const branchNorm = canonicalBranch ? this.normalizeName(canonicalBranch) : '';
-            // Eğer atanan branş yoksa veya dersin adıyla aynıysa veya sahte branşsa doğru TTKB branşını ver
-            if (!canonicalBranch || branchNorm === normKey || branchNorm === 'bransatanmadi' || branchNorm === 'diger' || STANDARDS[branchNorm]) {
+
+            // İDARECİNİN SEÇİMİ KORUNUR.
+            //
+            // Burada eskiden `STANDARDS[branchNorm]` koşulu vardı: atanan branş
+            // adı STANDARDS tablosunda bir DERS anahtarı olarak geçiyorsa seçim
+            // "sahte branş" sayılıp üzerine yazılıyordu. Amacı, branş alanına
+            // yanlışlıkla ders adı yazılmış kayıtları toparlamaktı; ama çok
+            // genişti. "Biyoloji", "Matematik", "Fizik", "Kimya", "Tarih",
+            // "Coğrafya", "Felsefe" gibi adlar hem ders hem GERÇEK branş
+            // olduğu için, idareci bir dersi bu branşlardan birine atadığında
+            // seçimi okul her yüklendiğinde SESSİZCE siliniyordu.
+            //
+            // Kullanıcı kararı (27.08.2026): "Branş ne seçilirse seçilsin o
+            // liste okul idarecisinin sorumluluğundadır; katı kural koymuyoruz."
+            // Örneğin Sağlık Bilgisi dersini Biyoloji'ye yazmak isterse yazar
+            // ve saat Biyoloji'nin yüküne eklenir.
+            //
+            // Artık yalnızca GERÇEKTEN branş olmayan değerler düzeltilir:
+            // boş, "Branş Atanmadı", "Diğer", ya da kanonik branş listesinde
+            // bulunmayan bir ad.
+            const gercekBrans = canonicalBranch && this.isKnownBranch(canonicalBranch);
+            if (!canonicalBranch || branchNorm === 'bransatanmadi' || branchNorm === 'diger' || !gercekBrans) {
                 canonicalBranch = STANDARDS[normKey].branch;
             }
         } else {
@@ -161987,41 +162036,21 @@ class NormEngine {
                 return;
             }
 
-            // ----------------------------------------------------------------
-            // TEK BAŞINA NORM DOĞURMAYAN YAN DERSLER
-            // ----------------------------------------------------------------
-            // Norm Kadroya Esas Dersler Çizelgesi bazı dersleri bir branşın
-            // "norma dahil" listesine yazar, ama o ders okulun asıl dersi
-            // değildir; yalnızca o branştan öğretmen VARSA ona verilir.
+            // NOT: Burada bir süre "yan dersler tek başına norm doğurmasın"
+            // kuralı vardı; okulda o branştan öğretmen yoksa branşı listeden
+            // gizliyordu (Sağlık Bilgisi -> Sağlık Hizmetleri, Trafik Güvenliği
+            // -> Beden Eğitimi). Kullanıcı kararıyla KALDIRILDI (27.08.2026):
             //
-            //   Sağlık Bilgisi ve Trafik Kültürü -> Sağlık / Sağlık Hizmetleri
-            //   Trafik Güvenliği (İlkokul)       -> Beden Eğitimi
+            //   "Okulda norm olmayabilir, ama yönetici yanlış branş bile seçse
+            //    o branş sağ panelde listelensin. Branş ne seçilirse seçilsin
+            //    o liste okul idarecisinin sorumluluğundadır; biz bu konuda
+            //    katı kurallar koymuyoruz."
             //
-            // Uygulamada bu, olmayan bir ihtiyaç üretiyordu: 6 şubeli bir
-            // Anadolu Lisesi'nde 6 saat Sağlık Bilgisi birikiyor, Madde 18
-            // barajını aşıyor ve "1 Sağlık Hizmetleri öğretmeni ihtiyacı"
-            // görünüyordu. Aynısı ilkokulda Trafik Güvenliği için oluyordu:
-            // Beden Eğitimi ve Oyun dersini sınıf öğretmeni okuttuğu için
-            // Beden Eğitimi branşının TEK yükü Trafik Güvenliği kalıyordu.
-            //
-            // Sahadaki karşılığı (kullanıcı teyidi): idareci, elinde o branştan
-            // öğretmen yoksa dersi boş bırakır; norm talebi doğmaz.
-            //
-            // Kural: okulda o branştan öğretmen VARSA saat normuna sayılır
-            // (çizelge böyle diyor); YOKSA branş listede gösterilmez.
-            const YAN_DERSLER = {
-                "Sağlık Hizmetleri": ["ağlık Bilgisi"],
-                "Beden Eğitimi": ["rafik Güvenliği"]
-            };
-            if (currentTeachers === 0 && YAN_DERSLER[branchName]) {
-                const dersler = branchCourseDetails[branchName] || [];
-                const parcalar = YAN_DERSLER[branchName];
-                const hepsiYanDers = dersler.length > 0 && dersler.every(d =>
-                    parcalar.some(p => String(d.courseName || "").indexOf(p) >= 0));
-                if (hepsiYanDers) {
-                    return;
-                }
-            }
+            // Gerekçe: uygulama karar verici değil, karar destek aracıdır.
+            // Bir branşı listeden gizlemek, idarecinin kendi yaptığı atamayı
+            // ekranda görememesi demektir. Ders yükü 0 olan branşların
+            // gizlenmesi kuralı (yukarıda) yerinde duruyor; oradaki durum
+            // farklıdır, çünkü o branşa hiç ders atanmamıştır.
 
             const normCalc = this.calculateBranchNorm(
                 totalHours, schoolType, branchName, branchLoadSplit[branchName] || null
