@@ -42,6 +42,7 @@ BUNDLE_FILES = [
     "strict_pdf_curriculum_db.js",
     "strict_elective_courses_db.js",
     "mesem_curriculum_db.js",    # database.js ve curriculumEngine.js'ten ÖNCE
+    "norm_haric_dersler.js",     # app.js'ten ÖNCE olmalı (üretilmiş tablo)
     "database.js",
     "curriculumEngine.js",
     "normEngine.js",
@@ -70,6 +71,12 @@ if (typeof window !== 'undefined') {
     if (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') window.STRICT_PDF_CURRICULUM_DB = STRICT_PDF_CURRICULUM_DB;
     if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
+    // NOT: `const` ile tanimlanan sabitler global nesneye KENDILIGINDEN
+    // yazilmaz (fonksiyon bildirimleri yazilir). Disari verilmezse testler ve
+    // tarayici konsolu tabloyu goremez; uyari sessizce hic calismamis gibi
+    // gorunur. normHaricKaydiBul bir fonksiyon oldugu icin zaten erisilebilir.
+    if (typeof NORM_HARIC_DERSLER !== 'undefined') window.NORM_HARIC_DERSLER = NORM_HARIC_DERSLER;
+    if (typeof normHaricKaydiBul !== 'undefined') window.normHaricKaydiBul = normHaricKaydiBul;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

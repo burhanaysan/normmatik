@@ -1164,6 +1164,25 @@ class MebNormApplication {
             });
         });
 
+        // Norma dahil edilmeyen yan ders uyarısı: işarete tıklanınca baloncuk.
+        // Tıklamayla açılır, çünkü yalnızca üzerine gelince görünen bir ipucu
+        // dokunmatik ekranlarda hiç açılmaz.
+        document.querySelectorAll(".norm-haric-im").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const acik = e.currentTarget.parentElement.querySelector(".norm-haric-baloncuk");
+                document.querySelectorAll(".norm-haric-baloncuk").forEach(b => b.remove());
+                if (acik) return;                       // açıksa kapat
+                const kutu = document.createElement("div");
+                kutu.className = "norm-haric-baloncuk";
+                kutu.textContent = e.currentTarget.dataset.uyari || "";
+                e.currentTarget.parentElement.appendChild(kutu);
+            });
+        });
+        document.addEventListener("click", () => {
+            document.querySelectorAll(".norm-haric-baloncuk").forEach(b => b.remove());
+        }, { once: true });
+
         document.querySelectorAll(".btn-open-merge-modal").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const cName = e.currentTarget.dataset.course;
@@ -1230,6 +1249,34 @@ class MebNormApplication {
             <option value="" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
             ${optionsList}
         `;
+
+        // --- NORMA DAHİL EDİLMEYEN YAN DERS UYARISI --------------------------
+        // Resmî Norm Kadroya Esas Dersler Çizelgesi, bazı dersleri bazı
+        // branşların norm hesabına dahil ETMEZ. Uygulama bunu ENGELLEMEZ —
+        // ders yine seçilen branşın yüküne eklenir, karar idarecinindir —
+        // ama sessiz de kalmaz: küçük bir işaretle hatırlatır.
+        //
+        // Uyarı yalnızca ÇİZELGEDE ADIYLA GEÇEN eşleşmelerde çıkar. "Şu ders
+        // bu branşın dahil listesinde yok" gerekçesiyle asla uyarılmaz;
+        // öyle yapılsaydı meslek liselerinde yüzlerce derse uyarı basılırdı.
+        // cName ve assignedBranch, satırda GÖRÜNEN çözümlenmiş değerlerdir;
+        // ham course.atananBrans değil. Uyarı, ekranda ne yazıyorsa ona bakmalı.
+        let normHaricHtml = "";
+        const seciliBrans = String(assignedBranch || "").trim();
+        if (seciliBrans && typeof normHaricKaydiBul === "function") {
+            const kayit = normHaricKaydiBul(
+                cName, seciliBrans,
+                schoolType || (appState.state.okulBilgisi || {}).okulTuru);
+            if (kayit) {
+                const metin = `${kayit.cizelge} dersi, ${kayit.brans} branşının norm `
+                    + `hesabına dahil edilmemesi gerekir. Ders yine bu branşın yüküne `
+                    + `eklenir; takdir sizindir. `
+                    + `(Kaynak: MEB Norm Kadroya Esas Dersler Çizelgesi)`;
+                normHaricHtml = `<button type="button" class="norm-haric-im"
+                        data-uyari="${metin.replace(/"/g, "&quot;")}"
+                        aria-label="Norm hesabı uyarısı" title="Norm hesabı uyarısı">!</button>`;
+            }
+        }
 
         const mergedSectionsNames = mergedList.map(id => {
             const sec = appState.state.subeler.find(s => s.id === id);
@@ -1303,6 +1350,7 @@ class MebNormApplication {
                         <select class="branch-select" data-course="${cName}">
                             ${branchOptionsHtml}
                         </select>
+                        ${normHaricHtml}
                     </div>
                 </td>
                 <td class="course-merge-cell">
