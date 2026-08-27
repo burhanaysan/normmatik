@@ -640,7 +640,72 @@ export class AppStateService {
         } catch (e) { /* olay yayınlanamazsa akış bozulmaz */ }
     }
 
+    // =====================================================================
+    // DEMO KİLİDİ
+    // =====================================================================
+    // Demo sürümü, ürünü denemek içindir; bir okulun norm çalışmasını
+    // ücretsiz yapmak için değil. Demo okul 10 şubeyle açıldığı için
+    // (vitrin amaçlı) bu ayrım net bir kurala bağlandı:
+    //
+    //   • İlk 3 şube serbestçe düzenlenir  (demo lisansının şube hakkı)
+    //   • 4. şubeden sonrası KİLİTLİ       (kilit işareti + lisans uyarısı)
+    //   • Seçmeli dersler demo boyunca değiştirilemez: liste görünür,
+    //     ekleme ve silme kapalı
+    //
+    // Kilit ARAYÜZDE DEĞİL BURADA uygulanır. Yalnızca düğmeyi gizlemek
+    // koruma değildir; veriyi değiştiren her yol aynı kapıdan geçmelidir.
+    // (Bu, istemci tarafındaki lisans denetiminin tümüyle aşılamaz olduğu
+    // anlamına gelmez — o ayrı bir açık iş — ama kilit en azından tek ve
+    // tutarlı bir yerde durur.)
+
+    _demoKisiti() {
+        const lm = (typeof window !== 'undefined') ? window.licenseManager : null;
+        const d = lm && lm.licenseStatus;
+        if (!d || !d.isDemo || d.isMaster) return null;
+        return { serbestSube: Math.max(0, parseInt(d.maxSections, 10) || 0) };
+    }
+
+    /** Bu şube demo kilidinin arkasında mı? (ilk N şube serbest) */
+    subeKilitliMi(sectionId) {
+        const k = this._demoKisiti();
+        if (!k) return false;
+        const i = (this.state.subeler || []).findIndex(s => s.id === sectionId);
+        return i >= 0 && i >= k.serbestSube;
+    }
+
+    /** Demoda seçmeli ders listesi salt okunurdur. */
+    secmeliDersDegistirilebilirMi() {
+        return this._demoKisiti() === null;
+    }
+
+    /** Reddi kullanıcıya duyurur; arayüz bunu bildirim olarak gösterir. */
+    _kilitUyar(mesaj) {
+        try {
+            if (typeof window !== 'undefined' && window.dispatchEvent && typeof CustomEvent === 'function') {
+                window.dispatchEvent(new CustomEvent("normmatik:demo-kilit", { detail: { mesaj } }));
+            }
+        } catch (e) {}
+        return false;
+    }
+
+    _subeKilidiniDenetle(sectionId) {
+        if (!this.subeKilitliMi(sectionId)) return true;
+        const k = this._demoKisiti();
+        return this._kilitUyar(
+            `Bu şube demo sürümünde kilitlidir. Demo sürümde ilk ${k.serbestSube} şube ` +
+            `üzerinde çalışabilirsiniz; diğerleri yalnızca örnek olarak gösterilir. ` +
+            `Değişiklik yapmak için lisans almanız gerekir.`);
+    }
+
+    _secmeliKilidiniDenetle() {
+        if (this.secmeliDersDegistirilebilirMi()) return true;
+        return this._kilitUyar(
+            "Seçmeli ders listesi demo sürümünde değiştirilemez. Mevcut seçmeli " +
+            "dersleri görebilirsiniz; ekleme ve çıkarma için lisans almanız gerekir.");
+    }
+
     updateSection(sectionId, updates) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return null;
 
@@ -652,6 +717,7 @@ export class AppStateService {
     }
 
     deleteSection(sectionId) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         this.pushHistory();
         this.state.subeler = this.state.subeler.filter(s => s.id !== sectionId);
         if (this.state.aktifSubeId === sectionId) {
@@ -661,6 +727,7 @@ export class AppStateService {
     }
 
     duplicateSection(sectionId) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         const source = this.state.subeler.find(s => s.id === sectionId);
         if (!source) return;
         if (this.subeSiniriniUygula(1) < 1) return;   // lisans şube sınırı
@@ -678,6 +745,7 @@ export class AppStateService {
 
     // --- Sınıf / Şube Bölme & Şube Çoğaltma Sistemi (Section Splitting Engine) ---
     splitSection(sourceSectionId, splitPlan) {
+        if (!this._subeKilidiniDenetle(sourceSectionId)) return;
         const sourceIndex = this.state.subeler.findIndex(s => s.id === sourceSectionId);
         if (sourceIndex === -1) return null;
         const source = this.state.subeler[sourceIndex];
@@ -913,6 +981,7 @@ export class AppStateService {
     }
 
     updateSectionDetails(sectionId, updates) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
@@ -928,6 +997,7 @@ export class AppStateService {
 
     // --- Ders & Seçmeli Yönetimi ---
     addElectiveCourse(sectionId, electiveCourse) {
+        if (!this._secmeliKilidiniDenetle()) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
@@ -942,6 +1012,7 @@ export class AppStateService {
     }
 
     removeElectiveCourse(sectionId, courseName) {
+        if (!this._secmeliKilidiniDenetle()) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
@@ -955,6 +1026,7 @@ export class AppStateService {
     }
 
     updateCourseBranch(sectionId, courseName, newBranchName) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
@@ -973,6 +1045,7 @@ export class AppStateService {
 
     // --- Sınıf Birleştirme (Course Merging) ---
     toggleCourseMerge(sectionId, courseName, targetSectionId) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
         const secA = this.state.subeler.find(s => s.id === sectionId);
         const secB = this.state.subeler.find(s => s.id === targetSectionId);
         if (!secA || !secB) return;

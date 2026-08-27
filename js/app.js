@@ -135,6 +135,27 @@ class MebNormApplication {
             // Arka arkaya çok sayıda ret gelebileceği için (örn. e-Okul
             // aktarımında 43 şube birden reddedilir) uyarı kısa süre
             // bastırılır, yoksa üst üste onlarca kutu açılırdı.
+            // Demo kilidi uyarısı: state.js veriyi değiştirmeyi reddettiğinde
+            // olay yollar, burada kullanıcıya gösterilir. Kilit arayüzde değil
+            // veri katmanında durduğu için, hangi yoldan denenirse denensin
+            // aynı uyarı çıkar. Art arda tıklamalarda üst üste binmesin diye
+            // kısa bir bekleme var.
+            if (typeof window !== 'undefined' && !window.__demoKilidiBagli) {
+                window.__demoKilidiBagli = true;
+                let sonKilitUyarisi = 0;
+                window.addEventListener("normmatik:demo-kilit", (olay) => {
+                    const simdi = Date.now();
+                    if (simdi - sonKilitUyarisi < 1500) return;
+                    sonKilitUyarisi = simdi;
+                    const mesaj = (olay.detail && olay.detail.mesaj) || "Bu işlem demo sürümünde kullanılamaz.";
+                    if (this.ui && typeof this.ui.showToast === 'function') {
+                        this.ui.showToast("🔒 " + mesaj, "warning");
+                    } else {
+                        alert("🔒 LİSANS GEREKLİ\n\n" + mesaj);
+                    }
+                });
+            }
+
             if (typeof window !== 'undefined' && !window.__subeSiniriBagli) {
                 window.__subeSiniriBagli = true;
                 let sonUyari = 0;
@@ -613,12 +634,22 @@ class MebNormApplication {
             }
 
             const gradeClass = isSpecialEdu ? 'card-grade-special-edu' : ('card-grade-' + String(s.sinifSeviyesi || '').toLowerCase());
+
+            // Demo sürümünde ilk 3 şube dışındakiler kilitlidir. Kilit
+            // işareti şubenin adının yanında durur: kullanıcı düzenlemeye
+            // kalkışmadan ÖNCE durumu görsün, sonradan uyarıyla karşılaşmasın.
+            const kilitli = typeof appState.subeKilitliMi === 'function'
+                && appState.subeKilitliMi(s.id);
+            const kilitHtml = kilitli
+                ? `<span class="sec-kilit" title="Demo sürümünde bu şube düzenlenemez. Değişiklik yapmak için lisans almanız gerekir.">🔒</span>`
+                : "";
+
             return `
-                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''}" data-id="${s.id}">
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${s.id}">
                     <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
                     <div class="sec-card-top-row">
                         <div class="sec-identity-wrap">
-                            <span class="sec-card-name" title="${s.subeAdi}">${s.subeAdi}</span>
+                            <span class="sec-card-name" title="${s.subeAdi}">${s.subeAdi}</span>${kilitHtml}
                         </div>
                         
                         <div class="sec-top-right-wrap">

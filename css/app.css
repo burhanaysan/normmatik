@@ -7246,3 +7246,33 @@ body.resizing .middle-canvas {
         print-color-adjust: exact;
     }
 }
+
+/* ==========================================================================
+   DEMO KİLİDİ — kilitli şube kartı
+   ==========================================================================
+   Demo sürümünde ilk 3 şube düzenlenebilir, gerisi örnek olarak gösterilir.
+   Kilitli kart SİLİKLEŞTİRİLMEZ: sayıları okunabilir kalmalı, çünkü demonun
+   amacı zaten o sayıları göstermek. Yalnızca kenarında kesik bir çizgi ve
+   adının yanında kilit işareti bulunur.
+   ========================================================================== */
+.sec-kilit {
+    margin-left: 0.3rem;
+    font-size: 0.72rem;
+    line-height: 1;
+    cursor: help;
+    opacity: 0.75;
+}
+
+.section-card.sube-kilitli {
+    border-style: dashed;
+}
+
+.section-card.sube-kilitli .sec-card-name {
+    opacity: 0.85;
+}
+
+/* Kilitli şubede düzenleme düğmeleri görünür ama pasif durur: kullanıcı
+   neyin kapalı olduğunu görsün, tıklayınca da sebebini öğrensin. */
+.section-card.sube-kilitli .sec-actions-group button {
+    opacity: 0.45;
+}
