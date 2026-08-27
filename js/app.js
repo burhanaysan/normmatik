@@ -39,16 +39,22 @@ class MebNormApplication {
 
             // 1. DEMO OKUL SENARYOSU (Tertemiz, Başka Okuldan İz Taşımayan Demo Şablonu)
             if (session && session.isDemo) {
-                appState.state = appState.getDefaultState();
+                // Demo girişi eskiden BOŞ bir okul açıyordu: ziyaretçi
+                // "Demo Okulu Deneyin"e basıyor, karşısına hiç şubesi olmayan
+                // bir ekran geliyordu. Ürünün ne yaptığını göstermek için
+                // önce elle okul kurması gerekiyordu — vitrin olarak zayıftı.
+                //
+                // Artık hazır demo okul yükleniyor: 10 şube, gerçek ölçekte
+                // ders yükleri ve norm tablosunda Tam / İhtiyaç / Fazla
+                // durumlarının üçü birden. (Kullanıcı kararı, 27.08.2026:
+                // "bu veriyi göm, her açan da otomatik görmüş olur.")
+                appState.loadDemoSchool(dbService, curriculumEngine);
                 appState.state.okulBilgisi.kurumKodu = "123456";
-                appState.state.okulBilgisi.okulAdi = "DEMO LİSESİ";
-                appState.state.okulBilgisi.okulTuru = "anadolu_lisesi";
                 appState.state.okulBilgisi.okulTuruKilitli = true;
                 appState.state.okulBilgisi.isDemo = true;
-                appState.state.subeler = [];
                 appState.history = [JSON.stringify(appState.state)];
                 appState.historyIndex = 0;
-            } 
+            }
             // 2. GERÇEK LİSANSLI OKUL SENARYOSU (Doğrudan Google Cloud'dan Canlı Yükleme)
             else if (session && session.kurumKodu) {
                 appState.state = appState.getDefaultState();

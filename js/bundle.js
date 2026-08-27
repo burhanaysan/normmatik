@@ -164232,84 +164232,137 @@ class AppStateService {
                     isAyniBinadaKucuk: false,
                     ekSinifOgrencileri: 0,
                     isIlceEnKalabalikKurum: false,
-                    mevcutRehberOgretmeni: 0,
-                    mevcutIdareciler: { mudur: 0, mudurBasyardimcisi: 0, mudurYardimcisi: 0, rehberOgretmeni: 0 },
+                    // Demo okulda idareci ve rehber öğretmen kartları da dolu
+                    // görünsün: 10 şube / 300 öğrencilik bir okulun gerçekçi
+                    // kadrosu. Boş bırakılırsa o kartlar hep "ihtiyaç" gösterir
+                    // ve ürünün o bölümü çalışmıyormuş gibi durur.
+                    mevcutRehberOgretmeni: 1,
+                    mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
                     yoneticiDersYukleri: {}
                 }
             },
-            subeler: [
-                {
-                    id: "sube_demo_9a",
-                    subeAdi: "9-A",
-                    sinifSeviyesi: "9",
+            // ŞUBELER — elle tek tek yazılmaz, üretilir.
+            //
+            // Demo, ürünün vitrinidir: ziyaretçi "Demo Okulu Deneyin"e basınca
+            // gerçek ölçekte bir okul görmelidir. Eskiden her sınıftan TEK şube
+            // vardı; normlar hep 0 ya da 1 çıkıyor, tabloda hiç "İhtiyaç"
+            // görünmüyordu. Artık 10 şube var (9-A/B/C, 10-A/B/C, 11-A/B,
+            // 12-A/B) ve norm tablosu Tam / İhtiyaç / Fazla üçünü birden
+            // gösteriyor.
+            //
+            // SEÇMELİ DERSLERİN ALAN ADLARINA DİKKAT: norm motoru dersi
+            // `ders`, saati `saat`, branşı `atananBrans` alanından okur.
+            // Eski demo verisi `dersAdi` / `dersSaati` / `ttkbKarsiligi`
+            // kullanıyordu; motor bu alanları tanımadığı için demo okulun
+            // BÜTÜN seçmeli saatleri norm hesabına hiç girmiyordu. Ekranda
+            // hata görünmüyordu, saatler sessizce yok sayılıyordu.
+            subeler: (() => {
+                const sd = (ders, saat, brans) => ({
+                    ders, saat, kategori: "SEÇMELİ DERSLER",
+                    atananBrans: brans, isAtolye: false
+                });
+                const yap = (ad, sinif, secmeliler) => ({
+                    id: "sube_demo_" + ad.replace("-", "").toLowerCase(),
+                    subeAdi: ad,
+                    sinifSeviyesi: String(sinif),
                     ogrenciSayisi: 30,
-                    zorunluDersler: demoDersler(9),
-                    secmeliDersler: [
-                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 2, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 2, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" }
-                    ],
+                    zorunluDersler: demoDersler(sinif),
+                    secmeliDersler: secmeliler,
                     rehberlikVarMi: true
-                },
-                {
-                    id: "sube_demo_10a",
-                    subeAdi: "10-A",
-                    sinifSeviyesi: "10",
-                    ogrenciSayisi: 30,
-                    zorunluDersler: demoDersler(10),
-                    secmeliDersler: [
-                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 2, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "ASTRONOMİ VE UZAY BİLİMLERİ", dersSaati: 2, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" }
-                    ],
-                    rehberlikVarMi: true
-                },
-                {
-                    id: "sube_demo_11a",
-                    subeAdi: "11-A",
-                    sinifSeviyesi: "11",
-                    ogrenciSayisi: 30,
-                    zorunluDersler: demoDersler(11),
-                    secmeliDersler: [
-                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" }
-                    ],
-                    rehberlikVarMi: true
-                },
-                {
-                    id: "sube_demo_12a",
-                    subeAdi: "12-A",
-                    sinifSeviyesi: "12",
-                    ogrenciSayisi: 30,
-                    zorunluDersler: demoDersler(12),
-                    secmeliDersler: [
-                        { dersAdi: "SEÇMELİ MATEMATİK", dersSaati: 6, ttkbKarsiligi: "Matematik", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ FİZİK", dersSaati: 4, ttkbKarsiligi: "Fizik", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ KİMYA", dersSaati: 4, ttkbKarsiligi: "Kimya", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "SEÇMELİ BİYOLOJİ", dersSaati: 4, ttkbKarsiligi: "Biyoloji", kategori: "SEÇMELİ DERSLER" },
-                        { dersAdi: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", dersSaati: 3, ttkbKarsiligi: "Tarih", kategori: "SEÇMELİ DERSLER" }
-                    ],
-                    rehberlikVarMi: false
-                }
-            ],
+                });
+                // Seçmeli saatleri bilerek farklı: sol panelde şube rozetleri
+                // üç durumu birden göstersin (eksik / tam / fazla).
+                // 9. sınıf hedefi 7 saat, 10. sınıf 6, 11. sınıf 20, 12. sınıf 24.
+                return [
+                    yap("9-A", 9, [
+                        sd("Seçmeli Matematik", 2, "Matematik"),
+                        sd("Seçmeli Biyoloji", 2, "Biyoloji"),
+                        sd("Seçmeli Fizik", 2, "Fizik"),
+                        sd("Bilişim Teknolojileri ve Yazılım", 1, "Bilişim Teknolojileri")
+                    ]),                                     // 7 -> tam
+                    yap("9-B", 9, [
+                        sd("Seçmeli Matematik", 2, "Matematik"),
+                        sd("Seçmeli Kimya", 2, "Kimya")
+                    ]),                                     // 4 -> eksik
+                    yap("9-C", 9, [
+                        sd("Seçmeli Matematik", 2, "Matematik"),
+                        sd("Seçmeli Biyoloji", 2, "Biyoloji"),
+                        sd("Seçmeli Fizik", 2, "Fizik"),
+                        sd("Seçmeli Kimya", 2, "Kimya")
+                    ]),                                     // 8 -> fazla
+                    yap("10-A", 10, [
+                        sd("Seçmeli Kimya", 2, "Kimya"),
+                        sd("Astronomi ve Uzay Bilimleri", 2, "Fizik"),
+                        sd("Seçmeli Matematik", 2, "Matematik")
+                    ]),                                     // 6 -> tam
+                    yap("10-B", 10, [
+                        sd("Seçmeli Kimya", 2, "Kimya"),
+                        sd("Seçmeli Fizik", 2, "Fizik")
+                    ]),                                     // 4 -> eksik
+                    yap("10-C", 10, [
+                        sd("Seçmeli Matematik", 2, "Matematik"),
+                        sd("Seçmeli Biyoloji", 2, "Biyoloji"),
+                        sd("Seçmeli Coğrafya", 2, "Coğrafya")
+                    ]),                                     // 6 -> tam
+                    yap("11-A", 11, [
+                        sd("Seçmeli Matematik", 6, "Matematik"),
+                        sd("Seçmeli Fizik", 4, "Fizik"),
+                        sd("Seçmeli Kimya", 4, "Kimya"),
+                        sd("Seçmeli Biyoloji", 4, "Biyoloji"),
+                        sd("Seçmeli İngilizce", 2, "İngilizce")
+                    ]),                                     // 20 -> tam
+                    yap("11-B", 11, [
+                        sd("Seçmeli Matematik", 6, "Matematik"),
+                        sd("Seçmeli Tarih", 4, "Tarih"),
+                        sd("Seçmeli Coğrafya", 4, "Coğrafya"),
+                        sd("Seçmeli Türk Dili ve Edebiyatı", 4, "Türk Dili ve Edebiyatı")
+                    ]),                                     // 18 -> eksik
+                    yap("12-A", 12, [
+                        sd("Seçmeli Matematik", 6, "Matematik"),
+                        sd("Seçmeli Fizik", 4, "Fizik"),
+                        sd("Seçmeli Kimya", 4, "Kimya"),
+                        sd("Seçmeli Biyoloji", 4, "Biyoloji"),
+                        sd("Seçmeli İngilizce", 4, "İngilizce"),
+                        sd("Seçmeli Türk Dili ve Edebiyatı", 2, "Türk Dili ve Edebiyatı")
+                    ]),                                     // 24 -> tam
+                    yap("12-B", 12, [
+                        sd("Seçmeli Matematik", 6, "Matematik"),
+                        sd("Seçmeli Tarih", 4, "Tarih"),
+                        sd("Seçmeli Coğrafya", 4, "Coğrafya"),
+                        sd("Seçmeli Felsefe", 4, "Felsefe"),
+                        sd("Seçmeli İngilizce", 4, "İngilizce")
+                    ])                                      // 22 -> eksik
+                ];
+            })(),
             aktifSubeId: "sube_demo_9a",
+            // MEVCUT ÖĞRETMEN SAYILARI — bilerek seçildi.
+            // Norm tablosu üç durumu da göstersin diye: bazı branşlar Tam,
+            // bazıları İhtiyaç, bazıları Fazla çıkar. Sayılar okulun gerçek
+            // normlarına göre belirlendi; hiçbir branşa 0 yazılmadı (sıfır
+            // öğretmenli bir lise gerçekçi durmaz).
+            //
+            //   Matematik norm 3, girilen 2  -> 1 İhtiyaç
+            //   Türk Dili norm 2, girilen 1  -> 1 İhtiyaç
+            //   Tarih / Coğrafya norm 1, girilen 2 -> 1 Fazlalık
+            //   gerisi norm kadar            -> Tam
+            //
+            // Almanca ve Müzik listeden çıkarıldı: müfredatta bu dersler yok,
+            // yükleri 0 olduğu için branş tabloda hiç görünmüyordu ve
+            // "kayıtlı ama görünmeyen öğretmen" durumu oluşuyordu.
             mevcutOgretmenler: {
-                "Türk Dili ve Edebiyatı": 1,
                 "Matematik": 2,
+                "Türk Dili ve Edebiyatı": 1,
+                "İngilizce": 2,
+                "Tarih": 2,
+                "Coğrafya": 2,
                 "Fizik": 1,
                 "Kimya": 1,
                 "Biyoloji": 1,
-                "Tarih": 1,
-                "Coğrafya": 1,
                 "Felsefe": 1,
-                "İngilizce": 1,
-                "Almanca": 1,
                 "Din Kültürü ve Ahlak Bilgisi": 1,
                 "Beden Eğitimi": 1,
                 "Görsel Sanatlar": 1,
-                "Müzik": 1,
-                "Bilişim Teknolojileri": 1,
-                "Rehberlik": 1
+                "Bilişim Teknolojileri": 1
             },
             koordinatorlukYukleri: {},
             ozelOkulBranslari: []
@@ -170851,16 +170904,22 @@ class MebNormApplication {
 
             // 1. DEMO OKUL SENARYOSU (Tertemiz, Başka Okuldan İz Taşımayan Demo Şablonu)
             if (session && session.isDemo) {
-                appState.state = appState.getDefaultState();
+                // Demo girişi eskiden BOŞ bir okul açıyordu: ziyaretçi
+                // "Demo Okulu Deneyin"e basıyor, karşısına hiç şubesi olmayan
+                // bir ekran geliyordu. Ürünün ne yaptığını göstermek için
+                // önce elle okul kurması gerekiyordu — vitrin olarak zayıftı.
+                //
+                // Artık hazır demo okul yükleniyor: 10 şube, gerçek ölçekte
+                // ders yükleri ve norm tablosunda Tam / İhtiyaç / Fazla
+                // durumlarının üçü birden. (Kullanıcı kararı, 27.08.2026:
+                // "bu veriyi göm, her açan da otomatik görmüş olur.")
+                appState.loadDemoSchool(dbService, curriculumEngine);
                 appState.state.okulBilgisi.kurumKodu = "123456";
-                appState.state.okulBilgisi.okulAdi = "DEMO LİSESİ";
-                appState.state.okulBilgisi.okulTuru = "anadolu_lisesi";
                 appState.state.okulBilgisi.okulTuruKilitli = true;
                 appState.state.okulBilgisi.isDemo = true;
-                appState.state.subeler = [];
                 appState.history = [JSON.stringify(appState.state)];
                 appState.historyIndex = 0;
-            } 
+            }
             // 2. GERÇEK LİSANSLI OKUL SENARYOSU (Doğrudan Google Cloud'dan Canlı Yükleme)
             else if (session && session.kurumKodu) {
                 appState.state = appState.getDefaultState();
