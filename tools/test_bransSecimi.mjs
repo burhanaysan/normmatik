@@ -246,6 +246,23 @@ console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıc�
         raporla(w, st, {}).find(b => b.branchName === "Rehberlik"), undefined);
     kontrol("varsayılan hâlde saat hiçbir branşa yazılmaz (Biyoloji 2'ye döner)",
         bioYuk(), 2);
+
+    // ...AMA TOPLAM OKUL YÜKÜNE DAHİLDİR.
+    // Kullanıcı kararı (27.08.2026): "Rehberlik dersi herhangi bir branşa
+    // atanmasa bile, ders çizelgesinde olduğu için toplam okul norm yüküne
+    // eklensin." Eklenmediğinde şube rozetleriyle üstteki toplam tutmuyordu.
+    const tam = () => w.normEngine.calculateSchoolNorms(
+        st.state.subeler, {}, "anadolu_lisesi", {});
+    const subeSaat = st.state.subeler.reduce((t, s) =>
+        t + (s.zorunluDersler || []).reduce((a, d) => a + d.saat, 0), 0);
+    kontrol("branşsız rehberlik saati toplam okul yüküne dahil",
+        tam().totalHours, subeSaat);
+
+    // Bir branşa atandığında ÇİFT SAYILMAMALI
+    st.updateCourseBranch(sec.id, reh().ders, "Biyoloji");
+    st.sanitizeExistingState();
+    kontrol("branşa atandığında toplam değişmez (çift sayma yok)",
+        tam().totalHours, subeSaat);
 }
 
 // -------------------------------------- 5. Gerçekten sahte olan değerler düzeltilir

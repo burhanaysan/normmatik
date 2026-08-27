@@ -785,6 +785,32 @@ export class NormEngine {
         branchReport.sort((a, b) => b.totalHours - a.totalHours || b.calculatedNorm - a.calculatedNorm);
 
         let grandTotalHours = branchReport.reduce((s, b) => s + (b.totalHours || 0), 0);
+
+        // ÇİZELGEDE OLUP HİÇBİR BRANŞA YAZILMAYAN SAATLER
+        // -----------------------------------------------
+        // Sınıf rehberliği saatleri branş yükü listesinde GÖRÜNMEZ (yukarıda
+        // "Rehberlik" anahtarı listeden düşülüyor; rehber öğretmenin normu
+        // ders saatinden değil öğrenci sayısından hesaplandığı için doğrusu
+        // budur). Ama bu saatler ders çizelgesinde yer alır ve okulun toplam
+        // ders yüküne dahildir.
+        //
+        // Eklenmediğinde şöyle görünüyordu: şubelerin rozetleri 33+34+20=87
+        // saat gösterirken üstteki toplam 84 diyordu; aradaki 3 saat üç şubenin
+        // rehberlik saatiydi ve nereye gittiği anlaşılmıyordu.
+        // (Kullanıcı kararı, 27.08.2026: "rehberlik dersi herhangi bir branşa
+        //  atanmasa bile, ders çizelgesinde olduğu için toplam okul norm
+        //  yüküne eklensin.")
+        //
+        // Çift sayma olmaz: ders bir branşa atandığında "Rehberlik" anahtarının
+        // yükü sıfırlanır, saat o branşın satırında zaten sayılır.
+        const LISTEDEN_DUSULEN_BRANSLAR = [
+            "Rehberlik",
+            "Rehberlik ve Psikolojik Danışmanlık",
+            "Rehberlik / Psikolojik Danışmanlık"
+        ];
+        for (const ad of LISTEDEN_DUSULEN_BRANSLAR) {
+            grandTotalHours += branchLoadMap[ad] || 0;
+        }
         let totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
         // Yönetici / İdareci Norm Kadro Hesabı (Madde 5 - 14)

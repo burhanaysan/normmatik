@@ -162102,6 +162102,32 @@ class NormEngine {
         branchReport.sort((a, b) => b.totalHours - a.totalHours || b.calculatedNorm - a.calculatedNorm);
 
         let grandTotalHours = branchReport.reduce((s, b) => s + (b.totalHours || 0), 0);
+
+        // ÇİZELGEDE OLUP HİÇBİR BRANŞA YAZILMAYAN SAATLER
+        // -----------------------------------------------
+        // Sınıf rehberliği saatleri branş yükü listesinde GÖRÜNMEZ (yukarıda
+        // "Rehberlik" anahtarı listeden düşülüyor; rehber öğretmenin normu
+        // ders saatinden değil öğrenci sayısından hesaplandığı için doğrusu
+        // budur). Ama bu saatler ders çizelgesinde yer alır ve okulun toplam
+        // ders yüküne dahildir.
+        //
+        // Eklenmediğinde şöyle görünüyordu: şubelerin rozetleri 33+34+20=87
+        // saat gösterirken üstteki toplam 84 diyordu; aradaki 3 saat üç şubenin
+        // rehberlik saatiydi ve nereye gittiği anlaşılmıyordu.
+        // (Kullanıcı kararı, 27.08.2026: "rehberlik dersi herhangi bir branşa
+        //  atanmasa bile, ders çizelgesinde olduğu için toplam okul norm
+        //  yüküne eklensin.")
+        //
+        // Çift sayma olmaz: ders bir branşa atandığında "Rehberlik" anahtarının
+        // yükü sıfırlanır, saat o branşın satırında zaten sayılır.
+        const LISTEDEN_DUSULEN_BRANSLAR = [
+            "Rehberlik",
+            "Rehberlik ve Psikolojik Danışmanlık",
+            "Rehberlik / Psikolojik Danışmanlık"
+        ];
+        for (const ad of LISTEDEN_DUSULEN_BRANSLAR) {
+            grandTotalHours += branchLoadMap[ad] || 0;
+        }
         let totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
         // Yönetici / İdareci Norm Kadro Hesabı (Madde 5 - 14)
@@ -172166,16 +172192,14 @@ class MebNormApplication {
                 </div>
                 <div class="norm-kpi-grid-compact">
                     <!-- Toplam Yük İnce Şerit -->
-                    <!-- Etiket "Toplam Okul Yükü" idi ve yanıltıyordu: bu sayı
-                         okulun TÜM ders saatleri değil, norm tablosunda görünen
-                         branşların toplamıdır. Rehberlik ve Yönlendirme saatleri
-                         (sınıf rehberliği, branş yüküne yazılmaz) ile tek başına
-                         norm doğurmayan yan dersler bu toplamın dışındadır.
-                         Kullanıcı şube rozetlerini (33/40 gibi) toplayıp buradaki
-                         sayıyla karşılaştırınca tutmuyordu. Sayı doğruydu, adı
-                         yanlıştı. -->
-                    <div class="kpi-banner-load" title="Norm hesabına giren ders saatlerinin toplamı. Sınıf rehberliği saatleri ve okulda o branştan öğretmen bulunmayan yan dersler bu toplama dâhil değildir; bu yüzden şubelerin haftalık saat toplamından düşük olabilir.">
-                        <span class="kpi-banner-label">⏱️ Norma Esas Ders Yükü</span>
+                    <!-- Etiket kısa süre "Norma Esas Ders Yükü" olmuştu, çünkü
+                         sayı sınıf rehberliği saatlerini dışarıda bırakıyordu ve
+                         şube rozetlerinin toplamıyla tutmuyordu (87 yerine 84).
+                         27.08.2026'da kullanıcı kararıyla o saatler toplama geri
+                         eklendi; sayı artık okulun toplam ders yükünü veriyor,
+                         etiket de eski hâline döndü. -->
+                    <div class="kpi-banner-load" title="Şubelerin haftalık ders saatlerinin toplamı. Sınıf rehberliği saatleri, henüz bir branş öğretmenine atanmamış olsalar bile çizelgede yer aldıkları için bu toplama dâhildir. Yöneticilerin okuttuğu dersler Md. 22/6 gereği branş yükünden düşüldüğü için, düşüm yapılan okullarda bu toplam daha küçük görünür.">
+                        <span class="kpi-banner-label">⏱️ Toplam Okul Yükü</span>
                         <span class="kpi-banner-val">${normResult.totalHours} <span style="font-size: 0.72rem; font-weight: 600;">Saat</span></span>
                     </div>
 

@@ -1380,16 +1380,14 @@ class MebNormApplication {
                 </div>
                 <div class="norm-kpi-grid-compact">
                     <!-- Toplam Yük İnce Şerit -->
-                    <!-- Etiket "Toplam Okul Yükü" idi ve yanıltıyordu: bu sayı
-                         okulun TÜM ders saatleri değil, norm tablosunda görünen
-                         branşların toplamıdır. Rehberlik ve Yönlendirme saatleri
-                         (sınıf rehberliği, branş yüküne yazılmaz) ile tek başına
-                         norm doğurmayan yan dersler bu toplamın dışındadır.
-                         Kullanıcı şube rozetlerini (33/40 gibi) toplayıp buradaki
-                         sayıyla karşılaştırınca tutmuyordu. Sayı doğruydu, adı
-                         yanlıştı. -->
-                    <div class="kpi-banner-load" title="Norm hesabına giren ders saatlerinin toplamı. Sınıf rehberliği saatleri ve okulda o branştan öğretmen bulunmayan yan dersler bu toplama dâhil değildir; bu yüzden şubelerin haftalık saat toplamından düşük olabilir.">
-                        <span class="kpi-banner-label">⏱️ Norma Esas Ders Yükü</span>
+                    <!-- Etiket kısa süre "Norma Esas Ders Yükü" olmuştu, çünkü
+                         sayı sınıf rehberliği saatlerini dışarıda bırakıyordu ve
+                         şube rozetlerinin toplamıyla tutmuyordu (87 yerine 84).
+                         27.08.2026'da kullanıcı kararıyla o saatler toplama geri
+                         eklendi; sayı artık okulun toplam ders yükünü veriyor,
+                         etiket de eski hâline döndü. -->
+                    <div class="kpi-banner-load" title="Şubelerin haftalık ders saatlerinin toplamı. Sınıf rehberliği saatleri, henüz bir branş öğretmenine atanmamış olsalar bile çizelgede yer aldıkları için bu toplama dâhildir. Yöneticilerin okuttuğu dersler Md. 22/6 gereği branş yükünden düşüldüğü için, düşüm yapılan okullarda bu toplam daha küçük görünür.">
+                        <span class="kpi-banner-label">⏱️ Toplam Okul Yükü</span>
                         <span class="kpi-banner-val">${normResult.totalHours} <span style="font-size: 0.72rem; font-weight: 600;">Saat</span></span>
                     </div>
 
