@@ -945,10 +945,19 @@ body {
     white-space: nowrap;
 }
 
+/* Öğrenci sayısı rozeti.
+   Eskiden neredeyse siyahtı (#0f172a beyaz yazı) ve açık temada bir leke
+   gibi duruyordu. Artık rozet ailesinin desenine uyuyor: açık zemin, aynı
+   tonun koyusu yazı, orta ton kenarlık — saat rozetlerindeki (yeşil/turuncu/
+   kırmızı) düzenin aynısı.
+   Renk olarak uygulamanın ANA tonu seçildi; yeşil/turuncu/kırmızı DURUM
+   anlatır, öğrenci sayısı ise durum değil bilgidir. Böylece yanındaki saat
+   rozetiyle yarışmaz, göz önce duruma gider.
+   Sabit kod yerine belirteç kullanılıyor: tema değişirse rozet de değişir. */
 .sec-badge-pill.student-pill {
-    background: #0f172a;
-    color: #ffffff;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
+    background: var(--primary-light);
+    color: var(--primary-text);
+    border: 1px solid var(--primary-border);
 }
 
 .sec-badge-pill.hour-pill.status-ok {
@@ -1215,10 +1224,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    background: #0f172a;
-    color: #f8fafc;
-    border: 1px solid #334155;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sol paneldeki öğrenci rozetiyle AYNI renk ailesi: ikisi de aynı bilgiyi
+       gösteriyor, farklı görünmeleri için sebep yok. Önceki hâli (#0f172a
+       zemin + beyaz yazı) açık temada ağır duruyordu. */
+    background: var(--primary-light);
+    color: var(--primary-text);
+    border: 1px solid var(--primary-border);
     white-space: nowrap;
     user-select: none;
     box-sizing: border-box;
@@ -1374,10 +1385,12 @@ body {
 }
 
 .meta-chip.student-chip {
-    background: #0f172a;
-    color: #f8fafc;
-    border: 1px solid #334155;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Sol paneldeki öğrenci rozetiyle AYNI renk ailesi: ikisi de aynı bilgiyi
+       gösteriyor, farklı görünmeleri için sebep yok. Önceki hâli (#0f172a
+       zemin + beyaz yazı) açık temada ağır duruyordu. */
+    background: var(--primary-light);
+    color: var(--primary-text);
+    border: 1px solid var(--primary-border);
 }
 
 .meta-chip.special-chip {
