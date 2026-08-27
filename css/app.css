@@ -896,6 +896,18 @@ body {
     min-width: 0;
     flex: 1;
     overflow: hidden;
+    /* Kilit işareti şube adının YANINDA dursun.
+       .sec-card-name `display: block` olduğu için tam genişliği kaplıyor ve
+       yanına konan kilidi alt satıra itiyordu. Satır düzenine çevirince
+       yan yana geliyorlar; min-width:0 sayesinde uzun adlardaki üç nokta
+       kısaltması da çalışmaya devam ediyor. */
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.sec-identity-wrap .sec-card-name {
+    min-width: 0;   /* flex çocuğu küçülebilsin, yoksa taşar */
 }
 
 .sec-card-name {
@@ -7269,7 +7281,7 @@ body.resizing .middle-canvas {
    adının yanında kilit işareti bulunur.
    ========================================================================== */
 .sec-kilit {
-    margin-left: 0.3rem;
+    flex: 0 0 auto;   /* ad uzun olsa da kilit küçülmesin, kaybolmasın */
     font-size: 0.72rem;
     line-height: 1;
     cursor: help;
