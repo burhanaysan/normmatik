@@ -59,8 +59,15 @@ console.log("taranan dosya: " + DOSYALAR.length);
 // curriculumEngine'de yapılan düzeltme oraya ULAŞMAZ.
 console.log("\n1. Müfredat satırı curriculumEngine.js dışında var mı?");
 const DERS_KALIBI = /\{\s*ders:\s*"[^"]+",\s*saat:\s*\d+/g;
+// ÜRETİLMİŞ dosyalar muaftır. Denetimin amacı ELLE yazılmış ikinci kopyaları
+// yakalamak; bir üreteçten çıkan tablo tanım gereği tek kaynaklıdır ve
+// kaynağı değiştiğinde yeniden üretilir. Muafiyet, dosyanın kendi başlığında
+// "ÜRETİLMİŞTİR" demesine bağlıdır — yani muafiyeti dosya kendi beyan eder,
+// buraya elle liste yazılmaz.
+const URETILMIS = /ÜRETİLMİŞTİR/;
 for (const d of DOSYALAR) {
     if (d.yol === "js/curriculumEngine.js") continue;
+    if (URETILMIS.test(d.metin.slice(0, 1200))) continue;
     const n = (d.metin.match(DERS_KALIBI) || []).length;
     denetle(`${d.yol}: elle yazılmış ders satırı yok`, n === 0,
         `${n} satır bulundu — müfredatın ikinci kopyası olabilir`);

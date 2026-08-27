@@ -440,6 +440,12 @@ export class MebDatabaseService {
             "Sosyal Bilgiler",
             "Tarih",
             "Teknoloji ve Tasarım",
+            // Güzel Sanatlar Lisesi tiyatro bölümünün dersleri bu alana
+            // aittir. 97 alanlık resmî "Öğretmenlik Alanları, Atama ve Ders
+            // Okutma Esasları" çizelgesinde AKTİF bir alandır; uygulamanın
+            // listesinde eksikti ve o yüzden tiyatro dersleri hiçbir branşa
+            // yazılamıyordu.
+            "Tiyatro",
             "Türk Dili ve Edebiyatı",
             "Türkçe"
         ];

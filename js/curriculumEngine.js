@@ -908,6 +908,31 @@ class MebCurriculumEngine {
             }
         }
 
+        // ---------------------------------------------------------------
+        // 3a. OKUL TÜRÜNE ÖZEL RESMÎ ÇİZELGE
+        // ---------------------------------------------------------------
+        // Buradan önce, Fen Lisesi / Sosyal Bilimler Lisesi / Anadolu İmam
+        // Hatip Lisesi / Güzel Sanatlar / Spor Lisesi ve özel program
+        // liselerinin HEPSİ aşağıdaki ANADOLU_CURRICULUM'a düşüyordu.
+        // Sessizce: hata yok, uyarı yok, yalnızca yanlış müfredat. Bir
+        // Anadolu İmam Hatip Lisesi, Kur'an-ı Kerim ve Arapça dersleri
+        // olmadan hesaplanıyordu.
+        //
+        // Tablo üretilmiştir (tools/uret_ortaogretim_cizelgeleri.py) ve
+        // okul türü kimliği database.js getSchoolTypes() ile birebir aynıdır.
+        // Eşleşme bulunamazsa eski davranış korunur.
+        if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined' && ORTAOGRETIM_CIZELGELERI) {
+            const cizelge = ORTAOGRETIM_CIZELGELERI[schoolTypeStr];
+            if (cizelge) {
+                const liste = cizelge[gStr];
+                if (liste && liste.length) {
+                    // Kopyalanır: şubede yapılan düzenleme üretilmiş tabloyu
+                    // bozmasın. (Aynı hata demo okulda yaşanmıştı.)
+                    return liste.map(d => ({ ...d }));
+                }
+            }
+        }
+
         // 3. OGM & DÖGM STANDARTLARI (Varsayılan)
         // --------------------------------------------------------------------
         // ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN.

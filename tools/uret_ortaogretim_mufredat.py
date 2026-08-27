@@ -169,6 +169,12 @@ def tr_kucuk(s):
 
 
 def anahtar(s):
+    """
+    Karşılaştırma anahtarı. Şapkalı harfler de sadeleşir: resmî çizelgeler
+    "Temel Dinî Bilgiler" yazarken uygulama "Temel Dini Bilgiler" kullanıyor.
+    Şapka atılmazsa aynı ders iki ayrı ders sanılır ve eşleşme kaçar.
+    """
+    s = s.replace("î", "i").replace("Î", "i").replace("â", "a")          .replace("Â", "a").replace("û", "u").replace("Û", "u")
     s = tr_kucuk(s)
     s = re.sub(r"\(.*?\)", " ", s)
     return re.sub(r"[^a-z0-9]", "", s)
@@ -202,7 +208,10 @@ def baslik_yap(s):
         elif re.fullmatch(r"([A-ZÇĞİÖŞÜ]\.)+", k):
             kelimeler.append(k)                       # T.C. gibi kısaltmalar
         else:
-            kelimeler.append(tr_upper_ilk(kl))
+            # Eğik çizgiden sonraki kelime de büyük harfle başlar:
+            # "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik" tek bir kelime
+            # sayıldığı için "Spor/görsel Sanatlar/müzik" çıkıyordu.
+            kelimeler.append("/".join(tr_upper_ilk(p) for p in kl.split("/")))
     return " ".join(kelimeler)
 
 
