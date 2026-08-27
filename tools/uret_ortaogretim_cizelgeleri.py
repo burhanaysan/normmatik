@@ -283,6 +283,50 @@ def ders_kaydi(gorunen, saat, brans, kategori="ORTAK DERSLER", baraj=False):
     return k
 
 
+def secmeli_anahtarlari(j, tablo_adi):
+    """
+    Bir okul türünün çizelgesindeki SEÇMELİ ders adlarının anahtarlarını
+    döndürür.
+
+    NEDEN YALNIZCA ANAHTAR: uygulamanın seçmeli havuzu zaten kurulu ve
+    dersin saatini, branşını, grubunu biliyor. Burada üretilen liste yalnızca
+    SÜZGEÇ olarak kullanılıyor: "bu ders bu okulun çizelgesinde var mı?"
+    Havuzu ikinci kez üretmek, aynı verinin bir kopyasını daha yaratmak
+    olurdu -- bu projede o hata defalarca sessiz sonuç verdi.
+    """
+    anahtarlar = set()
+
+    for t in (j.get("tablolar") or []):
+        if tablo_adi and t.get("tablo_adi") != tablo_adi:
+            continue
+        if not tablo_adi and t is not (j.get("tablolar") or [None])[0]:
+            continue
+        for g in (t.get("gruplar") or []):
+            if "SEÇMEL" not in (g.get("grup_adi") or "").upper():
+                continue
+            for d in (g.get("dersler") or []):
+                a = temel.anahtar(d.get("ders_adi") or "")
+                if a:
+                    anahtarlar.add(a)
+
+    # DÖGM (AİHL) biçimi: a_grubu.alanlar[].dersler[] ve
+    # b_grubu.programlar[].dersler[] -- ders listesi bir kat daha derinde.
+    sd = j.get("secmeli_dersler")
+    if isinstance(sd, dict):
+        for grup in sd.values():
+            if not isinstance(grup, dict):
+                continue
+            for alan_listesi in grup.values():
+                if not isinstance(alan_listesi, list):
+                    continue
+                for alan in alan_listesi:
+                    for d in (alan.get("dersler") or []) if isinstance(alan, dict) else []:
+                        a = temel.anahtar(d.get("ders_adi") or "")
+                        if a:
+                            anahtarlar.add(a)
+    return anahtarlar
+
+
 def ogm_tablosu(j, tablo_adi, harita, uyarilar, okul_turu=None):
     tablolar = j.get("tablolar") or []
     if tablo_adi:
@@ -393,6 +437,7 @@ def uret():
     tanidik_tur = uygulama_okul_turleri()
 
     cikti, rapor, uyarilar, hatalar = {}, [], [], []
+    secmeli = {}
 
     for tur, dosya, tablo_adi in TABLOLAR:
         if tur not in tanidik_tur:
@@ -414,6 +459,7 @@ def uret():
 
         veri = {s: v for s, v in veri.items() if v}
         cikti[tur] = veri
+        secmeli[tur] = sorted(secmeli_anahtarlari(j, None if tablo_adi in (None, "__AIHL__") else tablo_adi))
         rapor.append((tur, tablo_adi or "(tek tablo)",
                       {s: sum(d["saat"] for d in v) for s, v in veri.items()},
                       toplam))
@@ -426,10 +472,10 @@ def uret():
     for y in yabanci:
         hatalar.append("uygulamanın tanımadığı branş adı: %s" % y)
 
-    return cikti, rapor, uyarilar, hatalar, belirsiz
+    return cikti, rapor, uyarilar, hatalar, belirsiz, secmeli
 
 
-def js_yaz(cikti):
+def js_yaz(cikti, secmeli):
     s = ['/*',
          ' * ORTAÖĞRETİM HAFTALIK DERS ÇİZELGELERİ — ÜRETİLMİŞTİR, ELLE DÜZENLEMEYİN.',
          ' * Üreteç: tools/uret_ortaogretim_cizelgeleri.py',
@@ -463,6 +509,36 @@ def js_yaz(cikti):
         s.append('    }' + ("," if tur != sorted(cikti)[-1] else ""))
     s.append('};')
     s.append('')
+
+    # ---------------------------------------------------------------------
+    # OKUL TÜRÜNE GÖRE SEÇMELİ DERS SÜZGECİ
+    # ---------------------------------------------------------------------
+    s.append('/*')
+    s.append(' * OKUL TÜRÜNE GÖRE SEÇMELİ DERS SÜZGECİ')
+    s.append(' *')
+    s.append(' * Yalnızca ders ADI ANAHTARLARI tutulur. Uygulamanın seçmeli havuzu')
+    s.append(' * zaten kurulu ve dersin saatini, branşını, grubunu biliyor; buradaki')
+    s.append(' * liste sadece "bu ders bu okulun çizelgesinde var mı?" sorusunu')
+    s.append(' * cevaplar. Havuzu ikinci kez üretmek, aynı verinin bir kopyasını daha')
+    s.append(' * yaratmak olurdu — bu projede o hata defalarca sessiz sonuç verdi.')
+    s.append(' *')
+    s.append(' * ÖNCESİ (ölçüldü, 27.08.2026): bütün genel liseler — Anadolu, Fen,')
+    s.append(' * Sosyal Bilimler, Güzel Sanatlar, Spor — AYNI 102 derslik havuzu')
+    s.append(' * görüyordu. Oysa Anadolu Lisesi\'nin kendi çizelgesinde 45 seçmeli')
+    s.append(' * var. Yani müdür, kendi çizelgesinde olmayan dersleri de listede')
+    s.append(' * görüyor ve seçebiliyordu.')
+    s.append(' */')
+    s.append('const ORTAOGRETIM_SECMELI_ANAHTARLARI = {')
+    dolu = sorted(t for t, a in secmeli.items() if a)
+    for i, tur in enumerate(dolu):
+        anahtarlar = secmeli[tur]
+        s.append('    "%s": [   // %d ders' % (tur, len(anahtarlar)))
+        for k, a in enumerate(anahtarlar):
+            s.append('        %s%s' % (json.dumps(a, ensure_ascii=False),
+                                       "" if k == len(anahtarlar) - 1 else ","))
+        s.append('    ]' + ("" if i == len(dolu) - 1 else ","))
+    s.append('};')
+    s.append('')
     open(CIKTI, "w", encoding="utf-8").write("\n".join(s))
 
 
@@ -471,7 +547,7 @@ def main():
     ap.add_argument("--yaz", action="store_true")
     arg = ap.parse_args()
 
-    cikti, rapor, uyarilar, hatalar, belirsiz = uret()
+    cikti, rapor, uyarilar, hatalar, belirsiz, secmeli = uret()
 
     print("ORTAÖĞRETİM ÇİZELGELERİ ÜRETİCİSİ")
     print("=" * 82)
@@ -536,7 +612,7 @@ def main():
         return 2
 
     if arg.yaz:
-        js_yaz(cikti)
+        js_yaz(cikti, secmeli)
         print()
         print("yazıldı: %s" % CIKTI)
         print("UNUTMAYIN: build_bundle.py listesine ekleyin ve paketi yenileyin.")

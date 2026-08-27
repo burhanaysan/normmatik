@@ -72,6 +72,7 @@ if (typeof window !== 'undefined') {
     if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
+    if (typeof ORTAOGRETIM_SECMELI_ANAHTARLARI !== 'undefined') window.ORTAOGRETIM_SECMELI_ANAHTARLARI = ORTAOGRETIM_SECMELI_ANAHTARLARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

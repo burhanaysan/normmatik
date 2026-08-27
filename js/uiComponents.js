@@ -2718,7 +2718,7 @@ export class UIComponentManager {
 
         const grade = String(section.sinifSeviyesi || "11");
         const schoolType = this.state?.state?.okulBilgisi?.okulTuru || "";
-        const list = [];
+        let list = [];   // süzgeç sonunda yeniden atanabiliyor
         const seenNames = new Set();
 
         const AREA_BRANCHES = {
@@ -2939,6 +2939,84 @@ export class UIComponentManager {
                     }
                 }
             }
+        }
+
+        // =================================================================
+        // OKUL TÜRÜNE GÖRE SEÇMELİ SÜZGECİ
+        // =================================================================
+        // Ölçüldü (27.08.2026): Anadolu, Fen, Sosyal Bilimler, Güzel Sanatlar
+        // ve Spor liselerinin HEPSİ aynı 102 derslik havuzu görüyordu. Oysa
+        // Anadolu Lisesi'nin kendi çizelgesinde 45, Sosyal Bilimler'de 31
+        // seçmeli var. Yani müdür, kendi çizelgesinde OLMAYAN dersleri de
+        // listede görüyor ve seçebiliyordu.
+        //
+        // Süzgeç, üretilmiş ORTAOGRETIM_SECMELI_ANAHTARLARI tablosuna bakar
+        // (kaynak: resmî çizelgelerin SEÇMELİ grupları).
+        //
+        // ÜÇ KORUMA — süzgecin fazla geniş davranmaması için:
+        //   1. Okul türünün listesi YOKSA hiç süzülmez. Meslek lisesi, MESEM
+        //      ve ortaokul eski davranışını aynen sürdürür.
+        //   2. Meslek/alan dersleri (isVocational) süzülmez; onlar alan
+        //      çizelgesinden gelir ve genel çizelgede zaten geçmez.
+        //   3. Şubede ZATEN SEÇİLİ olan ders listede kalır. Aksi hâlde daha
+        //      önce seçim yapmış bir okulun dersi ekrandan kaybolur ve
+        //      idareci neyi kaybettiğini anlamaz.
+        try {
+            // Tarayıcıda window HER ZAMAN vardır ve tabloyu oraya paketleyici
+            // yazar; dolayısıyla tek doğru kaynak window'dur. Eskiden window'da
+            // bulamayınca paket içindeki sabite düşülüyordu — bu, süzgeci
+            // ölçüm için kapatmayı İMKÂNSIZ kılıyordu: "kapattım" denilen ölçüm
+            // aslında süzülmüş listeyi ölçüyordu ve sessizce yanlış sonuç
+            // veriyordu. Sabite düşüş yalnızca window'un hiç olmadığı ortamda.
+            const suzgecTablosu = (typeof window !== 'undefined')
+                ? (window.ORTAOGRETIM_SECMELI_ANAHTARLARI || null)
+                : (typeof ORTAOGRETIM_SECMELI_ANAHTARLARI !== 'undefined' ? ORTAOGRETIM_SECMELI_ANAHTARLARI : null);
+            const izinli = suzgecTablosu && suzgecTablosu[schoolType];
+
+            if (izinli && izinli.length) {
+                // DİKKAT — bu normalleştirme, izin listesini üreten
+                // tools/uret_ortaogretim_mufredat.py içindeki anahtar() ile
+                // BİREBİR AYNI olmak zorundadır: Türkçe harfler ASCII'ye
+                // indirgenir (ç->c, ş->s, ğ->g, ı/İ->i, ö->o, ü->u).
+                //
+                // İlk yazımda burada Türkçe harfler KORUNUYORDU, üreteç ise
+                // indirgiyordu. Sonuç: yalnızca Türkçe harf içermeyen 9 ders
+                // eşleşti ve süzgeç Anadolu Lisesi'nin 45 seçmelisinden 36'sını
+                // sessizce gizledi. Aynı verinin iki farklı yerde iki farklı
+                // kuralla işlenmesi, bu projede tekrar eden hata sınıfıdır.
+                const anahtar = (x) => String(x || "")
+                    .replace(/\(.*?\)/g, " ")
+                    .replace(/[îÎ]/g, "i").replace(/[âÂ]/g, "a").replace(/[ûÛ]/g, "u")
+                    .replace(/['’‘]/g, "")
+                    .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i")
+                    .toLowerCase()
+                    .replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u")
+                    .replace(/ö/g, "o").replace(/ç/g, "c")
+                    .replace(/[^a-z0-9]/g, "");
+
+                const izinliKume = new Set(izinli);
+                const seciliKume = new Set(
+                    (section.secmeliDersler || []).map(d => anahtar(d.ders || d.ders_adi)));
+
+                const oncekiSayi = list.length;
+                const suzulmus = list.filter(c =>
+                    c.isVocational ||
+                    izinliKume.has(anahtar(c.ders)) ||
+                    seciliKume.has(anahtar(c.ders)));
+
+                // Süzgeç listeyi tamamen boşaltıyorsa BİR ŞEY YANLIŞ demektir
+                // (ad eşleşmesi tutmamış olabilir). Boş liste, idarecinin hiç
+                // seçmeli ekleyememesi demek olurdu; eski liste korunur.
+                if (suzulmus.length > 0) {
+                    list = suzulmus;
+                } else if (oncekiSayi > 0) {
+                    console.warn("Seçmeli süzgeci listeyi boşalttı, süzgeç uygulanmadı:", schoolType);
+                }
+            }
+        } catch (e) {
+            // Süzgeç bir aksaklıkta sessizce devre dışı kalır; ders eklemek
+            // hiçbir durumda engellenmemeli.
+            console.warn("Seçmeli süzgeci uygulanamadı:", e);
         }
 
         return list;
