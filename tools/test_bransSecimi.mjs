@@ -231,6 +231,21 @@ console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıc�
     st.sanitizeExistingState();
     kontrol("branş boşaltılırsa varsayılan Rehberlik geri gelir",
         reh()?.atananBrans, "Rehberlik");
+
+    // VARSAYILAN HÂLDE SAAT SAYILMAZ — kullanıcı kararı (27.08.2026: "böyle
+    // kalsın"). Ders "Rehberlik" branşındayken saat hiçbir branşın yüküne
+    // yazılmaz; çünkü rehber öğretmenin normu ders saatinden değil öğrenci
+    // sayısından hesaplanır (Madde 21) ve sınıf rehberliği yükü, dersi fiilen
+    // okutan branş öğretmenine yazılmalıdır.
+    //
+    // Yani "Rehberlik" varsayılanı "bu saat henüz bir branş öğretmenine
+    // verilmedi" anlamına gelir. İdareci atadığında saat o branşa geçer
+    // (yukarıdaki kontroller). Uygulama kendiliğinden bir branş SEÇMEZ:
+    // hangi öğretmenin sınıf rehberi olduğunu yalnızca okul bilir.
+    kontrol("varsayılan hâlde Rehberlik norm listesinde görünmez",
+        raporla(w, st, {}).find(b => b.branchName === "Rehberlik"), undefined);
+    kontrol("varsayılan hâlde saat hiçbir branşa yazılmaz (Biyoloji 2'ye döner)",
+        bioYuk(), 2);
 }
 
 // -------------------------------------- 5. Gerçekten sahte olan değerler düzeltilir
