@@ -189,8 +189,52 @@ console.log("── 3. Atanan ders ne olursa olsun yüke eklenir (kısıtlama yo
         rapor.find(b => b.branchName === "Sağlık Hizmetleri"), undefined);
 }
 
-// -------------------------------------- 4. Gerçekten sahte olan değerler düzeltilir
-console.log("── 4. Branş olmayan değerler yine de düzeltilir");
+// ---------------------- 4. Rehberlik dersinin branşı da değiştirilebilir
+// Kullanıcı bildirimi (27.08.2026): "Rehberlik ve Yönlendirme dersi otomatik
+// 'Rehberlik' branşına atanıyor, değiştirmek istesem de değişmiyor. Biyoloji
+// seçtim, seçilmedi; Biyoloji sayısı artmadı."
+//
+// Sebep: state.js'teki rehberlik düzelticisi her temizlikte branşı koşulsuz
+// "Rehberlik" yapıyordu. Seçim uygulanıyor, hemen ardından geri alınıyordu —
+// ne hata ne uyarı. Artık yalnızca branş boş/tanınmazsa varsayılan yazılır.
+//
+// Dersin adı, 1 saat sabitlemesi, mükerrer temizliği ve 12. sınıf kuralı
+// DEĞİŞMEDİ; yalnızca branş zorlaması kaldırıldı.
+console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıcıdır");
+{
+    const w = ortam();
+    const st = okulKur(w, "anadolu_lisesi", "9", 1);
+    const sec = st.state.subeler[0];
+    const reh = () => (sec.zorunluDersler || []).find(d => /Rehberlik/.test(d.ders));
+    const bioYuk = () => {
+        const b = raporla(w, st, {}).find(x => x.branchName === "Biyoloji");
+        return b ? b.totalHours : 0;
+    };
+
+    kontrol("varsayılan branş Rehberlik", reh()?.atananBrans, "Rehberlik");
+    kontrol("başlangıçta Biyoloji yükü 2", bioYuk(), 2);
+
+    st.updateCourseBranch(sec.id, reh().ders, "Biyoloji");
+    kontrol("seçim uygulandı", reh()?.atananBrans, "Biyoloji");
+
+    st.sanitizeExistingState();
+    kontrol("temizlikten sonra da Biyoloji (asıl hata buydu)",
+        reh()?.atananBrans, "Biyoloji");
+    kontrol("saat Biyoloji'ye eklendi: 2 -> 3", bioYuk(), 3);
+
+    // Düzeltmenin diğer kuralları bozmadığı doğrulanır
+    kontrol("ders adı hâlâ sabitleniyor", reh()?.ders, "Rehberlik ve Yönlendirme");
+    kontrol("saat hâlâ 1'e sabitleniyor", reh()?.saat, 1);
+
+    // Branş silinirse varsayılan geri gelmeli
+    st.updateCourseBranch(sec.id, reh().ders, "");
+    st.sanitizeExistingState();
+    kontrol("branş boşaltılırsa varsayılan Rehberlik geri gelir",
+        reh()?.atananBrans, "Rehberlik");
+}
+
+// -------------------------------------- 5. Gerçekten sahte olan değerler düzeltilir
+console.log("── 5. Branş olmayan değerler yine de düzeltilir");
 {
     const w = ortam();
     const ce = w.curriculumEngine;

@@ -164714,7 +164714,31 @@ class AppStateService {
                 d.ders = "Rehberlik ve Yönlendirme";
                 d.saat = 1;
                 d.kategori = "ORTAK DERSLER";
-                d.atananBrans = "Rehberlik";
+
+                // BRANŞ ZORLANMAZ.
+                //
+                // Burada eskiden koşulsuz `d.atananBrans = "Rehberlik"` vardı.
+                // Bu temizlik neredeyse her işlemde çalıştığı için, idarecinin
+                // bu derse başka bir branş atamasının HİÇBİR ETKİSİ olmuyordu:
+                // seçim uygulanıyor, hemen ardından geri alınıyordu. Ekranda
+                // ne hata ne uyarı çıkıyordu; kullanıcı "değişmiyor" diyordu.
+                // (Kullanıcı bildirimi, 27.08.2026.)
+                //
+                // Çizelgenin kendi maddesi de bu dersin tek bir branşa ait
+                // olmadığını söylüyor: "Bu ders okutulduğu kurumda görev yapan
+                // bütün alan öğretmenleri tarafından okutulur."
+                //
+                // Artık yalnızca branş BOŞ ya da tanınmayan bir değerse
+                // varsayılan yazılır; idarecinin geçerli seçimi korunur.
+                // NOT: aşağıdaki `curriculum` değişkeni bu satırdan SONRA
+                // tanımlanıyor; buradan ona erişilemez. Motor doğrudan alınır.
+                const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+                    ? window.curriculumEngine : null;
+                const mevcutBrans = String(d.atananBrans || "").trim();
+                const gecerliBrans = (mevcutBrans && ce && typeof ce.isKnownBranch === 'function')
+                    ? ce.isKnownBranch(mevcutBrans)
+                    : !!mevcutBrans;
+                if (!gecerliBrans) d.atananBrans = "Rehberlik";
                 return true;
             }
             return true;
