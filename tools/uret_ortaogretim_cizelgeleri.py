@@ -510,35 +510,14 @@ def js_yaz(cikti, secmeli):
     s.append('};')
     s.append('')
 
-    # ---------------------------------------------------------------------
-    # OKUL TÜRÜNE GÖRE SEÇMELİ DERS SÜZGECİ
-    # ---------------------------------------------------------------------
-    s.append('/*')
-    s.append(' * OKUL TÜRÜNE GÖRE SEÇMELİ DERS SÜZGECİ')
-    s.append(' *')
-    s.append(' * Yalnızca ders ADI ANAHTARLARI tutulur. Uygulamanın seçmeli havuzu')
-    s.append(' * zaten kurulu ve dersin saatini, branşını, grubunu biliyor; buradaki')
-    s.append(' * liste sadece "bu ders bu okulun çizelgesinde var mı?" sorusunu')
-    s.append(' * cevaplar. Havuzu ikinci kez üretmek, aynı verinin bir kopyasını daha')
-    s.append(' * yaratmak olurdu — bu projede o hata defalarca sessiz sonuç verdi.')
-    s.append(' *')
-    s.append(' * ÖNCESİ (ölçüldü, 27.08.2026): bütün genel liseler — Anadolu, Fen,')
-    s.append(' * Sosyal Bilimler, Güzel Sanatlar, Spor — AYNI 102 derslik havuzu')
-    s.append(' * görüyordu. Oysa Anadolu Lisesi\'nin kendi çizelgesinde 45 seçmeli')
-    s.append(' * var. Yani müdür, kendi çizelgesinde olmayan dersleri de listede')
-    s.append(' * görüyor ve seçebiliyordu.')
-    s.append(' */')
-    s.append('const ORTAOGRETIM_SECMELI_ANAHTARLARI = {')
-    dolu = sorted(t for t, a in secmeli.items() if a)
-    for i, tur in enumerate(dolu):
-        anahtarlar = secmeli[tur]
-        s.append('    "%s": [   // %d ders' % (tur, len(anahtarlar)))
-        for k, a in enumerate(anahtarlar):
-            s.append('        %s%s' % (json.dumps(a, ensure_ascii=False),
-                                       "" if k == len(anahtarlar) - 1 else ","))
-        s.append('    ]' + ("" if i == len(dolu) - 1 else ","))
-    s.append('};')
-    s.append('')
+    # NOT — burada eskiden ORTAOGRETIM_SECMELI_ANAHTARLARI üretiliyordu:
+    # okul türüne göre seçmeli SÜZGECİ için ders adı anahtarları.
+    # 28.08.2026'da seçmeli havuzunun kendisi okul türüne göre üretilmeye
+    # başlandı (tools/uret_secmeli_havuzu.py) ve süzgeç gereksizleşti.
+    # Aynı kuralın iki yerde durması, bu projede tekrar eden hata kaynağı:
+    # süzgecin ad eşleştiricisi bu üreteçle uyuşmadığı için Anadolu
+    # Lisesi'nin 45 seçmelisinden 36'sı bir gün boyunca gizli kalmıştı.
+
     open(CIKTI, "w", encoding="utf-8").write("\n".join(s))
 
 

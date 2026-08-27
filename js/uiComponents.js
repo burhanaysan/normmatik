@@ -2866,33 +2866,41 @@ export class UIComponentManager {
             }
         }
 
-        // 2. İmam Hatip Seçmeli Havuzu (üretilmiş — kaynak: resmî TTKB çizelgesi)
+        // 2. Okul türünün KENDİ seçmeli havuzu (üretilmiş — resmî TTKB çizelgesi)
         //
-        // Bu havuz 28.08.2026'ya kadar meb_master_db.json içinden okunuyordu.
-        // Ölçüldü: resmî çizelgedeki 129 seçmeliden 119'u sunuluyor, 10'u hiç
-        // görünmüyordu (İslam Felsefesi, Tasavvuf Kültürü, Türk Dili ve
-        // Edebiyatı, Türk Kültür ve Medeniyeti Tarihi, Spor Psikolojisi ve
-        // Sosyolojisi, Temel Spor Eğitimi, Genel Sanat Tarihi, Temel Sanat
-        // Eğitimi, Türk İslam Sanatı Tarihi, Müzik ve Dramatik Etkinlikler
-        // Atölyesi) — çünkü master DB'de yoklardı. Eksik dersi elle eklemek
-        // aynı verinin üçüncü kopyasını doğururdu; bunun yerine havuzun tamamı
-        // çizelgeden üretiliyor (tools/uret_secmeli_havuzu.py) ve master DB
-        // okumasının YERİNE geçiyor. Tek kaynak kalsın diye.
-        const aihlHavuz = (typeof window !== 'undefined')
-            ? (window.AIHL_SECMELI_HAVUZU || null)
-            : (typeof AIHL_SECMELI_HAVUZU !== 'undefined' ? AIHL_SECMELI_HAVUZU : null);
+        // Bu havuz 28.08.2026'ya kadar meb_master_db.json içinden okunuyordu ve
+        // okuma 21 çizelge dosyasını dolaşıp bir dersi İLK gördüğü yerden
+        // alıyordu. Anadolu Lisesi dosyası önce geldiği için uzmanlaşmış
+        // liselere Anadolu Lisesi'nin saatleri yazılıyordu. Kaynak çizelgeyle
+        // karşılaştırma (1265 kayıt): 349'unda saat YANLIŞTI — Spor Lisesi'nde
+        // her iki dersten biri. Ekranda hata görünmüyordu; norm hesabı seçilen
+        // saat üzerinden yürüdüğü için sonuç sessizce yanlış çıkıyordu.
+        //
+        // Ayrıca AİHL'de çizelgedeki 129 seçmeliden 10'u master DB'de hiç
+        // yoktu ve hiçbir şubede seçilemiyordu.
+        //
+        // Havuz artık her okulun kendi çizelgesinden üretiliyor
+        // (tools/uret_secmeli_havuzu.py -> js/secmeli_havuzu.js, 12 okul türü).
+        // Havuzu OLAN tür için master DB okuması (4. adım) hiç çalışmaz;
+        // olmayan tür (meslek lisesi, MESEM, ortaokul) eski yolunu sürdürür.
+        const uretilmisHavuz = (typeof window !== 'undefined')
+            ? (window.SECMELI_HAVUZU || null)
+            : (typeof SECMELI_HAVUZU !== 'undefined' ? SECMELI_HAVUZU : null);
+        const turHavuzu = uretilmisHavuz ? uretilmisHavuz[schoolType] : null;
 
-        if (schoolType.includes("imam_hatip") && aihlHavuz) {
-            for (let d of (aihlHavuz[grade] || [])) {
+        if (turHavuzu) {
+            const imamHatipMi = schoolType.includes("imam_hatip");
+            for (let d of (turHavuzu[grade] || [])) {
                 const normName = dersAnahtari(d.ders);
                 if (seenNames.has(normName)) continue;
                 seenNames.add(normName);
                 list.push({
                     ders: d.ders,
-                    grup: d.grup || "İHL Seçmeli Havuzu",
+                    grup: d.grup || "Seçmeli Dersler",
                     hoursOptions: d.saatler.slice(),
                     selectedHour: d.saatler[0],
-                    defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()] || "İHL Meslek Dersleri",
+                    defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()]
+                        || (imamHatipMi ? "İHL Meslek Dersleri" : d.ders),
                     isVocational: false
                 });
             }
@@ -2936,7 +2944,11 @@ export class UIComponentManager {
         }
 
         // 4. OGM & Genel Kültür Seçmeli Havuzu (9-12. Sınıflar)
-        if (master.okul_turleri_ve_cizelgeler?.ortaogretim_genel_mudurlugu_ogm?.dosyalar) {
+        //
+        // YALNIZCA üretilmiş havuzu OLMAYAN okul türleri için. Havuzu olan tür
+        // (12 lise türü) kendi çizelgesini 2. adımda aldı; burada yeniden
+        // dolaşmak, başka okulların derslerini ve saatlerini geri getirirdi.
+        if (!turHavuzu && master.okul_turleri_ve_cizelgeler?.ortaogretim_genel_mudurlugu_ogm?.dosyalar) {
             const files = master.okul_turleri_ve_cizelgeler.ortaogretim_genel_mudurlugu_ogm.dosyalar;
             for (let fKey in files) {
                 for (let s of (files[fKey]?.haftalik_ders_cizelgeleri || [])) {
@@ -2965,83 +2977,16 @@ export class UIComponentManager {
             }
         }
 
-        // =================================================================
-        // OKUL TÜRÜNE GÖRE SEÇMELİ SÜZGECİ
-        // =================================================================
-        // Ölçüldü (27.08.2026): Anadolu, Fen, Sosyal Bilimler, Güzel Sanatlar
-        // ve Spor liselerinin HEPSİ aynı 102 derslik havuzu görüyordu. Oysa
-        // Anadolu Lisesi'nin kendi çizelgesinde 45, Sosyal Bilimler'de 31
-        // seçmeli var. Yani müdür, kendi çizelgesinde OLMAYAN dersleri de
-        // listede görüyor ve seçebiliyordu.
-        //
-        // Süzgeç, üretilmiş ORTAOGRETIM_SECMELI_ANAHTARLARI tablosuna bakar
-        // (kaynak: resmî çizelgelerin SEÇMELİ grupları).
-        //
-        // ÜÇ KORUMA — süzgecin fazla geniş davranmaması için:
-        //   1. Okul türünün listesi YOKSA hiç süzülmez. Meslek lisesi, MESEM
-        //      ve ortaokul eski davranışını aynen sürdürür.
-        //   2. Meslek/alan dersleri (isVocational) süzülmez; onlar alan
-        //      çizelgesinden gelir ve genel çizelgede zaten geçmez.
-        //   3. Şubede ZATEN SEÇİLİ olan ders listede kalır. Aksi hâlde daha
-        //      önce seçim yapmış bir okulun dersi ekrandan kaybolur ve
-        //      idareci neyi kaybettiğini anlamaz.
-        try {
-            // Tarayıcıda window HER ZAMAN vardır ve tabloyu oraya paketleyici
-            // yazar; dolayısıyla tek doğru kaynak window'dur. Eskiden window'da
-            // bulamayınca paket içindeki sabite düşülüyordu — bu, süzgeci
-            // ölçüm için kapatmayı İMKÂNSIZ kılıyordu: "kapattım" denilen ölçüm
-            // aslında süzülmüş listeyi ölçüyordu ve sessizce yanlış sonuç
-            // veriyordu. Sabite düşüş yalnızca window'un hiç olmadığı ortamda.
-            const suzgecTablosu = (typeof window !== 'undefined')
-                ? (window.ORTAOGRETIM_SECMELI_ANAHTARLARI || null)
-                : (typeof ORTAOGRETIM_SECMELI_ANAHTARLARI !== 'undefined' ? ORTAOGRETIM_SECMELI_ANAHTARLARI : null);
-            const izinli = suzgecTablosu && suzgecTablosu[schoolType];
 
-            if (izinli && izinli.length) {
-                // DİKKAT — bu normalleştirme, izin listesini üreten
-                // tools/uret_ortaogretim_mufredat.py içindeki anahtar() ile
-                // BİREBİR AYNI olmak zorundadır: Türkçe harfler ASCII'ye
-                // indirgenir (ç->c, ş->s, ğ->g, ı/İ->i, ö->o, ü->u).
-                //
-                // İlk yazımda burada Türkçe harfler KORUNUYORDU, üreteç ise
-                // indirgiyordu. Sonuç: yalnızca Türkçe harf içermeyen 9 ders
-                // eşleşti ve süzgeç Anadolu Lisesi'nin 45 seçmelisinden 36'sını
-                // sessizce gizledi. Aynı verinin iki farklı yerde iki farklı
-                // kuralla işlenmesi, bu projede tekrar eden hata sınıfıdır.
-                const anahtar = (x) => String(x || "")
-                    .replace(/\(.*?\)/g, " ")
-                    .replace(/[îÎ]/g, "i").replace(/[âÂ]/g, "a").replace(/[ûÛ]/g, "u")
-                    .replace(/['’‘]/g, "")
-                    .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i")
-                    .toLowerCase()
-                    .replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u")
-                    .replace(/ö/g, "o").replace(/ç/g, "c")
-                    .replace(/[^a-z0-9]/g, "");
-
-                const izinliKume = new Set(izinli);
-                const seciliKume = new Set(
-                    (section.secmeliDersler || []).map(d => anahtar(d.ders || d.ders_adi)));
-
-                const oncekiSayi = list.length;
-                const suzulmus = list.filter(c =>
-                    c.isVocational ||
-                    izinliKume.has(anahtar(c.ders)) ||
-                    seciliKume.has(anahtar(c.ders)));
-
-                // Süzgeç listeyi tamamen boşaltıyorsa BİR ŞEY YANLIŞ demektir
-                // (ad eşleşmesi tutmamış olabilir). Boş liste, idarecinin hiç
-                // seçmeli ekleyememesi demek olurdu; eski liste korunur.
-                if (suzulmus.length > 0) {
-                    list = suzulmus;
-                } else if (oncekiSayi > 0) {
-                    console.warn("Seçmeli süzgeci listeyi boşalttı, süzgeç uygulanmadı:", schoolType);
-                }
-            }
-        } catch (e) {
-            // Süzgeç bir aksaklıkta sessizce devre dışı kalır; ders eklemek
-            // hiçbir durumda engellenmemeli.
-            console.warn("Seçmeli süzgeci uygulanamadı:", e);
-        }
+        // NOT — burada eskiden bir "okul türüne göre seçmeli süzgeci" vardı.
+        // Havuz master DB'den geldiği ve bütün okulların derslerini içerdiği
+        // için, listeyi okulun kendi çizelgesine daraltmak gerekiyordu.
+        // 28.08.2026'da havuzun kendisi okul türüne göre üretilmeye başlandı
+        // (2. adım); süzgeç aynı işi ikinci kez yapıyordu. Aynı kuralın iki
+        // yerde durması bu projede tekrar eden hata kaynağı: süzgecin ad
+        // eşleştiricisi üreteçle uyuşmadığı için Anadolu Lisesi'nin 45
+        // seçmelisinden 36'sı bir gün boyunca gizli kalmıştı. Tek mekanizma
+        // bırakıldı.
 
         return list;
     }

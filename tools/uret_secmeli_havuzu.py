@@ -1,34 +1,47 @@
 # -*- coding: utf-8 -*-
 """
-NormMatik™ — Anadolu İmam Hatip Lisesi seçmeli ders havuzu üreteci
+NormMatik™ — Okul türüne göre seçmeli ders havuzu üreteci
 ==============================================================================
-NE ÜRETİR: js/secmeli_havuzu.js  ->  const AIHL_SECMELI_HAVUZU
+NE ÜRETİR: js/secmeli_havuzu.js  ->  const SECMELI_HAVUZU
+           { okul_turu: { sinif: [ {ders, grup, saatler, kacKez}, ... ] } }
 
 NEDEN VAR
-    AİHL seçmelileri şimdiye kadar meb_master_db.json içinden okunuyordu.
-    Ölçüldü (28.08.2026): resmî çizelgedeki 129 seçmeliden 119'u sunuluyor,
-    10'u hiç görünmüyordu — çünkü master DB'de yoklar:
+    Seçmeli havuzu meb_master_db.json içinden okunuyordu. Okuma, 21 çizelge
+    dosyasını dolaşıp bir dersi İLK gördüğü yerden alıyordu. Anadolu Lisesi
+    dosyası önce geldiği için, uzmanlaşmış liselere Anadolu Lisesi'nin
+    saatleri yazılıyordu.
 
-        İslam Felsefesi, Tasavvuf Kültürü, Türk Dili ve Edebiyatı,
-        Türk Kültür ve Medeniyeti Tarihi, Spor Psikolojisi ve Sosyolojisi,
-        Temel Spor Eğitimi, Genel Sanat Tarihi, Temel Sanat Eğitimi,
-        Türk İslam Sanatı Tarihi, Müzik ve Dramatik Etkinlikler Atölyesi
+    Ölçüldü (28.08.2026) — kaynak çizelgeyle karşılaştırma:
 
-    Eksik 10 dersi elle eklemek en kolay yoldu ve YANLIŞ olurdu: aynı verinin
-    üçüncü bir kopyası doğardı ve bir sonraki çizelge değişikliğinde yine elle
-    güncellenmesi gerekirdi. Bu projede tekrar eden hata sınıfı tam olarak bu.
-    Onun yerine havuzun TAMAMI resmî çizelgeden üretilir ve uygulamadaki
-    master DB okumasının YERİNE geçer. Böylece tek kaynak kalır.
+        anadolu_lisesi             125 kayıt,  10 yanlış   (%92,0 doğru)
+        fen_lisesi                 119 kayıt,  21 yanlış   (%82,4)
+        sosyal_bilimler_lisesi     107 kayıt,  19 yanlış   (%82,2)
+        guzel_sanatlar_gorsel      133 kayıt,  56 yanlış   (%57,9)
+        guzel_sanatlar_tiyatro     123 kayıt,  52 yanlış   (%57,7)
+        guzel_sanatlar_muzik       152 kayıt,  54 yanlış   (%64,5)
+        guzel_sanatlar_turk_muzigi 144 kayıt,  54 yanlış   (%62,5)
+        spor_lisesi                118 kayıt,  60 yanlış   (%49,2)
+        ------------------------------------------------------------
+        TOPLAM                    1265 kayıt, 349 yanlış   (%72,4 doğru)
+
+    Ekranda hiçbir hata görünmüyordu; yalnızca saatler yanlıştı. Norm hesabı
+    seçilen saat üzerinden yürüdüğü için bu, sessiz ve doğrudan yanlış sonuç
+    üreten bir hataydı.
+
+    Aynı hata AİHL'de 28.08.2026'da bu üreteçle giderilmişti; bu sürüm onu
+    bütün okul türlerine genelliyor.
 
 KAYNAK
-    data/kaynak_cizelgeler/dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json
-    (TTKB kararından üretilmiş, doğrulanmış çizelge)
+    data/kaynak_cizelgeler/ altındaki resmî TTKB çizelgeleri.
+    Okul türü -> dosya -> tablo eşlemesi ELLE YAZILMAZ; müfredat üretecinin
+    TABLOLAR listesinden okunur (tools/uret_ortaogretim_cizelgeleri.py).
+    Aynı eşlemenin iki kopyası olsaydı, biri güncellenip diğeri unutulduğunda
+    kimse fark etmezdi.
 
 SAAT BİLGİSİ
-    Kaynak iki tip saat verir:
-        {"tip": "sabit",     "saat": 2}            -> tek seçenek
-        {"tip": "secenekli", "secenekler": [1, 2]} -> açılır listede seçenekler
-    null olan sınıf, o dersin o sınıfta okutulmadığı anlamına gelir.
+    {"tip": "sabit",     "saat": 2}            -> tek seçenek
+    {"tip": "secenekli", "secenekler": [1, 2]} -> açılır listede seçenekler
+    null -> ders o sınıfta okutulmuyor
 
 KULLANIM
     python -X utf8 tools/uret_secmeli_havuzu.py
@@ -42,15 +55,20 @@ import os
 import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-KAYNAK = os.path.join(BASE_DIR, "data", "kaynak_cizelgeler", "dogm",
-                      "anadolu_imam_hatip_lisesi_ve_hazirlik.json")
-CIKTI = os.path.join(BASE_DIR, "js", "secmeli_havuzu.js")
+sys.path.insert(0, os.path.join(BASE_DIR, "tools"))
 
+from uret_ortaogretim_cizelgeleri import TABLOLAR, KAYNAK  # noqa: E402
+
+CIKTI = os.path.join(BASE_DIR, "js", "secmeli_havuzu.js")
 SINIFLAR = ["hazirlik", "9", "10", "11", "12"]
+
+# Kaynakta iki ayrı yapı var:
+#   OGM  -> tablolar[].gruplar[] içinde grup_adi'nda "SEÇMELİ" geçen gruplar
+#   DÖGM -> secmeli_dersler.a_grubu.alanlar[] / b_grubu.programlar[]
+# İkisi de aynı ders kaydına indirgenir.
 
 
 def saat_secenekleri(saat_bilgisi):
-    """Kaynaktaki saat kaydını, arayüzün beklediği seçenek listesine çevirir."""
     if not saat_bilgisi:
         return None
     tip = saat_bilgisi.get("tip")
@@ -64,115 +82,171 @@ def saat_secenekleri(saat_bilgisi):
     raise ValueError("Bilinmeyen saat tipi: %r" % (saat_bilgisi,))
 
 
+def secmeli_mi(grup_adi):
+    # "SEÇMELİ".upper() Türkçe'de tuzaklıdır; küçük harfe indirip bakıyoruz.
+    ad = (grup_adi or "").replace("İ", "i").replace("I", "i").lower()
+    return "secmel" in ad.replace("ç", "c")
+
+
+def dersleri_topla(kaynak_json, tablo_adi):
+    """(ders_adi, grup_adi, saatler_sozlugu, kac_kez) üçlüleri döndürür."""
+    kayitlar = []
+
+    # --- DÖGM biçimi (imam hatip) ---
+    secmeli = kaynak_json.get("secmeli_dersler")
+    if secmeli:
+        for grup in secmeli.values():
+            for alt in (grup.get("alanlar") or grup.get("programlar") or []):
+                grup_adi = alt.get("alan_adi") or alt.get("program_adi") or "Seçmeli"
+                for d in (alt.get("dersler") or []):
+                    kayitlar.append((d.get("ders_adi") or "", grup_adi,
+                                     d.get("saatler") or {},
+                                     d.get("kac_kez_secilebilir") or 1))
+        return kayitlar
+
+    # --- OGM biçimi ---
+    tablolar = kaynak_json.get("tablolar") or []
+    if tablo_adi:
+        tablo = next((t for t in tablolar if t.get("tablo_adi") == tablo_adi), None)
+    else:
+        tablo = tablolar[0] if tablolar else None
+    if not tablo:
+        return kayitlar
+
+    for g in (tablo.get("gruplar") or []):
+        if not secmeli_mi(g.get("grup_adi")):
+            continue
+        for d in (g.get("dersler") or []):
+            # OGM'de dersin kendi alt grubu ("AKADEMİK ÇALIŞMALAR" gibi)
+            # ders kaydında tutuluyor; yoksa grubun adı kullanılır.
+            kayitlar.append((d.get("ders_adi") or "",
+                             d.get("grup") or g.get("grup_adi") or "Seçmeli",
+                             d.get("saatler") or {},
+                             d.get("kac_kez_secilebilir") or 1))
+    return kayitlar
+
+
 def havuzu_kur():
-    with io.open(KAYNAK, "r", encoding="utf-8") as f:
-        veri = json.load(f)
+    havuz = {}
+    kaynak_yok = []
+    istatistik = []
 
-    secmeli = veri.get("secmeli_dersler") or {}
-    if not secmeli:
-        raise SystemExit("HATA: kaynakta secmeli_dersler yok: %s" % KAYNAK)
+    for tur, dosya, tablo_adi in TABLOLAR:
+        if tablo_adi == "__AIHL__":
+            tablo_adi = None          # DÖGM biçiminde tablo adı kullanılmaz
+        yol = os.path.join(KAYNAK, dosya)
+        if not os.path.exists(yol):
+            kaynak_yok.append((tur, dosya))
+            continue
+        with io.open(yol, "r", encoding="utf-8") as f:
+            veri = json.load(f)
 
-    havuz = dict((s, []) for s in SINIFLAR)
-    tekil_adlar = set()
-    kaynak_ders_sayisi = 0
+        kayitlar = dersleri_topla(veri, tablo_adi)
+        if not kayitlar:
+            # Seçmelisi olmayan tür (ör. meslek lisesi hazırlık çizelgesi).
+            # Bu türler eski davranışlarını sürdürsün diye havuza EKLENMEZ;
+            # boş bir havuz yazmak, listeyi tamamen boşaltırdı.
+            istatistik.append((tur, 0, 0))
+            continue
 
-    for grup_anahtari, grup in secmeli.items():
-        # a_grubu -> alanlar[].alan_adi, b_grubu -> programlar[].program_adi
-        alt_liste = grup.get("alanlar") or grup.get("programlar") or []
-        if not alt_liste:
-            raise SystemExit(
-                "HATA: %s altinda alanlar/programlar yok. Kaynak yapisi "
-                "degismis olabilir; sessizce bos havuz uretmektense duruyorum."
-                % grup_anahtari)
-
-        for alt in alt_liste:
-            grup_adi = alt.get("alan_adi") or alt.get("program_adi") or "Seçmeli"
-            for ders in (alt.get("dersler") or []):
-                ad = (ders.get("ders_adi") or "").strip()
-                if not ad:
+        tur_havuz = {}
+        tekil = set()
+        for ad, grup_adi, saatler, kac_kez in kayitlar:
+            ad = (ad or "").strip()
+            if not ad:
+                continue
+            tekil.add(ad)
+            for sinif in SINIFLAR:
+                secenekler = saat_secenekleri(saatler.get(sinif))
+                if not secenekler:
                     continue
-                kaynak_ders_sayisi += 1
-                tekil_adlar.add(ad)
-                saatler = ders.get("saatler") or {}
-                for sinif in SINIFLAR:
-                    secenekler = saat_secenekleri(saatler.get(sinif))
-                    if not secenekler:
-                        continue
-                    havuz[sinif].append({
-                        "ders": ad,
-                        "grup": grup_adi,
-                        "saatler": secenekler,
-                        "kacKez": ders.get("kac_kez_secilebilir") or 1,
-                    })
+                tur_havuz.setdefault(sinif, []).append({
+                    "ders": ad,
+                    "grup": grup_adi,
+                    "saatler": secenekler,
+                    "kacKez": kac_kez,
+                })
 
-    return havuz, tekil_adlar, kaynak_ders_sayisi
+        if not tur_havuz:
+            istatistik.append((tur, len(tekil), 0))
+            continue
+
+        havuz[tur] = tur_havuz
+        istatistik.append((tur, len(tekil),
+                           sum(len(v) for v in tur_havuz.values())))
+
+    return havuz, istatistik, kaynak_yok
 
 
-def js_yaz(havuz, tekil_adlar):
-    satirlar = []
-    satirlar.append("/* ===========================================================================")
-    satirlar.append("   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN")
-    satirlar.append("   Üreteç : tools/uret_secmeli_havuzu.py")
-    satirlar.append("   Kaynak : data/kaynak_cizelgeler/dogm/"
-                    "anadolu_imam_hatip_lisesi_ve_hazirlik.json")
-    satirlar.append("")
-    satirlar.append("   Anadolu İmam Hatip Lisesi seçmeli ders havuzu. Bu dosya, daha önce")
-    satirlar.append("   meb_master_db.json içinden okunan AİHL seçmelilerinin YERİNE geçer;")
-    satirlar.append("   master DB'de 10 ders eksikti (İslam Felsefesi, Tasavvuf Kültürü,")
-    satirlar.append("   Türk Dili ve Edebiyatı, Türk Kültür ve Medeniyeti Tarihi, Spor")
-    satirlar.append("   Psikolojisi ve Sosyolojisi, Temel Spor Eğitimi, Genel Sanat Tarihi,")
-    satirlar.append("   Temel Sanat Eğitimi, Türk İslam Sanatı Tarihi, Müzik ve Dramatik")
-    satirlar.append("   Etkinlikler Atölyesi) ve hiçbir şubede seçilemiyorlardı.")
-    satirlar.append("")
-    satirlar.append("   Anahtar = sınıf seviyesi. Her ders yalnızca okutulduğu sınıfta yer alır.")
-    satirlar.append("   ======================================================================== */")
-    satirlar.append("const AIHL_SECMELI_HAVUZU = {")
-    for i, sinif in enumerate(SINIFLAR):
-        dersler = havuz[sinif]
-        satirlar.append('    "%s": [   // %d ders' % (sinif, len(dersler)))
-        for d in dersler:
-            satirlar.append(
-                '        { ders: %s, grup: %s, saatler: [%s], kacKez: %d },' % (
+def js_yaz(havuz):
+    s = []
+    s.append("/* ===========================================================================")
+    s.append("   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN")
+    s.append("   Üreteç : tools/uret_secmeli_havuzu.py")
+    s.append("   Kaynak : data/kaynak_cizelgeler/ (resmî TTKB çizelgeleri)")
+    s.append("")
+    s.append("   Okul türüne göre seçmeli ders havuzu. Bu dosya, daha önce")
+    s.append("   meb_master_db.json içinden okunan seçmelilerin YERİNE geçer.")
+    s.append("   Eski okuma 21 dosyayı dolaşıp dersi ilk gördüğü yerden alıyordu;")
+    s.append("   uzmanlaşmış liselere Anadolu Lisesi'nin saatleri yazılıyordu")
+    s.append("   (1265 kayıtta 349 yanlış saat ölçüldü, 28.08.2026).")
+    s.append("")
+    s.append("   Yapı: SECMELI_HAVUZU[okul_turu][sinif] = [ {ders, grup, saatler} ]")
+    s.append("   Bir ders yalnızca okutulduğu sınıfta yer alır.")
+    s.append("   ======================================================================== */")
+    s.append("const SECMELI_HAVUZU = {")
+    turler = sorted(havuz.keys())
+    for ti, tur in enumerate(turler):
+        s.append('    "%s": {' % tur)
+        siniflar = [x for x in SINIFLAR if x in havuz[tur]]
+        for si, sinif in enumerate(siniflar):
+            dersler = havuz[tur][sinif]
+            s.append('        "%s": [   // %d ders' % (sinif, len(dersler)))
+            for d in dersler:
+                s.append('            { ders: %s, grup: %s, saatler: [%s], kacKez: %d },' % (
                     json.dumps(d["ders"], ensure_ascii=False),
                     json.dumps(d["grup"], ensure_ascii=False),
                     ", ".join(str(x) for x in d["saatler"]),
                     d["kacKez"]))
-        satirlar.append("    ]%s" % ("," if i < len(SINIFLAR) - 1 else ""))
-    satirlar.append("};")
-    satirlar.append("")
-
+            s.append("        ]%s" % ("," if si < len(siniflar) - 1 else ""))
+        s.append("    }%s" % ("," if ti < len(turler) - 1 else ""))
+    s.append("};")
+    s.append("")
     with io.open(CIKTI, "w", encoding="utf-8") as f:
-        f.write("\n".join(satirlar))
+        f.write("\n".join(s))
 
 
 def main():
-    havuz, tekil_adlar, kaynak_ders_sayisi = havuzu_kur()
+    havuz, istatistik, kaynak_yok = havuzu_kur()
 
-    toplam_kayit = sum(len(v) for v in havuz.values())
-    if toplam_kayit == 0:
-        raise SystemExit("HATA: havuz bos uretildi; yazmiyorum.")
-    if len(tekil_adlar) < 100:
-        # Kaynakta 129 tekil ders var. Ciddi bir dusus, kaynak yapisinin
-        # degistigine isarettir; sessizce eksik havuz yazmak en kotusudur.
+    if len(havuz) < 10:
         raise SystemExit(
-            "HATA: yalnizca %d tekil ders bulundu (beklenen ~129). "
-            "Kaynak yapisi degismis olabilir; yazmiyorum." % len(tekil_adlar))
+            "HATA: yalnizca %d okul turu icin havuz uretildi (beklenen >=10). "
+            "Kaynak yapisi degismis olabilir; sessizce eksik havuz yazmiyorum."
+            % len(havuz))
 
-    js_yaz(havuz, tekil_adlar)
+    js_yaz(havuz)
 
-    print("AİHL seçmeli havuzu üretildi")
-    print("=" * 62)
-    for sinif in SINIFLAR:
-        print("  %-10s %3d ders" % (sinif, len(havuz[sinif])))
-    print("-" * 62)
-    print("  tekil ders adı        : %d" % len(tekil_adlar))
-    print("  kaynaktaki ders kaydı : %d" % kaynak_ders_sayisi)
-    print("  sınıf-ders kaydı      : %d" % toplam_kayit)
-    print("  çıktı                 : %s" % CIKTI)
+    print("Seçmeli ders havuzu üretildi")
+    print("=" * 66)
+    print("  %-32s %8s %8s" % ("OKUL TÜRÜ", "TEKİL", "SINIF-DERS"))
+    print("-" * 66)
+    for tur, tekil, kayit in istatistik:
+        isaret = " " if kayit else "!"
+        print("%s %-32s %8d %8d" % (isaret, tur, tekil, kayit))
+    print("-" * 66)
+    print("  havuza giren okul türü : %d" % len(havuz))
+    print("  toplam sınıf-ders kaydı: %d" % sum(
+        sum(len(v) for v in t.values()) for t in havuz.values()))
+    if kaynak_yok:
+        print()
+        for tur, dosya in kaynak_yok:
+            print("  ! KAYNAK YOK: %s -> %s" % (tur, dosya))
+    print()
+    print("  ! işaretli türlerin çizelgesinde seçmeli grubu yok; havuza")
+    print("    eklenmediler ve eski davranışlarını sürdürürler.")
+    print("  çıktı: %s" % CIKTI)
 
 
 if __name__ == "__main__":
-    if not os.path.exists(KAYNAK):
-        print("HATA: kaynak bulunamadi: %s" % KAYNAK)
-        sys.exit(1)
     main()
