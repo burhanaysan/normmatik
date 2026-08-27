@@ -2721,6 +2721,28 @@ export class UIComponentManager {
         let list = [];   // süzgeç sonunda yeniden atanabiliyor
         const seenNames = new Set();
 
+        // Aynı dersin listeye iki kez girmesini engelleyen anahtar.
+        //
+        // Eskiden düz `.toLowerCase()` kullanılıyordu ve Türkçe'de BOZUKTU:
+        // JavaScript'te "EĞİTİMİ".toLowerCase() -> "eği̇ti̇mi̇" (i harfinin
+        // üstüne ayrı bir nokta karakteri ekler), "Eğitimi".toLowerCase() ise
+        // "eğitimi" verir. İkisi eşleşmediği için aynı ders listede İKİ KEZ
+        // görünüyordu: "Toplu Ses Eğitimi" ve "TOPLU SES EĞİTİMİ" (ikincisi
+        // Güzel Sanatlar Lisesi çizelgesinden, üstelik farklı saatle).
+        // Ölçüldü (28.08.2026): AİHL listelerinde 30 kopya gösterim.
+        //
+        // Parantez İÇERİĞİ KORUNUR: "Arapça (Metin-Mükâleme)" ile "Arapça
+        // (Sarf, Nahiv ve Klasik Metinler)" gerçekten AYRI derslerdir; parantez
+        // atılırsa biri sessizce kaybolur. Yalnızca tire türleri ve boşluk
+        // sadeleşir, çünkü aynı ders iki kaynakta "–" ve "-" ile geçiyor.
+        const dersAnahtari = (ad) => String(ad || "")
+            .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i")
+            .toLowerCase()
+            .replace(/[‐-―]/g, "-")
+            .replace(/['’‘]/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+
         const AREA_BRANCHES = {
             'adalet': 'Adalet',
             'aile': 'Aile ve Tüketici Hizmetleri',
@@ -2822,7 +2844,7 @@ export class UIComponentManager {
                 const courseName = sm.ders;
                 if (!courseName) continue;
 
-                const normName = courseName.toLowerCase().trim();
+                const normName = dersAnahtari(courseName);
                 if (seenNames.has(normName)) continue;
                 seenNames.add(normName);
 
@@ -2844,33 +2866,35 @@ export class UIComponentManager {
             }
         }
 
-        // 2. DÖGM İmam Hatip Seçmeli Havuzu
-        if (schoolType.includes("imam_hatip") && master.okul_turleri_ve_cizelgeler?.din_ogretimi_genel_mudurlugu_dogm?.dosyalar) {
-            const dogmFiles = master.okul_turleri_ve_cizelgeler.din_ogretimi_genel_mudurlugu_dogm.dosyalar;
-            for (let fKey in dogmFiles) {
-                for (let s of (dogmFiles[fKey]?.haftalik_ders_cizelgeleri || [])) {
-                    for (let g of (s.secmeli_ders_gruplari || [])) {
-                        for (let d of (g.dersler || [])) {
-                            const rawHours = d.sinif_ders_saatleri?.[grade];
-                            if (rawHours && rawHours !== '-') {
-                                const normName = d.ders.toLowerCase().trim();
-                                if (!seenNames.has(normName)) {
-                                    seenNames.add(normName);
-                                    const hoursOpts = getOfficialElectiveHoursOptions(d.ders, rawHours, grade);
-                                    const defaultH = hoursOpts[0] || 2;
-                                    list.push({
-                                        ders: d.ders,
-                                        grup: g.grup_adi || "İHL Seçmeli Havuzu",
-                                        hoursOptions: hoursOpts,
-                                        selectedHour: defaultH,
-                                        defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()] || "İHL Meslek Dersleri",
-                                        isVocational: false
-                                    });
-                                }
-                            }
-                        }
-                    }
-                }
+        // 2. İmam Hatip Seçmeli Havuzu (üretilmiş — kaynak: resmî TTKB çizelgesi)
+        //
+        // Bu havuz 28.08.2026'ya kadar meb_master_db.json içinden okunuyordu.
+        // Ölçüldü: resmî çizelgedeki 129 seçmeliden 119'u sunuluyor, 10'u hiç
+        // görünmüyordu (İslam Felsefesi, Tasavvuf Kültürü, Türk Dili ve
+        // Edebiyatı, Türk Kültür ve Medeniyeti Tarihi, Spor Psikolojisi ve
+        // Sosyolojisi, Temel Spor Eğitimi, Genel Sanat Tarihi, Temel Sanat
+        // Eğitimi, Türk İslam Sanatı Tarihi, Müzik ve Dramatik Etkinlikler
+        // Atölyesi) — çünkü master DB'de yoklardı. Eksik dersi elle eklemek
+        // aynı verinin üçüncü kopyasını doğururdu; bunun yerine havuzun tamamı
+        // çizelgeden üretiliyor (tools/uret_secmeli_havuzu.py) ve master DB
+        // okumasının YERİNE geçiyor. Tek kaynak kalsın diye.
+        const aihlHavuz = (typeof window !== 'undefined')
+            ? (window.AIHL_SECMELI_HAVUZU || null)
+            : (typeof AIHL_SECMELI_HAVUZU !== 'undefined' ? AIHL_SECMELI_HAVUZU : null);
+
+        if (schoolType.includes("imam_hatip") && aihlHavuz) {
+            for (let d of (aihlHavuz[grade] || [])) {
+                const normName = dersAnahtari(d.ders);
+                if (seenNames.has(normName)) continue;
+                seenNames.add(normName);
+                list.push({
+                    ders: d.ders,
+                    grup: d.grup || "İHL Seçmeli Havuzu",
+                    hoursOptions: d.saatler.slice(),
+                    selectedHour: d.saatler[0],
+                    defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()] || "İHL Meslek Dersleri",
+                    isVocational: false
+                });
             }
         }
 
@@ -2896,7 +2920,7 @@ export class UIComponentManager {
             ];
 
             for (let me of middleElectives) {
-                const normName = me.ders.toLowerCase().trim();
+                const normName = dersAnahtari(me.ders);
                 if (!seenNames.has(normName)) {
                     seenNames.add(normName);
                     list.push({
@@ -2920,7 +2944,7 @@ export class UIComponentManager {
                         for (let d of (g.dersler || [])) {
                             const rawHours = d.sinif_ders_saatleri?.[grade];
                             if (rawHours && rawHours !== '-') {
-                                const normName = d.ders.toLowerCase().trim();
+                                const normName = dersAnahtari(d.ders);
                                 if (!seenNames.has(normName)) {
                                     seenNames.add(normName);
                                     const hoursOpts = getOfficialElectiveHoursOptions(d.ders, rawHours, grade);

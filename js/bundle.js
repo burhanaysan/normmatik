@@ -161407,6 +161407,350 @@ const ORTAOGRETIM_SECMELI_ANAHTARLARI = {
     ]
 };
 
+// ==================== secmeli_havuzu.js ====================
+
+/* ===========================================================================
+   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN
+   Üreteç : tools/uret_secmeli_havuzu.py
+   Kaynak : data/kaynak_cizelgeler/dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json
+
+   Anadolu İmam Hatip Lisesi seçmeli ders havuzu. Bu dosya, daha önce
+   meb_master_db.json içinden okunan AİHL seçmelilerinin YERİNE geçer;
+   master DB'de 10 ders eksikti (İslam Felsefesi, Tasavvuf Kültürü,
+   Türk Dili ve Edebiyatı, Türk Kültür ve Medeniyeti Tarihi, Spor
+   Psikolojisi ve Sosyolojisi, Temel Spor Eğitimi, Genel Sanat Tarihi,
+   Temel Sanat Eğitimi, Türk İslam Sanatı Tarihi, Müzik ve Dramatik
+   Etkinlikler Atölyesi) ve hiçbir şubede seçilemiyorlardı.
+
+   Anahtar = sınıf seviyesi. Her ders yalnızca okutulduğu sınıfta yer alır.
+   ======================================================================== */
+const AIHL_SECMELI_HAVUZU = {
+    "hazirlik": [   // 2 ders
+        { ders: "Bilgisayarlı Tasarım Uygulamaları", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Robotik ve Kodlama", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+    ],
+    "9": [   // 35 ders
+        { ders: "Bilişim Teknolojileri ve Yazılım", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 4 },
+        { ders: "Seçmeli İkinci Yabancı Dil", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 4 },
+        { ders: "Eğitsel Oyunlar", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Takım Sporları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Temel Spor Eğitimi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Bağlama/Kanun/Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Çalgı Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Dinî Musiki", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Toplu Ses Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Halk Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Sanat Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Desen", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 4 },
+        { ders: "Ebru", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Genel Sanat Tarihi", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Temel Sanat Eğitimi", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Tezhip", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Hüsnühat", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Robotik ve Kodlama", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Nesnelerin İnterneti", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Mobil Uygulamalar", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Web Tabanlı Uygulama Geliştirme", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Mesleki Gelişim Atölyesi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Anne Çocuk Sağlığı", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Çocuk Ruh Sağlığı", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Müzik ve Dramatik Etkinlikler Atölyesi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "İslam’da Çocuk Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+    ],
+    "10": [   // 48 ders
+        { ders: "Astronomi ve Uzay Bilimleri", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Sosyal Bilim Çalışmaları", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 2 },
+        { ders: "Bilişim Teknolojileri ve Yazılım", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 4 },
+        { ders: "Proje Tasarımı ve Uygulamaları", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 3 },
+        { ders: "Düşünme Eğitimi", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Sürdürülebilir Tarım ve Gıda Güvenliği", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "İklim, Çevre ve Yenilikçi Çözümler", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Temel Hukuk Bilgisi", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Seçmeli İkinci Yabancı Dil", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 4 },
+        { ders: "Osmanlı Türkçesi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Düşünce Tarihi", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Spor Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 3 },
+        { ders: "Sanat Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 3 },
+        { ders: "Bireysel Sporlar", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Geleneksel Sporlar (Ata Sporları)", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Genel Jimnastik", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Spor Uygulamaları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Takım Sporları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 4 },
+        { ders: "Batı Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Bağlama/Kanun/Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Çalgı Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Dinî Musiki", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Halk Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Sanat Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Desen", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 4 },
+        { ders: "Ebru", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Fotoğraf", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Genel Sanat Tarihi", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Hüsnühat Yazı Çeşitleri", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "İki Boyutlu Sanat Atölye", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "Tezhip", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Hüsnühat", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Robotik ve Kodlama", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Web Tabanlı Uygulama Geliştirme", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Siber Güvenlik Temelleri", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Çocuk Gelişimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Erken Çocukluk ve Özel Eğitimde Öz Bakım", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Din Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam’da Çocuk Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+    ],
+    "11": [   // 114 ders
+        { ders: "Arapça (Metin–Mükâleme)", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Fıkıh Okumaları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Hadis Metinleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Ahlakı", grup: "Temel İslam Bilimleri", saatler: [1], kacKez: 1 },
+        { ders: "İslam Bilim Tarihi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Felsefesi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Tarihi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Mesleki Uygulama", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Tasavvuf Kültürü", grup: "Temel İslam Bilimleri", saatler: [1], kacKez: 1 },
+        { ders: "Tefsir Okumaları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Klasik Ahlak Metinleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Ebru", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Tezhip", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Seçmeli Matematik", grup: "Akademik Çalışmalar", saatler: [3, 4, 5, 6], kacKez: 2 },
+        { ders: "Temel Matematik", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 2 },
+        { ders: "Seçmeli Biyoloji", grup: "Akademik Çalışmalar", saatler: [2, 3, 4], kacKez: 2 },
+        { ders: "Seçmeli Fizik", grup: "Akademik Çalışmalar", saatler: [3, 4], kacKez: 2 },
+        { ders: "Seçmeli Kimya", grup: "Akademik Çalışmalar", saatler: [3, 4], kacKez: 2 },
+        { ders: "Türk Dili ve Edebiyatı", grup: "Akademik Çalışmalar", saatler: [2, 3, 4, 5], kacKez: 2 },
+        { ders: "Seçmeli Coğrafya", grup: "Akademik Çalışmalar", saatler: [2, 4], kacKez: 2 },
+        { ders: "Psikoloji", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 1 },
+        { ders: "Sosyoloji", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 2 },
+        { ders: "Mantık", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 1 },
+        { ders: "Seçmeli Birinci Yabancı Dil", grup: "Akademik Çalışmalar", saatler: [2, 10, 12], kacKez: 2 },
+        { ders: "Fen Bilimleri Uygulamaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3], kacKez: 2 },
+        { ders: "Astronomi ve Uzay Bilimleri", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Sosyal Bilim Çalışmaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3, 4], kacKez: 2 },
+        { ders: "Bilişim Teknolojileri ve Yazılım", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2, 3], kacKez: 4 },
+        { ders: "Proje Tasarımı ve Uygulamaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3, 4], kacKez: 3 },
+        { ders: "Düşünme Eğitimi", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Demokrasi ve İnsan Hakları", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Sürdürülebilir Tarım ve Gıda Güvenliği", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "İklim, Çevre ve Yenilikçi Çözümler", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Temel Hukuk Bilgisi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Girişimcilik", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Metin Tahlilleri", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 2 },
+        { ders: "Seçmeli İkinci Yabancı Dil", grup: "İnsan, Toplum ve Bilim", saatler: [2, 4], kacKez: 4 },
+        { ders: "Osmanlı Türkçesi", grup: "İnsan, Toplum ve Bilim", saatler: [2], kacKez: 3 },
+        { ders: "Türk Dünyası Coğrafyası", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Ortak Türk Edebiyatı", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Ortak Türk Tarihi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Düşünce Tarihi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Kültür ve Medeniyeti Tarihi", grup: "Kültür, Sanat ve Spor", saatler: [2, 4], kacKez: 1 },
+        { ders: "Adabımuaşeret", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sosyal Hayatında Aile", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 1 },
+        { ders: "Spor Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Sanat Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Atletizm", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Bireysel Sporlar", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "Geleneksel Sporlar (Ata Sporları)", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Genel Jimnastik", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Spor Anatomisi ve Fizyolojisi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Spor Uygulamaları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "Spor ve Beslenme", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Sporcu Sağlığı", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Takım Sporları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 4 },
+        { ders: "Batı Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Bağlama/Kanun/Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Bilişim Destekli Müzik", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Bireysel Ses Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1], kacKez: 1 },
+        { ders: "Çalgı Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Çalgı Toplulukları", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Geleneksel Türk Sanatları", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Halk Dansları ve Müzikleri", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Müzik Kültürü", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Temel Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Türk Halk Müziği Koro", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sanat Müziği Koro", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Halk Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Müziği Tarihi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sanat Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Desen", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 4 },
+        { ders: "Dijital Grafik", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Ebru", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Estetik", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Fotoğraf", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Grafik Tasarım", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Hüsnühat Yazı Çeşitleri", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "İki Boyutlu Sanat Atölye", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "İmgesel Resim", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Tezhip", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Türk İslam Sanatı Tarihi", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Üç Boyutlu Sanat Atölye", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Hüsnühat", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Siber Güvenlik Temelleri", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Nano Teknoloji ve Malzeme Bilimi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Açık Kaynak İşletim Sistemi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Ağ Projesi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Blok Zincir", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Oyun Programlama", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Web Tabanlı İçerik Yönetimi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Dijital Tasarım", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Yapay Zekâ ve Makine Öğrenmesi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 2 },
+        { ders: "Havacılık ve Uzay Teknolojileri", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Sosyal Medya", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Oyun ve Oyuncak Atölyesi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [3, 4], kacKez: 1 },
+        { ders: "Din Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam’da Çocuk Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Yetersizlik Türleri ve Kaynaştırma Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [4, 6], kacKez: 1 },
+        { ders: "Erken Çocukluk ve Özel Eğitimde Program Atölyesi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [6], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+    ],
+    "12": [   // 115 ders
+        { ders: "Arapça (Metin–Mükâleme)", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Fıkıh Okumaları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Hadis Metinleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Ahlakı", grup: "Temel İslam Bilimleri", saatler: [1], kacKez: 1 },
+        { ders: "İslam Bilim Tarihi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Felsefesi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam Tarihi", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Mesleki Uygulama", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Tasavvuf Kültürü", grup: "Temel İslam Bilimleri", saatler: [1], kacKez: 1 },
+        { ders: "Tefsir Okumaları", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 1 },
+        { ders: "Klasik Ahlak Metinleri", grup: "Temel İslam Bilimleri", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Ebru", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Tezhip", grup: "Türk İslam Sanatları", saatler: [1, 2], kacKez: 1 },
+        { ders: "Seçmeli Matematik", grup: "Akademik Çalışmalar", saatler: [3, 4, 5, 6], kacKez: 2 },
+        { ders: "Temel Matematik", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 2 },
+        { ders: "Seçmeli Biyoloji", grup: "Akademik Çalışmalar", saatler: [2, 3, 4], kacKez: 2 },
+        { ders: "Seçmeli Fizik", grup: "Akademik Çalışmalar", saatler: [3, 4], kacKez: 2 },
+        { ders: "Seçmeli Kimya", grup: "Akademik Çalışmalar", saatler: [3, 4], kacKez: 2 },
+        { ders: "Türk Dili ve Edebiyatı", grup: "Akademik Çalışmalar", saatler: [2, 3, 4, 5], kacKez: 2 },
+        { ders: "Seçmeli Tarih", grup: "Akademik Çalışmalar", saatler: [2, 4], kacKez: 1 },
+        { ders: "Çağdaş Türk ve Dünya Tarihi", grup: "Akademik Çalışmalar", saatler: [2, 4], kacKez: 1 },
+        { ders: "Seçmeli Coğrafya", grup: "Akademik Çalışmalar", saatler: [2, 4], kacKez: 2 },
+        { ders: "Psikoloji", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 1 },
+        { ders: "Sosyoloji", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 2 },
+        { ders: "Mantık", grup: "Akademik Çalışmalar", saatler: [2], kacKez: 1 },
+        { ders: "Seçmeli Birinci Yabancı Dil", grup: "Akademik Çalışmalar", saatler: [2, 10, 12], kacKez: 2 },
+        { ders: "Hedef Temelli Destek Eğitimi", grup: "Akademik Çalışmalar", saatler: [3, 4, 5, 6], kacKez: 1 },
+        { ders: "Fen Bilimleri Uygulamaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3], kacKez: 2 },
+        { ders: "Astronomi ve Uzay Bilimleri", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Sosyal Bilim Çalışmaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3, 4], kacKez: 2 },
+        { ders: "Bilişim Teknolojileri ve Yazılım", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2, 3], kacKez: 4 },
+        { ders: "Proje Tasarımı ve Uygulamaları", grup: "İnsan, Toplum ve Bilim", saatler: [2, 3, 4], kacKez: 3 },
+        { ders: "Düşünme Eğitimi", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Demokrasi ve İnsan Hakları", grup: "İnsan, Toplum ve Bilim", saatler: [1], kacKez: 1 },
+        { ders: "Sürdürülebilir Tarım ve Gıda Güvenliği", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "İklim, Çevre ve Yenilikçi Çözümler", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Temel Hukuk Bilgisi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Girişimcilik", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Metin Tahlilleri", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 2 },
+        { ders: "Seçmeli İkinci Yabancı Dil", grup: "İnsan, Toplum ve Bilim", saatler: [2, 4], kacKez: 4 },
+        { ders: "Osmanlı Türkçesi", grup: "İnsan, Toplum ve Bilim", saatler: [2], kacKez: 3 },
+        { ders: "Türk Düşünce Tarihi", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Kültür ve Medeniyeti Tarihi", grup: "Kültür, Sanat ve Spor", saatler: [2, 4], kacKez: 1 },
+        { ders: "Adabımuaşeret", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sosyal Hayatında Aile", grup: "Kültür, Sanat ve Spor", saatler: [1, 2], kacKez: 1 },
+        { ders: "Spor Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Sanat Eğitimi", grup: "Kültür, Sanat ve Spor", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Atletizm", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Antrenman Bilgisi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Antrenörlük Eğitimi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1], kacKez: 1 },
+        { ders: "Artistik Jimnastik", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Beden Eğitimi ve Spor Tarihi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Bireysel Sporlar", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "Geleneksel Sporlar (Ata Sporları)", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 3 },
+        { ders: "Spor Anatomisi ve Fizyolojisi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Spor Psikolojisi ve Sosyolojisi", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Spor Uygulamaları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "Spor ve Beslenme", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Sporcu Sağlığı", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Spor Yönetimi ve Organizasyonu", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Takım Sporları", grup: "SPOR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 4 },
+        { ders: "Batı Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Bağlama/Kanun/Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Bilişim Destekli Müzik", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Bireysel Ses Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1], kacKez: 1 },
+        { ders: "Çalgı Eğitimi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 4 },
+        { ders: "Çalgı Toplulukları", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Geleneksel Türk Sanatları", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Halk Dansları ve Müzikleri", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Müzik Kültürü", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Temel Piyano", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Türk Dünyası Müzikleri", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Halk Müziği Koro", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sanat Müziği Koro", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Halk Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Türk Müziği Tarihi", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Türk Sanat Müziği Teori ve Uygulaması", grup: "MUSİKİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Desen", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 4 },
+        { ders: "Dijital Grafik", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Ebru", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Fotoğraf", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Geleneksel Türk Sanatları", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Hüsnühat", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "İki Boyutlu Sanat Atölye", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 3 },
+        { ders: "İmgesel Resim", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 2 },
+        { ders: "Sanat Eserlerini İnceleme", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Tezhip", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2, 3], kacKez: 3 },
+        { ders: "Türk İslam Sanatı Tarihi", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Üç Boyutlu Sanat Atölye", grup: "GELENEKSEL VE ÇAĞDAŞ GÖRSEL SANATLAR PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Hüsnühat", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "İLAHİYAT ODAKLI HAFIZLIK PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Açık Kaynak İşletim Sistemi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Ağ Projesi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Blok Zincir", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Oyun Programlama", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Web Tabanlı İçerik Yönetimi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Dijital Tasarım", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2], kacKez: 1 },
+        { ders: "Yapay Zekâ ve Makine Öğrenmesi", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 2 },
+        { ders: "Havacılık ve Uzay Teknolojileri", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Enerji Teknolojileri", grup: "FEN VE TEKNOLOJİ PROGRAMI/PROJESİ DERSLERİ", saatler: [2, 3], kacKez: 1 },
+        { ders: "Din Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "İslam’da Çocuk Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 1 },
+        { ders: "Yetersizlik Türleri ve Kaynaştırma Eğitimi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [4, 6], kacKez: 1 },
+        { ders: "Erken Çocukluk ve Özel Eğitimde Program Atölyesi", grup: "ÇOCUK GELİŞİMİ VE EĞİTİMİ PROGRAMI/PROJESİ DERSLERİ", saatler: [6], kacKez: 1 },
+        { ders: "Arapça (Sarf, Nahiv ve Klasik Metinler)", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Dinî Musiki", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 3 },
+        { ders: "Kur’an’ın Ana Konuları", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+        { ders: "Kur’an Okuma Teknikleri", grup: "KUR’AN EĞİTİM MERKEZİ PROGRAMI/PROJESİ DERSLERİ", saatler: [1, 2], kacKez: 2 },
+    ]
+};
+
 // ==================== database.js ====================
 
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
@@ -170179,6 +170523,28 @@ class UIComponentManager {
         let list = [];   // süzgeç sonunda yeniden atanabiliyor
         const seenNames = new Set();
 
+        // Aynı dersin listeye iki kez girmesini engelleyen anahtar.
+        //
+        // Eskiden düz `.toLowerCase()` kullanılıyordu ve Türkçe'de BOZUKTU:
+        // JavaScript'te "EĞİTİMİ".toLowerCase() -> "eği̇ti̇mi̇" (i harfinin
+        // üstüne ayrı bir nokta karakteri ekler), "Eğitimi".toLowerCase() ise
+        // "eğitimi" verir. İkisi eşleşmediği için aynı ders listede İKİ KEZ
+        // görünüyordu: "Toplu Ses Eğitimi" ve "TOPLU SES EĞİTİMİ" (ikincisi
+        // Güzel Sanatlar Lisesi çizelgesinden, üstelik farklı saatle).
+        // Ölçüldü (28.08.2026): AİHL listelerinde 30 kopya gösterim.
+        //
+        // Parantez İÇERİĞİ KORUNUR: "Arapça (Metin-Mükâleme)" ile "Arapça
+        // (Sarf, Nahiv ve Klasik Metinler)" gerçekten AYRI derslerdir; parantez
+        // atılırsa biri sessizce kaybolur. Yalnızca tire türleri ve boşluk
+        // sadeleşir, çünkü aynı ders iki kaynakta "–" ve "-" ile geçiyor.
+        const dersAnahtari = (ad) => String(ad || "")
+            .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i")
+            .toLowerCase()
+            .replace(/[‐-―]/g, "-")
+            .replace(/['’‘]/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+
         const AREA_BRANCHES = {
             'adalet': 'Adalet',
             'aile': 'Aile ve Tüketici Hizmetleri',
@@ -170280,7 +170646,7 @@ class UIComponentManager {
                 const courseName = sm.ders;
                 if (!courseName) continue;
 
-                const normName = courseName.toLowerCase().trim();
+                const normName = dersAnahtari(courseName);
                 if (seenNames.has(normName)) continue;
                 seenNames.add(normName);
 
@@ -170302,33 +170668,35 @@ class UIComponentManager {
             }
         }
 
-        // 2. DÖGM İmam Hatip Seçmeli Havuzu
-        if (schoolType.includes("imam_hatip") && master.okul_turleri_ve_cizelgeler?.din_ogretimi_genel_mudurlugu_dogm?.dosyalar) {
-            const dogmFiles = master.okul_turleri_ve_cizelgeler.din_ogretimi_genel_mudurlugu_dogm.dosyalar;
-            for (let fKey in dogmFiles) {
-                for (let s of (dogmFiles[fKey]?.haftalik_ders_cizelgeleri || [])) {
-                    for (let g of (s.secmeli_ders_gruplari || [])) {
-                        for (let d of (g.dersler || [])) {
-                            const rawHours = d.sinif_ders_saatleri?.[grade];
-                            if (rawHours && rawHours !== '-') {
-                                const normName = d.ders.toLowerCase().trim();
-                                if (!seenNames.has(normName)) {
-                                    seenNames.add(normName);
-                                    const hoursOpts = getOfficialElectiveHoursOptions(d.ders, rawHours, grade);
-                                    const defaultH = hoursOpts[0] || 2;
-                                    list.push({
-                                        ders: d.ders,
-                                        grup: g.grup_adi || "İHL Seçmeli Havuzu",
-                                        hoursOptions: hoursOpts,
-                                        selectedHour: defaultH,
-                                        defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()] || "İHL Meslek Dersleri",
-                                        isVocational: false
-                                    });
-                                }
-                            }
-                        }
-                    }
-                }
+        // 2. İmam Hatip Seçmeli Havuzu (üretilmiş — kaynak: resmî TTKB çizelgesi)
+        //
+        // Bu havuz 28.08.2026'ya kadar meb_master_db.json içinden okunuyordu.
+        // Ölçüldü: resmî çizelgedeki 129 seçmeliden 119'u sunuluyor, 10'u hiç
+        // görünmüyordu (İslam Felsefesi, Tasavvuf Kültürü, Türk Dili ve
+        // Edebiyatı, Türk Kültür ve Medeniyeti Tarihi, Spor Psikolojisi ve
+        // Sosyolojisi, Temel Spor Eğitimi, Genel Sanat Tarihi, Temel Sanat
+        // Eğitimi, Türk İslam Sanatı Tarihi, Müzik ve Dramatik Etkinlikler
+        // Atölyesi) — çünkü master DB'de yoklardı. Eksik dersi elle eklemek
+        // aynı verinin üçüncü kopyasını doğururdu; bunun yerine havuzun tamamı
+        // çizelgeden üretiliyor (tools/uret_secmeli_havuzu.py) ve master DB
+        // okumasının YERİNE geçiyor. Tek kaynak kalsın diye.
+        const aihlHavuz = (typeof window !== 'undefined')
+            ? (window.AIHL_SECMELI_HAVUZU || null)
+            : (typeof AIHL_SECMELI_HAVUZU !== 'undefined' ? AIHL_SECMELI_HAVUZU : null);
+
+        if (schoolType.includes("imam_hatip") && aihlHavuz) {
+            for (let d of (aihlHavuz[grade] || [])) {
+                const normName = dersAnahtari(d.ders);
+                if (seenNames.has(normName)) continue;
+                seenNames.add(normName);
+                list.push({
+                    ders: d.ders,
+                    grup: d.grup || "İHL Seçmeli Havuzu",
+                    hoursOptions: d.saatler.slice(),
+                    selectedHour: d.saatler[0],
+                    defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()] || "İHL Meslek Dersleri",
+                    isVocational: false
+                });
             }
         }
 
@@ -170354,7 +170722,7 @@ class UIComponentManager {
             ];
 
             for (let me of middleElectives) {
-                const normName = me.ders.toLowerCase().trim();
+                const normName = dersAnahtari(me.ders);
                 if (!seenNames.has(normName)) {
                     seenNames.add(normName);
                     list.push({
@@ -170378,7 +170746,7 @@ class UIComponentManager {
                         for (let d of (g.dersler || [])) {
                             const rawHours = d.sinif_ders_saatleri?.[grade];
                             if (rawHours && rawHours !== '-') {
-                                const normName = d.ders.toLowerCase().trim();
+                                const normName = dersAnahtari(d.ders);
                                 if (!seenNames.has(normName)) {
                                     seenNames.add(normName);
                                     const hoursOpts = getOfficialElectiveHoursOptions(d.ders, rawHours, grade);
@@ -174464,6 +174832,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof ORTAOGRETIM_SECMELI_ANAHTARLARI !== 'undefined') window.ORTAOGRETIM_SECMELI_ANAHTARLARI = ORTAOGRETIM_SECMELI_ANAHTARLARI;
+    if (typeof AIHL_SECMELI_HAVUZU !== 'undefined') window.AIHL_SECMELI_HAVUZU = AIHL_SECMELI_HAVUZU;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

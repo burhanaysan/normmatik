@@ -182,6 +182,55 @@ for (const tur of ["mesleki_ve_teknik_anadolu_lisesi", "ortaokul_temel_egitim"])
     kontrol(tur + ": süzgeçsiz liste doluyor", kume.size > 0, kume.size + " ders");
 }
 
+/* 5) AİHL seçmeli havuzu, kaynak çizelgeye BİREBİR uymalı.
+      NEDEN: Bu havuz 28.08.2026'ya kadar meb_master_db.json'dan okunuyordu ve
+      dosyalar arasında ilk eşleşen kazandığı için AİHL'e BAŞKA OKULLARIN
+      saatleri yazılıyordu — Astronomi 10. sınıf (1)(2), Osmanlı Türkçesi 2,
+      Proje Tasarımı (2)(3)(4), Seçmeli Matematik 6; hepsi Anadolu Lisesi
+      satırı. Ekranda hata görünmüyordu, yalnızca saat yanlıştı. */
+{
+    const kaynakYol = path.join(KOK, "data", "kaynak_cizelgeler", "dogm",
+        "anadolu_imam_hatip_lisesi_ve_hazirlik.json");
+    const kaynak = JSON.parse(fs.readFileSync(kaynakYol, "utf8"));
+    const beklenen = {};   // sinif -> anahtar -> "1/2"
+    let kaynakKayit = 0;
+    for (const gv of Object.values(kaynak.secmeli_dersler || {}))
+        for (const alt of (gv.alanlar || gv.programlar || []))
+            for (const d of (alt.dersler || [])) {
+                for (const [sinif, v] of Object.entries(d.saatler || {})) {
+                    if (!v) continue;
+                    const saatler = (v.tip === "sabit" ? [v.saat] : v.secenekler).join("/");
+                    beklenen[sinif] = beklenen[sinif] || {};
+                    // Aynı ders birden çok grupta geçebilir; arayüz ilk geçeni
+                    // gösterdiği için ilk kaydı esas alıyoruz.
+                    const k = ah(d.ders_adi);
+                    if (!(k in beklenen[sinif])) beklenen[sinif][k] = saatler;
+                    kaynakKayit++;
+                }
+            }
+    if (kaynakKayit < 100) olumcul("AİHL kaynağından yalnızca " + kaynakKayit + " kayıt okundu.");
+
+    let karsilastirilan = 0;
+    for (const sinif of ["9", "10", "11", "12"]) {
+        st.state = st.getDefaultState();
+        st.state.okulBilgisi.okulTuru = "anadolu_imam_hatip_lisesi";
+        st.addSection({ subeAdi: sinif + "-A", sinifSeviyesi: sinif, ogrenciSayisi: 30,
+            zorunluDersler: ce.getMandatoryCourses("anadolu_imam_hatip_lisesi", sinif, null, null) });
+        const sunulanListe = ui.getAvailableElectivesForSection(st.state.subeler[0]) || [];
+        kontrol("AİHL " + sinif + ". sınıf listesi dolu", sunulanListe.length > 0);
+        for (const c of sunulanListe) {
+            const bek = (beklenen[sinif] || {})[ah(c.ders)];
+            if (bek === undefined) continue;   // meslek/alan dersi olabilir
+            karsilastirilan++;
+            kontrol("AİHL " + sinif + ". sınıf saat: " + c.ders,
+                (c.hoursOptions || []).join("/") === bek,
+                "sunulan " + (c.hoursOptions || []).join("/") + ", çizelge " + bek);
+        }
+    }
+    if (karsilastirilan < 100)
+        olumcul("AİHL için yalnızca " + karsilastirilan + " ders karşılaştırıldı.");
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
