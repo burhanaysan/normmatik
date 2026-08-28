@@ -1,0 +1,225 @@
+{
+ "belge_adi": "Özel Eğitim Meslek Okulu Haftalık Ders Çizelgesi (Hafif Düzeyde Zihinsel Yetersizliği/Otizmi Olan Öğrenciler İçin)",
+ "kaynak": "https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106",
+ "kaynak_pdf": "meslek_okulu_hafif_zihinsel_otizm.pdf",
+ "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_egitim.py üretir.",
+ "sinif_seviyeleri": [
+  "9",
+  "10",
+  "11",
+  "12"
+ ],
+ "atilan_egik_satir": 0,
+ "dersler": [
+  {
+   "ders_adi": "Türkçe",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "Matematik",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Sosyal Hayat",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Müzik",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Görsel Sanatlar",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Beden Eğitimi",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Rehberlik",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Sosyal, Kültürel ve Sportif Faaliyetler",
+   "saatler": {
+    "9": null,
+    "10": null,
+    "11": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "İş Eğitimi ve Meslek Ahlakı",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 15
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 15
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 15
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 15
+    }
+   }
+  }
+ ],
+ "cizelge_toplami": {
+  "9": 30,
+  "10": 30,
+  "11": 30,
+  "12": 30
+ }
+}

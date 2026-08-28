@@ -558,17 +558,42 @@ class MebCurriculumEngine {
         }
 
         // 0. ÖZEL EĞİTİM
+        //
+        // Burada 28.08.2026'ya kadar ELLE YAZILMIŞ 8 ders vardı ve hiçbir resmî
+        // çizelgeden üretilmemişti. ORGM'nin çizelgesiyle karşılaştırılınca
+        // yanlış olduğu görüldü: Din Kültürü 2 yerine 1; "Görsel Sanatlar ve
+        // Müzik" tek ders sanılmış, oysa AYRI iki ders (9-10'da 2+2);
+        // Beden Eğitimi sabit 2 yazılmış, oysa 2/2/1/1; Rehberlik 2 yerine 1;
+        // "Sosyal, Kültürel ve Sportif Faaliyetler" (11-12'de 3 saat) hiç yok.
+        //
+        // Hatalar birbirini götürdüğü için TOPLAM yine 30 saat çıkıyordu —
+        // okul toplamı doğru görünüyor, BRANŞ DAĞILIMI yanlış oluyordu. Müzik
+        // öğretmeninin yükü hiç görünmüyordu. Sessiz hata sınıfının tipik
+        // örneği: bakınca "30 saat, doğru" diyorsunuz.
+        //
+        // Artık çizelge resmî kaynaktan üretiliyor:
+        //   tools/uret_ozel_egitim.py -> js/ozel_egitim_cizelgeleri.js
+        //   Kaynak: https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106
+        //
+        // Sınıfa göre çizelge seçilir: 1-8 ilkokul/ortaokul, 9-12 meslek okulu.
         if (areaId === "ozel_egitim" || schoolTypeStr.includes("ozel_egitim") || String(dalName || "").includes("Özel Eğit")) {
-            return [
-                { ders: "Türkçe / Türk Dili ve Edebiyatı (Özel Eğitim)", saat: 3, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: false },
-                { ders: "Matematik (Özel Eğitim)", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false },
-                { ders: "Sosyal Hayat ve Toplumsal Uyum Becerileri", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                { ders: "Görsel Sanatlar ve Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
-                { ders: "İş Becerileri ve Mesleki Uygulamalar", saat: 15, kategori: "ALAN VE DAL MESLEK DERSLERİ", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: true },
-                { ders: "Rehberlik ve Yönlendirme", saat: 2, kategori: "REHBERLİK", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false }
-            ];
+            const oeTablo = (typeof window !== 'undefined' && window.OZEL_EGITIM_CIZELGELERI)
+                ? window.OZEL_EGITIM_CIZELGELERI
+                : (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined' ? OZEL_EGITIM_CIZELGELERI : null);
+
+            if (oeTablo) {
+                const cizelgeAdi = ["1", "2", "3", "4", "5", "6", "7", "8"].includes(gStr)
+                    ? "ilkokul_ortaokul" : "meslek_okulu";
+                const liste = (oeTablo[cizelgeAdi] || {})[gStr];
+                if (liste && liste.length) return liste.map(d => ({ ...d }));
+            }
+
+            // Buraya düşmek, üretilmiş çizelgenin pakete girmediği anlamına
+            // gelir. Eski elle yazılmış liste BİLEREK geri konulmadı: sessizce
+            // yanlış veri döndürmektense boş dönmek yeğdir — boş liste ekranda
+            // hemen görülür, yanlış saat görülmez.
+            console.error("Özel eğitim çizelgesi yüklenemedi (ozel_egitim_cizelgeleri.js).");
+            return [];
         }
 
         // 1. TEMEL EĞİTİM (İHO & ORTAOKUL)

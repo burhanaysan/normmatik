@@ -163188,6 +163188,166 @@ const SECMELI_HAVUZU = {
     }
 };
 
+// ==================== ozel_egitim_cizelgeleri.js ====================
+
+/* ===========================================================================
+   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN
+   Üreteç : tools/uret_ozel_egitim.py
+   Kaynak : ORGM resmî haftalık ders çizelgeleri (27.08.2026)
+            https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106
+
+   Özel eğitim müfredatı 28.08.2026'ya kadar curriculumEngine.js içinde
+   ELLE YAZILMIŞ 8 dersti ve hiçbir resmî çizelgeden üretilmemişti.
+   Yanlışları birbirini götürdüğü için TOPLAM 30 saat çıkıyor, okul
+   toplamı doğru görünüyordu; branş dağılımı ise yanlıştı — Müzik
+   öğretmeninin yükü hiç görünmüyordu.
+
+   Yapı: OZEL_EGITIM_CIZELGELERI[çizelge][sınıf] = [ ders kayıtları ]
+     meslek_okulu      -> 9-12. sınıf (Özel Eğitim Meslek Okulu)
+     ilkokul_ortaokul  -> 1-8. sınıf
+   ======================================================================== */
+const OZEL_EGITIM_CIZELGELERI = {
+    "meslek_okulu": {
+        "9": [   // 9 ders
+            { ders: "Türkçe", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Hayat", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 1, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "İş Eğitimi ve Meslek Ahlakı", saat: 15, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: true },
+        ],
+        "10": [   // 9 ders
+            { ders: "Türkçe", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Hayat", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 1, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "İş Eğitimi ve Meslek Ahlakı", saat: 15, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: true },
+        ],
+        "11": [   // 10 ders
+            { ders: "Türkçe", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Hayat", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 1, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal, Kültürel ve Sportif Faaliyetler", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "İş Eğitimi ve Meslek Ahlakı", saat: 15, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: true },
+        ],
+        "12": [   // 10 ders
+            { ders: "Türkçe", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Hayat", saat: 2, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 1, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal, Kültürel ve Sportif Faaliyetler", saat: 3, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "İş Eğitimi ve Meslek Ahlakı", saat: 15, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: true },
+        ]
+    },
+    "ilkokul_ortaokul": {
+        "1": [   // 7 ders
+            { ders: "Türkçe", saat: 10, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Oyun", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Toplumsal Uyum Becerileri", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "2": [   // 7 ders
+            { ders: "Türkçe", saat: 10, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Oyun", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Toplumsal Uyum Becerileri", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "3": [   // 8 ders
+            { ders: "Türkçe", saat: 8, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Hayat Bilgisi", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 3, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Oyun", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Toplumsal Uyum Becerileri", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "4": [   // 11 ders
+            { ders: "Türkçe", saat: 8, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 3, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Oyun", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Toplumsal Uyum Becerileri", saat: 1, atananBrans: "Özel Eğitim", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "5": [   // 10 ders
+            { ders: "Türkçe", saat: 7, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "6": [   // 10 ders
+            { ders: "Türkçe", saat: 7, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Bilişim Teknolojileri ve Yazılım", saat: 2, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "7": [   // 10 ders
+            { ders: "Türkçe", saat: 7, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ],
+        "8": [   // 10 ders
+            { ders: "Türkçe", saat: 7, atananBrans: "Türkçe", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "T.C. İnkılâp Tarihi ve Atatürkçülük", saat: 2, atananBrans: "T.C. İnkılap Tarihi ve Atatürkçülük", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Görsel Sanatlar", saat: 2, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Müzik", saat: 2, atananBrans: "Müzik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Teknoloji ve Tasarım", saat: 2, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "ORTAK DERSLER", baraj_ders: false, isAtolye: false },
+        ]
+    }
+};
+
 // ==================== ozel_program_temalari.js ====================
 
 /* ===========================================================================
@@ -164518,17 +164678,42 @@ class MebCurriculumEngine {
         }
 
         // 0. ÖZEL EĞİTİM
+        //
+        // Burada 28.08.2026'ya kadar ELLE YAZILMIŞ 8 ders vardı ve hiçbir resmî
+        // çizelgeden üretilmemişti. ORGM'nin çizelgesiyle karşılaştırılınca
+        // yanlış olduğu görüldü: Din Kültürü 2 yerine 1; "Görsel Sanatlar ve
+        // Müzik" tek ders sanılmış, oysa AYRI iki ders (9-10'da 2+2);
+        // Beden Eğitimi sabit 2 yazılmış, oysa 2/2/1/1; Rehberlik 2 yerine 1;
+        // "Sosyal, Kültürel ve Sportif Faaliyetler" (11-12'de 3 saat) hiç yok.
+        //
+        // Hatalar birbirini götürdüğü için TOPLAM yine 30 saat çıkıyordu —
+        // okul toplamı doğru görünüyor, BRANŞ DAĞILIMI yanlış oluyordu. Müzik
+        // öğretmeninin yükü hiç görünmüyordu. Sessiz hata sınıfının tipik
+        // örneği: bakınca "30 saat, doğru" diyorsunuz.
+        //
+        // Artık çizelge resmî kaynaktan üretiliyor:
+        //   tools/uret_ozel_egitim.py -> js/ozel_egitim_cizelgeleri.js
+        //   Kaynak: https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106
+        //
+        // Sınıfa göre çizelge seçilir: 1-8 ilkokul/ortaokul, 9-12 meslek okulu.
         if (areaId === "ozel_egitim" || schoolTypeStr.includes("ozel_egitim") || String(dalName || "").includes("Özel Eğit")) {
-            return [
-                { ders: "Türkçe / Türk Dili ve Edebiyatı (Özel Eğitim)", saat: 3, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: false },
-                { ders: "Matematik (Özel Eğitim)", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false },
-                { ders: "Sosyal Hayat ve Toplumsal Uyum Becerileri", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false },
-                { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi", baraj_ders: false, isAtolye: false },
-                { ders: "Beden Eğitimi ve Spor", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Beden Eğitimi", baraj_ders: false, isAtolye: false },
-                { ders: "Görsel Sanatlar ve Müzik", saat: 2, kategori: "ORTAK DERSLER", atananBrans: "Görsel Sanatlar", baraj_ders: false, isAtolye: false },
-                { ders: "İş Becerileri ve Mesleki Uygulamalar", saat: 15, kategori: "ALAN VE DAL MESLEK DERSLERİ", atananBrans: "Özel Eğitim", baraj_ders: true, isAtolye: true },
-                { ders: "Rehberlik ve Yönlendirme", saat: 2, kategori: "REHBERLİK", atananBrans: "Özel Eğitim", baraj_ders: false, isAtolye: false }
-            ];
+            const oeTablo = (typeof window !== 'undefined' && window.OZEL_EGITIM_CIZELGELERI)
+                ? window.OZEL_EGITIM_CIZELGELERI
+                : (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined' ? OZEL_EGITIM_CIZELGELERI : null);
+
+            if (oeTablo) {
+                const cizelgeAdi = ["1", "2", "3", "4", "5", "6", "7", "8"].includes(gStr)
+                    ? "ilkokul_ortaokul" : "meslek_okulu";
+                const liste = (oeTablo[cizelgeAdi] || {})[gStr];
+                if (liste && liste.length) return liste.map(d => ({ ...d }));
+            }
+
+            // Buraya düşmek, üretilmiş çizelgenin pakete girmediği anlamına
+            // gelir. Eski elle yazılmış liste BİLEREK geri konulmadı: sessizce
+            // yanlış veri döndürmektense boş dönmek yeğdir — boş liste ekranda
+            // hemen görülür, yanlış saat görülmez.
+            console.error("Özel eğitim çizelgesi yüklenemedi (ozel_egitim_cizelgeleri.js).");
+            return [];
         }
 
         // 1. TEMEL EĞİTİM (İHO & ORTAOKUL)
@@ -176657,6 +176842,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
+    if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;

@@ -1,0 +1,757 @@
+{
+ "belge_adi": "Özel Eğitim İlkokulları ve Ortaokulları Haftalık Ders Çizelgesi (Hafif Düzeyde Zihinsel Yetersizliği/Otizm Spektrum Bozukluğu Olan Öğrenciler İçin)",
+ "kaynak": "https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106",
+ "kaynak_pdf": "ilkokul_ortaokul_hafif_zihinsel_otizm.pdf",
+ "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_egitim.py üretir.",
+ "sinif_seviyeleri": [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8"
+ ],
+ "atilan_egik_satir": 2,
+ "dersler": [
+  {
+   "ders_adi": "Türkçe",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 10
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 10
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 8
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 8
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 7
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 7
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 7
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 7
+    }
+   }
+  },
+  {
+   "ders_adi": "Matematik",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 5
+    }
+   }
+  },
+  {
+   "ders_adi": "Hayat Bilgisi",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "Fen Bilimleri",
+   "saatler": {
+    "3": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   }
+  },
+  {
+   "ders_adi": "Sosyal Bilgiler",
+   "saatler": {
+    "4": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "T.C. İnkılâp Tarihi ve Atatürkçülük",
+   "saatler": {
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
+   "saatler": {
+    "4": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Görsel Sanatlar",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Müzik",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Beden Eğitimi ve Oyun",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Toplumsal Uyum Becerileri",
+   "saatler": {
+    "1": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "2": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Beden Eğitimi ve Spor",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Teknoloji ve Tasarım",
+   "saatler": {
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Trafik Güvenliği",
+   "saatler": {
+    "4": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Bilişim Teknolojileri ve Yazılım",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Rehberlik ve Yönlendirme",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "İnsan Hakları, Vatandaşlık ve Demokrasi",
+   "saatler": {
+    "4": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  }
+ ],
+ "secmeli_dersler": [
+  {
+   "ders_adi": "Matematik ve Bilim Uygulamaları (2)",
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Okuma Becerileri (4)",
+   "saatler": {
+    "2": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yazarlık ve Yazma Becerileri (4)",
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yaşayan Diller ve Lehçeler (4)",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yabancı Dil (Bakanlar Kurulu Kararı ile",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Çevre Eğitimi ve İklim Değişikliği (1)",
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "“Şehrimiz ...” (1)",
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Hukuk ve Adalet (1)",
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "İnsan, Düşünme Eğitimi (2)",
+   "saatler": {
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "ve Bilim Robotik Kodlama (2)",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yapay Zekâ Uygulamaları (2)",
+   "saatler": {
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Proje Tasarımı ve Uygulamaları (3)",
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Okul Temelli Sosyal Sorumluluk",
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Medya Okuryazarlığı (1)",
+   "saatler": {
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Afet Bilinci (2)",
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Temel Yaşam Becerileri (2)",
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Türk Sosyal Hayatında Aile (1)",
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  }
+ ],
+ "cizelge_toplami": {
+  "1": 26,
+  "2": 26,
+  "3": 26,
+  "4": 28,
+  "5": 30,
+  "6": 30,
+  "7": 30,
+  "8": 29
+ }
+}
