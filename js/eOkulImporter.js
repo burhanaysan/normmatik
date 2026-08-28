@@ -137,7 +137,7 @@ export class EOkulImporter {
             const isSpecialEdu = currentSec.isSpecialEdu;
             const isSınavlı = currentSec.isSınavlı;
 
-            let finalSubName = `${currentSec.grade}-${currentSec.letter}`;
+            let finalSubName = `${this.seviyeGorunen(currentSec.grade)}-${currentSec.letter}`;
             if (isSınavlı) {
                 finalSubName += matchedArea ? ` (${matchedArea.name.split(' ')[0]} Sınavlı)` : ` (Sınavlı)`;
             } else if (currentSec.rawArea && !isSpecialEdu) {
@@ -355,7 +355,7 @@ export class EOkulImporter {
             const groupKey = `${grade}_${secLetter}`;
             letterGroupCount[groupKey] = (letterGroupCount[groupKey] || 0) + 1;
 
-            let finalSubName = `${grade}-${secLetter}`;
+            let finalSubName = `${this.seviyeGorunen(grade)}-${secLetter}`;
             if (isSınavlı) {
                 finalSubName += matchedArea ? ` (${matchedArea.name.split(' ')[0]} Sınavlı)` : ` (Sınavlı)`;
             } else if (rawArea && !isSpecialEdu) {
@@ -478,6 +478,15 @@ export class EOkulImporter {
             }
         }
         return null;
+    }
+
+    /**
+     * Şube adında sınıf seviyesinin GÖRÜNEN hâli.
+     * "hazirlik" iç anahtardır; ekrana "Hazırlık" yazılmalı, yoksa şube adı
+     * "hazirlik-A" diye görünür.
+     */
+    seviyeGorunen(grade) {
+        return String(grade).toLowerCase() === "hazirlik" ? "Hazırlık" : String(grade);
     }
 
     normalizeText(text) {
