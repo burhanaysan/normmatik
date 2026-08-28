@@ -168612,16 +168612,64 @@ class AppStateService {
             return true;
         });
 
-        // 2. Mükerrer Rehberlik derslerini teke indir (12. sınıf ise tamamen kaldır)
-        const isGrade12 = String(sec.sinifSeviyesi) === "12";
+        // 2. Mükerrer Rehberlik derslerini teke indir
+        //
+        // BURADA ESKİDEN "12. SINIFSA TAMAMEN KALDIR" KURALI VARDI ve YANLIŞTI.
+        // Resmî çizelgelerle karşılaştırıldı (28.08.2026): elimizdeki 16
+        // ortaöğretim çizelgesinin HEPSİ 12. sınıfta Rehberlik ve Yönlendirme
+        // dersini 1 saat olarak veriyor — istisna yok. Özel Eğitim Meslek
+        // Okulu çizelgesi de öyle. Kural muhtemelen eski çizelgelerden kalmıştı
+        // (rehberlik 9-11'de vardı, 12'de yoktu) ve 2024 Maarif Modeli
+        // çizelgeleriyle sessizce yanlışa döndü.
+        //
+        // Etkisi: her 12. sınıf şubesinde 1 saat, okulun toplam yükünden
+        // eksik hesaplanıyordu. Ekranda hiçbir uyarı yoktu.
+        //
+        // Sınıfa göre "bu derste rehberlik var mı" kararını ARTIK BU KOD
+        // VERMİYOR; çizelgeyi müfredat motoru okuyor. Bazı çizelgelerde ders
+        // gerçekten yok (Spor Lisesi 9, Güzel Sanatlar Görsel 10-11, Sosyal
+        // Bilimler 11) ve motor onu zaten getirmiyor.
+        // ÇİZELGEYE SOR: bu okul türünün bu sınıfında rehberlik var mı, kaç saat?
+        //   { saat }  -> çizelgede VAR, saati budur
+        //   null      -> çizelgede YOK, dersi kaldır
+        //   undefined -> KARAR VERİLEMEDİ (okul türü seçilmemiş, motor yok,
+        //                müfredat boş döndü) -> hiçbir şeye dokunma
+        //
+        // Son ihtimal önemlidir: motor boş dönerse "çizelgede yok" sanıp
+        // idarecinin dersini silmek, sessizce veri kaybettirirdi.
+        let cizelgeRehberlik;
+        try {
+            const motor = (typeof window !== 'undefined' && window.curriculumEngine)
+                ? window.curriculumEngine : null;
+            const okulTuru = this.state && this.state.okulBilgisi
+                ? this.state.okulBilgisi.okulTuru : null;
+            if (motor && okulTuru && typeof motor.getMandatoryCourses === 'function') {
+                const referans = motor.getMandatoryCourses(
+                    okulTuru, sec.sinifSeviyesi, sec.alanId, sec.dalAdi) || [];
+                if (referans.length) {
+                    const r = referans.find(
+                        x => normalizeName(x.ders || "").includes("rehberlik"));
+                    cizelgeRehberlik = r ? { saat: r.saat } : null;
+                }
+            }
+        } catch (e) { /* karar verilemedi; dokunulmaz */ }
+
         let rehberlikSeen = false;
         sec.zorunluDersler = sec.zorunluDersler.filter(d => {
             const norm = normalizeName(d.ders || d.ders_adi || "");
             if (norm.includes("rehberlik")) {
-                if (isGrade12 || rehberlikSeen) return false;
+                if (cizelgeRehberlik === null) return false;   // çizelgede yok
+                if (rehberlikSeen) return false;
                 rehberlikSeen = true;
                 d.ders = "Rehberlik ve Yönlendirme";
-                d.saat = 1;
+                // Saat çizelgeden gelir. Eskiden burada koşulsuz `d.saat = 1`
+                // vardı; elimizdeki bütün çizelgeler 1 saat dediği için zararı
+                // görünmüyordu, ama çizelgeye değil koda bağlıydı.
+                if (cizelgeRehberlik && cizelgeRehberlik.saat) {
+                    d.saat = cizelgeRehberlik.saat;
+                } else if (!d.saat) {
+                    d.saat = 1;
+                }
                 d.kategori = "ORTAK DERSLER";
 
                 // BRANŞ ZORLANMAZ.
@@ -168652,6 +168700,23 @@ class AppStateService {
             }
             return true;
         });
+
+        // ÇİZELGEDE VAR AMA ŞUBEDE YOK -> EKLE.
+        //
+        // Yalnızca yeni şubeleri düzeltmek yetmezdi: bu temizlik her yüklemede
+        // çalıştığı için, kayıtlı okulların 12. sınıf şubelerinden ders zaten
+        // silinmişti ve kendiliğinden geri gelmezdi. Okul, şubeyi elle yeniden
+        // kurana kadar 1 saat eksik hesaplanmaya devam ederdi.
+        if (cizelgeRehberlik && !rehberlikSeen) {
+            sec.zorunluDersler.push({
+                ders: "Rehberlik ve Yönlendirme",
+                saat: cizelgeRehberlik.saat || 1,
+                kategori: "ORTAK DERSLER",
+                atananBrans: "Rehberlik",
+                baraj_ders: false,
+                isAtolye: false
+            });
+        }
 
         if (Array.isArray(sec.secmeliDersler)) {
             sec.secmeliDersler = sec.secmeliDersler.filter(d => {

@@ -171,13 +171,19 @@ console.log("── 3. Atanan ders ne olursa olsun yüke eklenir (kısıtlama yo
     });
 
     const dersler = () => st.state.subeler[0].zorunluDersler || [];
-    kontrol("üç ders de şubede duruyor", dersler().length, 3);
+    // NOT: Şube kurulurken çizelge gereği "Rehberlik ve Yönlendirme" de
+    // eklenir (Anadolu Lisesi 9. sınıfta 1 saat). Bu testin konusu o değil;
+    // yalnızca fixture'daki üç ders denetlenir. Toplam sayı üzerinden
+    // ölçmek, ilgisiz bir kuralın bu testi kırmasına yol açıyordu.
+    const KONU = ["Biyoloji", "Matematik", "Sağlık Bilgisi ve Trafik Kültürü"];
+    const konuDersleri = () => dersler().filter(d => KONU.includes(d.ders));
+    kontrol("üç ders de şubede duruyor", konuDersleri().length, 3);
     kontrol("hepsi Biyoloji'ye atanmış",
-        dersler().every(d => d.atananBrans === "Biyoloji"), true);
+        konuDersleri().every(d => d.atananBrans === "Biyoloji"), true);
 
     st.sanitizeExistingState();
     kontrol("yeniden yüklemeden sonra da hepsi Biyoloji'de",
-        dersler().every(d => d.atananBrans === "Biyoloji"), true);
+        konuDersleri().every(d => d.atananBrans === "Biyoloji"), true);
 
     const rapor = raporla(w, st, {});
     const bio = rapor.find(b => b.branchName === "Biyoloji");
@@ -198,8 +204,10 @@ console.log("── 3. Atanan ders ne olursa olsun yüke eklenir (kısıtlama yo
 // "Rehberlik" yapıyordu. Seçim uygulanıyor, hemen ardından geri alınıyordu —
 // ne hata ne uyarı. Artık yalnızca branş boş/tanınmazsa varsayılan yazılır.
 //
-// Dersin adı, 1 saat sabitlemesi, mükerrer temizliği ve 12. sınıf kuralı
-// DEĞİŞMEDİ; yalnızca branş zorlaması kaldırıldı.
+// Dersin adı ve mükerrer temizliği DEĞİŞMEDİ; branş zorlaması 27.08.2026'da
+// kaldırıldı. 28.08.2026'da ayrıca "12. sınıfta rehberliği sil" kuralı da
+// kaldırıldı ve saat sabitlemesi bırakıldı: ders artık tamamen çizelgeden
+// gelir (bkz. tools/test_rehberlik.mjs).
 console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıcıdır");
 {
     const w = ortam();
