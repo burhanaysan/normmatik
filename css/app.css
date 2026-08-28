@@ -344,6 +344,20 @@ body {
     outline: none;
 }
 
+/* AÇILIR LİSTEDEKİ SEÇENEKLER
+   Kutunun kendisi KOYU başlık şeridinin üzerinde durduğu için yazı rengi
+   neredeyse beyaz (#f1f5f9). <option> etiketleri bu rengi miras alıyor,
+   ama açılır listeyi işletim sistemi BEYAZ zeminde çiziyordu: beyaz üstüne
+   beyaz. Sonuç, yalnızca seçili satırın (mavi zemin) okunabilmesiydi;
+   diğer yıllar görünmüyordu.
+   Bu yüzden option'un hem yazı hem zemin rengi AÇIKÇA veriliyor; kullanıcının
+   işletim sistemi koyu temada olsa da liste okunur kalır. */
+.season-pill-select option {
+    color: #0f172a;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
 /* Sağ Blok: Sade Dairesel Geri/İleri & Aksiyonlar (Standart 36px Yükseklik) */
 .history-controls-minimal {
     display: inline-flex;
