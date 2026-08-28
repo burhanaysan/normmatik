@@ -101,7 +101,19 @@ def saat_secenekleri(saat_bilgisi):
 def secmeli_mi(grup_adi):
     # "SEÇMELİ".upper() Türkçe'de tuzaklıdır; küçük harfe indirip bakıyoruz.
     ad = (grup_adi or "").replace("İ", "i").replace("I", "i").lower()
-    return "secmel" in ad.replace("ç", "c")
+    for a, b in (("ç", "c"), ("ö", "o"), ("ü", "u"), ("ğ", "g"),
+                 ("ş", "s"), ("ı", "i")):
+        ad = ad.replace(a, b)
+    if "secmel" in ad:
+        return True
+    # Özel Program Uygulayan Fen/Sosyal Bilimler Liseleri'nde seçmeli grubunun
+    # adı "SEÇMELİ" değil, "ÇOK YÖNLÜ GELİŞİM DERSLERİ"dir. Yalnızca "seçmeli"
+    # aranınca bu iki okul türü havuz DIŞINDA kalıyor ve master DB'ye düşüp
+    # başka okulların derslerini görüyorlardı.
+    #
+    # "TEMATİK ALAN DERSLERİ" bilerek dışarıda: onlar seçmeli değil, okulun
+    # temasına bağlı alan dersleridir.
+    return "cok yonlu gelisim" in ad
 
 
 def dersleri_topla(kaynak_json, tablo_adi):

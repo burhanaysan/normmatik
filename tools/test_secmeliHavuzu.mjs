@@ -113,6 +113,8 @@ const ESLEME = [
     ["spor_lisesi", "ogm/sayi09_spor_lisesi.json", null],
     ["anadolu_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
     ["hazirlik_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
+    ["ozel_program_fen_lisesi", "ogm/sayi24_ozelprogram_fen_lisesi.json", null],
+    ["ozel_program_sosyal_lisesi", "ogm/sayi25_ozelprogram_sosyalbilimler_lisesi.json", null],
     ["ortaokul_temel_egitim", "temel_egitim/ilkogretim_ilkokul_ortaokul.json", null],
     ["imam_hatip_ortaokulu", "dogm/imam_hatip_ortaokulu.json", null],
 ];
@@ -158,7 +160,11 @@ function kaynaktanBeklenen(dosya, tabloAdi) {
     if (!t) return bek;
     for (const g of (t.gruplar || [])) {
         const adKucuk = String(g.grup_adi || "").replace(/İ/g, "i").toLowerCase();
-        if (!adKucuk.replace(/ç/g, "c").includes("secmel")) continue;
+        // "ÇOK YÖNLÜ GELİŞİM DERSLERİ" = Özel Program liselerinin seçmeli grubu.
+        // "TEMATİK ALAN DERSLERİ" bilerek dışarıda: onlar alan dersi.
+        const sade = adKucuk.replace(/ç/g, "c").replace(/ö/g, "o")
+            .replace(/ü/g, "u").replace(/ğ/g, "g").replace(/ş/g, "s").replace(/ı/g, "i");
+        if (!sade.includes("secmel") && !sade.includes("cok yonlu gelisim")) continue;
         for (const d of (g.dersler || [])) ekle(d.ders_adi, d.saatler);
     }
     return bek;
