@@ -4998,9 +4998,16 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             btnApply.innerHTML = `🚀 <strong>${data.schoolSummary.totalActiveSections} Şubeyi</strong> Otomatik Kur ve Müfredatı Doldur`;
 
+            // Alan düzeltme listesi: uygulamanın KENDİ alan kataloğu.
+            // Eskiden importer.KNOWN_AREAS (elle yazılmış 36 alan) kullanılıyordu;
+            // veri tabanındaki 58 alanın 22'si listede HİÇ YOKTU, yani yanlış
+            // eşleşen bir şubeyi doğrusuna çevirmek mümkün değildi.
+            const areaCatalog = importer.getAreaCatalog(
+                this.state?.state?.okulBilgisi?.okulTuru || null);
+
             // Tablo Satırları
             tbody.innerHTML = data.sections.map((sec, idx) => {
-                const areaOptions = importer.KNOWN_AREAS.map(a => `
+                const areaOptions = areaCatalog.map(a => `
                     <option value="${a.id}" ${sec.matchedAreaId === a.id ? 'selected' : ''}>
                         ${a.name}
                     </option>
@@ -5085,7 +5092,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                 const idx = parseInt(sel.getAttribute("data-idx"), 10);
                 if (parsedData.sections[idx]) {
                     parsedData.sections[idx].matchedAreaId = sel.value || null;
-                    const areaObj = importer.KNOWN_AREAS.find(a => a.id === sel.value);
+                    const areaObj = importer
+                        .getAreaCatalog(this.state?.state?.okulBilgisi?.okulTuru || null)
+                        .find(a => a.id === sel.value);
                     parsedData.sections[idx].matchedAreaName = areaObj ? areaObj.name : null;
                 }
             });

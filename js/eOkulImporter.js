@@ -399,14 +399,81 @@ export class EOkulImporter {
      * Parantez içindeki alandan Veritabanındaki Alan ID'sini Eşleştirir
      * @param {string} rawAreaText 
      */
-    matchVocationalArea(rawAreaText) {
-        if (!rawAreaText) return null;
-        const norm = this.normalizeText(rawAreaText);
+    /**
+     * Uygulamanın KENDİ alan listesini döndürür (veri tabanından).
+     *
+     * NEDEN: Aşağıdaki KNOWN_AREAS elle yazılmış 36 alan içerir; veri
+     * tabanında 58 alan var. Elle yazılmış listeyle eşleştirme ölçüldüğünde
+     * (28.08.2026) 58 alanın yalnızca 35'i doğru eşleşiyordu: 14'ü hiç
+     * eşleşmiyor, 9'u YANLIŞ alana gidiyordu.
+     */
+    getAreaCatalog(schoolType) {
+        try {
+            const liste = this.db && typeof this.db.getVocationalAreas === "function"
+                ? this.db.getVocationalAreas(schoolType || "mesleki_ve_teknik_anadolu_lisesi")
+                : [];
+            if (liste && liste.length >= 10) return liste;
+        } catch (e) { /* aşağıdaki yedeğe düşülür */ }
+        // Veri tabanı yüklenmemişse elle yazılmış liste yedek kalır; hiç
+        // eşleştirmemektense eksik eşleştirmek yeğdir.
+        return this.KNOWN_AREAS.map(a => ({ id: a.id, name: a.name }));
+    }
 
+    /**
+     * Parantez içindeki alan metnini uygulamanın alan kimliğine eşleştirir.
+     *
+     * e-Okul, alanı RESMÎ ADIYLA ve büyük harfle yazar:
+     *     "(ELEKTRİK-ELEKTRONİK TEKNOLOJİSİ ALANI)"
+     *     "(MOBİLYA VE İÇ MEKÂN TASARIMI ALANI)"
+     *     "(HARİTA-TAPU-KADASTRO ALANI)"
+     * Bu adlar veri tabanındaki adlarla neredeyse birebirdir. Bu yüzden
+     * önce TAM AD karşılaştırılır; anahtar kelime tahmini en sona kalır.
+     *
+     * ESKİ DAVRANIŞ VE HATASI: yalnızca anahtar kelime aranıyordu ve bazı
+     * anahtarlar çok kısaydı. "oto" anahtarı "fotograf" kelimesinin içinde
+     * geçtiği için "Grafik ve Fotoğraf Alanı" -> "Motorlu Araçlar" olarak
+     * eşleşiyordu; o şube grafik yerine otomotiv müfredatı alıyordu.
+     * Benzer şekilde "yapı" -> "Gemi Yapımı"nı İnşaat'a, "metal" ->
+     * "Metalürji"yi Metal'e gönderiyordu. Ekranda hiçbir uyarı yoktu.
+     */
+    matchVocationalArea(rawAreaText, schoolType = null) {
+        if (!rawAreaText) return null;
+
+        // "(SINAVLI)" gibi ekleri at; alan adının kendisi kalsın.
+        const temiz = String(rawAreaText)
+            .replace(/\((?:\s*SINAVLI\s*|\s*sınavlı\s*)\)/gi, " ")
+            .replace(/\bSINAVLI\b/gi, " ");
+        const norm = this.normalizeText(temiz);
+        if (!norm) return null;
+
+        const katalog = this.getAreaCatalog(schoolType);
+
+        // 1) Tam ad (normalleştirilmiş) — en güvenilir yol.
+        for (const a of katalog) {
+            if (this.normalizeText(a.name) === norm) return a;
+        }
+
+        // 2) Ad, metnin içinde geçiyor mu? En UZUN eşleşme kazanır; kısa
+        //    adların uzun adları gölgelemesini önler ("Metal" / "Metalürji").
+        let enIyi = null, enUzun = 0;
+        for (const a of katalog) {
+            const an = this.normalizeText(a.name);
+            if (an.length < 8) continue;
+            if (norm.includes(an) || an.includes(norm)) {
+                if (an.length > enUzun) { enUzun = an.length; enIyi = a; }
+            }
+        }
+        if (enIyi) return enIyi;
+
+        // 3) Son çare: elle yazılmış anahtar kelimeler. Kısa anahtarlar
+        //    (oto, cnc, ebe, yapı...) BİLEREK elenir — hatanın kaynağı onlardı.
         for (const area of this.KNOWN_AREAS) {
             for (const kw of area.keywords) {
-                if (norm.includes(this.normalizeText(kw))) {
-                    return area;
+                const k = this.normalizeText(kw);
+                if (k.length < 6) continue;
+                if (norm.includes(k)) {
+                    const eslesen = katalog.find(a => a.id === area.id);
+                    return eslesen || area;
                 }
             }
         }
@@ -463,9 +530,36 @@ export class EOkulImporter {
 
         const effectiveSchoolType = schoolType || stateService.state.okulBilgisi.okulTuru || "mesleki_ve_teknik_anadolu_lisesi";
 
+        // OKUL TÜRÜ SÜZGECİ
+        // Eşleşen alan kimliği, o okul türünün KENDİ listesinde yoksa şubeye
+        // yazılmaz. Sebebi: `alanId` dolu olduğunda müfredat motoru meslek
+        // dalına giriyor. Bir Anadolu Lisesi şubesine yanlışlıkla meslek alanı
+        // yazılsaydı, o şube meslek lisesi gibi hesaplanır ve ekranda hiçbir
+        // uyarı çıkmazdı. Özel Program liselerinde de `alanId` TEMA tutar;
+        // oraya meslek alanı yazmak aynı sessiz hatayı doğururdu.
+        // NOT: getVocationalAreas(), okul türü ne olursa olsun aynı meslek
+        // alanı listesini döndürüyor (MESEM ve tema türleri hariç). Bu yüzden
+        // "katalogda var mı" sorusu tek başına YETMEZ — ilk yazımda yetmedi ve
+        // Anadolu Lisesi şubesine "bilisim" alanı yazılmaya devam etti.
+        // Asıl ölçüt, okul türünün alan/tema SEÇİYOR olmasıdır.
+        let gecerliAlanlar = null;
+        try {
+            const turBilgisi = (this.db.getSchoolTypes() || [])
+                .find(t => t.id === effectiveSchoolType);
+            if (turBilgisi && !turBilgisi.hasAreas) {
+                gecerliAlanlar = new Set();          // hiçbir alan kabul edilmez
+            } else {
+                const katalog = this.getAreaCatalog(effectiveSchoolType) || [];
+                if (katalog.length >= 3) gecerliAlanlar = new Set(katalog.map(a => a.id));
+            }
+        } catch (e) { /* süzgeç kurulamazsa eski davranış sürer */ }
+
         parsedSections.forEach((sec, idx) => {
             const isSpecialEdu = !!sec.isSpecialEdu;
-            const areaId = isSpecialEdu ? "ozel_egitim" : sec.matchedAreaId;
+            let areaId = isSpecialEdu ? "ozel_egitim" : sec.matchedAreaId;
+            if (areaId && !isSpecialEdu && gecerliAlanlar && !gecerliAlanlar.has(areaId)) {
+                areaId = null;
+            }
             const dalAdi = isSpecialEdu ? "Özel Eğitim Sınıfı" : (sec.dalAdi || null);
 
             // Zorunlu Dersleri Çöz (Dal bilgisi varsa dal müfredatı otomatik çözülür)
