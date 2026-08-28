@@ -113,6 +113,8 @@ const ESLEME = [
     ["spor_lisesi", "ogm/sayi09_spor_lisesi.json", null],
     ["anadolu_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
     ["hazirlik_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
+    ["ortaokul_temel_egitim", "temel_egitim/ilkogretim_ilkokul_ortaokul.json", null],
+    ["imam_hatip_ortaokulu", "dogm/imam_hatip_ortaokulu.json", null],
 ];
 
 function saatMetni(v) {
@@ -134,10 +136,21 @@ function kaynaktanBeklenen(dosya, tabloAdi) {
             if (!(ah(ad) in bek[sinif])) bek[sinif][ah(ad)] = { ad, saat: s };
         }
     };
-    if (j.secmeli_dersler) {                       // DÖGM biçimi
+    if (Array.isArray(j.secmeli_dersler)) {        // Temel eğitim biçimi (düz liste)
+        for (const d of j.secmeli_dersler) ekle(d.ders_adi, d.saatler);
+        return bek;
+    }
+    if (j.secmeli_dersler) {                       // DÖGM lise biçimi
         for (const g of Object.values(j.secmeli_dersler))
             for (const alt of (g.alanlar || g.programlar || []))
                 for (const d of (alt.dersler || [])) ekle(d.ders_adi, d.saatler);
+        return bek;
+    }
+    if (j.ana_cizelge && j.ana_cizelge.secmeli_dersler_alanlari) {   // İHO biçimi
+        for (const alan of j.ana_cizelge.secmeli_dersler_alanlari)
+            for (const d of (alan.dersler || [])) ekle(d.ders_adi, d.saatler);
+        for (const prog of (j.program_secmeli_dersleri || []))
+            for (const d of (prog.dersler || [])) ekle(d.ders_adi, d.saatler);
         return bek;
     }
     const tablolar = j.tablolar || [];             // OGM biçimi
@@ -215,7 +228,7 @@ if (toplamKarsilastirma < 800)
 /* ---- 2) Havuzu OLMAYAN türler eski yolunu sürdürmeli ------------------ */
 // Meslek lisesi, MESEM ve ortaokul seçmelileri alan/dal üzerinden gelir.
 // Havuz onlara uygulanırsa listeleri boşalır.
-for (const tur of ["mesleki_ve_teknik_anadolu_lisesi", "ortaokul_temel_egitim"]) {
+for (const tur of ["mesleki_ve_teknik_anadolu_lisesi", "meslek_ortaokulu"]) {
     kontrol(tur + ": üretilmiş havuzu yok (eski yol sürüyor)", !HAVUZ[tur]);
     let doluBulundu = false;
     for (const sinif of ["7", "9", "10", "11", "12"]) {

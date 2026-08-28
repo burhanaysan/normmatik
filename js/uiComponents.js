@@ -2906,8 +2906,21 @@ export class UIComponentManager {
             }
         }
 
-        // 3. Ortaokul / İmam Hatip Ortaokulu Seçmeli Havuzu (5-8. Sınıflar)
-        if (schoolType.includes("ortaokul") || ["5", "6", "7", "8"].includes(grade)) {
+        // 3. Ortaokul Seçmeli Havuzu — ELLE YAZILMIŞ, ARTIK YEDEK
+        //
+        // Aşağıdaki 16 derslik liste elle yazılmıştı ve resmî çizelgeyle
+        // uyuşmuyordu: çizelgede HİÇ OLMAYAN dersler içeriyordu (Robotik
+        // Kodlama ve Yazılım, Satranç ve Zekâ Oyunları, Yazarlık ve Yazma
+        // Becerileri, Matematik Uygulamaları, Bilim Uygulamaları gibi eski
+        // müfredat kalıntıları), çizelgedeki 30 dersin çoğu ise yoktu
+        // (Afet Bilinci, Medya Okuryazarlığı, Hukuk ve Adalet, Dijital
+        // Sanatlar, Geleneksel Sanatlar, Yapay Zekâ Uygulamaları...).
+        //
+        // 28.08.2026'dan itibaren ortaokul ve imam hatip ortaokulu seçmelileri
+        // resmî çizelgeden üretiliyor (2. adım). Bu liste yalnızca üretilmiş
+        // havuzu OLMAYAN bir ortaokul türü için (meslek ortaokulu) yedekte
+        // duruyor; onun da kaynağa bağlanması gereken bir iş olarak durur.
+        if (!turHavuzu && (schoolType.includes("ortaokul") || ["5", "6", "7", "8"].includes(grade))) {
             const middleElectives = [
                 { ders: "Yabancı Dil (Ağırlıklı / Seçmeli)", hours: [2, 3, 4], branch: "İngilizce", grup: "Yabancı Dil Becerileri" },
                 { ders: "Matematik Uygulamaları", hours: [2], branch: "Matematik", grup: "Matematik ve Bilim" },

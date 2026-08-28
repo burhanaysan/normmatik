@@ -321,6 +321,706 @@
    }
   ]
  },
+ "secmeli_dersler": [
+  {
+   "ders_adi": "Matematik ve Bilim Uygulamaları",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Okuma Becerileri",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yazarlık ve Yazma Becerileri",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yaşayan Diller ve Lehçeler",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yabancı Dil",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Çevre Eğitimi ve İklim Değişikliği",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "“Şehrimiz ...”",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Hukuk ve Adalet",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Düşünme Eğitimi",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Robotik Kodlama",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Yapay Zeka Uygulamaları",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Proje Tasarımı ve Uygulamaları",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 3,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Okul Temelli Sosyal Sorumluluk Çalışmaları",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 3,
+   "saatler": {
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Medya Okuryazarlığı",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Afet Bilinci",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Temel Yaşam Becerileri",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Türk Sosyal Hayatında Aile",
+   "grup": "İnsan, Toplum ve Bilim",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Kur'an-ı Kerim",
+   "grup": "Din, Ahlak ve Değer",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Peygamberimizin Hayatı",
+   "grup": "Din, Ahlak ve Değer",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Temel Dinî Bilgiler",
+   "grup": "Din, Ahlak ve Değer",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Kültür ve Medeniyetimize Yön Verenler",
+   "grup": "Din, Ahlak ve Değer",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Ahlak ve Vatandaşlık Eğitimi",
+   "grup": "Din, Ahlak ve Değer",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Görgü Kuralları ve Nezaket",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Müzik",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Spor ve Fizikî Etkinlikler",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Oyun ve Oyun Etkinlikleri",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Dijital Sanatlar",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Masal ve Destanlarımız",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "5": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "Geleneksel Sanatlar",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "6": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "7": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "ders_adi": "Halk Oyunları",
+   "grup": "Kültür, Sanat ve Spor",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "5": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  }
+ ],
  "cizelge_zorunlu_toplami": {
   "1": 26,
   "2": 28,

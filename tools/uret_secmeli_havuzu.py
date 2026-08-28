@@ -60,7 +60,23 @@ sys.path.insert(0, os.path.join(BASE_DIR, "tools"))
 from uret_ortaogretim_cizelgeleri import TABLOLAR, KAYNAK  # noqa: E402
 
 CIKTI = os.path.join(BASE_DIR, "js", "secmeli_havuzu.js")
-SINIFLAR = ["hazirlik", "9", "10", "11", "12"]
+SINIFLAR = ["hazirlik", "5", "6", "7", "8", "9", "10", "11", "12"]
+
+# ORTAOKUL KAYNAKLARI
+# TABLOLAR yalnızca ortaöğretim çizelgelerini eşler; ortaokul seçmelileri
+# başka dosyalarda ve başka bir yapıda durur. Bu yüzden ayrı eşleme.
+#
+# NEDEN EKLENDİ: Ortaokul seçmeli listesi 28.08.2026'ya kadar uiComponents.js
+# içinde ELLE YAZILMIŞ 16 dersti ve resmî çizelgeyle uyuşmuyordu — çizelgede
+# olmayan dersler (Robotik Kodlama ve Yazılım, Satranç ve Zekâ Oyunları,
+# Yazarlık ve Yazma Becerileri gibi eski müfredat kalıntıları) listede vardı,
+# çizelgedeki dersler ise eksikti.
+ORTAOKUL_KAYNAKLARI = [
+    ("ortaokul_temel_egitim",
+     "temel_egitim/ilkogretim_ilkokul_ortaokul.json"),
+    ("imam_hatip_ortaokulu",
+     "dogm/imam_hatip_ortaokulu.json"),
+]
 
 # Kaynakta iki ayrı yapı var:
 #   OGM  -> tablolar[].gruplar[] içinde grup_adi'nda "SEÇMELİ" geçen gruplar
@@ -126,12 +142,44 @@ def dersleri_topla(kaynak_json, tablo_adi):
     return kayitlar
 
 
+def ortaokul_dersleri(kaynak_json):
+    """Ortaokul seçmelilerini iki ayrı kaynak biçiminden okur."""
+    kayitlar = []
+
+    # Temel eğitim çizelgesi: düz liste, grubu kaydın içinde.
+    for d in (kaynak_json.get("secmeli_dersler") or []):
+        kayitlar.append((d.get("ders_adi") or "", d.get("grup") or "Seçmeli",
+                         d.get("saatler") or {},
+                         d.get("kac_kez_secilebilir") or 1))
+
+    # İmam hatip ortaokulu: alanlara bölünmüş.
+    ana = kaynak_json.get("ana_cizelge") or {}
+    for alan in (ana.get("secmeli_dersler_alanlari") or []):
+        grup = alan.get("alan_adi") or alan.get("grup_adi") or "Seçmeli"
+        for d in (alan.get("dersler") or []):
+            kayitlar.append((d.get("ders_adi") or "", grup,
+                             d.get("saatler") or {},
+                             d.get("kac_kez_secilebilir") or 1))
+
+    # İHO'da ayrıca program (müzik/spor) seçmelileri var.
+    for prog in (kaynak_json.get("program_secmeli_dersleri") or []):
+        grup = prog.get("program_adi") or "Program Seçmeli Dersleri"
+        for d in (prog.get("dersler") or []):
+            kayitlar.append((d.get("ders_adi") or "", grup,
+                             d.get("saatler") or {},
+                             d.get("kac_kez_secilebilir") or 1))
+    return kayitlar
+
+
 def havuzu_kur():
     havuz = {}
     kaynak_yok = []
     istatistik = []
 
-    for tur, dosya, tablo_adi in TABLOLAR:
+    hepsi = ([(t, d, a) for t, d, a in TABLOLAR]
+             + [(t, d, "__ORTAOKUL__") for t, d in ORTAOKUL_KAYNAKLARI])
+
+    for tur, dosya, tablo_adi in hepsi:
         if tablo_adi == "__AIHL__":
             tablo_adi = None          # DÖGM biçiminde tablo adı kullanılmaz
         yol = os.path.join(KAYNAK, dosya)
@@ -141,7 +189,8 @@ def havuzu_kur():
         with io.open(yol, "r", encoding="utf-8") as f:
             veri = json.load(f)
 
-        kayitlar = dersleri_topla(veri, tablo_adi)
+        kayitlar = (ortaokul_dersleri(veri) if tablo_adi == "__ORTAOKUL__"
+                    else dersleri_topla(veri, tablo_adi))
         if not kayitlar:
             # Seçmelisi olmayan tür (ör. meslek lisesi hazırlık çizelgesi).
             # Bu türler eski davranışlarını sürdürsün diye havuza EKLENMEZ;
