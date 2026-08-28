@@ -63,7 +63,15 @@ if (turler.length < 15) {
 
 // Alan/dal seçimi isteyen türler bu denetimin dışındadır: alan verilmeden
 // ders listesi boş dönmesi doğrudur, hata değildir.
-const ALAN_ISTEYENLER = new Set(turler.filter(t => t.hasAreas).map(t => t.id));
+//
+// AMA TEMA SEÇEN TÜRLER HARİÇ (Özel Program liseleri). Onlarda da hasAreas
+// true'dur, ancak seçilen şey meslek alanı değil okulun temasıdır ve tema
+// seçilmese bile ORTAK DERSLER eksiksiz gelmelidir. 28.08.2026'da tema
+// seçimi eklenince bu türler kendiliğinden kapsam dışına düştü ve denetim
+// 42 kontrolden 40'a indi — yani bir denetim SESSİZCE zayıfladı. Bu satır
+// onu geri alıyor.
+const ALAN_ISTEYENLER = new Set(
+    turler.filter(t => t.hasAreas && !t.temaAdi).map(t => t.id));
 // Özel eğitim, kullanıcı kararıyla kapsam dışı.
 const KAPSAM_DISI = new Set([...ALAN_ISTEYENLER, "ozel_egitim_meslek_okulu",
     "ozel_egitim_uygulama_okulu"]);

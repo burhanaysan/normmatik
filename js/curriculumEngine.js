@@ -503,6 +503,43 @@ class MebCurriculumEngine {
         const schoolTypeStr = String(schoolType || "").toLowerCase();
 
         // ---------------------------------------------------------------
+        // 0-. ÖZEL PROGRAM UYGULAYAN LİSELER — TEMA DERSLERİ
+        // ---------------------------------------------------------------
+        // Bu okullarda (Özel Program Uygulayan Fen Lisesi gibi) şubenin
+        // dersleri üç parçadan oluşur:
+        //     ortak dersler + her temada okutulan ortak tematik dersler
+        //     + okulun SEÇTİĞİ temanın kendi dersleri
+        //
+        // Tema, şubenin `alanId` alanında tutulur — meslek lisesindeki alan
+        // seçimiyle aynı mekanizma. Bu blok, aşağıdaki "meslek/teknik"
+        // dalından ÖNCE olmak ZORUNDA: o dal `areaId` doluysa devreye girer
+        // ve bu okulları meslek lisesi gibi hesaplamaya başlardı.
+        //
+        // Hazırlık bloğundan da önce: bu okulların hazırlık sınıfında da
+        // tematik ders var; hazırlık bloğu önce dönseydi onlar düşerdi.
+        //
+        // 28.08.2026'ya kadar tematik dersler uygulamada HİÇ YOKTU: Fen
+        // Lisesi'nin 47 tematik dersi hiçbir şubede görünmüyordu.
+        const temaTablosu = (typeof window !== 'undefined' && window.OZEL_PROGRAM_TEMALARI)
+            ? window.OZEL_PROGRAM_TEMALARI
+            : (typeof OZEL_PROGRAM_TEMALARI !== 'undefined' ? OZEL_PROGRAM_TEMALARI : null);
+        const turTemalari = temaTablosu ? temaTablosu[schoolTypeStr] : null;
+
+        if (turTemalari && typeof ORTAOGRETIM_CIZELGELERI !== 'undefined' && ORTAOGRETIM_CIZELGELERI) {
+            const gKey = (gStr.toLowerCase() === "hazirlik") ? "hazirlik" : gStr;
+            const liste = ((ORTAOGRETIM_CIZELGELERI[schoolTypeStr] || {})[gKey] || [])
+                .map(d => ({ ...d }));
+            for (let d of ((turTemalari.ortak || {})[gKey] || [])) liste.push({ ...d });
+            // Tema seçilmemişse temanın kendi dersleri EKLENMEZ. Rastgele bir
+            // tema varsaymak, olmayan dersleri norma yazmak olurdu.
+            const temaDersleri = (turTemalari.dersler || {})[String(areaId || "")];
+            if (temaDersleri) {
+                for (let d of (temaDersleri[gKey] || [])) liste.push({ ...d });
+            }
+            if (liste.length) return liste;
+        }
+
+        // ---------------------------------------------------------------
         // 0a. HAZIRLIK SINIFI — her okul türünden ÖNCE bakılır
         // ---------------------------------------------------------------
         // Hazırlık sınıfı, alandan/daldan bağımsız ortak bir yıldır. Meslek

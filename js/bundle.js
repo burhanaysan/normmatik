@@ -162695,51 +162695,51 @@ const SECMELI_HAVUZU = {
     },
     "ozel_program_fen_lisesi": {
         "hazirlik": [   // 16 ders
-            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 2 },
-            { ders: "DÜŞÜNME EĞİTİMİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
+            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
+            { ders: "DÜŞÜNME EĞİTİMİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "METİN TAHLİLLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
             { ders: "SEÇMELİ İKİNCİ YABANCI DİL", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 5 },
             { ders: "OSMANLI TÜRKÇESİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 3 },
             { ders: "TEMEL DİNÎ BİLGİLER", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 2 },
             { ders: "KLASİK AHLAK METİNLERİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 3 },
-            { ders: "ADABIMUAŞERET", grup: "DİN, AHLAK VE DEĞER", saatler: [1], kacKez: 1 },
-            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
-            { ders: "İSLAM BİLİM TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
+            { ders: "ADABIMUAŞERET", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1], kacKez: 1 },
+            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
+            { ders: "İSLAM BİLİM TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "TÜRK KÜLTÜR VE MEDENİYET TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [2], kacKez: 1 },
             { ders: "İSLAM KÜLTÜR VE MEDENİYETİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "SPOR EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
             { ders: "SANAT EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
         ],
         "9": [   // 19 ders
-            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "ARAŞTIRMA YÖNTEM VE TEKNİKLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 2 },
-            { ders: "DÜŞÜNME EĞİTİMİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
+            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "ARAŞTIRMA YÖNTEM VE TEKNİKLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
+            { ders: "DÜŞÜNME EĞİTİMİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "METİN TAHLİLLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
             { ders: "SEÇMELİ İKİNCİ YABANCI DİL", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 5 },
             { ders: "OSMANLI TÜRKÇESİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 3 },
-            { ders: "KUR’AN-I KERİM", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 4 },
-            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 4 },
+            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 4 },
             { ders: "TEMEL DİNÎ BİLGİLER", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 2 },
             { ders: "KLASİK AHLAK METİNLERİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 3 },
-            { ders: "ADABIMUAŞERET", grup: "DİN, AHLAK VE DEĞER", saatler: [1], kacKez: 1 },
-            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
-            { ders: "İSLAM BİLİM TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
+            { ders: "ADABIMUAŞERET", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1], kacKez: 1 },
+            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
+            { ders: "İSLAM BİLİM TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "TÜRK KÜLTÜR VE MEDENİYET TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [2], kacKez: 1 },
             { ders: "İSLAM KÜLTÜR VE MEDENİYETİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "SPOR EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
             { ders: "SANAT EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
         ],
         "10": [   // 26 ders
-            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "ARAŞTIRMA YÖNTEM VE TEKNİKLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 2 },
-            { ders: "DÜŞÜNME EĞİTİMİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
+            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "ARAŞTIRMA YÖNTEM VE TEKNİKLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
+            { ders: "DÜŞÜNME EĞİTİMİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "İKLİM, ÇEVRE VE YENİLİKÇİ ÇÖZÜMLER", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "TEMEL HUKUK BİLGİSİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "METİN TAHLİLLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
@@ -162748,34 +162748,34 @@ const SECMELI_HAVUZU = {
             { ders: "TÜRK DÜNYASI COĞRAFYASI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "ORTAK TÜRK EDEBİYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "ORTAK TÜRK TARİHİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
-            { ders: "KUR’AN-I KERİM", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 4 },
-            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 4 },
+            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 4 },
             { ders: "TEMEL DİNÎ BİLGİLER", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 2 },
             { ders: "TÜRK DÜŞÜNCE TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
             { ders: "KLASİK AHLAK METİNLERİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 3 },
-            { ders: "ADABIMUAŞERET", grup: "DİN, AHLAK VE DEĞER", saatler: [1], kacKez: 1 },
-            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
-            { ders: "İSLAM BİLİM TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
+            { ders: "ADABIMUAŞERET", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1], kacKez: 1 },
+            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
+            { ders: "İSLAM BİLİM TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "TÜRK KÜLTÜR VE MEDENİYET TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [2], kacKez: 1 },
             { ders: "İSLAM KÜLTÜR VE MEDENİYETİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "SPOR EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
             { ders: "SANAT EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
         ],
         "11": [   // 36 ders
-            { ders: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [1], kacKez: 2 },
-            { ders: "SEÇMELİ TARİH", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [1], kacKez: 1 },
-            { ders: "SEÇMELİ COĞRAFYA", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [1], kacKez: 2 },
+            { ders: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 2 },
+            { ders: "SEÇMELİ TARİH", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 1 },
+            { ders: "SEÇMELİ COĞRAFYA", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 2 },
             { ders: "PSİKOLOJİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 1 },
             { ders: "SOSYOLOJİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 1 },
             { ders: "MANTIK", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 1 },
             { ders: "SEÇMELİ BİRİNCİ YABANCI DİL", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1], kacKez: 2 },
-            { ders: "FEN BİLİMLERİ UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 2 },
-            { ders: "MATEMATİK UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 2 },
-            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 2 },
-            { ders: "PROJE TASARIMI VE UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 2 },
-            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
+            { ders: "FEN BİLİMLERİ UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
+            { ders: "MATEMATİK UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
+            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
+            { ders: "PROJE TASARIMI VE UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 2 },
+            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "İKLİM, ÇEVRE VE YENİLİKÇİ ÇÖZÜMLER", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "TEMEL HUKUK BİLGİSİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "GİRİŞİMCİLİK", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
@@ -162785,48 +162785,48 @@ const SECMELI_HAVUZU = {
             { ders: "TÜRK DÜNYASI COĞRAFYASI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "ORTAK TÜRK EDEBİYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "ORTAK TÜRK TARİHİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
-            { ders: "KUR’AN-I KERİM", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 4 },
-            { ders: "KUR’AN-I KERİM’İN ANLAM DÜNYASI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
-            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM’İN ANLAM DÜNYASI", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 2 },
+            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 4 },
             { ders: "TEMEL DİNÎ BİLGİLER", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 2 },
             { ders: "TÜRK DÜŞÜNCE TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
             { ders: "KLASİK AHLAK METİNLERİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 3 },
-            { ders: "ADABIMUAŞERET", grup: "DİN, AHLAK VE DEĞER", saatler: [1], kacKez: 1 },
-            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
-            { ders: "İSLAM BİLİM TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
+            { ders: "ADABIMUAŞERET", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1], kacKez: 1 },
+            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
+            { ders: "İSLAM BİLİM TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "TÜRK KÜLTÜR VE MEDENİYET TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [2], kacKez: 1 },
             { ders: "İSLAM KÜLTÜR VE MEDENİYETİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "SPOR EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
             { ders: "SANAT EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
         ],
         "12": [   // 31 ders
-            { ders: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [3, 4], kacKez: 2 },
-            { ders: "SEÇMELİ TARİH", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [2, 4], kacKez: 1 },
-            { ders: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [2], kacKez: 1 },
-            { ders: "SEÇMELİ COĞRAFYA", grup: "ÇOK YÖNLÜ GELİŞİM DERSLERİ", saatler: [2, 4], kacKez: 2 },
+            { ders: "SEÇMELİ TÜRK DİLİ VE EDEBİYATI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [3, 4], kacKez: 2 },
+            { ders: "SEÇMELİ TARİH", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 4], kacKez: 1 },
+            { ders: "ÇAĞDAŞ TÜRK VE DÜNYA TARİHİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 1 },
+            { ders: "SEÇMELİ COĞRAFYA", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 4], kacKez: 2 },
             { ders: "PSİKOLOJİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 1 },
             { ders: "SOSYOLOJİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 1 },
             { ders: "MANTIK", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2], kacKez: 1 },
             { ders: "SEÇMELİ BİRİNCİ YABANCI DİL", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 3, 4], kacKez: 2 },
             { ders: "HEDEF TEMELLİ DESTEK EĞİTİMİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [3, 4, 5, 6], kacKez: 1 },
-            { ders: "FEN BİLİMLERİ UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 3], kacKez: 2 },
-            { ders: "MATEMATİK UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 3], kacKez: 2 },
-            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
-            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 3], kacKez: 2 },
-            { ders: "PROJE TASARIMI VE UYGULAMALARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [2, 3, 4], kacKez: 2 },
-            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "AKADEMİK ÇALIŞMALAR", saatler: [1, 2], kacKez: 1 },
+            { ders: "FEN BİLİMLERİ UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2, 3], kacKez: 2 },
+            { ders: "MATEMATİK UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2, 3], kacKez: 2 },
+            { ders: "ASTRONOMİ VE UZAY BİLİMLERİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
+            { ders: "SOSYAL BİLİM ÇALIŞMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2, 3], kacKez: 2 },
+            { ders: "PROJE TASARIMI VE UYGULAMALARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2, 3, 4], kacKez: 2 },
+            { ders: "DEMOKRASİ VE İNSAN HAKLARI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "TEMEL HUKUK BİLGİSİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "GİRİŞİMCİLİK", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 1 },
             { ders: "SEÇMELİ İKİNCİ YABANCI DİL", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2, 3, 4], kacKez: 5 },
             { ders: "OSMANLI TÜRKÇESİ", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 3 },
-            { ders: "KUR’AN-I KERİM", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 4 },
-            { ders: "KUR’AN-I KERİM’İN ANLAM DÜNYASI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [2], kacKez: 2 },
-            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "İNSAN, TOPLUM VE BİLİM", saatler: [1, 2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 4 },
+            { ders: "KUR’AN-I KERİM’İN ANLAM DÜNYASI", grup: "DİN, AHLAK VE DEĞER", saatler: [2], kacKez: 2 },
+            { ders: "PEYGAMBERİMİZİN HAYATI", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 4 },
             { ders: "TEMEL DİNÎ BİLGİLER", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 2 },
             { ders: "TÜRK DÜŞÜNCE TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
             { ders: "KLASİK AHLAK METİNLERİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 3 },
-            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
-            { ders: "İSLAM BİLİM TARİHİ", grup: "DİN, AHLAK VE DEĞER", saatler: [1, 2], kacKez: 1 },
+            { ders: "TÜRK SOSYAL HAYATINDA AİLE", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
+            { ders: "İSLAM BİLİM TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "TÜRK KÜLTÜR VE MEDENİYET TARİHİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [2], kacKez: 1 },
             { ders: "İSLAM KÜLTÜR VE MEDENİYETİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 1 },
             { ders: "SPOR EĞİTİMİ", grup: "KÜLTÜR, SANAT VE SPOR", saatler: [1, 2], kacKez: 5 },
@@ -163188,6 +163188,164 @@ const SECMELI_HAVUZU = {
     }
 };
 
+// ==================== ozel_program_temalari.js ====================
+
+/* ===========================================================================
+   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN
+   Üreteç : tools/uret_ozel_program.py
+   Kaynak : Özel Program Uygulayan Lise haftalık ders çizelgeleri (TTKB)
+
+   Bu okullarda dersler bir TEMAYA bağlıdır. Okul temasını seçer;
+   şubenin dersleri = ortak dersler + ortak tematik dersler + temanın
+   kendi dersleri.
+
+   Tema sınırları PDF'in kendi tablo çizgilerinden okunur, tahmin
+   edilmez. Elde bulunan eski kaynak JSON'da tema, etiketin denk
+   geldiği satırdan itibaren ileri kopyalanmıştı ve sessizce yanlıştı:
+   "Havacılık ve Uzayın Temelleri" Yazılım temasına, laboratuvar
+   dersleri Havacılık temasına yazılmıştı.
+   ======================================================================== */
+const OZEL_PROGRAM_TEMALARI = {
+    "ozel_program_fen_lisesi": {
+        temalar: [
+            { id: "bilisim_teknolojileri_ve_yazilim", ad: "Bilişim Teknolojileri ve Yazılım" },
+            { id: "havacilik_ve_uzay_teknolojileri", ad: "Havacılık ve Uzay Teknolojileri" },
+            { id: "temel_bilimler", ad: "Temel Bilimler" },
+        ],
+        kota: {"hazirlik": 10, "9": 8, "10": 8, "11": 4, "12": 4},
+        ortak: {
+            "hazirlik": [
+                {"ders": "Programlamaya Giriş ve Algoritma+programlama Dilleri", "saat": 4, "saatSecenekleri": [4], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                {"ders": "Temel Elektrik-elektronik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                {"ders": "Tümleşik Bilimler", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+            ],
+        },
+        dersler: {
+            "bilisim_teknolojileri_ve_yazilim": {
+                "hazirlik": [
+                    {"ders": "Sayısal Elektronik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "9": [
+                    {"ders": "Bilgisayarlı Devre Simülasyonu ve Baskı Devre Tasarımı", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Mikrodenetleyiciler ve Uygulamaları", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Nesne Tabanlı Programlama", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "10": [
+                    {"ders": "Veri Bilimi", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Robotik Uygulamaları", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Ağ Teknolojileri ve Nesnelerin İnterneti", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+            "havacilik_ve_uzay_teknolojileri": {
+                "hazirlik": [
+                    {"ders": "Havacılık ve Uzayın Temelleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "9": [
+                    {"ders": "Sayısal Elektronik ve Mikrodenetleyiciler", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Mekaniğin Temelleri", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Meteoroloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+            "temel_bilimler": {
+                "9": [
+                    {"ders": "Fizik Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Kimya Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyoloji Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Temel Bilimlerde Bilişim Uygulamaları", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+        },
+        secilebilir: {
+            "havacilik_ve_uzay_teknolojileri": {
+                "10": [
+                    {"ders": "Robotik Uygulamaları", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Bilgisayar Destekli Tasarım ve Modelleme", "saat": 3, "saatSecenekleri": [3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Malzeme Bilimi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Havacılık Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "11": [
+                    {"ders": "Malzeme Bilimi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Havacılık Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Seyrüsefer", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İtki Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Uzay Teknolojileri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "12": [
+                    {"ders": "Seyrüsefer", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İtki Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Uzay Teknolojileri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Simülasyon Teknolojileri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+            "temel_bilimler": {
+                "10": [
+                    {"ders": "Fizik Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Kimya Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyoloji Laboratuvarı", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Temel Bilimlerde Bilişim Uygulamaları", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Finansal Matematik", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Veri Analizi", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Geleceğin Enerji Sistemleri", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İstatistik", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyoteknoloji", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Anatominin Temelleri", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Epidemiyoloji", "saat": 2, "saatSecenekleri": [2, 3], "atananBrans": "Sağlık Hizmetleri", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "11": [
+                    {"ders": "Temel Bilimlerde Bilişim Uygulamaları", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Finansal Matematik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Veri Analizi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Geleceğin Enerji Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İstatistik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyoteknoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Anatominin Temelleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Epidemiyoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "Sağlık Hizmetleri", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyokimya", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Moleküler Biyoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Optimizasyon", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Polimer Kimyası", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Nükleer Bilimler", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Tıp Bilimine Giriş", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Malzeme Bilimi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İleri Matematik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "12": [
+                    {"ders": "Temel Bilimlerde Bilişim Uygulamaları", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Finansal Matematik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Veri Analizi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Geleceğin Enerji Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İstatistik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyoteknoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Anatominin Temelleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Epidemiyoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "Sağlık Hizmetleri", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Biyokimya", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Moleküler Biyoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Optimizasyon", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Polimer Kimyası", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Nükleer Bilimler", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Tıp Bilimine Giriş", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Malzeme Bilimi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "İleri Matematik", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Genetik Bilimine Giriş", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+            "bilisim_teknolojileri_ve_yazilim": {
+                "11": [
+                    {"ders": "Yapay Zekâ ve Makine Öğrenmesi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Bilgisayar Mimarisi ve İşletim Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Siber Güvenlik ve Kriptoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+                "12": [
+                    {"ders": "Yapay Zekâ ve Makine Öğrenmesi", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Bilgisayar Mimarisi ve İşletim Sistemleri", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Siber Güvenlik ve Kriptoloji", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                    {"ders": "Yazılım Uygulamaları", "saat": 2, "saatSecenekleri": [2], "atananBrans": "— Branş Atanmadı —", "kategori": "TEMATİK ALAN DERSLERİ", "isAtolye": false},
+                ],
+            },
+        },
+    }
+};
+
 // ==================== database.js ====================
 
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
@@ -163304,7 +163462,12 @@ class MebDatabaseService {
             { id: "fen_lisesi", name: "Fen Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "hazirlik_fen_lisesi", name: "Hazırlık Sınıfı Bulunan Fen Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "sosyal_bilimler_lisesi", name: "Sosyal Bilimler Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
-            { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            // hasAreas: bu okullarda "alan" değil TEMA seçilir (Bilişim
+            // Teknolojileri ve Yazılım / Havacılık ve Uzay Teknolojileri /
+            // Temel Bilimler). Aynı alan seçme kutusu kullanılıyor; etiketi
+            // temaAdi ile değişiyor. 28.08.2026'ya kadar seçim yoktu ve bu
+            // okulların 47 tematik dersi hiçbir şubede görünmüyordu.
+            { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true, temaAdi: "Okulun Teması" },
             { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
@@ -163325,6 +163488,19 @@ class MebDatabaseService {
     }
 
     getVocationalAreas(schoolType = "") {
+        // ÖZEL PROGRAM LİSELERİ: burada seçilen şey meslek alanı değil, okulun
+        // TEMASI. Aynı kutuyu kullanıyoruz çünkü mekanizma birebir aynı:
+        // şubeye bir kimlik yazılır, müfredat ona göre gelir. Liste tema
+        // tablosundan okunur; elle yazılmaz.
+        const temaTablosu = (typeof OZEL_PROGRAM_TEMALARI !== 'undefined')
+            ? OZEL_PROGRAM_TEMALARI
+            : ((typeof window !== 'undefined' && window.OZEL_PROGRAM_TEMALARI)
+                ? window.OZEL_PROGRAM_TEMALARI : null);
+        const temalar = temaTablosu ? temaTablosu[String(schoolType || "")] : null;
+        if (temalar && temalar.temalar && temalar.temalar.length) {
+            return temalar.temalar.map(t => ({ id: t.id, name: t.ad }));
+        }
+
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
 
         // MESEM alanları kendi veri tabanından gelir (js/mesem_curriculum_db.js).
@@ -164285,6 +164461,43 @@ class MebCurriculumEngine {
         const result = [];
         const seenNorms = new Set();
         const schoolTypeStr = String(schoolType || "").toLowerCase();
+
+        // ---------------------------------------------------------------
+        // 0-. ÖZEL PROGRAM UYGULAYAN LİSELER — TEMA DERSLERİ
+        // ---------------------------------------------------------------
+        // Bu okullarda (Özel Program Uygulayan Fen Lisesi gibi) şubenin
+        // dersleri üç parçadan oluşur:
+        //     ortak dersler + her temada okutulan ortak tematik dersler
+        //     + okulun SEÇTİĞİ temanın kendi dersleri
+        //
+        // Tema, şubenin `alanId` alanında tutulur — meslek lisesindeki alan
+        // seçimiyle aynı mekanizma. Bu blok, aşağıdaki "meslek/teknik"
+        // dalından ÖNCE olmak ZORUNDA: o dal `areaId` doluysa devreye girer
+        // ve bu okulları meslek lisesi gibi hesaplamaya başlardı.
+        //
+        // Hazırlık bloğundan da önce: bu okulların hazırlık sınıfında da
+        // tematik ders var; hazırlık bloğu önce dönseydi onlar düşerdi.
+        //
+        // 28.08.2026'ya kadar tematik dersler uygulamada HİÇ YOKTU: Fen
+        // Lisesi'nin 47 tematik dersi hiçbir şubede görünmüyordu.
+        const temaTablosu = (typeof window !== 'undefined' && window.OZEL_PROGRAM_TEMALARI)
+            ? window.OZEL_PROGRAM_TEMALARI
+            : (typeof OZEL_PROGRAM_TEMALARI !== 'undefined' ? OZEL_PROGRAM_TEMALARI : null);
+        const turTemalari = temaTablosu ? temaTablosu[schoolTypeStr] : null;
+
+        if (turTemalari && typeof ORTAOGRETIM_CIZELGELERI !== 'undefined' && ORTAOGRETIM_CIZELGELERI) {
+            const gKey = (gStr.toLowerCase() === "hazirlik") ? "hazirlik" : gStr;
+            const liste = ((ORTAOGRETIM_CIZELGELERI[schoolTypeStr] || {})[gKey] || [])
+                .map(d => ({ ...d }));
+            for (let d of ((turTemalari.ortak || {})[gKey] || [])) liste.push({ ...d });
+            // Tema seçilmemişse temanın kendi dersleri EKLENMEZ. Rastgele bir
+            // tema varsaymak, olmayan dersleri norma yazmak olurdu.
+            const temaDersleri = (turTemalari.dersler || {})[String(areaId || "")];
+            if (temaDersleri) {
+                for (let d of (temaDersleri[gKey] || [])) liste.push({ ...d });
+            }
+            if (liste.length) return liste;
+        }
 
         // ---------------------------------------------------------------
         // 0a. HAZIRLIK SINIFI — her okul türünden ÖNCE bakılır
@@ -170126,7 +170339,14 @@ class UIComponentManager {
         `).join("");
 
         // Meslek Alanları Listesi & Akıllı ID Eşleştirme
-        const areas = this.db.getVocationalAreas();
+        // Okul türü GEÇİLMEK ZORUNDA: Özel Program liselerinde bu liste
+        // meslek alanları değil, okulun TEMALARIDIR. Parametresiz çağrı
+        // onlara meslek lisesi alanlarını gösterirdi.
+        const areas = this.db.getVocationalAreas(schoolType);
+        const areaLabel = typeInfo.temaAdi || "Meslek / Uzmanlık Alanı";
+        const areaEmptyLabel = typeInfo.temaAdi
+            ? "-- Tema Seçilmedi --"
+            : "-- Alan Seçilmedi (Genel / Ortak) --";
         let selectedAreaId = sectionToEdit?.alanId || "";
         if (selectedAreaId) {
             const directMatch = areas.find(a => a.id === selectedAreaId);
@@ -170139,7 +170359,7 @@ class UIComponentManager {
             }
         }
 
-        const areaOptions = `<option value="">-- Alan Seçilmedi (Genel / Ortak) --</option>` + areas.map(a => `
+        const areaOptions = `<option value="">${areaEmptyLabel}</option>` + areas.map(a => `
             <option value="${a.id}" ${selectedAreaId === a.id ? 'selected' : ''}>
                 ${a.name}
             </option>
@@ -170181,13 +170401,13 @@ class UIComponentManager {
                         </div>
                         
                         <div class="form-group" id="group-sec-area" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
-                            <label class="form-label">Meslek / Uzmanlık Alanı</label>
+                            <label class="form-label">${areaLabel}</label>
                             <select id="sec-area" class="form-control">
                                 ${areaOptions}
                             </select>
                         </div>
 
-                        <div class="form-group" id="group-sec-branch" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
+                        <div class="form-group" id="group-sec-branch" style="${typeInfo.hasAreas && !typeInfo.temaAdi ? '' : 'display:none;'}">
                             <label class="form-label">Meslek Dalı (Opsiyonel / Alana Göre Filtrelenir)</label>
                             <select id="sec-branch" class="form-control">
                                 ${branchOptions}
@@ -172140,6 +172360,39 @@ class UIComponentManager {
                     selectedHour: d.saatler[0],
                     defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()]
                         || (imamHatipMi ? "İHL Meslek Dersleri" : d.ders),
+                    isVocational: false
+                });
+            }
+        }
+
+        // 2b. ÖZEL PROGRAM LİSELERİ — SEÇİLEBİLİR TEMATİK DERSLER
+        //
+        // Bu okullarda tematik derslerin hepsi zorunlu DEĞİLDİR. Çizelgenin
+        // kendi "TEMATİK ALAN DERS SAATLERİ TOPLAMI" satırı bir öğrencinin o
+        // sınıfta kaç saat tematik ders alacağını söyler (10/8/8/4/4).
+        // Temanın dersleri bu kotayı aşıyorsa seçim vardır ve dersler buraya,
+        // seçmeli listesine gelir. Kotayı tam dolduruyorsa seçim yoktur ve
+        // dersler zorunlu listede yer alır (curriculumEngine).
+        //
+        // Yalnızca ŞUBENİN TEMASINA ait dersler eklenir; başka temanın dersini
+        // göstermek, o okulda okutulmayan bir dersi norma yazdırmak olurdu.
+        const opTablo = (typeof window !== 'undefined')
+            ? (window.OZEL_PROGRAM_TEMALARI || null)
+            : (typeof OZEL_PROGRAM_TEMALARI !== 'undefined' ? OZEL_PROGRAM_TEMALARI : null);
+        const opTur = opTablo ? opTablo[schoolType] : null;
+        if (opTur && section.alanId) {
+            const temaDersleri = (opTur.secilebilir || {})[section.alanId] || {};
+            const kota = (opTur.kota || {})[grade];
+            for (let d of (temaDersleri[grade] || [])) {
+                const normName = dersAnahtari(d.ders);
+                if (seenNames.has(normName)) continue;
+                seenNames.add(normName);
+                list.push({
+                    ders: d.ders,
+                    grup: "Tematik Alan Dersi" + (kota ? " • en çok " + kota + " saat" : ""),
+                    hoursOptions: (d.saatSecenekleri || [d.saat]).slice(),
+                    selectedHour: d.saat,
+                    defaultBranch: d.atananBrans,
                     isVocational: false
                 });
             }
@@ -176227,6 +176480,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
+    if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

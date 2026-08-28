@@ -114,7 +114,12 @@ export class MebDatabaseService {
             { id: "fen_lisesi", name: "Fen Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "hazirlik_fen_lisesi", name: "Hazırlık Sınıfı Bulunan Fen Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "sosyal_bilimler_lisesi", name: "Sosyal Bilimler Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
-            { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            // hasAreas: bu okullarda "alan" değil TEMA seçilir (Bilişim
+            // Teknolojileri ve Yazılım / Havacılık ve Uzay Teknolojileri /
+            // Temel Bilimler). Aynı alan seçme kutusu kullanılıyor; etiketi
+            // temaAdi ile değişiyor. 28.08.2026'ya kadar seçim yoktu ve bu
+            // okulların 47 tematik dersi hiçbir şubede görünmüyordu.
+            { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true, temaAdi: "Okulun Teması" },
             { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
             { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
@@ -135,6 +140,19 @@ export class MebDatabaseService {
     }
 
     getVocationalAreas(schoolType = "") {
+        // ÖZEL PROGRAM LİSELERİ: burada seçilen şey meslek alanı değil, okulun
+        // TEMASI. Aynı kutuyu kullanıyoruz çünkü mekanizma birebir aynı:
+        // şubeye bir kimlik yazılır, müfredat ona göre gelir. Liste tema
+        // tablosundan okunur; elle yazılmaz.
+        const temaTablosu = (typeof OZEL_PROGRAM_TEMALARI !== 'undefined')
+            ? OZEL_PROGRAM_TEMALARI
+            : ((typeof window !== 'undefined' && window.OZEL_PROGRAM_TEMALARI)
+                ? window.OZEL_PROGRAM_TEMALARI : null);
+        const temalar = temaTablosu ? temaTablosu[String(schoolType || "")] : null;
+        if (temalar && temalar.temalar && temalar.temalar.length) {
+            return temalar.temalar.map(t => ({ id: t.id, name: t.ad }));
+        }
+
         const isMesem = String(schoolType || "").includes("mesleki_egitim_merkezi") || String(schoolType || "").includes("mesem");
 
         // MESEM alanları kendi veri tabanından gelir (js/mesem_curriculum_db.js).

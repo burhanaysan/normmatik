@@ -71,6 +71,16 @@ SINIFLAR = ["hazirlik", "5", "6", "7", "8", "9", "10", "11", "12"]
 # olmayan dersler (Robotik Kodlama ve Yazılım, Satranç ve Zekâ Oyunları,
 # Yazarlık ve Yazma Becerileri gibi eski müfredat kalıntıları) listede vardı,
 # çizelgedeki dersler ise eksikti.
+# ÖZEL PROGRAM LİSELERİ
+# Bu türlerin ÇOK YÖNLÜ GELİŞİM (seçmeli) grupları, TABLOLAR'ın gösterdiği
+# sayi24 JSON'unda YANLIŞ gruplanmıştı: grup adı, etiketin denk geldiği
+# satırdan itibaren ileri kopyalanmıştı (14/12/6/4 çıkıyordu, doğrusu
+# 9/18/6/7). tools/uret_ozel_program.py PDF'in kendi tablo çizgilerinden
+# yeniden üretti; havuz artık o dosyayı okur.
+OZEL_PROGRAM_KAYNAKLARI = [
+    ("ozel_program_fen_lisesi", "ogm/ozel_program_fen_lisesi.json"),
+]
+
 ORTAOKUL_KAYNAKLARI = [
     ("ortaokul_temel_egitim",
      "temel_egitim/ilkogretim_ilkokul_ortaokul.json"),
@@ -154,6 +164,22 @@ def dersleri_topla(kaynak_json, tablo_adi):
     return kayitlar
 
 
+def ozel_program_dersleri(kaynak_json):
+    """Özel Program liselerinin ÇOK YÖNLÜ GELİŞİM derslerini okur.
+
+    Tematik alan dersleri buraya GİRMEZ: onların bir kısmı zorunlu, bir kısmı
+    temaya bağlı seçilebilir derslerdir ve js/ozel_program_temalari.js
+    üzerinden gelirler. İkisini karıştırmak, bir temanın dersini başka temayı
+    seçmiş okula göstermek olurdu.
+    """
+    kayitlar = []
+    for d in (kaynak_json.get("cok_yonlu_gelisim_dersleri") or []):
+        kayitlar.append((d.get("ders_adi") or "", d.get("grup") or "Seçmeli",
+                         d.get("saatler") or {},
+                         d.get("kac_kez_secilebilir") or 1))
+    return kayitlar
+
+
 def ortaokul_dersleri(kaynak_json):
     """Ortaokul seçmelilerini iki ayrı kaynak biçiminden okur."""
     kayitlar = []
@@ -188,7 +214,9 @@ def havuzu_kur():
     kaynak_yok = []
     istatistik = []
 
-    hepsi = ([(t, d, a) for t, d, a in TABLOLAR]
+    ozel = dict(OZEL_PROGRAM_KAYNAKLARI)
+    hepsi = ([(t, ozel.get(t, d), "__OZEL__" if t in ozel else a)
+              for t, d, a in TABLOLAR]
              + [(t, d, "__ORTAOKUL__") for t, d in ORTAOKUL_KAYNAKLARI])
 
     for tur, dosya, tablo_adi in hepsi:
@@ -201,8 +229,12 @@ def havuzu_kur():
         with io.open(yol, "r", encoding="utf-8") as f:
             veri = json.load(f)
 
-        kayitlar = (ortaokul_dersleri(veri) if tablo_adi == "__ORTAOKUL__"
-                    else dersleri_topla(veri, tablo_adi))
+        if tablo_adi == "__ORTAOKUL__":
+            kayitlar = ortaokul_dersleri(veri)
+        elif tablo_adi == "__OZEL__":
+            kayitlar = ozel_program_dersleri(veri)
+        else:
+            kayitlar = dersleri_topla(veri, tablo_adi)
         if not kayitlar:
             # Seçmelisi olmayan tür (ör. meslek lisesi hazırlık çizelgesi).
             # Bu türler eski davranışlarını sürdürsün diye havuza EKLENMEZ;

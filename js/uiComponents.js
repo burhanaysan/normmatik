@@ -887,7 +887,14 @@ export class UIComponentManager {
         `).join("");
 
         // Meslek Alanları Listesi & Akıllı ID Eşleştirme
-        const areas = this.db.getVocationalAreas();
+        // Okul türü GEÇİLMEK ZORUNDA: Özel Program liselerinde bu liste
+        // meslek alanları değil, okulun TEMALARIDIR. Parametresiz çağrı
+        // onlara meslek lisesi alanlarını gösterirdi.
+        const areas = this.db.getVocationalAreas(schoolType);
+        const areaLabel = typeInfo.temaAdi || "Meslek / Uzmanlık Alanı";
+        const areaEmptyLabel = typeInfo.temaAdi
+            ? "-- Tema Seçilmedi --"
+            : "-- Alan Seçilmedi (Genel / Ortak) --";
         let selectedAreaId = sectionToEdit?.alanId || "";
         if (selectedAreaId) {
             const directMatch = areas.find(a => a.id === selectedAreaId);
@@ -900,7 +907,7 @@ export class UIComponentManager {
             }
         }
 
-        const areaOptions = `<option value="">-- Alan Seçilmedi (Genel / Ortak) --</option>` + areas.map(a => `
+        const areaOptions = `<option value="">${areaEmptyLabel}</option>` + areas.map(a => `
             <option value="${a.id}" ${selectedAreaId === a.id ? 'selected' : ''}>
                 ${a.name}
             </option>
@@ -942,13 +949,13 @@ export class UIComponentManager {
                         </div>
                         
                         <div class="form-group" id="group-sec-area" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
-                            <label class="form-label">Meslek / Uzmanlık Alanı</label>
+                            <label class="form-label">${areaLabel}</label>
                             <select id="sec-area" class="form-control">
                                 ${areaOptions}
                             </select>
                         </div>
 
-                        <div class="form-group" id="group-sec-branch" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
+                        <div class="form-group" id="group-sec-branch" style="${typeInfo.hasAreas && !typeInfo.temaAdi ? '' : 'display:none;'}">
                             <label class="form-label">Meslek Dalı (Opsiyonel / Alana Göre Filtrelenir)</label>
                             <select id="sec-branch" class="form-control">
                                 ${branchOptions}
@@ -2901,6 +2908,39 @@ export class UIComponentManager {
                     selectedHour: d.saatler[0],
                     defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()]
                         || (imamHatipMi ? "İHL Meslek Dersleri" : d.ders),
+                    isVocational: false
+                });
+            }
+        }
+
+        // 2b. ÖZEL PROGRAM LİSELERİ — SEÇİLEBİLİR TEMATİK DERSLER
+        //
+        // Bu okullarda tematik derslerin hepsi zorunlu DEĞİLDİR. Çizelgenin
+        // kendi "TEMATİK ALAN DERS SAATLERİ TOPLAMI" satırı bir öğrencinin o
+        // sınıfta kaç saat tematik ders alacağını söyler (10/8/8/4/4).
+        // Temanın dersleri bu kotayı aşıyorsa seçim vardır ve dersler buraya,
+        // seçmeli listesine gelir. Kotayı tam dolduruyorsa seçim yoktur ve
+        // dersler zorunlu listede yer alır (curriculumEngine).
+        //
+        // Yalnızca ŞUBENİN TEMASINA ait dersler eklenir; başka temanın dersini
+        // göstermek, o okulda okutulmayan bir dersi norma yazdırmak olurdu.
+        const opTablo = (typeof window !== 'undefined')
+            ? (window.OZEL_PROGRAM_TEMALARI || null)
+            : (typeof OZEL_PROGRAM_TEMALARI !== 'undefined' ? OZEL_PROGRAM_TEMALARI : null);
+        const opTur = opTablo ? opTablo[schoolType] : null;
+        if (opTur && section.alanId) {
+            const temaDersleri = (opTur.secilebilir || {})[section.alanId] || {};
+            const kota = (opTur.kota || {})[grade];
+            for (let d of (temaDersleri[grade] || [])) {
+                const normName = dersAnahtari(d.ders);
+                if (seenNames.has(normName)) continue;
+                seenNames.add(normName);
+                list.push({
+                    ders: d.ders,
+                    grup: "Tematik Alan Dersi" + (kota ? " • en çok " + kota + " saat" : ""),
+                    hoursOptions: (d.saatSecenekleri || [d.saat]).slice(),
+                    selectedHour: d.saat,
+                    defaultBranch: d.atananBrans,
                     isVocational: false
                 });
             }

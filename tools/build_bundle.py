@@ -44,6 +44,7 @@ BUNDLE_FILES = [
     "mesem_curriculum_db.js",    # database.js ve curriculumEngine.js'ten ÖNCE
     "ortaogretim_cizelgeleri.js", # curriculumEngine.js'ten ÖNCE (üretilmiş tablo)
     "secmeli_havuzu.js",         # uiComponents.js'ten ÖNCE (üretilmiş seçmeli havuzu)
+    "ozel_program_temalari.js",  # curriculumEngine.js'ten ÖNCE (üretilmiş tema tablosu)
     "database.js",
     "curriculumEngine.js",
     "normEngine.js",
@@ -74,6 +75,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
+    if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
