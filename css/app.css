@@ -2195,6 +2195,59 @@ body {
     line-height: 1;
 }
 
+/* EĞİK ÇİZGİLİ DERSLERDE BRANŞ SEÇİMİ
+   "Görsel Sanatlar/Müzik" gibi dersler çizelgede alternatifli yazılır ve okul
+   şubeyi branşlara bölebilir. Branş açılır kutusu yerine açılıp kapanan
+   düğmeler kullanıldı: idareci aynı anda hem hangi branşların seçilebildiğini
+   hem hangilerinin derse girdiğini görür. Açılır kutuda ikinci branşı
+   göstermek mümkün olmazdı. */
+.branch-split-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
+.branch-split-chip {
+    font-size: 0.66rem;
+    font-weight: 700;
+    padding: 0.14rem 0.42rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-main);
+    background: var(--bg-card-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1.15;
+    white-space: nowrap;
+    transition: background .12s, border-color .12s, color .12s;
+}
+
+.branch-split-chip:hover {
+    border-color: #94a3b8;
+    color: var(--text-main);
+}
+
+/* Derse fiilen giren branş: dolu ve koyu. Kapalı olanlar soluk kalır ki
+   "seçenek var ama kullanılmıyor" ayrımı bir bakışta görünsün. */
+.branch-split-chip.is-on {
+    background: #ecfdf5;
+    border-color: #6ee7b7;
+    color: #047857;
+}
+
+.branch-split-total-pill {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.08rem 0.32rem;
+    border-radius: 4px;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: 1;
+}
+
 /* GRUP SAYISI SEÇİM KUTUSU
    Eskiden burada sabit bir "(2 Grup)" etiketi vardı (.group-multiplier-pill).
    Mevzuat baremi üst sınırdır; okulun dersi kaç grupta okuttuğu okulun

@@ -165470,6 +165470,82 @@ class NormEngine {
     }
 
     /**
+     * EĞİK ÇİZGİLİ DERSLER — hangi branşlara bölünebilir?
+     *
+     * Resmî çizelgelerde bazı dersler alternatifleriyle birlikte tek satırda
+     * yazılır: "Görsel Sanatlar/Müzik", "Beden Eğitimi ve Spor/Görsel
+     * Sanatlar/Müzik". Çizelgenin açıklaması şöyle der:
+     *
+     *   "Öğrenciler ilgi, istek ve OKULUN İMKÂNLARI doğrultusunda ... bu
+     *    derslerden sadece birini seçer."   (TTKB Sayı 05)
+     *
+     * Yani bir şubedeki öğrenciler iki-üç branşa dağılabilir ve HER ÖĞRETMEN
+     * KENDİ GRUBUNA dersin tam saatini okutur. Okul 30 kişilik şubeyi görsel
+     * sanatlar ve müzik diye ikiye bölerse, 2 saatlik ders okula 4 saat yük
+     * getirir (2 + 2). Uygulama 28.08.2026'ya kadar saatin TAMAMINI tek branşa
+     * yazıyordu: 9. sınıfta hepsi Görsel Sanatlar'a, Müzik'e sıfır; 12. sınıfta
+     * hepsi Beden Eğitimi'ne. Bir branş hiç görünmüyor, okul toplamı da eksik
+     * çıkıyordu. (Okul müdürü bildirimi, 28.08.2026.)
+     *
+     * GÜVENLİ KAPI: parçalar, uygulamanın GERÇEK branş listesine karşı
+     * doğrulanır. Yalnızca en az iki parçası tanınan branşa çözülen dersler
+     * bölünebilir sayılır. Böylece "Bağlama/Kanun/Ut" (hepsi müzik),
+     * "Takım Sporları/Bireysel Sporlar" (hepsi beden eğitimi) ve meslek
+     * atölyesi alternatifleri ("CNC/CAM") yanlışlıkla bölünmez.
+     */
+    bolunebilirBranslar(course) {
+        const ad = String(course && (course.ders || course.ders_adi) || "");
+        if (!ad.includes("/")) return [];
+
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        if (!ce || typeof ce.isKnownBranch !== 'function'
+            || typeof ce.getCanonicalCourseAndBranch !== 'function') return [];
+
+        const parcalar = ad.replace(/\(.*?\)/g, " ")
+            .split("/").map(x => x.replace(/\*/g, "").trim()).filter(Boolean);
+        if (parcalar.length < 2) return [];
+
+        const branslar = [];
+        for (const p of parcalar) {
+            let b = "";
+            try { b = (ce.getCanonicalCourseAndBranch(p, null, null, "ORTAK DERSLER") || {}).branchName || ""; }
+            catch (e) { continue; }
+            if (b && ce.isKnownBranch(b) && !branslar.includes(b)) branslar.push(b);
+        }
+        return branslar.length >= 2 ? branslar : [];
+    }
+
+    /**
+     * Bir ders kaydını, okulun seçtiği branş sayısı kadar kayda genişletir.
+     *
+     * Bölme YAPILMAZSA (varsayılan) tek kayıt döner — bugünkü davranış.
+     * Okul `bolunenBranslar` seçtiyse her branş için ayrı kayıt döner ve her
+     * biri dersin TAM saatini taşır; çünkü her öğretmen kendi grubuna aynı
+     * saati okutur.
+     *
+     * NEDEN TEK YERDE: aynı genişletme hem norm hesabında, hem ekranda, hem
+     * raporlarda gerekiyor. Üç ayrı yerde yazılsaydı biri güncellenip diğeri
+     * unutulurdu — bu projede tam olarak o hata defalarca yaşandı.
+     */
+    dersiGenislet(course) {
+        const secilen = (course && Array.isArray(course.bolunenBranslar))
+            ? course.bolunenBranslar.filter(Boolean) : [];
+        if (secilen.length < 2) return [course];
+
+        const izinli = this.bolunebilirBranslar(course);
+        const gecerli = secilen.filter(b => izinli.includes(b));
+        if (gecerli.length < 2) return [course];
+
+        return gecerli.map(b => Object.assign({}, course, {
+            atananBrans: b,
+            _bolunmusBrans: b,
+            _bolunmeSayisi: gecerli.length
+        }));
+    }
+
+    /**
      * Mevzuata göre OTOMATİK grup sayısını hesaplar (idarecinin seçimi hariç).
      * evaluateCourseMultiplier bunun üzerine okulun kendi tercihini uygular.
      */
@@ -165757,7 +165833,11 @@ class NormEngine {
             const inclusionCount = parseInt(
                 sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10
             ) || 0;
-            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+            // Eğik çizgili dersler, okulun seçtiği branş sayısı kadar kayda
+            // genişletilir (bkz. dersiGenislet). Bölme seçilmemişse liste
+            // aynen kalır; bugünkü davranış değişmez.
+            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                .reduce((liste, c) => liste.concat(this.dersiGenislet(c)), []);
             const studentCount = sec.ogrenciSayisi || 30;
 
             allCourses.forEach(course => {
@@ -169092,6 +169172,34 @@ class AppStateService {
             const n = parseInt(newCount, 10);
             if (Number.isFinite(n) && n >= 1) target.grupSayisi = n;
             else delete target.grupSayisi;      // otomatik hesaba dön
+        }
+        this.notify();
+    }
+
+    /**
+     * Eğik çizgili dersi (ör. "Görsel Sanatlar/Müzik") branşlara böler.
+     *
+     * Çizelge, öğrencinin bu alternatiflerden birini "okulun imkânları
+     * doğrultusunda" seçtiğini söyler; okulda iki öğretmen varsa ikisi de
+     * kendi grubuna dersin tam saatini okutur. Boş dizi/tek branş verilirse
+     * bölme kaldırılır ve ders yine tek branşa yazılır.
+     */
+    updateCourseBranchSplit(sectionId, courseName, branchList) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const liste = Array.isArray(branchList) ? branchList.filter(Boolean) : [];
+            if (liste.length >= 2) target.bolunenBranslar = liste;
+            else delete target.bolunenBranslar;
         }
         this.notify();
     }
@@ -175556,12 +175664,16 @@ class MebNormApplication {
                 // silinseydi, ders yükü sessizce iki katına dönerdi.
                 const branchMap = {};
                 const grupMap = {};
+                const bolmeMap = {};
                 (sec.zorunluDersler || []).forEach(c => {
                     if (c.ders && c.atananBrans) {
                         branchMap[c.ders] = c.atananBrans;
                     }
                     if (c.ders && c.grupSayisi) {
                         grupMap[c.ders] = c.grupSayisi;
+                    }
+                    if (c.ders && Array.isArray(c.bolunenBranslar) && c.bolunenBranslar.length >= 2) {
+                        bolmeMap[c.ders] = c.bolunenBranslar;
                     }
                 });
 
@@ -175571,6 +175683,7 @@ class MebNormApplication {
                         atananBrans: branchMap[c.ders] || c.atananBrans
                     };
                     if (grupMap[c.ders]) yeni.grupSayisi = grupMap[c.ders];
+                    if (bolmeMap[c.ders]) yeni.bolunenBranslar = bolmeMap[c.ders];
                     return yeni;
                 });
 
@@ -176444,6 +176557,39 @@ class MebNormApplication {
             });
         });
 
+        document.querySelectorAll(".branch-split-chip").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const el = e.currentTarget;
+                const cName = el.dataset.course;
+                const kutu = el.closest(".branch-split-wrapper");
+                if (!kutu) return;
+
+                el.classList.toggle("is-on");
+                const secili = [...kutu.querySelectorAll(".branch-split-chip.is-on")]
+                    .map(x => x.dataset.branch);
+
+                // EN AZ BİR BRANŞ KALMALI. Hepsi kapatılırsa ders hiçbir
+                // öğretmene yazılmaz ve şubeden sessizce düşerdi.
+                if (secili.length === 0) {
+                    el.classList.add("is-on");
+                    this.ui.showToast("Bu ders için en az bir branş seçili kalmalı.", "warning");
+                    return;
+                }
+
+                if (secili.length >= 2) {
+                    appState.updateCourseBranchSplit(activeSec.id, cName, secili);
+                    this.ui.showToast(
+                        `🔀 "${cName}" dersi ${secili.length} branşa bölündü: ${secili.join(", ")}.`,
+                        "success");
+                } else {
+                    // Tek branş kaldı: bölme kaldırılır, ders o branşa yazılır.
+                    appState.updateCourseBranchSplit(activeSec.id, cName, []);
+                    appState.updateCourseBranch(activeSec.id, cName, secili[0]);
+                    this.ui.showToast(`🎯 "${cName}" dersi "${secili[0]}" branşına yazıldı.`, "success");
+                }
+            });
+        });
+
         document.querySelectorAll(".group-count-select").forEach(select => {
             select.addEventListener("change", (e) => {
                 const cName = e.currentTarget.dataset.course;
@@ -176584,6 +176730,56 @@ class MebNormApplication {
             }
         }
 
+        // EĞİK ÇİZGİLİ DERSLERDE BRANŞA BÖLME
+        //
+        // Çizelgede "Görsel Sanatlar/Müzik" gibi dersler tek satırda yazılır;
+        // açıklaması "öğrenciler ... okulun imkânları doğrultusunda bu
+        // derslerden sadece birini seçer" der. Okulda hem görsel sanatlar hem
+        // müzik öğretmeni varsa şube ikiye ayrılır ve HER ÖĞRETMEN KENDİ
+        // GRUBUNA dersin tam saatini okutur.
+        //
+        // Eskiden saatin tamamı tek branşa yazılıyordu (9. sınıfta hepsi
+        // Görsel Sanatlar'a, Müzik'e sıfır); bir branş hiç görünmüyor, okul
+        // toplamı da eksik çıkıyordu. (Okul müdürü bildirimi, 28.08.2026.)
+        //
+        // Tek satırda kalıp branşları AÇIP KAPATILABİLİR düğmelerle göstermek,
+        // satırı çoğaltmaktan daha okunur: idareci dersi bir kez görür, kimin
+        // girdiğini yanında işaretler.
+        let bolmeHtml = "";
+        const bolAdaylari = (typeof normEngine.bolunebilirBranslar === 'function')
+            ? normEngine.bolunebilirBranslar(course) : [];
+        if (bolAdaylari.length >= 2) {
+            const secili = Array.isArray(course.bolunenBranslar) && course.bolunenBranslar.length >= 2
+                ? course.bolunenBranslar.filter(b => bolAdaylari.includes(b))
+                : [assignedBranch].filter(b => bolAdaylari.includes(b));
+            const etkin = secili.length ? secili : [bolAdaylari[0]];
+            bolmeHtml = `
+                <div class="course-branch-wrapper branch-split-wrapper"
+                     title="Bu ders çizelgede alternatifli yazılmıştır. Okulunuzda derse giren öğretmenlerin branşlarını işaretleyin; her branş dersin tam saatini yük olarak alır.">
+                    ${bolAdaylari.map(b => `
+                        <button type="button"
+                                class="branch-split-chip ${etkin.includes(b) ? 'is-on' : ''}"
+                                data-course="${cName}" data-branch="${b}">${b}</button>
+                    `).join("")}
+                </div>
+            `;
+
+            // Ders bölündüğünde okula getirdiği TOPLAM yük saatin katıdır;
+            // ekranda yalnızca "2 Saat" yazsaydı idareci normun neden arttığını
+            // anlamazdı.
+            if (etkin.length >= 2 && !isUnassigned) {
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                        <span class="branch-split-total-pill"
+                              title="${etkin.length} branş, her biri ${hours} saat okutuyor.">
+                            ${etkin.length} branş = ${hours * etkin.length}s
+                        </span>
+                    </div>
+                `;
+            }
+        }
+
         let electiveThemeBadgeHtml = "";
         if (isElective && this.ui && typeof this.ui.getElectiveThemeInfo === 'function') {
             const tInfo = this.ui.getElectiveThemeInfo({
@@ -176615,11 +176811,12 @@ class MebNormApplication {
                     ${loadInfoHtml}
                 </td>
                 <td class="course-branch-cell">
+                    ${bolmeHtml || `
                     <div class="course-branch-wrapper">
                         <select class="branch-select" data-course="${cName}">
                             ${branchOptionsHtml}
                         </select>
-                    </div>
+                    </div>`}
                 </td>
                 <td class="course-merge-cell">
                     <div class="course-merge-wrapper">

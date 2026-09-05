@@ -1138,6 +1138,34 @@ export class AppStateService {
         this.notify();
     }
 
+    /**
+     * Eğik çizgili dersi (ör. "Görsel Sanatlar/Müzik") branşlara böler.
+     *
+     * Çizelge, öğrencinin bu alternatiflerden birini "okulun imkânları
+     * doğrultusunda" seçtiğini söyler; okulda iki öğretmen varsa ikisi de
+     * kendi grubuna dersin tam saatini okutur. Boş dizi/tek branş verilirse
+     * bölme kaldırılır ve ders yine tek branşa yazılır.
+     */
+    updateCourseBranchSplit(sectionId, courseName, branchList) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const liste = Array.isArray(branchList) ? branchList.filter(Boolean) : [];
+            if (liste.length >= 2) target.bolunenBranslar = liste;
+            else delete target.bolunenBranslar;
+        }
+        this.notify();
+    }
+
     // --- Sınıf Birleştirme (Course Merging) ---
     toggleCourseMerge(sectionId, courseName, targetSectionId) {
         if (!this._subeKilidiniDenetle(sectionId)) return;

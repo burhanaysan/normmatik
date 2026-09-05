@@ -206,6 +206,82 @@ export class NormEngine {
     }
 
     /**
+     * EĞİK ÇİZGİLİ DERSLER — hangi branşlara bölünebilir?
+     *
+     * Resmî çizelgelerde bazı dersler alternatifleriyle birlikte tek satırda
+     * yazılır: "Görsel Sanatlar/Müzik", "Beden Eğitimi ve Spor/Görsel
+     * Sanatlar/Müzik". Çizelgenin açıklaması şöyle der:
+     *
+     *   "Öğrenciler ilgi, istek ve OKULUN İMKÂNLARI doğrultusunda ... bu
+     *    derslerden sadece birini seçer."   (TTKB Sayı 05)
+     *
+     * Yani bir şubedeki öğrenciler iki-üç branşa dağılabilir ve HER ÖĞRETMEN
+     * KENDİ GRUBUNA dersin tam saatini okutur. Okul 30 kişilik şubeyi görsel
+     * sanatlar ve müzik diye ikiye bölerse, 2 saatlik ders okula 4 saat yük
+     * getirir (2 + 2). Uygulama 28.08.2026'ya kadar saatin TAMAMINI tek branşa
+     * yazıyordu: 9. sınıfta hepsi Görsel Sanatlar'a, Müzik'e sıfır; 12. sınıfta
+     * hepsi Beden Eğitimi'ne. Bir branş hiç görünmüyor, okul toplamı da eksik
+     * çıkıyordu. (Okul müdürü bildirimi, 28.08.2026.)
+     *
+     * GÜVENLİ KAPI: parçalar, uygulamanın GERÇEK branş listesine karşı
+     * doğrulanır. Yalnızca en az iki parçası tanınan branşa çözülen dersler
+     * bölünebilir sayılır. Böylece "Bağlama/Kanun/Ut" (hepsi müzik),
+     * "Takım Sporları/Bireysel Sporlar" (hepsi beden eğitimi) ve meslek
+     * atölyesi alternatifleri ("CNC/CAM") yanlışlıkla bölünmez.
+     */
+    bolunebilirBranslar(course) {
+        const ad = String(course && (course.ders || course.ders_adi) || "");
+        if (!ad.includes("/")) return [];
+
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        if (!ce || typeof ce.isKnownBranch !== 'function'
+            || typeof ce.getCanonicalCourseAndBranch !== 'function') return [];
+
+        const parcalar = ad.replace(/\(.*?\)/g, " ")
+            .split("/").map(x => x.replace(/\*/g, "").trim()).filter(Boolean);
+        if (parcalar.length < 2) return [];
+
+        const branslar = [];
+        for (const p of parcalar) {
+            let b = "";
+            try { b = (ce.getCanonicalCourseAndBranch(p, null, null, "ORTAK DERSLER") || {}).branchName || ""; }
+            catch (e) { continue; }
+            if (b && ce.isKnownBranch(b) && !branslar.includes(b)) branslar.push(b);
+        }
+        return branslar.length >= 2 ? branslar : [];
+    }
+
+    /**
+     * Bir ders kaydını, okulun seçtiği branş sayısı kadar kayda genişletir.
+     *
+     * Bölme YAPILMAZSA (varsayılan) tek kayıt döner — bugünkü davranış.
+     * Okul `bolunenBranslar` seçtiyse her branş için ayrı kayıt döner ve her
+     * biri dersin TAM saatini taşır; çünkü her öğretmen kendi grubuna aynı
+     * saati okutur.
+     *
+     * NEDEN TEK YERDE: aynı genişletme hem norm hesabında, hem ekranda, hem
+     * raporlarda gerekiyor. Üç ayrı yerde yazılsaydı biri güncellenip diğeri
+     * unutulurdu — bu projede tam olarak o hata defalarca yaşandı.
+     */
+    dersiGenislet(course) {
+        const secilen = (course && Array.isArray(course.bolunenBranslar))
+            ? course.bolunenBranslar.filter(Boolean) : [];
+        if (secilen.length < 2) return [course];
+
+        const izinli = this.bolunebilirBranslar(course);
+        const gecerli = secilen.filter(b => izinli.includes(b));
+        if (gecerli.length < 2) return [course];
+
+        return gecerli.map(b => Object.assign({}, course, {
+            atananBrans: b,
+            _bolunmusBrans: b,
+            _bolunmeSayisi: gecerli.length
+        }));
+    }
+
+    /**
      * Mevzuata göre OTOMATİK grup sayısını hesaplar (idarecinin seçimi hariç).
      * evaluateCourseMultiplier bunun üzerine okulun kendi tercihini uygular.
      */
@@ -493,7 +569,11 @@ export class NormEngine {
             const inclusionCount = parseInt(
                 sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10
             ) || 0;
-            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+            // Eğik çizgili dersler, okulun seçtiği branş sayısı kadar kayda
+            // genişletilir (bkz. dersiGenislet). Bölme seçilmemişse liste
+            // aynen kalır; bugünkü davranış değişmez.
+            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                .reduce((liste, c) => liste.concat(this.dersiGenislet(c)), []);
             const studentCount = sec.ogrenciSayisi || 30;
 
             allCourses.forEach(course => {
