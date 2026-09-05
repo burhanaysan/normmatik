@@ -159,6 +159,78 @@ if (typeof st.updateCourseGroupCount !== "function")
         st.state.subeler[0].secmeliDersler[0].grupSayisi === undefined);
 }
 
+/* ---- 6) SEÇİM NORM HESABINA YANSIYOR MU? ----------------------------- */
+// EN ÖNEMLİ KONTROL. Ekranda sayının değişmesi tek başına bir şey ifade
+// etmez; asıl soru, öğretmen normunun değişip değişmediğidir. Ekran, norm
+// motoru ve raporlar aynı evaluateCourseMultiplier'ı çağırır — ama bunu
+// varsaymak yerine ölçüyoruz.
+{
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "anadolu_lisesi";
+    st.addSection({ subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: ce.getMandatoryCourses("anadolu_lisesi", "9", null, null),
+        secmeliDersler: [{ ders: "Kur'an-ı Kerim", saat: 2,
+            kategori: "SEÇMELİ DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi" }] });
+    const sec = st.state.subeler[0];
+
+    const raporAl = () => {
+        const r = ne.calculateSchoolNorms(st.state.subeler, {}, "anadolu_lisesi", {});
+        return Object.fromEntries(
+            (r.branchReport || []).map(b => [b.branchName, b]));
+    };
+
+    const once = raporAl();
+    const dkOnce = once["Din Kültürü ve Ahlak Bilgisi"];
+    kontrol("norm raporunda Din Kültürü satırı var (ölçüm geçerli)", !!dkOnce);
+    if (dkOnce) {
+        kontrol("seçim yokken 2 grup yükü sayılıyor", dkOnce.totalHours === 6,
+            String(dkOnce.totalHours));
+
+        st.updateCourseGroupCount(sec.id, "Kur'an-ı Kerim", 1);
+        const sonra = raporAl();
+        const dkSonra = sonra["Din Kültürü ve Ahlak Bilgisi"];
+        kontrol("1 grup seçilince norm yükü 2 saat azalıyor",
+            dkSonra && dkSonra.totalHours === 4,
+            dkSonra ? String(dkSonra.totalHours) : "satır yok");
+        kontrol("norm sayısı da değişiyor (1 -> 0)",
+            dkOnce.calculatedNorm === 1 && dkSonra.calculatedNorm === 0,
+            dkOnce.calculatedNorm + " -> " + (dkSonra && dkSonra.calculatedNorm));
+
+        // YAN ETKİ YOK: yalnızca o dersin branşı değişmeli.
+        const degisen = Object.keys(once).filter(
+            k => !sonra[k] || once[k].totalHours !== sonra[k].totalHours);
+        kontrol("başka hiçbir branş etkilenmiyor",
+            degisen.length === 1 && degisen[0] === "Din Kültürü ve Ahlak Bilgisi",
+            degisen.join(", "));
+    }
+}
+
+/* ---- 7) Demo kilidi grup seçimini de kapsıyor mu? -------------------- */
+// Diğer bütün değiştirici işlevler kilidi denetliyor; bu yeni işlev de
+// denetlemezse, lisanssız kullanıcı kilitli şubenin ders yükünü
+// değiştirebilirdi.
+{
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "anadolu_lisesi";
+    for (let i = 0; i < 6; i++) {
+        st.addSection({ subeAdi: (9 + i % 4) + "-" + "ABCDEF"[i], sinifSeviyesi: "9",
+            ogrenciSayisi: 30, zorunluDersler: [],
+            secmeliDersler: [{ ders: "Kur'an-ı Kerim", saat: 2,
+                kategori: "SEÇMELİ DERSLER", atananBrans: "Din Kültürü ve Ahlak Bilgisi" }] });
+    }
+    w.licenseManager.licenseStatus = {
+        isValid: true, isMaster: false, isDemo: true, maxSections: 3, allowExport: false };
+    const kilitli = st.state.subeler[5];
+    kontrol("6. şube demoda kilitli (ölçüm geçerli)",
+        typeof st.subeKilitliMi === "function" && st.subeKilitliMi(kilitli.id) === true);
+    st.updateCourseGroupCount(kilitli.id, "Kur'an-ı Kerim", 1);
+    kontrol("kilitli şubede grup sayısı değiştirilemiyor",
+        kilitli.secmeliDersler[0].grupSayisi === undefined,
+        String(kilitli.secmeliDersler[0].grupSayisi));
+    w.licenseManager.licenseStatus = {
+        isValid: true, isMaster: true, isDemo: false, maxSections: -1, allowExport: true };
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
