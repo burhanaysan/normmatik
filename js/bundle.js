@@ -168257,10 +168257,74 @@ class CloudDatabaseService {
             this.lastSyncTime = new Date();
             this._durumBildir(true, "Kaydedildi.");
             console.log(`☁️ [NormMatik Bulut] Kaydedildi (${veri.subeler.length} şube).`);
-        } else {
-            console.warn("☁️ [NormMatik Bulut] Kayıt başarısız:", sonuc.mesaj);
-            this._durumBildir(false, "KAYIT BAŞARISIZ: " + sonuc.mesaj, sonuc.kalici);
+            return;
         }
+
+        console.warn("☁️ [NormMatik Bulut] Kayıt başarısız:", sonuc.mesaj);
+
+        // KALICI HATADA SEBEBİ TEŞHİS ET.
+        //
+        // Veritabanı kuralı her ret için aynı şeyi döndürür: "Permission
+        // denied". Kullanıcıya "erişim yetkiniz yok" demek, hangi şartın
+        // tutmadığını gizler ve sorun çözülemez hâle gelir.
+        // (Okul müdürü bildirimi, 05.09.2026: kadro kaydında "kaydedilmedi"
+        //  uyarısı çıkıyor ama sebebi anlaşılmıyor.)
+        //
+        // Kural üç şey ister: sahiplik, süren abonelik ve okulAdi/okulTuru/
+        // kurumKodu'nun okul_kayit ile BİREBİR aynı olması. İlk ikisi
+        // istemciden görülemez ama son üçü görülebilir — okul kendi
+        // okul_kayit ve abonelik düğümlerini OKUYABİLİR.
+        let ayrinti = sonuc.mesaj;
+        if (sonuc.kalici) {
+            try {
+                const teshis = await this._kayitTanila(key, veri);
+                if (teshis) ayrinti = teshis;
+            } catch (e) { /* teşhis başarısızsa genel mesaj kalır */ }
+        }
+        this._durumBildir(false, "KAYIT BAŞARISIZ: " + ayrinti, sonuc.kalici);
+    }
+
+    /**
+     * Kayıt reddinin sebebini istemci tarafında belirler.
+     *
+     * Dönüş: açıklayıcı metin ya da null (sebep bulunamadıysa).
+     */
+    async _kayitTanila(key, veri) {
+        const [a, k] = await Promise.all([
+            this._istekTekrarli("abonelik/" + key, "GET", null),
+            this._istekTekrarli("okul_kayit/" + key, "GET", null),
+        ]);
+
+        // okul_kayit okunamıyorsa okul ya kayıtlı değil ya da bu hesap
+        // sahibi değil. İkisi de kuralın ilk şartını düşürür.
+        if (!k.ok || !k.veri) {
+            return "Bu kurum kodu için okul kaydı bulunamadı ya da bu hesap "
+                 + "okulun sahibi değil. Kayıt yapılamaz.";
+        }
+
+        const kayit = k.veri;
+        if (veri.okulAdi !== kayit.okulAdi) {
+            return `Okul adı kayıtla uyuşmuyor. Ekranda "${veri.okulAdi}", `
+                 + `kayıtta "${kayit.okulAdi}". Veritabanı kuralı birebir aynı olmasını şart koşuyor.`;
+        }
+        if (veri.okulTuru !== kayit.okulTuru) {
+            return `Okul türü kayıtla uyuşmuyor. Ekranda "${veri.okulTuru}", `
+                 + `kayıtta "${kayit.okulTuru}". Okul türünü uygulamadan değiştirmek kaydı engeller.`;
+        }
+        if (veri.kurumKodu !== key) {
+            return `Kurum kodu tutarsız: veri "${veri.kurumKodu}", yol "${key}".`;
+        }
+
+        const bitisMs = a.ok && a.veri ? Number(a.veri.bitisMs) : null;
+        if (!bitisMs) {
+            return "Abonelik kaydı okunamadı; süre bilgisi olmadan kayıt yapılamıyor.";
+        }
+        if (bitisMs <= Date.now()) {
+            const g = new Date(bitisMs).toLocaleDateString("tr-TR");
+            return `Abonelik süresi dolmuş (bitiş: ${g}). Süre uzatılmadan veri kaydedilemez.`;
+        }
+
+        return null;   // bilinen şartların hepsi tutuyor; sebep başka
     }
 }
 
@@ -173054,7 +173118,13 @@ class UIComponentManager {
             this.state.setAdminOptions(adminOptsToSave);
 
             this.closeModal("staff-modal");
-            this.showToast("Kadro, idareci normları ve okul özellikleri güncellendi.", "success");
+            // "Güncellendi" demiyoruz: bulut kaydı bu noktada henüz
+            // denenmemiştir (600 ms geciktirmeli). Kayıt reddedilirse ayrı
+            // bir uyarı gelir; burada başarı ilan etmek, o uyarının hemen
+            // üstünde çelişkili bir mesaj bırakıyordu.
+            // (Okul müdürü bildirimi, 05.09.2026: "yeşil güncellendi yazısı
+            //  geldi, ama üstünde kaydedilmedi yazısı oluştu.")
+            this.showToast("Kadro ve idareci bilgileri hesaba uygulandı.", "success");
         });
     }
 

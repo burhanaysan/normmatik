@@ -133,6 +133,63 @@ for (const [kod, etiket] of [
         w.appState.loadFromStorage() === false);
 }
 
+/* ---- 6) RET SEBEBİ ADIYLA SÖYLENİYOR MU? ----------------------------- */
+// Veritabanı kuralı her ret için aynı şeyi döndürür: "Permission denied".
+// Kullanıcıya "erişim yetkiniz yok" demek sorunu çözülemez hâle getiriyordu
+// (okul müdürü 05.09.2026: uyarı çıkıyor ama sebebi anlaşılmıyor).
+// Kural üç şart koşuyor; istemci okul_kayit ve abonelik düğümlerini
+// OKUYABİLDİĞİ için hangisinin tutmadığını kendisi belirleyebilir.
+{
+    const gecerliAbonelik = { bitisMs: Date.now() + 9e8 };
+    const senaryolar = [
+        ["okul adı uyuşmazlığı",
+            { okulAdi: "A Lisesi", okulTuru: "anadolu_lisesi" }, gecerliAbonelik,
+            { okulAdi: "B Lisesi", okulTuru: "anadolu_lisesi" }, /okul adı kayıtla uyuşmuyor/i],
+        ["okul türü uyuşmazlığı",
+            { okulAdi: "A Lisesi", okulTuru: "anadolu_lisesi" }, gecerliAbonelik,
+            { okulAdi: "A Lisesi", okulTuru: "fen_lisesi" }, /okul türü kayıtla uyuşmuyor/i],
+        ["abonelik süresi dolmuş",
+            { okulAdi: "A Lisesi", okulTuru: "anadolu_lisesi" }, { bitisMs: Date.now() - 9e8 },
+            { okulAdi: "A Lisesi", okulTuru: "anadolu_lisesi" }, /abonelik süresi dolmuş/i],
+        ["okul kaydı yok / sahip değil",
+            null, null,
+            { okulAdi: "A Lisesi", okulTuru: "anadolu_lisesi" }, /okul kaydı bulunamadı|sahibi değil/i],
+    ];
+
+    const cloud2 = new CDS();
+    for (const [etiket, kayit, abonelik, ekran, desen] of senaryolar) {
+        cloud2._istekTekrarli = async (yol, yontem) => {
+            if (yontem === "PUT") {
+                return { ok: false, mesaj: "Bu okulun verisine erişim yetkiniz yok.", kalici: true };
+            }
+            if (yol.startsWith("okul_kayit")) return { ok: true, veri: kayit };
+            if (yol.startsWith("abonelik")) return { ok: true, veri: abonelik };
+            return { ok: false, mesaj: "?", kalici: true };
+        };
+        olaylar.length = 0;
+        await cloud2.saveSchoolData("318742", { okulBilgisi: ekran, subeler: [] });
+        const d = durumlar();
+        kontrol(etiket + ": durum bildirildi", d.length > 0);
+        const mesaj = d.length ? (d[d.length - 1].detay.mesaj || "") : "";
+        kontrol(etiket + ": sebep adıyla söyleniyor", desen.test(mesaj), mesaj.slice(0, 90));
+        kontrol(etiket + ": genel 'yetkiniz yok' mesajı kalmadı",
+            !/erişim yetkiniz yok/i.test(mesaj), mesaj.slice(0, 60));
+    }
+}
+
+/* ---- 7) Kadro penceresi yanlış başarı ilan etmemeli ------------------ */
+// Bulut kaydı 600 ms geciktirmeli; pencere kapanırken kayıt henüz
+// denenmemiştir. "Güncellendi" demek, hemen ardından gelen "kaydedilmedi"
+// uyarısıyla çelişiyordu.
+{
+    const uiSrc = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    const i = uiSrc.indexOf('btn-save-staff")?.addEventListener');
+    kontrol("kadro kaydet düğmesi bulundu (ölçüm geçerli)", i > 0);
+    const blok = i > 0 ? uiSrc.slice(i, i + 4000) : "";
+    kontrol("kadro penceresi 'güncellendi/kaydedildi' demiyor",
+        !/showToast\("[^"]*(güncellendi|kaydedildi)/i.test(blok));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

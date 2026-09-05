@@ -2801,7 +2801,13 @@ export class UIComponentManager {
             this.state.setAdminOptions(adminOptsToSave);
 
             this.closeModal("staff-modal");
-            this.showToast("Kadro, idareci normları ve okul özellikleri güncellendi.", "success");
+            // "Güncellendi" demiyoruz: bulut kaydı bu noktada henüz
+            // denenmemiştir (600 ms geciktirmeli). Kayıt reddedilirse ayrı
+            // bir uyarı gelir; burada başarı ilan etmek, o uyarının hemen
+            // üstünde çelişkili bir mesaj bırakıyordu.
+            // (Okul müdürü bildirimi, 05.09.2026: "yeşil güncellendi yazısı
+            //  geldi, ama üstünde kaydedilmedi yazısı oluştu.")
+            this.showToast("Kadro ve idareci bilgileri hesaba uygulandı.", "success");
         });
     }
 
