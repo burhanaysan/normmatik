@@ -1,0 +1,28 @@
+name: NormMatik Mevzuat Nöbetçisi (7/24 Bulut Tarama)
+
+on:
+  schedule:
+    # Her gün Türkiye Saati ile 08:00, 14:00 ve 18:00'de otomatik çalışır (UTC 05:00, 11:00, 15:00)
+    - cron: '0 5 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 15 * * *'
+  workflow_dispatch: # İstenildiğinde GitHub üzerinden manuel tetikleme
+
+jobs:
+  scan-legislation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Klonla (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Python Kurulumu
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: MEB & Resmî Gazete Mevzuat Nöbetçisini Çalıştır
+        env:
+          TELEGRAM_BOT_TOKEN: "8993432999:AAGdt37_MbTHWqsHnpsN9_svdI50EGo-Udg"
+          TELEGRAM_CHAT_ID: "1244363329"
+        run: |
+          python tools/mevzuat_nobetci_bot.py
