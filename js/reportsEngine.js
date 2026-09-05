@@ -147,7 +147,25 @@ class MebReportsEngine {
         const handledMergedPairs = new Set();
 
         subeler.forEach(sec => {
-            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+            // EĞİK ÇİZGİLİ / PAYLAŞTIRILMIŞ DERSLERİ MOTORLA AYNI ŞEKİLDE AÇ
+            //
+            // Matris bugüne kadar ham çizelgeyi okuyordu: "Görsel Sanatlar/Müzik"
+            // dersi iki branşa bölünmüş olsa bile TEK satır olarak, tek branşın
+            // altında görünüyordu. Sonuç: motorda 6 saat yük taşıyan MÜZİK
+            // branşının matriste hiç satırı yoktu — branş detay raporunda vardı.
+            // İki rapor birbiriyle çelişiyordu. (Ölçüldü 06.09.2026.)
+            //
+            // Aynı `dersiGenislet` çağrılıyor ki matris ile norm motoru aynı
+            // kayıtları görsün; ayrışırsa yine sessiz bir fark doğar.
+            // Şube sütun toplamları (sectionTotals) BUNDAN ETKİLENMEZ: onlar
+            // ham çizelgeden ayrıca hesaplanır, alt satır yine öğrenci saatini
+            // gösterir. Farkı zaten DERS YÜKÜ MUTABAKATI açıklıyor.
+            const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                .reduce((liste, c) => liste.concat(
+                    (this.normEngine && typeof this.normEngine.dersiGenislet === "function")
+                        ? this.normEngine.dersiGenislet(c)
+                        : [c]
+                ), []);
             allCourses.forEach(c => {
                 const rawCName = c.ders || c.ders_adi;
                 if (!rawCName) return;
@@ -185,6 +203,11 @@ class MebReportsEngine {
                         kategori: c.kategori || "ORTAK DERSLER",
                         isBaraj: !!c.baraj_ders,
                         isAtolye: !!c.isAtolye,
+                        // Aynı ders birden fazla branşın altında görünüyorsa
+                        // sebebi yazsın; yoksa "ders iki kez sayılmış" sanılır.
+                        isBolunmus: !!(c._bolunmusBrans || c._dagitilmisBrans),
+                        bolunmeParcasi: c._bolunmusBrans || c._dagitilmisBrans || null,
+                        bolunmeSayisi: c._bolunmeSayisi || null,
                         sectionHours: {},
                         mergedSections: {},
                         totalHours: 0
@@ -199,7 +222,15 @@ class MebReportsEngine {
                 let isMergedDuplicate = false;
                 if (mergedWith.length > 0) {
                     branchGroups[brans].courses[cName].mergedSections[sec.id] = mergedWith;
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName;
+                    // Bölünmüş dersin her branş payı AYRI bir kayıttır; anahtar
+                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
+                    // sessizce düşer. Payı anahtara katıyoruz.
+                    //
+                    // Bölünme YOKKEN anahtar aynen eskisi gibi kalır: birleşik
+                    // şubelerdeki normal dersler için davranış değişmez.
+                    const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
+                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
+                        + (pay ? "::" + pay : "");
                     if (handledMergedPairs.has(groupKey)) {
                         isMergedDuplicate = true;
                     } else {

@@ -4554,6 +4554,23 @@ body {
     flex-shrink: 0;
 }
 
+/* Eğik çizgili / paylaştırılmış ders: aynı ders birden fazla branşın altında
+   görünür. İşaret olmazsa "ders iki kez sayılmış" sanılır. */
+.pill-bolunmus {
+    display: inline-block;
+    margin-left: 0.3rem;
+    padding: 0.02rem 0.3rem;
+    border-radius: 4px;
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #c4b5fd;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
 /* Excel Hücresi Tarzı Sayısal Gösterim */
 .cell-hour {
     font-size: 0.82rem !important;
@@ -5650,6 +5667,13 @@ body {
         color: #000000 !important;
         border: 0.5pt solid #000000 !important;
         font-size: 6pt !important;
+    }
+
+    .pill-bolunmus {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 0.5pt solid #000000 !important;
+        font-size: 5.5pt !important;
     }
 
     .ymt-brans-fark td {

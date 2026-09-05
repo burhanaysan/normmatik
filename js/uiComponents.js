@@ -3970,6 +3970,7 @@ export class UIComponentManager {
                                 <span class="course-name-text">${course.courseName}</span>
                                 ${course.isBaraj ? '<span class="pill-baraj" title="Baraj / Zorunlu Ders">BARAJ</span>' : ''}
                                 ${course.isAtolye ? '<span class="pill-atolye" title="Atölye / Uygulama">ATÖLYE</span>' : ''}
+                                ${course.isBolunmus ? `<span class="pill-bolunmus" title="Bu ders branşlara bölünmüştür; her öğretmen kendi grubuna dersin tam saatini okutur. Aynı ders ${course.bolunmeSayisi ? course.bolunmeSayisi + " branşın" : "birden fazla branşın"} altında görünür — mükerrer kayıt değildir. Şube çizelgesindeki saat değişmez; fark, alttaki DERS YÜKÜ MUTABAKATI tablosunda yazılıdır.">BÖLÜNMÜŞ${course.bolunmeParcasi ? ": " + course.bolunmeParcasi : ""}</span>` : ''}
                             </div>
                         </td>
                         ${data.subeler.map(s => {

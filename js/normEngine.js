@@ -830,7 +830,14 @@ export class NormEngine {
                 // Sınıf Birleştirme Kontrolü
                 const mergedWith = course.birlesikSubeler || [];
                 if (mergedWith.length > 0) {
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName;
+                    // Bölünmüş dersin her branş payı ayrı bir kayıttır; anahtar
+                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
+                    // sessizce düşer ve o branşın yükü hiç oluşmaz. Bölünme
+                    // yokken anahtar eskisiyle aynı kalır — birleşik şubelerdeki
+                    // normal derslerin davranışı değişmez. (Ölçüldü 06.09.2026.)
+                    const pay = course._bolunmusBrans || course._dagitilmisBrans || "";
+                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
+                        + (pay ? "::" + pay : "");
                     if (handledMergedPairs.has(groupKey)) {
                         birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
                         return;
