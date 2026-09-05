@@ -1108,6 +1108,36 @@ export class AppStateService {
         this.notify();
     }
 
+    /**
+     * Bir dersin GRUP SAYISINI okulun tercihine göre ayarlar.
+     *
+     * Mevzuat baremi üst sınırdır; okul dersi fiilen kaç grupta okutuyorsa
+     * onu yazar. `null` verilirse otomatik hesaba geri dönülür.
+     *
+     * NEDEN: Anadolu Lisesi'nde seçmeli Kur'an-ı Kerim 30 mevcutta otomatik
+     * 2 gruba bölünüyor ve ders yükü iki katına çıkıyordu. Okul dersi tek
+     * grupta okutuyorsa bu yük gerçek değildi (kullanıcı bildirimi, 28.08.2026).
+     */
+    updateCourseGroupCount(sectionId, courseName, newCount) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const n = parseInt(newCount, 10);
+            if (Number.isFinite(n) && n >= 1) target.grupSayisi = n;
+            else delete target.grupSayisi;      // otomatik hesaba dön
+        }
+        this.notify();
+    }
+
     // --- Sınıf Birleştirme (Course Merging) ---
     toggleCourseMerge(sectionId, courseName, targetSectionId) {
         if (!this._subeKilidiniDenetle(sectionId)) return;

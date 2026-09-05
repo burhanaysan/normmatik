@@ -2195,6 +2195,41 @@ body {
     line-height: 1;
 }
 
+/* GRUP SAYISI SEÇİM KUTUSU
+   Eskiden burada sabit bir "(2 Grup)" etiketi vardı (.group-multiplier-pill).
+   Mevzuat baremi üst sınırdır; okulun dersi kaç grupta okuttuğu okulun
+   kararıdır. Kutu, o etiketin görünümünü BİREBİR korur — tek fark
+   tıklanabilir olması; idareci ekranda yeni bir öğe öğrenmek zorunda kalmasın.
+   Okul baremden farklı bir sayı seçtiğinde (.is-manual) kenarlık koyulaşır;
+   böylece "burası elle ayarlandı" bir bakışta görünür. */
+.group-count-select {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.08rem 0.2rem 0.08rem 0.32rem;
+    border-radius: 4px;
+    background: #faf5ff;
+    color: #7e22ce;
+    border: 1px solid #e9d5ff;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.group-count-select:hover {
+    border-color: #c084fc;
+}
+
+.group-count-select.is-manual {
+    border-color: #9333ea;
+    background: #f3e8ff;
+}
+
+.group-count-select option {
+    color: #0f172a;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
 .unassigned-badge {
     font-size: 0.64rem;
     background: var(--bg-card-subtle);

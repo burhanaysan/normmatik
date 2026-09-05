@@ -170,6 +170,46 @@ export class NormEngine {
      * @returns {Object} { groupCount, calculatedLoad, note, loadCategory }
      */
     evaluateCourseMultiplier(course, studentCount, schoolType = "", gradeLevel = null, inclusionStudentCount = 0) {
+        const otomatik = this._otomatikGrupHesapla(
+            course, studentCount, schoolType, gradeLevel, inclusionStudentCount);
+
+        // İDARECİNİN SEÇİMİ (course.grupSayisi)
+        //
+        // Mevzuat grup bölünmesinin ÜST SINIRINI verir; okulun o dersi fiilen
+        // kaç grupta okuttuğu okulun kendi kararıdır. Örnek (kullanıcı
+        // bildirimi, 28.08.2026): Anadolu Lisesi'nde seçmeli Kur'an-ı Kerim,
+        // 30 mevcutta otomatik 2 gruba bölünüyor ve ders yükü 2 saatten 4
+        // saate çıkıyordu. Okul dersi tek grupta okutuyorsa bu yük gerçek
+        // değildi ve norm fazla çıkıyordu.
+        //
+        // Seçim yalnızca AŞAĞI çekebilir: üst sınır mevzuattan gelir, kimse
+        // barem üstüne çıkamaz. Seçim yoksa otomatik değer aynen kullanılır.
+        const secim = parseInt(course.grupSayisi, 10);
+        if (Number.isFinite(secim) && secim >= 1 && otomatik.groupCount > 1
+            && secim < otomatik.groupCount) {
+            const baseHours = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            return {
+                groupCount: secim,
+                calculatedLoad: baseHours * secim,
+                note: `Grup sayısı okul tarafından ${secim} olarak belirlendi `
+                    + `(mevzuat baremi ${otomatik.groupCount}).`,
+                loadCategory: otomatik.loadCategory,
+                otomatikGrup: otomatik.groupCount,
+                elleAyarlandi: true
+            };
+        }
+
+        return Object.assign({}, otomatik, {
+            otomatikGrup: otomatik.groupCount,
+            elleAyarlandi: false
+        });
+    }
+
+    /**
+     * Mevzuata göre OTOMATİK grup sayısını hesaplar (idarecinin seçimi hariç).
+     * evaluateCourseMultiplier bunun üzerine okulun kendi tercihini uygular.
+     */
+    _otomatikGrupHesapla(course, studentCount, schoolType = "", gradeLevel = null, inclusionStudentCount = 0) {
         const isWorkshop = this.isWorkshopLabCourse(course, schoolType);
         const loadCategory = isWorkshop ? "ATOLYE" : "GENEL";
 

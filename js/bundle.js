@@ -165434,6 +165434,46 @@ class NormEngine {
      * @returns {Object} { groupCount, calculatedLoad, note, loadCategory }
      */
     evaluateCourseMultiplier(course, studentCount, schoolType = "", gradeLevel = null, inclusionStudentCount = 0) {
+        const otomatik = this._otomatikGrupHesapla(
+            course, studentCount, schoolType, gradeLevel, inclusionStudentCount);
+
+        // İDARECİNİN SEÇİMİ (course.grupSayisi)
+        //
+        // Mevzuat grup bölünmesinin ÜST SINIRINI verir; okulun o dersi fiilen
+        // kaç grupta okuttuğu okulun kendi kararıdır. Örnek (kullanıcı
+        // bildirimi, 28.08.2026): Anadolu Lisesi'nde seçmeli Kur'an-ı Kerim,
+        // 30 mevcutta otomatik 2 gruba bölünüyor ve ders yükü 2 saatten 4
+        // saate çıkıyordu. Okul dersi tek grupta okutuyorsa bu yük gerçek
+        // değildi ve norm fazla çıkıyordu.
+        //
+        // Seçim yalnızca AŞAĞI çekebilir: üst sınır mevzuattan gelir, kimse
+        // barem üstüne çıkamaz. Seçim yoksa otomatik değer aynen kullanılır.
+        const secim = parseInt(course.grupSayisi, 10);
+        if (Number.isFinite(secim) && secim >= 1 && otomatik.groupCount > 1
+            && secim < otomatik.groupCount) {
+            const baseHours = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            return {
+                groupCount: secim,
+                calculatedLoad: baseHours * secim,
+                note: `Grup sayısı okul tarafından ${secim} olarak belirlendi `
+                    + `(mevzuat baremi ${otomatik.groupCount}).`,
+                loadCategory: otomatik.loadCategory,
+                otomatikGrup: otomatik.groupCount,
+                elleAyarlandi: true
+            };
+        }
+
+        return Object.assign({}, otomatik, {
+            otomatikGrup: otomatik.groupCount,
+            elleAyarlandi: false
+        });
+    }
+
+    /**
+     * Mevzuata göre OTOMATİK grup sayısını hesaplar (idarecinin seçimi hariç).
+     * evaluateCourseMultiplier bunun üzerine okulun kendi tercihini uygular.
+     */
+    _otomatikGrupHesapla(course, studentCount, schoolType = "", gradeLevel = null, inclusionStudentCount = 0) {
         const isWorkshop = this.isWorkshopLabCourse(course, schoolType);
         const loadCategory = isWorkshop ? "ATOLYE" : "GENEL";
 
@@ -169022,6 +169062,36 @@ class AppStateService {
         });
         if (target) {
             target.atananBrans = newBranchName;
+        }
+        this.notify();
+    }
+
+    /**
+     * Bir dersin GRUP SAYISINI okulun tercihine göre ayarlar.
+     *
+     * Mevzuat baremi üst sınırdır; okul dersi fiilen kaç grupta okutuyorsa
+     * onu yazar. `null` verilirse otomatik hesaba geri dönülür.
+     *
+     * NEDEN: Anadolu Lisesi'nde seçmeli Kur'an-ı Kerim 30 mevcutta otomatik
+     * 2 gruba bölünüyor ve ders yükü iki katına çıkıyordu. Okul dersi tek
+     * grupta okutuyorsa bu yük gerçek değildi (kullanıcı bildirimi, 28.08.2026).
+     */
+    updateCourseGroupCount(sectionId, courseName, newCount) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const n = parseInt(newCount, 10);
+            if (Number.isFinite(n) && n >= 1) target.grupSayisi = n;
+            else delete target.grupSayisi;      // otomatik hesaba dön
         }
         this.notify();
     }
@@ -175480,18 +175550,29 @@ class MebNormApplication {
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
             );
             if (canonicalCourses && canonicalCourses.length > 0) {
-                // Mevcut atanan branşları koruyarak eşitle
+                // Mevcut atanan branşları ve GRUP SAYISI seçimlerini koruyarak
+                // eşitle. Grup sayısı da korunmalı: idareci "bu dersi tek
+                // grupta okutuyoruz" dedikten sonra müfredat tazelenince seçim
+                // silinseydi, ders yükü sessizce iki katına dönerdi.
                 const branchMap = {};
+                const grupMap = {};
                 (sec.zorunluDersler || []).forEach(c => {
                     if (c.ders && c.atananBrans) {
                         branchMap[c.ders] = c.atananBrans;
                     }
+                    if (c.ders && c.grupSayisi) {
+                        grupMap[c.ders] = c.grupSayisi;
+                    }
                 });
 
-                const reconciled = canonicalCourses.map(c => ({
-                    ...c,
-                    atananBrans: branchMap[c.ders] || c.atananBrans
-                }));
+                const reconciled = canonicalCourses.map(c => {
+                    const yeni = {
+                        ...c,
+                        atananBrans: branchMap[c.ders] || c.atananBrans
+                    };
+                    if (grupMap[c.ders]) yeni.grupSayisi = grupMap[c.ders];
+                    return yeni;
+                });
 
                 const oldStr = JSON.stringify(sec.zorunluDersler || []);
                 const newStr = JSON.stringify(reconciled);
@@ -176363,6 +176444,17 @@ class MebNormApplication {
             });
         });
 
+        document.querySelectorAll(".group-count-select").forEach(select => {
+            select.addEventListener("change", (e) => {
+                const cName = e.currentTarget.dataset.course;
+                const n = parseInt(e.currentTarget.value, 10);
+                appState.updateCourseGroupCount(activeSec.id, cName, n);
+                this.ui.showToast(
+                    `👥 "${cName}" dersi ${n} grup olarak ayarlandı; ders yükü buna göre hesaplanıyor.`,
+                    "success");
+            });
+        });
+
         document.querySelectorAll(".btn-open-merge-modal").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const cName = e.currentTarget.dataset.course;
@@ -176455,16 +176547,41 @@ class MebNormApplication {
                 </span>
             `;
         } else {
-            loadInfoHtml = mult.groupCount > 1 ? `
-                <div class="course-hours-wrapper">
-                    <span class="course-hours-value">${hours} Saat</span>
-                    <span class="group-multiplier-pill" title="${mult.note}">(${mult.groupCount} Grup)</span>
-                </div>
-            ` : `
-                <div class="course-hours-wrapper">
-                    <span class="course-hours-value">${hours} Saat</span>
-                </div>
-            `;
+            // GRUP SAYISI SEÇİLEBİLİR.
+            //
+            // Eskiden burada sabit bir "(2 Grup)" etiketi vardı ve ders yükü
+            // otomatik ikiye katlanıyordu. Mevzuat baremi ÜST SINIRDIR; okulun
+            // dersi fiilen kaç grupta okuttuğu okulun kararıdır. Anadolu
+            // Lisesi'nde seçmeli Kur'an-ı Kerim, 30 mevcutta otomatik 2 gruba
+            // bölünüp yükü 2 saatten 4 saate çıkarıyordu; okul tek grupta
+            // okutuyorsa bu yük gerçek değildi (kullanıcı bildirimi).
+            //
+            // Kutu yalnızca barem 1'den büyükse görünür ve yalnızca AŞAĞI
+            // seçilebilir — kimse mevzuat baremi üstüne çıkamaz.
+            const otomatikGrup = mult.otomatikGrup || mult.groupCount;
+            if (otomatikGrup > 1) {
+                const secenekler = [];
+                for (let g = 1; g <= otomatikGrup; g++) {
+                    secenekler.push(
+                        `<option value="${g}" ${g === mult.groupCount ? 'selected' : ''}>${g} Grup</option>`);
+                }
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                        <select class="group-count-select ${mult.elleAyarlandi ? 'is-manual' : ''}"
+                                data-course="${cName}"
+                                title="${mult.note} — Okulunuz bu dersi kaç grupta okutuyorsa onu seçin.">
+                            ${secenekler.join("")}
+                        </select>
+                    </div>
+                `;
+            } else {
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                    </div>
+                `;
+            }
         }
 
         let electiveThemeBadgeHtml = "";

@@ -318,18 +318,29 @@ class MebNormApplication {
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
             );
             if (canonicalCourses && canonicalCourses.length > 0) {
-                // Mevcut atanan branşları koruyarak eşitle
+                // Mevcut atanan branşları ve GRUP SAYISI seçimlerini koruyarak
+                // eşitle. Grup sayısı da korunmalı: idareci "bu dersi tek
+                // grupta okutuyoruz" dedikten sonra müfredat tazelenince seçim
+                // silinseydi, ders yükü sessizce iki katına dönerdi.
                 const branchMap = {};
+                const grupMap = {};
                 (sec.zorunluDersler || []).forEach(c => {
                     if (c.ders && c.atananBrans) {
                         branchMap[c.ders] = c.atananBrans;
                     }
+                    if (c.ders && c.grupSayisi) {
+                        grupMap[c.ders] = c.grupSayisi;
+                    }
                 });
 
-                const reconciled = canonicalCourses.map(c => ({
-                    ...c,
-                    atananBrans: branchMap[c.ders] || c.atananBrans
-                }));
+                const reconciled = canonicalCourses.map(c => {
+                    const yeni = {
+                        ...c,
+                        atananBrans: branchMap[c.ders] || c.atananBrans
+                    };
+                    if (grupMap[c.ders]) yeni.grupSayisi = grupMap[c.ders];
+                    return yeni;
+                });
 
                 const oldStr = JSON.stringify(sec.zorunluDersler || []);
                 const newStr = JSON.stringify(reconciled);
@@ -1201,6 +1212,17 @@ class MebNormApplication {
             });
         });
 
+        document.querySelectorAll(".group-count-select").forEach(select => {
+            select.addEventListener("change", (e) => {
+                const cName = e.currentTarget.dataset.course;
+                const n = parseInt(e.currentTarget.value, 10);
+                appState.updateCourseGroupCount(activeSec.id, cName, n);
+                this.ui.showToast(
+                    `👥 "${cName}" dersi ${n} grup olarak ayarlandı; ders yükü buna göre hesaplanıyor.`,
+                    "success");
+            });
+        });
+
         document.querySelectorAll(".btn-open-merge-modal").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const cName = e.currentTarget.dataset.course;
@@ -1293,16 +1315,41 @@ class MebNormApplication {
                 </span>
             `;
         } else {
-            loadInfoHtml = mult.groupCount > 1 ? `
-                <div class="course-hours-wrapper">
-                    <span class="course-hours-value">${hours} Saat</span>
-                    <span class="group-multiplier-pill" title="${mult.note}">(${mult.groupCount} Grup)</span>
-                </div>
-            ` : `
-                <div class="course-hours-wrapper">
-                    <span class="course-hours-value">${hours} Saat</span>
-                </div>
-            `;
+            // GRUP SAYISI SEÇİLEBİLİR.
+            //
+            // Eskiden burada sabit bir "(2 Grup)" etiketi vardı ve ders yükü
+            // otomatik ikiye katlanıyordu. Mevzuat baremi ÜST SINIRDIR; okulun
+            // dersi fiilen kaç grupta okuttuğu okulun kararıdır. Anadolu
+            // Lisesi'nde seçmeli Kur'an-ı Kerim, 30 mevcutta otomatik 2 gruba
+            // bölünüp yükü 2 saatten 4 saate çıkarıyordu; okul tek grupta
+            // okutuyorsa bu yük gerçek değildi (kullanıcı bildirimi).
+            //
+            // Kutu yalnızca barem 1'den büyükse görünür ve yalnızca AŞAĞI
+            // seçilebilir — kimse mevzuat baremi üstüne çıkamaz.
+            const otomatikGrup = mult.otomatikGrup || mult.groupCount;
+            if (otomatikGrup > 1) {
+                const secenekler = [];
+                for (let g = 1; g <= otomatikGrup; g++) {
+                    secenekler.push(
+                        `<option value="${g}" ${g === mult.groupCount ? 'selected' : ''}>${g} Grup</option>`);
+                }
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                        <select class="group-count-select ${mult.elleAyarlandi ? 'is-manual' : ''}"
+                                data-course="${cName}"
+                                title="${mult.note} — Okulunuz bu dersi kaç grupta okutuyorsa onu seçin.">
+                            ${secenekler.join("")}
+                        </select>
+                    </div>
+                `;
+            } else {
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                    </div>
+                `;
+            }
         }
 
         let electiveThemeBadgeHtml = "";
