@@ -2249,6 +2249,15 @@ body {
     line-height: 1;
 }
 
+/* Dağıtım eksikse sarı: kalan saat hiçbir öğretmenin yüküne yazılmıyor.
+   Engellenmiyor (okul hakkının tamamını kullanmak zorunda değil) ama
+   görünmez de kalmamalı — gri yazıyla geçiştirildiğinde fark edilmiyordu. */
+.ht-dagitim-total-pill.is-eksik {
+    background: #fffbeb;
+    color: #b45309;
+    border-color: #fcd34d;
+}
+
 /* EĞİK ÇİZGİLİ DERSLERDE BRANŞ SEÇİMİ
    "Görsel Sanatlar/Müzik" gibi dersler çizelgede alternatifli yazılır ve okul
    şubeyi branşlara bölebilir. Branş açılır kutusu yerine açılıp kapanan

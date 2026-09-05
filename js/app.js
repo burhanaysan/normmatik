@@ -1440,12 +1440,18 @@ class MebNormApplication {
             `;
             if (girdiler.length) {
                 const toplam = girdiler.reduce((a, [, s]) => a + (parseInt(s, 10) || 0), 0);
+                const eksik = hours - toplam;
+                // Eksik dağıtım satırda da görünür olmalı: dağıtılmayan saat
+                // hiçbir öğretmenin yüküne yazılmıyor ve idareci pencereyi
+                // açmadan bunu fark edemezdi.
                 loadInfoHtml = `
                     <div class="course-hours-wrapper">
                         <span class="course-hours-value">${hours} Saat</span>
-                        <span class="ht-dagitim-total-pill"
-                              title="${girdiler.length} branşa paylaştırıldı; toplam değişmez.">
-                            ${toplam}s dağıtıldı
+                        <span class="ht-dagitim-total-pill ${eksik > 0 ? 'is-eksik' : ''}"
+                              title="${eksik > 0
+                                  ? eksik + ' saat dağıtılmadı; norma yazılmıyor.'
+                                  : girdiler.length + ' branşa paylaştırıldı; toplam değişmez.'}">
+                            ${toplam}/${hours}s${eksik > 0 ? ' ⚠️' : ''}
                         </span>
                     </div>
                 `;

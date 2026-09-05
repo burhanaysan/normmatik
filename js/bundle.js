@@ -172307,17 +172307,38 @@ class UIComponentManager {
         const topla = () => [...document.querySelectorAll(".ht-saat")]
             .reduce((a, s) => a + (parseInt(s.value, 10) || 0), 0);
 
-        // Toplam hakkı aşarsa kaydetmeye izin verilmez. Aşan dağıtımı sessizce
-        // kırpmak, idarecinin girdiğinden farklı bir sonuç üretirdi.
+        // ÜÇ DURUM:
+        //   aşım  -> kırmızı, KAYIT ENGELLİ. Aşan dağıtımı sessizce kırpmak,
+        //            idarecinin girdiğinden farklı bir sonuç üretirdi.
+        //   eksik -> sarı uyarı, kayıt SERBEST. Okul hakkının tamamını
+        //            kullanmak zorunda değil; ama dağıtılmayan saat hiçbir
+        //            öğretmenin yüküne yazılmaz. Bu, ilk sürümde gri yazıyla
+        //            geçiştiriliyordu ve fark edilmiyordu — saat sessizce
+        //            kayboluyordu. Engellemek fazla katı olurdu; uyarmak
+        //            doğru orta yol (kullanıcı kararı, 28.08.2026).
+        //   tam   -> yeşil.
         const tazele = () => {
             const t = topla();
-            const asim = t > hak;
-            uyariEl.textContent = asim
-                ? `Dağıtılan ${t} saat, şubenin ${hak} saatlik hakkını aşıyor.`
-                : `Dağıtılan: ${t} / ${hak} saat`;
-            uyariEl.style.color = asim ? "#b91c1c" : "var(--text-muted)";
-            kaydetBtn.disabled = asim;
-            kaydetBtn.style.opacity = asim ? "0.5" : "1";
+            const eksik = hak - t;
+            if (t > hak) {
+                uyariEl.textContent =
+                    `⛔ Dağıtılan ${t} saat, şubenin ${hak} saatlik hakkını aşıyor.`;
+                uyariEl.style.color = "#b91c1c";
+                kaydetBtn.disabled = true;
+                kaydetBtn.style.opacity = "0.5";
+            } else if (eksik > 0) {
+                uyariEl.textContent =
+                    `⚠️ Dağıtılan: ${t} / ${hak} saat — ${eksik} saat dağıtılmadı `
+                    + `ve hiçbir öğretmenin yüküne yazılmayacak.`;
+                uyariEl.style.color = "#b45309";
+                kaydetBtn.disabled = false;
+                kaydetBtn.style.opacity = "1";
+            } else {
+                uyariEl.textContent = `✅ Dağıtılan: ${t} / ${hak} saat`;
+                uyariEl.style.color = "#047857";
+                kaydetBtn.disabled = false;
+                kaydetBtn.style.opacity = "1";
+            }
         };
         document.querySelectorAll(".ht-saat").forEach(s => s.addEventListener("change", tazele));
         tazele();
@@ -177047,12 +177068,18 @@ class MebNormApplication {
             `;
             if (girdiler.length) {
                 const toplam = girdiler.reduce((a, [, s]) => a + (parseInt(s, 10) || 0), 0);
+                const eksik = hours - toplam;
+                // Eksik dağıtım satırda da görünür olmalı: dağıtılmayan saat
+                // hiçbir öğretmenin yüküne yazılmıyor ve idareci pencereyi
+                // açmadan bunu fark edemezdi.
                 loadInfoHtml = `
                     <div class="course-hours-wrapper">
                         <span class="course-hours-value">${hours} Saat</span>
-                        <span class="ht-dagitim-total-pill"
-                              title="${girdiler.length} branşa paylaştırıldı; toplam değişmez.">
-                            ${toplam}s dağıtıldı
+                        <span class="ht-dagitim-total-pill ${eksik > 0 ? 'is-eksik' : ''}"
+                              title="${eksik > 0
+                                  ? eksik + ' saat dağıtılmadı; norma yazılmıyor.'
+                                  : girdiler.length + ' branşa paylaştırıldı; toplam değişmez.'}">
+                            ${toplam}/${hours}s${eksik > 0 ? ' ⚠️' : ''}
                         </span>
                     </div>
                 `;

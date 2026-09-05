@@ -175,6 +175,40 @@ function rapor() {
         once.toplam + " -> " + sonra.toplam);
 }
 
+/* ---- 4b) EKSİK DAĞITIM: saat gerçekten kayboluyor -------------------- */
+// Okul hakkının tamamını kullanmak zorunda değil, bu yüzden eksik dağıtım
+// ENGELLENMİYOR. Ama dağıtılmayan saat hiçbir öğretmenin yüküne yazılmıyor;
+// arayüz bunu sarı uyarıyla gösterir (kullanıcı kararı, 28.08.2026).
+// Bu test, uyarının gerekçesinin gerçek olduğunu kanıtlar.
+{
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "anadolu_lisesi";
+    st.addSection({ subeAdi: "12-A", sinifSeviyesi: "12", ogrenciSayisi: 30,
+        zorunluDersler: ce.getMandatoryCourses("anadolu_lisesi", "12", null, null),
+        secmeliDersler: [{ ders: DERS, saat: 4, kategori: "SEÇMELİ DERSLER",
+            atananBrans: DERS }] });
+    const sec = st.state.subeler[0];
+    const t = () => ne.calculateSchoolNorms(st.state.subeler, {}, "anadolu_lisesi", {})
+        .branchReport.reduce((a, b) => a + b.totalHours, 0);
+
+    const bastaki = t();
+    kontrol("4 saatlik hak başta tam sayılıyor (ölçüm geçerli)", bastaki > 0);
+
+    st.updateCourseBranchDistribution(sec.id, DERS, { "Matematik": 3 });
+    kontrol("eksik dağıtımda 1 saat okul toplamından düşüyor",
+        t() === bastaki - 1, bastaki + " -> " + t());
+
+    st.updateCourseBranchDistribution(sec.id, DERS, { "Matematik": 3, "Fizik": 1 });
+    kontrol("tam dağıtımda okul toplamı korunuyor", t() === bastaki,
+        bastaki + " -> " + t());
+
+    // Tek branşa tam hak: 3 saatlik şubede 3 saatin tamamı bir branşa gidebilir
+    // (mevzuat tavanı ders başına 3 saat).
+    const g = ne.dersiGenislet({ ders: DERS, saat: 3, bransDagilimi: { "Matematik": 3 } });
+    kontrol("3 saatin tamamı tek branşa verilebilir",
+        g.length === 1 && g[0].saat === 3, JSON.stringify(g.map(x => x.saat)));
+}
+
 /* ---- 5) Kaydet/yükle turunda korunuyor mu? --------------------------- */
 {
     const sec = kur();
