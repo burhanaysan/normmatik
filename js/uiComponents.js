@@ -3854,11 +3854,22 @@ export class UIComponentManager {
                 <div class="print-header-divider"></div>
             </div>
 
-            <!-- Ekranda Görünen Rapor Başlığı (no-print) -->
-            <div class="report-page-header no-print">
-                <div class="report-page-title">${data.title}</div>
-                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Toplam ${data.subeler.length} Şube • Toplam ${data.grandTotalHours} Saat Ders Yükü</div>
+            ${this.renderMutabakatAnahtar(data.yukMutabakati)}
+
+            <!-- Ekranda Görünen Rapor Başlığı (no-print)
+                 "mutabakat-panelli" SADECE bu raporda: başlık iki sütuna
+                 ayrılıp sağ tarafa DERS YÜKÜ MUTABAKATI şeridi giriyor.
+                 Diğer altı raporun başlığı olduğu gibi kalır — ortak sınıfın
+                 davranışına dokunmuyoruz. -->
+            <div class="report-page-header no-print mutabakat-panelli">
+                <div class="rph-sol">
+                    <div class="report-page-title">${data.title}</div>
+                    <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Toplam ${data.subeler.length} Şube • Toplam ${data.grandTotalHours} Saat Ders Yükü</div>
+                </div>
+                ${this.renderMutabakatSerit(data.yukMutabakati)}
             </div>
+
+            ${this.renderMutabakatDetay(data.yukMutabakati)}
 
             <div class="master-grid-wrapper vertical-header-mode">
                 <table class="master-grid-table">
@@ -4021,14 +4032,13 @@ export class UIComponentManager {
                 </table>
             </div>
 
-            ${this.renderYukMutabakati(data.yukMutabakati)}
         `;
 
         return html;
     }
 
     /**
-     * DERS YÜKÜ MUTABAKATI BLOĞU
+     * DERS YÜKÜ MUTABAKATI — kalemleri hazırlar.
      *
      * Neden var: matrisin alt satırı "şube çizelgesi toplamı"nı (ör. 640),
      * rapor başlığı ise "norma esas öğretmen ders yükü"nü (ör. 646) yazıyor.
@@ -4036,15 +4046,11 @@ export class UIComponentManager {
      * hiçbir yerde yazmıyordu; okul müdürleri farkı bize soruyordu.
      * (Kullanıcı isteği, 05.09.2026.)
      *
-     * Kaydırma kutusunun DIŞINA basılır: matris yatay/dikey kaydırılırken
-     * blok yerinde kalsın, gözden kaçmasın diye.
+     * Tutarsız mutabakat HİÇ basılmaz: yanlış bir mutabakat, mutabakat
+     * olmamasından kötüdür — okul ona güvenip yanlış sayı savunur.
      */
-    renderYukMutabakati(m) {
-        if (!m) return "";
-        // Değişmez tutmuyorsa hiç basma. Yanlış bir mutabakat, mutabakat
-        // olmamasından kötüdür: okul ona güvenip yanlış sayı savunur.
-        if (m.tutarli === false) return "";
-
+    mutabakatKalemleri(m) {
+        if (!m || m.tutarli === false) return null;
         const satirlar = [
             { ad: "Bölünen ders / grup çarpanı", kisa: "bölünme", deger: m.carpanArtisi, isaret: "+",
               not: "Bir ders birden fazla gruba veya branşa bölündüğünde her öğretmen kendi grubuna tam saati okutur." },
@@ -4055,61 +4061,103 @@ export class UIComponentManager {
             { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", kisa: "koordinatörlük", deger: m.koordinatorlukEki, isaret: "+",
               not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
         ].filter(r => r.deger !== 0);
+        return { satirlar, fark: m.normaEsasYuk - m.hamCizelgeSaati };
+    }
 
-        const fark = m.normaEsasYuk - m.hamCizelgeSaati;
+    /**
+     * MUTABAKAT ŞERİDİ — rapor başlığının SAĞINDA duran kompakt panel.
+     *
+     * Blok önce matrisin ALTINDAYDI; kullanıcı "önemli, en altta olamaz;
+     * üstte, dar bir alanda ama renkli durmalı" dedi (06.09.2026).
+     * Başlık satırı zaten var olduğu için buraya konması matristen dikey
+     * yer ALMIYOR — aksine alttaki şeridin yediği yeri geri veriyor.
+     *
+     * Rakamlar kartlara ayrıldı: her kalem kendi rengini taşıyor, sonuç
+     * kartı vurgulu. Ayrıntı tablosu ayrı bir çizicide (renderMutabakatDetay)
+     * ve varsayılan kapalı.
+     */
+    renderMutabakatSerit(m) {
+        const k = this.mutabakatKalemleri(m);
+        if (!k) return "";
 
-        // "Fark yok" teyidi YALNIZCA hiçbir kalem oluşmadığında verilir.
-        //
-        // Önce koşul `fark === 0` idi ve yanlış beyan üretiyordu: bölünme +6
-        // ile yönetici düşümü −6 birbirini götüren bir okulda net fark sıfır
-        // çıkıyor, blok ise "bölünme, birleştirme veya yönetici ders saati
-        // kaynaklı bir fark oluşmamıştır" diyordu. İkisi de olmuştu, sadece
-        // toplamda sıfırlanmışlardı. (Ölçüldü 06.09.2026, önizlemede yakalandı.)
-        //
-        // Kalem varsa tablo basılır; net fark sıfır olsa bile kalemler görünür.
-        if (satirlar.length === 0) {
+        // Fark yoksa tek kart: "kontrol edildi, aynı" demek sayıya güven verir.
+        if (k.satirlar.length === 0) {
             return `
-                <div class="yuk-mutabakat-blok esit">
-                    <div class="yuk-mutabakat-baslik">⚖️ DERS YÜKÜ MUTABAKATI</div>
-                    <div class="yuk-mutabakat-esit-metin">
-                        Şube çizelgesi toplamı ile norma esas öğretmen ders yükü <strong>aynı: ${m.normaEsasYuk} saat.</strong>
-                        Bu okulda bölünme, birleştirme veya yönetici ders saati kaynaklı bir fark oluşmamıştır.
+                <div class="ymt-serit ymt-serit-esit" title="Şube çizelgesi toplamı ile norma esas öğretmen ders yükü aynı; bölünme, birleştirme veya yönetici ders saati kaynaklı fark oluşmamış.">
+                    <div class="ymt-serit-baslik">⚖️ DERS YÜKÜ MUTABAKATI</div>
+                    <div class="ymt-kartlar">
+                        <div class="ymt-kart ymt-kart-sonuc">
+                            <span class="ymt-kart-etiket">Çizelge = Norm yükü</span>
+                            <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
+                        </div>
                     </div>
                 </div>
             `;
         }
 
-        // KATLANABİLİR — VARSAYILAN KAPALI
-        //
-        // Blok ilk hâlinde hep açıktı ve matrisin yüksekliğini yiyordu: 16
-        // şubelik bir okulda "Branş ve Ders Dağılımı" iki satıra düşüyor,
-        // rapor okunamaz hâle geliyordu. (Kullanıcı bildirimi, 06.09.2026.)
-        //
-        // Kapalıyken tek şerit: sayı ve kalemler yine GÖRÜNÜR, yer kaplamaz.
-        // Açma/kapama SAF CSS ile (gizli onay kutusu): raporun çizim ve olay
-        // döngüsüne hiç dokunmuyoruz, sekme/filtre değişiminde bozulacak bir
-        // dinleyici eklemiyoruz. Yazdırmada blok her hâlükârda AÇIK basılır.
-        const ozetKalemleri = satirlar
-            .map(r => `${r.kisa} ${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}`)
-            .join(" · ");
+        const kartlar = k.satirlar.map(r => `
+            <div class="ymt-kart ${r.deger > 0 ? "ymt-kart-arti" : "ymt-kart-eksi"}" title="${r.not}">
+                <span class="ymt-kart-etiket">${r.ad.split(" (")[0]}</span>
+                <span class="ymt-kart-sayi">${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}</span>
+            </div>
+        `).join("");   // kartlar kendi işaretini taşıyor; araya operatör koymak
+                       // "+ ... −14" gibi kafa karıştırıcı diziler üretiyordu
 
         return `
-            <div class="yuk-mutabakat-blok">
-                <input type="checkbox" id="ymt-ac-kapa" class="ymt-ac-kapa" hidden>
-                <div class="yuk-mutabakat-baslik">
-                    <span class="ymt-baslik-ad">⚖️ DERS YÜKÜ MUTABAKATI</span>
-                    <span class="ymt-baslik-ozet">çizelge ${m.hamCizelgeSaati} · ${ozetKalemleri}</span>
-                    <span class="yuk-mutabakat-rozet">${m.hamCizelgeSaati} → ${m.normaEsasYuk} saat${fark === 0 ? "" : ` (${fark > 0 ? "+" : ""}${fark})`}</span>
-                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Farkı oluşturan kalemleri aç / kapat">
+            <div class="ymt-serit">
+                <div class="ymt-serit-baslik">
+                    ⚖️ DERS YÜKÜ MUTABAKATI
+                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Farkı oluşturan kalemlerin ayrıntılı dökümünü aç / kapat">
                         <span class="ymt-lbl-ac">Ayrıntı ▾</span><span class="ymt-lbl-kapa">Gizle ▴</span>
                     </label>
                 </div>
-                <div class="yuk-mutabakat-govde">
-                <div class="yuk-mutabakat-giris">
-                    Alt satırdaki <strong>${m.hamCizelgeSaati} saat</strong>, öğrencilerin haftada gördüğü ders saatidir.
+                <div class="ymt-kartlar">
+                    <div class="ymt-kart ymt-kart-ham" title="Şubelerin haftalık ders saatlerinin toplamı — öğrencinin gördüğü saat.">
+                        <span class="ymt-kart-etiket">Şube çizelgesi</span>
+                        <span class="ymt-kart-sayi">${m.hamCizelgeSaati}</span>
+                    </div>
+                    ${kartlar}
+                    <span class="ymt-islem">=</span>
+                    <div class="ymt-kart ymt-kart-sonuc" title="Öğretmen normu bu sayı üzerinden hesaplanır.">
+                        <span class="ymt-kart-etiket">Norma esas yük</span>
+                        <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Açma/kapama anahtarı. Rapor BAŞLIĞINDAN ÖNCE basılır: düğme etiketi
+     * başlığın içinde, ayrıntı tablosu başlıktan sonra olduğu için ikisine de
+     * sade kardeş seçiciyle (~) erişilebilsin. `:has()` kullanmıyoruz —
+     * desteklemeyen tarayıcıda panel kilitli kalırdı.
+     */
+    renderMutabakatAnahtar(m) {
+        const k = this.mutabakatKalemleri(m);
+        if (!k || k.satirlar.length === 0) return "";
+        return `<input type="checkbox" id="ymt-ac-kapa" class="ymt-ac-kapa" hidden>`;
+    }
+
+    /**
+     * MUTABAKAT AYRINTISI — şeridin altında açılan tam tablo.
+     *
+     * Varsayılan KAPALI; açma/kapama SAF CSS ile (gizli onay kutusu).
+     * Raporun çizim ve olay döngüsüne dokunmuyoruz: sekme veya filtre
+     * değiştiğinde bozulacak bir dinleyici eklemiyoruz.
+     * Yazdırmada her hâlükârda AÇIK basılır — rapor kâğıda böyle gidiyor.
+     */
+    renderMutabakatDetay(m) {
+        const k = this.mutabakatKalemleri(m);
+        if (!k || k.satirlar.length === 0) return "";
+
+        return `
+            <div class="ymt-detay">
+                <div class="ymt-detay-giris">
+                    Matrisin alt satırındaki <strong>${m.hamCizelgeSaati} saat</strong>, öğrencilerin haftada gördüğü ders saatidir.
                     Norm hesabına giren <strong>${m.normaEsasYuk} saat</strong> ise öğretmenlerin okuttuğu ders yüküdür.
                     İkisi de doğrudur; aşağıdaki kalemler ikisi arasındaki farkı oluşturur.
-                    ${fark === 0 ? "<strong>Bu okulda kalemler birbirini götürdüğü için iki sayı eşit çıkmıştır</strong> — kalem oluşmadığı için değil." : ""}
+                    ${k.fark === 0 ? "<strong>Bu okulda kalemler birbirini götürdüğü için iki sayı eşit çıkmıştır</strong> — kalem oluşmadığı için değil." : ""}
                 </div>
                 <table class="yuk-mutabakat-tablo">
                     <tbody>
@@ -4118,7 +4166,7 @@ export class UIComponentManager {
                             <td class="ymt-deger">${m.hamCizelgeSaati}</td>
                             <td class="ymt-not">Şubelerin haftalık ders saatlerinin toplamı (öğrenci saati)</td>
                         </tr>
-                        ${satirlar.map(r => `
+                        ${k.satirlar.map(r => `
                             <tr class="ymt-kalem ${r.deger > 0 ? "ymt-arti" : "ymt-eksi"}">
                                 <td class="ymt-ad">${r.isaret} ${r.ad}</td>
                                 <td class="ymt-deger">${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}</td>
@@ -4132,7 +4180,6 @@ export class UIComponentManager {
                         </tr>
                     </tbody>
                 </table>
-                </div>
             </div>
         `;
     }

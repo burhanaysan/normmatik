@@ -200,21 +200,31 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
         /mutabakatSatirlari\(reportData\.yukMutabakati/.test(RE));
 
     const UI = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
-    kontrol("matris altında mutabakat bloğu basılıyor",
-        /renderYukMutabakati\(data\.yukMutabakati\)/.test(UI));
-    kontrol("blok kaydırma kutusunun DIŞINDA",
-        /<\/table>\s*<\/div>\s*\$\{this\.renderYukMutabakati/.test(UI));
+    // Panel 06.09.2026'da matrisin ALTINDAN rapor BAŞLIĞINA taşındı
+    // ("önemli, en altta olamaz" — kullanıcı). Yerleşimin ayrıntılı
+    // denetimi test_raporlar R15'te; burada yalnızca bağlantılar sınanır.
+    kontrol("mutabakat şeridi rapor başlığında basılıyor",
+        /renderMutabakatSerit\(data\.yukMutabakati\)/.test(UI));
+    kontrol("ayrıntı tablosu ve açma anahtarı basılıyor",
+        /renderMutabakatDetay\(data\.yukMutabakati\)/.test(UI)
+        && /renderMutabakatAnahtar\(data\.yukMutabakati\)/.test(UI));
     kontrol("yönetici icmalinde tek satırlık özet var",
         /renderMutabakatOzet\(data\.yukMutabakati\)/.test(UI));
     kontrol("branş şeridi ayrışması açıklanıyor",
         /ymt-brans-fark/.test(UI) && /bransKalemleri/.test(UI));
+
+    // Tutarsız mutabakat HİÇ basılmamalı. Tek kapı: mutabakatKalemleri().
     kontrol("tutarsız mutabakat basılmıyor",
-        /if \(m\.tutarli === false\) return "";/.test(UI));
+        /if \(!m \|\| m\.tutarli === false\) return null;/.test(UI));
+    kontrol("üç çizicinin üçü de aynı kapıdan geçiyor",
+        (UI.match(/this\.mutabakatKalemleri\(m\)/g) || []).length >= 3,
+        "biri kapıyı atlarsa tutarsız mutabakat ekrana çıkar");
 
     const CSS = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
-    kontrol("mutabakat bloğunun stili var", /\.yuk-mutabakat-blok\s*\{/.test(CSS));
-    kontrol("blok yazdırmada da görünüyor",
-        /@media print[\s\S]*\.yuk-mutabakat-blok\s*\{/.test(CSS));
+    kontrol("mutabakat panelinin stili var",
+        /\.ymt-serit\s*\{/.test(CSS) && /\.ymt-detay\s*\{/.test(CSS));
+    kontrol("ayrıntı tablosu yazdırmada da görünüyor",
+        /@media print[\s\S]*\.ymt-detay\s*\{[\s\S]{0,80}display:\s*block\s*!important/.test(CSS));
 
     const APP = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
     kontrol("ana sayfa panelinin açıklaması artık 'şube saatleri toplamı' demiyor",

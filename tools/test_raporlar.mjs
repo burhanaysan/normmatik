@@ -240,38 +240,66 @@ console.log("\nYerleşim koruması");
             && "İlçe Millî Eğitim Müdürlüğü".toLocaleUpperCase("tr-TR") === "İLÇE MİLLÎ EĞİTİM MÜDÜRLÜĞÜ");
 }
 
-// R15: MASTER MATRİS DÜZENİ
+// R15: MASTER MATRİS DÜZENİ VE MUTABAKAT PANELİ
 // 2026-09-06 (kullanıcı bildirimi + ekran görüntüsü): DERS YÜKÜ MUTABAKATI
-// bloğu eklenince matris ezildi; 16 şubelik bir okulda "Branş ve Ders
-// Dağılımı" iki satıra düşüp rapor okunamaz hâle geldi.
+// bloğu matrisin ALTINDAYDI ve matrisi eziyordu; 16 şubelik bir okulda
+// "Branş ve Ders Dağılımı" iki satıra düşüp rapor okunamaz hâle gelmişti.
+// Sonra kullanıcı: "önemli, en altta olamaz; üstte, gerekirse ayrı bir
+// panelde, daha dar bir alanda ama renkli durmalı."
 //
-// Sebep: .master-grid-wrapper `flex: 1 1 auto` ile SIKIŞABİLİYORDU. Aynı
-// sınıf hata 2026-08-24'te branş tablosunda da yaşanmıştı (bkz. R12).
+// Panel artık rapor BAŞLIĞININ SAĞINDA. Başlık satırı zaten var olduğu için
+// matristen dikey yer almıyor (ölçüldü: matris 546 -> 740 px, 1080p'de).
 {
     const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
     const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
 
     const kural = (css.match(/\.master-grid-wrapper\s*\{[\s\S]*?\}/) || [""])[0];
-    denetle("R15a matris kabı artık sıkışmıyor (flex-shrink 0)",
+    denetle("R15a matris kabı sıkışmıyor (flex-shrink 0)",
             /flex:\s*1\s+0\s+auto/.test(kural),
             kural.replace(/\s+/g, " ").slice(0, 140));
-    denetle("R15b matris yüksekliği kapalı mutabakat şeridini hesaba katıyor",
-            /max-height:\s*calc\(94vh\s*-\s*300px\)/.test(kural));
+    denetle("R15b matris yüksekliği ölçülmüş sabiti kullanıyor",
+            /max-height:\s*calc\(94vh\s*-\s*275px\)/.test(kural));
 
-    denetle("R15c mutabakat varsayılan olarak KAPALI",
-            /\.yuk-mutabakat-govde\s*\{\s*display:\s*none/.test(css));
-    denetle("R15d açma/kapama saf CSS (raporun çizim/olay döngüsüne dokunmuyor)",
-            /\.ymt-ac-kapa:checked\s*~\s*\.yuk-mutabakat-govde/.test(css)
+    // Panel başlıkta; alta HİÇBİR mutabakat öğesi basılmamalı.
+    denetle("R15c mutabakat paneli rapor başlığının içinde",
+            /mutabakat-panelli[\s\S]{0,400}renderMutabakatSerit\(data\.yukMutabakati\)/.test(ui));
+    denetle("R15d matrisin altında mutabakat öğesi kalmadı",
+            !/master-grid-wrapper[\s\S]*?renderMutabakat/.test(
+                ui.slice(ui.indexOf("</tfoot>"), ui.indexOf("</tfoot>") + 1200)));
+
+    denetle("R15e ayrıntı tablosu varsayılan KAPALI",
+            /\.ymt-detay\s*\{\s*display:\s*none/.test(css));
+    denetle("R15f açma/kapama saf CSS (raporun çizim/olay döngüsüne dokunmuyor)",
+            /\.ymt-ac-kapa:checked\s*~\s*\.ymt-detay/.test(css)
             && !ui.includes('getElementById("ymt-ac-kapa")'));
-    denetle("R15e yazdırmada mutabakat her hâlükârda AÇIK basılıyor",
-            /@media print[\s\S]*\.yuk-mutabakat-govde\s*\{\s*display:\s*block\s*!important/.test(css));
-    denetle("R15f kapalıyken sayı ve kalemler yine görünüyor",
-            ui.includes("ymt-baslik-ozet") && ui.includes("yuk-mutabakat-rozet"));
-    denetle("R15g mutabakat stilleri :has() desteğine bağlı değil",
-            !/\.yuk-mutabakat[^\n]*:has\(/.test(css),
-            "eski tarayıcıda :has() kuralı sessizce düşer");
-    denetle("R15h başlık şeridi tek satırda kalıyor (nowrap)",
-            /\.yuk-mutabakat-baslik\s*\{[\s\S]*?flex-wrap:\s*nowrap/.test(css));
+
+    // Anahtar BAŞLIKTAN ÖNCE basılmalı: hem düğme etiketine hem tabloya
+    // sade kardeş seçiciyle erişilebilsin diye. Sıra bozulursa panel kilitlenir.
+    denetle("R15g açma anahtarı rapor başlığından ÖNCE basılıyor",
+            ui.indexOf("renderMutabakatAnahtar(data.yukMutabakati)")
+              < ui.indexOf('class="report-page-header no-print mutabakat-panelli"'));
+
+    denetle("R15h yazdırmada ayrıntı tablosu her hâlükârda AÇIK basılıyor",
+            /@media print[\s\S]*\.ymt-detay\s*\{[\s\S]{0,80}display:\s*block\s*!important/.test(css));
+
+    denetle("R15i şerit ve kartlar sarmıyor (başlık yüksekliği sabit kalsın)",
+            /\.report-page-header\.mutabakat-panelli\s*\{[\s\S]*?flex-wrap:\s*nowrap/.test(css)
+            && /\.ymt-kartlar\s*\{[\s\S]*?flex-wrap:\s*nowrap/.test(css),
+            "sararsa başlık büyür ve max-height sabiti tutmaz");
+
+    denetle("R15j :has() desteğine bağlı değil",
+            !/\.ymt-[^\n]*:has\(/.test(css) && !/mutabakat-panelli[^\n]*:has\(/.test(css),
+            "eski tarayıcıda kural sessizce düşer ve panel kilitli kalır");
+
+    // Diğer altı raporun ortak başlığı BOZULMAMALI: iki sütunlu düzen
+    // yalnızca `mutabakat-panelli` sınıfıyla gelir.
+    const ortak = (css.match(/\n\.report-page-header\s*\{[\s\S]*?\}/) || [""])[0];
+    denetle("R15k ortak rapor başlığı flex'e çevrilmedi (diğer 6 rapor korunur)",
+            !/display:\s*flex/.test(ortak), ortak.replace(/\s+/g, " ").slice(0, 120));
+
+    denetle("R15l kartlar renk sınıflarıyla ayrışıyor",
+            /\.ymt-kart-ham\s*\{/.test(css) && /\.ymt-kart-arti\s*\{/.test(css)
+            && /\.ymt-kart-eksi\s*\{/.test(css) && /\.ymt-kart-sonuc\s*\{/.test(css));
 }
 
 console.log("\n" + "=".repeat(70));

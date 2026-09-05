@@ -4219,11 +4219,13 @@ body {
        sığmazsa rapor gövdesi kaydırılır. (Kullanıcı bildirimi, 06.09.2026.)
        Aynı sınıf hata 2026-08-24'te branş tablosunda da yaşanmıştı. */
     flex: 1 0 auto;
-    /* Ölçülerek bulundu (06.09.2026, 768/900/1080 px yükseklikte doğrulandı):
-       modal başlık + sekme + filtre + rapor başlığı + gövde dolgusu + kapalı
-       mutabakat şeridi = 300px. Bu sayı büyük tutulursa matris boşuna kısalır,
-       küçük tutulursa hem gövde hem matris kaydırılır (çift kaydırma). */
-    max-height: calc(94vh - 300px);
+    /* Ölçülerek türetildi (06.09.2026): modal başlık+sekme+filtre 127px,
+       gövde dolgusu 36px, mutabakat panelli rapor başlığı 89px + 16px alt
+       boşluk = 268px; 7px pay bırakıldı. Şerit ve kartlar `nowrap` olduğu
+       için başlık yüksekliği ekran genişliğinden BAĞIMSIZ — sabit güvenle
+       kullanılabilir. Büyük tutulursa matris boşuna kısalır, küçük tutulursa
+       hem gövde hem matris kaydırılır (çift kaydırma). */
+    max-height: calc(94vh - 275px);
     border: 1.5px solid var(--border-main);
     border-radius: 8px;
     background: var(--bg-card);
@@ -4231,7 +4233,7 @@ body {
 }
 
 .fullscreen-report-mode .master-grid-wrapper {
-    max-height: calc(100vh - 270px);
+    max-height: calc(100vh - 245px);
 }
 
 .master-grid-table {
@@ -4693,101 +4695,181 @@ body {
    ⚖️ DERS YÜKÜ MUTABAKATI
    --------------------------------------------------------------------------
    Matrisin alt satırı öğrenci ders saatini, rapor başlığı öğretmen ders
-   yükünü yazar. Blok bu ikisi arasındaki köprüyü kurar ve KASITLI OLARAK
-   DİKKAT ÇEKER: okul müdürleri farkı bize soruyordu, cevabın gözden kaçmaması
-   gerekiyor. (Kullanıcı isteği, 05.09.2026: "tablo belirgin olsun, dikkat
-   çeksin, insanların odağından kaçmasın.")
+   yükünü yazar. Panel bu ikisi arasındaki köprüyü kurar.
 
-   Kaydırma kutusunun DIŞINDA durur; matris kaydırılırken blok yerinde kalır.
+   KONUM: rapor başlığının SAĞINDA. Önce matrisin altındaydı; kullanıcı
+   "önemli, en altta olamaz; üstte, gerekirse ayrı bir panelde, daha dar bir
+   alanda ama renkli durmalı" dedi (06.09.2026). Başlık satırı zaten var
+   olduğu için panel matristen dikey yer ALMIYOR.
+
+   Ayrıntı tablosu varsayılan KAPALI, açma/kapama saf CSS. Yazdırmada ekran
+   şeridi basılmaz (başlık `no-print`), ayrıntı tablosu ise HER ZAMAN basılır.
    ========================================================================== */
 
-.yuk-mutabakat-blok {
-    margin-top: 0.9rem;
-    border: 2.5px solid #0284c7;
-    border-left-width: 7px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 55%);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.18);
-    overflow: hidden;
-}
-
-.yuk-mutabakat-baslik {
+/* Başlık satırı yalnızca BU raporda iki sütuna ayrılır; ortak
+   .report-page-header davranışı diğer altı raporda aynen korunur. */
+/* nowrap ZORUNLU: şerit başlığın altına düşerse başlık 89px'ten 117px'e
+   çıkıyor ve matrisin yükseklik sabiti tutmuyor — dar ekranda çift kaydırma
+   doğuyordu. Şerit sabit yükseklikte kalır, sığmazsa KENDİ İÇİNDE yatay
+   kaydırılır. (Ölçüldü 06.09.2026.) */
+.report-page-header.mutabakat-panelli {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Tek satırda kalsın: sarınca şerit 41px'ten 58px'e çıkıyor ve matristen
-       o kadar daha yer alıyor. Dar ekranda özet metni kırpılır (ellipsis),
-       sayı ve düğme her zaman görünür kalır. */
+    gap: 1rem;
     flex-wrap: nowrap;
-    gap: 0.5rem;
-    min-width: 0;
-    background: #0f172a;
-    color: #ffffff;
-    font-size: 0.86rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    padding: 0.55rem 0.9rem;
 }
 
-.yuk-mutabakat-rozet {
-    background: #0284c7;
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0;
-    padding: 0.18rem 0.6rem;
-    border-radius: 999px;
-    white-space: nowrap;
-}
-
-/* Katlanma: saf CSS (gizli onay kutusu). Raporun çizim/olay döngüsüne
-   dokunmuyoruz; sekme ve filtre değişiminde bozulacak dinleyici yok. */
-.yuk-mutabakat-govde { display: none; }
-.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-govde { display: block; }
-
-.ymt-baslik-ad { flex: 0 0 auto; }
-
-.ymt-baslik-ozet {
+.report-page-header.mutabakat-panelli .rph-sol {
     flex: 1 1 auto;
     min-width: 0;
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    color: #bae6fd;
+}
+
+.report-page-header.mutabakat-panelli .report-page-subtitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.ymt-serit {
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow-x: auto;
+    border: 2px solid #0284c7;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);
+    padding: 0.35rem 0.6rem 0.45rem;
+}
+
+.ymt-serit-baslik {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #0369a1;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+}
+
+.ymt-kartlar {
+    display: flex;
+    align-items: stretch;
+    gap: 0.3rem;
+    /* Sarmaz: şeridin yüksekliği her ekran genişliğinde aynı kalsın. */
+    flex-wrap: nowrap;
+}
+
+.ymt-kart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 74px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 7px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    line-height: 1.15;
+}
+
+.ymt-kart-etiket {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.ymt-kart-sayi {
+    font-size: 1rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-main);
+}
+
+.ymt-islem {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+/* Ham çizelge — mavi (öğrenci saati) */
+.ymt-kart-ham { border-color: #7dd3fc; background: #f0f9ff; }
+.ymt-kart-ham .ymt-kart-sayi { color: #0369a1; }
+
+/* Yükü ARTIRAN kalem — kehribar */
+.ymt-kart-arti { border-color: #fcd34d; background: #fffbeb; }
+.ymt-kart-arti .ymt-kart-sayi { color: #b45309; }
+
+/* Yükü AZALTAN kalem — mor */
+.ymt-kart-eksi { border-color: #c4b5fd; background: #f5f3ff; }
+.ymt-kart-eksi .ymt-kart-sayi { color: #6d28d9; }
+
+/* Sonuç — vurgulu koyu kart */
+.ymt-kart-sonuc {
+    border-color: #0f172a;
+    background: #0f172a;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.28);
+}
+.ymt-kart-sonuc .ymt-kart-etiket { color: #bae6fd; }
+.ymt-kart-sonuc .ymt-kart-sayi { color: #ffffff; font-size: 1.1rem; }
+
+/* Fark yoksa panel yeşile döner: "kontrol edildi, aynı". */
+.ymt-serit-esit { border-color: #16a34a; background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%); box-shadow: 0 4px 14px rgba(22, 163, 74, 0.15); }
+.ymt-serit-esit .ymt-serit-baslik { color: #15803d; }
+.ymt-serit-esit .ymt-kart-sonuc { border-color: #14532d; background: #14532d; }
+.ymt-serit-esit .ymt-kart-sonuc .ymt-kart-etiket { color: #bbf7d0; }
+
 .ymt-ac-btn {
-    flex: 0 0 auto;
+    margin-left: auto;
     cursor: pointer;
     user-select: none;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: #0284c7;
+    border: 1px solid #0369a1;
     color: #ffffff;
-    font-size: 0.72rem;
+    font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0;
-    padding: 0.15rem 0.5rem;
+    padding: 0.08rem 0.4rem;
     border-radius: 5px;
     white-space: nowrap;
 }
 
-.ymt-ac-btn:hover { background: rgba(255, 255, 255, 0.26); }
+.ymt-ac-btn:hover { background: #0369a1; }
 
+/* Onay kutusu, BAŞLIKTAN ÖNCE basılır; böylece hem düğme etiketine hem de
+   ayrıntı tablosuna sade kardeş seçiciyle (~) erişilir. `:has()` KULLANMIYORUZ:
+   desteklemeyen tarayıcıda kural sessizce düşer ve panel kilitli kalırdı. */
 .ymt-lbl-kapa { display: none; }
-.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-baslik .ymt-lbl-ac { display: none; }
-.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-baslik .ymt-lbl-kapa { display: inline; }
+.ymt-ac-kapa:checked ~ .report-page-header .ymt-lbl-ac { display: none; }
+.ymt-ac-kapa:checked ~ .report-page-header .ymt-lbl-kapa { display: inline; }
 
-.yuk-mutabakat-giris {
-    padding: 0.7rem 0.9rem 0.5rem;
-    font-size: 0.79rem;
-    line-height: 1.55;
-    color: var(--text-muted);
+/* AYRINTI TABLOSU — varsayılan kapalı, saf CSS ile açılır. */
+.ymt-detay { display: none; }
+.ymt-ac-kapa:checked ~ .ymt-detay { display: block; }
+
+.ymt-detay {
+    margin-bottom: 0.85rem;
+    border: 2px solid #0284c7;
+    border-left-width: 6px;
+    border-radius: 10px;
+    background: var(--bg-card);
+    overflow: hidden;
 }
 
-.yuk-mutabakat-giris strong { color: var(--text-main); }
+.ymt-detay-giris {
+    padding: 0.6rem 0.9rem 0.45rem;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    background: #f0f9ff;
+}
+
+.ymt-detay-giris strong { color: var(--text-main); }
 
 .yuk-mutabakat-tablo {
     width: 100%;
@@ -4820,7 +4902,7 @@ body {
 
 .yuk-mutabakat-tablo .ymt-ham td { background: #f8fafc; }
 .yuk-mutabakat-tablo .ymt-arti .ymt-deger { color: #b45309; }
-.yuk-mutabakat-tablo .ymt-eksi .ymt-deger { color: #0369a1; }
+.yuk-mutabakat-tablo .ymt-eksi .ymt-deger { color: #6d28d9; }
 
 .yuk-mutabakat-tablo .ymt-sonuc td {
     background: #0f172a;
@@ -4832,38 +4914,6 @@ body {
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-ad { color: #ffffff; font-weight: 800; }
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-deger { color: #ffffff; font-size: 1rem; }
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-not { color: #cbd5e1; }
-
-/* Fark yoksa: aynı blok, sakin renk. Sessiz kalmak yerine "kontrol edildi,
-   aynı" demek sayıya güveni artırır. */
-.yuk-mutabakat-blok.esit {
-    border-color: #16a34a;
-    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 55%);
-    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.15);
-}
-
-.yuk-mutabakat-blok.esit .yuk-mutabakat-baslik { background: #14532d; }
-
-.yuk-mutabakat-esit-metin {
-    padding: 0.7rem 0.9rem;
-    font-size: 0.79rem;
-    line-height: 1.55;
-    color: var(--text-muted);
-}
-
-.yuk-mutabakat-esit-metin strong { color: #15803d; }
-
-/* Yönetici icmalindeki KPI kartına sığan tek satırlık mutabakat özeti. */
-.exec-stat-mutabakat {
-    margin-top: 0.25rem;
-    font-size: 0.63rem;
-    line-height: 1.35;
-    color: #0369a1;
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 5px;
-    padding: 0.15rem 0.35rem;
-    font-weight: 700;
-}
 
 /* Branş şeridi ile satır toplamı ayrıştığında basılan açıklama satırı. */
 .ymt-brans-fark td {
@@ -5669,40 +5719,30 @@ body {
         font-weight: 800 !important;
     }
 
-    /* Mutabakat bloğu kâğıda da girer — rapor ilçeye/il'e bu hâliyle gidiyor.
+    /* Mutabakat kâğıda da girer — rapor ilçeye/il'e bu hâliyle gidiyor.
+       EKRAN ŞERİDİ basılmaz (rapor başlığı zaten `no-print`); kâğıda AYRINTI
+       TABLOSU gider ve ekranda kapalı olsa bile HER ZAMAN açık basılır.
        Ekrandaki koyu zeminler yazıcıda okunmaz, çerçeveye çevriliyor. */
-    .yuk-mutabakat-blok {
+    .ymt-detay {
+        display: block !important;
         border: 1.5pt solid #000000 !important;
         border-left-width: 4pt !important;
         background: #ffffff !important;
         box-shadow: none !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
-        margin-top: 6pt !important;
+        margin: 6pt 0 !important;
     }
 
-    .yuk-mutabakat-baslik {
-        background: #f1f5f9 !important;
-        color: #000000 !important;
-        font-size: 8pt !important;
-        border-bottom: 1pt solid #000000 !important;
-    }
-
-    .yuk-mutabakat-rozet {
+    .ymt-detay-giris {
         background: #ffffff !important;
         color: #000000 !important;
-        border: 1pt solid #000000 !important;
-        font-size: 7.5pt !important;
+        font-size: 7pt !important;
+        border-bottom: 0.5pt solid #94a3b8 !important;
     }
+    .ymt-detay-giris strong { color: #000000 !important; }
 
-    /* Kâğıtta katlama diye bir şey yok: gövde her hâlükârda basılır. */
-    .yuk-mutabakat-govde { display: block !important; }
     .ymt-ac-btn { display: none !important; }
-    .ymt-baslik-ozet { display: none !important; }
-
-    .yuk-mutabakat-giris,
-    .yuk-mutabakat-esit-metin { color: #000000 !important; font-size: 7pt !important; }
-    .yuk-mutabakat-esit-metin strong { color: #000000 !important; }
 
     .yuk-mutabakat-tablo { font-size: 7.5pt !important; }
     .yuk-mutabakat-tablo td { border-top: 0.5pt solid #94a3b8 !important; color: #000000 !important; }
