@@ -417,25 +417,32 @@ class MebReportsEngine {
 
         const normResult = this.normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, this.buildCoordinatorMap(state));
 
-        const neededList = normResult.branchReport.filter(b => b.difference < 0).map(b => ({
+        // NOT: motor bu alanı `diff` adıyla üretir, `difference` DEĞİL.
+        // `b.difference` tanımsız kaldığı için hem `< 0` hem `> 0` yanlış
+        // çıkıyor ve listeler HER ZAMAN boş dönüyordu: rozet "Toplam İhtiyaç:
+        // 2 Öğretmen" derken sayfada "ihtiyacı olan branş bulunmamaktadır"
+        // yazıyordu. (Kullanıcı bildirimi + ekran görüntüsü, 06.09.2026.)
+        // Aynı hata 2026-08-24'te İcmal ve Branş Detay ÇİZİCİLERİNDE
+        // düzeltilmiş, bu dört yer atlanmıştı.
+        const neededList = normResult.branchReport.filter(b => b.diff < 0).map(b => ({
             branchName: b.branchName,
             totalHours: b.totalHours,
             calculatedNorm: b.calculatedNorm,
             currentTeachers: b.currentTeachers,
-            neededCount: Math.abs(b.difference),
+            neededCount: Math.abs(b.diff),
             reason: `${b.totalHours} saat ders yükü için ${b.calculatedNorm} norm hesaplanmış olup, mevcut kadro (${b.currentTeachers}) yetersizdir.`
         }));
 
-        const surplusList = normResult.branchReport.filter(b => b.difference > 0).map(b => ({
+        const surplusList = normResult.branchReport.filter(b => b.diff > 0).map(b => ({
             branchName: b.branchName,
             totalHours: b.totalHours,
             calculatedNorm: b.calculatedNorm,
             currentTeachers: b.currentTeachers,
-            surplusCount: b.difference,
-            reason: `${b.totalHours} saat ders yükü için ${b.calculatedNorm} norm hesaplanmış olup, ${b.difference} öğretmen norm kadro fazlasıdır.`
+            surplusCount: b.diff,
+            reason: `${b.totalHours} saat ders yükü için ${b.calculatedNorm} norm hesaplanmış olup, ${b.diff} öğretmen norm kadro fazlasıdır.`
         }));
 
-        const balancedList = normResult.branchReport.filter(b => b.difference === 0 && b.calculatedNorm > 0);
+        const balancedList = normResult.branchReport.filter(b => b.diff === 0 && b.calculatedNorm > 0);
 
         return {
             reportType: "NORM_ACTION_REPORT",
@@ -638,7 +645,9 @@ class MebReportsEngine {
         wsExecRows.push(["Sıra", "Branş Adı", "Haftalık Ders Yükü (Saat)", "Hesaplanan Norm", "Mevcut Kadrolu", "Norm Durumu", "Fark / İhtiyaç"]);
         
         execData.branchReport.forEach((b, idx) => {
-            const diffText = b.difference > 0 ? `+${b.difference} Fazla` : (b.difference < 0 ? `${b.difference} İhtiyaç` : "0 (Tam)");
+            // Motor alanı `diff`; `difference` tanımsızdı ve Excel her branşa
+            // "0 (Tam)" yazıyordu. (Ölçüldü 06.09.2026.)
+            const diffText = b.diff > 0 ? `+${b.diff} Fazla` : (b.diff < 0 ? `${b.diff} İhtiyaç` : "0 (Tam)");
             wsExecRows.push([
                 idx + 1,
                 b.branchName,
@@ -890,7 +899,7 @@ class MebReportsEngine {
                     b.calculatedNorm,
                     b.currentTeachers,
                     `"${b.statusBadge}"`,
-                    b.difference > 0 ? `+${b.difference} Fazla` : (b.difference < 0 ? `${b.difference} İhtiyaç` : "0 (Tam)")
+                    b.diff > 0 ? `+${b.diff} Fazla` : (b.diff < 0 ? `${b.diff} İhtiyaç` : "0 (Tam)")
                 ]);
             });
 

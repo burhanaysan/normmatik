@@ -3934,7 +3934,10 @@ export class UIComponentManager {
                                 <span class="badge-metric load-metric">Haftalık Yük: <strong>${displayHours}s</strong></span>
                                 <span class="badge-metric norm-metric">Norm: <strong>${bReport.calculatedNorm}</strong></span>
                                 <span class="badge-metric teacher-metric">Mevcut: <strong>${bReport.currentTeachers}</strong></span>
-                                <span class="badge-metric status-${bReport.statusType}">${bReport.difference > 0 ? `+${bReport.difference} Fazla` : (bReport.difference < 0 ? `${bReport.difference} İhtiyaç` : 'Tam')}</span>
+                                <!-- Motor alanı diff; burada difference okunuyordu ve tanımsız
+                                     kaldığı için HER branş "Tam" görünüyordu — Norm 2 / Mevcut 0
+                                     olan branş bile. (Ölçüldü 06.09.2026.) -->
+                                <span class="badge-metric status-${bReport.statusType}">${bReport.diff > 0 ? `+${bReport.diff} Fazla` : (bReport.diff < 0 ? `${bReport.diff} İhtiyaç` : 'Tam')}</span>
                             </div>
                         </div>
                     </td>

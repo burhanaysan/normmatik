@@ -316,6 +316,73 @@ console.log("\nYerleşim koruması");
             /Kapsam sınırı:/.test(ui) && /mutlak bir taahhüt değildir/.test(ui));
 }
 
+// R17: ROZET İLE LİSTE TUTMALI  (b.diff / b.difference)
+// 2026-09-06 kullanıcı bildirimi + ekran görüntüsü: "Norm İhtiyaç/Fazla
+// Eylem" sekmesinde rozet "Toplam İhtiyaç: 2 Öğretmen" derken sayfada
+// "Okulda norm kadro açığı / ihtiyacı olan branş bulunmamaktadır" yazıyordu.
+//
+// Sebep: motor bu alanı `diff` adıyla üretir, `difference` DEĞİL. Tanımsız
+// alanda `< 0` ve `> 0` karşılaştırmalarının İKİSİ DE false çıktığı için
+// listeler her zaman boş dönüyordu; rozet ise motorun totalNeeded değerini
+// doğrudan okuduğu için doğruydu. JavaScript tanımsız alanı hata vermeden
+// geçer — sessiz hata sınıfı.
+//
+// Aynı hata 2026-08-24'te İcmal ve Branş Detay ÇİZİCİLERİNDE düzeltilmişti
+// (bkz. R1-R10 başlığı); DÖRT yer atlanmıştı: bu rapor, Excel, CSV ve
+// master matrisin branş rozeti. Matriste Norm 2 / Mevcut 0 olan branş bile
+// "Tam" görünüyordu.
+{
+    const RE = fs.readFileSync(path.join(KOK, "js", "reportsEngine.js"), "utf8");
+    const UI2 = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+
+    // Kaynak koruması: motor `difference` diye bir alan ÜRETMİYOR; okuyan
+    // her satır tanımsızla çalışır. Yorum satırları hariç hiç geçmemeli.
+    const kodSatirlari = (metin) => metin.split("\n")
+        .filter(l => !l.trim().startsWith("//") && !l.trim().startsWith("*")
+                     && !l.trim().startsWith("<!--"));
+    const difVar = (metin) => kodSatirlari(metin).filter(l => l.includes(".difference"));
+    denetle("R17a raporlarda .difference okuması kalmadı",
+            difVar(RE).length === 0, difVar(RE).join(" | ").slice(0, 160));
+    denetle("R17b arayüzde .difference okuması kalmadı",
+            difVar(UI2).length === 0, difVar(UI2).join(" | ").slice(0, 160));
+
+    // Davranış: rozet ile listenin toplamı AYNI olmalı. Asıl koruma bu —
+    // biri alan adını yine değiştirse bile bu kontrol yakalar.
+    const rapor = R.generateNormActionReport(st.state);
+    const ihtToplam = rapor.neededList.reduce((t, x) => t + x.neededCount, 0);
+    const fazToplam = rapor.surplusList.reduce((t, x) => t + x.surplusCount, 0);
+
+    denetle("R17c ihtiyaç rozeti ile liste toplamı aynı",
+            ihtToplam === rapor.totalNeeded,
+            `rozet ${rapor.totalNeeded}, liste ${ihtToplam}`);
+    denetle("R17d fazlalık rozeti ile liste toplamı aynı",
+            fazToplam === rapor.totalSurplus,
+            `rozet ${rapor.totalSurplus}, liste ${fazToplam}`);
+    denetle("R17e ihtiyaç varsa liste boş kalmıyor",
+            rapor.totalNeeded === 0 || rapor.neededList.length > 0,
+            `rozet ${rapor.totalNeeded}, kayıt ${rapor.neededList.length}`);
+    denetle("R17f fazlalık varsa liste boş kalmıyor",
+            rapor.totalSurplus === 0 || rapor.surplusList.length > 0,
+            `rozet ${rapor.totalSurplus}, kayıt ${rapor.surplusList.length}`);
+    denetle("R17g ölçüm geçerli: dengesiz okulda hem ihtiyaç hem fazlalık var",
+            rapor.totalNeeded > 0 && rapor.totalSurplus > 0,
+            "test okulu dengeli kurulmuşsa R17c-f bir şey ölçmez");
+
+    // Master matris branş rozeti: norm > mevcut olan branş "Tam" diyemez.
+    const gridData = R.generateMasterLoadGrid(st.state);
+    const gridHtml = UI.renderMasterGridReport(gridData, false, true);
+    const yanlisTam = (gridData.branchReport || Object.values(gridData.branchReportMap || {}))
+        .filter(b => b.diff < 0)
+        .filter(b => new RegExp("badge-metric status-[a-z]+\">Tam<").test(gridHtml)
+                     && !gridHtml.includes(`${b.diff} İhtiyaç`));
+    denetle("R17h matris rozeti ihtiyacı olan branşa 'Tam' demiyor",
+            yanlisTam.length === 0,
+            yanlisTam.map(b => b.branchName).join(", "));
+    denetle("R17i matris rozetinde ihtiyaç/fazlalık gerçekten görünüyor",
+            /İhtiyaç</.test(gridHtml) || /Fazla</.test(gridHtml),
+            "dengesiz okulda hepsi 'Tam' çıkıyorsa alan adı yine kaymıştır");
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
