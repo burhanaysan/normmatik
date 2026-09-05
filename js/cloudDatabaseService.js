@@ -195,7 +195,20 @@ export class CloudDatabaseService {
     /** Otomatik kayıt (600 ms geciktirmeli). */
     scheduleAutoSave(kurumKodu, state) {
         const key = this.getEffectiveKey(kurumKodu);
-        if (!key || !state) return;
+        // KURUM KODU YOKSA KAYIT YAPILAMAZ — VE BU SESSİZ KALMAMALI.
+        //
+        // Burada eskiden sadece `return` vardı. Kurum kodu boş, "*" ya da
+        // ayrılmış "123456" ise kayıt hiç denenmiyor, kullanıcıya da hiçbir
+        // şey söylenmiyordu: idareci saatlerce çalışıp "kaydedildi" toast'ını
+        // görüyor, veri hiçbir yere yazılmıyordu.
+        // (Okul müdürü bildirimi, 05.09.2026: "kayıtlar veri tabanına kayıt
+        //  olmuyor.")
+        if (!key) {
+            this._durumBildir(false,
+                "Kurum kodu tanımlı değil; veriler buluta KAYDEDİLMİYOR.", true);
+            return;
+        }
+        if (!state) return;
 
         clearTimeout(this.saveTimeout);
         this.saveTimeout = setTimeout(async () => {

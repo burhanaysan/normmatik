@@ -168208,7 +168208,20 @@ class CloudDatabaseService {
     /** Otomatik kayıt (600 ms geciktirmeli). */
     scheduleAutoSave(kurumKodu, state) {
         const key = this.getEffectiveKey(kurumKodu);
-        if (!key || !state) return;
+        // KURUM KODU YOKSA KAYIT YAPILAMAZ — VE BU SESSİZ KALMAMALI.
+        //
+        // Burada eskiden sadece `return` vardı. Kurum kodu boş, "*" ya da
+        // ayrılmış "123456" ise kayıt hiç denenmiyor, kullanıcıya da hiçbir
+        // şey söylenmiyordu: idareci saatlerce çalışıp "kaydedildi" toast'ını
+        // görüyor, veri hiçbir yere yazılmıyordu.
+        // (Okul müdürü bildirimi, 05.09.2026: "kayıtlar veri tabanına kayıt
+        //  olmuyor.")
+        if (!key) {
+            this._durumBildir(false,
+                "Kurum kodu tanımlı değil; veriler buluta KAYDEDİLMİYOR.", true);
+            return;
+        }
+        if (!state) return;
 
         clearTimeout(this.saveTimeout);
         this.saveTimeout = setTimeout(async () => {
@@ -175862,6 +175875,37 @@ class MebNormApplication {
             // veri katmanında durduğu için, hangi yoldan denenirse denensin
             // aynı uyarı çıkar. Art arda tıklamalarda üst üste binmesin diye
             // kısa bir bekleme var.
+            // BULUT KAYIT DURUMU — SESSİZ BAŞARISIZLIĞI GÖRÜNÜR KILAR.
+            //
+            // cloudDatabaseService kayıt sonucunu 'normmatik-bulut-durum'
+            // olayıyla yayınlıyordu ama HİÇBİR YER DİNLEMİYORDU. Kayıt
+            // reddedilse bile ekranda tek bir uyarı çıkmıyor, üstelik pencere
+            // koşulsuz "güncellendi" diyordu. İdareci veriyi girdiğini
+            // sanıyor, hiçbir şey yazılmıyordu.
+            // (Okul müdürü bildirimi, 05.09.2026: "kayıtlar veri tabanına
+            //  kayıt olmuyor.")
+            //
+            // Başarılı kayıtlar için toast ÇIKARILMAZ: otomatik kayıt her
+            // değişiklikte tetiklendiği için ekranı doldururdu. Yalnızca
+            // başarısızlık bildirilir; kalıcı hatalarda (yetki/kural reddi)
+            // yeniden denemek anlamsız olduğu için ayrıca uyarılır.
+            if (typeof window !== 'undefined' && !window.__bulutDurumBagli) {
+                window.__bulutDurumBagli = true;
+                let sonBulutUyarisi = 0;
+                window.addEventListener("normmatik-bulut-durum", (olay) => {
+                    const d = (olay && olay.detail) || {};
+                    if (d.basarili !== false) return;
+                    const simdi = Date.now();
+                    if (simdi - sonBulutUyarisi < 4000) return;
+                    sonBulutUyarisi = simdi;
+                    const ek = d.kalici
+                        ? " Bu bir yetki/kural reddi; tekrar denemek çözmez, lütfen bildirin."
+                        : " Bağlantı düzelince yeniden denenecek.";
+                    this.ui.showToast("⚠️ VERİLER KAYDEDİLEMEDİ — " + (d.mesaj || "bilinmeyen hata") + ek,
+                        "error");
+                });
+            }
+
             if (typeof window !== 'undefined' && !window.__demoKilidiBagli) {
                 window.__demoKilidiBagli = true;
                 let sonKilitUyarisi = 0;
