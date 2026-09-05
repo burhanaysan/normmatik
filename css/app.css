@@ -4213,8 +4213,17 @@ body {
 
 .master-grid-wrapper {
     overflow: auto;
-    flex: 1 1 auto;
-    max-height: calc(94vh - 210px);
+    /* SIKIŞMASIN: altına DERS YÜKÜ MUTABAKATI şeridi eklendikten sonra
+       `flex-shrink: 1` yüzünden matris iki satıra kadar eziliyordu — 16
+       şubelik bir okulda rapor okunamaz hâle geliyordu. Artık kısalmaz;
+       sığmazsa rapor gövdesi kaydırılır. (Kullanıcı bildirimi, 06.09.2026.)
+       Aynı sınıf hata 2026-08-24'te branş tablosunda da yaşanmıştı. */
+    flex: 1 0 auto;
+    /* Ölçülerek bulundu (06.09.2026, 768/900/1080 px yükseklikte doğrulandı):
+       modal başlık + sekme + filtre + rapor başlığı + gövde dolgusu + kapalı
+       mutabakat şeridi = 300px. Bu sayı büyük tutulursa matris boşuna kısalır,
+       küçük tutulursa hem gövde hem matris kaydırılır (çift kaydırma). */
+    max-height: calc(94vh - 300px);
     border: 1.5px solid var(--border-main);
     border-radius: 8px;
     background: var(--bg-card);
@@ -4222,7 +4231,7 @@ body {
 }
 
 .fullscreen-report-mode .master-grid-wrapper {
-    max-height: calc(100vh - 180px);
+    max-height: calc(100vh - 270px);
 }
 
 .master-grid-table {
@@ -4706,8 +4715,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    /* Tek satırda kalsın: sarınca şerit 41px'ten 58px'e çıkıyor ve matristen
+       o kadar daha yer alıyor. Dar ekranda özet metni kırpılır (ellipsis),
+       sayı ve düğme her zaman görünür kalır. */
+    flex-wrap: nowrap;
     gap: 0.5rem;
+    min-width: 0;
     background: #0f172a;
     color: #ffffff;
     font-size: 0.86rem;
@@ -4726,6 +4739,46 @@ body {
     border-radius: 999px;
     white-space: nowrap;
 }
+
+/* Katlanma: saf CSS (gizli onay kutusu). Raporun çizim/olay döngüsüne
+   dokunmuyoruz; sekme ve filtre değişiminde bozulacak dinleyici yok. */
+.yuk-mutabakat-govde { display: none; }
+.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-govde { display: block; }
+
+.ymt-baslik-ad { flex: 0 0 auto; }
+
+.ymt-baslik-ozet {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #bae6fd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ymt-ac-btn {
+    flex: 0 0 auto;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.ymt-ac-btn:hover { background: rgba(255, 255, 255, 0.26); }
+
+.ymt-lbl-kapa { display: none; }
+.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-baslik .ymt-lbl-ac { display: none; }
+.yuk-mutabakat-blok .ymt-ac-kapa:checked ~ .yuk-mutabakat-baslik .ymt-lbl-kapa { display: inline; }
 
 .yuk-mutabakat-giris {
     padding: 0.7rem 0.9rem 0.5rem;
@@ -5641,6 +5694,11 @@ body {
         border: 1pt solid #000000 !important;
         font-size: 7.5pt !important;
     }
+
+    /* Kâğıtta katlama diye bir şey yok: gövde her hâlükârda basılır. */
+    .yuk-mutabakat-govde { display: block !important; }
+    .ymt-ac-btn { display: none !important; }
+    .ymt-baslik-ozet { display: none !important; }
 
     .yuk-mutabakat-giris,
     .yuk-mutabakat-esit-metin { color: #000000 !important; font-size: 7pt !important; }

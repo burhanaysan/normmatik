@@ -1048,7 +1048,7 @@ class MebNormApplication {
                                     <div class="category-divider-content">
                                         <div class="category-divider-left">
                                             <span class="category-divider-icon">${grp.icon}</span>
-                                            <span class="category-divider-title">${grp.title.toUpperCase()}</span>
+                                            <span class="category-divider-title">${grp.title.toLocaleUpperCase('tr-TR')}</span>
                                         </div>
                                         <div class="category-divider-right">
                                             ${targetHintHtml}

@@ -579,7 +579,7 @@ class MebReportsEngine {
         const execData = this.generateExecutiveSummary(state);
         const wsExecRows = [];
         wsExecRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsExecRows.push([`${okulAdi.toUpperCase()} - NORM KADRO VE DERS YÜKÜ YÖNETİCİ İCMALİ`]);
+        wsExecRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO VE DERS YÜKÜ YÖNETİCİ İCMALİ`]);
         wsExecRows.push([`Eğitim-Öğretim Sezonu: ${sezon}`, `Rapor Tarihi: ${new Date().toLocaleString("tr-TR")}`]);
         wsExecRows.push([]);
         
@@ -659,7 +659,7 @@ class MebReportsEngine {
         const gridData = this.generateMasterLoadGrid(state, "ALL");
         const wsGridRows = [];
         wsGridRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsGridRows.push([`${okulAdi.toUpperCase()} - OKUL MASTER BRANŞ-ŞUBE DERS DAĞITIM MATRİSİ`]);
+        wsGridRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - OKUL MASTER BRANŞ-ŞUBE DERS DAĞITIM MATRİSİ`]);
         wsGridRows.push([`Sezon: ${sezon}`, `Toplam Şube: ${gridData.subeler.length}`, `Toplam Ders Yükü: ${gridData.grandTotalHours}s`]);
         wsGridRows.push([]);
 
@@ -704,7 +704,7 @@ class MebReportsEngine {
         const scheduleData = this.generateSectionScheduleReport(state, "ALL", "ALL");
         const wsSchedRows = [];
         wsSchedRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsSchedRows.push([`${okulAdi.toUpperCase()} - ŞUBE HAFTALIK DERS ÇİZELGELERİ VE DERS DAĞILIMLARI`]);
+        wsSchedRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - ŞUBE HAFTALIK DERS ÇİZELGELERİ VE DERS DAĞILIMLARI`]);
         wsSchedRows.push([]);
 
         scheduleData.sections.forEach(sec => {
@@ -740,7 +740,7 @@ class MebReportsEngine {
         const labData = this.generateVocationalLabReport(state);
         const wsLabRows = [];
         wsLabRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsLabRows.push([`${okulAdi.toUpperCase()} - MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ RAPORU`]);
+        wsLabRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ RAPORU`]);
         wsLabRows.push([`Toplam Temel Atölye Saati: ${labData.grandBaseHours}s`, `Grup Çarpanlı Fiili Saat: ${labData.grandCalculatedHours}s`, `Oluşan Ek Ders Yükü: +${labData.totalExtraGroupHours}s`]);
         wsLabRows.push([]);
         wsLabRows.push(["Sıra", "Şube", "Sınıf", "Öğrenci Mevcudu", "Ders Adı", "Branş", "Temel Saat", "Grup Sayısı", "Fiili Yük (Saat)", "Ek Yük (+)", "Mevzuat Notu"]);
@@ -782,7 +782,7 @@ class MebReportsEngine {
         const actionData = this.generateNormActionReport(state);
         const wsActRows = [];
         wsActRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsActRows.push([`${okulAdi.toUpperCase()} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
+        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
         wsActRows.push([`Toplam Öğretmen İhtiyacı: ${actionData.totalNeeded}`, `Toplam Norm Fazlası: ${actionData.totalSurplus}`]);
         wsActRows.push([]);
 

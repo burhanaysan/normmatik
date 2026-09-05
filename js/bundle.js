@@ -167462,7 +167462,7 @@ class MebReportsEngine {
         const execData = this.generateExecutiveSummary(state);
         const wsExecRows = [];
         wsExecRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsExecRows.push([`${okulAdi.toUpperCase()} - NORM KADRO VE DERS YÜKÜ YÖNETİCİ İCMALİ`]);
+        wsExecRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO VE DERS YÜKÜ YÖNETİCİ İCMALİ`]);
         wsExecRows.push([`Eğitim-Öğretim Sezonu: ${sezon}`, `Rapor Tarihi: ${new Date().toLocaleString("tr-TR")}`]);
         wsExecRows.push([]);
         
@@ -167542,7 +167542,7 @@ class MebReportsEngine {
         const gridData = this.generateMasterLoadGrid(state, "ALL");
         const wsGridRows = [];
         wsGridRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsGridRows.push([`${okulAdi.toUpperCase()} - OKUL MASTER BRANŞ-ŞUBE DERS DAĞITIM MATRİSİ`]);
+        wsGridRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - OKUL MASTER BRANŞ-ŞUBE DERS DAĞITIM MATRİSİ`]);
         wsGridRows.push([`Sezon: ${sezon}`, `Toplam Şube: ${gridData.subeler.length}`, `Toplam Ders Yükü: ${gridData.grandTotalHours}s`]);
         wsGridRows.push([]);
 
@@ -167587,7 +167587,7 @@ class MebReportsEngine {
         const scheduleData = this.generateSectionScheduleReport(state, "ALL", "ALL");
         const wsSchedRows = [];
         wsSchedRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsSchedRows.push([`${okulAdi.toUpperCase()} - ŞUBE HAFTALIK DERS ÇİZELGELERİ VE DERS DAĞILIMLARI`]);
+        wsSchedRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - ŞUBE HAFTALIK DERS ÇİZELGELERİ VE DERS DAĞILIMLARI`]);
         wsSchedRows.push([]);
 
         scheduleData.sections.forEach(sec => {
@@ -167623,7 +167623,7 @@ class MebReportsEngine {
         const labData = this.generateVocationalLabReport(state);
         const wsLabRows = [];
         wsLabRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsLabRows.push([`${okulAdi.toUpperCase()} - MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ RAPORU`]);
+        wsLabRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ RAPORU`]);
         wsLabRows.push([`Toplam Temel Atölye Saati: ${labData.grandBaseHours}s`, `Grup Çarpanlı Fiili Saat: ${labData.grandCalculatedHours}s`, `Oluşan Ek Ders Yükü: +${labData.totalExtraGroupHours}s`]);
         wsLabRows.push([]);
         wsLabRows.push(["Sıra", "Şube", "Sınıf", "Öğrenci Mevcudu", "Ders Adı", "Branş", "Temel Saat", "Grup Sayısı", "Fiili Yük (Saat)", "Ek Yük (+)", "Mevzuat Notu"]);
@@ -167665,7 +167665,7 @@ class MebReportsEngine {
         const actionData = this.generateNormActionReport(state);
         const wsActRows = [];
         wsActRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsActRows.push([`${okulAdi.toUpperCase()} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
+        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
         wsActRows.push([`Toplam Öğretmen İhtiyacı: ${actionData.totalNeeded}`, `Toplam Norm Fazlası: ${actionData.totalSurplus}`]);
         wsActRows.push([]);
 
@@ -174456,9 +174456,9 @@ class UIComponentManager {
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">HAFTALIK BRANŞ-ŞUBE DERS DAĞITIM VE YÜK MATRİSİ</div>
                     </div>
                     <div class="print-meta-right">
@@ -174534,7 +174534,7 @@ class UIComponentManager {
                 <tr class="${stripClass}">
                     <td class="branch-strip-title" colspan="${data.subeler.length + 3}">
                         <div class="branch-strip-content">
-                            <span class="branch-title-text">${icon} <strong>${bName.toUpperCase()}</strong> ${isVoc ? 'ALANI' : 'BRANŞI'}</span>
+                            <span class="branch-title-text">${icon} <strong>${bName.toLocaleUpperCase('tr-TR')}</strong> ${isVoc ? 'ALANI' : 'BRANŞI'}</span>
                             <div class="branch-strip-metrics">
                                 <span class="badge-metric load-metric">Haftalık Yük: <strong>${displayHours}s</strong></span>
                                 <span class="badge-metric norm-metric">Norm: <strong>${bReport.calculatedNorm}</strong></span>
@@ -174662,13 +174662,13 @@ class UIComponentManager {
         if (m.tutarli === false) return "";
 
         const satirlar = [
-            { ad: "Bölünen ders / grup çarpanı", deger: m.carpanArtisi, isaret: "+",
+            { ad: "Bölünen ders / grup çarpanı", kisa: "bölünme", deger: m.carpanArtisi, isaret: "+",
               not: "Bir ders birden fazla gruba veya branşa bölündüğünde her öğretmen kendi grubuna tam saati okutur." },
-            { ad: "Birleştirilmiş şubeler", deger: -m.birlesikSubeDusumu, isaret: "−",
+            { ad: "Birleştirilmiş şubeler", kisa: "birleştirme", deger: -m.birlesikSubeDusumu, isaret: "−",
               not: "Birleştirilen şubelerde ders tek öğretmen tarafından okutulduğu için yüke bir kez yazılır." },
-            { ad: "Yönetici ders saati (Md. 22/6)", deger: -m.yoneticiDersDusumu, isaret: "−",
+            { ad: "Yönetici ders saati (Md. 22/6)", kisa: "yönetici", deger: -m.yoneticiDersDusumu, isaret: "−",
               not: "Yöneticilerin okuttuğu saatler branşın ders yükünden düşülür." },
-            { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", deger: m.koordinatorlukEki, isaret: "+",
+            { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", kisa: "koordinatörlük", deger: m.koordinatorlukEki, isaret: "+",
               not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
         ].filter(r => r.deger !== 0);
 
@@ -174695,12 +174695,32 @@ class UIComponentManager {
             `;
         }
 
+        // KATLANABİLİR — VARSAYILAN KAPALI
+        //
+        // Blok ilk hâlinde hep açıktı ve matrisin yüksekliğini yiyordu: 16
+        // şubelik bir okulda "Branş ve Ders Dağılımı" iki satıra düşüyor,
+        // rapor okunamaz hâle geliyordu. (Kullanıcı bildirimi, 06.09.2026.)
+        //
+        // Kapalıyken tek şerit: sayı ve kalemler yine GÖRÜNÜR, yer kaplamaz.
+        // Açma/kapama SAF CSS ile (gizli onay kutusu): raporun çizim ve olay
+        // döngüsüne hiç dokunmuyoruz, sekme/filtre değişiminde bozulacak bir
+        // dinleyici eklemiyoruz. Yazdırmada blok her hâlükârda AÇIK basılır.
+        const ozetKalemleri = satirlar
+            .map(r => `${r.kisa} ${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}`)
+            .join(" · ");
+
         return `
             <div class="yuk-mutabakat-blok">
+                <input type="checkbox" id="ymt-ac-kapa" class="ymt-ac-kapa" hidden>
                 <div class="yuk-mutabakat-baslik">
-                    ⚖️ DERS YÜKÜ MUTABAKATI
+                    <span class="ymt-baslik-ad">⚖️ DERS YÜKÜ MUTABAKATI</span>
+                    <span class="ymt-baslik-ozet">çizelge ${m.hamCizelgeSaati} · ${ozetKalemleri}</span>
                     <span class="yuk-mutabakat-rozet">${m.hamCizelgeSaati} → ${m.normaEsasYuk} saat${fark === 0 ? "" : ` (${fark > 0 ? "+" : ""}${fark})`}</span>
+                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Farkı oluşturan kalemleri aç / kapat">
+                        <span class="ymt-lbl-ac">Ayrıntı ▾</span><span class="ymt-lbl-kapa">Gizle ▴</span>
+                    </label>
                 </div>
+                <div class="yuk-mutabakat-govde">
                 <div class="yuk-mutabakat-giris">
                     Alt satırdaki <strong>${m.hamCizelgeSaati} saat</strong>, öğrencilerin haftada gördüğü ders saatidir.
                     Norm hesabına giren <strong>${m.normaEsasYuk} saat</strong> ise öğretmenlerin okuttuğu ders yüküdür.
@@ -174728,6 +174748,7 @@ class UIComponentManager {
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
         `;
     }
@@ -174768,9 +174789,9 @@ class UIComponentManager {
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">NORM KADRO VE DERS YÜKÜ YÖNETİCİ İCMAL RAPORU</div>
                     </div>
                     <div class="print-meta-right">
@@ -174983,9 +175004,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">BRANŞ BAZLI DETAYLI NORM VE YÜK CETVELİ</div>
                     </div>
                     <div class="print-meta-right">
@@ -175040,9 +175061,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">ŞUBE HAFTALIK DERS DAĞITIM ÇİZELGELERİ</div>
                     </div>
                     <div class="print-meta-right">
@@ -175127,9 +175148,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ</div>
                     </div>
                     <div class="print-meta-right">
@@ -175234,9 +175255,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ VE KOORDİNATÖRLÜK RAPORU</div>
                     </div>
                     <div class="print-meta-right">
@@ -175354,9 +175375,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
-                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toUpperCase()}</div>
-                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toUpperCase()}</div>
-                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toUpperCase()}</div>
+                        <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
+                        <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-doc-title">3-TEMA SEÇMELİ DERS DAĞILIM VE DENGE ANALİZİ</div>
                     </div>
                     <div class="print-meta-right">
@@ -177345,7 +177366,7 @@ class MebNormApplication {
                                     <div class="category-divider-content">
                                         <div class="category-divider-left">
                                             <span class="category-divider-icon">${grp.icon}</span>
-                                            <span class="category-divider-title">${grp.title.toUpperCase()}</span>
+                                            <span class="category-divider-title">${grp.title.toLocaleUpperCase('tr-TR')}</span>
                                         </div>
                                         <div class="category-divider-right">
                                             ${targetHintHtml}
