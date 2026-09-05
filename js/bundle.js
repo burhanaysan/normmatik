@@ -175579,9 +175579,17 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <li><strong>ÖZEL GÜVENCE (İŞLENMEYEN VERİLER):</strong> Öğrenci T.C. Kimlik Numaraları, Öğrenci İsim/Soyisimleri, Öğretmen Kimlik/Sicil Bilgileri, İletişim Bilgileri veya Özel Nitelikli Kişisel Veriler (Din, Sağlık vb.) sisteme KESİNLİKLE ALINMAZ, İŞLENMEZ VE DEPOLANMAZ.</li>
                         </ul>
 
-                        <h4 class="kvkk-sub-heading">3. Google Cloud Bulut Yedekleme ve Sıfır Veri Kaybı Mimarisi</h4>
+                        <h4 class="kvkk-sub-heading">3. Google Cloud Bulut Yedekleme Mimarisi</h4>
                         <p class="kvkk-p">
                             Kullanıcıların (Okul Yöneticileri) tarayıcı temizliği, bilgisayar arızası, cihaz değişimi veya formatlama gibi durumlarda emek ve veri kaybı yaşamalarını önlemek amacıyla; kurumsal çalışma verileri (okul adı, şubeler ve ders dağıtımı), <strong>Google Cloud (Firebase Enterprise Realtime Cloud Cluster)</strong> şifreli altyapısında ilgili kurum kodu (<code>/schools/{kurumKodu}.json</code>) altında teknik yedekleme olarak barındırılır.
+                        </p>
+                        <p class="kvkk-p">
+                            <strong>Kapsam sınırı:</strong> Bu yedekleme, verinin kaybolmayacağına dair
+                            mutlak bir taahhüt değildir. Kayıt, internet bağlantısının ve bulut servisinin
+                            o an erişilebilir olmasına bağlıdır; bağlantı kopukken yapılan değişiklikler
+                            gönderilemez. Uygulama, kayıt denemesi başarısız olduğunda kullanıcıyı
+                            <strong>uyarır</strong> ve sebebini bildirir. Önemli çalışmalarınızı ayrıca
+                            kendi bilgisayarınıza indirmenizi öneririz.
                         </p>
                         <ul class="kvkk-list">
                             <li><strong>Şifreleme:</strong> Tüm veri trafiği 256-Bit SSL/TLS (HTTPS) kriptografik güvenlik protokolü ile korunur.</li>
@@ -175616,8 +175624,8 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <div class="arch-box cloud">
                                 <span class="arch-icon">☁️</span>
                                 <strong>Google Cloud Güvenli Depo</strong>
-                                <p>Cihaz arızası veya çerez temizliğinde okulu kurtarmak üzere sadece kurum kodu bazlı şifreli proje yedeği tutulur.</p>
-                                <span class="arch-status secure">🛡️ Sıfır Veri Kaybı Güvencesi</span>
+                                <p>Cihaz arızası veya çerez temizliğinde okulu kurtarmak üzere kurum kodu bazlı şifreli proje yedeği tutulur. Yedekleme, bağlantının erişilebilir olmasına bağlıdır.</p>
+                                <span class="arch-status secure">🔐 Şifreli Bulut Yedeği</span>
                             </div>
                         </div>
 

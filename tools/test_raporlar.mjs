@@ -302,6 +302,20 @@ console.log("\nYerleşim koruması");
             && /\.ymt-kart-eksi\s*\{/.test(css) && /\.ymt-kart-sonuc\s*\{/.test(css));
 }
 
+// R16: SAVUNULAMAYAN İDDİA
+// 2026-09-06: KVKK/mimari panelinde "Sıfır Veri Kaybı Mimarisi" ve
+// "Sıfır Veri Kaybı Güvencesi" yazıyordu. Uygulama okul verisini yerelde
+// HİÇ saklamıyor (state.js loadFromStorage daima false) ve bulut kaydı
+// haftalarca sessizce reddedilmişti (Firebase anahtar hatası, 4ca5758).
+// Kamu kurumuna satılan ücretli bir üründe savunulamayan bir taahhüt.
+{
+    const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    denetle("R16a 'Sıfır Veri Kaybı' iddiası uygulamada yok",
+            !/Sıfır Veri Kaybı/i.test(ui));
+    denetle("R16b yedeklemenin sınırı açıkça yazılıyor",
+            /Kapsam sınırı:/.test(ui) && /mutlak bir taahhüt değildir/.test(ui));
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
