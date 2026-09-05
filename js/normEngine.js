@@ -392,6 +392,28 @@ export class NormEngine {
             return cName.includes(this.normalizeText(pattern));
         };
 
+        // 0-A. OKUL TÜRÜ KAPISI (Md. 22/1-ç, 22/2, 22/4)
+        //
+        // Grup bölünmesi yalnızca meslekî-teknik kurumlar ile spor ve güzel
+        // sanatlar liselerinde vardır; imam hatipte ise çizelgenin kendi
+        // hükmüyle (Kur'an-ı Kerim 25+) sınırlıdır. Anadolu/Fen/Sosyal
+        // Bilimler liseleri ve genel ortaokulda HİÇBİR DERS bölünemez.
+        //
+        // KAPI NEDEN GEREKLİ: aşağıdaki kuralların hiçbiri okul türüne
+        // bakmıyordu. Ölçüldü (05.09.2026) — genel ortaokulda seçmeli
+        // Kur'an-ı Kerim şube başına 2 saatten 4 saate çıkıyordu; hükmün
+        // dayanağı yalnızca İMAM HATİP ortaokulu çizelgesindedir.
+        // Aynı açık, atölye adı taşıyan ya da isAtolye işaretli bir dersin
+        // genel lisede de bölünmesine yol açıyordu.
+        if (!this.grupBolunmesiSerbestMi(schoolType)) {
+            return {
+                groupCount: 1,
+                calculatedLoad: baseHours,
+                note: "",
+                loadCategory
+            };
+        }
+
         // 0. MESEM Özel Kuralı (Madde 22/2): Okuldaki alan/dal derslerinde şubeler gruplara BÖLÜNMEZ.
         if (isMesem) {
             return {
@@ -468,8 +490,59 @@ export class NormEngine {
     normalizeText(str) {
         let s = String(str || "").toLowerCase();
         s = s.replace(/i̇/g, 'i').replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c');
+        // KESME İŞARETLERİ TEKLEŞTİRİLİR.
+        // Kaynak çizelgeler kıvrık kesme (’) kullanıyor, elle yazılan ve eski
+        // veriler düz kesme ('). Ayrımı korumak, ders adı eşleştirmesini
+        // görünmez biçimde ikiye bölüyordu: "KUR’AN-I KERİM" ile
+        // "Kur'an-ı Kerim" farklı ders sayılıyordu. Ölçüldü (05.09.2026):
+        // Kur'an-ı Kerim grup kuralı yalnızca DÜZ kesmeli yazımda çalışıyor,
+        // kıvrık yazımda hiç tetiklenmiyordu — yani kuralın doğru ya da
+        // yanlış çalışması, verinin hangi karakterle yazıldığına bağlıydı.
+        s = s.replace(/[‘’ʼ´`']/g, "'");
         s = s.replace(/[\(\)\[\]\.,\/\-]/g, ' ');
         return s.replace(/\s+/g, ' ').trim();
+    }
+
+    /**
+     * Bu okul türünde ŞUBE GRUPLARA BÖLÜNEBİLİR Mİ?
+     *
+     * Norm Kadro Yönetmeliği'nin TAMAMI tarandı (05.09.2026). Ders yükü için
+     * grup bölünmesine izin veren yalnızca iki hüküm var:
+     *
+     *   Md. 22/1-ç : "MESLEKÎ VE TEKNİK örgün ve yaygın eğitim kurumlarında
+     *                 alan/dal derslerine ilişkin ders yükü ... grup sayısı
+     *                 ile çarpımı sonucunda bulunur."
+     *   Md. 22/4   : "SPOR LİSELERİ VE GÜZEL SANATLAR LİSELERİNİN bölümler
+     *                 itibarıyla alan derslerinin ders yükü ..."
+     *
+     * Md. 22/2 ise MESLEKÎ EĞİTİM MERKEZİ için bölünmeyi açıkça YASAKLAR.
+     * Yönetmelikteki diğer grup geçişleri (Md. 4 tanım, Md. 15 okul öncesi,
+     * Md. 17 yatılı özel eğitim gözetimi) ders yükü bölünmesi değildir.
+     *
+     * Buna ek olarak İMAM HATİP çizelgeleri, kendi açıklamalarında Kur'an-ı
+     * Kerim dersi için "mevcudu 25'i geçen sınıflar iki gruba ayrılabilir"
+     * der. Bu, çizelgeye (TTKB kararına) dayanan ayrı bir izindir.
+     *
+     * DOLAYISIYLA Anadolu/Fen/Sosyal Bilimler liseleri ile genel ortaokulda
+     * HİÇBİR DERS gruplara bölünemez. Okul müdürü bildirimi (05.09.2026) ve
+     * mevzuat teyidi bu yöndedir.
+     */
+    grupBolunmesiSerbestMi(schoolType) {
+        const t = String(schoolType || "").toLowerCase();
+        if (!t) return false;
+        // Md. 22/2 — MESEM'de bölünme yok.
+        if (t.includes("mesleki_egitim_merkezi") || t.includes("mesem")) return false;
+        // Md. 22/1-ç — meslekî ve teknik kurumlar.
+        // NOT: "ozel_egitim_meslek_okulu" da bu kapıdan geçiyor. Bugünkü
+        // davranış korunuyor; ORGM çizelgesinde grup hükmü YOK, Md. 22/1-ç'nin
+        // özel eğitim meslek okulunu kapsayıp kapsamadığı TEYİDE MUHTAÇ.
+        if (t.includes("meslek") || t.includes("teknik") || t.includes("mtegm")
+            || t.includes("amp") || t.includes("atp")) return true;
+        // Md. 22/4 — spor ve güzel sanatlar liseleri.
+        if (t.includes("spor_lisesi") || t.includes("guzel_sanatlar")) return true;
+        // Çizelge kaynaklı izin — imam hatip (Kur'an-ı Kerim 25+).
+        if (t.includes("imam_hatip")) return true;
+        return false;
     }
 
     /**
@@ -641,6 +714,10 @@ export class NormEngine {
         const handledMergedPairs = new Set();
         const branchesWithGrade12Vocational = new Set();
 
+        // Branşı atanmamış derslerin saati. Hiçbir branşın normuna yazılmaz
+        // ama okulun toplam ders yüküne dâhildir (aşağıda eklenir).
+        let branssizSaat = 0;
+
         const ensureBranch = (name) => {
             if (!branchLoadMap[name]) {
                 branchLoadMap[name] = 0;
@@ -670,8 +747,22 @@ export class NormEngine {
                 const cName = course.ders || course.ders_adi;
                 let assignedBranch = (course.atananBrans !== undefined && course.atananBrans !== null && course.atananBrans !== "") ? course.atananBrans : (course.varsayilanBrans || cName);
 
-                // Branş atanmamışsa (boş bırakılmışsa) norm yükü hesaplamasını atla
+                // Branş atanmamışsa hiçbir branşın normuna yazılmaz — ama ders
+                // çizelgede yer aldığı için OKULUN TOPLAM DERS YÜKÜNE dâhildir.
+                //
+                // Eskiden burada saat tamamen düşüyordu: 33 saatlik bir şubede
+                // bir dersin branşı "Atanmadı" bırakılınca üstteki toplam 27
+                // gösteriyordu ve 6 saatin nereye gittiği anlaşılmıyordu.
+                // (Ölçüldü 05.09.2026; okul müdürü "toplam ders yükü farklı
+                //  çıkıyor" bildirimi üzerine bulundu.)
+                //
+                // Aynı ilke rehberlik dersi için 27.08.2026'da zaten
+                // benimsenmişti: "branşa atanmasa bile, ders çizelgesinde
+                // olduğu için toplam okul norm yüküne eklensin."
                 if (!assignedBranch || assignedBranch.trim() === "" || assignedBranch === "— Branş Atanmadı —" || assignedBranch === "Diğer") {
+                    const m = this.evaluateCourseMultiplier(
+                        course, studentCount, schoolType, gradeLevel, inclusionCount);
+                    branssizSaat += m.calculatedLoad || 0;
                     return;
                 }
 
@@ -1021,6 +1112,9 @@ export class NormEngine {
         for (const ad of LISTEDEN_DUSULEN_BRANSLAR) {
             grandTotalHours += branchLoadMap[ad] || 0;
         }
+
+        // Branşı atanmamış dersler de çizelgede yer alır; toplam yüke eklenir.
+        grandTotalHours += branssizSaat;
         let totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
         // Yönetici / İdareci Norm Kadro Hesabı (Madde 5 - 14)
