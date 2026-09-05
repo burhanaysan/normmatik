@@ -168076,6 +168076,90 @@ class CloudDatabaseService {
         return (typeof window !== "undefined") ? window.firebaseAuth : null;
     }
 
+    /**
+     * FIREBASE ANAHTAR KODLAMASI
+     *
+     * Realtime Database, nesne anahtarlarında şu karakterlere izin vermez:
+     *     .  $  #  [  ]  /
+     * Bir tanesi bile varsa İSTEĞİN TAMAMI reddedilir:
+     *     "Invalid data; couldn't parse key ... Key value can't be empty
+     *      or contain $ # [ ] / or ."
+     *
+     * Kadro verimiz BRANŞ ADLARINI anahtar olarak kullanıyor
+     * (mevcutOgretmenler, koordinatorlukYukleri, yoneticiDersYukleri).
+     * Branş listesinde "Kimya / Kimya Teknolojisi" var ve içinde "/" geçiyor.
+     *
+     * Kadro penceresi HER branş için anahtar yazdığı (sıfır girilse bile),
+     * bir kez "Kaydet" denen okulda bu anahtar state'e giriyor ve O ANDAN
+     * SONRA OKULUN BÜTÜN KAYITLARI REDDEDİLİYORDU — yalnızca kadro değil,
+     * şubeler dâhil her şey. Uygulama veriyi yerelde saklamadığı için bu,
+     * doğrudan veri kaybı demekti.
+     * (Okul müdürü bildirimi, 05.09.2026.)
+     *
+     * Çözüm: anahtarlar yalnızca BULUT SINIRINDA kodlanır, uygulama içinde
+     * okunabilir adlar kalır. Kodlama tersinirdir ve "~" içermeyen eski
+     * anahtarlara dokunmaz; böylece daha önce kaydedilmiş veriler bozulmaz.
+     */
+    static get ANAHTAR_HARITASI() {
+        return { "~": "~7E", ".": "~2E", "$": "~24", "#": "~23",
+                 "[": "~5B", "]": "~5D", "/": "~2F" };
+    }
+
+    _anahtarKodla(s) {
+        const h = CloudDatabaseService.ANAHTAR_HARITASI;
+        // "~" ÖNCE çevrilmeli; sonra çevrilirse kendi kaçış dizilerini bozar.
+        return String(s).replace(/[~.$#[\]/]/g, (c) => h[c] || c);
+    }
+
+    _anahtarCoz(s) {
+        return String(s).replace(/~(7E|2E|24|23|5B|5D|2F)/g, (_, kod) => ({
+            "7E": "~", "2E": ".", "24": "$", "23": "#",
+            "5B": "[", "5D": "]", "2F": "/",
+        })[kod]);
+    }
+
+    _haritaKodla(obj) {
+        if (!obj || typeof obj !== "object") return obj;
+        const c = {};
+        for (const [k, v] of Object.entries(obj)) c[this._anahtarKodla(k)] = v;
+        return c;
+    }
+
+    _haritaCoz(obj) {
+        if (!obj || typeof obj !== "object") return obj;
+        const c = {};
+        for (const [k, v] of Object.entries(obj)) c[this._anahtarCoz(k)] = v;
+        return c;
+    }
+
+    /**
+     * Gönderilecek veride Firebase'in kabul etmeyeceği anahtar kaldı mı?
+     *
+     * Kodlamadan SONRA çalışır. Yeni bir alan eklenip kodlanması unutulursa
+     * ya da beklenmedik bir karakter çıkarsa, istek sunucuya gitmeden burada
+     * yakalanır ve sebebi ADIYLA bildirilir. Aksi hâlde sunucudan yalnızca
+     * "couldn't parse key at 1:39504" gibi bir konum bilgisi döner ve hangi
+     * alanın suçlu olduğu anlaşılmaz.
+     */
+    _gecersizAnahtarBul(deger, yol = "") {
+        if (!deger || typeof deger !== "object") return null;
+        if (Array.isArray(deger)) {
+            for (let i = 0; i < deger.length; i++) {
+                const b = this._gecersizAnahtarBul(deger[i], yol + "[" + i + "]");
+                if (b) return b;
+            }
+            return null;
+        }
+        for (const [k, v] of Object.entries(deger)) {
+            if (k === "" || /[.$#[\]/]/.test(k)) {
+                return { yol: yol || "(kök)", anahtar: k };
+            }
+            const b = this._gecersizAnahtarBul(v, yol + "." + k);
+            if (b) return b;
+        }
+        return null;
+    }
+
     _durumBildir(basarili, mesaj, kalici = false) {
         this.sonDurum = { basarili, mesaj, zaman: new Date(), kalici };
         try {
@@ -168169,6 +168253,17 @@ class CloudDatabaseService {
         }
 
         const data = sonuc.veri;
+        if (data) {
+            // Kaydederken kodlanan anahtarlar geri açılır. "~" içermeyen
+            // eski kayıtlar olduğu gibi kalır.
+            if (data.mevcutOgretmenler)
+                data.mevcutOgretmenler = this._haritaCoz(data.mevcutOgretmenler);
+            if (data.koordinatorlukYukleri)
+                data.koordinatorlukYukleri = this._haritaCoz(data.koordinatorlukYukleri);
+            if (data.adminOptions && data.adminOptions.yoneticiDersYukleri)
+                data.adminOptions.yoneticiDersYukleri =
+                    this._haritaCoz(data.adminOptions.yoneticiDersYukleri);
+        }
         if (data && (Array.isArray(data.subeler) || data.okulAdi)) {
             this.lastSyncTime = new Date();
             this._durumBildir(true, "Veriler yüklendi.");
@@ -168234,6 +168329,14 @@ class CloudDatabaseService {
         const key = this.getEffectiveKey(kurumKodu);
         if (!key || !state) return;
 
+        // adminOptions içindeki yoneticiDersYukleri de branş adıyla
+        // anahtarlanıyor; o da kodlanmalı.
+        const adminSecenekleri = Object.assign({}, state.okulBilgisi?.adminOptions || {});
+        if (adminSecenekleri.yoneticiDersYukleri) {
+            adminSecenekleri.yoneticiDersYukleri =
+                this._haritaKodla(adminSecenekleri.yoneticiDersYukleri);
+        }
+
         const veri = {
             kurumKodu: key,   // kural bunun yolla aynı olmasını şart koşuyor
             okulAdi: state.okulBilgisi?.okulAdi || "MEB Okulu",
@@ -168242,12 +168345,24 @@ class CloudDatabaseService {
             il: state.okulBilgisi?.il || "",
             ilce: state.okulBilgisi?.ilce || "",
             subeler: state.subeler || [],
-            mevcutOgretmenler: state.mevcutOgretmenler || {},
-            koordinatorlukYukleri: state.koordinatorlukYukleri || {},
-            adminOptions: state.okulBilgisi?.adminOptions || {},
+            // Branş adları anahtar olarak kullanılıyor; Firebase'in yasak
+            // karakterleri için kodlanır (bkz. _anahtarKodla).
+            mevcutOgretmenler: this._haritaKodla(state.mevcutOgretmenler || {}),
+            koordinatorlukYukleri: this._haritaKodla(state.koordinatorlukYukleri || {}),
+            adminOptions: adminSecenekleri,
             antet: state.okulBilgisi?.antet || {},
             lastUpdated: new Date().toISOString(),
         };
+
+        // ÖN DENETİM: geçersiz anahtar kaldıysa sunucuya gitmeden yakala.
+        const bozuk = this._gecersizAnahtarBul(veri);
+        if (bozuk) {
+            const m = `Kaydedilemeyen alan adı: "${bozuk.anahtar}" (${bozuk.yol}). `
+                    + "Bu ad veritabanında anahtar olarak kullanılamaz; lütfen bildirin.";
+            console.error("☁️ [NormMatik Bulut] " + m);
+            this._durumBildir(false, "KAYIT BAŞARISIZ: " + m, true);
+            return;
+        }
 
         this.isSaving = true;
         const sonuc = await this._istekTekrarli("school_data/" + key, "PUT", veri);

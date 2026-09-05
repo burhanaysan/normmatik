@@ -190,6 +190,97 @@ for (const [kod, etiket] of [
         !/showToast\("[^"]*(güncellendi|kaydedildi)/i.test(blok));
 }
 
+/* ---- 8) FIREBASE ANAHTAR KISITI -------------------------------------- */
+// ASIL HATA BUYDU (okul müdürü bildirimi, 05.09.2026):
+//   "Invalid data; couldn't parse key beginning at 1:39504.
+//    Key value can't be empty or contain $ # [ ] / or ."
+//
+// Kadro verisi BRANŞ ADLARINI anahtar olarak kullanıyor ve branş listesinde
+// "Kimya / Kimya Teknolojisi" var. Kadro penceresi HER branş için anahtar
+// yazdığından (sıfır girilse bile), bir kez "Kaydet" denen okulda bu anahtar
+// state'e giriyor ve O ANDAN SONRA OKULUN BÜTÜN KAYITLARI reddediliyordu —
+// şubeler dâhil. Uygulama veriyi yerelde saklamadığı için doğrudan veri kaybı.
+{
+    const cloud3 = new CDS();
+    const YASAK = /[.$#[\]/]/;
+
+    // (a) Kodlama tersinir mi?
+    for (const ad of [
+        "Kimya / Kimya Teknolojisi",
+        "T.C. İnkılap Tarihi ve Atatürkçülük",
+        "Büro Yönetimi / Yönetici Asist.",
+        "A~B",              // '~' kaçış karakterinin kendisi
+        "Matematik",        // dokunulmaması gereken sade ad
+    ]) {
+        const kodlu = cloud3._anahtarKodla(ad);
+        kontrol("kodlanan anahtar geçerli: " + ad, !YASAK.test(kodlu), kodlu);
+        kontrol("kodlama tersinir: " + ad, cloud3._anahtarCoz(kodlu) === ad, kodlu);
+    }
+    kontrol("sade ad değiştirilmiyor",
+        cloud3._anahtarKodla("Matematik") === "Matematik");
+
+    // (b) Geçersiz anahtar avcısı çalışıyor mu?
+    kontrol("geçersiz anahtar yakalanıyor",
+        !!cloud3._gecersizAnahtarBul({ a: { "b/c": 1 } }));
+    kontrol("boş anahtar yakalanıyor",
+        !!cloud3._gecersizAnahtarBul({ "": 1 }));
+    kontrol("temiz veride yanlış alarm yok",
+        cloud3._gecersizAnahtarBul({ a: { b: 1 }, c: [{ d: 2 }] }) === null);
+
+    // (c) KAYDET -> YÜKLE turu kayıpsız mı?
+    let depo = null;
+    cloud3._istekTekrarli = async (yol, yontem, govde) => {
+        if (yontem === "PUT") { depo = JSON.parse(JSON.stringify(govde)); return { ok: true }; }
+        if (yol.startsWith("school_data")) return { ok: true, veri: depo };
+        return { ok: true, veri: null };
+    };
+
+    const asil = {
+        "Beden Eğitimi": 3,
+        "Kimya / Kimya Teknolojisi": 1,
+        "T.C. İnkılap Tarihi ve Atatürkçülük": 2,
+    };
+    await cloud3.saveSchoolData("318742", {
+        okulBilgisi: {
+            okulAdi: "X", okulTuru: "anadolu_lisesi",
+            adminOptions: { yoneticiDersYukleri: { "Kimya / Kimya Teknolojisi": 6 } },
+        },
+        subeler: [{ subeAdi: "9-A" }],
+        mevcutOgretmenler: asil,
+        koordinatorlukYukleri: { "Kimya / Kimya Teknolojisi": 12 },
+    });
+
+    kontrol("kayıt sunucuya gitti (ölçüm geçerli)", !!depo);
+    kontrol("sunucuya giden veride yasak anahtar yok",
+        !!depo && cloud3._gecersizAnahtarBul(depo) === null,
+        depo ? JSON.stringify(cloud3._gecersizAnahtarBul(depo)) : "-");
+
+    const geri = await cloud3.loadSchoolData("318742");
+    kontrol("yükleme sonrası kadro adları geri açıldı",
+        JSON.stringify(geri.mevcutOgretmenler) === JSON.stringify(asil),
+        JSON.stringify(geri.mevcutOgretmenler));
+    kontrol("koordinatörlük adları geri açıldı",
+        Object.keys(geri.koordinatorlukYukleri)[0] === "Kimya / Kimya Teknolojisi");
+    kontrol("yönetici ders yükü adları geri açıldı",
+        Object.keys(geri.adminOptions.yoneticiDersYukleri)[0] === "Kimya / Kimya Teknolojisi");
+
+    // (d) ESKİ KAYITLAR BOZULMAMALI — kodlanmamış anahtarlar olduğu gibi kalır.
+    depo = { okulAdi: "X", subeler: [], mevcutOgretmenler: { "Matematik": 4 } };
+    const eski = await cloud3.loadSchoolData("318742");
+    kontrol("kodlanmamış eski kayıt bozulmuyor",
+        eski.mevcutOgretmenler["Matematik"] === 4,
+        JSON.stringify(eski.mevcutOgretmenler));
+}
+
+/* ---- 9) Branş listesinde yasak karakter taşıyan ad var mı? ----------- */
+// Bu kontrol, hatanın gerçekliğini sabitler: liste değişse bile kodlamanın
+// gerekli olduğunu (ya da gereksizleştiğini) burada görürüz.
+{
+    const dbSrc = fs.readFileSync(path.join(KOK, "js", "database.js"), "utf8");
+    kontrol("branş listesinde '/' içeren ad var (kodlama gerekli)",
+        /Kimya\s*\/\s*Kimya Teknolojisi/.test(dbSrc));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
