@@ -718,6 +718,28 @@ export class NormEngine {
         // ama okulun toplam ders yüküne dâhildir (aşağıda eklenir).
         let branssizSaat = 0;
 
+        // DERS YÜKÜ MUTABAKATI SAYAÇLARI
+        // ------------------------------
+        // "Şube çizelgesi 640 saat diyor, üstteki toplam 646 diyor" sorusunun
+        // cevabı bugüne kadar hiçbir raporda yazmıyordu. İki sayı farklı
+        // büyüklükler: biri ÖĞRENCİNİN gördüğü saat, öteki ÖĞRETMENİN okuttuğu
+        // yük. Aradaki köprüyü kuran kalemler burada tek tek toplanıyor ki
+        // rapor farkı kendi açıklayabilsin. (Kullanıcı isteği, 05.09.2026.)
+        //
+        // Değişmez (test_yukMutabakati.mjs bunu denetler):
+        //   ham + çarpan − birleşik − yönetici + koordinatörlük === totalHours
+        let hamCizelgeSaati = 0;
+        subeler.forEach(sec => {
+            [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])].forEach(c => {
+                hamCizelgeSaati += parseInt(c.saat || c.ders_saati || 0, 10) || 0;
+            });
+        });
+        // Motorun fiilen branşlara (ve branşsız havuzuna) yazdığı toplam yük.
+        let islenmisYuk = 0;
+        // Birleştirilmiş şubede aynı ders tek öğretmene yazılır; çizelgede iki
+        // kez görünen saatin ikincisi yüke girmez.
+        let birlesikSubeDusumu = 0;
+
         const ensureBranch = (name) => {
             if (!branchLoadMap[name]) {
                 branchLoadMap[name] = 0;
@@ -763,6 +785,7 @@ export class NormEngine {
                     const m = this.evaluateCourseMultiplier(
                         course, studentCount, schoolType, gradeLevel, inclusionCount);
                     branssizSaat += m.calculatedLoad || 0;
+                    islenmisYuk += m.calculatedLoad || 0;
                     return;
                 }
 
@@ -809,6 +832,7 @@ export class NormEngine {
                 if (mergedWith.length > 0) {
                     const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName;
                     if (handledMergedPairs.has(groupKey)) {
+                        birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
                         return;
                     }
                     handledMergedPairs.add(groupKey);
@@ -821,6 +845,7 @@ export class NormEngine {
                 ensureBranch(assignedBranch);
 
                 branchLoadMap[assignedBranch] += load;
+                islenmisYuk += load;
                 // Yükü doğru maddeye yaz: ATOLYE -> Madde 19, GENEL -> Madde 18
                 if (mult.loadCategory === "ATOLYE") {
                     branchLoadSplit[assignedBranch].atolye += load;
@@ -1115,6 +1140,32 @@ export class NormEngine {
 
         // Branşı atanmamış dersler de çizelgede yer alır; toplam yüke eklenir.
         grandTotalHours += branssizSaat;
+
+        // DERS YÜKÜ MUTABAKATI — şube çizelgesi ile norma esas yük arasındaki köprü.
+        //
+        // Çarpan artışı ayrıca sayılmaz, artık olarak bulunur: motorun fiilen
+        // yazdığı yük ile (ham çizelge − birleşik düşüm) arasındaki fark, ne
+        // sebeple olursa olsun bölünme/grup çarpanından gelir. Böylece motora
+        // yarın yeni bir çarpan eklenirse mutabakat kendiliğinden onu da
+        // gösterir; unutulup sessizce kaybolmaz.
+        const yoneticiDersDusumu = Object.values(branchAdminDeduction)
+            .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
+        const koordinatorlukEki = Object.values(branchCoordinatorMap)
+            .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
+        const carpanArtisi = islenmisYuk - (hamCizelgeSaati - birlesikSubeDusumu);
+
+        const yukMutabakati = {
+            hamCizelgeSaati,
+            carpanArtisi,
+            birlesikSubeDusumu,
+            yoneticiDersDusumu,
+            koordinatorlukEki,
+            normaEsasYuk: grandTotalHours,
+            // Değişmez tutmuyorsa rapor sayı uydurmasın: bunu gören arayüz
+            // mutabakat bloğunu basmaz, sessizce gizler.
+            tutarli: (hamCizelgeSaati + carpanArtisi - birlesikSubeDusumu
+                      - yoneticiDersDusumu + koordinatorlukEki) === grandTotalHours
+        };
         let totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
         // Yönetici / İdareci Norm Kadro Hesabı (Madde 5 - 14)
@@ -1128,6 +1179,7 @@ export class NormEngine {
         return {
             branchReport,
             totalHours: grandTotalHours,
+            yukMutabakati,
             totalCalculatedNorm,
             totalCurrentTeachers,
             totalSurplus,

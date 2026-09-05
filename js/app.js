@@ -1642,7 +1642,7 @@ class MebNormApplication {
                          27.08.2026'da kullanıcı kararıyla o saatler toplama geri
                          eklendi; sayı artık okulun toplam ders yükünü veriyor,
                          etiket de eski hâline döndü. -->
-                    <div class="kpi-banner-load" title="Şubelerin haftalık ders saatlerinin toplamı. Sınıf rehberliği saatleri, henüz bir branş öğretmenine atanmamış olsalar bile çizelgede yer aldıkları için bu toplama dâhildir. Yöneticilerin okuttuğu dersler Md. 22/6 gereği branş yükünden düşüldüğü için, düşüm yapılan okullarda bu toplam daha küçük görünür.">
+                    <div class="kpi-banner-load" title="Norma esas ÖĞRETMEN ders yükü — öğretmen normu bu sayı üzerinden hesaplanır. Şube çizelgelerinin ham toplamından farklı olabilir: bir ders birden fazla gruba veya branşa bölündüğünde her öğretmen kendi grubuna tam saati okuttuğu için yük ARTAR; şubeler birleştirildiğinde ve yöneticilerin okuttuğu saatler Md. 22/6 gereği düşüldüğünde AZALIR. Kalem kalem dökümü, Master Ders Dağıtım Matrisi raporunun altındaki DERS YÜKÜ MUTABAKATI tablosundadır.">
                         <span class="kpi-banner-label">⏱️ Toplam Okul Yükü</span>
                         <span class="kpi-banner-val">${normResult.totalHours} <span style="font-size: 0.72rem; font-weight: 600;">Saat</span></span>
                     </div>

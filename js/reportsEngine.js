@@ -11,6 +11,41 @@ class MebReportsEngine {
     }
 
     // Kopya: adminOptions anahtarı canlı state'e sızarsa branş listesi kirlenir.
+    /**
+     * DERS YÜKÜ MUTABAKATI — dışa aktarım satırları.
+     *
+     * Ekranda açıklanan farkın dosyada da yazması gerekiyor: müdürler bu
+     * dosyayı ilçeye/il'e gönderiyor ve soru orada soruluyor.
+     * (Kullanıcı isteği, 05.09.2026.)
+     */
+    mutabakatSatirlari(m, sutunSayisi) {
+        if (!m || m.tutarli === false) return [];
+        const bos = (n) => new Array(Math.max(0, n)).fill("");
+        const satir = (ad, deger, not) => [ad, deger, ...bos(sutunSayisi - 3), not];
+        const fark = m.normaEsasYuk - m.hamCizelgeSaati;
+
+        const rows = [bos(sutunSayisi), satir("DERS YÜKÜ MUTABAKATI", "", "")];
+        if (fark === 0) {
+            rows.push(satir("Şube çizelgesi toplamı = norma esas öğretmen ders yükü",
+                m.normaEsasYuk, "Bölünme, birleştirme veya yönetici ders saati kaynaklı fark yok."));
+            return rows;
+        }
+        rows.push(satir("Şube çizelgesi toplamı", m.hamCizelgeSaati,
+            "Öğrencilerin haftada gördüğü ders saati"));
+        if (m.carpanArtisi) rows.push(satir("Bölünen ders / grup çarpanı",
+            (m.carpanArtisi > 0 ? "+" : "-") + Math.abs(m.carpanArtisi),
+            "Ders birden fazla gruba/branşa bölündüğünde her öğretmen tam saati okutur"));
+        if (m.birlesikSubeDusumu) rows.push(satir("Birleştirilmiş şubeler",
+            "-" + m.birlesikSubeDusumu, "Birleştirilen şubede ders tek öğretmene yazılır"));
+        if (m.yoneticiDersDusumu) rows.push(satir("Yönetici ders saati (Md. 22/6)",
+            "-" + m.yoneticiDersDusumu, "Yöneticilerin okuttugu saatler brans yükünden düsülür"));
+        if (m.koordinatorlukEki) rows.push(satir("Isletmelerde mesleki egitim koordinatörlügü",
+            "+" + m.koordinatorlukEki, "Koordinatörlük yükü brans ders yüküne eklenir (Md. 19/1)"));
+        rows.push(satir("NORMA ESAS ÖGRETMEN DERS YÜKÜ", m.normaEsasYuk,
+            "Ögretmen normu bu sayi üzerinden hesaplanir"));
+        return rows;
+    }
+
     buildCoordinatorMap(state) {
         const map = { ...(state.koordinatorlukYukleri || {}) };
         map.adminOptions = (state.okulBilgisi || {}).adminOptions || {};
@@ -72,6 +107,8 @@ class MebReportsEngine {
             },
             adminNorms: normResult.adminNorms,
             guidanceNorms: normResult.guidanceNorms,
+            // Şube çizelgesi toplamı ile norma esas ders yükü arasındaki köprü.
+            yukMutabakati: normResult.yukMutabakati || null,
             gradeCounts: gradeCounts,
             branchReport: normResult.branchReport
         };
@@ -220,7 +257,8 @@ class MebReportsEngine {
             sortedBranchNames: sortedBranchNames,
             branchGroups: branchGroups,
             branchReportMap: branchReportMap,
-            grandTotalHours: normResult.totalHours || Object.values(sectionTotals).reduce((s, h) => s + h, 0)
+            grandTotalHours: normResult.totalHours || Object.values(sectionTotals).reduce((s, h) => s + h, 0),
+            yukMutabakati: normResult.yukMutabakati || null
         };
     }
 
@@ -620,6 +658,8 @@ class MebReportsEngine {
         const gridSutunToplami = gridData.subeler.reduce((s, sec) => s + (gridData.sectionTotals[sec.id] || 0), 0);
         const totalRow = ["", "GENEL TOPLAM", "Tüm Şube Yükleri", ...gridData.subeler.map(s => gridData.sectionTotals[s.id] || 0), gridSutunToplami, "—"];
         wsGridRows.push(totalRow);
+        this.mutabakatSatirlari(gridData.yukMutabakati, totalRow.length)
+            .forEach(r => wsGridRows.push(r));
 
         const wsGrid = xlsxLib.utils.aoa_to_sheet(wsGridRows);
         const gridCols = [{ wch: 6 }, { wch: 32 }, { wch: 32 }];
@@ -774,6 +814,8 @@ class MebReportsEngine {
             const csvSutunToplami = reportData.subeler.reduce((s, sec) => s + (reportData.sectionTotals[sec.id] || 0), 0);
             const totalRow = ["TOPLAM DERS SAATİ", "—", ...reportData.subeler.map(s => reportData.sectionTotals[s.id] || 0), csvSutunToplami, "—"];
             csvRows.push(totalRow);
+            this.mutabakatSatirlari(reportData.yukMutabakati, totalRow.length)
+                .forEach(r => csvRows.push(r));
 
         } else if (reportData.reportType === "EXECUTIVE_SUMMARY" || reportData.reportType === "BRANCH_DETAIL") {
             if (reportData.adminNorms && reportData.reportType === "EXECUTIVE_SUMMARY") {

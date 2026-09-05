@@ -4664,6 +4664,149 @@ body {
 }
 
 /* ==========================================================================
+   ⚖️ DERS YÜKÜ MUTABAKATI
+   --------------------------------------------------------------------------
+   Matrisin alt satırı öğrenci ders saatini, rapor başlığı öğretmen ders
+   yükünü yazar. Blok bu ikisi arasındaki köprüyü kurar ve KASITLI OLARAK
+   DİKKAT ÇEKER: okul müdürleri farkı bize soruyordu, cevabın gözden kaçmaması
+   gerekiyor. (Kullanıcı isteği, 05.09.2026: "tablo belirgin olsun, dikkat
+   çeksin, insanların odağından kaçmasın.")
+
+   Kaydırma kutusunun DIŞINDA durur; matris kaydırılırken blok yerinde kalır.
+   ========================================================================== */
+
+.yuk-mutabakat-blok {
+    margin-top: 0.9rem;
+    border: 2.5px solid #0284c7;
+    border-left-width: 7px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 55%);
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.18);
+    overflow: hidden;
+}
+
+.yuk-mutabakat-baslik {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 0.9rem;
+}
+
+.yuk-mutabakat-rozet {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    padding: 0.18rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.yuk-mutabakat-giris {
+    padding: 0.7rem 0.9rem 0.5rem;
+    font-size: 0.79rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.yuk-mutabakat-giris strong { color: var(--text-main); }
+
+.yuk-mutabakat-tablo {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.yuk-mutabakat-tablo td {
+    padding: 0.45rem 0.9rem;
+    border-top: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.yuk-mutabakat-tablo .ymt-ad { font-weight: 700; color: var(--text-main); white-space: nowrap; }
+
+.yuk-mutabakat-tablo .ymt-deger {
+    text-align: right;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    width: 1%;
+    padding-right: 1.1rem;
+}
+
+.yuk-mutabakat-tablo .ymt-not {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.yuk-mutabakat-tablo .ymt-ham td { background: #f8fafc; }
+.yuk-mutabakat-tablo .ymt-arti .ymt-deger { color: #b45309; }
+.yuk-mutabakat-tablo .ymt-eksi .ymt-deger { color: #0369a1; }
+
+.yuk-mutabakat-tablo .ymt-sonuc td {
+    background: #0f172a;
+    color: #ffffff;
+    border-top: 2.5px solid #38bdf8;
+    font-size: 0.88rem;
+}
+
+.yuk-mutabakat-tablo .ymt-sonuc .ymt-ad { color: #ffffff; font-weight: 800; }
+.yuk-mutabakat-tablo .ymt-sonuc .ymt-deger { color: #ffffff; font-size: 1rem; }
+.yuk-mutabakat-tablo .ymt-sonuc .ymt-not { color: #cbd5e1; }
+
+/* Fark yoksa: aynı blok, sakin renk. Sessiz kalmak yerine "kontrol edildi,
+   aynı" demek sayıya güveni artırır. */
+.yuk-mutabakat-blok.esit {
+    border-color: #16a34a;
+    background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 55%);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.15);
+}
+
+.yuk-mutabakat-blok.esit .yuk-mutabakat-baslik { background: #14532d; }
+
+.yuk-mutabakat-esit-metin {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.79rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.yuk-mutabakat-esit-metin strong { color: #15803d; }
+
+/* Yönetici icmalindeki KPI kartına sığan tek satırlık mutabakat özeti. */
+.exec-stat-mutabakat {
+    margin-top: 0.25rem;
+    font-size: 0.63rem;
+    line-height: 1.35;
+    color: #0369a1;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 5px;
+    padding: 0.15rem 0.35rem;
+    font-weight: 700;
+}
+
+/* Branş şeridi ile satır toplamı ayrıştığında basılan açıklama satırı. */
+.ymt-brans-fark td {
+    background: #fffbeb;
+    border-top: 1px dashed #f59e0b;
+    font-size: 0.72rem;
+    color: #92400e;
+    padding: 0.3rem 0.5rem 0.3rem 1.6rem;
+    text-align: left;
+    font-style: italic;
+}
+
+/* ==========================================================================
    🏛️ YÖNETİCİ İCMALİ & KPI DASHBOARD
    ========================================================================== */
 
@@ -5454,6 +5597,66 @@ body {
         color: #000000 !important;
         font-size: 7.5pt !important;
         font-weight: 800 !important;
+    }
+
+    /* Mutabakat bloğu kâğıda da girer — rapor ilçeye/il'e bu hâliyle gidiyor.
+       Ekrandaki koyu zeminler yazıcıda okunmaz, çerçeveye çevriliyor. */
+    .yuk-mutabakat-blok {
+        border: 1.5pt solid #000000 !important;
+        border-left-width: 4pt !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-top: 6pt !important;
+    }
+
+    .yuk-mutabakat-baslik {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+        font-size: 8pt !important;
+        border-bottom: 1pt solid #000000 !important;
+    }
+
+    .yuk-mutabakat-rozet {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1pt solid #000000 !important;
+        font-size: 7.5pt !important;
+    }
+
+    .yuk-mutabakat-giris,
+    .yuk-mutabakat-esit-metin { color: #000000 !important; font-size: 7pt !important; }
+    .yuk-mutabakat-esit-metin strong { color: #000000 !important; }
+
+    .yuk-mutabakat-tablo { font-size: 7.5pt !important; }
+    .yuk-mutabakat-tablo td { border-top: 0.5pt solid #94a3b8 !important; color: #000000 !important; }
+    .yuk-mutabakat-tablo .ymt-not { font-size: 6.5pt !important; color: #334155 !important; }
+    .yuk-mutabakat-tablo .ymt-ham td { background: #ffffff !important; }
+    .yuk-mutabakat-tablo .ymt-arti .ymt-deger,
+    .yuk-mutabakat-tablo .ymt-eksi .ymt-deger { color: #000000 !important; }
+
+    .yuk-mutabakat-tablo .ymt-sonuc td {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+        border-top: 1.5pt solid #000000 !important;
+    }
+    .yuk-mutabakat-tablo .ymt-sonuc .ymt-ad,
+    .yuk-mutabakat-tablo .ymt-sonuc .ymt-deger { color: #000000 !important; }
+    .yuk-mutabakat-tablo .ymt-sonuc .ymt-not { color: #334155 !important; }
+
+    .exec-stat-mutabakat {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 0.5pt solid #000000 !important;
+        font-size: 6pt !important;
+    }
+
+    .ymt-brans-fark td {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-top: 0.5pt dashed #000000 !important;
+        font-size: 6.5pt !important;
     }
 
     .badge-metric {

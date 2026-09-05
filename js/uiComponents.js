@@ -3932,6 +3932,34 @@ export class UIComponentManager {
 
             // Branşa Bağlı Derslerin Satırları
             const courseList = Object.values(bGroup.courses).sort((a, b) => a.courseName.localeCompare(b.courseName, 'tr'));
+
+            // BRANŞ ŞERİDİ İLE SATIR TOPLAMI AYRIŞIYORSA SEBEBİNİ YAZ
+            //
+            // Şeritteki "Haftalık Yük" motorun düzeltilmiş yüküdür; alttaki
+            // ders satırları ise ham çizelge saatidir. Türk Dili şeridi 83
+            // derken satırları 89 topluyordu ve aradaki 6 saatin nereye
+            // gittiği hiçbir yerde yazmıyordu. (Kullanıcı bildirimi, 05.09.2026.)
+            const satirToplami = courseList.reduce((t, c) => t + (c.totalHours || 0), 0);
+            const bransFarki = displayHours - satirToplami;
+            const bransKalemleri = [];
+            if (bReport.adminDeductedHours > 0) {
+                bransKalemleri.push({ d: -bReport.adminDeductedHours, ad: "Yönetici ders saati (Md. 22/6)" });
+            }
+            if (bReport.coordinatorHours > 0) {
+                bransKalemleri.push({ d: bReport.coordinatorHours, ad: "İşletmelerde mesleki eğitim koordinatörlüğü" });
+            }
+            const bransKalan = bransFarki
+                + (bReport.adminDeductedHours || 0) - (bReport.coordinatorHours || 0);
+            if (bransKalan !== 0) {
+                // Kalanı ADIYLA söylemiyoruz: pozitifse bölünme çarpanıdır ama
+                // teorik olarak branş eşleme farkından da gelebilir. Uydurma bir
+                // gerekçe yazmaktansa kalemi dürüstçe "diğer" diye bırakıyoruz.
+                bransKalemleri.push({
+                    d: bransKalan,
+                    ad: bransKalan > 0 ? "Bölünen ders / grup çarpanı" : "Diğer düzeltme"
+                });
+            }
+
             courseList.forEach((course, cIdx) => {
                 const isEven = cIdx % 2 === 0;
                 html += `
@@ -3960,6 +3988,20 @@ export class UIComponentManager {
                     </tr>
                 `;
             });
+
+            // Ayrışma varsa sebebini branşın hemen altına yaz.
+            if (bransKalemleri.length > 0) {
+                html += `
+                    <tr class="ymt-brans-fark">
+                        <td colspan="${data.subeler.length + 3}">
+                            ↳ Ders satırları toplamı ${satirToplami} saat; branş yükü ${displayHours} saat.
+                            ${bransKalemleri.map(k =>
+                                `${k.ad}: <strong>${k.d > 0 ? "+" : "−"}${Math.abs(k.d)} saat</strong>`
+                            ).join(" · ")}
+                        </td>
+                    </tr>
+                `;
+            }
         });
 
         // Genel Toplam Satırı (Footer)
@@ -3977,9 +4019,121 @@ export class UIComponentManager {
                     </tfoot>
                 </table>
             </div>
+
+            ${this.renderYukMutabakati(data.yukMutabakati)}
         `;
 
         return html;
+    }
+
+    /**
+     * DERS YÜKÜ MUTABAKATI BLOĞU
+     *
+     * Neden var: matrisin alt satırı "şube çizelgesi toplamı"nı (ör. 640),
+     * rapor başlığı ise "norma esas öğretmen ders yükü"nü (ör. 646) yazıyor.
+     * İkisi farklı büyüklükler ve ikisi de doğru, ama aralarındaki köprü
+     * hiçbir yerde yazmıyordu; okul müdürleri farkı bize soruyordu.
+     * (Kullanıcı isteği, 05.09.2026.)
+     *
+     * Kaydırma kutusunun DIŞINA basılır: matris yatay/dikey kaydırılırken
+     * blok yerinde kalsın, gözden kaçmasın diye.
+     */
+    renderYukMutabakati(m) {
+        if (!m) return "";
+        // Değişmez tutmuyorsa hiç basma. Yanlış bir mutabakat, mutabakat
+        // olmamasından kötüdür: okul ona güvenip yanlış sayı savunur.
+        if (m.tutarli === false) return "";
+
+        const satirlar = [
+            { ad: "Bölünen ders / grup çarpanı", deger: m.carpanArtisi, isaret: "+",
+              not: "Bir ders birden fazla gruba veya branşa bölündüğünde her öğretmen kendi grubuna tam saati okutur." },
+            { ad: "Birleştirilmiş şubeler", deger: -m.birlesikSubeDusumu, isaret: "−",
+              not: "Birleştirilen şubelerde ders tek öğretmen tarafından okutulduğu için yüke bir kez yazılır." },
+            { ad: "Yönetici ders saati (Md. 22/6)", deger: -m.yoneticiDersDusumu, isaret: "−",
+              not: "Yöneticilerin okuttuğu saatler branşın ders yükünden düşülür." },
+            { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", deger: m.koordinatorlukEki, isaret: "+",
+              not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
+        ].filter(r => r.deger !== 0);
+
+        const fark = m.normaEsasYuk - m.hamCizelgeSaati;
+
+        // "Fark yok" teyidi YALNIZCA hiçbir kalem oluşmadığında verilir.
+        //
+        // Önce koşul `fark === 0` idi ve yanlış beyan üretiyordu: bölünme +6
+        // ile yönetici düşümü −6 birbirini götüren bir okulda net fark sıfır
+        // çıkıyor, blok ise "bölünme, birleştirme veya yönetici ders saati
+        // kaynaklı bir fark oluşmamıştır" diyordu. İkisi de olmuştu, sadece
+        // toplamda sıfırlanmışlardı. (Ölçüldü 06.09.2026, önizlemede yakalandı.)
+        //
+        // Kalem varsa tablo basılır; net fark sıfır olsa bile kalemler görünür.
+        if (satirlar.length === 0) {
+            return `
+                <div class="yuk-mutabakat-blok esit">
+                    <div class="yuk-mutabakat-baslik">⚖️ DERS YÜKÜ MUTABAKATI</div>
+                    <div class="yuk-mutabakat-esit-metin">
+                        Şube çizelgesi toplamı ile norma esas öğretmen ders yükü <strong>aynı: ${m.normaEsasYuk} saat.</strong>
+                        Bu okulda bölünme, birleştirme veya yönetici ders saati kaynaklı bir fark oluşmamıştır.
+                    </div>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="yuk-mutabakat-blok">
+                <div class="yuk-mutabakat-baslik">
+                    ⚖️ DERS YÜKÜ MUTABAKATI
+                    <span class="yuk-mutabakat-rozet">${m.hamCizelgeSaati} → ${m.normaEsasYuk} saat${fark === 0 ? "" : ` (${fark > 0 ? "+" : ""}${fark})`}</span>
+                </div>
+                <div class="yuk-mutabakat-giris">
+                    Alt satırdaki <strong>${m.hamCizelgeSaati} saat</strong>, öğrencilerin haftada gördüğü ders saatidir.
+                    Norm hesabına giren <strong>${m.normaEsasYuk} saat</strong> ise öğretmenlerin okuttuğu ders yüküdür.
+                    İkisi de doğrudur; aşağıdaki kalemler ikisi arasındaki farkı oluşturur.
+                    ${fark === 0 ? "<strong>Bu okulda kalemler birbirini götürdüğü için iki sayı eşit çıkmıştır</strong> — kalem oluşmadığı için değil." : ""}
+                </div>
+                <table class="yuk-mutabakat-tablo">
+                    <tbody>
+                        <tr class="ymt-ham">
+                            <td class="ymt-ad">Şube çizelgesi toplamı</td>
+                            <td class="ymt-deger">${m.hamCizelgeSaati}</td>
+                            <td class="ymt-not">Şubelerin haftalık ders saatlerinin toplamı (öğrenci saati)</td>
+                        </tr>
+                        ${satirlar.map(r => `
+                            <tr class="ymt-kalem ${r.deger > 0 ? "ymt-arti" : "ymt-eksi"}">
+                                <td class="ymt-ad">${r.isaret} ${r.ad}</td>
+                                <td class="ymt-deger">${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}</td>
+                                <td class="ymt-not">${r.not}</td>
+                            </tr>
+                        `).join("")}
+                        <tr class="ymt-sonuc">
+                            <td class="ymt-ad">Norma esas öğretmen ders yükü</td>
+                            <td class="ymt-deger">${m.normaEsasYuk}</td>
+                            <td class="ymt-not">Öğretmen normu bu sayı üzerinden hesaplanır</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    /**
+     * Yönetici icmalindeki KPI kartına sığacak TEK SATIRLIK mutabakat özeti.
+     * Tam tablo matrisin altında; burada kart boğulmasın diye sadece köprü
+     * yazılıyor. Fark yoksa hiç basılmaz — gereksiz gürültü olur.
+     */
+    renderMutabakatOzet(m) {
+        if (!m || m.tutarli === false) return "";
+        const fark = m.normaEsasYuk - m.hamCizelgeSaati;
+        if (fark === 0) return "";
+        const kalemler = [];
+        if (m.carpanArtisi) kalemler.push(`bölünme ${m.carpanArtisi > 0 ? "+" : "−"}${Math.abs(m.carpanArtisi)}`);
+        if (m.birlesikSubeDusumu) kalemler.push(`birleştirme −${m.birlesikSubeDusumu}`);
+        if (m.yoneticiDersDusumu) kalemler.push(`yönetici −${m.yoneticiDersDusumu}`);
+        if (m.koordinatorlukEki) kalemler.push(`koordinatörlük +${m.koordinatorlukEki}`);
+        return `
+            <div class="exec-stat-mutabakat" title="Şube çizelgesi toplamı ile norma esas öğretmen ders yükü arasındaki fark. Ayrıntılı döküm, Master Ders Dağıtım Matrisi raporunun altındadır.">
+                çizelge ${m.hamCizelgeSaati} · ${kalemler.join(" · ")}
+            </div>
+        `;
     }
 
     // 2. YÖNETİCİ İCMAL RAPORU RENDER
@@ -4026,6 +4180,7 @@ export class UIComponentManager {
                             <span class="exec-stat-unit">Saat</span>
                         </div>
                         <div class="exec-stat-sub">${kpis.totalSections} Şube • ${kpis.totalStudents} Öğrenci</div>
+                        ${this.renderMutabakatOzet(data.yukMutabakati)}
                     </div>
 
                     <div class="exec-stat-cell highlight-green">
