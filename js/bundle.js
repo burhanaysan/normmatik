@@ -166698,7 +166698,12 @@ class NormEngine {
             mudur: mudurNorm,
             mudurBasyardimcisi: mudurBasYrd,
             // Arayüz ve raporlar bu bayrağa bakarak başyardımcı satırını gizler.
-            mudurBasyardimcisiAktif: basyrdAktif,
+            //
+            // Ünvan genel olarak kapalı olsa da, yatılı/pansiyonlu kurum
+            // "görevi süren başyardımcım var" dediyse satır GERİ GELMELİ:
+            // aksi hâlde norm üretiliyor ama arayüzde ve raporda hiçbir
+            // yerde görünmüyordu. (Kullanıcı bildirimi, 05.09.2026.)
+            mudurBasyardimcisiAktif: basyrdAktif || pansiyonBasyrd,
             mudurYardimcisiBase: baseMdrYrd,
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
@@ -172965,14 +172970,19 @@ class UIComponentManager {
                                 <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
                                     Norm ile karşılaştırılıp "İhtiyaç / Fazla" durumu gösterilir. Bilinmiyorsa 0 bırakın.
                                 </div>
-                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                                <!-- Başyardımcı sütunu YALNIZCA üstteki "görevi süren müdür
+                                     başyardımcısı var" kutusu işaretliyken görünür; ünvan genel
+                                     olarak kaldırıldığı için varsayılan hâli gizlidir.
+                                     Görünürlüğü kutu değiştikçe JS güncelliyor. -->
+                                <div id="mevcut-idareci-grid" style="display: grid; grid-template-columns: repeat(${adminOpts.isPansiyonluBasyrd ? 3 : 2}, 1fr); gap: 0.5rem;">
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">OKUL MÜDÜRÜ</div>
                                         <input type="number" id="inp-mevcut-mudur" value="${parseInt(mevcutIdareci.mudur || 0, 10)}" min="0" max="10" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #0284c7;">
                                     </div>
-                                    <!-- Müdür başyardımcısı ünvanı kaldırıldı; alan gizli tutulur ki
-                                         mevcut kayıtlardaki değer 0'a düşsün ve kod kırılmasın. -->
-                                    <input type="hidden" id="inp-mevcut-basyrd" value="0">
+                                    <div id="wrap-mevcut-basyrd" style="text-align: center; display: ${adminOpts.isPansiyonluBasyrd ? 'block' : 'none'};">
+                                        <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR BAŞYRD.</div>
+                                        <input type="number" id="inp-mevcut-basyrd" value="${parseInt(mevcutIdareci.mudurBasyardimcisi || 0, 10)}" min="0" max="5" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #7c3aed;">
+                                    </div>
                                     <div style="text-align: center;">
                                         <div style="font-size: 0.66rem; color: var(--text-muted); margin-bottom: 0.15rem;">MÜDÜR YARDIMCISI</div>
                                         <input type="number" id="inp-mevcut-mdryrd" value="${parseInt(mevcutIdareci.mudurYardimcisi || 0, 10)}" min="0" max="20" class="form-control" style="width: 100%; padding: 0.25rem; text-align: center; font-weight: 800; color: #059669;">
@@ -173192,9 +173202,24 @@ class UIComponentManager {
             }
         };
 
+        // Başyardımcı kutusu, "mevcut" sütununu da açıp kapatır.
+        const syncBasyrdSutunu = () => {
+            const acik = !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked;
+            const wrap = document.getElementById("wrap-mevcut-basyrd");
+            const grid = document.getElementById("mevcut-idareci-grid");
+            const inp = document.getElementById("inp-mevcut-basyrd");
+            if (wrap) wrap.style.display = acik ? "block" : "none";
+            if (grid) grid.style.gridTemplateColumns = `repeat(${acik ? 3 : 2}, 1fr)`;
+            // Kutu kapatıldıysa sayı da sıfırlanır; aksi hâlde görünmeyen bir
+            // değer "mevcut toplam" karşılaştırmasını sessizce şişirirdi.
+            if (!acik && inp) inp.value = "0";
+        };
+        document.getElementById("chk-admin-pansiyon-basyrd")?.addEventListener("change", syncBasyrdSutunu);
+
         updateAdminPreview();
         [
             "chk-admin-pansiyon",
+            "chk-admin-pansiyon-basyrd",
             "chk-admin-doner",
             "chk-admin-tamgun",
             "chk-admin-stajyer100",

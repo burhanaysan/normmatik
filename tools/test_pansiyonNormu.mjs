@@ -149,14 +149,33 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
     kontrol("kampüs içindeki kuruma başyardımcı verilmiyor (Md. 6/2)",
         kampus.mudurBasyardimcisi === 0, String(kampus.mudurBasyardimcisi));
 
-    const mudursuz = ne.calculateAdminNorms("anadolu_lisesi", 0, { isPansiyonluBasyrd: true });
-    if (mudursuz.mudur === 0) {
-        kontrol("müdür normu olmayan kuruma başyardımcı verilmiyor (Md. 22/1-a)",
-            mudursuz.mudurBasyardimcisi === 0, String(mudursuz.mudurBasyardimcisi));
-    } else {
-        kontrol("0 öğrencide müdür normu 0 (ölçüm geçerli)", false,
-            "müdür normu " + mudursuz.mudur);
-    }
+    // Müdür normu sıfır öğrenciyle sıfırlanmaz — her bağımsız kuruma 1 müdür
+    // normu verilir (Md. 5/1). Müdürsüz durumu üreten gerçek şart Md. 5/3:
+    // aynı binadaki kurumlardan öğrencisi en fazla olan bu okul değilse.
+    const mudursuz = ne.calculateAdminNorms("anadolu_lisesi", 400,
+        { isPansiyonluBasyrd: true, isAyniBinadaKucuk: true });
+    kontrol("ölçüm geçerli: aynı binadaki küçük kurumda müdür normu 0 (Md. 5/3)",
+        mudursuz.mudur === 0, "müdür normu " + mudursuz.mudur);
+    kontrol("müdür normu olmayan kuruma başyardımcı verilmiyor (Md. 22/1-a)",
+        mudursuz.mudurBasyardimcisi === 0, String(mudursuz.mudurBasyardimcisi));
+}
+
+/* ---- 3b) Norm üretiliyorsa arayüz/rapor satırı GÖRÜNMELİ -------------- */
+/* Ünvan genel olarak kapalı olduğu için arayüz ve raporlar başyardımcı
+   satırını `mudurBasyardimcisiAktif === false` bayrağına bakarak gizliyor.
+   Kutu işaretlendiğinde norm üretilip satır yine gizli kalırsa, okul
+   girdiği bilgiyi hiçbir yerde göremez. (Kullanıcı bildirimi, 05.09.2026.) */
+{
+    const acik = idareci({ isPansiyonluBasyrd: true });
+    kontrol("başyardımcı bildirildiğinde satır görünür oluyor",
+        acik.mudurBasyardimcisiAktif === true, String(acik.mudurBasyardimcisiAktif));
+    kontrol("bildirilen başyardımcı karşılaştırma tablosuna da giriyor",
+        acik.karsilastirma && acik.karsilastirma.mudurBasyardimcisi.norm === 1,
+        JSON.stringify(acik.karsilastirma && acik.karsilastirma.mudurBasyardimcisi));
+
+    const kapali = idareci({ isPansiyonluMdrYrd: true });
+    kontrol("bildirilmediğinde satır yine gizli (ünvan kapalı)",
+        kapali.mudurBasyardimcisiAktif === false, String(kapali.mudurBasyardimcisiAktif));
 }
 
 /* ---- 4) Arayüzde iki ayrı kutu var mı? ------------------------------- */
@@ -168,6 +187,28 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
         /isPansiyonluMdrYrd:/.test(ui) && /isPansiyonluBasyrd:/.test(ui));
     kontrol("yatılı kutusunun açıklamasında artık başyardımcı yazmıyor",
         !/Yatılı veya Pansiyonlu Kurum<\/strong>[\s\S]{0,200}Müdür Başyardımcısı/.test(ui));
+
+    // Kutu işaretlenince "mevcut başyardımcı" sayısı da girilebilmeli;
+    // eskiden bu alan `type="hidden"` ve sabit 0 idi.
+    kontrol("mevcut başyardımcı alanı artık gizli/sabit 0 değil",
+        !/<input type="hidden" id="inp-mevcut-basyrd"/.test(ui));
+    kontrol("mevcut başyardımcı alanı sayı girişi olarak duruyor",
+        /id="inp-mevcut-basyrd"[^>]*min="0"/.test(ui)
+        || /type="number" id="inp-mevcut-basyrd"/.test(ui));
+    kontrol("alanın görünürlüğü kutuya bağlandı",
+        /wrap-mevcut-basyrd/.test(ui) && /syncBasyrdSutunu/.test(ui));
+
+    // Kutu, canlı önizleme dinleyicilerine eklenmemişti: işaretlenince
+    // pencere içindeki norm önizlemesi güncellenmiyordu.
+    kontrol("başyardımcı kutusu canlı önizlemeyi tetikliyor",
+        /"chk-admin-pansiyon-basyrd",/.test(ui));
+}
+
+/* ---- 5) Raporlar satırı bayrağa göre gösteriyor mu? ------------------- */
+{
+    const re = fs.readFileSync(path.join(KOK, "js", "reportsEngine.js"), "utf8");
+    kontrol("Excel/CSV çıktısı başyardımcı satırını bayrağa bağlıyor",
+        (re.match(/mudurBasyardimcisiAktif !== false/g) || []).length >= 2);
 }
 
 /* ---- sonuç ------------------------------------------------------------ */

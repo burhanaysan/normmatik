@@ -1395,7 +1395,12 @@ export class NormEngine {
             mudur: mudurNorm,
             mudurBasyardimcisi: mudurBasYrd,
             // Arayüz ve raporlar bu bayrağa bakarak başyardımcı satırını gizler.
-            mudurBasyardimcisiAktif: basyrdAktif,
+            //
+            // Ünvan genel olarak kapalı olsa da, yatılı/pansiyonlu kurum
+            // "görevi süren başyardımcım var" dediyse satır GERİ GELMELİ:
+            // aksi hâlde norm üretiliyor ama arayüzde ve raporda hiçbir
+            // yerde görünmüyordu. (Kullanıcı bildirimi, 05.09.2026.)
+            mudurBasyardimcisiAktif: basyrdAktif || pansiyonBasyrd,
             mudurYardimcisiBase: baseMdrYrd,
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
