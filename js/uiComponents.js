@@ -2383,10 +2383,25 @@ export class UIComponentManager {
                         <div id="staff-admin-tab" class="staff-tab-content" style="display: none;">
                             <div style="display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.85rem;">
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-pansiyon" ${adminOpts.isPansiyonlu ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <input type="checkbox" id="chk-admin-pansiyon" ${(adminOpts.isPansiyonluMdrYrd !== undefined ? adminOpts.isPansiyonluMdrYrd : adminOpts.isPansiyonlu) ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
                                         <strong>🛏️ Yatılı veya Pansiyonlu Kurum</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a) & +1 İlave Müdür Yardımcısı (Md. 14/1-a)</div>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 İlave Müdür Yardımcısı (Md. 14/1-a) &amp; 1 Rehber Öğretmen (Md. 21/2-ç)</div>
+                                    </div>
+                                </label>
+
+                                <!-- MÜDÜR BAŞYARDIMCISI — AYRI SEÇENEK
+                                     Ünvan genel olarak kaldırıldı, ama görev süresi bitene
+                                     kadar okulda çalışmaya devam eden başyardımcılar var ve
+                                     bunlar yalnızca yatılı/pansiyonlu kurumlarda bulunuyor.
+                                     Yatılı olup başyardımcısı AYRILMIŞ kurumlar bu kutuyu
+                                     işaretlemez; üstteki kutu ile +1 müdür yardımcısı hakkı
+                                     yine de sürer. (Kullanıcı kararı, 05.09.2026.) -->
+                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                                    <input type="checkbox" id="chk-admin-pansiyon-basyrd" ${adminOpts.isPansiyonluBasyrd ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <div>
+                                        <strong>🧑‍💼 Yatılı/Pansiyonlu Kurum — Görevi Süren Müdür Başyardımcısı Var</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a). Ünvan kaldırıldığı için yalnızca görevi devam eden başyardımcısı bulunan yatılı/pansiyonlu kurumlar işaretler.</div>
                                     </div>
                                 </label>
 
@@ -2591,7 +2606,8 @@ export class UIComponentManager {
                 if (!previewEl) return;
 
                 const opts = {
-                    isPansiyonlu: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                    isPansiyonluMdrYrd: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluBasyrd: !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked,
                     hasDonerSermaye: !!document.getElementById("chk-admin-doner")?.checked,
                     isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                     hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
@@ -2778,7 +2794,8 @@ export class UIComponentManager {
             });
 
             const adminOptsToSave = {
-                isPansiyonlu: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluMdrYrd: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluBasyrd: !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked,
                 hasDonerSermaye: !!document.getElementById("chk-admin-doner")?.checked,
                 isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                 hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,

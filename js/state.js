@@ -37,7 +37,8 @@ export class AppStateService {
                     onaylayanAdSoyad: ""
                 },
                 adminOptions: {
-                    isPansiyonlu: false,
+                    isPansiyonluMdrYrd: false,
+                    isPansiyonluBasyrd: false,
                     hasDonerSermaye: false,
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
@@ -250,7 +251,8 @@ export class AppStateService {
                     onaylayanAdSoyad: "Burhan AYSAN"
                 },
                 adminOptions: {
-                    isPansiyonlu: false,
+                    isPansiyonluMdrYrd: false,
+                    isPansiyonluBasyrd: false,
                     hasDonerSermaye: false,
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,

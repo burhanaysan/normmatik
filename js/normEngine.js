@@ -1146,6 +1146,32 @@ export class NormEngine {
      * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isTasimaMerkezi, isBirlestirilmis }
      * @returns {Object} Detaylı yönetici norm raporu
      */
+    /**
+     * Kurum YATILI/PANSİYONLU mu? (müdür yardımcısı ve rehber öğretmen için)
+     *
+     * 05.09.2026'da tek kutu ikiye ayrıldı:
+     *   isPansiyonluMdrYrd  -> Md. 14/1-a (+1 müdür yardımcısı) ve
+     *                          Md. 21/2-ç (rehber öğretmen). Kurumun yatılı
+     *                          OLMASINDAN doğar; her zaman geçerlidir.
+     *   isPansiyonluBasyrd  -> Md. 6/1-a (müdür başyardımcısı). Yalnızca
+     *                          görevi süren bir başyardımcı VARSA işaretlenir.
+     *
+     * Sebep (kullanıcı bildirimi): bazı yatılı kurumlarda görev süresi biten
+     * müdür başyardımcıları ayrıldı, ama kurum yatılı olduğu için +1 müdür
+     * yardımcısı hakkı sürüyor. Tek kutu ikisini birbirine bağlıyordu.
+     *
+     * GERİYE DÖNÜK UYUM: eski kayıtlarda yalnızca `isPansiyonlu` var. O
+     * kayıtlar müdür yardımcısı/rehber tarafında AYNEN devam etsin diye
+     * buraya düşürülür. Başyardımcı tarafına düşürülmez: ünvan zaten kapalı
+     * olduğu için bugün 0 üretiyor, düşürseydik mevcut okullara sessizce
+     * +1 norm eklenirdi.
+     */
+    _pansiyonMdrYrd(options) {
+        if (!options) return false;
+        if (options.isPansiyonluMdrYrd !== undefined) return !!options.isPansiyonluMdrYrd;
+        return !!options.isPansiyonlu;   // eski kayıt
+    }
+
     calculateAdminNorms(schoolType = "", totalStudents = 0, options = {}) {
         const sType = String(schoolType || "").toLowerCase();
         const isMesem = sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem");
@@ -1227,7 +1253,7 @@ export class NormEngine {
         let extraMdrYrd = 0;
         const extraDetails = [];
 
-        if (options.isPansiyonlu) {
+        if (this._pansiyonMdrYrd(options)) {
             extraMdrYrd += 1;
             extraDetails.push("Yatılı/Pansiyonlu Kurum (+1 Md. 14/1-a)");
         }
@@ -1309,8 +1335,27 @@ export class NormEngine {
         //     normEngine.mudurBasyardimcisiUnvaniYururlukte = true;
         const basyrdAktif = this.mudurBasyardimcisiUnvaniYururlukte !== false;
 
+        // YATILI/PANSİYONLU KURUMLARDA ELLE GİRİŞ — GEÇİŞ HÜKMÜ
+        //
+        // Ünvan genel olarak kapalı (yukarıdaki gerekçe). Ancak görev süresi
+        // bitene kadar okulda çalışmaya devam eden müdür başyardımcıları var
+        // ve bunlar YALNIZCA yatılı/pansiyonlu kurumlarda bulunuyor. Bu
+        // durumdaki okullar normu elle ekleyebilsin diye ayrı bir seçenek
+        // konuldu; işaretlenmemişse hiçbir şey değişmez.
+        // (Kullanıcı kararı, 05.09.2026.)
+        //
+        // Seçenek, ünvanın genel olarak kapalı olmasından BAĞIMSIZ çalışır:
+        // genel kapatma varsayılandır, bu kutu ise okulun bildirdiği fiilî
+        // durumdur.
+        const pansiyonBasyrd = !!options.isPansiyonluBasyrd;
+
         let mudurBasYrd = 0;
-        if (!basyrdAktif) {
+        if (pansiyonBasyrd && !isKampusIcinde && mudurNorm > 0) {
+            mudurBasYrd = 1;
+            explanations.push(
+                "Yatılı/Pansiyonlu Kurum — görevi süren müdür başyardımcısı bildirildi: "
+                + "1 Müdür Başyardımcısı normu (Md. 6/1-a).");
+        } else if (!basyrdAktif) {
             // Ünvan kapalı: norm üretilmez, açıklama da yazılmaz (raporda
             // hiç görünmemesi isteniyor).
         } else if (isKampusIcinde) {
@@ -1412,7 +1457,7 @@ export class NormEngine {
         // eklenmesi) YALNIZCA müdür yardımcısı normu için yazılmıştır. Madde 21'de böyle
         // bir hüküm yok; bu yüzden buraya eklenmiyor.
         let ilkNorm = 0;
-        if (options.isPansiyonlu) {
+        if (this._pansiyonMdrYrd(options)) {
             ilkNorm = 1;
             explanations.push("Yatılı/pansiyonlu eğitim kurumu: öğrenci sayısına bakılmaksızın 1 rehber öğretmen normu (Md. 21/2-ç).");
         } else if (count >= esik) {

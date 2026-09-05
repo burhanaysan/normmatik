@@ -166449,6 +166449,32 @@ class NormEngine {
      * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isTasimaMerkezi, isBirlestirilmis }
      * @returns {Object} Detaylı yönetici norm raporu
      */
+    /**
+     * Kurum YATILI/PANSİYONLU mu? (müdür yardımcısı ve rehber öğretmen için)
+     *
+     * 05.09.2026'da tek kutu ikiye ayrıldı:
+     *   isPansiyonluMdrYrd  -> Md. 14/1-a (+1 müdür yardımcısı) ve
+     *                          Md. 21/2-ç (rehber öğretmen). Kurumun yatılı
+     *                          OLMASINDAN doğar; her zaman geçerlidir.
+     *   isPansiyonluBasyrd  -> Md. 6/1-a (müdür başyardımcısı). Yalnızca
+     *                          görevi süren bir başyardımcı VARSA işaretlenir.
+     *
+     * Sebep (kullanıcı bildirimi): bazı yatılı kurumlarda görev süresi biten
+     * müdür başyardımcıları ayrıldı, ama kurum yatılı olduğu için +1 müdür
+     * yardımcısı hakkı sürüyor. Tek kutu ikisini birbirine bağlıyordu.
+     *
+     * GERİYE DÖNÜK UYUM: eski kayıtlarda yalnızca `isPansiyonlu` var. O
+     * kayıtlar müdür yardımcısı/rehber tarafında AYNEN devam etsin diye
+     * buraya düşürülür. Başyardımcı tarafına düşürülmez: ünvan zaten kapalı
+     * olduğu için bugün 0 üretiyor, düşürseydik mevcut okullara sessizce
+     * +1 norm eklenirdi.
+     */
+    _pansiyonMdrYrd(options) {
+        if (!options) return false;
+        if (options.isPansiyonluMdrYrd !== undefined) return !!options.isPansiyonluMdrYrd;
+        return !!options.isPansiyonlu;   // eski kayıt
+    }
+
     calculateAdminNorms(schoolType = "", totalStudents = 0, options = {}) {
         const sType = String(schoolType || "").toLowerCase();
         const isMesem = sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem");
@@ -166530,7 +166556,7 @@ class NormEngine {
         let extraMdrYrd = 0;
         const extraDetails = [];
 
-        if (options.isPansiyonlu) {
+        if (this._pansiyonMdrYrd(options)) {
             extraMdrYrd += 1;
             extraDetails.push("Yatılı/Pansiyonlu Kurum (+1 Md. 14/1-a)");
         }
@@ -166612,8 +166638,27 @@ class NormEngine {
         //     normEngine.mudurBasyardimcisiUnvaniYururlukte = true;
         const basyrdAktif = this.mudurBasyardimcisiUnvaniYururlukte !== false;
 
+        // YATILI/PANSİYONLU KURUMLARDA ELLE GİRİŞ — GEÇİŞ HÜKMÜ
+        //
+        // Ünvan genel olarak kapalı (yukarıdaki gerekçe). Ancak görev süresi
+        // bitene kadar okulda çalışmaya devam eden müdür başyardımcıları var
+        // ve bunlar YALNIZCA yatılı/pansiyonlu kurumlarda bulunuyor. Bu
+        // durumdaki okullar normu elle ekleyebilsin diye ayrı bir seçenek
+        // konuldu; işaretlenmemişse hiçbir şey değişmez.
+        // (Kullanıcı kararı, 05.09.2026.)
+        //
+        // Seçenek, ünvanın genel olarak kapalı olmasından BAĞIMSIZ çalışır:
+        // genel kapatma varsayılandır, bu kutu ise okulun bildirdiği fiilî
+        // durumdur.
+        const pansiyonBasyrd = !!options.isPansiyonluBasyrd;
+
         let mudurBasYrd = 0;
-        if (!basyrdAktif) {
+        if (pansiyonBasyrd && !isKampusIcinde && mudurNorm > 0) {
+            mudurBasYrd = 1;
+            explanations.push(
+                "Yatılı/Pansiyonlu Kurum — görevi süren müdür başyardımcısı bildirildi: "
+                + "1 Müdür Başyardımcısı normu (Md. 6/1-a).");
+        } else if (!basyrdAktif) {
             // Ünvan kapalı: norm üretilmez, açıklama da yazılmaz (raporda
             // hiç görünmemesi isteniyor).
         } else if (isKampusIcinde) {
@@ -166715,7 +166760,7 @@ class NormEngine {
         // eklenmesi) YALNIZCA müdür yardımcısı normu için yazılmıştır. Madde 21'de böyle
         // bir hüküm yok; bu yüzden buraya eklenmiyor.
         let ilkNorm = 0;
-        if (options.isPansiyonlu) {
+        if (this._pansiyonMdrYrd(options)) {
             ilkNorm = 1;
             explanations.push("Yatılı/pansiyonlu eğitim kurumu: öğrenci sayısına bakılmaksızın 1 rehber öğretmen normu (Md. 21/2-ç).");
         } else if (count >= esik) {
@@ -168490,7 +168535,8 @@ class AppStateService {
                     onaylayanAdSoyad: ""
                 },
                 adminOptions: {
-                    isPansiyonlu: false,
+                    isPansiyonluMdrYrd: false,
+                    isPansiyonluBasyrd: false,
                     hasDonerSermaye: false,
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
@@ -168703,7 +168749,8 @@ class AppStateService {
                     onaylayanAdSoyad: "Burhan AYSAN"
                 },
                 adminOptions: {
-                    isPansiyonlu: false,
+                    isPansiyonluMdrYrd: false,
+                    isPansiyonluBasyrd: false,
                     hasDonerSermaye: false,
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
@@ -172815,10 +172862,25 @@ class UIComponentManager {
                         <div id="staff-admin-tab" class="staff-tab-content" style="display: none;">
                             <div style="display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.85rem;">
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-pansiyon" ${adminOpts.isPansiyonlu ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <input type="checkbox" id="chk-admin-pansiyon" ${(adminOpts.isPansiyonluMdrYrd !== undefined ? adminOpts.isPansiyonluMdrYrd : adminOpts.isPansiyonlu) ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
                                         <strong>🛏️ Yatılı veya Pansiyonlu Kurum</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a) & +1 İlave Müdür Yardımcısı (Md. 14/1-a)</div>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 İlave Müdür Yardımcısı (Md. 14/1-a) &amp; 1 Rehber Öğretmen (Md. 21/2-ç)</div>
+                                    </div>
+                                </label>
+
+                                <!-- MÜDÜR BAŞYARDIMCISI — AYRI SEÇENEK
+                                     Ünvan genel olarak kaldırıldı, ama görev süresi bitene
+                                     kadar okulda çalışmaya devam eden başyardımcılar var ve
+                                     bunlar yalnızca yatılı/pansiyonlu kurumlarda bulunuyor.
+                                     Yatılı olup başyardımcısı AYRILMIŞ kurumlar bu kutuyu
+                                     işaretlemez; üstteki kutu ile +1 müdür yardımcısı hakkı
+                                     yine de sürer. (Kullanıcı kararı, 05.09.2026.) -->
+                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                                    <input type="checkbox" id="chk-admin-pansiyon-basyrd" ${adminOpts.isPansiyonluBasyrd ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <div>
+                                        <strong>🧑‍💼 Yatılı/Pansiyonlu Kurum — Görevi Süren Müdür Başyardımcısı Var</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a). Ünvan kaldırıldığı için yalnızca görevi devam eden başyardımcısı bulunan yatılı/pansiyonlu kurumlar işaretler.</div>
                                     </div>
                                 </label>
 
@@ -173023,7 +173085,8 @@ class UIComponentManager {
                 if (!previewEl) return;
 
                 const opts = {
-                    isPansiyonlu: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                    isPansiyonluMdrYrd: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluBasyrd: !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked,
                     hasDonerSermaye: !!document.getElementById("chk-admin-doner")?.checked,
                     isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                     hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
@@ -173210,7 +173273,8 @@ class UIComponentManager {
             });
 
             const adminOptsToSave = {
-                isPansiyonlu: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluMdrYrd: !!document.getElementById("chk-admin-pansiyon")?.checked,
+                isPansiyonluBasyrd: !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked,
                 hasDonerSermaye: !!document.getElementById("chk-admin-doner")?.checked,
                 isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                 hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
