@@ -2087,6 +2087,110 @@ export class UIComponentManager {
         });
     }
 
+    /**
+     * "Hedef Temelli Destek Eğitimi" saat dağıtımı penceresi.
+     *
+     * Çizelge açıklaması: ders, okul idaresince planlanır ve 16 dersten oluşan
+     * bir listeden DERS BAŞINA EN AZ 1, EN FAZLA 3 SAAT verilerek uygulanır.
+     * Şubenin 3-6 saatlik hakkı bu branşlara PAYLAŞTIRILIR — çarpılmaz.
+     * (Okul müdürü teyidi, 28.08.2026: "3 saati üçe bölüp 1'er saat farklı
+     * branşlardan verdik.")
+     *
+     * Pencere kullanıldı çünkü seçim iki boyutlu: hangi branş VE kaç saat.
+     * Ders satırındaki dar hücreye on branş + saat kutusu sığmazdı.
+     */
+    openHedefTemelliModal(section, courseName) {
+        const tumDersler = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])];
+        const ders = tumDersler.find(d => (d.ders || d.ders_adi) === courseName);
+        if (!ders) return;
+
+        const hak = parseInt(ders.saat || ders.ders_saati || 0, 10) || 0;
+        const { branslar, enAz, enFazla } = this.normEngine.hedefTemelliBranslari();
+        const mevcut = (ders.bransDagilimi && typeof ders.bransDagilimi === "object")
+            ? ders.bransDagilimi : {};
+
+        if (!branslar.length) {
+            this.showToast("Kapsam listesi yüklenemedi; dağıtım yapılamıyor.", "error");
+            return;
+        }
+
+        const satirlar = branslar.map(b => {
+            const s = parseInt(mevcut[b], 10) || 0;
+            const secenekler = [0];
+            for (let i = enAz; i <= enFazla; i++) secenekler.push(i);
+            return `
+                <label style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.45rem 0.7rem; background: var(--bg-card-subtle); border: 1px solid var(--border-main); border-radius: var(--radius-md); margin-bottom: 0.35rem;">
+                    <span style="font-weight: 700; color: var(--text-main); font-size: 0.85rem;">${b}</span>
+                    <select class="form-control ht-saat" data-brans="${b}" style="width: 108px; font-size: 0.8rem; padding: 0.25rem 0.4rem;">
+                        ${secenekler.map(v => `<option value="${v}" ${v === s ? 'selected' : ''}>${v === 0 ? '—' : v + ' saat'}</option>`).join("")}
+                    </select>
+                </label>
+            `;
+        }).join("");
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="hedef-temelli-modal">
+                <div class="modal-box" style="max-width: 520px;">
+                    <div class="modal-header">
+                        <div class="modal-title">🎯 Hedef Temelli Destek Eğitimi — Saat Dağıtımı</div>
+                        <button class="modal-close-btn" onclick="document.getElementById('hedef-temelli-modal').remove()">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem; line-height: 1.45;">
+                            <strong>${section.subeAdi}</strong> şubesinin bu dersteki hakkı
+                            <strong>${hak} saat</strong>. Çizelge, bu saatin aşağıdaki derslerden
+                            <strong>ders başına en az ${enAz}, en fazla ${enFazla} saat</strong>
+                            verilerek kullanılacağını söyler. Dağıttığınız saatler
+                            <strong>toplanır, çarpılmaz</strong>: 3 saati üç branşa 1'er saat
+                            verirseniz okulun yükü yine 3 saattir.
+                        </p>
+                        <div id="ht-uyari" style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6rem;"></div>
+                        <div style="max-height: 320px; overflow-y: auto;">${satirlar}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" onclick="document.getElementById('hedef-temelli-modal').remove()">Vazgeç</button>
+                        <button class="btn btn-primary" id="btn-save-hedef-temelli">Kaydet ve Kapat</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+
+        const uyariEl = document.getElementById("ht-uyari");
+        const kaydetBtn = document.getElementById("btn-save-hedef-temelli");
+        const topla = () => [...document.querySelectorAll(".ht-saat")]
+            .reduce((a, s) => a + (parseInt(s.value, 10) || 0), 0);
+
+        // Toplam hakkı aşarsa kaydetmeye izin verilmez. Aşan dağıtımı sessizce
+        // kırpmak, idarecinin girdiğinden farklı bir sonuç üretirdi.
+        const tazele = () => {
+            const t = topla();
+            const asim = t > hak;
+            uyariEl.textContent = asim
+                ? `Dağıtılan ${t} saat, şubenin ${hak} saatlik hakkını aşıyor.`
+                : `Dağıtılan: ${t} / ${hak} saat`;
+            uyariEl.style.color = asim ? "#b91c1c" : "var(--text-muted)";
+            kaydetBtn.disabled = asim;
+            kaydetBtn.style.opacity = asim ? "0.5" : "1";
+        };
+        document.querySelectorAll(".ht-saat").forEach(s => s.addEventListener("change", tazele));
+        tazele();
+
+        kaydetBtn.addEventListener("click", () => {
+            const dagilim = {};
+            document.querySelectorAll(".ht-saat").forEach(s => {
+                const v = parseInt(s.value, 10) || 0;
+                if (v > 0) dagilim[s.dataset.brans] = v;
+            });
+            this.state.updateCourseBranchDistribution(section.id, courseName, dagilim);
+            this.closeModal("hedef-temelli-modal");
+            const n = Object.keys(dagilim).length;
+            this.showToast(n
+                ? `🎯 Saat dağıtımı kaydedildi: ${Object.entries(dagilim).map(([b, s]) => b + " " + s + "s").join(", ")}.`
+                : "Saat dağıtımı kaldırıldı.", "success");
+        });
+    }
+
     openTeacherStaffModal() {
         const currentTeachers = this.state.state.mevcutOgretmenler || {};
         const coordinatorMap = this.state.state.koordinatorlukYukleri || {};

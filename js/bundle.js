@@ -163348,6 +163348,45 @@ const OZEL_EGITIM_CIZELGELERI = {
     }
 };
 
+// ==================== hedef_temelli_dersler.js ====================
+
+/* ===========================================================================
+   OTOMATİK ÜRETİLMİŞTİR — ELLE DÜZENLEMEYİN
+   Üreteç : tools/uret_hedef_temelli.py
+   Kaynak : TTKB haftalık ders çizelgeleri (taslak DAMGASIZ iki belge)
+            spor_lisesi_haftalik_ders_cizelgesi.pdf
+            ozel_program_uygulayan_fen_lisesi_haftalik_ders_cizelgesi.pdf
+
+   12. sınıf "Hedef Temelli Destek Eğitimi" dersinin kapsamı.
+   Şubenin 3-6 saatlik hakkı, aşağıdaki derslere PAYLAŞTIRILIR;
+   ders başına en az 1, en fazla 3 saat verilir.
+   Toplam çarpılmaz: 3 saat üç branşa 1'er saat olarak dağıtılırsa
+   okulun yükü yine 3 saattir (okul müdürü teyidi, 28.08.2026).
+   ======================================================================== */
+const HEDEF_TEMELLI = {
+    dersAdi: "Hedef Temelli Destek Eğitimi",
+    enAzSaat: 1,
+    enFazlaSaat: 3,
+    kapsamDersleri: [
+        "Türk dili ve edebiyatı",
+        "fizik",
+        "kimya",
+        "biyoloji",
+        "tarih",
+        "coğrafya",
+        "felsefe",
+        "matematik",
+        "sosyoloji",
+        "psikoloji",
+        "mantık",
+        "birinci yabancı dil",
+        "çağdaş Türk ve dünya tarihi",
+        "T.C. inkılap tarihi ve Atatürkçülük",
+        "din kültürü ve ahlak bilgisi",
+        "Türk kültür ve medeniyet tarihi",
+    ]
+};
+
 // ==================== ozel_program_temalari.js ====================
 
 /* ===========================================================================
@@ -165518,6 +165557,61 @@ class NormEngine {
     }
 
     /**
+     * "Hedef Temelli Destek Eğitimi" dersi mi?
+     *
+     * 12. sınıf çizelgelerinde 3/4/5/6 saat seçenekli yer alır. Türkçe büyük
+     * harf tuzağı yüzünden düz .toLowerCase() ile aranmaz: "TEMELLİ" küçültünce
+     * i'nin üstüne ayrı bir nokta karakteri gelir ve eşleşme kaçar. (Bu hataya
+     * bu dersi ararken bizzat düşüldü.)
+     */
+    hedefTemelliMi(course) {
+        const ad = String(course && (course.ders || course.ders_adi) || "")
+            .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i").toLowerCase();
+        return ad.includes("hedef temelli");
+    }
+
+    /**
+     * Bu dersin saatinin paylaştırılabileceği branşlar ve saat sınırları.
+     *
+     * Çizelge açıklaması (TTKB, taslak damgasız iki belgeden doğrulandı):
+     *   "Hedef temelli destek eğitimi ... okul idarelerince planlamanın
+     *    yapılacağı derstir. İçeriğinde Türk dili ve edebiyatı, fizik, kimya,
+     *    biyoloji, tarih, coğrafya, felsefe, matematik, sosyoloji, psikoloji,
+     *    mantık, birinci yabancı dil, çağdaş Türk ve dünya tarihi, T.C. inkılap
+     *    tarihi ve Atatürkçülük, din kültürü ve ahlak bilgisi ile Türk kültür
+     *    ve medeniyet tarihi derslerinden DERS BAŞINA EN AZ 1, EN FAZLA 3 SAAT
+     *    verilerek ... program uygulanır."
+     *
+     * 16 ders adı, uygulamanın kendi branş listesine çözülüp tekilleştirilir
+     * (sosyoloji/psikoloji/mantık -> Felsefe; inkılap tarihi -> Tarih gibi):
+     * 10 branş kalır. Liste ELLE YAZILMAZ — tools/uret_hedef_temelli.py
+     * çizelgelerden üretir.
+     */
+    hedefTemelliBranslari() {
+        const H = (typeof window !== 'undefined' && window.HEDEF_TEMELLI)
+            ? window.HEDEF_TEMELLI
+            : (typeof HEDEF_TEMELLI !== 'undefined' ? HEDEF_TEMELLI : null);
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        if (!H || !ce || typeof ce.isKnownBranch !== 'function') {
+            return { branslar: [], enAz: 1, enFazla: 3 };
+        }
+        const branslar = [];
+        for (const d of (H.kapsamDersleri || [])) {
+            let b = "";
+            try { b = (ce.getCanonicalCourseAndBranch(d, null, null, "ORTAK DERSLER") || {}).branchName || ""; }
+            catch (e) { continue; }
+            if (b && ce.isKnownBranch(b) && !branslar.includes(b)) branslar.push(b);
+        }
+        return {
+            branslar,
+            enAz: H.enAzSaat || 1,
+            enFazla: H.enFazlaSaat || 3
+        };
+    }
+
+    /**
      * Bir ders kaydını, okulun seçtiği branş sayısı kadar kayda genişletir.
      *
      * Bölme YAPILMAZSA (varsayılan) tek kayıt döner — bugünkü davranış.
@@ -165530,6 +165624,41 @@ class NormEngine {
      * unutulurdu — bu projede tam olarak o hata defalarca yaşandı.
      */
     dersiGenislet(course) {
+        // A) SAAT PAYLAŞTIRMA — "Hedef Temelli Destek Eğitimi"
+        //
+        // Buradaki mantık, aşağıdaki eğik çizgi bölmesinin TERSİDİR:
+        //   eğik çizgi : 2 saat x 2 branş = 4 saat  (ÇARPAR)
+        //   hedef temelli: 3 saat -> 1+1+1          (PAYLAŞTIRIR)
+        // Çünkü şubenin çizelgeden gelen 3-6 saatlik hakkı, seçilen derslere
+        // bölünerek kullanılır; toplam artmaz. (Okul müdürü teyidi, 28.08.2026:
+        // "3 saati üçe bölüp 1'er saat farklı branşlardan verdik.")
+        const dagilim = (course && course.bransDagilimi && typeof course.bransDagilimi === "object")
+            ? course.bransDagilimi : null;
+        if (dagilim && this.hedefTemelliMi(course)) {
+            const { branslar, enAz, enFazla } = this.hedefTemelliBranslari();
+            const toplamHak = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            const kayitlar = [];
+            let kullanilan = 0;
+            for (const [brans, ham] of Object.entries(dagilim)) {
+                const saat = parseInt(ham, 10);
+                if (!Number.isFinite(saat) || saat < enAz) continue;
+                if (!branslar.includes(brans)) continue;          // kapsam dışı branş
+                const kirpilmis = Math.min(saat, enFazla);        // mevzuat tavanı
+                if (kullanilan + kirpilmis > toplamHak) continue;  // hakkı aşamaz
+                kullanilan += kirpilmis;
+                kayitlar.push(Object.assign({}, course, {
+                    atananBrans: brans,
+                    saat: kirpilmis,
+                    _dagitilmisBrans: brans
+                }));
+            }
+            if (kayitlar.length) return kayitlar;
+            // Geçerli dağıtım yoksa dersi olduğu gibi bırak; sessizce
+            // kaybetmek en kötüsü olurdu.
+            return [course];
+        }
+
+        // B) EĞİK ÇİZGİLİ DERSLERDE BRANŞA BÖLME (çarpan)
         const secilen = (course && Array.isArray(course.bolunenBranslar))
             ? course.bolunenBranslar.filter(Boolean) : [];
         if (secilen.length < 2) return [course];
@@ -169204,6 +169333,40 @@ class AppStateService {
         this.notify();
     }
 
+    /**
+     * "Hedef Temelli Destek Eğitimi" saatini branşlara PAYLAŞTIRIR.
+     *
+     * dagilim: { "Matematik": 1, "Fizik": 1, "Kimya": 1 }
+     * Boş nesne/null verilirse paylaştırma kaldırılır.
+     *
+     * Eğik çizgili derslerdeki bölmeden farklıdır: orada saat ÇARPILIR (her
+     * öğretmen kendi grubuna tam saati okutur), burada PAYLAŞTIRILIR (şubenin
+     * 3-6 saatlik hakkı bölünür, toplam artmaz).
+     */
+    updateCourseBranchDistribution(sectionId, courseName, dagilim) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const temiz = {};
+            for (const [b, s] of Object.entries(dagilim || {})) {
+                const n = parseInt(s, 10);
+                if (b && Number.isFinite(n) && n >= 1) temiz[b] = n;
+            }
+            if (Object.keys(temiz).length) target.bransDagilimi = temiz;
+            else delete target.bransDagilimi;
+        }
+        this.notify();
+    }
+
     // --- Sınıf Birleştirme (Course Merging) ---
     toggleCourseMerge(sectionId, courseName, targetSectionId) {
         if (!this._subeKilidiniDenetle(sectionId)) return;
@@ -172067,6 +172230,110 @@ class UIComponentManager {
             });
             this.closeModal("course-merge-modal");
             this.showToast("Sınıf birleştirme ayarları güncellendi.", "success");
+        });
+    }
+
+    /**
+     * "Hedef Temelli Destek Eğitimi" saat dağıtımı penceresi.
+     *
+     * Çizelge açıklaması: ders, okul idaresince planlanır ve 16 dersten oluşan
+     * bir listeden DERS BAŞINA EN AZ 1, EN FAZLA 3 SAAT verilerek uygulanır.
+     * Şubenin 3-6 saatlik hakkı bu branşlara PAYLAŞTIRILIR — çarpılmaz.
+     * (Okul müdürü teyidi, 28.08.2026: "3 saati üçe bölüp 1'er saat farklı
+     * branşlardan verdik.")
+     *
+     * Pencere kullanıldı çünkü seçim iki boyutlu: hangi branş VE kaç saat.
+     * Ders satırındaki dar hücreye on branş + saat kutusu sığmazdı.
+     */
+    openHedefTemelliModal(section, courseName) {
+        const tumDersler = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])];
+        const ders = tumDersler.find(d => (d.ders || d.ders_adi) === courseName);
+        if (!ders) return;
+
+        const hak = parseInt(ders.saat || ders.ders_saati || 0, 10) || 0;
+        const { branslar, enAz, enFazla } = this.normEngine.hedefTemelliBranslari();
+        const mevcut = (ders.bransDagilimi && typeof ders.bransDagilimi === "object")
+            ? ders.bransDagilimi : {};
+
+        if (!branslar.length) {
+            this.showToast("Kapsam listesi yüklenemedi; dağıtım yapılamıyor.", "error");
+            return;
+        }
+
+        const satirlar = branslar.map(b => {
+            const s = parseInt(mevcut[b], 10) || 0;
+            const secenekler = [0];
+            for (let i = enAz; i <= enFazla; i++) secenekler.push(i);
+            return `
+                <label style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.45rem 0.7rem; background: var(--bg-card-subtle); border: 1px solid var(--border-main); border-radius: var(--radius-md); margin-bottom: 0.35rem;">
+                    <span style="font-weight: 700; color: var(--text-main); font-size: 0.85rem;">${b}</span>
+                    <select class="form-control ht-saat" data-brans="${b}" style="width: 108px; font-size: 0.8rem; padding: 0.25rem 0.4rem;">
+                        ${secenekler.map(v => `<option value="${v}" ${v === s ? 'selected' : ''}>${v === 0 ? '—' : v + ' saat'}</option>`).join("")}
+                    </select>
+                </label>
+            `;
+        }).join("");
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="hedef-temelli-modal">
+                <div class="modal-box" style="max-width: 520px;">
+                    <div class="modal-header">
+                        <div class="modal-title">🎯 Hedef Temelli Destek Eğitimi — Saat Dağıtımı</div>
+                        <button class="modal-close-btn" onclick="document.getElementById('hedef-temelli-modal').remove()">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem; line-height: 1.45;">
+                            <strong>${section.subeAdi}</strong> şubesinin bu dersteki hakkı
+                            <strong>${hak} saat</strong>. Çizelge, bu saatin aşağıdaki derslerden
+                            <strong>ders başına en az ${enAz}, en fazla ${enFazla} saat</strong>
+                            verilerek kullanılacağını söyler. Dağıttığınız saatler
+                            <strong>toplanır, çarpılmaz</strong>: 3 saati üç branşa 1'er saat
+                            verirseniz okulun yükü yine 3 saattir.
+                        </p>
+                        <div id="ht-uyari" style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6rem;"></div>
+                        <div style="max-height: 320px; overflow-y: auto;">${satirlar}</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" onclick="document.getElementById('hedef-temelli-modal').remove()">Vazgeç</button>
+                        <button class="btn btn-primary" id="btn-save-hedef-temelli">Kaydet ve Kapat</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+
+        const uyariEl = document.getElementById("ht-uyari");
+        const kaydetBtn = document.getElementById("btn-save-hedef-temelli");
+        const topla = () => [...document.querySelectorAll(".ht-saat")]
+            .reduce((a, s) => a + (parseInt(s.value, 10) || 0), 0);
+
+        // Toplam hakkı aşarsa kaydetmeye izin verilmez. Aşan dağıtımı sessizce
+        // kırpmak, idarecinin girdiğinden farklı bir sonuç üretirdi.
+        const tazele = () => {
+            const t = topla();
+            const asim = t > hak;
+            uyariEl.textContent = asim
+                ? `Dağıtılan ${t} saat, şubenin ${hak} saatlik hakkını aşıyor.`
+                : `Dağıtılan: ${t} / ${hak} saat`;
+            uyariEl.style.color = asim ? "#b91c1c" : "var(--text-muted)";
+            kaydetBtn.disabled = asim;
+            kaydetBtn.style.opacity = asim ? "0.5" : "1";
+        };
+        document.querySelectorAll(".ht-saat").forEach(s => s.addEventListener("change", tazele));
+        tazele();
+
+        kaydetBtn.addEventListener("click", () => {
+            const dagilim = {};
+            document.querySelectorAll(".ht-saat").forEach(s => {
+                const v = parseInt(s.value, 10) || 0;
+                if (v > 0) dagilim[s.dataset.brans] = v;
+            });
+            this.state.updateCourseBranchDistribution(section.id, courseName, dagilim);
+            this.closeModal("hedef-temelli-modal");
+            const n = Object.keys(dagilim).length;
+            this.showToast(n
+                ? `🎯 Saat dağıtımı kaydedildi: ${Object.entries(dagilim).map(([b, s]) => b + " " + s + "s").join(", ")}.`
+                : "Saat dağıtımı kaldırıldı.", "success");
         });
     }
 
@@ -175665,12 +175932,16 @@ class MebNormApplication {
                 const branchMap = {};
                 const grupMap = {};
                 const bolmeMap = {};
+                const dagilimMap = {};
                 (sec.zorunluDersler || []).forEach(c => {
                     if (c.ders && c.atananBrans) {
                         branchMap[c.ders] = c.atananBrans;
                     }
                     if (c.ders && c.grupSayisi) {
                         grupMap[c.ders] = c.grupSayisi;
+                    }
+                    if (c.ders && c.bransDagilimi && Object.keys(c.bransDagilimi).length) {
+                        dagilimMap[c.ders] = c.bransDagilimi;
                     }
                     if (c.ders && Array.isArray(c.bolunenBranslar) && c.bolunenBranslar.length >= 2) {
                         bolmeMap[c.ders] = c.bolunenBranslar;
@@ -175684,6 +175955,7 @@ class MebNormApplication {
                     };
                     if (grupMap[c.ders]) yeni.grupSayisi = grupMap[c.ders];
                     if (bolmeMap[c.ders]) yeni.bolunenBranslar = bolmeMap[c.ders];
+                    if (dagilimMap[c.ders]) yeni.bransDagilimi = dagilimMap[c.ders];
                     return yeni;
                 });
 
@@ -176557,6 +176829,12 @@ class MebNormApplication {
             });
         });
 
+        document.querySelectorAll(".btn-ht-dagitim").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                this.ui.openHedefTemelliModal(activeSec, e.currentTarget.dataset.course);
+            });
+        });
+
         document.querySelectorAll(".branch-split-chip").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const el = e.currentTarget;
@@ -176745,9 +177023,44 @@ class MebNormApplication {
         // Tek satırda kalıp branşları AÇIP KAPATILABİLİR düğmelerle göstermek,
         // satırı çoğaltmaktan daha okunur: idareci dersi bir kez görür, kimin
         // girdiğini yanında işaretler.
+        // HEDEF TEMELLİ DESTEK EĞİTİMİ — saat dağıtımı
+        //
+        // Bu dersin saati branşlara PAYLAŞTIRILIR (aşağıdaki eğik çizgi
+        // bölmesinin tersi: orada çarpılır). Seçim iki boyutlu — hangi branş ve
+        // kaç saat — bu yüzden dar hücreye sığmaz, pencerede yapılır.
         let bolmeHtml = "";
-        const bolAdaylari = (typeof normEngine.bolunebilirBranslar === 'function')
-            ? normEngine.bolunebilirBranslar(course) : [];
+        if (typeof normEngine.hedefTemelliMi === 'function' && normEngine.hedefTemelliMi(course)) {
+            const dag = (course.bransDagilimi && typeof course.bransDagilimi === 'object')
+                ? course.bransDagilimi : {};
+            const girdiler = Object.entries(dag);
+            const ozet = girdiler.length
+                ? girdiler.map(([b, s]) => `<span class="ht-dagitim-pill">${b} ${s}s</span>`).join("")
+                : `<span class="unassigned-badge">⚪ Dağıtım yapılmadı</span>`;
+            bolmeHtml = `
+                <div class="course-branch-wrapper ht-dagitim-wrapper">
+                    ${ozet}
+                    <button type="button" class="btn-ht-dagitim" data-course="${cName}"
+                            title="Bu dersin saatini branşlara paylaştırın (ders başına 1-3 saat).">
+                        ${girdiler.length ? 'Düzenle' : 'Dağıt'}
+                    </button>
+                </div>
+            `;
+            if (girdiler.length) {
+                const toplam = girdiler.reduce((a, [, s]) => a + (parseInt(s, 10) || 0), 0);
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                        <span class="ht-dagitim-total-pill"
+                              title="${girdiler.length} branşa paylaştırıldı; toplam değişmez.">
+                            ${toplam}s dağıtıldı
+                        </span>
+                    </div>
+                `;
+            }
+        }
+
+        const bolAdaylari = (bolmeHtml || typeof normEngine.bolunebilirBranslar !== 'function')
+            ? [] : normEngine.bolunebilirBranslar(course);
         if (bolAdaylari.length >= 2) {
             const secili = Array.isArray(course.bolunenBranslar) && course.bolunenBranslar.length >= 2
                 ? course.bolunenBranslar.filter(b => bolAdaylari.includes(b))
@@ -177157,6 +177470,7 @@ if (typeof window !== 'undefined') {
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
     if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
+    if (typeof HEDEF_TEMELLI !== 'undefined') window.HEDEF_TEMELLI = HEDEF_TEMELLI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;

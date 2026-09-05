@@ -254,6 +254,61 @@ export class NormEngine {
     }
 
     /**
+     * "Hedef Temelli Destek Eğitimi" dersi mi?
+     *
+     * 12. sınıf çizelgelerinde 3/4/5/6 saat seçenekli yer alır. Türkçe büyük
+     * harf tuzağı yüzünden düz .toLowerCase() ile aranmaz: "TEMELLİ" küçültünce
+     * i'nin üstüne ayrı bir nokta karakteri gelir ve eşleşme kaçar. (Bu hataya
+     * bu dersi ararken bizzat düşüldü.)
+     */
+    hedefTemelliMi(course) {
+        const ad = String(course && (course.ders || course.ders_adi) || "")
+            .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i").toLowerCase();
+        return ad.includes("hedef temelli");
+    }
+
+    /**
+     * Bu dersin saatinin paylaştırılabileceği branşlar ve saat sınırları.
+     *
+     * Çizelge açıklaması (TTKB, taslak damgasız iki belgeden doğrulandı):
+     *   "Hedef temelli destek eğitimi ... okul idarelerince planlamanın
+     *    yapılacağı derstir. İçeriğinde Türk dili ve edebiyatı, fizik, kimya,
+     *    biyoloji, tarih, coğrafya, felsefe, matematik, sosyoloji, psikoloji,
+     *    mantık, birinci yabancı dil, çağdaş Türk ve dünya tarihi, T.C. inkılap
+     *    tarihi ve Atatürkçülük, din kültürü ve ahlak bilgisi ile Türk kültür
+     *    ve medeniyet tarihi derslerinden DERS BAŞINA EN AZ 1, EN FAZLA 3 SAAT
+     *    verilerek ... program uygulanır."
+     *
+     * 16 ders adı, uygulamanın kendi branş listesine çözülüp tekilleştirilir
+     * (sosyoloji/psikoloji/mantık -> Felsefe; inkılap tarihi -> Tarih gibi):
+     * 10 branş kalır. Liste ELLE YAZILMAZ — tools/uret_hedef_temelli.py
+     * çizelgelerden üretir.
+     */
+    hedefTemelliBranslari() {
+        const H = (typeof window !== 'undefined' && window.HEDEF_TEMELLI)
+            ? window.HEDEF_TEMELLI
+            : (typeof HEDEF_TEMELLI !== 'undefined' ? HEDEF_TEMELLI : null);
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        if (!H || !ce || typeof ce.isKnownBranch !== 'function') {
+            return { branslar: [], enAz: 1, enFazla: 3 };
+        }
+        const branslar = [];
+        for (const d of (H.kapsamDersleri || [])) {
+            let b = "";
+            try { b = (ce.getCanonicalCourseAndBranch(d, null, null, "ORTAK DERSLER") || {}).branchName || ""; }
+            catch (e) { continue; }
+            if (b && ce.isKnownBranch(b) && !branslar.includes(b)) branslar.push(b);
+        }
+        return {
+            branslar,
+            enAz: H.enAzSaat || 1,
+            enFazla: H.enFazlaSaat || 3
+        };
+    }
+
+    /**
      * Bir ders kaydını, okulun seçtiği branş sayısı kadar kayda genişletir.
      *
      * Bölme YAPILMAZSA (varsayılan) tek kayıt döner — bugünkü davranış.
@@ -266,6 +321,41 @@ export class NormEngine {
      * unutulurdu — bu projede tam olarak o hata defalarca yaşandı.
      */
     dersiGenislet(course) {
+        // A) SAAT PAYLAŞTIRMA — "Hedef Temelli Destek Eğitimi"
+        //
+        // Buradaki mantık, aşağıdaki eğik çizgi bölmesinin TERSİDİR:
+        //   eğik çizgi : 2 saat x 2 branş = 4 saat  (ÇARPAR)
+        //   hedef temelli: 3 saat -> 1+1+1          (PAYLAŞTIRIR)
+        // Çünkü şubenin çizelgeden gelen 3-6 saatlik hakkı, seçilen derslere
+        // bölünerek kullanılır; toplam artmaz. (Okul müdürü teyidi, 28.08.2026:
+        // "3 saati üçe bölüp 1'er saat farklı branşlardan verdik.")
+        const dagilim = (course && course.bransDagilimi && typeof course.bransDagilimi === "object")
+            ? course.bransDagilimi : null;
+        if (dagilim && this.hedefTemelliMi(course)) {
+            const { branslar, enAz, enFazla } = this.hedefTemelliBranslari();
+            const toplamHak = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            const kayitlar = [];
+            let kullanilan = 0;
+            for (const [brans, ham] of Object.entries(dagilim)) {
+                const saat = parseInt(ham, 10);
+                if (!Number.isFinite(saat) || saat < enAz) continue;
+                if (!branslar.includes(brans)) continue;          // kapsam dışı branş
+                const kirpilmis = Math.min(saat, enFazla);        // mevzuat tavanı
+                if (kullanilan + kirpilmis > toplamHak) continue;  // hakkı aşamaz
+                kullanilan += kirpilmis;
+                kayitlar.push(Object.assign({}, course, {
+                    atananBrans: brans,
+                    saat: kirpilmis,
+                    _dagitilmisBrans: brans
+                }));
+            }
+            if (kayitlar.length) return kayitlar;
+            // Geçerli dağıtım yoksa dersi olduğu gibi bırak; sessizce
+            // kaybetmek en kötüsü olurdu.
+            return [course];
+        }
+
+        // B) EĞİK ÇİZGİLİ DERSLERDE BRANŞA BÖLME (çarpan)
         const secilen = (course && Array.isArray(course.bolunenBranslar))
             ? course.bolunenBranslar.filter(Boolean) : [];
         if (secilen.length < 2) return [course];

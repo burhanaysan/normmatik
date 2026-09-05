@@ -1166,6 +1166,40 @@ export class AppStateService {
         this.notify();
     }
 
+    /**
+     * "Hedef Temelli Destek Eğitimi" saatini branşlara PAYLAŞTIRIR.
+     *
+     * dagilim: { "Matematik": 1, "Fizik": 1, "Kimya": 1 }
+     * Boş nesne/null verilirse paylaştırma kaldırılır.
+     *
+     * Eğik çizgili derslerdeki bölmeden farklıdır: orada saat ÇARPILIR (her
+     * öğretmen kendi grubuna tam saati okutur), burada PAYLAŞTIRILIR (şubenin
+     * 3-6 saatlik hakkı bölünür, toplam artmaz).
+     */
+    updateCourseBranchDistribution(sectionId, courseName, dagilim) {
+        if (!this._subeKilidiniDenetle(sectionId)) return;
+        const sec = this.state.subeler.find(s => s.id === sectionId);
+        if (!sec) return;
+
+        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        this.pushHistory();
+        const all = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+        const target = all.find(d => {
+            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            return dNorm === norm;
+        });
+        if (target) {
+            const temiz = {};
+            for (const [b, s] of Object.entries(dagilim || {})) {
+                const n = parseInt(s, 10);
+                if (b && Number.isFinite(n) && n >= 1) temiz[b] = n;
+            }
+            if (Object.keys(temiz).length) target.bransDagilimi = temiz;
+            else delete target.bransDagilimi;
+        }
+        this.notify();
+    }
+
     // --- Sınıf Birleştirme (Course Merging) ---
     toggleCourseMerge(sectionId, courseName, targetSectionId) {
         if (!this._subeKilidiniDenetle(sectionId)) return;

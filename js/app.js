@@ -325,12 +325,16 @@ class MebNormApplication {
                 const branchMap = {};
                 const grupMap = {};
                 const bolmeMap = {};
+                const dagilimMap = {};
                 (sec.zorunluDersler || []).forEach(c => {
                     if (c.ders && c.atananBrans) {
                         branchMap[c.ders] = c.atananBrans;
                     }
                     if (c.ders && c.grupSayisi) {
                         grupMap[c.ders] = c.grupSayisi;
+                    }
+                    if (c.ders && c.bransDagilimi && Object.keys(c.bransDagilimi).length) {
+                        dagilimMap[c.ders] = c.bransDagilimi;
                     }
                     if (c.ders && Array.isArray(c.bolunenBranslar) && c.bolunenBranslar.length >= 2) {
                         bolmeMap[c.ders] = c.bolunenBranslar;
@@ -344,6 +348,7 @@ class MebNormApplication {
                     };
                     if (grupMap[c.ders]) yeni.grupSayisi = grupMap[c.ders];
                     if (bolmeMap[c.ders]) yeni.bolunenBranslar = bolmeMap[c.ders];
+                    if (dagilimMap[c.ders]) yeni.bransDagilimi = dagilimMap[c.ders];
                     return yeni;
                 });
 
@@ -1217,6 +1222,12 @@ class MebNormApplication {
             });
         });
 
+        document.querySelectorAll(".btn-ht-dagitim").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                this.ui.openHedefTemelliModal(activeSec, e.currentTarget.dataset.course);
+            });
+        });
+
         document.querySelectorAll(".branch-split-chip").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 const el = e.currentTarget;
@@ -1405,9 +1416,44 @@ class MebNormApplication {
         // Tek satırda kalıp branşları AÇIP KAPATILABİLİR düğmelerle göstermek,
         // satırı çoğaltmaktan daha okunur: idareci dersi bir kez görür, kimin
         // girdiğini yanında işaretler.
+        // HEDEF TEMELLİ DESTEK EĞİTİMİ — saat dağıtımı
+        //
+        // Bu dersin saati branşlara PAYLAŞTIRILIR (aşağıdaki eğik çizgi
+        // bölmesinin tersi: orada çarpılır). Seçim iki boyutlu — hangi branş ve
+        // kaç saat — bu yüzden dar hücreye sığmaz, pencerede yapılır.
         let bolmeHtml = "";
-        const bolAdaylari = (typeof normEngine.bolunebilirBranslar === 'function')
-            ? normEngine.bolunebilirBranslar(course) : [];
+        if (typeof normEngine.hedefTemelliMi === 'function' && normEngine.hedefTemelliMi(course)) {
+            const dag = (course.bransDagilimi && typeof course.bransDagilimi === 'object')
+                ? course.bransDagilimi : {};
+            const girdiler = Object.entries(dag);
+            const ozet = girdiler.length
+                ? girdiler.map(([b, s]) => `<span class="ht-dagitim-pill">${b} ${s}s</span>`).join("")
+                : `<span class="unassigned-badge">⚪ Dağıtım yapılmadı</span>`;
+            bolmeHtml = `
+                <div class="course-branch-wrapper ht-dagitim-wrapper">
+                    ${ozet}
+                    <button type="button" class="btn-ht-dagitim" data-course="${cName}"
+                            title="Bu dersin saatini branşlara paylaştırın (ders başına 1-3 saat).">
+                        ${girdiler.length ? 'Düzenle' : 'Dağıt'}
+                    </button>
+                </div>
+            `;
+            if (girdiler.length) {
+                const toplam = girdiler.reduce((a, [, s]) => a + (parseInt(s, 10) || 0), 0);
+                loadInfoHtml = `
+                    <div class="course-hours-wrapper">
+                        <span class="course-hours-value">${hours} Saat</span>
+                        <span class="ht-dagitim-total-pill"
+                              title="${girdiler.length} branşa paylaştırıldı; toplam değişmez.">
+                            ${toplam}s dağıtıldı
+                        </span>
+                    </div>
+                `;
+            }
+        }
+
+        const bolAdaylari = (bolmeHtml || typeof normEngine.bolunebilirBranslar !== 'function')
+            ? [] : normEngine.bolunebilirBranslar(course);
         if (bolAdaylari.length >= 2) {
             const secili = Array.isArray(course.bolunenBranslar) && course.bolunenBranslar.length >= 2
                 ? course.bolunenBranslar.filter(b => bolAdaylari.includes(b))

@@ -2195,6 +2195,60 @@ body {
     line-height: 1;
 }
 
+/* HEDEF TEMELLİ DESTEK EĞİTİMİ — SAAT DAĞITIMI
+   Bu dersin saati branşlara paylaştırılır (eğik çizgili derslerin tersine,
+   çarpılmaz). Satırda dağıtım özeti ve düzenleme düğmesi durur; asıl seçim
+   pencerede yapılır, çünkü hem branş hem saat seçilmesi gerekir. */
+.ht-dagitim-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.22rem;
+}
+
+.ht-dagitim-pill {
+    font-size: 0.64rem;
+    font-weight: 700;
+    padding: 0.1rem 0.36rem;
+    border-radius: var(--radius-full);
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    white-space: nowrap;
+    line-height: 1.15;
+}
+
+.btn-ht-dagitim {
+    font-size: 0.64rem;
+    font-weight: 800;
+    padding: 0.12rem 0.44rem;
+    border-radius: var(--radius-full);
+    border: 1px solid #93c5fd;
+    background: #dbeafe;
+    color: #1e40af;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 1.15;
+}
+
+.btn-ht-dagitim:hover {
+    background: #bfdbfe;
+}
+
+.ht-dagitim-total-pill {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.08rem 0.32rem;
+    border-radius: 4px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: 1;
+}
+
 /* EĞİK ÇİZGİLİ DERSLERDE BRANŞ SEÇİMİ
    "Görsel Sanatlar/Müzik" gibi dersler çizelgede alternatifli yazılır ve okul
    şubeyi branşlara bölebilir. Branş açılır kutusu yerine açılıp kapanan
