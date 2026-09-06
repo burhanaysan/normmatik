@@ -174934,9 +174934,15 @@ class UIComponentManager {
                     const sinir = i > 0 && data.subeler[i - 1].sinifSeviyesi !== s.sinifSeviyesi
                         ? " kademe-sinir" : "";
                     if (!v || v <= 0) return `<td class="dd-hucre${sinir}"></td>`;
-                    const kademe = v >= 5 ? " g3" : (v >= 3 ? " g2" : "");
+                    // SAAT YOĞUNLUĞUNA GÖRE RENKLENDİRME KALDIRILDI (06.09.2026)
+                    // Hücreler saat arttıkça koyulaşıyordu; eski tek-tablo ısı
+                    // haritasından kalmaydı. Kart düzeninde bir branşta 1-3 satır
+                    // var, taranacak yoğunluk yok — sayı zaten hücrede yazıyor.
+                    // Kullanıcı "bazıları neden koyu yeşil?" diye sordu: anlamı
+                    // olmayan renk, olmayan renkten kötüdür. Renk artık yalnızca
+                    // ANOMALİ işaretliyor (birleşik ders).
                     return `<td class="dd-hucre${sinir}">
-                                <span class="dd-cip${kademe}${birlesik ? " birlesik" : ""}" title="${s.subeAdi} — ${v} saat${birlesik ? " (birleşik ders)" : ""}">${v}</span>
+                                <span class="dd-cip${birlesik ? " birlesik" : ""}" title="${s.subeAdi} — ${v} saat${birlesik ? " (birleşik ders: tek öğretmen okutuyor)" : ""}">${v}</span>
                             </td>`;
                 }).join("");
                 return `<tr>

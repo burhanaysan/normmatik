@@ -4817,9 +4817,14 @@ body {
     background: var(--dd-ana-acik);
     color: var(--dd-ana-metin);
 }
-.dd-cip.g2 { background: #9ed4cd; color: #06423d; }
-.dd-cip.g3 { background: var(--dd-ana); color: #ffffff; }
-.dd-cip.birlesik { outline: 1.5px dashed var(--dd-fazla); outline-offset: 1px; }
+/* Tek ton: saat sayısına göre koyulaştırma kaldırıldı; anlamı yoktu ve
+   açıklaması da yoktu. Renk yalnızca ANOMALİ işaretler. */
+.dd-cip.birlesik {
+    outline: 1.5px dashed var(--dd-fazla);
+    outline-offset: 1px;
+    background: var(--dd-fazla-z);
+    color: var(--dd-fazla);
+}
 
 .dd-toplam {
     text-align: right;
@@ -4933,7 +4938,7 @@ body {
     .dd-kaydir { overflow: visible !important; }
     .dd-tablo { width: 100% !important; font-size: 7.5pt !important; }
     /* Kâğıtta renk zemini okunmaz; sayı yeterli. */
-    .dd-cip, .dd-cip.g2, .dd-cip.g3 { background: transparent !important; color: #000000 !important; }
+    .dd-cip { background: transparent !important; color: #000000 !important; }
     .dd-cip.birlesik { outline: 0.5pt dashed #000000 !important; }
     .dd-genel { background: #f1f5f9 !important; color: #000000 !important; }
     .dd-genel-e { color: #333333 !important; }

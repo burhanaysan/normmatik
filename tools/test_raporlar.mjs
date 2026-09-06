@@ -525,8 +525,15 @@ console.log("\nYerleşim koruması");
             && !/kademe-et/.test(ui),
             "'9. sınıf' başlığı '9-A' adının üstünde aynı bilgiyi tekrarlıyordu");
 
-    denetle("R19h dolu hücreler yoğunluk kademesi taşıyor",
-            /dd-cip\$\{kademe\}/.test(ui) && /\.dd-cip\.g3\s*\{/.test(css));
+    // Saat yoğunluğuna göre koyulaştırma KALDIRILDI: kullanıcı "bazıları neden
+    // koyu yeşil?" diye sordu — anlamı olmayan renk, olmayan renkten kötüdür.
+    // Kart düzeninde bir branşta 1-3 satır var; taranacak yoğunluk yok.
+    denetle("R19h hücre rengi saat sayısına göre değişmiyor",
+            !/\.dd-cip\.g2\s*\{/.test(css) && !/\.dd-cip\.g3\s*\{/.test(css)
+            && !/kademe = v >= 5/.test(ui),
+            "açıklaması olmayan renk kademesi kafa karıştırıyordu");
+    denetle("R19h2 renk yalnızca anomali işaretliyor (birleşik ders)",
+            /\.dd-cip\.birlesik\s*\{/.test(css) && /birlesik \? " birlesik"/.test(ui));
 
     denetle("R19i yazdırmada renk zemini kalkıyor",
             /@media print[\s\S]*\.dd-cip[^{]*\{[^}]*background:\s*transparent/.test(css),
