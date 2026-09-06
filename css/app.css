@@ -4725,33 +4725,47 @@ body {
     overflow: hidden;
 }
 
-/* Branş başlığı: ad, yük, norm, kadro ve durum YAN YANA.
-   Eskiden rozetler satırın ucundaydı ve hangi branşa ait olduğu takip
-   edilemiyordu. */
-.dd-bas {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    flex-wrap: wrap;
-    padding: 0.5rem 0.85rem;
+/* Branş başlığı = TABLONUN BAŞLIK SATIRI.
+   Ad, yük, norm ve kadro ilk (yapışkan) hücrede; şube adları kendi
+   sütunlarında; durum etiketi en sağda. Ayrı bir <header> kutusu olsaydı
+   şube adları sütunlarla hizalanmazdı. (Kullanıcı onayı, 06.09.2026.) */
+.dd-tablo thead tr.dd-bas th {
     background: var(--dd-ana);
     color: #ffffff;
+    border-bottom: 0;
+    vertical-align: middle;
+    padding: 0.4rem 0.3rem;
+    font-weight: 800;
+    font-size: 0.8rem;
 }
-.dd-brans.meslek .dd-bas { background: #6d28d9; }
+.dd-tablo thead tr.dd-bas .dd-ders {
+    background: var(--dd-ana);
+    color: #ffffff;
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.22);
+    padding: 0.4rem 0.75rem;
+}
+.dd-brans.meslek .dd-tablo thead tr.dd-bas th,
+.dd-brans.meslek .dd-tablo thead tr.dd-bas .dd-ders { background: #6d28d9; }
 
 .dd-ad { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.01em; }
 
-.dd-olcu { font-size: 0.76rem; color: rgba(255, 255, 255, 0.82); white-space: nowrap; }
+.dd-olcu {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.84);
+    white-space: nowrap;
+}
 .dd-olcu b { color: #ffffff; font-weight: 800; font-variant-numeric: tabular-nums; }
 
 .dd-durum {
-    margin-left: auto;
-    font-size: 0.76rem;
+    display: inline-block;
+    font-size: 0.72rem;
     font-weight: 800;
-    padding: 0.12rem 0.65rem;
+    padding: 0.1rem 0.6rem;
     border-radius: 999px;
     white-space: nowrap;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
 }
 .dd-durum.acik  { background: #ffffff; color: var(--dd-acik); }
@@ -4781,21 +4795,17 @@ body {
     color: var(--text-main);
     box-shadow: 1px 0 0 var(--border-subtle);
 }
-.dd-tablo thead .dd-ders { background: var(--bg-card-subtle); }
+/* not: başlık satırının kendi rengi yukarıda tr.dd-bas ile veriliyor */
 
 .dd-tablo thead th {
-    background: var(--bg-card-subtle);
-    padding: 0.3rem 0.25rem 0.4rem;
     text-align: center;
-    vertical-align: bottom;
-    border-bottom: 1px solid var(--border-main);
+    vertical-align: middle;
 }
 
 /* Kademe YAZISI yok: "9. sınıf" başlığı "9-A" adının üstünde aynı bilgiyi
    tekrarlıyordu ve her kartta yineleniyordu. Gruplama, kademe değiştiği
    yerdeki ince ayraçla korunuyor. (Kullanıcı bildirimi, 06.09.2026.) */
-.dd-sube-ad { display: block; font-size: 0.76rem; font-weight: 800; color: var(--text-main); }
-.dd-sube-ogr { display: block; font-size: 0.63rem; color: var(--text-muted); font-weight: 600; }
+.dd-sube-ad { display: block; font-size: 0.78rem; font-weight: 800; color: inherit; }
 .kademe-sinir { box-shadow: inset 1px 0 0 var(--border-main); }
 
 .dd-tablo tbody td { border-bottom: 1px solid var(--border-subtle); }
@@ -4834,7 +4844,8 @@ body {
     font-variant-numeric: tabular-nums;
     color: var(--text-main);
 }
-.dd-tablo thead .dd-toplam { font-size: 0.63rem; color: var(--text-muted); font-weight: 700; }
+.dd-tablo thead .dd-toplam { text-align: right; padding-right: 0.85rem; }
+.dd-tablo thead .kademe-sinir { box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.25); }
 
 .dd-rozet {
     display: inline-block;
@@ -4928,7 +4939,10 @@ body {
         border: 0.5pt solid #000000 !important;
         margin-bottom: 3mm !important;
     }
-    .dd-bas, .dd-brans.meslek .dd-bas {
+    .dd-tablo thead tr.dd-bas th,
+    .dd-tablo thead tr.dd-bas .dd-ders,
+    .dd-brans.meslek .dd-tablo thead tr.dd-bas th,
+    .dd-brans.meslek .dd-tablo thead tr.dd-bas .dd-ders {
         background: #f1f5f9 !important;
         color: #000000 !important;
         border-bottom: 0.5pt solid #000000 !important;

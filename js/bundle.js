@@ -174908,11 +174908,15 @@ class UIComponentManager {
             puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
 
         /* --- sütun başlıkları (kademe yazısı YOK, ayraç VAR) --- */
+        // ÖĞRENCİ SAYISI SÜTUN BAŞLIĞINDAN KALDIRILDI (kullanıcı onayı, 06.09.2026)
+        // Her kartta 9 kez, 15 kartta 135 kez tekrarlanıyordu. Branş normu zaten
+        // hesaplanmış olarak başlıkta; şube mevcutları Şube Ders Çizelgeleri'nde
+        // ve sol panelde duruyor. Kaybolmasın diye okul geneli mevcut, alttaki
+        // genel toplam şeridine bir kez yazılıyor. Sayı yine de ipucunda (title).
         const sutunBasliklari = data.subeler.map((s, i) => {
             const yeniKademe = i > 0 && data.subeler[i - 1].sinifSeviyesi !== s.sinifSeviyesi;
             return `<th class="dd-sube${yeniKademe ? " kademe-sinir" : ""}" title="${s.subeAdi} — ${s.ogrenciSayisi || 30} öğrenci">
                         <span class="dd-sube-ad">${s.subeAdi}</span>
-                        <span class="dd-sube-ogr">${s.ogrenciSayisi || 30} öğr.</span>
                     </th>`;
         }).join("");
 
@@ -174975,21 +174979,24 @@ class UIComponentManager {
                                        : "diğer düzeltmelerden geliyor"}.`);
             }
 
+            // YEŞİL ŞERİT ARTIK TABLONUN BAŞLIK SATIRI (kullanıcı onayı, 06.09.2026)
+            // Önce ayrı bir <header> vardı ve ALTINDA bir şube başlığı satırı
+            // daha duruyordu — kart başına iki satır. Şube adlarını yeşil satıra
+            // taşımanın tek doğru yolu şeridi thead yapmaktı: ayrı bir kutuda
+            // dursalardı sütunlarla hizalanmazlardı.
+            // Ölçüldü: kart 395 -> 360 px, 15 branşta ~515 px kazanç.
             return `
                 <section class="dd-brans${b.meslek ? " meslek" : ""}">
-                    <header class="dd-bas">
-                        <span class="dd-ad">${b.ad}</span>
-                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b></span>
-                        <span class="dd-olcu">norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
-                        <span class="dd-durum ${durum.s}">${durum.t}</span>
-                    </header>
                     <div class="dd-kaydir">
                         <table class="dd-tablo">
                             <thead>
-                                <tr>
-                                    <th class="dd-ders">Ders</th>
+                                <tr class="dd-bas">
+                                    <th class="dd-ders">
+                                        <span class="dd-ad">${b.ad}</span>
+                                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
+                                    </th>
                                     ${sutunBasliklari}
-                                    <th class="dd-toplam">Toplam</th>
+                                    <th class="dd-toplam"><span class="dd-durum ${durum.s}">${durum.t}</span></th>
                                 </tr>
                             </thead>
                             <tbody>${satirlar}</tbody>
@@ -175036,6 +175043,9 @@ class UIComponentManager {
             <div class="dd-liste">${kartlar}</div>
 
             <div class="dd-genel">
+                <span class="dd-genel-e">Okul</span>
+                <span class="dd-genel-v">${data.subeler.length} şube · ${k.totalStudents || 0} öğrenci</span>
+                <span class="dd-genel-ayrac"></span>
                 <span class="dd-genel-e">Haftalık toplam</span>
                 <span class="dd-genel-v">${m ? m.hamCizelgeSaati : data.grandTotalHours} saat</span>
                 <span class="dd-genel-ayrac"></span>
