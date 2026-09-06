@@ -4219,13 +4219,13 @@ body {
        sığmazsa rapor gövdesi kaydırılır. (Kullanıcı bildirimi, 06.09.2026.)
        Aynı sınıf hata 2026-08-24'te branş tablosunda da yaşanmıştı. */
     flex: 1 0 auto;
-    /* Ölçülerek türetildi (06.09.2026): modal başlık+sekme+filtre 127px,
-       gövde dolgusu 36px, mutabakat panelli rapor başlığı 89px + 16px alt
-       boşluk = 268px; 7px pay bırakıldı. Şerit ve kartlar `nowrap` olduğu
-       için başlık yüksekliği ekran genişliğinden BAĞIMSIZ — sabit güvenle
-       kullanılabilir. Büyük tutulursa matris boşuna kısalır, küçük tutulursa
-       hem gövde hem matris kaydırılır (çift kaydırma). */
-    max-height: calc(94vh - 275px);
+    /* Rapor artık İKİ BÖLMELİ: üstte karar panosu, altta matris. Yükseklik
+       viewport'tan çıkarma yapılarak değil, matrise ayrılan kendi payı olarak
+       veriliyor — panel yüksekliği okulun branş sayısıyla değişiyor ve sabit
+       çıkarma tutmuyordu. Rapor gövdesi bölmeler arasında kaydırılır; matris
+       kendi içinde. (06.09.2026 yeniden tasarımı.) */
+    max-height: 52vh;
+    min-height: 220px;
     border: 1.5px solid var(--border-main);
     border-radius: 8px;
     background: var(--bg-card);
@@ -4689,6 +4689,256 @@ body {
     color: #ffffff !important;
     font-size: 0.95rem;
     border-right-color: #0369a1 !important;
+}
+
+/* ==========================================================================
+   🧭 KARAR PANOSU + MUTABAKAT KÖPRÜSÜ
+   --------------------------------------------------------------------------
+   Master matris bir VERİ DÖKÜMÜ idi. Ölçüldü (06.09.2026): 272 hücrenin %44'ü
+   boş çizgi ve 15 branşın yalnızca 5'i dikkat gerektiriyor. Panel müdürün ilk
+   sorusunu öne alır; matris altında ayrıntı olarak kalır.
+   ========================================================================== */
+
+:root {
+    --durum-ihtiyac: #b91c1c;
+    --durum-ihtiyac-zemin: #fdeaea;
+    --durum-fazla: #a15c07;
+    --durum-fazla-zemin: #fdf3e3;
+    --durum-tam: #15803d;
+    --durum-tam-zemin: #eaf6ee;
+}
+
+.karar-panosu {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.kp-kpi {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+    gap: 0.5rem;
+}
+
+.kp-kart {
+    background: var(--bg-card-subtle);
+    border: 1px solid var(--border-subtle);
+    border-radius: 9px;
+    padding: 0.45rem 0.65rem;
+}
+
+.kp-et {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.kp-v {
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-main);
+}
+
+.kp-alt { font-size: 0.68rem; color: var(--text-muted); }
+
+.kp-ayirac { display: flex; align-items: center; gap: 0.55rem; margin-top: 0.15rem; }
+.kp-ayirac h4 { margin: 0; font-size: 0.78rem; font-weight: 800; color: var(--text-main); }
+.kp-cizgi { flex: 1; height: 1px; background: var(--border-subtle); }
+.kp-say { font-size: 0.68rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+/* TEK BİÇİM: bütün branşlar aynı bileşen. Ayrı "dikkat"/"dengede" kutuları
+   kaldırıldı — hangi kutuda olduğu veriyle değişince ekranın ŞEKLİ de
+   değişiyor, kullanıcı her açılışta gözünü yeniden ayarlıyordu. */
+.kp-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+    gap: 0.4rem;
+}
+
+.kp-brans {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 0.1rem 0.5rem;
+    padding: 0.4rem 0.55rem 0.4rem 0.65rem;
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--border-main);
+    border-radius: 8px;
+    background: var(--bg-card);
+}
+
+.kp-brans.ih { border-left-color: var(--durum-ihtiyac); background: var(--durum-ihtiyac-zemin); }
+.kp-brans.fz { border-left-color: var(--durum-fazla);   background: var(--durum-fazla-zemin); }
+.kp-brans.tm { border-left-color: var(--durum-tam); }
+
+.kp-ad { font-size: 0.78rem; font-weight: 700; color: var(--text-main); line-height: 1.25; }
+
+.kp-fark {
+    font-size: 0.95rem;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+}
+.kp-brans.ih .kp-fark { color: var(--durum-ihtiyac); }
+.kp-brans.fz .kp-fark { color: var(--durum-fazla); }
+.kp-brans.tm .kp-fark { color: var(--durum-tam); font-size: 0.72rem; }
+
+.kp-detay {
+    grid-column: 1 / -1;
+    font-size: 0.66rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.kp-efsane {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.67rem;
+    color: var(--text-muted);
+}
+.kp-efsane span { display: inline-flex; align-items: center; gap: 0.3rem; }
+.kp-efsane i { width: 9px; height: 9px; border-radius: 2px; display: block; }
+.kp-efsane i.ih { background: var(--durum-ihtiyac); }
+.kp-efsane i.fz { background: var(--durum-fazla); }
+.kp-efsane i.tm { background: var(--durum-tam); }
+.kp-efsane .kp-efsane-son { margin-left: auto; }
+
+/* --- Matris başlığı: panelden matrise geçişi göstersin --- */
+.matris-baslik {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin: 0.25rem 0 0.45rem;
+}
+.matris-baslik h4 { margin: 0; font-size: 0.82rem; font-weight: 800; color: var(--text-main); }
+.matris-alt { font-size: 0.7rem; color: var(--text-muted); }
+
+/* ==========================================================================
+   MUTABAKAT KÖPRÜSÜ (waterfall)
+   Kalem kalem tablo yerine tek bakışta okunan bir geçiş grafiği:
+   başlangıç sütunu, artıran/azaltan kalemler havada, sonuç sütunu.
+   ========================================================================== */
+.mutabakat-kopru {
+    flex: 0 1 auto;
+    min-width: 0;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: 10px;
+    background: var(--bg-card);
+    padding: 0.4rem 0.6rem 0.5rem;
+}
+
+.kopru-baslik {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.63rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-bottom: 0.3rem;
+}
+
+.kopru-alan { position: relative; width: 260px; max-width: 100%; }
+.kopru-svg { display: block; width: 100%; height: 44px; overflow: visible; }
+
+.kopru-cubuk { fill: #94a3b8; }
+.kopru-cubuk.bas  { fill: #0284c7; }
+.kopru-cubuk.son  { fill: #0f172a; }
+.kopru-cubuk.arti { fill: #d97706; }
+.kopru-cubuk.eksi { fill: #7c3aed; }
+.kopru-bag { stroke: var(--border-main); stroke-width: 1; stroke-dasharray: 2 2; }
+
+.kopru-etiketler { position: relative; height: 26px; margin-top: 2px; }
+.kopru-et {
+    position: absolute;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 1.15;
+}
+.kopru-say {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-main);
+}
+.kopru-say.arti { color: #b45309; }
+.kopru-say.eksi { color: #6d28d9; }
+.kopru-say.bas  { color: #0369a1; }
+.kopru-ad {
+    display: block;
+    font-size: 0.56rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   MATRİS (C) — düz başlık, boş hücre, ısı yoğunluğu
+   ========================================================================== */
+.duz-sec-header {
+    display: table-cell;
+    vertical-align: bottom;
+    text-align: center;
+    padding: 0.3rem 0.15rem 0.35rem !important;
+    line-height: 1.15;
+}
+.duz-sec-header .sec-header-title {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+.duz-sec-header .sec-header-meta {
+    display: block;
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Boş hücre gerçekten boş: 272 hücrenin 121'i "—" çizgisiydi. */
+.master-grid-table td.empty-hour { background: transparent !important; }
+
+/* Isı yoğunluğu: saat arttıkça zemin koyulaşır (--isi 0..1). */
+.master-grid-table td.active-hour {
+    background: rgba(2, 132, 199, calc(0.07 + var(--isi, 0.4) * 0.28)) !important;
+    font-weight: 700;
+}
+
+@media print {
+    .karar-panosu { break-inside: avoid !important; page-break-inside: avoid !important; }
+    .kp-kart, .kp-brans {
+        background: #ffffff !important;
+        border: 0.5pt solid #94a3b8 !important;
+        box-shadow: none !important;
+    }
+    .kp-brans.ih { border-left: 2pt solid #000000 !important; }
+    .kp-brans.fz { border-left: 1.5pt dashed #000000 !important; }
+    .kp-v, .kp-ad, .kp-fark { color: #000000 !important; }
+    .kp-et, .kp-alt, .kp-detay, .kp-efsane { color: #333333 !important; }
+
+    .mutabakat-kopru {
+        border: 0.5pt solid #000000 !important;
+        background: #ffffff !important;
+    }
+    .kopru-cubuk { fill: #64748b !important; }
+    .kopru-cubuk.bas { fill: #334155 !important; }
+    .kopru-cubuk.son { fill: #000000 !important; }
+    .kopru-say, .kopru-ad { color: #000000 !important; }
+
+    /* Kâğıtta ısı zemini okunmaz; sayı yeter. */
+    .master-grid-table td.active-hour { background: #ffffff !important; }
 }
 
 /* ==========================================================================

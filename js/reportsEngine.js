@@ -289,7 +289,18 @@ class MebReportsEngine {
             branchGroups: branchGroups,
             branchReportMap: branchReportMap,
             grandTotalHours: normResult.totalHours || Object.values(sectionTotals).reduce((s, h) => s + h, 0),
-            yukMutabakati: normResult.yukMutabakati || null
+            yukMutabakati: normResult.yukMutabakati || null,
+            // KARAR PANOSU için özet sayılar. Ayrıca hesaplanmıyor; motorun
+            // kendi toplamları taşınıyor ki icmal ile matris ayrışmasın
+            // (test_tutarlilik B1/B2 bunu denetliyor).
+            kpi: {
+                totalHours: normResult.totalHours,
+                totalCalculatedNorm: normResult.totalCalculatedNorm,
+                totalCurrentTeachers: normResult.totalCurrentTeachers,
+                totalNeeded: normResult.totalNeeded,
+                totalSurplus: normResult.totalSurplus,
+                totalStudents: normResult.totalStudents
+            }
         };
     }
 

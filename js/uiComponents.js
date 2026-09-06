@@ -3876,16 +3876,23 @@ export class UIComponentManager {
                     <div class="report-page-title">${data.title}</div>
                     <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Toplam ${data.subeler.length} Şube • Toplam ${data.grandTotalHours} Saat Ders Yükü</div>
                 </div>
-                ${this.renderMutabakatSerit(data.yukMutabakati)}
+                ${this.renderMutabakatKopru(data.yukMutabakati)}
             </div>
 
             ${this.renderMutabakatDetay(data.yukMutabakati)}
+
+            ${this.renderKararPanosu(data)}
+
+            <div class="matris-baslik">
+                <h4>Ders dağılım matrisi</h4>
+                <span class="matris-alt">Hangi dersin hangi şubede kaç saat okutulduğu</span>
+            </div>
 
             <div class="master-grid-wrapper vertical-header-mode">
                 <table class="master-grid-table">
                     <colgroup>
                         <col style="width: 220px; min-width: 220px; max-width: 220px;">
-                        ${data.subeler.map(() => `<col style="width: 26px; min-width: 26px; max-width: 26px;">`).join("")}
+                        ${data.subeler.map(() => `<col style="width: 42px; min-width: 42px; max-width: 42px;">`).join("")}
                         <col style="width: 48px; min-width: 48px; max-width: 48px;">
                         <col style="width: 42px; min-width: 42px; max-width: 42px;">
                     </colgroup>
@@ -3908,15 +3915,17 @@ export class UIComponentManager {
                             </th>
                         </tr>
                         <!-- 2. KATMAN: DİNAMİK DİKEY ŞUBE BAŞLIKLARI -->
-                        <tr class="section-sub-header-row" style="height: ${dynamicHeaderHeight}px;">
+                        <!-- ŞUBE BAŞLIKLARI ARTIK DÜZ YAZILIYOR.
+                             90 derece döndürülmüş 16 başlık okunmuyordu; sütun
+                             42px'e çıkarılıp ad ve mevcut alt alta yazıldı.
+                             (Kullanıcı bildirimi, 06.09.2026.) -->
+                        <tr class="section-sub-header-row">
                             ${data.subeler.map(s => {
                                 const compactName = formatCompactSecName(s.subeAdi);
                                 return `
-                                <th class="sec-col-header vertical-sec-header" style="height: ${dynamicHeaderHeight}px;" title="${s.subeAdi} (${s.ogrenciSayisi || 30} Öğrenci)">
-                                    <div class="vertical-sec-box" style="height: ${dynamicHeaderHeight - 12}px; max-height: ${dynamicHeaderHeight - 12}px;">
-                                        <span class="sec-header-title">${compactName}</span>
-                                        <span class="sec-header-meta">${s.ogrenciSayisi || 30} Ögr</span>
-                                    </div>
+                                <th class="sec-col-header duz-sec-header" title="${s.subeAdi} (${s.ogrenciSayisi || 30} Öğrenci)">
+                                    <span class="sec-header-title">${compactName}</span>
+                                    <span class="sec-header-meta">${s.ogrenciSayisi || 30}</span>
                                 </th>
                             `}).join("")}
                         </tr>
@@ -4001,12 +4010,19 @@ export class UIComponentManager {
                             const h = course.sectionHours[s.id];
                             const isMerged = course.mergedSections && course.mergedSections[s.id] && course.mergedSections[s.id].length > 0;
                             if (h && h > 0) {
+                                // ISI YOĞUNLUĞU: saat arttıkça zemin koyulaşır.
+                                // Sayılar tek tek okunmadan dağılım göze çarpsın.
+                                const yogunluk = Math.min(1, h / 6);
+                                const zemin = ` style="--isi:${yogunluk.toFixed(2)}"`;
                                 if (isMerged) {
-                                    return `<td class="cell-hour active-hour cell-merged-hour" title="🔗 Birleşik Ders (${s.subeAdi})">${h}<span class="merge-badge-icon">🔗</span></td>`;
+                                    return `<td class="cell-hour active-hour cell-merged-hour"${zemin} title="🔗 Birleşik Ders (${s.subeAdi}) — ${h} saat">${h}<span class="merge-badge-icon">🔗</span></td>`;
                                 }
-                                return `<td class="cell-hour active-hour">${h}</td>`;
+                                return `<td class="cell-hour active-hour"${zemin} title="${s.subeAdi} — ${h} saat">${h}</td>`;
                             }
-                            return `<td class="cell-hour empty-hour"><span class="matrix-dash">—</span></td>`;
+                            // BOŞ HÜCRE GERÇEKTEN BOŞ. Eskiden her boş hücreye
+                            // "—" basılıyordu; 272 hücrenin 121'i çizgiydi ve
+                            // tabloyu okunmaz hâle getiriyordu. (Ölçüldü 06.09.2026.)
+                            return `<td class="cell-hour empty-hour"></td>`;
                         }).join("")}
                         <td class="cell-total-course"><strong>${course.totalHours}</strong></td>
                         <td class="cell-norm-contrib">—</td>
@@ -4051,6 +4067,170 @@ export class UIComponentManager {
     }
 
     /**
+     * KARAR PANOSU — matrisin ÜSTÜNDE duran özet.
+     *
+     * NEDEN VAR (kullanıcı isteği, 06.09.2026)
+     * ----------------------------------------
+     * Master matris bir VERİ DÖKÜMÜ idi, karar aracı değil. Ölçüldü: 272
+     * hücrenin %44'ü boş çizgi ve 15 branşın yalnızca 5'i dikkat gerektiriyor.
+     * Ekran mürekkebinin çoğunu hiçbir şeye harcayıp asıl 5 satırı 15'in
+     * arasına gömüyordu.
+     *
+     * Panel müdürün ilk sorusuyla açılır: hangi branşta açığım var?
+     *
+     * TEK BİÇİM: bütün branşlar AYNI etiket bileşenidir. Bir ara tasarımda
+     * "dikkat gerektirenler" kart, "dengede olanlar" çip yapılmıştı; kullanıcı
+     * itiraz etti ve haklıydı — hangi kutuda olduğu veriyle değişince ekranın
+     * ŞEKLİ de değişiyor, müdür her açılışta gözünü yeniden ayarlıyordu.
+     * Öncelik artık sıralama ve renkle veriliyor.
+     */
+    renderKararPanosu(data) {
+        const k = data.kpi || {};
+        const m = data.yukMutabakati || null;
+
+        const branslar = (data.sortedBranchNames || []).map(ad => {
+            const r = (data.branchReportMap || {})[ad];
+            if (!r) return null;
+            return {
+                ad: ad,
+                yuk: r.totalHours || 0,
+                norm: r.calculatedNorm || 0,
+                mevcut: r.currentTeachers || 0,
+                fark: r.diff || 0,
+                dusum: r.adminDeductedHours || 0
+            };
+        }).filter(Boolean);
+
+        // Aciliyet sırası: açık > fazla > tam; içinde farkın büyüğü önce.
+        const puan = (b) => (b.fark < 0 ? 0 : (b.fark > 0 ? 1 : 2));
+        branslar.sort((a, b) =>
+            puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
+
+        const kpiKarti = (etiket, deger, alt, renk) => `
+            <div class="kp-kart">
+                <div class="kp-et">${etiket}</div>
+                <div class="kp-v"${renk ? ` style="color:${renk}"` : ""}>${deger}</div>
+                <div class="kp-alt">${alt}</div>
+            </div>`;
+
+        const etiketler = branslar.map(b => {
+            const s = b.fark < 0 ? "ih" : (b.fark > 0 ? "fz" : "tm");
+            const fark = b.fark < 0 ? "−" + Math.abs(b.fark)
+                       : (b.fark > 0 ? "+" + b.fark : "tam");
+            const ipucu = `${b.ad} — ${b.yuk} saat ders yükü, norm ${b.norm}, mevcut kadro ${b.mevcut}`
+                        + (b.dusum ? `, yönetici ders saati −${b.dusum} (Md. 22/6)` : "");
+            return `
+                <div class="kp-brans ${s}" title="${ipucu}">
+                    <span class="kp-ad">${b.ad}</span>
+                    <span class="kp-fark">${fark}</span>
+                    <span class="kp-detay">${b.mevcut}/${b.norm} · ${b.yuk} s${b.dusum ? " · yön. −" + b.dusum : ""}</span>
+                </div>`;
+        }).join("");
+
+        return `
+            <div class="karar-panosu">
+                <div class="kp-kpi">
+                    ${kpiKarti("Norma esas yük", m ? m.normaEsasYuk : (k.totalHours || 0),
+                        m ? `saat · çizelge ${m.hamCizelgeSaati}` : "saat")}
+                    ${kpiKarti("Hesaplanan norm", k.totalCalculatedNorm || 0, "öğretmen")}
+                    ${kpiKarti("Mevcut kadro", k.totalCurrentTeachers || 0, "öğretmen")}
+                    ${kpiKarti("Açık", k.totalNeeded || 0,
+                        k.totalNeeded ? "öğretmen isteniyor" : "yok",
+                        k.totalNeeded ? "var(--durum-ihtiyac)" : "")}
+                    ${kpiKarti("Fazla", k.totalSurplus || 0,
+                        k.totalSurplus ? "öğretmen fazlalık" : "yok",
+                        k.totalSurplus ? "var(--durum-fazla)" : "")}
+                </div>
+                <div class="kp-ayirac">
+                    <h4>Branşlar</h4><span class="kp-cizgi"></span>
+                    <span class="kp-say">${branslar.length} branş · aciliyete göre sıralı</span>
+                </div>
+                <div class="kp-liste">${etiketler}</div>
+                <div class="kp-efsane">
+                    <span><i class="ih"></i>açık — öğretmen isteniyor</span>
+                    <span><i class="fz"></i>fazla — norm fazlası</span>
+                    <span><i class="tm"></i>tam — kadro normla eşit</span>
+                    <span class="kp-efsane-son">alt satır: mevcut/norm · haftalık yük</span>
+                </div>
+            </div>`;
+    }
+
+    /**
+     * MUTABAKAT KÖPRÜSÜ — çizelge saatinden norm yüküne geçişin minimal grafiği.
+     *
+     * Kalem kalem tablo yerine tek bakışta okunan bir KÖPRÜ (waterfall):
+     * başlangıç sütunu, artıran/azaltan kalemler havada, sonuç sütunu.
+     * Fark yoksa hiç çizilmez — çizecek bir köprü yoktur.
+     *
+     * Ayrıntılı tablo yerinde duruyor; bu grafik onun yerine değil, önüne geçer.
+     */
+    renderMutabakatKopru(m) {
+        const k = this.mutabakatKalemleri(m);
+        if (!k || k.satirlar.length === 0) return "";
+
+        // Sütunlar: başlangıç -> kalemler (havada) -> sonuç
+        const sutunlar = [];
+        let yurur = m.hamCizelgeSaati;
+        sutunlar.push({ tur: "bas", ad: "Çizelge", deger: m.hamCizelgeSaati, taban: 0, boy: m.hamCizelgeSaati });
+        k.satirlar.forEach(r => {
+            const oncesi = yurur;
+            yurur += r.deger;
+            sutunlar.push({
+                tur: r.deger > 0 ? "arti" : "eksi",
+                ad: r.kisa,
+                deger: r.deger,
+                taban: Math.min(oncesi, yurur),
+                boy: Math.abs(r.deger)
+            });
+        });
+        sutunlar.push({ tur: "son", ad: "Norm yükü", deger: m.normaEsasYuk, taban: 0, boy: m.normaEsasYuk });
+
+        const enUst = Math.max.apply(null, sutunlar.map(s => s.taban + s.boy)) || 1;
+        const G = 46, ARA = 16, H = 78;
+        const genislik = sutunlar.length * G + (sutunlar.length - 1) * ARA;
+        const yOl = (v) => H - (v / enUst) * H;
+
+        const cubuklar = sutunlar.map((s, i) => {
+            const x = i * (G + ARA);
+            const y = yOl(s.taban + s.boy);
+            const h = Math.max(2, (s.boy / enUst) * H);
+            const baglantiY = yOl(s.taban + s.boy);
+            const baglanti = (i < sutunlar.length - 1)
+                ? `<line class="kopru-bag" x1="${x + G}" y1="${i === 0 || s.tur === "son" ? yOl(s.deger) : baglantiY}" x2="${x + G + ARA}" y2="${i === 0 || s.tur === "son" ? yOl(s.deger) : baglantiY}"></line>`
+                : "";
+            return `${baglanti}<rect class="kopru-cubuk ${s.tur}" x="${x}" y="${y}" width="${G}" height="${h}" rx="2"></rect>`;
+        }).join("");
+
+        const etiketler = sutunlar.map((s, i) => {
+            const x = i * (G + ARA) + G / 2;
+            const deger = s.tur === "arti" ? "+" + s.deger
+                        : (s.tur === "eksi" ? "−" + Math.abs(s.deger) : s.deger);
+            return `
+                <div class="kopru-et" style="left:${(x / genislik) * 100}%">
+                    <span class="kopru-say ${s.tur}">${deger}</span>
+                    <span class="kopru-ad">${s.ad}</span>
+                </div>`;
+        }).join("");
+
+        return `
+            <div class="mutabakat-kopru" title="Şube çizelgesi toplamından norma esas öğretmen ders yüküne geçiş">
+                <div class="kopru-baslik">
+                    ⚖️ Ders yükü mutabakatı
+                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Kalemlerin ayrıntılı dökümünü aç / kapat">
+                        <span class="ymt-lbl-ac">Ayrıntı</span><span class="ymt-lbl-kapa">Gizle</span>
+                    </label>
+                </div>
+                <div class="kopru-alan">
+                    <svg class="kopru-svg" viewBox="0 0 ${genislik} ${H}" preserveAspectRatio="none"
+                         role="img" aria-label="Çizelge ${m.hamCizelgeSaati} saatten norma esas ${m.normaEsasYuk} saate geçiş">
+                        ${cubuklar}
+                    </svg>
+                    <div class="kopru-etiketler">${etiketler}</div>
+                </div>
+            </div>`;
+    }
+
+    /**
      * DERS YÜKÜ MUTABAKATI — kalemleri hazırlar.
      *
      * Neden var: matrisin alt satırı "şube çizelgesi toplamı"nı (ör. 640),
@@ -4075,69 +4255,6 @@ export class UIComponentManager {
               not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
         ].filter(r => r.deger !== 0);
         return { satirlar, fark: m.normaEsasYuk - m.hamCizelgeSaati };
-    }
-
-    /**
-     * MUTABAKAT ŞERİDİ — rapor başlığının SAĞINDA duran kompakt panel.
-     *
-     * Blok önce matrisin ALTINDAYDI; kullanıcı "önemli, en altta olamaz;
-     * üstte, dar bir alanda ama renkli durmalı" dedi (06.09.2026).
-     * Başlık satırı zaten var olduğu için buraya konması matristen dikey
-     * yer ALMIYOR — aksine alttaki şeridin yediği yeri geri veriyor.
-     *
-     * Rakamlar kartlara ayrıldı: her kalem kendi rengini taşıyor, sonuç
-     * kartı vurgulu. Ayrıntı tablosu ayrı bir çizicide (renderMutabakatDetay)
-     * ve varsayılan kapalı.
-     */
-    renderMutabakatSerit(m) {
-        const k = this.mutabakatKalemleri(m);
-        if (!k) return "";
-
-        // Fark yoksa tek kart: "kontrol edildi, aynı" demek sayıya güven verir.
-        if (k.satirlar.length === 0) {
-            return `
-                <div class="ymt-serit ymt-serit-esit" title="Şube çizelgesi toplamı ile norma esas öğretmen ders yükü aynı; bölünme, birleştirme veya yönetici ders saati kaynaklı fark oluşmamış.">
-                    <div class="ymt-serit-baslik">⚖️ DERS YÜKÜ MUTABAKATI</div>
-                    <div class="ymt-kartlar">
-                        <div class="ymt-kart ymt-kart-sonuc">
-                            <span class="ymt-kart-etiket">Çizelge = Norm yükü</span>
-                            <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        const kartlar = k.satirlar.map(r => `
-            <div class="ymt-kart ${r.deger > 0 ? "ymt-kart-arti" : "ymt-kart-eksi"}" title="${r.not}">
-                <span class="ymt-kart-etiket">${r.ad.split(" (")[0]}</span>
-                <span class="ymt-kart-sayi">${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}</span>
-            </div>
-        `).join("");   // kartlar kendi işaretini taşıyor; araya operatör koymak
-                       // "+ ... −14" gibi kafa karıştırıcı diziler üretiyordu
-
-        return `
-            <div class="ymt-serit">
-                <div class="ymt-serit-baslik">
-                    ⚖️ DERS YÜKÜ MUTABAKATI
-                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Farkı oluşturan kalemlerin ayrıntılı dökümünü aç / kapat">
-                        <span class="ymt-lbl-ac">Ayrıntı ▾</span><span class="ymt-lbl-kapa">Gizle ▴</span>
-                    </label>
-                </div>
-                <div class="ymt-kartlar">
-                    <div class="ymt-kart ymt-kart-ham" title="Şubelerin haftalık ders saatlerinin toplamı — öğrencinin gördüğü saat.">
-                        <span class="ymt-kart-etiket">Şube çizelgesi</span>
-                        <span class="ymt-kart-sayi">${m.hamCizelgeSaati}</span>
-                    </div>
-                    ${kartlar}
-                    <span class="ymt-islem">=</span>
-                    <div class="ymt-kart ymt-kart-sonuc" title="Öğretmen normu bu sayı üzerinden hesaplanır.">
-                        <span class="ymt-kart-etiket">Norma esas yük</span>
-                        <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
-                    </div>
-                </div>
-            </div>
-        `;
     }
 
     /**

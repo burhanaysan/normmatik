@@ -203,8 +203,9 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     // Panel 06.09.2026'da matrisin ALTINDAN rapor BAŞLIĞINA taşındı
     // ("önemli, en altta olamaz" — kullanıcı). Yerleşimin ayrıntılı
     // denetimi test_raporlar R15'te; burada yalnızca bağlantılar sınanır.
-    kontrol("mutabakat şeridi rapor başlığında basılıyor",
-        /renderMutabakatSerit\(data\.yukMutabakati\)/.test(UI));
+    // 06.09.2026 yeniden tasarımı: şerit yerine KÖPRÜ grafiği (waterfall).
+    kontrol("mutabakat köprüsü rapor başlığında basılıyor",
+        /renderMutabakatKopru\(data\.yukMutabakati\)/.test(UI));
     kontrol("ayrıntı tablosu ve açma anahtarı basılıyor",
         /renderMutabakatDetay\(data\.yukMutabakati\)/.test(UI)
         && /renderMutabakatAnahtar\(data\.yukMutabakati\)/.test(UI));
