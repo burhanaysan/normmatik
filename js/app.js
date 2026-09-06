@@ -124,6 +124,47 @@ class MebNormApplication {
                             appState.state.aktifSubeId = appState.state.subeler[0].id;
                         }
                     }
+
+                    // YEREL KOPYA İLE KARŞILAŞTIRMA
+                    // -----------------------------
+                    // Uygulama artık her değişikliği bu tarayıcıya da yazıyor
+                    // (state.js yereleKaydet). Açılışta iki kopya olabilir:
+                    //   - buluttaki -> lastUpdated
+                    //   - yereldeki -> kayitZamani
+                    // YENİ OLAN KAZANIR. Ama yerel daha yeniyse bu, buluta
+                    // gönderilememiş çalışma demektir; kullanıcıya SORUYORUZ,
+                    // çünkü başka bir cihazda yapılmış düzenlemeyi sessizce
+                    // ezmek de veri kaybıdır. (Kullanıcı kararı, 06.09.2026.)
+                    try {
+                        const yerel = appState.yereldenOku(session.kurumKodu);
+                        const secim = appState.yerelBulutSecimi(cloudData, yerel);
+                        if (secim.yereliKullan) {
+                            let onay = true;
+                            if (secim.sorulmali) {
+                                const bt = secim.bulutZaman
+                                    ? new Date(secim.bulutZaman).toLocaleString("tr-TR") : "yok";
+                                const yt = new Date(secim.yerelZaman).toLocaleString("tr-TR");
+                                onay = window.confirm(
+                                    "Bu bilgisayarda, buluta gönderilememiş DAHA YENİ bir çalışma bulundu.\n\n" +
+                                    "Buluttaki kayıt : " + bt + "\n" +
+                                    "Bu bilgisayarda : " + yt + "\n\n" +
+                                    "Bu bilgisayardaki daha yeni çalışma geri yüklensin mi?\n" +
+                                    "(Hayır derseniz buluttaki kayıt kullanılır; yereldeki silinmez.)");
+                            }
+                            if (onay) {
+                                appState.yereliUygula(yerel.veri);
+                                // İki kopya ayrışmasın: yereli buluta geri gönder.
+                                try { cloudService.scheduleAutoSave(session.kurumKodu, appState.state); }
+                                catch (e) { /* bulut yazamazsa yerel kopya duruyor */ }
+                                this.ui.showToast("💾 " + secim.sebep, "success");
+                            }
+                        }
+                    } catch (e) {
+                        // Yerel karşılaştırma başarısız olsa bile buluttan gelen
+                        // veriyle açılış SÜRMELİ; burada durmak, çalışan bir yolu
+                        // çalışmayan bir iyileştirme uğruna feda etmek olurdu.
+                        this.ui.showToast("Yerel yedek okunamadı; buluttaki kayıtla devam ediliyor.", "warning");
+                    }
                 }
                 appState.history = [JSON.stringify(appState.state)];
                 appState.historyIndex = 0;
@@ -169,6 +210,42 @@ class MebNormApplication {
                     this.ui.showToast("⚠️ VERİLER KAYDEDİLEMEDİ — " + (d.mesaj || "bilinmeyen hata") + ek,
                         "error");
                 });
+            }
+
+            // Yerel yedek yazılamazsa kullanıcı bunu BİLMELİ: bulut da
+            // yazamıyorsa tek kopyasız kalır.
+            if (typeof window !== 'undefined' && !window.__yerelDurumBagli) {
+                window.__yerelDurumBagli = true;
+                let sonYerelUyarisi = 0;
+                window.addEventListener("normmatik-yerel-durum", (olay) => {
+                    const d = (olay && olay.detail) || {};
+                    if (d.basarili !== false) return;
+                    const simdi = Date.now();
+                    if (simdi - sonYerelUyarisi < 10000) return;
+                    sonYerelUyarisi = simdi;
+                    this.ui.showToast("⚠️ " + (d.mesaj || "Yerel yedekleme başarısız."), "error");
+                });
+            }
+
+            // Sekme kapanırken bekleyen bulut kaydını zorla gönder.
+            // Bu YALNIZCA ek bir şans: kapanışta eşzamansız istek
+            // tamamlanmayabilir. Asıl güvence yerel kopyadır — o her
+            // değişiklikte eşzamanlı yazılıyor.
+            if (typeof window !== 'undefined' && !window.__kapanisBosaltmaBagli) {
+                window.__kapanisBosaltmaBagli = true;
+                const bosalt = () => {
+                    try {
+                        const cs = window.cloudDbService;
+                        if (cs && typeof cs.flushPendingSave === "function") cs.flushPendingSave();
+                    } catch (e) { /* kapanışta hata yutulur */ }
+                };
+                // visibilitychange, beforeunload'dan daha güvenilir tetiklenir
+                // (özellikle mobilde ve sekme değişiminde).
+                window.addEventListener("visibilitychange", () => {
+                    if (document.visibilityState === "hidden") bosalt();
+                });
+                window.addEventListener("pagehide", bosalt);
+                window.addEventListener("beforeunload", bosalt);
             }
 
             if (typeof window !== 'undefined' && !window.__demoKilidiBagli) {

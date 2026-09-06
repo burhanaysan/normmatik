@@ -32,6 +32,7 @@ const ILK_BEKLEME_MS = 800;
 export class CloudDatabaseService {
     constructor() {
         this.saveTimeout = null;
+        this.bekleyenKayit = null;
         this.isSaving = false;
         this.lastSyncTime = null;
         this.baseUrl = RTDB_KOK;
@@ -306,9 +307,47 @@ export class CloudDatabaseService {
         if (!state) return;
 
         clearTimeout(this.saveTimeout);
+        // Bekleyen kaydı sekme kapanırken zorla gönderebilmek için sakla.
+        this.bekleyenKayit = { kurumKodu: key, state };
         this.saveTimeout = setTimeout(async () => {
-            await this.saveSchoolData(key, state);
+            this.bekleyenKayit = null;
+            // saveSchoolData normalde kendi hatalarini yakalar; yine de
+            // BEKLENMEDIK bir istisna buraya sizarsa islenmemis bir ret
+            // olusuyordu: tarayicida yalnizca konsola dusuyor, kullaniciya
+            // hicbir sey soylenmiyordu. Sessiz yol birakmiyoruz.
+            try {
+                await this.saveSchoolData(key, state);
+            } catch (e) {
+                this._durumBildir(false,
+                    "Kayit sirasinda beklenmedik hata: " + ((e && e.message) || e), false);
+            }
         }, 600);
+    }
+
+    /**
+     * Bekleyen (600 ms geciktirilmiş) kaydı HEMEN gönderir.
+     *
+     * Neden var: kullanıcı son değişikliğini yapıp sekmeyi kapattığında kayıt
+     * henüz denenmemiş bile oluyordu. Pencere kapanırken eşzamansız istek
+     * tamamlanmayabilir — bu yüzden bu YALNIZCA ek bir şanstır, garanti değil.
+     * Asıl güvence yerel kopyadır (state.js yereleKaydet): o, her değişiklikte
+     * eşzamanlı olarak yazılır. (Kullanıcı kararı, 06.09.2026.)
+     */
+    flushPendingSave() {
+        if (!this.bekleyenKayit) return false;
+        const { kurumKodu, state } = this.bekleyenKayit;
+        clearTimeout(this.saveTimeout);
+        this.bekleyenKayit = null;
+        try {
+            // async islev REDDEDILMIS bir soz dondurebilir; sadece try/catch
+            // bunu yakalamaz ve islenmemis ret olusur. .catch() sart.
+            const sonuc = this.saveSchoolData(kurumKodu, state);
+            if (sonuc && typeof sonuc.catch === "function") {
+                sonuc.catch((e) => this._durumBildir(false,
+                    "Kapanista kayit gonderilemedi: " + ((e && e.message) || e), false));
+            }
+        } catch (e) { return false; }
+        return true;
     }
 
     /** Okul verilerini buluta kaydeder. */

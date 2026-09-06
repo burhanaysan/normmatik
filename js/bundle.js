@@ -168236,6 +168236,7 @@ const ILK_BEKLEME_MS = 800;
 class CloudDatabaseService {
     constructor() {
         this.saveTimeout = null;
+        this.bekleyenKayit = null;
         this.isSaving = false;
         this.lastSyncTime = null;
         this.baseUrl = RTDB_KOK;
@@ -168510,9 +168511,47 @@ class CloudDatabaseService {
         if (!state) return;
 
         clearTimeout(this.saveTimeout);
+        // Bekleyen kaydı sekme kapanırken zorla gönderebilmek için sakla.
+        this.bekleyenKayit = { kurumKodu: key, state };
         this.saveTimeout = setTimeout(async () => {
-            await this.saveSchoolData(key, state);
+            this.bekleyenKayit = null;
+            // saveSchoolData normalde kendi hatalarini yakalar; yine de
+            // BEKLENMEDIK bir istisna buraya sizarsa islenmemis bir ret
+            // olusuyordu: tarayicida yalnizca konsola dusuyor, kullaniciya
+            // hicbir sey soylenmiyordu. Sessiz yol birakmiyoruz.
+            try {
+                await this.saveSchoolData(key, state);
+            } catch (e) {
+                this._durumBildir(false,
+                    "Kayit sirasinda beklenmedik hata: " + ((e && e.message) || e), false);
+            }
         }, 600);
+    }
+
+    /**
+     * Bekleyen (600 ms geciktirilmiş) kaydı HEMEN gönderir.
+     *
+     * Neden var: kullanıcı son değişikliğini yapıp sekmeyi kapattığında kayıt
+     * henüz denenmemiş bile oluyordu. Pencere kapanırken eşzamansız istek
+     * tamamlanmayabilir — bu yüzden bu YALNIZCA ek bir şanstır, garanti değil.
+     * Asıl güvence yerel kopyadır (state.js yereleKaydet): o, her değişiklikte
+     * eşzamanlı olarak yazılır. (Kullanıcı kararı, 06.09.2026.)
+     */
+    flushPendingSave() {
+        if (!this.bekleyenKayit) return false;
+        const { kurumKodu, state } = this.bekleyenKayit;
+        clearTimeout(this.saveTimeout);
+        this.bekleyenKayit = null;
+        try {
+            // async islev REDDEDILMIS bir soz dondurebilir; sadece try/catch
+            // bunu yakalamaz ve islenmemis ret olusur. .catch() sart.
+            const sonuc = this.saveSchoolData(kurumKodu, state);
+            if (sonuc && typeof sonuc.catch === "function") {
+                sonuc.catch((e) => this._durumBildir(false,
+                    "Kapanista kayit gonderilemedi: " + ((e && e.message) || e), false));
+            }
+        } catch (e) { return false; }
+        return true;
     }
 
     /** Okul verilerini buluta kaydeder. */
@@ -169927,10 +169966,176 @@ class AppStateService {
                 }
             }
         }
+        // 💾 Aynı anda YERELE de yaz. Bulut yazamazsa veri kaybolmasın.
+        this.yereleKaydet();
+    }
+
+    // ======================================================================
+    // YEREL KALICILIK
+    // ======================================================================
+    //
+    // NEDEN VAR (kullanıcı kararı, 06.09.2026)
+    // ----------------------------------------
+    // Uygulama okul verisini SADECE bulutta tutuyordu: `loadFromStorage()`
+    // her zaman false dönüyor, `saveToStorage()` yalnızca buluta yazıyordu.
+    // Bulut kaydı reddedilirse veri HİÇBİR YERDE olmuyordu.
+    //
+    // Bu teorik bir risk değildi: Firebase anahtar hatası (4ca5758) yüzünden
+    // bir okulun BÜTÜN kayıtları haftalarca sessizce reddedildi. Müdür
+    // saatlerce çalıştı, hiçbir şey yazılmadı.
+    //
+    // Yerel kopya, her bulut hatasını "veri kaybı"ndan "senkronizasyon
+    // gecikmesi"ne indirir. Ayrıca okulların interneti kopuk olduğunda
+    // çalışmaya devam edilebilir.
+    //
+    // NEDEN localStorage, IndexedDB DEĞİL: ölçüldü (06.09.2026) — 16 şubelik
+    // Anadolu lisesi 22 KB, 40 şubelik MTAL 52 KB. localStorage sınırı ~5 MB.
+    // IndexedDB'nin eşzamansız karmaşıklığı bu boyut için gereksiz risk.
+
+    YEREL_ONEK = "normmatik_yerel_";
+
+    /** Bu okulun yerel anahtarı. Demo ve kurum kodsuz durumda null. */
+    yerelAnahtar() {
+        const bilgi = this.state && this.state.okulBilgisi;
+        if (!bilgi) return null;
+        // Demo verisi yerele yazılmaz: sonradan gerçek okul açıldığında
+        // eski demo kaydının geri yüklenmesi kafa karıştırıcı olurdu.
+        if (bilgi.isDemo) return null;
+        const kod = String(bilgi.kurumKodu || "").trim();
+        if (!kod || kod === "*" || kod === "123456") return null;
+        return this.YEREL_ONEK + kod;
+    }
+
+    /** Durumu yerele yazar. Başarısızlık SESSİZ KALMAZ, olayla bildirilir. */
+    yereleKaydet() {
+        if (typeof window === "undefined" || !window.localStorage) return false;
+        const anahtar = this.yerelAnahtar();
+        if (!anahtar) return false;
+        try {
+            window.localStorage.setItem(anahtar, JSON.stringify({
+                surum: 1,
+                kurumKodu: this.state.okulBilgisi.kurumKodu,
+                kayitZamani: new Date().toISOString(),
+                veri: this.state
+            }));
+            this.yerelSonHata = null;
+            return true;
+        } catch (e) {
+            // Kota dolmuş, gizli sekme, ya da site verisi engellenmiş olabilir.
+            // Bulut da yazamıyorsa kullanıcı TEK KOPYASIZ kalır; söylemek şart.
+            this.yerelSonHata = (e && e.name) || "bilinmeyen";
+            try {
+                window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                    detail: {
+                        basarili: false,
+                        mesaj: "Çalışmanız bu tarayıcıya yedeklenemedi (" + this.yerelSonHata
+                             + "). Bulut kaydı da başarısız olursa veriniz korunamaz."
+                    }
+                }));
+            } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
+            return false;
+        }
+    }
+
+    /** Yerel kopyayı okur. Dönüş: { kayitZamani, veri } veya null. */
+    yereldenOku(kurumKodu) {
+        if (typeof window === "undefined" || !window.localStorage) return null;
+        const kod = String(kurumKodu || "").trim();
+        if (!kod) return null;
+        try {
+            const ham = window.localStorage.getItem(this.YEREL_ONEK + kod);
+            if (!ham) return null;
+            const paket = JSON.parse(ham);
+            if (!paket || !paket.veri || !Array.isArray(paket.veri.subeler)) return null;
+            return { kayitZamani: paket.kayitZamani || null, veri: paket.veri };
+        } catch (e) {
+            // Bozuk kayıt geri yüklenmez; ama SİLİNMEZ de — belki elle
+            // kurtarılabilir. Sessizce null dönmek burada doğrudur:
+            // çağıran taraf buluttan devam eder.
+            return null;
+        }
+    }
+
+    /**
+     * AÇILIŞTA HANGİ KOPYA KULLANILSIN?
+     *
+     * Saf fonksiyon: yan etkisi yok, arayüze dokunmaz. app.js kararı buradan
+     * alır, yalnızca sorma/uygulama işini yapar. Ayrı durmasının sebebi
+     * ÖLÇÜLEBİLİRLİK: karar mantığı arayüzün içine gömülü kalsaydı test
+     * ancak taklidini sınayabilirdi. (Kullanıcı kararı, 06.09.2026.)
+     *
+     * Kural: YENİ OLAN KAZANIR.
+     *   • Bulutta kayıt yoksa ve yerel varsa  -> yerel (soru sorulmaz)
+     *   • Yerel, buluttan 5 sn+ yeniyse       -> yerel ama KULLANICIYA SORULUR
+     *     (başka cihazdaki bir düzenlemeyi sessizce ezmek de veri kaybıdır)
+     *   • Aksi hâlde                          -> bulut
+     *
+     * 5 saniyelik pay: normal akışta yerel kayıt buluttan birkaç yüz ms sonra
+     * yazılır; bu farkı "çakışma" saymak her açılışta soru sordururdu.
+     */
+    yerelBulutSecimi(cloudData, yerel) {
+        const yok = { yereliKullan: false, sorulmali: false, sebep: "", bulutZaman: 0, yerelZaman: 0 };
+        if (!yerel || !yerel.veri) return yok;
+
+        const bulutZaman = (cloudData && cloudData.lastUpdated) ? Date.parse(cloudData.lastUpdated) : 0;
+        const yerelZaman = yerel.kayitZamani ? Date.parse(yerel.kayitZamani) : 0;
+        const gecerli = Number.isFinite(yerelZaman) && yerelZaman > 0;
+        if (!gecerli) return yok;
+
+        const b = Number.isFinite(bulutZaman) ? bulutZaman : 0;
+
+        if (!cloudData) {
+            return {
+                yereliKullan: true, sorulmali: false, bulutZaman: b, yerelZaman,
+                sebep: "Buluttan veri alınamadı; bu bilgisayardaki son kopya açıldı."
+            };
+        }
+        if (yerelZaman > b + 5000) {
+            return {
+                yereliKullan: true, sorulmali: true, bulutZaman: b, yerelZaman,
+                sebep: "Bu bilgisayarda kalmış daha yeni çalışmanız geri yüklendi."
+            };
+        }
+        return Object.assign({}, yok, { bulutZaman: b, yerelZaman });
+    }
+
+    /**
+     * Yerel kopyayı duruma UYGULAR.
+     *
+     * Okul ADI ve TÜRÜ bilerek alınmaz: kimlik `okul_kayit` kaydından gelir ve
+     * Firebase kuralı birebir eşleşme şart koşar. Eski bir yerel kayıttaki
+     * farklı ad yazılırsa o andan sonra HER bulut kaydı reddedilir (4ca5758
+     * ile aynı sınıf bir tuzak).
+     */
+    yereliUygula(veri) {
+        if (!veri) return false;
+        if (veri.okulBilgisi) {
+            if (veri.okulBilgisi.sezon) this.state.okulBilgisi.sezon = veri.okulBilgisi.sezon;
+            if (veri.okulBilgisi.antet) this.state.okulBilgisi.antet = veri.okulBilgisi.antet;
+            if (veri.okulBilgisi.adminOptions) this.state.okulBilgisi.adminOptions = veri.okulBilgisi.adminOptions;
+        }
+        if (Array.isArray(veri.subeler)) this.state.subeler = veri.subeler;
+        if (veri.mevcutOgretmenler) this.state.mevcutOgretmenler = veri.mevcutOgretmenler;
+        if (veri.koordinatorlukYukleri) this.state.koordinatorlukYukleri = veri.koordinatorlukYukleri;
+
+        this.sanitizeExistingState();
+        if (this.state.subeler.length > 0) {
+            this.state.aktifSubeId = this.state.subeler[0].id;
+        }
+        return true;
+    }
+
+    /** Yerel kopyayı siler (çıkışta / okul değişiminde). */
+    yereliSil(kurumKodu) {
+        if (typeof window === "undefined" || !window.localStorage) return;
+        try { window.localStorage.removeItem(this.YEREL_ONEK + String(kurumKodu || "").trim()); }
+        catch (e) { /* silinemezse akış bozulmaz */ }
     }
 
     loadFromStorage() {
-        // Yerel çöp hafıza kullanılmaz, veriler doğrudan Google Cloud ve oturumdan gelir
+        // KULLANILMIYOR — geriye dönük uyum için duruyor.
+        // Yerel okuma artık `yereldenOku(kurumKodu)` ile yapılır ve buluttaki
+        // kopyayla ZAMAN DAMGASINA göre karşılaştırılır (bkz. app.js).
         return false;
     }
 
@@ -176570,6 +176775,47 @@ class MebNormApplication {
                             appState.state.aktifSubeId = appState.state.subeler[0].id;
                         }
                     }
+
+                    // YEREL KOPYA İLE KARŞILAŞTIRMA
+                    // -----------------------------
+                    // Uygulama artık her değişikliği bu tarayıcıya da yazıyor
+                    // (state.js yereleKaydet). Açılışta iki kopya olabilir:
+                    //   - buluttaki -> lastUpdated
+                    //   - yereldeki -> kayitZamani
+                    // YENİ OLAN KAZANIR. Ama yerel daha yeniyse bu, buluta
+                    // gönderilememiş çalışma demektir; kullanıcıya SORUYORUZ,
+                    // çünkü başka bir cihazda yapılmış düzenlemeyi sessizce
+                    // ezmek de veri kaybıdır. (Kullanıcı kararı, 06.09.2026.)
+                    try {
+                        const yerel = appState.yereldenOku(session.kurumKodu);
+                        const secim = appState.yerelBulutSecimi(cloudData, yerel);
+                        if (secim.yereliKullan) {
+                            let onay = true;
+                            if (secim.sorulmali) {
+                                const bt = secim.bulutZaman
+                                    ? new Date(secim.bulutZaman).toLocaleString("tr-TR") : "yok";
+                                const yt = new Date(secim.yerelZaman).toLocaleString("tr-TR");
+                                onay = window.confirm(
+                                    "Bu bilgisayarda, buluta gönderilememiş DAHA YENİ bir çalışma bulundu.\n\n" +
+                                    "Buluttaki kayıt : " + bt + "\n" +
+                                    "Bu bilgisayarda : " + yt + "\n\n" +
+                                    "Bu bilgisayardaki daha yeni çalışma geri yüklensin mi?\n" +
+                                    "(Hayır derseniz buluttaki kayıt kullanılır; yereldeki silinmez.)");
+                            }
+                            if (onay) {
+                                appState.yereliUygula(yerel.veri);
+                                // İki kopya ayrışmasın: yereli buluta geri gönder.
+                                try { cloudService.scheduleAutoSave(session.kurumKodu, appState.state); }
+                                catch (e) { /* bulut yazamazsa yerel kopya duruyor */ }
+                                this.ui.showToast("💾 " + secim.sebep, "success");
+                            }
+                        }
+                    } catch (e) {
+                        // Yerel karşılaştırma başarısız olsa bile buluttan gelen
+                        // veriyle açılış SÜRMELİ; burada durmak, çalışan bir yolu
+                        // çalışmayan bir iyileştirme uğruna feda etmek olurdu.
+                        this.ui.showToast("Yerel yedek okunamadı; buluttaki kayıtla devam ediliyor.", "warning");
+                    }
                 }
                 appState.history = [JSON.stringify(appState.state)];
                 appState.historyIndex = 0;
@@ -176615,6 +176861,42 @@ class MebNormApplication {
                     this.ui.showToast("⚠️ VERİLER KAYDEDİLEMEDİ — " + (d.mesaj || "bilinmeyen hata") + ek,
                         "error");
                 });
+            }
+
+            // Yerel yedek yazılamazsa kullanıcı bunu BİLMELİ: bulut da
+            // yazamıyorsa tek kopyasız kalır.
+            if (typeof window !== 'undefined' && !window.__yerelDurumBagli) {
+                window.__yerelDurumBagli = true;
+                let sonYerelUyarisi = 0;
+                window.addEventListener("normmatik-yerel-durum", (olay) => {
+                    const d = (olay && olay.detail) || {};
+                    if (d.basarili !== false) return;
+                    const simdi = Date.now();
+                    if (simdi - sonYerelUyarisi < 10000) return;
+                    sonYerelUyarisi = simdi;
+                    this.ui.showToast("⚠️ " + (d.mesaj || "Yerel yedekleme başarısız."), "error");
+                });
+            }
+
+            // Sekme kapanırken bekleyen bulut kaydını zorla gönder.
+            // Bu YALNIZCA ek bir şans: kapanışta eşzamansız istek
+            // tamamlanmayabilir. Asıl güvence yerel kopyadır — o her
+            // değişiklikte eşzamanlı yazılıyor.
+            if (typeof window !== 'undefined' && !window.__kapanisBosaltmaBagli) {
+                window.__kapanisBosaltmaBagli = true;
+                const bosalt = () => {
+                    try {
+                        const cs = window.cloudDbService;
+                        if (cs && typeof cs.flushPendingSave === "function") cs.flushPendingSave();
+                    } catch (e) { /* kapanışta hata yutulur */ }
+                };
+                // visibilitychange, beforeunload'dan daha güvenilir tetiklenir
+                // (özellikle mobilde ve sekme değişiminde).
+                window.addEventListener("visibilitychange", () => {
+                    if (document.visibilityState === "hidden") bosalt();
+                });
+                window.addEventListener("pagehide", bosalt);
+                window.addEventListener("beforeunload", bosalt);
             }
 
             if (typeof window !== 'undefined' && !window.__demoKilidiBagli) {
