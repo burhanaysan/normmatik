@@ -175,6 +175,77 @@ kontrol("ölçüm geçerli: sessiz blok sınıfı gerçekten var",
     }
 }
 
+/* ---- 5) SESSİZ DÜĞME DENETİMİ ----------------------------------------- */
+/* NEDEN VAR (kullanıcı bildirimi, 06.09.2026)
+   "şube sildim, o kutucuk gelmedi."
+
+   Şube SİLME ve KOPYALAMA dinleyicilerinde hiç geri bildirim yoktu:
+   kullanıcı işlemin olup olmadığını ancak listeye bakarak anlıyordu.
+   Diğer bütün durum değiştiren işlemlerde bildirim vardı; bu ikisi atlanmıştı.
+
+   KURAL: durumu değiştiren bir olay dinleyicisi, kullanıcıya GÖRÜNÜR bir
+   şey yapmalı. Görünür sayılanlar: bildirim, pencere, onay kutusu,
+   yönlendirme, yeniden çizim, bir öğenin görünümünü değiştirme...
+
+   Amaç her düğmeye bildirim koydurmak DEĞİL: panel açma/kapama zaten gözün
+   önünde olur, oraya bildirim koymak gürültü olurdu. Amaç, hiçbir izi
+   olmayan bir işlemin fark edilmeden eklenmemesi. */
+{
+    // DİKKAT: confirm() ve prompt() BURAYA GİRMEZ. İkisi de işlemden ÖNCE
+    // çıkan sorulardır; sonucu bildirmezler. Onları "görünür geri bildirim"
+    // saymak, silme dinleyicisindeki eksikliği gizliyordu — doğrulama
+    // sırasında yakalandı (06.09.2026).
+    const GORUNUR = ["showToast", "Modal", "alert(",
+        "location.href", "window.open", "window.print", "classList",
+        "style.display", "render", "remove()", "focus()", "click()",
+        "innerHTML", "textContent", "value =", "disabled", "applyLayoutStyles"];
+
+    const govdeAl2 = (s, i) => {
+        let d = 0;
+        for (let j = i; j < s.length; j++) {
+            if (s[j] === "{") d++;
+            else if (s[j] === "}") { d--; if (d === 0) return s.slice(i, j + 1); }
+        }
+        return "";
+    };
+
+    const sessizler = [];
+    let dinleyiciSayisi = 0;
+    for (const dosya of ["app.js", "uiComponents.js"]) {
+        const s = fs.readFileSync(path.join(KOK, "js", dosya), "utf8");
+        const re = /addEventListener\(\s*["'](?:click|change|input|submit)["']\s*,/g;
+        let m;
+        while ((m = re.exec(s)) !== null) {
+            const k = s.indexOf("{", m.index + m[0].length);
+            if (k < 0) continue;
+            const govde = govdeAl2(s, k);
+            if (!govde || govde.length > 7000) continue;
+            dinleyiciSayisi++;
+
+            const degistirir = govde.includes("notify(")
+                || /\b(?:appState|this\.state)\.(?:add|delete|update|set|remove|clear|reset|import|duplicate)[A-Za-z]*\s*\(/.test(govde);
+            if (!degistirir) continue;
+            if (GORUNUR.some(g => govde.includes(g))) continue;
+
+            const satir = s.slice(0, m.index).split("\n").length;
+            sessizler.push(dosya + ":" + satir);
+        }
+    }
+
+    kontrol("ölçüm geçerli: olay dinleyicileri taranabiliyor",
+        dinleyiciSayisi > 40, dinleyiciSayisi + " dinleyici");
+    kontrol("durum değiştiren hiçbir düğme SESSİZ değil",
+        sessizler.length === 0,
+        "geri bildirimi olmayan: " + sessizler.join(", "));
+
+    // Bu iki yol adıyla sabitleniyor: bildirilen hata tam buradaydı.
+    const app = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
+    kontrol("şube silme bildirim gösteriyor",
+        /if \(appState\.deleteSection\([^)]*\)\)\s*\{[\s\S]{0,240}showToast/.test(app));
+    kontrol("şube kopyalama bildirim gösteriyor",
+        /if \(appState\.duplicateSection\([^)]*\)\)\s*\{[\s\S]{0,240}showToast/.test(app));
+}
+
 /* ---- 4) Envanter özeti (bilgi amaçlı, hata değil) ---------------------- */
 {
     const bos = bloklar.filter(b => b.tur === "bos").length;
