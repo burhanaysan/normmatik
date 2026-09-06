@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı</title>
     <meta name="description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
-    <link rel="stylesheet" href="css/landing.css?v=20260906_0930">
+    <link rel="stylesheet" href="css/landing.css?v=20260906_0944">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -459,16 +459,34 @@
                 "MEB_NORM_KADRO_LAYOUT_V1",   // panel genişlikleri
                 "normmatik_onboarding_seen"   // tanıtım turu görüldü mü
             ];
+            // YEREL ÇALIŞMA YEDEĞİ VE SÜRÜM GEÇMİŞİ DE KORUNUR (06.09.2026)
+            // -------------------------------------------------------------
+            // Bu işlev HER GİRİŞTE çalışıyor. Önekler burada korunmadığı için
+            // yerel kalıcılık (state.js yereleKaydet) ve sürüm geçmişi giriş
+            // anında siliniyordu: app.html açıldığında okunacak bir yerel
+            // kopya HİÇ KALMIYORDU. Yani bulut kaydı sessizce reddedilmiş bir
+            // müdürün kurtarma yolu gerçek akışta hiç çalışmıyordu — ağ
+            // yalnızca testlerde işe yarıyordu.
+            //
+            // Aynı hata authService.logout() içinde de vardı ve orada
+            // düzeltilmişti; burası atlanmıştı. İki yer de aynı kuralı uygular.
+            const KORUNAN_ONEKLER = ["normmatik_yerel_", "normmatik_surumler_"];
             try {
                 const yedek = {};
                 KORUNANLAR.forEach(k => {
                     const v = localStorage.getItem(k);
                     if (v !== null) yedek[k] = v;
                 });
+                for (let i = 0; i < localStorage.length; i++) {
+                    const k = localStorage.key(i);
+                    if (k && KORUNAN_ONEKLER.some(o => k.indexOf(o) === 0)) {
+                        yedek[k] = localStorage.getItem(k);
+                    }
+                }
                 localStorage.clear();
                 Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
-            } catch (e) {}
-            try { sessionStorage.clear(); } catch (e) {}
+            } catch (e) { /* temizlik yarıda kalırsa görünüm tercihleri kaybolabilir; veri değil */ }
+            try { sessionStorage.clear(); } catch (e) { /* oturum izi zaten yenisiyle değişecek */ }
         }
 
         // Form Giriş Kontrolü
