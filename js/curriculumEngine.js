@@ -167,6 +167,55 @@ class MebCurriculumEngine {
         ]);
     }
 
+    /**
+     * MÜFREDATI TAZELERKEN KULLANICININ AYARLARINI KORU
+     *
+     * Şube düzenleme penceresindeki "🔄 Zorunlu dersleri güncel MEB
+     * müfredatına göre otomatik yenile" kutusu, zorunlu ders listesini
+     * OLDUĞU GİBİ değiştiriyordu. Kutu VARSAYILAN OLARAK İŞARETLİ olduğu
+     * için, müdür şube adını ya da öğrenci sayısını düzeltmek için pencereyi
+     * her açıp kaydedişinde şu ayarlar SESSİZCE siliniyordu:
+     *
+     *     atananBrans      dersin hangi branşa yazıldığı (elle seçim)
+     *     bolunenBranslar  eğik çizgili dersin branşlara bölünmesi
+     *     grupSayisi       okulun belirlediği grup sayısı
+     *     birlesikSubeler  şube birleştirme
+     *     bransDagilimi    hedef temelli destek eğitiminin dağıtımı
+     *
+     * Bunların hepsi norm hesabına GİRİYOR; yani sessizce norm değişiyordu.
+     * Üstelik kutunun açıklaması "seçtiğiniz seçmeli dersler korunur" diyerek
+     * güven veriyordu — seçmeliler gerçekten korunuyordu, ama zorunlu dersler
+     * üzerindeki emek korunmuyordu. (Kullanıcı bildirimi, 06.09.2026.)
+     *
+     * Artık müfredat listesi KAYNAKTAN gelir (ders adı, saat, kategori,
+     * baraj/atölye bilgisi güncellenir) ama kullanıcının kendi koyduğu
+     * alanlar ders adı eşleşmesiyle TAŞINIR.
+     */
+    mufredatiTazele(eskiDersler, yeniDersler) {
+        const KORUNAN = ["atananBrans", "bolunenBranslar", "grupSayisi",
+                         "birlesikSubeler", "bransDagilimi"];
+        const anahtar = (c) => this.normalizeName(String((c && (c.ders || c.ders_adi)) || ""));
+
+        const eskiHarita = new Map();
+        (eskiDersler || []).forEach(c => {
+            const k = anahtar(c);
+            if (k && !eskiHarita.has(k)) eskiHarita.set(k, c);
+        });
+
+        return (yeniDersler || []).map(y => {
+            const e = eskiHarita.get(anahtar(y));
+            if (!e) return y;                       // müfredata YENİ giren ders
+            const birlesik = Object.assign({}, y);
+            KORUNAN.forEach(alan => {
+                const d = e[alan];
+                if (d === undefined || d === null || d === "") return;
+                if (Array.isArray(d) && d.length === 0) return;
+                birlesik[alan] = d;
+            });
+            return birlesik;
+        });
+    }
+
     normalizeName(text) {
         if (!text) return "";
         return String(text).trim().toLowerCase()

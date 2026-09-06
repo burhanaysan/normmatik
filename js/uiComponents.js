@@ -981,7 +981,7 @@ export class UIComponentManager {
                                 🔄 Zorunlu dersleri güncel MEB müfredatına göre otomatik yenile
                             </label>
                             <p style="font-size: 0.72rem; color: #15803d; margin-top: 0.25rem; margin-bottom: 0;">
-                                * İşaretli olduğunda bu şubenin zorunlu dersleri en son MEB ÇÖP veritabanıyla eşitlenir (Seçtiğiniz seçmeli dersler korunur).
+                                * İşaretli olduğunda bu şubenin zorunlu ders listesi en son MEB ÇÖP veritabanıyla eşitlenir. Seçmeli dersleriniz ve zorunlu derslere yaptığınız <strong>branş atamaları, grup/branş bölünmeleri ve şube birleştirmeleri korunur</strong>; yalnızca müfredattan gelen ders adı, saat ve kategori bilgisi güncellenir.
                             </p>
                         </div>
                         ` : ''}
@@ -1042,12 +1042,19 @@ export class UIComponentManager {
                         sectionToEdit.dalAdi !== (isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName) ||
                         sectionToEdit.sinifSeviyesi !== grade || 
                         sectionToEdit.isSpecialEdu !== isSpecialEdu) {
-                        updatedCourses = this.curriculum.getMandatoryCourses(
+                        const tazeDersler = this.curriculum.getMandatoryCourses(
                             schoolType, 
                             grade, 
                             isSpecialEdu ? "ozel_egitim" : areaId, 
                             isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName
                         );
+                        // Kullanicinin kendi ayarlarini TASI: brans atamalari,
+                        // grup/brans bolunmeleri, sube birlestirmeleri ve hedef
+                        // temelli dagitim eskiden sessizce siliniyordu ve norm
+                        // buna bagli olarak degisiyordu. (06.09.2026.)
+                        updatedCourses = (typeof this.curriculum.mufredatiTazele === "function")
+                            ? this.curriculum.mufredatiTazele(originalCourses, tazeDersler)
+                            : tazeDersler;
                     }
                     this.state.updateSection(sectionToEdit.id, {
                         sinifSeviyesi: grade,
