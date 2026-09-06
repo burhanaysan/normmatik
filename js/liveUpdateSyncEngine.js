@@ -32,6 +32,10 @@ export class LiveUpdateSyncEngine {
                 }
             }
         } catch (e) {
+            // BİLİNÇLİ: yerelde saklanmış kural sürümü bozuksa koddaki
+            // NORM_RULES_CONFIG'e dönmek GÜVENLİ taraftır — mevzuat baremleri
+            // her hâlükârda kaynaktan gelir. Sessizlik burada veri kaybı
+            // doğurmaz. (06.09.2026 sınıflandırması.)
             console.warn("Yerel kural konfigürasyonu okunamadı, varsayılan kullanılıyor:", e);
         }
         return NORM_RULES_CONFIG;

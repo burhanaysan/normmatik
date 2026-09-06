@@ -885,6 +885,10 @@ class LiveUpdateSyncEngine {
                 }
             }
         } catch (e) {
+            // BİLİNÇLİ: yerelde saklanmış kural sürümü bozuksa koddaki
+            // NORM_RULES_CONFIG'e dönmek GÜVENLİ taraftır — mevzuat baremleri
+            // her hâlükârda kaynaktan gelir. Sessizlik burada veri kaybı
+            // doğurmaz. (06.09.2026 sınıflandırması.)
             console.warn("Yerel kural konfigürasyonu okunamadı, varsayılan kullanılıyor:", e);
         }
         return NORM_RULES_CONFIG;
@@ -163567,7 +163571,21 @@ class MebDatabaseService {
                 console.log("MEB Master DB localStorage üzerinden güncel versiyon ile yüklendi.");
                 return this.masterData;
             } catch (e) {
+                // Kullanıcının yüklediği DB bozuk. Varsayılana dönmek DOĞRU
+                // davranış, ama sessiz değil: kullanıcı kendi yüklediği verinin
+                // etkin olduğunu sanmasın. (06.09.2026 sınıflandırması.)
                 console.warn("Kayıtlı özel DB okunamadı, varsayılanlara dönülüyor...", e);
+                try {
+                    if (typeof window !== "undefined" && window.dispatchEvent) {
+                        window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                            detail: {
+                                basarili: false,
+                                mesaj: "Yüklediğiniz özel veri tabanı okunamadı; "
+                                     + "uygulama varsayılan MEB verisiyle çalışıyor."
+                            }
+                        }));
+                    }
+                } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
             }
         }
 
@@ -163581,6 +163599,9 @@ class MebDatabaseService {
                 return this.masterData;
             }
         } catch (e) {
+            // BİLİNÇLİ: file:// protokolünde ve çevrimdışı açılışta fetch zaten
+            // çalışmaz; gömülü veriye düşmek NORMAL yoldur, hata değil.
+            // Gömülü veri de yoksa aşağıdaki adım kendi hatasını üretir.
             console.warn("Fetch üzerinden yüklenemedi, window.MEB_EMBEDDED_DATA kontrol ediliyor...", e);
         }
 
@@ -168124,7 +168145,23 @@ class AuthService {
                 lastActive: new Date().toISOString()
             });
             sessionStorage.setItem(this.SESSION_KEY, jsonStr);
-        } catch (e) {}
+        } catch (e) {
+            // SESSİZ KALMA: oturum yazılamazsa kullanıcı bir sonraki sayfada
+            // sebepsiz yere çıkmış olur ve neden olduğunu anlayamaz.
+            // (Gizli sekme, site verisi engelli ya da kota dolu olabilir.)
+            try {
+                if (typeof window !== "undefined" && window.dispatchEvent) {
+                    window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                        detail: {
+                            basarili: false,
+                            mesaj: "Oturum bilgisi bu tarayıcıya yazılamadı ("
+                                 + ((e && e.name) || "bilinmeyen")
+                                 + "); sayfa değiştirdiğinizde yeniden giriş isteyebilir."
+                        }
+                    }));
+                }
+            } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
+        }
     }
 
     /**
@@ -168143,15 +168180,37 @@ class AuthService {
             "MEB_NORM_KADRO_LAYOUT_V1",
             "normmatik_onboarding_seen"
         ];
+        // YEREL ÇALIŞMA YEDEĞİ DE KORUNUR (06.09.2026)
+        // -------------------------------------------
+        // Aynı gün eklenen yerel kalıcılık (state.js yereleKaydet) buradaki
+        // localStorage.clear() yüzünden HER ÇIKIŞTA siliniyordu. Yani
+        // güvenlik ağının hiçbir hükmü kalmıyordu: bulut kaydı sessizce
+        // reddedilmiş bir müdür çıkış yaptığı anda çalışmasını kaybediyordu —
+        // korumak için eklediğimiz şey tam da o senaryoda yok oluyordu.
+        //
+        // KARAR: yedek korunur. Veri okulun kendi bilgisayarındaki kendi
+        // verisidir ve yalnızca aynı kurum koduyla girildiğinde okunur.
+        // Ortak bilgisayarda iz bırakmamak isteyen kurum tarayıcı verisini
+        // temizleyerek bunu yapabilir; buradaki öncelik veri kaybını önlemek.
+        const YEREL_ONEK = "normmatik_yerel_";
         try {
             const yedek = {};
             KORUNANLAR.forEach(k => {
                 const v = localStorage.getItem(k);
                 if (v !== null) yedek[k] = v;
             });
+            for (let i = 0; i < localStorage.length; i++) {
+                const k = localStorage.key(i);
+                if (k && k.indexOf(YEREL_ONEK) === 0) yedek[k] = localStorage.getItem(k);
+            }
             localStorage.clear();
             Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
-        } catch (e) {}
+        } catch (e) {
+            // Temizlik yarıda kalırsa görünüm tercihleri kaybolabilir; veri
+            // kaybı doğurmaz. Çıkışın kendisi aşağıda yine tamamlanır.
+        }
+        // Çıkışta temizlik: silinemese bile oturum anahtarı zaten üstte
+        // kaldırıldı, kullanıcı için sonuç değişmez.
         try { sessionStorage.clear(); } catch (e) {}
         window.location.href = "index.html";
     }
@@ -168751,7 +168810,7 @@ class AppStateService {
             if (typeof localStorage !== 'undefined') {
                 localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
             }
-        } catch (e) {}
+        } catch (e) { /* panel genişlikleri görünüm tercihidir; kaybı veriyi etkilemez */ }
     }
 
     loadLayout() {
@@ -168760,7 +168819,7 @@ class AppStateService {
                 const l = localStorage.getItem(this.LAYOUT_KEY);
                 if (l) this.layout = { ...this.getDefaultLayout(), ...JSON.parse(l) };
             }
-        } catch (e) {}
+        } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
         return this.layout;
     }
 
@@ -169189,7 +169248,7 @@ class AppStateService {
         Object.assign(this.layout, updates);
         try {
             localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
-        } catch (e) {}
+        } catch (e) { /* panel genişlikleri görünüm tercihidir; kaybı veriyi etkilemez */ }
     }
 
     loadLayout() {
@@ -169198,7 +169257,7 @@ class AppStateService {
             if (data) {
                 this.layout = JSON.parse(data);
             }
-        } catch (e) {}
+        } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
         return this.layout;
     }
 
@@ -169369,7 +169428,7 @@ class AppStateService {
             if (typeof window !== 'undefined' && window.dispatchEvent && typeof CustomEvent === 'function') {
                 window.dispatchEvent(new CustomEvent("normmatik:demo-kilit", { detail: { mesaj } }));
             }
-        } catch (e) {}
+        } catch (e) { /* olay yayınlanamazsa akış bozulmaz; ret zaten uygulandı */ }
         return false;
     }
 
@@ -170160,6 +170219,9 @@ class AppStateService {
                 return true;
             }
         } catch (e) {
+            // BİLİNÇLİ: false dönüyoruz ve ÇAĞIRAN taraf kullanıcıya
+            // "Geçersiz proje dosyası." uyarısını gösteriyor (app.js).
+            // Burada ikinci bir kutu açmak mükerrer olurdu.
             console.error("Geçersiz proje JSON dosyası:", e);
         }
         return false;
@@ -170771,6 +170833,7 @@ class EOkulImporter {
 
             // Zorunlu Dersleri Çöz (Dal bilgisi varsa dal müfredatı otomatik çözülür)
             let mandatoryCourses = [];
+            let dersHatasi = null;
             if (this.curriculum && typeof this.curriculum.getMandatoryCourses === 'function') {
                 try {
                     mandatoryCourses = this.curriculum.getMandatoryCourses(
@@ -170780,12 +170843,18 @@ class EOkulImporter {
                         dalAdi
                     ) || [];
                 } catch (e) {
+                    // SESSİZ KALMA: bu şube DERSSİZ kalır, haftalık yükü 0
+                    // görünür ve norm olduğundan düşük çıkar. Kullanıcı
+                    // aktarım sonunda bunu görmeli. (06.09.2026 sınıflandırması.)
                     console.warn(`Zorunlu dersler çözülemedi (${sec.subeAdi}):`, e);
+                    dersHatasi = `⚠️ ${sec.subeAdi} şubesinin zorunlu ders çizelgesi çözülemedi; `
+                        + `şube DERSSİZ aktarıldı ve ders yükü 0 görünecek. `
+                        + `Şube türünü/alanını kontrol edip dersleri elle ekleyin.`;
                 }
             }
 
             // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
-            let dalWarning = null;
+            let dalWarning = dersHatasi || null;
             if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
                 const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
                 if (validGradeBranches.length > 0) {
@@ -171338,11 +171407,11 @@ class UIComponentManager {
             if (chk && chk.checked) {
                 try {
                     localStorage.setItem("normmatik_onboarding_seen", "true");
-                } catch (e) {}
+                } catch (e) { /* tanıtım bir daha gösterilir; veriyi etkilemez */ }
             } else {
                 try {
                     localStorage.removeItem("normmatik_onboarding_seen");
-                } catch (e) {}
+                } catch (e) { /* tanıtım sıfırlanamadı; veriyi etkilemez */ }
             }
             this.closeModal("onboarding-modal");
             if (typeof onFinishCallback === 'function') {
@@ -173544,7 +173613,10 @@ class UIComponentManager {
                     ` : ''}
                 `;
             } catch (err) {
-                console.warn("updateAdminPreview error:", err);
+                // BİLİNÇLİ: canlı önizleme çizilemezse pencere açık kalmalı.
+            // Gösterilen sayı ESKİ kalır ama KAYDET yolu ayrı çalışır; hesabın
+            // kendisi bundan etkilenmez. (06.09.2026 sınıflandırması.)
+            console.warn("updateAdminPreview error:", err);
             }
         };
 
@@ -176930,7 +177002,9 @@ class MebNormApplication {
                         `Okulunuzun bütün şubelerini ekleyip sınırsız norm hesabı yapmak için ` +
                         `yıllık lisans almanız gerekir.`
                     );
-                    try { uiComponents.openLicenseModal(); } catch (e) {}
+                    // Lisans penceresi açılamazsa akış sürer: bu yalnızca bir bilgilendirme
+        // penceresi, veri yolu değil.
+        try { uiComponents.openLicenseModal(); } catch (e) {}
                 });
             }
 
@@ -176942,7 +177016,22 @@ class MebNormApplication {
 
             console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
         } catch (error) {
+            // BAŞLATMA ÇÖKTÜ — kullanıcı yarım bir ekranla kalır.
+            // Eskiden yalnızca konsola yazılıyordu: müdür neyin ters gittiğini
+            // bilmeden çalışmaya devam ediyor, girdiği veri hiçbir yere
+            // gitmiyordu. Sessiz yol bırakmıyoruz. (06.09.2026 sınıflandırması.)
             console.error("Uygulama başlatma hatası:", error);
+            try {
+                if (this.ui && typeof this.ui.showToast === "function") {
+                    this.ui.showToast(
+                        "⚠️ Uygulama tam olarak açılamadı: " + ((error && error.message) || error)
+                        + " — Sayfayı yenileyin; sürerse bize bildirin.", "error");
+                } else if (typeof alert === "function") {
+                    alert("Uygulama tam olarak açılamadı.\n\n"
+                        + ((error && error.message) || error)
+                        + "\n\nSayfayı yenileyin; sorun sürerse bize bildirin.");
+                }
+            } catch (e2) { /* bildirim de yapılamıyorsa konsol kaydı elde kalır */ }
         }
     }
 
@@ -176953,7 +177042,7 @@ class MebNormApplication {
         document.documentElement.setAttribute("data-theme", "light");
         try {
             localStorage.removeItem("meb_norm_theme");
-        } catch (e) {}
+        } catch (e) { /* eski tema anahtarının temizliği; başarısız olması zararsız */ }
     }
 
     bindKeyboardShortcuts() {

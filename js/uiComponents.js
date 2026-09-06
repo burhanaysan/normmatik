@@ -508,11 +508,11 @@ export class UIComponentManager {
             if (chk && chk.checked) {
                 try {
                     localStorage.setItem("normmatik_onboarding_seen", "true");
-                } catch (e) {}
+                } catch (e) { /* tanıtım bir daha gösterilir; veriyi etkilemez */ }
             } else {
                 try {
                     localStorage.removeItem("normmatik_onboarding_seen");
-                } catch (e) {}
+                } catch (e) { /* tanıtım sıfırlanamadı; veriyi etkilemez */ }
             }
             this.closeModal("onboarding-modal");
             if (typeof onFinishCallback === 'function') {
@@ -2714,7 +2714,10 @@ export class UIComponentManager {
                     ` : ''}
                 `;
             } catch (err) {
-                console.warn("updateAdminPreview error:", err);
+                // BİLİNÇLİ: canlı önizleme çizilemezse pencere açık kalmalı.
+            // Gösterilen sayı ESKİ kalır ama KAYDET yolu ayrı çalışır; hesabın
+            // kendisi bundan etkilenmez. (06.09.2026 sınıflandırması.)
+            console.warn("updateAdminPreview error:", err);
             }
         };
 

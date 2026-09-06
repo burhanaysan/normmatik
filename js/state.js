@@ -68,7 +68,7 @@ export class AppStateService {
             if (typeof localStorage !== 'undefined') {
                 localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
             }
-        } catch (e) {}
+        } catch (e) { /* panel genişlikleri görünüm tercihidir; kaybı veriyi etkilemez */ }
     }
 
     loadLayout() {
@@ -77,7 +77,7 @@ export class AppStateService {
                 const l = localStorage.getItem(this.LAYOUT_KEY);
                 if (l) this.layout = { ...this.getDefaultLayout(), ...JSON.parse(l) };
             }
-        } catch (e) {}
+        } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
         return this.layout;
     }
 
@@ -506,7 +506,7 @@ export class AppStateService {
         Object.assign(this.layout, updates);
         try {
             localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
-        } catch (e) {}
+        } catch (e) { /* panel genişlikleri görünüm tercihidir; kaybı veriyi etkilemez */ }
     }
 
     loadLayout() {
@@ -515,7 +515,7 @@ export class AppStateService {
             if (data) {
                 this.layout = JSON.parse(data);
             }
-        } catch (e) {}
+        } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
         return this.layout;
     }
 
@@ -686,7 +686,7 @@ export class AppStateService {
             if (typeof window !== 'undefined' && window.dispatchEvent && typeof CustomEvent === 'function') {
                 window.dispatchEvent(new CustomEvent("normmatik:demo-kilit", { detail: { mesaj } }));
             }
-        } catch (e) {}
+        } catch (e) { /* olay yayınlanamazsa akış bozulmaz; ret zaten uygulandı */ }
         return false;
     }
 
@@ -1477,6 +1477,9 @@ export class AppStateService {
                 return true;
             }
         } catch (e) {
+            // BİLİNÇLİ: false dönüyoruz ve ÇAĞIRAN taraf kullanıcıya
+            // "Geçersiz proje dosyası." uyarısını gösteriyor (app.js).
+            // Burada ikinci bir kutu açmak mükerrer olurdu.
             console.error("Geçersiz proje JSON dosyası:", e);
         }
         return false;

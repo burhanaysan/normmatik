@@ -573,6 +573,7 @@ export class EOkulImporter {
 
             // Zorunlu Dersleri Çöz (Dal bilgisi varsa dal müfredatı otomatik çözülür)
             let mandatoryCourses = [];
+            let dersHatasi = null;
             if (this.curriculum && typeof this.curriculum.getMandatoryCourses === 'function') {
                 try {
                     mandatoryCourses = this.curriculum.getMandatoryCourses(
@@ -582,12 +583,18 @@ export class EOkulImporter {
                         dalAdi
                     ) || [];
                 } catch (e) {
+                    // SESSİZ KALMA: bu şube DERSSİZ kalır, haftalık yükü 0
+                    // görünür ve norm olduğundan düşük çıkar. Kullanıcı
+                    // aktarım sonunda bunu görmeli. (06.09.2026 sınıflandırması.)
                     console.warn(`Zorunlu dersler çözülemedi (${sec.subeAdi}):`, e);
+                    dersHatasi = `⚠️ ${sec.subeAdi} şubesinin zorunlu ders çizelgesi çözülemedi; `
+                        + `şube DERSSİZ aktarıldı ve ders yükü 0 görünecek. `
+                        + `Şube türünü/alanını kontrol edip dersleri elle ekleyin.`;
                 }
             }
 
             // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
-            let dalWarning = null;
+            let dalWarning = dersHatasi || null;
             if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
                 const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
                 if (validGradeBranches.length > 0) {

@@ -54,7 +54,23 @@ export class AuthService {
                 lastActive: new Date().toISOString()
             });
             sessionStorage.setItem(this.SESSION_KEY, jsonStr);
-        } catch (e) {}
+        } catch (e) {
+            // SESSİZ KALMA: oturum yazılamazsa kullanıcı bir sonraki sayfada
+            // sebepsiz yere çıkmış olur ve neden olduğunu anlayamaz.
+            // (Gizli sekme, site verisi engelli ya da kota dolu olabilir.)
+            try {
+                if (typeof window !== "undefined" && window.dispatchEvent) {
+                    window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                        detail: {
+                            basarili: false,
+                            mesaj: "Oturum bilgisi bu tarayıcıya yazılamadı ("
+                                 + ((e && e.name) || "bilinmeyen")
+                                 + "); sayfa değiştirdiğinizde yeniden giriş isteyebilir."
+                        }
+                    }));
+                }
+            } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
+        }
     }
 
     /**
@@ -73,15 +89,37 @@ export class AuthService {
             "MEB_NORM_KADRO_LAYOUT_V1",
             "normmatik_onboarding_seen"
         ];
+        // YEREL ÇALIŞMA YEDEĞİ DE KORUNUR (06.09.2026)
+        // -------------------------------------------
+        // Aynı gün eklenen yerel kalıcılık (state.js yereleKaydet) buradaki
+        // localStorage.clear() yüzünden HER ÇIKIŞTA siliniyordu. Yani
+        // güvenlik ağının hiçbir hükmü kalmıyordu: bulut kaydı sessizce
+        // reddedilmiş bir müdür çıkış yaptığı anda çalışmasını kaybediyordu —
+        // korumak için eklediğimiz şey tam da o senaryoda yok oluyordu.
+        //
+        // KARAR: yedek korunur. Veri okulun kendi bilgisayarındaki kendi
+        // verisidir ve yalnızca aynı kurum koduyla girildiğinde okunur.
+        // Ortak bilgisayarda iz bırakmamak isteyen kurum tarayıcı verisini
+        // temizleyerek bunu yapabilir; buradaki öncelik veri kaybını önlemek.
+        const YEREL_ONEK = "normmatik_yerel_";
         try {
             const yedek = {};
             KORUNANLAR.forEach(k => {
                 const v = localStorage.getItem(k);
                 if (v !== null) yedek[k] = v;
             });
+            for (let i = 0; i < localStorage.length; i++) {
+                const k = localStorage.key(i);
+                if (k && k.indexOf(YEREL_ONEK) === 0) yedek[k] = localStorage.getItem(k);
+            }
             localStorage.clear();
             Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));
-        } catch (e) {}
+        } catch (e) {
+            // Temizlik yarıda kalırsa görünüm tercihleri kaybolabilir; veri
+            // kaybı doğurmaz. Çıkışın kendisi aşağıda yine tamamlanır.
+        }
+        // Çıkışta temizlik: silinemese bile oturum anahtarı zaten üstte
+        // kaldırıldı, kullanıcı için sonuç değişmez.
         try { sessionStorage.clear(); } catch (e) {}
         window.location.href = "index.html";
     }

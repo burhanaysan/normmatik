@@ -20,7 +20,21 @@ export class MebDatabaseService {
                 console.log("MEB Master DB localStorage üzerinden güncel versiyon ile yüklendi.");
                 return this.masterData;
             } catch (e) {
+                // Kullanıcının yüklediği DB bozuk. Varsayılana dönmek DOĞRU
+                // davranış, ama sessiz değil: kullanıcı kendi yüklediği verinin
+                // etkin olduğunu sanmasın. (06.09.2026 sınıflandırması.)
                 console.warn("Kayıtlı özel DB okunamadı, varsayılanlara dönülüyor...", e);
+                try {
+                    if (typeof window !== "undefined" && window.dispatchEvent) {
+                        window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                            detail: {
+                                basarili: false,
+                                mesaj: "Yüklediğiniz özel veri tabanı okunamadı; "
+                                     + "uygulama varsayılan MEB verisiyle çalışıyor."
+                            }
+                        }));
+                    }
+                } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
             }
         }
 
@@ -34,6 +48,9 @@ export class MebDatabaseService {
                 return this.masterData;
             }
         } catch (e) {
+            // BİLİNÇLİ: file:// protokolünde ve çevrimdışı açılışta fetch zaten
+            // çalışmaz; gömülü veriye düşmek NORMAL yoldur, hata değil.
+            // Gömülü veri de yoksa aşağıdaki adım kendi hatasını üretir.
             console.warn("Fetch üzerinden yüklenemedi, window.MEB_EMBEDDED_DATA kontrol ediliyor...", e);
         }
 

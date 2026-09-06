@@ -279,7 +279,9 @@ class MebNormApplication {
                         `Okulunuzun bütün şubelerini ekleyip sınırsız norm hesabı yapmak için ` +
                         `yıllık lisans almanız gerekir.`
                     );
-                    try { uiComponents.openLicenseModal(); } catch (e) {}
+                    // Lisans penceresi açılamazsa akış sürer: bu yalnızca bir bilgilendirme
+        // penceresi, veri yolu değil.
+        try { uiComponents.openLicenseModal(); } catch (e) {}
                 });
             }
 
@@ -291,7 +293,22 @@ class MebNormApplication {
 
             console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
         } catch (error) {
+            // BAŞLATMA ÇÖKTÜ — kullanıcı yarım bir ekranla kalır.
+            // Eskiden yalnızca konsola yazılıyordu: müdür neyin ters gittiğini
+            // bilmeden çalışmaya devam ediyor, girdiği veri hiçbir yere
+            // gitmiyordu. Sessiz yol bırakmıyoruz. (06.09.2026 sınıflandırması.)
             console.error("Uygulama başlatma hatası:", error);
+            try {
+                if (this.ui && typeof this.ui.showToast === "function") {
+                    this.ui.showToast(
+                        "⚠️ Uygulama tam olarak açılamadı: " + ((error && error.message) || error)
+                        + " — Sayfayı yenileyin; sürerse bize bildirin.", "error");
+                } else if (typeof alert === "function") {
+                    alert("Uygulama tam olarak açılamadı.\n\n"
+                        + ((error && error.message) || error)
+                        + "\n\nSayfayı yenileyin; sorun sürerse bize bildirin.");
+                }
+            } catch (e2) { /* bildirim de yapılamıyorsa konsol kaydı elde kalır */ }
         }
     }
 
@@ -302,7 +319,7 @@ class MebNormApplication {
         document.documentElement.setAttribute("data-theme", "light");
         try {
             localStorage.removeItem("meb_norm_theme");
-        } catch (e) {}
+        } catch (e) { /* eski tema anahtarının temizliği; başarısız olması zararsız */ }
     }
 
     bindKeyboardShortcuts() {
