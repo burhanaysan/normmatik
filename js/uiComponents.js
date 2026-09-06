@@ -284,31 +284,91 @@ export class UIComponentManager {
         this.reports = new MebReportsEngine(this.db, this.norm, this.curriculum);
     }
 
+    /**
+     * BİLDİRİM (TOAST)
+     *
+     * 06.09.2026 yeniden tasarımı (kullanıcı isteği):
+     *   • Altta ortada değil, SAĞ ÜSTTE — gözün gittiği yer ve içeriği örtmüyor.
+     *   • Altında SÜRE ÇUBUĞU: ne kadar kalacağı görünüyor.
+     *   • Üzerine gelince duruyor — uzun bir hata mesajını okumaya vakit kalsın.
+     *   • Kapatma düğmesi var; beklemek zorunda değilsiniz.
+     *
+     * Aynı çalışmada iki eski kusur da düzeltildi:
+     *   • "error" ve "info" türlerinin HİÇ rengi yoktu; koyu varsayılana
+     *     düşüyorlardı. Kod 4 yerde "error" gönderiyor ve bunlardan biri
+     *     "VERİLER KAYDEDİLEMEDİ" uyarısı — yani en kritik bildirim, sıradan
+     *     bir bildirim gibi görünüyordu.
+     *   • `white-space: nowrap` yüzünden uzun mesajlar tek satıra dizilip
+     *     ekrandan taşıyordu. Artık kart genişliği sınırlı, metin sarıyor.
+     *
+     * Süre türe göre: hata mesajı okunacak kadar durmalı, başarı bildirimi
+     * yolu tıkamamalı.
+     */
     showToast(message, type = "success") {
+        const TURLER = {
+            success: { sinif: "success", ikon: "✓", sure: 3200 },
+            info:    { sinif: "info",    ikon: "i", sure: 4200 },
+            warning: { sinif: "warning", ikon: "!", sure: 5200 },
+            error:   { sinif: "error",   ikon: "✕", sure: 6500 },
+            danger:  { sinif: "error",   ikon: "✕", sure: 6500 }
+        };
+        const t = TURLER[type] || TURLER.success;
+
         let container = document.getElementById("toast-container");
         if (!container) {
             container = document.createElement("div");
             container.id = "toast-container";
             container.className = "toast-container";
+            // Ekran okuyucular da duysun; hatalar sıraya girmeden okunsun.
+            container.setAttribute("role", "status");
+            container.setAttribute("aria-live", "polite");
             document.body.appendChild(container);
         }
+        container.setAttribute("aria-live",
+            (t.sinif === "error") ? "assertive" : "polite");
 
         const toast = document.createElement("div");
-        toast.className = `toast toast-${type}`;
-        const icon = type === "warning" ? "⚠️" : (type === "danger" ? "🛑" : "✨");
-        toast.innerHTML = `<span class="toast-icon">${icon}</span> <span class="toast-text">${message}</span>`;
+        toast.className = `toast toast-${t.sinif}`;
+        toast.style.setProperty("--toast-sure", t.sure + "ms");
+        toast.innerHTML = `
+            <span class="toast-ikon" aria-hidden="true">${t.ikon}</span>
+            <span class="toast-metin">${message}</span>
+            <button type="button" class="toast-kapat" aria-label="Bildirimi kapat">×</button>
+            <span class="toast-sure" aria-hidden="true"></span>
+        `;
         container.appendChild(toast);
 
-        // 2.6 saniye sonra yumuşakça silinerek kaybolsun
-        setTimeout(() => {
-            toast.classList.add("toast-fade-out");
+        let zamanlayici = null;
+        const kapat = () => {
+            if (toast.dataset.kapaniyor) return;
+            toast.dataset.kapaniyor = "1";
+            clearTimeout(zamanlayici);
+            toast.classList.add("toast-cikis");
             setTimeout(() => {
                 toast.remove();
-                if (container && container.children.length === 0) {
-                    container.remove();
-                }
-            }, 600);
-        }, 2600);
+                if (container && container.children.length === 0) container.remove();
+            }, 260);
+        };
+
+        // Kalan süreyi takip et: fare üzerindeyken saymayı DURDUR.
+        let baslangic = Date.now();
+        let kalan = t.sure;
+        const say = () => {
+            baslangic = Date.now();
+            zamanlayici = setTimeout(kapat, kalan);
+        };
+        say();
+
+        toast.addEventListener("mouseenter", () => {
+            clearTimeout(zamanlayici);
+            kalan = Math.max(400, kalan - (Date.now() - baslangic));
+            toast.classList.add("toast-duraklat");
+        });
+        toast.addEventListener("mouseleave", () => {
+            toast.classList.remove("toast-duraklat");
+            say();
+        });
+        toast.querySelector(".toast-kapat").addEventListener("click", kapat);
     }
 
     // --- 🌟 İLK GİRİŞ KARŞILAMA VE PROFESYONEL TANITIM TURU (ONBOARDING SHOWCASE) ---

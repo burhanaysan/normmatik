@@ -585,6 +585,74 @@ console.log("\nYerleşim koruması");
             /mt-kutu (arti|eksi)/.test(farkliHtml));
 }
 
+// R20: BİLDİRİM (TOAST)
+// 06.09.2026 yeniden tasarımı — sağ üst, süre çubuklu, kapatılabilir.
+// Aynı çalışmada iki eski kusur bulundu ve düzeltildi:
+//   • "error" ve "info" türlerinin HİÇ rengi yoktu; koyu varsayılana
+//     düşüyorlardı. Kod 4 yerde "error" gönderiyor ve biri "VERİLER
+//     KAYDEDİLEMEDİ" — yani en kritik bildirim sıradan görünüyordu.
+//   • white-space: nowrap uzun mesajları tek satıra dizip taşırıyordu.
+{
+    const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+
+    // showToast'un GÖNDERDİĞİ her tür için bir renk kuralı olmalı.
+    const gonderilenTurler = [...new Set(
+        [...ui.matchAll(/showToast\([^;]*?["'](success|info|warning|error|danger)["']\s*\)/g)]
+            .map(m => m[1])
+    )];
+    denetle("R20a ölçüm geçerli: birden çok bildirim türü kullanılıyor",
+            gonderilenTurler.length >= 3, gonderilenTurler.join(", "));
+
+    const renksiz = gonderilenTurler.filter(t =>
+        !new RegExp("\\.toast\\.toast-" + t + "\\b|\\.toast\\." + t + "\\b").test(css));
+    denetle("R20b kullanılan HER bildirim türünün rengi tanımlı",
+            renksiz.length === 0,
+            "renksiz tür: " + renksiz.join(", ") + " — koyu varsayılana düşerler");
+
+    denetle("R20c hata bildirimi kırmızı",
+            /\.toast\.toast-error[^{]*\{[^}]*background:\s*#d32f2f/.test(css));
+
+    denetle("R20d bildirim SAĞ ÜSTTE",
+            /\.toast-container\s*\{[\s\S]*?top:\s*1rem[\s\S]*?right:\s*1rem/.test(css));
+
+    // DİKKAT: [\s\S]*? kural SINIRLARINI aşıp başka bir kuraldaki nowrap'i
+    // buluyordu. Yalnızca `.toast {` kuralının GÖVDESİNE bakıyoruz.
+    const toastKurali = (css.match(/\n\.toast\s*\{([^}]*)\}/) || ["", ""])[1];
+    denetle("R20e uzun mesaj sarıyor (nowrap kaldırıldı)",
+            /white-space:\s*normal/.test(toastKurali)
+            && !/white-space:\s*nowrap/.test(toastKurali),
+            "nowrap uzun hata mesajlarını ekrandan taşırıyordu");
+
+    denetle("R20f süre çubuğu var ve süreye bağlı",
+            /\.toast-sure\s*\{/.test(css) && /--toast-sure/.test(css)
+            && /toast\.style\.setProperty\("--toast-sure"/.test(ui));
+
+    denetle("R20g üzerine gelince sayaç duruyor",
+            /toast-duraklat[\s\S]{0,120}animation-play-state:\s*paused/.test(css)
+            && /mouseenter/.test(ui) && /mouseleave/.test(ui),
+            "uzun bir hata mesajını okumaya vakit kalmalı");
+
+    denetle("R20h kapatma düğmesi var ve erişilebilir",
+            /class="toast-kapat" aria-label=/.test(ui));
+
+    denetle("R20i ızgara sütunları AÇIKÇA veriliyor",
+            /\.toast-metin\s*\{[^}]*grid-column:\s*2/.test(css)
+            && /\.toast-kapat\s*\{[^}]*grid-column:\s*3/.test(css),
+            "otomatik yerleştirme kapatma düğmesini metnin ÖNÜNE koyuyordu");
+
+    denetle("R20j hata bildirimi ekran okuyucuya öncelikli duyuruluyor",
+            /aria-live[\s\S]{0,140}assertive/.test(ui));
+
+    denetle("R20k hata bildirimi başarıdan UZUN duruyor",
+            (() => {
+                const b = ui.match(/success:\s*\{[^}]*sure:\s*(\d+)/);
+                const h = ui.match(/error:\s*\{[^}]*sure:\s*(\d+)/);
+                return b && h && Number(h[1]) > Number(b[1]);
+            })(),
+            "kritik uyarı okunacak kadar kalmalı");
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
