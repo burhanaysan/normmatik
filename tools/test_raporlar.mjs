@@ -383,6 +383,69 @@ console.log("\nYerleşim koruması");
             "dengesiz okulda hepsi 'Tam' çıkıyorsa alan adı yine kaymıştır");
 }
 
+// R18: BRANŞ DETAY CETVELİ — STİL VE DERS DÖKÜMÜ
+// 2026-09-06 kullanıcı sorusu: "2 görselde de aynı şeyler yazılı, niye 2.ye
+// ihtiyaç duyulsun ki?" Ölçüldüğünde iki ayrı kusur çıktı:
+//
+//   1) Çizici kart düzeni olarak yazılmış (branch-detail-card, b-stats-row,
+//      b-rule-box ...) ama SEKİZ SINIFIN EKRAN STİLİ HİÇ YOKTU; ikisi
+//      yalnızca @media print içinde geçiyordu. Kartlar biçimsiz düz metin
+//      olarak akıyor, rapor İcmal tablosunun kötü bir kopyası gibi
+//      görünüyordu.
+//   2) Motor her branş için şube şube ders dökümü üretiyor
+//      (branchCourseDetails) ama HİÇBİR ÇİZİCİ okumuyordu — hesaplanıp
+//      atılıyordu. İcmalin yapamadığı tek iş buydu.
+{
+    const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+    const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+
+    // Ekran stilleri: @media print DIŞINDA tanımlı olmalı.
+    // DİKKAT: indexOf("@media print") yanlış yer bulur — o ifade CSS'te bir
+    // YORUMUN içinde de geçiyor ve kesme noktası çok yukarı kayıyordu.
+    // Satır başındaki gerçek blok açılışını arıyoruz.
+    const printBasi = css.search(/\n@media print\s*\{/);
+    const ekranCss = printBasi > 0 ? css.slice(0, printBasi) : css;
+    const eksik = ["branch-detail-cards-container", "branch-detail-card",
+                   "branch-card-header", "branch-card-body", "b-stats-row",
+                   "b-stat", "b-title", "b-rule-box", "status-badge-lg"]
+        .filter(k => !new RegExp("\\." + k + "[\\s,{.:]").test(ekranCss));
+    denetle("R18a branş kartlarının EKRAN stilleri tanımlı",
+            eksik.length === 0, "stilsiz sınıf: " + eksik.join(", "));
+
+    denetle("R18b durum rozetinin üç hâli de renklendirilmiş",
+            /\.status-badge-lg\.status-tam/.test(ekranCss)
+            && /\.status-badge-lg\.status-ihtiyac/.test(ekranCss)
+            && /\.status-badge-lg\.status-fazla/.test(ekranCss));
+
+    denetle("R18c ders dökümü çizicisi var ve çağrılıyor",
+            /renderBransDersDokumu\(b\)/.test(ui) && /renderBransDersDokumu\(b\) \{/.test(ui));
+
+    // DAVRANIŞ: döküm gerçekten basılıyor ve toplamı branş yüküyle tutuyor.
+    const detay = R.generateBranchDetailReport(st.state, "ALL");
+    denetle("R18d ölçüm geçerli: motor branş başına ders dökümü üretiyor",
+            detay.branches.length > 0
+            && detay.branches.every(b => Array.isArray(b.courses) && b.courses.length > 0),
+            "courses boşsa R18e bir şey ölçmez");
+
+    const tutmayan = detay.branches.filter(b =>
+        (b.courses || []).reduce((t, k) => t + (parseInt(k.calculatedLoad, 10) || 0), 0)
+        !== b.totalHours);
+    denetle("R18e her branşta döküm toplamı = branş ders yükü",
+            tutmayan.length === 0,
+            tutmayan.map(b => b.branchName).join(", "));
+
+    const detayHtml = UI.renderBranchDetailReport(detay, false);
+    denetle("R18f döküm HTML'e gerçekten basılıyor",
+            (detayHtml.match(/bd-dokum"/g) || []).length === detay.branches.length,
+            (detayHtml.match(/bd-dokum"/g) || []).length + " / " + detay.branches.length);
+    denetle("R18g dökümde şube ve ders adı görünüyor",
+            /bd-sube/.test(detayHtml) && /bd-ders/.test(detayHtml));
+    denetle("R18h uyuşmazlık olsaydı sessiz kalınmazdı (uyarı yolu var)",
+            /bd-uyari/.test(ui));
+    denetle("R18i tutarlı okulda uyarı rozeti ÇIKMIYOR",
+            !/bd-uyari/.test(detayHtml));
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);

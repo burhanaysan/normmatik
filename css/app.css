@@ -4927,6 +4927,167 @@ body {
 }
 
 /* ==========================================================================
+   📚 BRANŞ DETAY CETVELİ — KART DÜZENİ
+   --------------------------------------------------------------------------
+   Bu sekmenin çizicisi kart düzeni olarak yazılmış (branch-detail-card,
+   b-stats-row, b-rule-box ...) ama EKRAN STİLLERİ HİÇ YOKTU: sekiz sınıfın
+   ikisi yalnızca @media print içinde geçiyordu. Sonuç, kartların biçimsiz düz
+   metin olarak alt alta akmasıydı; rapor, Yönetici İcmali tablosunun kötü bir
+   kopyası gibi görünüyordu. (Kullanıcı sorusu, 06.09.2026: "2 görselde de
+   aynı şeyler yazılı, niye 2.ye ihtiyaç duyulsun ki?")
+   ========================================================================== */
+
+.branch-detail-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 0.85rem;
+    align-content: start;
+    /* Her kart kendi boyunda dursun: ders dökümü açılan kart uzayınca
+       satırdaki diğer kartlar da boşuna uzuyordu. */
+    align-items: start;
+}
+
+.branch-detail-card {
+    border: 1.5px solid var(--border-main);
+    border-radius: 10px;
+    background: var(--bg-card);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.branch-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-card-subtle);
+    border-bottom: 1.5px solid var(--border-subtle);
+}
+
+.b-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.01em;
+}
+
+.status-badge-lg {
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.status-badge-lg.status-tam     { background: #dcfce7; color: #15803d; border-color: #86efac; }
+.status-badge-lg.status-ihtiyac { background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+.status-badge-lg.status-fazla   { background: #ffedd5; color: #b45309; border-color: #fdba74; }
+
+.branch-card-body { padding: 0.6rem 0.75rem 0.7rem; }
+
+.b-stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.55rem;
+}
+
+.b-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-bottom: 1px dotted var(--border-subtle);
+    padding-bottom: 0.15rem;
+}
+
+.b-stat strong { color: var(--text-main); font-weight: 800; white-space: nowrap; }
+
+.b-rule-box {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-left: 4px solid #0284c7;
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+}
+
+.b-rule-box strong { color: #0369a1; }
+
+/* --- Ders dökümü: "bu yük hangi şubenin hangi dersinden geliyor?" -------- */
+.bd-dokum { margin-top: 0.55rem; }
+
+.bd-dokum-baslik {
+    cursor: pointer;
+    font-size: 0.73rem;
+    font-weight: 800;
+    color: #0369a1;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    padding: 0.28rem 0.55rem;
+    list-style: none;
+    user-select: none;
+}
+
+.bd-dokum-baslik::-webkit-details-marker { display: none; }
+.bd-dokum-baslik::before { content: "▸ "; }
+.bd-dokum[open] .bd-dokum-baslik::before { content: "▾ "; }
+.bd-dokum-baslik:hover { background: #e0f2fe; }
+
+.bd-uyari { color: #b91c1c; font-weight: 800; margin-left: 0.35rem; }
+
+.bd-tablo {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin-top: 0.35rem;
+}
+
+.bd-tablo th {
+    text-align: left;
+    font-size: 0.64rem;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    background: var(--bg-card-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.22rem 0.4rem;
+    white-space: nowrap;
+}
+
+.bd-tablo td {
+    padding: 0.22rem 0.4rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    vertical-align: top;
+}
+
+.bd-tablo .bd-sube { font-weight: 700; white-space: nowrap; }
+.bd-tablo .bd-saat { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bd-tablo .bd-yuk  { font-weight: 800; }
+.bd-tablo .bd-not  { font-size: 0.66rem; color: var(--text-muted); line-height: 1.35; }
+
+/* Çizelge saatinden farklı yazılan satırlar göze çarpsın. */
+.bd-tablo .bd-carpan { background: #fffbeb; }
+.bd-tablo .bd-carpan .bd-yuk { color: #b45309; }
+.bd-tablo .bd-dusum { background: #f5f3ff; }
+.bd-tablo .bd-dusum .bd-yuk { color: #6d28d9; }
+
+.bd-tablo tfoot td {
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 800;
+    border-bottom: none;
+}
+
+/* ==========================================================================
    🏛️ YÖNETİCİ İCMALİ & KPI DASHBOARD
    ========================================================================== */
 

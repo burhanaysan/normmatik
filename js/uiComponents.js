@@ -4473,12 +4473,73 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <div class="b-rule-box">
                                 <strong>Mevzuat Dayanağı:</strong> ${b.formulaExplanation || '—'}
                             </div>
+                            ${this.renderBransDersDokumu(b)}
                         </div>
                     </div>
                 `).join("")}
             </div>
         `;
         return html;
+    }
+
+    /**
+     * BRANŞ DERS DÖKÜMÜ — "bu yük hangi şubenin hangi dersinden geliyor?"
+     *
+     * Motor her branş için şube şube ders dökümü üretiyordu (branchCourseDetails)
+     * ama HİÇBİR ÇİZİCİ okumuyordu; veri hesaplanıp atılıyordu. Bu yüzden Branş
+     * Detay Cetveli, Yönetici İcmali'ndeki tablonun biçimsiz bir kopyası gibi
+     * görünüyordu — kullanıcı da haklı olarak "niye iki tane var" diye sordu.
+     * (Kullanıcı sorusu, 06.09.2026.)
+     *
+     * İcmalin YAPAMADIĞI iş bu: tek branşın normunu ilçeye savunurken
+     * "78 saat" demek yetmez, saatin nereden geldiği gerekir.
+     */
+    renderBransDersDokumu(b) {
+        const kayitlar = Array.isArray(b.courses) ? b.courses : [];
+        if (kayitlar.length === 0) return "";
+
+        const toplam = kayitlar.reduce((t, k) => t + (parseInt(k.calculatedLoad, 10) || 0), 0);
+        // Döküm toplamı branş yüküyle tutmuyorsa SESSİZ KALMA: uydurma bir
+        // tablo göstermektense uyuşmazlığı yazmak yeğdir.
+        const tutuyor = toplam === (parseInt(b.totalHours, 10) || 0);
+
+        const satirlar = kayitlar.map(k => {
+            const cizelge = parseInt(k.baseHours, 10) || 0;
+            const yuk = parseInt(k.calculatedLoad, 10) || 0;
+            const farkli = yuk !== cizelge;
+            return `
+                <tr class="${k.isAdminDeduction ? 'bd-dusum' : (farkli ? 'bd-carpan' : '')}">
+                    <td class="bd-sube">${k.sectionName || '—'}</td>
+                    <td class="bd-ders">${k.courseName || '—'}</td>
+                    <td class="bd-saat">${cizelge}</td>
+                    <td class="bd-saat bd-yuk">${yuk}</td>
+                    <td class="bd-not">${k.note || (farkli ? 'Çizelge saatinden farklı: grup/branş bölünmesi' : '')}</td>
+                </tr>
+            `;
+        }).join("");
+
+        return `
+            <details class="bd-dokum">
+                <summary class="bd-dokum-baslik">
+                    Ders dökümü — ${kayitlar.length} kayıt, toplam ${toplam} saat
+                    ${tutuyor ? '' : '<span class="bd-uyari">⚠ branş yüküyle (' + b.totalHours + 's) uyuşmuyor</span>'}
+                </summary>
+                <table class="bd-tablo">
+                    <thead>
+                        <tr>
+                            <th>Şube</th><th>Ders</th>
+                            <th title="Şube çizelgesindeki saat — öğrencinin gördüğü">Çizelge</th>
+                            <th title="Branşın normuna yazılan saat — öğretmenin okuttuğu">Yük</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>${satirlar}</tbody>
+                    <tfoot>
+                        <tr><td colspan="3">TOPLAM</td><td class="bd-saat bd-yuk">${toplam}</td><td></td></tr>
+                    </tfoot>
+                </table>
+            </details>
+        `;
     }
 
     // 4. SINIF VE ŞUBE HAFTALIK DERS ÇİZELGELERİ RENDER
