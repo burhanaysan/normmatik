@@ -4692,6 +4692,260 @@ body {
 }
 
 /* ==========================================================================
+   📗 DERS DAĞILIMI — BRANŞ KARTLARI
+   --------------------------------------------------------------------------
+   Burası tek uzun bir matristi ve okunmuyordu. Kullanıcının sözleriyle:
+   "renkleri, satırları, dizaynı... neyin ne olduğu ilk anda anlaşılamıyor."
+
+   Ölçülen sorunlar: 272 hücrenin %44'ü "—" çizgisiydi; branşın nerede
+   başlayıp bittiği belli değildi; norm rozetleri satırın ta sağındaydı;
+   mavi-mor-pembe kademe bantları, mavi branş şeritleri ve mavi hücre
+   zeminleri üst üste biniyor, renk anlam taşımıyordu.
+
+   Yeni düzende TEK yapısal renk var (--dd-ana) ve renk yalnızca ANLAM
+   taşıyor: açık / fazla / tam ve saat yoğunluğu.
+   ========================================================================== */
+
+:root {
+    --dd-ana: #0f766e;
+    --dd-ana-koyu: #0b5d56;
+    --dd-ana-acik: #d9efec;
+    --dd-ana-metin: #0b5d56;
+    --dd-acik: #c0392b;
+    --dd-fazla: #a35a08;
+    --dd-fazla-z: #fdf1e3;
+}
+
+.dd-liste { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.dd-brans {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Branş başlığı: ad, yük, norm, kadro ve durum YAN YANA.
+   Eskiden rozetler satırın ucundaydı ve hangi branşa ait olduğu takip
+   edilemiyordu. */
+.dd-bas {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0.85rem;
+    background: var(--dd-ana);
+    color: #ffffff;
+}
+.dd-brans.meslek .dd-bas { background: #6d28d9; }
+
+.dd-ad { font-size: 0.95rem; font-weight: 800; letter-spacing: -0.01em; }
+
+.dd-olcu { font-size: 0.76rem; color: rgba(255, 255, 255, 0.82); white-space: nowrap; }
+.dd-olcu b { color: #ffffff; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.dd-durum {
+    margin-left: auto;
+    font-size: 0.76rem;
+    font-weight: 800;
+    padding: 0.12rem 0.65rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+.dd-durum.acik  { background: #ffffff; color: var(--dd-acik); }
+.dd-durum.fazla { background: #ffffff; color: var(--dd-fazla); }
+
+.dd-kaydir { overflow-x: auto; }
+
+.dd-tablo {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: max-content;
+    min-width: 100%;
+    font-size: 0.8rem;
+}
+.dd-tablo th, .dd-tablo td { border: 0; padding: 0; }
+
+.dd-tablo .dd-ders {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--bg-card);
+    min-width: 232px;
+    max-width: 232px;
+    text-align: left;
+    padding: 0.4rem 0.7rem;
+    font-weight: 600;
+    color: var(--text-main);
+    box-shadow: 1px 0 0 var(--border-subtle);
+}
+.dd-tablo thead .dd-ders { background: var(--bg-card-subtle); }
+
+.dd-tablo thead th {
+    background: var(--bg-card-subtle);
+    padding: 0.3rem 0.25rem 0.4rem;
+    text-align: center;
+    vertical-align: bottom;
+    border-bottom: 1px solid var(--border-main);
+}
+
+/* Kademe YAZISI yok: "9. sınıf" başlığı "9-A" adının üstünde aynı bilgiyi
+   tekrarlıyordu ve her kartta yineleniyordu. Gruplama, kademe değiştiği
+   yerdeki ince ayraçla korunuyor. (Kullanıcı bildirimi, 06.09.2026.) */
+.dd-sube-ad { display: block; font-size: 0.76rem; font-weight: 800; color: var(--text-main); }
+.dd-sube-ogr { display: block; font-size: 0.63rem; color: var(--text-muted); font-weight: 600; }
+.kademe-sinir { box-shadow: inset 1px 0 0 var(--border-main); }
+
+.dd-tablo tbody td { border-bottom: 1px solid var(--border-subtle); }
+.dd-tablo tbody tr:nth-child(even) td { background: var(--bg-card-subtle); }
+.dd-tablo tbody tr:nth-child(even) .dd-ders { background: var(--bg-card-subtle); }
+.dd-tablo tbody tr:last-child td { border-bottom: 0; }
+
+.dd-hucre { text-align: center; min-width: 54px; padding: 0.25rem 0.3rem; }
+
+/* Boş hücre gerçekten boş; dolu hücre okunur bir etiket. */
+.dd-cip {
+    display: inline-block;
+    min-width: 26px;
+    padding: 0.1rem 0.4rem;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    background: var(--dd-ana-acik);
+    color: var(--dd-ana-metin);
+}
+.dd-cip.g2 { background: #9ed4cd; color: #06423d; }
+.dd-cip.g3 { background: var(--dd-ana); color: #ffffff; }
+.dd-cip.birlesik { outline: 1.5px dashed var(--dd-fazla); outline-offset: 1px; }
+
+.dd-toplam {
+    text-align: right;
+    padding: 0.25rem 0.8rem 0.25rem 0.4rem;
+    min-width: 68px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-main);
+}
+.dd-tablo thead .dd-toplam { font-size: 0.63rem; color: var(--text-muted); font-weight: 700; }
+
+.dd-rozet {
+    display: inline-block;
+    margin-left: 0.3rem;
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 0.05rem 0.35rem;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+.dd-rozet.baraj { background: #fdeaea; color: #b91c1c; }
+.dd-rozet.atolye { background: #ede9fe; color: #6d28d9; }
+.dd-rozet.bolunmus { background: var(--dd-fazla-z); color: var(--dd-fazla); }
+
+.dd-dipnot {
+    padding: 0.4rem 0.85rem;
+    background: var(--bg-card-subtle);
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+.dd-dipnot b { color: var(--text-main); font-variant-numeric: tabular-nums; }
+
+/* Genel toplam şeridi */
+.dd-genel {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-top: 0.7rem;
+    padding: 0.6rem 0.95rem;
+    border-radius: 12px;
+    background: #0f172a;
+    color: #ffffff;
+}
+.dd-genel-e { font-size: 0.72rem; font-weight: 700; color: #b9c6d2; }
+.dd-genel-v { font-size: 1rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.dd-genel-ayrac { width: 1px; height: 20px; background: rgba(255, 255, 255, 0.18); }
+
+/* ==========================================================================
+   MUTABAKAT DENKLEMİ
+   Önce soyut bir köprü (waterfall) grafiğiydi; kullanıcı "minimal tercih
+   yanlış oldu" dedi. Grafik ne olduğunu kendisi anlatmıyordu. Artık okunur
+   bir denklem: kutular, işaretler ve altlarında açıklama.
+   ========================================================================== */
+.mt-denklem {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 0.55rem 0.85rem 0.7rem;
+    margin-bottom: 0.8rem;
+}
+.mt-baslik { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.mt-baslik h4 { margin: 0; font-size: 0.85rem; font-weight: 800; color: var(--text-main); }
+.mt-ipucu { font-size: 0.73rem; color: var(--text-muted); }
+.mt-baslik .ymt-ac-btn { margin-left: auto; }
+
+.mt-sira { display: flex; align-items: stretch; gap: 0.45rem; flex-wrap: wrap; }
+
+.mt-kutu {
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 0.35rem 0.7rem;
+    min-width: 112px;
+    background: var(--bg-card-subtle);
+}
+.mt-ad { font-size: 0.68rem; font-weight: 800; color: var(--text-muted); }
+.mt-v { font-size: 1.25rem; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; color: var(--text-main); }
+.mt-not { font-size: 0.63rem; color: var(--text-muted); line-height: 1.3; }
+
+.mt-kutu.bas { background: var(--bg-card); }
+.mt-kutu.arti { background: var(--dd-fazla-z); border-color: transparent; }
+.mt-kutu.arti .mt-v { color: var(--dd-fazla); }
+.mt-kutu.eksi { background: var(--dd-ana-acik); border-color: transparent; }
+.mt-kutu.eksi .mt-v { color: var(--dd-ana-metin); }
+.mt-kutu.son { background: var(--dd-ana); border-color: var(--dd-ana); }
+.mt-kutu.son .mt-v, .mt-kutu.son .mt-ad { color: #ffffff; }
+.mt-kutu.son .mt-not { color: #cdeae6; }
+
+.mt-islem {
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+@media print {
+    .dd-brans {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        border: 0.5pt solid #000000 !important;
+        margin-bottom: 3mm !important;
+    }
+    .dd-bas, .dd-brans.meslek .dd-bas {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+        border-bottom: 0.5pt solid #000000 !important;
+    }
+    .dd-olcu, .dd-olcu b, .dd-ad { color: #000000 !important; }
+    .dd-durum { background: #ffffff !important; border: 0.5pt solid #000000 !important; color: #000000 !important; }
+    .dd-kaydir { overflow: visible !important; }
+    .dd-tablo { width: 100% !important; font-size: 7.5pt !important; }
+    /* Kâğıtta renk zemini okunmaz; sayı yeterli. */
+    .dd-cip, .dd-cip.g2, .dd-cip.g3 { background: transparent !important; color: #000000 !important; }
+    .dd-cip.birlesik { outline: 0.5pt dashed #000000 !important; }
+    .dd-genel { background: #f1f5f9 !important; color: #000000 !important; }
+    .dd-genel-e { color: #333333 !important; }
+    .mt-denklem { break-inside: avoid !important; border: 0.5pt solid #000000 !important; }
+    .mt-kutu, .mt-kutu.arti, .mt-kutu.eksi, .mt-kutu.son {
+        background: #ffffff !important; border: 0.5pt solid #000000 !important;
+    }
+    .mt-v, .mt-ad, .mt-kutu.son .mt-v, .mt-kutu.son .mt-ad { color: #000000 !important; }
+    .mt-not, .mt-kutu.son .mt-not { color: #333333 !important; }
+}
+
+/* ==========================================================================
    🧭 KARAR PANOSU + MUTABAKAT KÖPRÜSÜ
    --------------------------------------------------------------------------
    Master matris bir VERİ DÖKÜMÜ idi. Ölçüldü (06.09.2026): 272 hücrenin %44'ü

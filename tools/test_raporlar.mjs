@@ -216,8 +216,13 @@ console.log("\nYerleşim koruması");
     const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
     const re = fs.readFileSync(path.join(KOK, "js", "reportsEngine.js"), "utf8");
 
-    denetle("R14a branş/alan şeridi başlığı Türkçe büyük harf kullanıyor",
-            ui.includes("bName.toLocaleUpperCase('tr-TR')"));
+    // 06.09.2026 yeniden tasarımı: branş adı kart başlığında OLDUĞU GİBİ
+    // yazılıyor, büyük harfe çevrilmiyor — Türkçe büyük harf tuzağı bu
+    // yüzden burada artık hiç doğmuyor. Antet ve Excel'de çevirme sürüyor
+    // (R14b/R14c) ve orada tr-TR şart.
+    denetle("R14a branş adı büyük harfe çevrilmiyor (tuzak ortadan kalktı)",
+            !/bName\.toUpperCase\(\)/.test(ui),
+            "düz toUpperCase geri gelirse 'MÜZIK' yazar");
 
     denetle("R14b resmî antet satırları Türkçe büyük harf kullanıyor",
             ui.includes("antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')")
@@ -253,17 +258,18 @@ console.log("\nYerleşim koruması");
     const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
     const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
 
-    const kural = (css.match(/\.master-grid-wrapper\s*\{[\s\S]*?\}/) || [""])[0];
-    denetle("R15a matris kabı sıkışmıyor (flex-shrink 0)",
-            /flex:\s*1\s+0\s+auto/.test(kural),
-            kural.replace(/\s+/g, " ").slice(0, 140));
-    denetle("R15b matrise kendi yükseklik payı veriliyor",
-            /max-height:\s*52vh/.test(kural) && /min-height:\s*220px/.test(kural),
-            "viewport'tan sabit çıkarma, panel yüksekliği değiştiği için tutmuyordu");
+    // 06.09.2026: tek geniş matris yerine BRANŞ KARTLARI. Sabit yükseklikli
+    // tek bir kap yok; her kart kendi boyunda ve rapor gövdesi kaydırılıyor.
+    denetle("R15a branş kartları düzeni kullanılıyor",
+            /\.dd-brans\s*\{/.test(css) && /class="dd-liste"/.test(ui),
+            "tek uzun matris okunmuyordu");
+    denetle("R15b kart içi tablo kendi içinde yatay kaydırılıyor",
+            /\.dd-kaydir\s*\{[\s\S]{0,60}overflow-x:\s*auto/.test(css),
+            "sayfa gövdesi yana kaymamalı");
 
     // Panel başlıkta; alta HİÇBİR mutabakat öğesi basılmamalı.
-    denetle("R15c mutabakat köprüsü rapor başlığının içinde",
-            /mutabakat-panelli[\s\S]{0,400}renderMutabakatKopru\(data\.yukMutabakati\)/.test(ui));
+    denetle("R15c mutabakat denklemi raporda basılıyor",
+            /renderMutabakatDenklem\(data\.yukMutabakati\)/.test(ui));
     denetle("R15d matrisin altında mutabakat öğesi kalmadı",
             !/master-grid-wrapper[\s\S]*?renderMutabakat/.test(
                 ui.slice(ui.indexOf("</tfoot>"), ui.indexOf("</tfoot>") + 1200)));
@@ -276,16 +282,19 @@ console.log("\nYerleşim koruması");
 
     // Anahtar BAŞLIKTAN ÖNCE basılmalı: hem düğme etiketine hem tabloya
     // sade kardeş seçiciyle erişilebilsin diye. Sıra bozulursa panel kilitlenir.
-    denetle("R15g açma anahtarı rapor başlığından ÖNCE basılıyor",
-            ui.indexOf("renderMutabakatAnahtar(data.yukMutabakati)")
-              < ui.indexOf('class="report-page-header no-print mutabakat-panelli"'));
+    denetle("R15g açma anahtarı ayrıntı tablosundan ÖNCE basılıyor",
+            ui.indexOf("renderMutabakatAnahtar(data.yukMutabakati)") > 0
+            && ui.indexOf("renderMutabakatAnahtar(data.yukMutabakati)")
+               < ui.indexOf("renderMutabakatDetay(data.yukMutabakati)"),
+            "sıra bozulursa saf CSS açma/kapama çalışmaz");
 
     denetle("R15h yazdırmada ayrıntı tablosu her hâlükârda AÇIK basılıyor",
             /@media print[\s\S]*\.ymt-detay\s*\{[\s\S]{0,80}display:\s*block\s*!important/.test(css));
 
-    denetle("R15i köprü grafiği çiziliyor (çubuk + bağlantı)",
-            /\.kopru-cubuk\s*\{/.test(css) && /\.kopru-bag\s*\{/.test(css)
-            && /class="kopru-cubuk \$\{s\.tur\}"/.test(ui));
+    denetle("R15i denklem kutu + işaret biçiminde (soyut grafik değil)",
+            /\.mt-kutu\s*\{/.test(css) && /\.mt-islem\s*\{/.test(css)
+            && /class="mt-kutu \$\{tur\}"/.test(ui),
+            "köprü grafiği soyut kalıyordu; kullanıcı okunur denklem istedi");
 
     denetle("R15j :has() desteğine bağlı değil",
             !/\.ymt-[^\n]*:has\(/.test(css) && !/mutabakat-panelli[^\n]*:has\(/.test(css),
@@ -297,9 +306,9 @@ console.log("\nYerleşim koruması");
     denetle("R15k ortak rapor başlığı flex'e çevrilmedi (diğer 6 rapor korunur)",
             !/display:\s*flex/.test(ortak), ortak.replace(/\s+/g, " ").slice(0, 120));
 
-    denetle("R15l köprü sütunları renk sınıflarıyla ayrışıyor",
-            /\.kopru-cubuk\.bas\s*\{/.test(css) && /\.kopru-cubuk\.arti\s*\{/.test(css)
-            && /\.kopru-cubuk\.eksi\s*\{/.test(css) && /\.kopru-cubuk\.son\s*\{/.test(css));
+    denetle("R15l denklem kutuları renk sınıflarıyla ayrışıyor",
+            /\.mt-kutu\.bas\s*\{/.test(css) && /\.mt-kutu\.arti\s*\{/.test(css)
+            && /\.mt-kutu\.eksi\s*\{/.test(css) && /\.mt-kutu\.son\s*\{/.test(css));
 
     denetle("R15m ölü mutabakat şeridi çizicisi kaldırıldı",
             !/renderMutabakatSerit/.test(ui),
@@ -379,12 +388,14 @@ console.log("\nYerleşim koruması");
         .filter(b => b.diff < 0)
         .filter(b => new RegExp("badge-metric status-[a-z]+\">Tam<").test(gridHtml)
                      && !gridHtml.includes(`${b.diff} İhtiyaç`));
-    denetle("R17h matris rozeti ihtiyacı olan branşa 'Tam' demiyor",
-            yanlisTam.length === 0,
-            yanlisTam.map(b => b.branchName).join(", "));
-    denetle("R17i matris rozetinde ihtiyaç/fazlalık gerçekten görünüyor",
-            /İhtiyaç</.test(gridHtml) || /Fazla</.test(gridHtml),
-            "dengesiz okulda hepsi 'Tam' çıkıyorsa alan adı yine kaymıştır");
+    denetle("R17h açığı olan branşa 'kadro tam' denmiyor",
+            (gridData.branchReport || Object.values(gridData.branchReportMap || {}))
+                .filter(b => b.diff < 0)
+                .every(b => gridHtml.includes(Math.abs(b.diff) + " öğretmen açık")),
+            "açığı olan branş 'kadro tam' görünüyorsa alan adı kaymıştır");
+    denetle("R17i branş kartı durumunda açık/fazla gerçekten görünüyor",
+            /öğretmen açık/.test(gridHtml) || / fazla</.test(gridHtml),
+            "dengesiz okulda hepsi 'kadro tam' çıkıyorsa alan adı yine kaymıştır");
 }
 
 // R18: BRANŞ DETAY CETVELİ — STİL VE DERS DÖKÜMÜ
@@ -484,58 +495,70 @@ console.log("\nYerleşim koruması");
     const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
     const re = fs.readFileSync(path.join(KOK, "js", "reportsEngine.js"), "utf8");
 
-    denetle("R19a karar panosu matristen ÖNCE basılıyor",
-            ui.indexOf("renderKararPanosu(data)") > 0
-            && ui.indexOf("renderKararPanosu(data)") < ui.indexOf('class="master-grid-wrapper'),
-            "panel matrisin altında kalırsa ilk ekran yine veri dökümü olur");
+    // Ayrı "karar panosu" KALDIRILDI: aynı bilgiyi kart başlıkları zaten
+    // taşıyor (ad + yük + norm + kadro + durum yan yana). İki yerde
+    // göstermek, kullanıcının "niye iki tane var" dediği kalıbın kendisiydi.
+    denetle("R19a norm bilgisi branş adının YANINDA",
+            /class="dd-ad">\$\{b\.ad\}[\s\S]{0,400}class="dd-durum/.test(ui),
+            "rozetler satırın ucunda kalırsa hangi branşa ait olduğu takip edilemez");
 
     denetle("R19b panelin sayıları motordan taşınıyor (ayrıca hesaplanmıyor)",
             /kpi:\s*\{[\s\S]{0,500}totalCalculatedNorm:\s*normResult\.totalCalculatedNorm/.test(re),
             "panel kendi toplamını hesaplarsa icmalle ayrışır");
 
-    denetle("R19c bütün branşlar TEK biçimde listeleniyor",
-            /class="kp-brans \$\{s\}"/.test(ui),
+    denetle("R19c bütün branşlar TEK biçimde (aynı kart) listeleniyor",
+            /class="dd-brans/.test(ui) && !/kp-brans/.test(ui),
             "ayrı 'dikkat'/'dengede' bileşenleri ekranın şeklini veriyle değiştirirdi");
 
     denetle("R19d öncelik ayrı kutuyla değil SIRALAMAYLA veriliyor",
             /puan\(a\) - puan\(b\) \|\| Math\.abs\(b\.fark\) - Math\.abs\(a\.fark\)/.test(ui));
 
     denetle("R19e durum renkleri tanımlı",
-            /\.kp-brans\.ih\s*\{/.test(css) && /\.kp-brans\.fz\s*\{/.test(css)
-            && /\.kp-brans\.tm\s*\{/.test(css));
+            /\.dd-durum\.acik\s*\{/.test(css) && /\.dd-durum\.fazla\s*\{/.test(css));
 
     denetle("R19f boş hücreye artık '—' basılmıyor",
             !/matrix-dash/.test(ui),
             "272 hücrenin 121'i çizgiydi; tabloyu okunmaz yapıyordu");
 
-    denetle("R19g şube başlıkları DÜZ yazılıyor",
-            /duz-sec-header/.test(ui) && !/vertical-sec-header/.test(ui),
-            "90 derece döndürülmüş 16 başlık okunmuyordu");
+    denetle("R19g şube başlıkları DÜZ ve kademe yazısı tekrarlanmıyor",
+            /dd-sube-ad/.test(ui) && !/vertical-sec-header/.test(ui)
+            && !/kademe-et/.test(ui),
+            "'9. sınıf' başlığı '9-A' adının üstünde aynı bilgiyi tekrarlıyordu");
 
-    denetle("R19h dolu hücreler ısı yoğunluğu taşıyor",
-            /--isi:\$\{yogunluk/.test(ui) && /var\(--isi/.test(css));
+    denetle("R19h dolu hücreler yoğunluk kademesi taşıyor",
+            /dd-cip\$\{kademe\}/.test(ui) && /\.dd-cip\.g3\s*\{/.test(css));
 
-    denetle("R19i yazdırmada ısı zemini kalkıyor",
-            /@media print[\s\S]*td\.active-hour\s*\{\s*background:\s*#ffffff/.test(css),
+    denetle("R19i yazdırmada renk zemini kalkıyor",
+            /@media print[\s\S]*\.dd-cip[^{]*\{[^}]*background:\s*transparent/.test(css),
             "kâğıtta renk zemini okunmaz; sayı yeterli");
 
     // DAVRANIŞ: panel gerçekten çiziliyor ve motorun sayılarını gösteriyor mu?
     const gridVeri = R.generateMasterLoadGrid(st.state);
     const gridHtml = html("renderMasterGridReport", gridVeri, false, true);
-    denetle("R19j panel çıktıda var", gridHtml.includes("karar-panosu"));
-    denetle("R19k panelde her branş için bir etiket var",
-            (gridHtml.match(/class="kp-brans /g) || []).length
-                === Object.keys(gridVeri.branchReportMap || {}).length,
-            (gridHtml.match(/class="kp-brans /g) || []).length + " etiket / "
-                + Object.keys(gridVeri.branchReportMap || {}).length + " branş");
-    denetle("R19l paneldeki norm sayısı motorunkiyle aynı",
-            gridHtml.includes(">" + gridVeri.kpi.totalCalculatedNorm + "</div>"),
+    denetle("R19j her branş için bir kart basılıyor",
+            (gridHtml.match(/class="dd-brans/g) || []).length
+                === gridVeri.sortedBranchNames.length,
+            (gridHtml.match(/class="dd-brans/g) || []).length + " kart / "
+                + gridVeri.sortedBranchNames.length + " branş");
+    denetle("R19k kartlar aciliyete göre sıralı (açığı olan önce)",
+            (() => {
+                const sira = [...gridHtml.matchAll(/class="dd-durum (acik|fazla|tam)"/g)]
+                    .map(m => ({acik:0, fazla:1, tam:2})[m[1]]);
+                return sira.every((v, i) => i === 0 || sira[i - 1] <= v);
+            })(),
+            "sıralama bozulursa öncelik kaybolur");
+    denetle("R19l genel toplam şeridinde motorun normu yazıyor",
+            gridHtml.includes(">" + gridVeri.kpi.totalCalculatedNorm + " öğretmen</span>"),
             "beklenen norm: " + gridVeri.kpi.totalCalculatedNorm);
+    denetle("R19s branş içi ayrışma dipnotta açıklanıyor",
+            !/Ders satırları toplamı/.test(gridHtml)
+            || /grup\/branş bölünmesinden|diğer düzeltmelerden/.test(gridHtml),
+            "ayrışma varsa sebebi yazılmalı");
     // Köprü YALNIZCA fark varsa çizilir (çizecek bir geçiş yoksa grafik de
     // yok). Bu test okulunda kalem oluşmuyor; farkı bilerek üretiyoruz.
-    denetle("R19m fark yokken köprü çizilmiyor",
-            !gridHtml.includes("mutabakat-kopru"),
-            "boş bir köprü grafiği anlamsız yer kaplar");
+    denetle("R19m fark yokken denklem çizilmiyor",
+            !gridHtml.includes("mt-denklem"),
+            "gösterilecek bir geçiş yoksa denklem de yok");
 
     const eskiSecenek = st.state.okulBilgisi.adminOptions;
     st.state.okulBilgisi.adminOptions = Object.assign({}, eskiSecenek || {},
@@ -547,12 +570,12 @@ console.log("\nYerleşim koruması");
     denetle("R19n ölçüm geçerli: fark gerçekten oluştu",
             farkliVeri.yukMutabakati
             && farkliVeri.yukMutabakati.normaEsasYuk !== farkliVeri.yukMutabakati.hamCizelgeSaati);
-    denetle("R19o fark varken köprü çiziliyor",
-            farkliHtml.includes("mutabakat-kopru") && farkliHtml.includes("kopru-cubuk"));
-    denetle("R19p köprüde başlangıç ve sonuç sütunu var",
-            /kopru-cubuk bas/.test(farkliHtml) && /kopru-cubuk son/.test(farkliHtml));
-    denetle("R19r köprü kalem sütunu da içeriyor",
-            /kopru-cubuk (arti|eksi)/.test(farkliHtml));
+    denetle("R19o fark varken denklem basılıyor",
+            farkliHtml.includes("mt-denklem") && farkliHtml.includes("mt-kutu"));
+    denetle("R19p denklemde başlangıç ve sonuç kutusu var",
+            /mt-kutu bas/.test(farkliHtml) && /mt-kutu son/.test(farkliHtml));
+    denetle("R19r denklem kalem kutusu da içeriyor",
+            /mt-kutu (arti|eksi)/.test(farkliHtml));
 }
 
 console.log("\n" + "=".repeat(70));

@@ -203,16 +203,23 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     // Panel 06.09.2026'da matrisin ALTINDAN rapor BAŞLIĞINA taşındı
     // ("önemli, en altta olamaz" — kullanıcı). Yerleşimin ayrıntılı
     // denetimi test_raporlar R15'te; burada yalnızca bağlantılar sınanır.
-    // 06.09.2026 yeniden tasarımı: şerit yerine KÖPRÜ grafiği (waterfall).
-    kontrol("mutabakat köprüsü rapor başlığında basılıyor",
-        /renderMutabakatKopru\(data\.yukMutabakati\)/.test(UI));
+    // 06.09.2026: önce şerit, sonra köprü grafiği, en sonunda okunur DENKLEM.
+    // Köprü soyut kalıyordu; kullanıcı "minimal tercih yanlış oldu" dedi.
+    kontrol("mutabakat denklemi raporda basılıyor",
+        /renderMutabakatDenklem\(data\.yukMutabakati\)/.test(UI));
+    kontrol("denklem kutu + işaret biçiminde (grafik değil)",
+        /mt-kutu/.test(UI) && /mt-islem/.test(UI));
     kontrol("ayrıntı tablosu ve açma anahtarı basılıyor",
         /renderMutabakatDetay\(data\.yukMutabakati\)/.test(UI)
         && /renderMutabakatAnahtar\(data\.yukMutabakati\)/.test(UI));
     kontrol("yönetici icmalinde tek satırlık özet var",
         /renderMutabakatOzet\(data\.yukMutabakati\)/.test(UI));
-    kontrol("branş şeridi ayrışması açıklanıyor",
-        /ymt-brans-fark/.test(UI) && /bransKalemleri/.test(UI));
+    // Branş kartı başlığındaki yük ile ders satırlarının toplamı ayrışabilir
+    // (yönetici düşümü, koordinatörlük, grup bölünmesi). Sebebi YAZILMALI.
+    kontrol("branş içi ayrışma kartın dipnotunda açıklanıyor",
+        /kalanFark/.test(UI) && /Ders satırları toplamı/.test(UI));
+    kontrol("yönetici düşümü ve koordinatörlük ayrıca yazılıyor",
+        /Md\. 22\/6/.test(UI) && /Md\. 19\/1/.test(UI));
 
     // Tutarsız mutabakat HİÇ basılmamalı. Tek kapı: mutabakatKalemleri().
     kontrol("tutarsız mutabakat basılmıyor",

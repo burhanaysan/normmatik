@@ -384,21 +384,29 @@ const detayData = R.generateBranchDetailReport(st.state, "ALL");
 {
     const html = UI.renderMasterGridReport(gridData, false, true);
 
-    // Rozetteki norm/mevcut sayıları motorunkiyle aynı olmalı.
-    const eksikRozet = execData.branchReport.filter(b =>
-        !html.includes("Norm: <strong>" + b.calculatedNorm + "</strong>"));
-    kontrol("B7a matris rozetlerindeki norm sayıları basılıyor",
-        eksikRozet.length < execData.branchReport.length,
-        "hiçbir rozet motordaki normu göstermiyor");
+    // 06.09.2026 yeniden tasarımı: matris tek tablo değil, BRANŞ KARTLARI.
+    // Rozet yerine kart başlığı: "norm <b>3</b> · kadro <b>2</b>" ve durum
+    // etiketi ("3 öğretmen açık" / "+1 fazla" / "kadro tam").
+    const eksikNorm = execData.branchReport.filter(b =>
+        !html.includes("norm <b>" + b.calculatedNorm + "</b>"));
+    kontrol("B7a branş kartlarında motorun norm sayısı basılıyor",
+        eksikNorm.length < execData.branchReport.length,
+        "hiçbir kartta motordaki norm görünmüyor");
+
+    const eksikKadro = execData.branchReport.filter(b =>
+        !html.includes("kadro <b>" + b.currentTeachers + "</b>"));
+    kontrol("B7a2 branş kartlarında mevcut kadro basılıyor",
+        eksikKadro.length < execData.branchReport.length);
 
     const ihtiyacli = execData.branchReport.filter(b => b.diff < 0);
-    kontrol("B7b ihtiyacı olan branş rozetinde 'İhtiyaç' yazıyor",
-        ihtiyacli.length === 0 || /İhtiyaç</.test(html),
-        "hepsi 'Tam' çıkıyorsa alan adı kaymıştır (b.difference tuzağı)");
+    kontrol("B7b açığı olan branş kartında 'öğretmen açık' yazıyor",
+        ihtiyacli.length === 0
+        || ihtiyacli.every(b => html.includes(Math.abs(b.diff) + " öğretmen açık")),
+        "hepsi 'kadro tam' çıkıyorsa alan adı kaymıştır (b.difference tuzağı)");
 
     const fazlali = execData.branchReport.filter(b => b.diff > 0);
-    kontrol("B7c fazlalığı olan branş rozetinde 'Fazla' yazıyor",
-        fazlali.length === 0 || /Fazla</.test(html));
+    kontrol("B7c fazlalığı olan branş kartında 'fazla' yazıyor",
+        fazlali.length === 0 || fazlali.every(b => html.includes("+" + b.diff + " fazla")));
 
     kontrol("B7d matriste 'undefined' / 'NaN' sızmıyor",
         !/undefined|NaN/.test(html));

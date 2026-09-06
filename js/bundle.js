@@ -174849,6 +174849,35 @@ class UIComponentManager {
     }
 
     // 1. MASTER YÜK MATRİSİ RENDER (KURUMSAL VE MÜKEMMEL A4/A3 MİZANPAJLI)
+    /**
+     * DERS DAĞILIMI RAPORU — branş kartları düzeni
+     *
+     * NEDEN BÖYLE (kullanıcı bildirimi, 06.09.2026)
+     * ---------------------------------------------
+     * Burası tek uzun bir matristi ve okunmuyordu. Kullanıcının sözleriyle:
+     * "renkleri, satırları, dizaynı... neyin ne olduğu ilk anda anlaşılamıyor."
+     *
+     * Ölçülen sorunlar:
+     *   • 272 hücrenin %44'ü "—" çizgisiydi.
+     *   • Branşın nerede başlayıp bittiği belli değildi (tek sürekli tablo).
+     *   • "Haftalık Yük / Norm / Mevcut" rozetleri satırın TA SAĞINDA duruyor,
+     *     hangi branşa ait olduğunu takip etmek gerekiyordu.
+     *   • Mavi–mor–pembe kademe bantları, mavi branş şeritleri ve mavi hücre
+     *     zeminleri üst üste biniyordu: renk anlam taşımıyordu.
+     *   • Her ders satırında "—" yazan bir NORM sütunu vardı.
+     *
+     * Yeni düzen:
+     *   • Her branş KENDİ KARTINDA; başlıkta ad, yük, norm, kadro ve durum
+     *     yan yana — satırın ucunda değil.
+     *   • Tek yapısal renk; renk yalnızca ANLAM taşıyor (açık / fazla / tam
+     *     ve saat yoğunluğu).
+     *   • Boş hücre boş, dolu hücre okunur bir etiket.
+     *   • NORM sütunu kaldırıldı; norm zaten branş başlığında.
+     *   • Kademe yazısı sütun başlığından kaldırıldı ("9. sınıf" başlığı
+     *     "9-A" adının üstünde aynı bilgiyi tekrarlıyordu, her kartta 9 kez).
+     *     Gruplama, kademe değişimindeki ince ayraçla korunuyor.
+     *   • Kartlar aciliyete göre sıralı: açığı olan branşlar önce.
+     */
     renderMasterGridReport(data, isMono, isVertical = true) {
         if (!data || data.subeler.length === 0) {
             return `<div class="empty-report-state">⚠️ Henüz şube veya ders verisi eklenmemiş. Lütfen sol panelden şube ekleyiniz.</div>`;
@@ -174856,92 +174885,116 @@ class UIComponentManager {
 
         const stateData = this.state.state;
         const antet = stateData.okulBilgisi.antet || {};
+        const k = data.kpi || {};
+        const m = data.yukMutabakati || null;
 
-        // Sınıf Kademelerine Göre Şubeleri Grupla (Hierarchical Class Groups)
-        const gradeMap = {};
-        data.subeler.forEach(s => {
-            const g = String(s.sinifSeviyesi || '9');
-            if (!gradeMap[g]) gradeMap[g] = [];
-            gradeMap[g].push(s);
-        });
+        /* --- branşları aciliyete göre sırala --- */
+        const puan = (b) => (b.fark < 0 ? 0 : (b.fark > 0 ? 1 : 2));
+        const branslar = (data.sortedBranchNames || []).map(ad => {
+            const grp = data.branchGroups[ad];
+            const rap = (data.branchReportMap || {})[ad] || {};
+            return {
+                ad: ad,
+                meslek: !!(grp && grp.isVocational),
+                dersler: grp ? Object.values(grp.courses) : [],
+                yuk: (rap.totalHours !== undefined) ? rap.totalHours : (grp ? grp.totalHours : 0),
+                norm: rap.calculatedNorm || 0,
+                mevcut: rap.currentTeachers || 0,
+                fark: rap.diff || 0,
+                dusum: rap.adminDeductedHours || 0,
+                koord: rap.coordinatorHours || 0
+            };
+        }).sort((a, b) =>
+            puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
 
-        const sortedGrades = Object.keys(gradeMap).sort((a, b) => {
-            const ga = a === 'hazirlik' ? 0 : (parseInt(a, 10) || 99);
-            const gb = b === 'hazirlik' ? 0 : (parseInt(b, 10) || 99);
-            return ga - gb;
-        });
+        /* --- sütun başlıkları (kademe yazısı YOK, ayraç VAR) --- */
+        const sutunBasliklari = data.subeler.map((s, i) => {
+            const yeniKademe = i > 0 && data.subeler[i - 1].sinifSeviyesi !== s.sinifSeviyesi;
+            return `<th class="dd-sube${yeniKademe ? " kademe-sinir" : ""}" title="${s.subeAdi} — ${s.ogrenciSayisi || 30} öğrenci">
+                        <span class="dd-sube-ad">${s.subeAdi}</span>
+                        <span class="dd-sube-ogr">${s.ogrenciSayisi || 30} öğr.</span>
+                    </th>`;
+        }).join("");
 
-        // 📐 KOMPAKT DİKEY BAŞLIK MOTORU (Compact & Smart Header Layout Engine)
-        // Uzun alan isimlerini dikey başlıkta şıkça kısaltır, ekranı boğmadan ders listesine maksimum alan bırakır (120px - 145px)
-        const formatCompactSecName = (name) => {
-            if (!name) return "";
-            return String(name)
-                .replace(/Elektrik-Elektronik Teknolojisi/gi, "Elektrik")
-                .replace(/Elektrik-Elektronik/gi, "Elektrik")
-                .replace(/Bilişim Teknolojileri/gi, "Bilişim")
-                .replace(/Harita-Tapu-Kadastro/gi, "Harita")
-                .replace(/Makine ve Tasarım Teknolojisi/gi, "Makine")
-                .replace(/Makine ve Tasarım/gi, "Makine")
-                .replace(/Motorlu Araçlar Teknolojisi/gi, "Motor")
-                .replace(/Motorlu Araçlar/gi, "Motor")
-                .replace(/Yenilenebilir Enerji Teknolojileri/gi, "Yenilenebilir")
-                .replace(/Yenilenebilir Enerji/gi, "Yenilenebilir")
-                .replace(/Tesisat Teknolojisi ve İklimlendirme/gi, "Tesisat")
-                .replace(/Mobilya ve İç Mekan Tasarımı/gi, "Mobilya")
-                .replace(/Metal Teknolojisi/gi, "Metal")
-                .replace(/Sağlık Hizmetleri/gi, "Sağlık")
-                .replace(/Muhasebe ve Finansman/gi, "Muhasebe")
-                .replace(/Konaklama ve Seyahat Hizmetleri/gi, "Konaklama")
-                .replace(/Yiyecek İçecek Hizmetleri/gi, "Yiyecek")
-                .replace(/Güzellik ve Saç Bakım Hizmetleri/gi, "Güzellik")
-                .replace(/Çocuk Gelişimi ve Eğitimi/gi, "Çocuk Gel.")
-                .replace(/Hasta ve Yaşlı Hizmetleri/gi, "Hasta/Yaşlı")
-                .replace(/Biyomedikal Cihaz Teknolojileri/gi, "Biyomedikal")
-                .replace(/Endüstriyel Otomasyon Teknolojileri/gi, "Otomasyon")
-                .replace(/Gıda Teknolojisi/gi, "Gıda")
-                .replace(/Hayvan Yetiştiriciliği ve Sağlığı/gi, "Hayvan Sağ.")
-                .replace(/Tarım/gi, "Tarım")
-                .replace(/Laboratuvar Hizmetleri/gi, "Laboratuvar")
-                .replace(/Kimya Teknolojisi/gi, "Kimya")
-                .replace(/İnşaat Teknolojisi/gi, "İnşaat")
-                .replace(/Havacılık ve Uzay Teknolojisi/gi, "Havacılık")
-                .replace(/Denizcilik/gi, "Denizcilik")
-                .replace(/Grafik ve Fotoğraf/gi, "Grafik")
-                .replace(/Radyo-Televizyon/gi, "Radyo-TV")
-                .replace(/Halkla İlişkiler/gi, "Halkla İliş.")
-                .replace(/Pazarlama ve Perakende/gi, "Pazarlama")
-                .replace(/Uçak Bakım/gi, "Uçak Bakım")
-                .replace(/Raylı Sistemler Teknolojisi/gi, "Raylı Sis.")
-                .replace(/Gemi Yapımı/gi, "Gemi Yapımı")
-                .replace(/Plastik Teknolojisi/gi, "Plastik")
-                .replace(/Seramik ve Cam Teknolojisi/gi, "Seramik")
-                .replace(/Tekstil Teknolojisi/gi, "Tekstil")
-                .replace(/Moda Tasarım Teknolojileri/gi, "Moda Tas.")
-                .replace(/Ayakkabı ve Saraciye Teknolojisi/gi, "Ayakkabı")
-                .replace(/Kuyumculuk Teknolojisi/gi, "Kuyumculuk")
-                .replace(/Matbaa Teknolojisi/gi, "Matbaa")
-                .replace(/Gazetecilik/gi, "Gazetecilik")
-                .replace(/Büro Yönetimi ve Yönetici Asistanlığı/gi, "Büro Yön.")
-                .replace(/Adalet/gi, "Adalet")
-                .replace(/Güvenlik Hizmetleri/gi, "Güvenlik")
-                .replace(/İtfaiyecilik ve Yangın Güvenliği/gi, "İtfaiye")
-                .replace(/Maden Teknolojisi/gi, "Maden")
-                .replace(/Mikromekanik/gi, "Mikromekanik")
-                .replace(/Siber Güvenlik/gi, "Siber Güv.");
-        };
+        const kartlar = branslar.map(b => {
+            const durum = b.fark < 0
+                ? { s: "acik", t: Math.abs(b.fark) + " öğretmen açık" }
+                : (b.fark > 0 ? { s: "fazla", t: "+" + b.fark + " fazla" }
+                              : { s: "tam", t: "kadro tam" });
 
-        let maxCharLen = 10;
-        data.subeler.forEach(s => {
-            const compactName = formatCompactSecName(s.subeAdi);
-            const label = `${compactName} ${s.ogrenciSayisi || 30} Ögr`;
-            if (label.length > maxCharLen) maxCharLen = label.length;
-        });
+            const dersler = b.dersler
+                .slice()
+                .sort((x, y) => String(x.courseName).localeCompare(String(y.courseName), "tr"));
 
-        // Maksimum 135px kompakt başlık yüksekliği (Ders listesini tam göstermek için)
-        const dynamicHeaderHeight = Math.max(120, Math.min(145, Math.round(maxCharLen * 6.5 + 28)));
+            const satirlar = dersler.map(c => {
+                const hucreler = data.subeler.map((s, i) => {
+                    const v = c.sectionHours[s.id];
+                    const birlesik = c.mergedSections && c.mergedSections[s.id]
+                        && c.mergedSections[s.id].length > 0;
+                    const sinir = i > 0 && data.subeler[i - 1].sinifSeviyesi !== s.sinifSeviyesi
+                        ? " kademe-sinir" : "";
+                    if (!v || v <= 0) return `<td class="dd-hucre${sinir}"></td>`;
+                    const kademe = v >= 5 ? " g3" : (v >= 3 ? " g2" : "");
+                    return `<td class="dd-hucre${sinir}">
+                                <span class="dd-cip${kademe}${birlesik ? " birlesik" : ""}" title="${s.subeAdi} — ${v} saat${birlesik ? " (birleşik ders)" : ""}">${v}</span>
+                            </td>`;
+                }).join("");
+                return `<tr>
+                            <td class="dd-ders">${c.courseName}
+                                ${c.isBaraj ? '<span class="dd-rozet baraj" title="Baraj / zorunlu ders">baraj</span>' : ""}
+                                ${c.isAtolye ? '<span class="dd-rozet atolye" title="Atölye / uygulama dersi">atölye</span>' : ""}
+                                ${c.isBolunmus ? `<span class="dd-rozet bolunmus" title="Bu ders branşlara bölünmüş; her öğretmen kendi grubuna tam saati okutur">${c.bolunmeParcasi || "bölünmüş"}</span>` : ""}
+                            </td>
+                            ${hucreler}
+                            <td class="dd-toplam">${c.totalHours}</td>
+                        </tr>`;
+            }).join("");
 
-        let html = `
-            <!-- Resmî Yazdırma Başlığı (Sadece Baskı / PDF'te Görünür) -->
+            // BRANŞ İÇİ MUTABAKAT
+            // Başlıktaki "haftalık N saat" motorun yüküdür; ders satırları ise
+            // çizelge saatidir. İkisi ayrışabilir ve sebebi YAZILMALI — eski
+            // tasarımda bunu yapan satır vardı, yeni düzende kaybolmasın.
+            // (Türk Dili başlığı 74 derken satırları 80 topluyordu.)
+            const satirToplami = dersler.reduce((t, c) => t + (c.totalHours || 0), 0);
+            const bransFarki = b.yuk - satirToplami;
+            const kalanFark = bransFarki + b.dusum - b.koord;
+
+            const dipnot = [];
+            if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
+            if (b.koord) dipnot.push(`İşletmelerde mesleki eğitim koordinatörlüğü <b>+${b.koord}</b> saat eklendi (Md. 19/1).`);
+            if (kalanFark !== 0) {
+                dipnot.push(`Ders satırları toplamı <b>${satirToplami}</b> saat, branş yükü <b>${b.yuk}</b> saat: `
+                    + `aradaki <b>${kalanFark > 0 ? "+" : "−"}${Math.abs(kalanFark)}</b> saat `
+                    + `${kalanFark > 0 ? "grup/branş bölünmesinden geliyor (her öğretmen kendi grubuna tam saati okutur)"
+                                       : "diğer düzeltmelerden geliyor"}.`);
+            }
+
+            return `
+                <section class="dd-brans${b.meslek ? " meslek" : ""}">
+                    <header class="dd-bas">
+                        <span class="dd-ad">${b.ad}</span>
+                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b></span>
+                        <span class="dd-olcu">norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
+                        <span class="dd-durum ${durum.s}">${durum.t}</span>
+                    </header>
+                    <div class="dd-kaydir">
+                        <table class="dd-tablo">
+                            <thead>
+                                <tr>
+                                    <th class="dd-ders">Ders</th>
+                                    ${sutunBasliklari}
+                                    <th class="dd-toplam">Toplam</th>
+                                </tr>
+                            </thead>
+                            <tbody>${satirlar}</tbody>
+                        </table>
+                    </div>
+                    ${dipnot.length ? `<div class="dd-dipnot">${dipnot.join(" ")}</div>` : ""}
+                </section>`;
+        }).join("");
+
+        return `
+            <!-- Resmî Yazdırma Başlığı -->
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
@@ -174952,12 +175005,11 @@ class UIComponentManager {
                         <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
-                        <div class="print-doc-title">HAFTALIK BRANŞ-ŞUBE DERS DAĞITIM VE YÜK MATRİSİ</div>
+                        <div class="print-doc-title">BRANŞ-ŞUBE DERS DAĞITIM VE NORM KADRO ÇİZELGESİ</div>
                     </div>
                     <div class="print-meta-right">
                         <div><strong>Eğt. Sezonu:</strong> ${stateData.okulBilgisi.sezon || '2026-2027'}</div>
                         <div><strong>Tarih:</strong> ${new Date().toLocaleDateString('tr-TR')}</div>
-                        <div><strong>Toplam Şube:</strong> ${data.subeler.length}</div>
                     </div>
                 </div>
                 <div class="print-header-divider"></div>
@@ -174965,366 +175017,76 @@ class UIComponentManager {
 
             ${this.renderMutabakatAnahtar(data.yukMutabakati)}
 
-            <!-- Ekranda Görünen Rapor Başlığı (no-print)
-                 "mutabakat-panelli" SADECE bu raporda: başlık iki sütuna
-                 ayrılıp sağ tarafa DERS YÜKÜ MUTABAKATI şeridi giriyor.
-                 Diğer altı raporun başlığı olduğu gibi kalır — ortak sınıfın
-                 davranışına dokunmuyoruz. -->
-            <div class="report-page-header no-print mutabakat-panelli">
+            <div class="report-page-header no-print">
                 <div class="rph-sol">
                     <div class="report-page-title">${data.title}</div>
-                    <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Toplam ${data.subeler.length} Şube • Toplam ${data.grandTotalHours} Saat Ders Yükü</div>
+                    <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • ${data.subeler.length} şube • ${branslar.length} branş</div>
                 </div>
-                ${this.renderMutabakatKopru(data.yukMutabakati)}
             </div>
 
+            ${this.renderMutabakatDenklem(data.yukMutabakati)}
             ${this.renderMutabakatDetay(data.yukMutabakati)}
 
-            ${this.renderKararPanosu(data)}
+            <div class="dd-liste">${kartlar}</div>
 
-            <div class="matris-baslik">
-                <h4>Ders dağılım matrisi</h4>
-                <span class="matris-alt">Hangi dersin hangi şubede kaç saat okutulduğu</span>
+            <div class="dd-genel">
+                <span class="dd-genel-e">Haftalık toplam</span>
+                <span class="dd-genel-v">${m ? m.hamCizelgeSaati : data.grandTotalHours} saat</span>
+                <span class="dd-genel-ayrac"></span>
+                <span class="dd-genel-e">Norma esas yük</span>
+                <span class="dd-genel-v">${m ? m.normaEsasYuk : data.grandTotalHours} saat</span>
+                <span class="dd-genel-ayrac"></span>
+                <span class="dd-genel-e">Hesaplanan norm</span>
+                <span class="dd-genel-v">${k.totalCalculatedNorm || 0} öğretmen</span>
+                <span class="dd-genel-ayrac"></span>
+                <span class="dd-genel-e">Mevcut kadro</span>
+                <span class="dd-genel-v">${k.totalCurrentTeachers || 0}</span>
             </div>
-
-            <div class="master-grid-wrapper vertical-header-mode">
-                <table class="master-grid-table">
-                    <colgroup>
-                        <col style="width: 220px; min-width: 220px; max-width: 220px;">
-                        ${data.subeler.map(() => `<col style="width: 42px; min-width: 42px; max-width: 42px;">`).join("")}
-                        <col style="width: 48px; min-width: 48px; max-width: 48px;">
-                        <col style="width: 42px; min-width: 42px; max-width: 42px;">
-                    </colgroup>
-                    <thead>
-                        <!-- 1. KATMAN: KADEME GRUPLANDIRMA ÜST BAŞLIĞI -->
-                        <tr class="grade-group-header-row">
-                            <th rowspan="2" class="sticky-col-header branch-course-head">
-                                <div class="branch-course-head-inner">BRANŞ VE DERS DAĞILIMI</div>
-                            </th>
-                            ${sortedGrades.map(g => `
-                                <th colspan="${gradeMap[g].length}" class="grade-super-header grade-${g}">
-                                    ${g === 'hazirlik' ? 'HAZIRLIK SINIFLARI' : g + '. SINIFLAR'} (${gradeMap[g].length} Şube)
-                                </th>
-                            `).join("")}
-                            <th rowspan="2" class="total-col-header">
-                                <div class="stat-col-head-inner">TOPLAM SAAT</div>
-                            </th>
-                            <th rowspan="2" class="norm-col-header">
-                                <div class="stat-col-head-inner">NORM</div>
-                            </th>
-                        </tr>
-                        <!-- 2. KATMAN: DİNAMİK DİKEY ŞUBE BAŞLIKLARI -->
-                        <!-- ŞUBE BAŞLIKLARI ARTIK DÜZ YAZILIYOR.
-                             90 derece döndürülmüş 16 başlık okunmuyordu; sütun
-                             42px'e çıkarılıp ad ve mevcut alt alta yazıldı.
-                             (Kullanıcı bildirimi, 06.09.2026.) -->
-                        <tr class="section-sub-header-row">
-                            ${data.subeler.map(s => {
-                                const compactName = formatCompactSecName(s.subeAdi);
-                                return `
-                                <th class="sec-col-header duz-sec-header" title="${s.subeAdi} (${s.ogrenciSayisi || 30} Öğrenci)">
-                                    <span class="sec-header-title">${compactName}</span>
-                                    <span class="sec-header-meta">${s.ogrenciSayisi || 30}</span>
-                                </th>
-                            `}).join("")}
-                        </tr>
-                    </thead>
-                    <tbody>
         `;
-
-        data.sortedBranchNames.forEach((bName, bIdx) => {
-            const bGroup = data.branchGroups[bName];
-            const bReport = data.branchReportMap[bName] || { calculatedNorm: 0, currentTeachers: 0, statusType: 'tam' };
-
-            const isVoc = bGroup.isVocational;
-            const stripClass = isVoc ? 'area-summary-strip' : 'branch-summary-strip';
-            const icon = isVoc ? '🟣' : '🔷';
-
-            const displayHours = (bReport && bReport.totalHours !== undefined) ? bReport.totalHours : bGroup.totalHours;
-
-            // Branş / Alan Başlık Şeridi
-            html += `
-                <tr class="${stripClass}">
-                    <td class="branch-strip-title" colspan="${data.subeler.length + 3}">
-                        <div class="branch-strip-content">
-                            <span class="branch-title-text">${icon} <strong>${bName.toLocaleUpperCase('tr-TR')}</strong> ${isVoc ? 'ALANI' : 'BRANŞI'}</span>
-                            <div class="branch-strip-metrics">
-                                <span class="badge-metric load-metric">Haftalık Yük: <strong>${displayHours}s</strong></span>
-                                <span class="badge-metric norm-metric">Norm: <strong>${bReport.calculatedNorm}</strong></span>
-                                <span class="badge-metric teacher-metric">Mevcut: <strong>${bReport.currentTeachers}</strong></span>
-                                <!-- Motor alanı diff; burada difference okunuyordu ve tanımsız
-                                     kaldığı için HER branş "Tam" görünüyordu — Norm 2 / Mevcut 0
-                                     olan branş bile. (Ölçüldü 06.09.2026.) -->
-                                <span class="badge-metric status-${bReport.statusType}">${bReport.diff > 0 ? `+${bReport.diff} Fazla` : (bReport.diff < 0 ? `${bReport.diff} İhtiyaç` : 'Tam')}</span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            `;
-
-            // Branşa Bağlı Derslerin Satırları
-            const courseList = Object.values(bGroup.courses).sort((a, b) => a.courseName.localeCompare(b.courseName, 'tr'));
-
-            // BRANŞ ŞERİDİ İLE SATIR TOPLAMI AYRIŞIYORSA SEBEBİNİ YAZ
-            //
-            // Şeritteki "Haftalık Yük" motorun düzeltilmiş yüküdür; alttaki
-            // ders satırları ise ham çizelge saatidir. Türk Dili şeridi 83
-            // derken satırları 89 topluyordu ve aradaki 6 saatin nereye
-            // gittiği hiçbir yerde yazmıyordu. (Kullanıcı bildirimi, 05.09.2026.)
-            const satirToplami = courseList.reduce((t, c) => t + (c.totalHours || 0), 0);
-            const bransFarki = displayHours - satirToplami;
-            const bransKalemleri = [];
-            if (bReport.adminDeductedHours > 0) {
-                bransKalemleri.push({ d: -bReport.adminDeductedHours, ad: "Yönetici ders saati (Md. 22/6)" });
-            }
-            if (bReport.coordinatorHours > 0) {
-                bransKalemleri.push({ d: bReport.coordinatorHours, ad: "İşletmelerde mesleki eğitim koordinatörlüğü" });
-            }
-            const bransKalan = bransFarki
-                + (bReport.adminDeductedHours || 0) - (bReport.coordinatorHours || 0);
-            if (bransKalan !== 0) {
-                // Kalanı ADIYLA söylemiyoruz: pozitifse bölünme çarpanıdır ama
-                // teorik olarak branş eşleme farkından da gelebilir. Uydurma bir
-                // gerekçe yazmaktansa kalemi dürüstçe "diğer" diye bırakıyoruz.
-                bransKalemleri.push({
-                    d: bransKalan,
-                    ad: bransKalan > 0 ? "Bölünen ders / grup çarpanı" : "Diğer düzeltme"
-                });
-            }
-
-            courseList.forEach((course, cIdx) => {
-                const isEven = cIdx % 2 === 0;
-                html += `
-                    <tr class="course-data-row ${isEven ? 'row-even' : 'row-odd'}">
-                        <td class="sticky-col-cell course-name-cell">
-                            <div class="course-name-inner">
-                                <span class="course-bullet">●</span>
-                                <span class="course-name-text">${course.courseName}</span>
-                                ${course.isBaraj ? '<span class="pill-baraj" title="Baraj / Zorunlu Ders">BARAJ</span>' : ''}
-                                ${course.isAtolye ? '<span class="pill-atolye" title="Atölye / Uygulama">ATÖLYE</span>' : ''}
-                                ${course.isBolunmus ? `<span class="pill-bolunmus" title="Bu ders branşlara bölünmüştür; her öğretmen kendi grubuna dersin tam saatini okutur. Aynı ders ${course.bolunmeSayisi ? course.bolunmeSayisi + " branşın" : "birden fazla branşın"} altında görünür — mükerrer kayıt değildir. Şube çizelgesindeki saat değişmez; fark, alttaki DERS YÜKÜ MUTABAKATI tablosunda yazılıdır.">BÖLÜNMÜŞ${course.bolunmeParcasi ? ": " + course.bolunmeParcasi : ""}</span>` : ''}
-                            </div>
-                        </td>
-                        ${data.subeler.map(s => {
-                            const h = course.sectionHours[s.id];
-                            const isMerged = course.mergedSections && course.mergedSections[s.id] && course.mergedSections[s.id].length > 0;
-                            if (h && h > 0) {
-                                // ISI YOĞUNLUĞU: saat arttıkça zemin koyulaşır.
-                                // Sayılar tek tek okunmadan dağılım göze çarpsın.
-                                const yogunluk = Math.min(1, h / 6);
-                                const zemin = ` style="--isi:${yogunluk.toFixed(2)}"`;
-                                if (isMerged) {
-                                    return `<td class="cell-hour active-hour cell-merged-hour"${zemin} title="🔗 Birleşik Ders (${s.subeAdi}) — ${h} saat">${h}<span class="merge-badge-icon">🔗</span></td>`;
-                                }
-                                return `<td class="cell-hour active-hour"${zemin} title="${s.subeAdi} — ${h} saat">${h}</td>`;
-                            }
-                            // BOŞ HÜCRE GERÇEKTEN BOŞ. Eskiden her boş hücreye
-                            // "—" basılıyordu; 272 hücrenin 121'i çizgiydi ve
-                            // tabloyu okunmaz hâle getiriyordu. (Ölçüldü 06.09.2026.)
-                            return `<td class="cell-hour empty-hour"></td>`;
-                        }).join("")}
-                        <td class="cell-total-course"><strong>${course.totalHours}</strong></td>
-                        <td class="cell-norm-contrib">—</td>
-                    </tr>
-                `;
-            });
-
-            // Ayrışma varsa sebebini branşın hemen altına yaz.
-            if (bransKalemleri.length > 0) {
-                html += `
-                    <tr class="ymt-brans-fark">
-                        <td colspan="${data.subeler.length + 3}">
-                            ↳ Ders satırları toplamı ${satirToplami} saat; branş yükü ${displayHours} saat.
-                            ${bransKalemleri.map(k =>
-                                `${k.ad}: <strong>${k.d > 0 ? "+" : "−"}${Math.abs(k.d)} saat</strong>`
-                            ).join(" · ")}
-                        </td>
-                    </tr>
-                `;
-            }
-        });
-
-        // Genel Toplam Satırı (Footer)
-        html += `
-                    </tbody>
-                    <tfoot>
-                        <tr class="grand-total-row">
-                            <td class="sticky-col-cell grand-total-label">HAFTALIK ŞUBE TOPLAM DERS SAATİ</td>
-                            ${data.subeler.map(s => `
-                                <td class="cell-sec-total"><strong>${data.sectionTotals[s.id] || 0}</strong></td>
-                            `).join("")}
-                            <td class="cell-grand-total"><strong>${data.subeler.reduce((s, sec) => s + (data.sectionTotals[sec.id] || 0), 0)}</strong></td>
-                            <td class="cell-grand-norm">—</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-
-        `;
-
-        return html;
     }
 
     /**
-     * KARAR PANOSU — matrisin ÜSTÜNDE duran özet.
+     * MUTABAKAT DENKLEMİ — çizelge saatinden norm yüküne geçiş.
      *
-     * NEDEN VAR (kullanıcı isteği, 06.09.2026)
-     * ----------------------------------------
-     * Master matris bir VERİ DÖKÜMÜ idi, karar aracı değil. Ölçüldü: 272
-     * hücrenin %44'ü boş çizgi ve 15 branşın yalnızca 5'i dikkat gerektiriyor.
-     * Ekran mürekkebinin çoğunu hiçbir şeye harcayıp asıl 5 satırı 15'in
-     * arasına gömüyordu.
+     * Önce soyut bir köprü (waterfall) grafiğiydi; kullanıcı "minimal tercih
+     * yanlış oldu" dedi ve haklıydı: grafik ne olduğunu kendisi anlatmıyordu.
+     * Artık okunur bir denklem — kutular, işaretler ve her kutunun altında
+     * ne olduğunu söyleyen bir satır. (06.09.2026.)
      *
-     * Panel müdürün ilk sorusuyla açılır: hangi branşta açığım var?
-     *
-     * TEK BİÇİM: bütün branşlar AYNI etiket bileşenidir. Bir ara tasarımda
-     * "dikkat gerektirenler" kart, "dengede olanlar" çip yapılmıştı; kullanıcı
-     * itiraz etti ve haklıydı — hangi kutuda olduğu veriyle değişince ekranın
-     * ŞEKLİ de değişiyor, müdür her açılışta gözünü yeniden ayarlıyordu.
-     * Öncelik artık sıralama ve renkle veriliyor.
+     * Fark yoksa hiç basılmaz: gösterilecek bir geçiş yoktur.
      */
-    renderKararPanosu(data) {
-        const k = data.kpi || {};
-        const m = data.yukMutabakati || null;
-
-        const branslar = (data.sortedBranchNames || []).map(ad => {
-            const r = (data.branchReportMap || {})[ad];
-            if (!r) return null;
-            return {
-                ad: ad,
-                yuk: r.totalHours || 0,
-                norm: r.calculatedNorm || 0,
-                mevcut: r.currentTeachers || 0,
-                fark: r.diff || 0,
-                dusum: r.adminDeductedHours || 0
-            };
-        }).filter(Boolean);
-
-        // Aciliyet sırası: açık > fazla > tam; içinde farkın büyüğü önce.
-        const puan = (b) => (b.fark < 0 ? 0 : (b.fark > 0 ? 1 : 2));
-        branslar.sort((a, b) =>
-            puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
-
-        const kpiKarti = (etiket, deger, alt, renk) => `
-            <div class="kp-kart">
-                <div class="kp-et">${etiket}</div>
-                <div class="kp-v"${renk ? ` style="color:${renk}"` : ""}>${deger}</div>
-                <div class="kp-alt">${alt}</div>
-            </div>`;
-
-        const etiketler = branslar.map(b => {
-            const s = b.fark < 0 ? "ih" : (b.fark > 0 ? "fz" : "tm");
-            const fark = b.fark < 0 ? "−" + Math.abs(b.fark)
-                       : (b.fark > 0 ? "+" + b.fark : "tam");
-            const ipucu = `${b.ad} — ${b.yuk} saat ders yükü, norm ${b.norm}, mevcut kadro ${b.mevcut}`
-                        + (b.dusum ? `, yönetici ders saati −${b.dusum} (Md. 22/6)` : "");
-            return `
-                <div class="kp-brans ${s}" title="${ipucu}">
-                    <span class="kp-ad">${b.ad}</span>
-                    <span class="kp-fark">${fark}</span>
-                    <span class="kp-detay">${b.mevcut}/${b.norm} · ${b.yuk} s${b.dusum ? " · yön. −" + b.dusum : ""}</span>
-                </div>`;
-        }).join("");
-
-        return `
-            <div class="karar-panosu">
-                <div class="kp-kpi">
-                    ${kpiKarti("Norma esas yük", m ? m.normaEsasYuk : (k.totalHours || 0),
-                        m ? `saat · çizelge ${m.hamCizelgeSaati}` : "saat")}
-                    ${kpiKarti("Hesaplanan norm", k.totalCalculatedNorm || 0, "öğretmen")}
-                    ${kpiKarti("Mevcut kadro", k.totalCurrentTeachers || 0, "öğretmen")}
-                    ${kpiKarti("Açık", k.totalNeeded || 0,
-                        k.totalNeeded ? "öğretmen isteniyor" : "yok",
-                        k.totalNeeded ? "var(--durum-ihtiyac)" : "")}
-                    ${kpiKarti("Fazla", k.totalSurplus || 0,
-                        k.totalSurplus ? "öğretmen fazlalık" : "yok",
-                        k.totalSurplus ? "var(--durum-fazla)" : "")}
-                </div>
-                <div class="kp-ayirac">
-                    <h4>Branşlar</h4><span class="kp-cizgi"></span>
-                    <span class="kp-say">${branslar.length} branş · aciliyete göre sıralı</span>
-                </div>
-                <div class="kp-liste">${etiketler}</div>
-                <div class="kp-efsane">
-                    <span><i class="ih"></i>açık — öğretmen isteniyor</span>
-                    <span><i class="fz"></i>fazla — norm fazlası</span>
-                    <span><i class="tm"></i>tam — kadro normla eşit</span>
-                    <span class="kp-efsane-son">alt satır: mevcut/norm · haftalık yük</span>
-                </div>
-            </div>`;
-    }
-
-    /**
-     * MUTABAKAT KÖPRÜSÜ — çizelge saatinden norm yüküne geçişin minimal grafiği.
-     *
-     * Kalem kalem tablo yerine tek bakışta okunan bir KÖPRÜ (waterfall):
-     * başlangıç sütunu, artıran/azaltan kalemler havada, sonuç sütunu.
-     * Fark yoksa hiç çizilmez — çizecek bir köprü yoktur.
-     *
-     * Ayrıntılı tablo yerinde duruyor; bu grafik onun yerine değil, önüne geçer.
-     */
-    renderMutabakatKopru(m) {
+    renderMutabakatDenklem(m) {
         const k = this.mutabakatKalemleri(m);
         if (!k || k.satirlar.length === 0) return "";
 
-        // Sütunlar: başlangıç -> kalemler (havada) -> sonuç
-        const sutunlar = [];
-        let yurur = m.hamCizelgeSaati;
-        sutunlar.push({ tur: "bas", ad: "Çizelge", deger: m.hamCizelgeSaati, taban: 0, boy: m.hamCizelgeSaati });
-        k.satirlar.forEach(r => {
-            const oncesi = yurur;
-            yurur += r.deger;
-            sutunlar.push({
-                tur: r.deger > 0 ? "arti" : "eksi",
-                ad: r.kisa,
-                deger: r.deger,
-                taban: Math.min(oncesi, yurur),
-                boy: Math.abs(r.deger)
-            });
-        });
-        sutunlar.push({ tur: "son", ad: "Norm yükü", deger: m.normaEsasYuk, taban: 0, boy: m.normaEsasYuk });
+        const kutu = (tur, ad, deger, not) => `
+            <div class="mt-kutu ${tur}">
+                <div class="mt-ad">${ad}</div>
+                <div class="mt-v">${deger}</div>
+                <div class="mt-not">${not}</div>
+            </div>`;
 
-        const enUst = Math.max.apply(null, sutunlar.map(s => s.taban + s.boy)) || 1;
-        const G = 46, ARA = 16, H = 78;
-        const genislik = sutunlar.length * G + (sutunlar.length - 1) * ARA;
-        const yOl = (v) => H - (v / enUst) * H;
-
-        const cubuklar = sutunlar.map((s, i) => {
-            const x = i * (G + ARA);
-            const y = yOl(s.taban + s.boy);
-            const h = Math.max(2, (s.boy / enUst) * H);
-            const baglantiY = yOl(s.taban + s.boy);
-            const baglanti = (i < sutunlar.length - 1)
-                ? `<line class="kopru-bag" x1="${x + G}" y1="${i === 0 || s.tur === "son" ? yOl(s.deger) : baglantiY}" x2="${x + G + ARA}" y2="${i === 0 || s.tur === "son" ? yOl(s.deger) : baglantiY}"></line>`
-                : "";
-            return `${baglanti}<rect class="kopru-cubuk ${s.tur}" x="${x}" y="${y}" width="${G}" height="${h}" rx="2"></rect>`;
-        }).join("");
-
-        const etiketler = sutunlar.map((s, i) => {
-            const x = i * (G + ARA) + G / 2;
-            const deger = s.tur === "arti" ? "+" + s.deger
-                        : (s.tur === "eksi" ? "−" + Math.abs(s.deger) : s.deger);
-            return `
-                <div class="kopru-et" style="left:${(x / genislik) * 100}%">
-                    <span class="kopru-say ${s.tur}">${deger}</span>
-                    <span class="kopru-ad">${s.ad}</span>
-                </div>`;
+        const kalemler = k.satirlar.map(r => {
+            const artiMi = r.deger > 0;
+            return `<span class="mt-islem">${artiMi ? "+" : "−"}</span>`
+                 + kutu(artiMi ? "arti" : "eksi", r.ad.split(" (")[0],
+                        Math.abs(r.deger), r.not.length > 52 ? r.not.slice(0, 50) + "…" : r.not);
         }).join("");
 
         return `
-            <div class="mutabakat-kopru" title="Şube çizelgesi toplamından norma esas öğretmen ders yüküne geçiş">
-                <div class="kopru-baslik">
-                    ⚖️ Ders yükü mutabakatı
+            <div class="mt-denklem">
+                <div class="mt-baslik">
+                    <h4>Ders yükü mutabakatı</h4>
+                    <span class="mt-ipucu">Öğrencinin gördüğü saat ile öğretmenin okuttuğu yük neden farklı?</span>
                     <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Kalemlerin ayrıntılı dökümünü aç / kapat">
                         <span class="ymt-lbl-ac">Ayrıntı</span><span class="ymt-lbl-kapa">Gizle</span>
                     </label>
                 </div>
-                <div class="kopru-alan">
-                    <svg class="kopru-svg" viewBox="0 0 ${genislik} ${H}" preserveAspectRatio="none"
-                         role="img" aria-label="Çizelge ${m.hamCizelgeSaati} saatten norma esas ${m.normaEsasYuk} saate geçiş">
-                        ${cubuklar}
-                    </svg>
-                    <div class="kopru-etiketler">${etiketler}</div>
+                <div class="mt-sira">
+                    ${kutu("bas", "Şube çizelgesi", m.hamCizelgeSaati, "öğrencinin gördüğü saat")}
+                    ${kalemler}
+                    <span class="mt-islem">=</span>
+                    ${kutu("son", "Norma esas yük", m.normaEsasYuk, "norm bu sayıdan hesaplanır")}
                 </div>
             </div>`;
     }
@@ -175354,69 +175116,6 @@ class UIComponentManager {
               not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
         ].filter(r => r.deger !== 0);
         return { satirlar, fark: m.normaEsasYuk - m.hamCizelgeSaati };
-    }
-
-    /**
-     * MUTABAKAT ŞERİDİ — rapor başlığının SAĞINDA duran kompakt panel.
-     *
-     * Blok önce matrisin ALTINDAYDI; kullanıcı "önemli, en altta olamaz;
-     * üstte, dar bir alanda ama renkli durmalı" dedi (06.09.2026).
-     * Başlık satırı zaten var olduğu için buraya konması matristen dikey
-     * yer ALMIYOR — aksine alttaki şeridin yediği yeri geri veriyor.
-     *
-     * Rakamlar kartlara ayrıldı: her kalem kendi rengini taşıyor, sonuç
-     * kartı vurgulu. Ayrıntı tablosu ayrı bir çizicide (renderMutabakatDetay)
-     * ve varsayılan kapalı.
-     */
-    renderMutabakatSerit(m) {
-        const k = this.mutabakatKalemleri(m);
-        if (!k) return "";
-
-        // Fark yoksa tek kart: "kontrol edildi, aynı" demek sayıya güven verir.
-        if (k.satirlar.length === 0) {
-            return `
-                <div class="ymt-serit ymt-serit-esit" title="Şube çizelgesi toplamı ile norma esas öğretmen ders yükü aynı; bölünme, birleştirme veya yönetici ders saati kaynaklı fark oluşmamış.">
-                    <div class="ymt-serit-baslik">⚖️ DERS YÜKÜ MUTABAKATI</div>
-                    <div class="ymt-kartlar">
-                        <div class="ymt-kart ymt-kart-sonuc">
-                            <span class="ymt-kart-etiket">Çizelge = Norm yükü</span>
-                            <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        const kartlar = k.satirlar.map(r => `
-            <div class="ymt-kart ${r.deger > 0 ? "ymt-kart-arti" : "ymt-kart-eksi"}" title="${r.not}">
-                <span class="ymt-kart-etiket">${r.ad.split(" (")[0]}</span>
-                <span class="ymt-kart-sayi">${r.deger > 0 ? "+" : "−"}${Math.abs(r.deger)}</span>
-            </div>
-        `).join("");   // kartlar kendi işaretini taşıyor; araya operatör koymak
-                       // "+ ... −14" gibi kafa karıştırıcı diziler üretiyordu
-
-        return `
-            <div class="ymt-serit">
-                <div class="ymt-serit-baslik">
-                    ⚖️ DERS YÜKÜ MUTABAKATI
-                    <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Farkı oluşturan kalemlerin ayrıntılı dökümünü aç / kapat">
-                        <span class="ymt-lbl-ac">Ayrıntı ▾</span><span class="ymt-lbl-kapa">Gizle ▴</span>
-                    </label>
-                </div>
-                <div class="ymt-kartlar">
-                    <div class="ymt-kart ymt-kart-ham" title="Şubelerin haftalık ders saatlerinin toplamı — öğrencinin gördüğü saat.">
-                        <span class="ymt-kart-etiket">Şube çizelgesi</span>
-                        <span class="ymt-kart-sayi">${m.hamCizelgeSaati}</span>
-                    </div>
-                    ${kartlar}
-                    <span class="ymt-islem">=</span>
-                    <div class="ymt-kart ymt-kart-sonuc" title="Öğretmen normu bu sayı üzerinden hesaplanır.">
-                        <span class="ymt-kart-etiket">Norma esas yük</span>
-                        <span class="ymt-kart-sayi">${m.normaEsasYuk}</span>
-                    </div>
-                </div>
-            </div>
-        `;
     }
 
     /**

@@ -245,7 +245,8 @@ if (bolunen < 2) olumcul("Bölünecek ders yok; test bir şey ölçemez.");
         /course\._bolunmusBrans \|\| course\._dagitilmisBrans/.test(NE));
 
     const UI = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
-    kontrol("bölünmüş ders arayüzde işaretleniyor", /pill-bolunmus/.test(UI));
+    // Sınıf adı 06.09.2026 yeniden tasarımında değişti: pill-bolunmus -> dd-rozet bolunmus
+    kontrol("bölünmüş ders arayüzde işaretleniyor", /dd-rozet bolunmus/.test(UI));
 }
 
 /* ---- sonuç ------------------------------------------------------------ */
