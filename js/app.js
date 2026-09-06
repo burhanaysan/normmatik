@@ -1024,15 +1024,29 @@ class MebNormApplication {
         document.querySelectorAll(".btn-duplicate-sec").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                appState.duplicateSection(btn.dataset.id);
+                const sube = appState.state.subeler.find(s => s.id === btn.dataset.id);
+                const ad = sube ? sube.subeAdi : "Şube";
+                // Kopyalama da sessizdi. Lisans şube sınırına takılırsa
+                // duplicateSection false döner ve kendi uyarısını verir;
+                // burada "kopyalandı" demek yanlış olurdu.
+                if (appState.duplicateSection(btn.dataset.id)) {
+                    this.ui.showToast(`${ad} şubesi kopyalandı.`, "success");
+                }
             });
         });
 
         document.querySelectorAll(".btn-delete-sec").forEach(btn => {
             btn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                if (confirm("Bu şubeyi silmek istediğinizden emin misiniz?")) {
-                    appState.deleteSection(btn.dataset.id);
+                const sube = appState.state.subeler.find(s => s.id === btn.dataset.id);
+                const ad = sube ? sube.subeAdi : "Şube";
+                if (confirm(`"${ad}" şubesini silmek istediğinizden emin misiniz?`)) {
+                    // Silme SESSİZ kalıyordu: kullanıcı işlemin olup olmadığını
+                    // bilemiyordu. Geri alınabilir bir işlem olduğu için bunu da
+                    // söylüyoruz. (Kullanıcı bildirimi, 06.09.2026.)
+                    if (appState.deleteSection(btn.dataset.id)) {
+                        this.ui.showToast(`${ad} şubesi silindi. Geri almak için Ctrl+Z.`, "success");
+                    }
                 }
             });
         });

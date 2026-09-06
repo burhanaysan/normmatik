@@ -711,21 +711,34 @@ export class AppStateService {
         return sec;
     }
 
+    /**
+     * Şubeyi siler. Dönüş: gerçekten silindiyse true.
+     *
+     * Eskiden hiçbir şey döndürmüyordu ve çağıran taraf işlemin olup
+     * olmadığını bilemiyordu; bu yüzden silme sonrası kullanıcıya HİÇBİR
+     * bildirim gösterilmiyordu. Demo kilidi devredeyse silme zaten
+     * reddediliyor — o durumda "silindi" demek yalan olurdu.
+     * (Kullanıcı bildirimi, 06.09.2026: "şube sildim, o kutucuk gelmedi.")
+     */
     deleteSection(sectionId) {
-        if (!this._subeKilidiniDenetle(sectionId)) return;
+        if (!this._subeKilidiniDenetle(sectionId)) return false;
+        const vardi = this.state.subeler.some(s => s.id === sectionId);
+        if (!vardi) return false;
         this.pushHistory();
         this.state.subeler = this.state.subeler.filter(s => s.id !== sectionId);
         if (this.state.aktifSubeId === sectionId) {
             this.state.aktifSubeId = this.state.subeler.length > 0 ? this.state.subeler[0].id : null;
         }
         this.notify();
+        return true;
     }
 
+    /** Şubeyi kopyalar. Dönüş: kopyalandıysa true (bkz. deleteSection notu). */
     duplicateSection(sectionId) {
-        if (!this._subeKilidiniDenetle(sectionId)) return;
+        if (!this._subeKilidiniDenetle(sectionId)) return false;
         const source = this.state.subeler.find(s => s.id === sectionId);
-        if (!source) return;
-        if (this.subeSiniriniUygula(1) < 1) return;   // lisans şube sınırı
+        if (!source) return false;
+        if (this.subeSiniriniUygula(1) < 1) return false;   // lisans şube sınırı
 
         this.pushHistory();
         const newId = "sube_" + Date.now() + "_" + Math.random().toString(36).substr(2, 4);
@@ -736,6 +749,7 @@ export class AppStateService {
         this.state.subeler.push(cloned);
         this.state.aktifSubeId = newId;
         this.notify();
+        return true;
     }
 
     // --- Sınıf / Şube Bölme & Şube Çoğaltma Sistemi (Section Splitting Engine) ---

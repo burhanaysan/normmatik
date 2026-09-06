@@ -653,6 +653,53 @@ console.log("\nYerleşim koruması");
             "kritik uyarı okunacak kadar kalmalı");
 }
 
+// R21: DURUM DEĞİŞTİREN İŞLEMLER SESSİZ KALMAMALI
+// 2026-09-06 kullanıcı bildirimi: "şube sildim, o kutucuk gelmedi."
+// Ölçüldü: şube SİLME ve KOPYALAMA dinleyicilerinde hiç showToast yoktu.
+// Kullanıcı işlemin olup olmadığını ancak listeye bakarak anlıyordu.
+//
+// Ayrıca iki işlev de HİÇBİR ŞEY döndürmüyordu: demo kilidi ya da lisans
+// şube sınırı devredeyse işlem reddediliyor, ama çağıran taraf bunu
+// bilemediği için "silindi" demek yalan olabilirdi. Artık true/false dönüyor.
+{
+    const app = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
+    const stt = fs.readFileSync(path.join(KOK, "js", "state.js"), "utf8");
+
+    denetle("R21a şube silme sonucu bildiriliyor",
+            /appState\.deleteSection\([^)]*\)\)\s*\{[\s\S]{0,220}showToast/.test(app),
+            "silme sessiz kalıyordu");
+    denetle("R21b şube kopyalama sonucu bildiriliyor",
+            /appState\.duplicateSection\([^)]*\)\)\s*\{[\s\S]{0,220}showToast/.test(app));
+
+    denetle("R21c bildirim yalnızca işlem GERÇEKLEŞTİYSE gösteriliyor",
+            /if \(appState\.deleteSection\(/.test(app)
+            && /if \(appState\.duplicateSection\(/.test(app),
+            "koşulsuz gösterilirse demo kilidinde 'silindi' yalanı çıkar");
+
+    denetle("R21d deleteSection sonuç döndürüyor",
+            /deleteSection\(sectionId\) \{[\s\S]*?return false;[\s\S]*?return true;/.test(stt));
+    denetle("R21e duplicateSection sonuç döndürüyor",
+            /duplicateSection\(sectionId\) \{[\s\S]*?return false;[\s\S]*?return true;/.test(stt));
+
+    denetle("R21f silme bildirimi geri almayı hatırlatıyor",
+            /Geri almak için Ctrl\+Z/.test(app),
+            "silme geri alınabilir; kullanıcı bunu bilmeli");
+
+    // DAVRANIŞ: motor gerçekten doğru sonucu döndürüyor mu?
+    const oncekiDurum = JSON.stringify(st.state);
+    st.addSection({
+        subeAdi: "TEST-Z", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: ce.getMandatoryCourses("anadolu_lisesi", "9", null, null)
+    });
+    const yeni = st.state.subeler[st.state.subeler.length - 1];
+    denetle("R21g kopyalama true döndürüyor", st.duplicateSection(yeni.id) === true);
+    denetle("R21h silme true döndürüyor", st.deleteSection(yeni.id) === true);
+    denetle("R21i olmayan şubede false döndürüyor",
+            st.deleteSection("boyle-bir-id-yok") === false,
+            "yoksa 'silindi' bildirimi yanlış çıkar");
+    st.state = JSON.parse(oncekiDurum);
+}
+
 console.log("\n" + "=".repeat(70));
 if (kaldi === 0) {
     console.log(`✅ RAPORLAR DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
