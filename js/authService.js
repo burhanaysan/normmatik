@@ -101,7 +101,9 @@ export class AuthService {
         // verisidir ve yalnızca aynı kurum koduyla girildiğinde okunur.
         // Ortak bilgisayarda iz bırakmamak isteyen kurum tarayıcı verisini
         // temizleyerek bunu yapabilir; buradaki öncelik veri kaybını önlemek.
-        const YEREL_ONEK = "normmatik_yerel_";
+        // Sürüm geçmişi de korunur: "dün akşamki hâline dön" özelliğinin
+        // tamamı çıkışta silinirse hiçbir işe yaramaz.
+        const KORUNAN_ONEKLER = ["normmatik_yerel_", "normmatik_surumler_"];
         try {
             const yedek = {};
             KORUNANLAR.forEach(k => {
@@ -110,7 +112,9 @@ export class AuthService {
             });
             for (let i = 0; i < localStorage.length; i++) {
                 const k = localStorage.key(i);
-                if (k && k.indexOf(YEREL_ONEK) === 0) yedek[k] = localStorage.getItem(k);
+                if (k && KORUNAN_ONEKLER.some(o => k.indexOf(o) === 0)) {
+                    yedek[k] = localStorage.getItem(k);
+                }
             }
             localStorage.clear();
             Object.keys(yedek).forEach(k => localStorage.setItem(k, yedek[k]));

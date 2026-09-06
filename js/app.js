@@ -623,6 +623,9 @@ class MebNormApplication {
                     <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
                         ❓ Rehber
                     </button>
+                    <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
+                        🕘 Geçmiş
+                    </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
                         💾 İndir
                     </button>
@@ -686,6 +689,54 @@ class MebNormApplication {
                     localStorage.removeItem("normmatik_active_session");
                     window.location.href = "index.html";
                 }
+            }
+        });
+
+        // SÜRÜM GEÇMİŞİ
+        // Yerel kurtarma noktaları (state.js surumNoktasiKaydet) yalnızca
+        // saklanıyordu; kullanıcının onlara ULAŞABİLMESİ gerek, yoksa özellik
+        // yok sayılır. (Kullanıcı isteği, 06.09.2026: "dün akşamki hâline dön".)
+        document.getElementById("btn-surum-gecmisi")?.addEventListener("click", () => {
+            const liste = appState.surumleriListele();
+            if (!liste.length) {
+                this.ui.showToast(
+                    "Henüz kurtarma noktası yok. Çalıştıkça bu bilgisayarda "
+                    + "otomatik olarak biriktirilir.", "info");
+                return;
+            }
+            const satirlar = liste.map((k, i) => {
+                const t = new Date(k.zaman);
+                const etiket = t.toLocaleString("tr-TR");
+                return `${i + 1}) ${etiket}  —  ${k.subeSayisi} şube, ${k.ogrenciSayisi} öğrenci`;
+            }).join("\n");
+
+            const secim = window.prompt(
+                "SÜRÜM GEÇMİŞİ — bu bilgisayarda saklanan kurtarma noktaları\n\n"
+                + satirlar
+                + "\n\nGeri dönmek istediğiniz noktanın SIRA NUMARASINI yazın.\n"
+                + "(Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak "
+                + "kaydedilir; vazgeçerseniz ona dönebilirsiniz.)");
+            if (secim === null) return;
+
+            const n = parseInt(String(secim).trim(), 10);
+            if (!Number.isFinite(n) || n < 1 || n > liste.length) {
+                this.ui.showToast("Geçersiz sıra numarası.", "error");
+                return;
+            }
+            const hedef = liste[n - 1];
+            if (!window.confirm(
+                "Şu anki çalışmanız " + new Date(hedef.zaman).toLocaleString("tr-TR")
+                + " tarihli hâliyle DEĞİŞTİRİLECEK.\n\n"
+                + hedef.subeSayisi + " şube, " + hedef.ogrenciSayisi + " öğrenci\n\n"
+                + "Devam edilsin mi?")) return;
+
+            if (appState.surumeDon(hedef.id)) {
+                appState.notify();
+                this.render();
+                this.ui.showToast("🕘 " + new Date(hedef.zaman).toLocaleString("tr-TR")
+                    + " tarihli sürüme dönüldü.", "success");
+            } else {
+                this.ui.showToast("Sürüme dönülemedi; kayıt okunamadı.", "error");
             }
         });
 

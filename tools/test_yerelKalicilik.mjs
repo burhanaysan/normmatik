@@ -370,6 +370,108 @@ const okulKur = (S, kurumKodu, isDemo = false) => {
         "kurtarma kayıplı");
 }
 
+/* ---- 10) SÜRÜM GEÇMİŞİ — "dün akşamki hâline dön" --------------------- */
+/* Geri alma yığını (30 adım) yalnızca bellekteydi, sekme kapanınca uçuyordu.
+   Okulun gerçek ihtiyacı "iki adım geri al" değil, yanlış bir toplu değişikliği
+   ertesi gün fark edip önceki güne dönmek. (Kullanıcı isteği, 06.09.2026.) */
+{
+    const O = ortamKur();
+    O.w.licenseManager.licenseStatus = {
+        isValid: true, isMaster: true, isDemo: false, maxSections: -1, allowExport: true
+    };
+    const S = O.w.appState, C = O.w.curriculumEngine;
+
+    S.state = S.getDefaultState();
+    S.state.okulBilgisi.okulTuru = "anadolu_lisesi";
+    S.state.okulBilgisi.okulAdi = "Sürüm Test Lisesi";
+    S.state.okulBilgisi.kurumKodu = "555777";
+    S.addSection({ subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: C.getMandatoryCourses("anadolu_lisesi", "9", null, null) });
+    S.addSection({ subeAdi: "9-B", sinifSeviyesi: "9", ogrenciSayisi: 28,
+        zorunluDersler: C.getMandatoryCourses("anadolu_lisesi", "9", null, null) });
+
+    // NOT: addSection zaten notify() çağırıyor; ilk nokta daha ilk şubede
+    // açılır. Aralık dolmadığı için ikinci şube yeni nokta AÇMAZ — tasarım
+    // böyle: her tuş vuruşunda değil, çalışma seansları düzeyinde birikir.
+    let liste = S.surumleriListele();
+    kontrol("S1 ilk kayıtta kurtarma noktası açılıyor", liste.length === 1,
+        String(liste.length));
+
+    // "30 dakika sonra" — okul tamamlanmış hâliyle bir nokta daha.
+    S.surumNoktasiKaydet(true);
+    liste = S.surumleriListele();
+    kontrol("S2 nokta özeti şube/öğrenci sayısını taşıyor",
+        liste[0].subeSayisi === 2 && liste[0].ogrenciSayisi === 58,
+        JSON.stringify(liste[0]));
+    kontrol("S3 özet listesi ham veriyi TAŞIMIYOR (bellek/gizlilik)",
+        liste[0].veri === undefined);
+
+    // Aralık dolmadan yeni nokta açılmamalı: her tuş vuruşunda birikmesin.
+    const oncekiAdet = S.surumleriListele().length;
+    S.notify(); S.notify(); S.notify();
+    kontrol("S4 aralık dolmadan yeni nokta açılmıyor",
+        S.surumleriListele().length === oncekiAdet,
+        S.surumleriListele().length + " / " + oncekiAdet);
+
+    // --- YANLIŞ BİR TOPLU DEĞİŞİKLİK ---
+    const oncekiSubeSayisi = S.state.subeler.length;
+    S.state.subeler = [];                        // müdür yanlışlıkla hepsini sildi
+    S.notify();
+    kontrol("S5 ölçüm geçerli: veri gerçekten bozuldu", S.state.subeler.length === 0);
+
+    // --- ERTESİ GÜN: geri dön ---
+    liste = S.surumleriListele();
+    kontrol("S6 kurtarma noktası hâlâ duruyor", liste.length >= 2, String(liste.length));
+    // Tam kurulmuş hâli taşıyan noktaya dön (en yeni olan, bozulmadan önceki).
+    const hedefNokta = liste.find(k => k.subeSayisi === oncekiSubeSayisi);
+    kontrol("S6b ölçüm geçerli: tam hâli taşıyan nokta bulundu", !!hedefNokta,
+        JSON.stringify(liste));
+    const donuldu = hedefNokta ? S.surumeDon(hedefNokta.id) : false;
+    kontrol("S7 sürüme dönüş başarılı", donuldu === true);
+    kontrol("S8 VERİ GERİ GELDİ", S.state.subeler.length === oncekiSubeSayisi,
+        S.state.subeler.length + " / " + oncekiSubeSayisi);
+    kontrol("S9 dersler de geri geldi",
+        (S.state.subeler[0].zorunluDersler || []).length > 3);
+
+    // Dönmeden önce mevcut hâl de nokta olarak saklanmalı: yanlış sürüme
+    // dönen kullanıcı geri gelebilsin.
+    kontrol("S10 dönmeden önce mevcut hâl de kaydedilmiş",
+        S.surumleriListele().length >= 2, String(S.surumleriListele().length));
+
+    kontrol("S11 olmayan id ile dönüş reddediliyor", S.surumeDon("yok-boyle-bir-id") === false);
+
+    // Okul kimliği sürümden EZİLMEMELİ.
+    kontrol("S12 okul adı sürümden ezilmedi",
+        S.state.okulBilgisi.okulAdi === "Sürüm Test Lisesi");
+
+    // Demo ve kodsuz durumda sürüm tutulmaz.
+    S.state.okulBilgisi.isDemo = true;
+    kontrol("S13 demo okulda sürüm anahtarı üretilmiyor", S.surumAnahtari() === null);
+    S.state.okulBilgisi.isDemo = false;
+
+    // Adet sınırı: sonsuza kadar birikmemeli.
+    for (let i = 0; i < 15; i++) S.surumNoktasiKaydet(true);
+    kontrol("S14 nokta sayısı azami sınırda tutuluyor",
+        S.surumleriListele().length <= S.SURUM_AZAMI_ADET,
+        S.surumleriListele().length + " / " + S.SURUM_AZAMI_ADET);
+
+    // Bozuk kayıt çökertmemeli.
+    O.yerel.setItem("normmatik_surumler_555777", "{bozuk");
+    kontrol("S15 bozuk sürüm kaydı boş liste döndürüyor",
+        S.surumleriListele().length === 0);
+
+    // Çıkışta sürüm geçmişi de korunmalı.
+    const AUTH = fs.readFileSync(path.join(KOK, "js", "authService.js"), "utf8");
+    kontrol("S16 çıkışta sürüm geçmişi de korunuyor",
+        /normmatik_surumler_/.test(AUTH) && /KORUNAN_ONEKLER/.test(AUTH));
+
+    // Arayüzden erişilebilir olmalı; yoksa özellik yok sayılır.
+    const APP = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
+    kontrol("S17 başlıkta sürüm geçmişi düğmesi var", /id="btn-surum-gecmisi"/.test(APP));
+    kontrol("S18 düğme listeleme ve dönüş işlevlerine bağlı",
+        /appState\.surumleriListele\(\)/.test(APP) && /appState\.surumeDon\(/.test(APP));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

@@ -62,24 +62,13 @@ export class AppStateService {
         };
     }
 
-        setLayout(newLayout) {
-        this.layout = { ...this.layout, ...newLayout };
-        try {
-            if (typeof localStorage !== 'undefined') {
-                localStorage.setItem(this.LAYOUT_KEY, JSON.stringify(this.layout));
-            }
-        } catch (e) { /* panel genişlikleri görünüm tercihidir; kaybı veriyi etkilemez */ }
-    }
-
-    loadLayout() {
-        try {
-            if (typeof localStorage !== 'undefined') {
-                const l = localStorage.getItem(this.LAYOUT_KEY);
-                if (l) this.layout = { ...this.getDefaultLayout(), ...JSON.parse(l) };
-            }
-        } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
-        return this.layout;
-    }
+    // NOT: Burada bir zamanlar İKİNCİ bir setLayout/loadLayout çifti vardı.
+    // Aynı sınıfta aynı adla iki tanım olunca SONRAKİ öncekini eziyor; yani
+    // buradaki çift ÖLÜ KODDU ve aşağıdaki (Layout Yönetimi bölümündeki)
+    // sürüm çalışıyordu. Ölü sürüm kaldırıldı, ama iyi yanı taşındı:
+    // saklanan düzeni VARSAYILANLARLA BİRLEŞTİRME davranışı yaşayan sürüme
+    // eklendi (eksik anahtar undefined kalmasın diye).
+    // (Ölçüldü 06.09.2026; normEngine'deki branchMatrix ölü kodu gibi.)
 
     getDefaultLayout() {
         return {
@@ -513,7 +502,11 @@ export class AppStateService {
         try {
             const data = localStorage.getItem(this.LAYOUT_KEY);
             if (data) {
-                this.layout = JSON.parse(data);
+                // VARSAYILANLARLA BİRLEŞTİR: saklanan düzen eski bir sürümden
+                // gelip eksik anahtar içerebilir; doğrudan atamak o anahtarları
+                // undefined bırakıyordu. (Kaldırılan ölü sürümde bu doğru
+                // yapılıyordu; davranış buraya taşındı, 06.09.2026.)
+                this.layout = { ...this.getDefaultLayout(), ...JSON.parse(data) };
             }
         } catch (e) { /* okunamazsa varsayılan panel genişlikleriyle açılır */ }
         return this.layout;
@@ -1336,6 +1329,7 @@ export class AppStateService {
                 veri: this.state
             }));
             this.yerelSonHata = null;
+            this.surumNoktasiKaydet();
             return true;
         } catch (e) {
             // Kota dolmuş, gizli sekme, ya da site verisi engellenmiş olabilir.
@@ -1352,6 +1346,148 @@ export class AppStateService {
             } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
             return false;
         }
+    }
+
+    // ======================================================================
+    // SÜRÜM GEÇMİŞİ — "dün akşamki hâline dön"
+    // ======================================================================
+    //
+    // NEDEN VAR (kullanıcı isteği, 06.09.2026)
+    // ----------------------------------------
+    // Geri alma geçmişi (this.history, 30 adım) YALNIZCA BELLEKTE duruyordu;
+    // sekme kapanınca uçuyordu. Oysa okulun gerçek ihtiyacı "iki adım geri
+    // al" değil, "dün akşamki hâline dön": yanlış bir e-Okul aktarımı ya da
+    // hatalı bir toplu değişiklik ertesi gün fark edilir.
+    //
+    // TASARIM: geri alma yığınının 30 adımı DEĞİL, seyrek zaman damgalı
+    // KURTARMA NOKTALARI saklanır. Sebebi ölçüm: bir durum 22-52 KB; 30 adım
+    // 1,5 MB'ı bulur ve localStorage'ı (~5 MB) tek okulla doldurur. Aralıklı
+    // 10 nokta hem yeter hem sığar.
+    //
+    // Yeni nokta yalnızca en yenisi ARALIK_DK'dan eskiyse açılır; böylece
+    // her tuş vuruşunda değil, çalışma seansları düzeyinde biriktirir.
+
+    SURUM_ONEK = "normmatik_surumler_";
+    SURUM_ARALIK_DK = 30;      // bu süreden sık nokta açılmaz
+    SURUM_AZAMI_ADET = 10;     // en fazla bu kadar nokta saklanır
+    SURUM_AZAMI_BAYT = 2 * 1024 * 1024;
+
+    surumAnahtari() {
+        const a = this.yerelAnahtar();
+        if (!a) return null;
+        return this.SURUM_ONEK + a.slice(this.YEREL_ONEK.length);
+    }
+
+    /** Kayıtlı kurtarma noktaları (yeniden eskiye). Veri İÇERMEZ, özet döner. */
+    surumleriListele() {
+        const liste = this._surumleriOku();
+        return liste.map(k => ({
+            id: k.id,
+            zaman: k.zaman,
+            subeSayisi: (k.veri && Array.isArray(k.veri.subeler)) ? k.veri.subeler.length : 0,
+            ogrenciSayisi: (k.veri && Array.isArray(k.veri.subeler))
+                ? k.veri.subeler.reduce((t, x) => t + (parseInt(x.ogrenciSayisi, 10) || 0), 0) : 0
+        }));
+    }
+
+    _surumleriOku() {
+        if (typeof window === "undefined" || !window.localStorage) return [];
+        const anahtar = this.surumAnahtari();
+        if (!anahtar) return [];
+        try {
+            const ham = window.localStorage.getItem(anahtar);
+            if (!ham) return [];
+            const liste = JSON.parse(ham);
+            if (!Array.isArray(liste)) return [];
+            // Bozuk kayıtlar sessizce elenir; kalanlar kullanılabilir olsun.
+            return liste.filter(k => k && k.id && k.zaman && k.veri
+                                     && Array.isArray(k.veri.subeler));
+        } catch (e) {
+            return [];
+        }
+    }
+
+    /**
+     * Gerekiyorsa yeni bir kurtarma noktası açar.
+     * Dönüş: yeni nokta açıldıysa true.
+     */
+    surumNoktasiKaydet(zorla = false) {
+        if (typeof window === "undefined" || !window.localStorage) return false;
+        const anahtar = this.surumAnahtari();
+        if (!anahtar) return false;
+
+        const simdi = Date.now();
+        let liste = this._surumleriOku();
+
+        if (!zorla && liste.length > 0) {
+            const enYeni = Date.parse(liste[0].zaman);
+            if (Number.isFinite(enYeni)
+                && simdi - enYeni < this.SURUM_ARALIK_DK * 60 * 1000) {
+                return false;
+            }
+        }
+
+        liste.unshift({
+            id: "s" + simdi,
+            zaman: new Date(simdi).toISOString(),
+            veri: JSON.parse(JSON.stringify(this.state))
+        });
+
+        // Adet ve boyut sınırı: en eskiler düşer.
+        if (liste.length > this.SURUM_AZAMI_ADET) liste = liste.slice(0, this.SURUM_AZAMI_ADET);
+        let metin = JSON.stringify(liste);
+        while (liste.length > 1 && metin.length > this.SURUM_AZAMI_BAYT) {
+            liste.pop();
+            metin = JSON.stringify(liste);
+        }
+
+        try {
+            window.localStorage.setItem(anahtar, metin);
+            return true;
+        } catch (e) {
+            // Kota dolduysa sürüm geçmişini KÜÇÜLTEREK yeniden dene: asıl
+            // yerel kopya (yereleKaydet) her şeyden önemli, onun yerini
+            // sürüm geçmişi yüzünden kaybetmeyelim.
+            try {
+                window.localStorage.setItem(anahtar, JSON.stringify(liste.slice(0, 2)));
+                return true;
+            } catch (e2) {
+                // Yine olmuyorsa geçmişi tamamen bırak; sessiz kalmıyoruz.
+                try { window.localStorage.removeItem(anahtar); } catch (e3) { /* silinemedi */ }
+                try {
+                    window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
+                        detail: {
+                            basarili: false,
+                            mesaj: "Sürüm geçmişi bu tarayıcıya sığmadı ve temizlendi; "
+                                 + "güncel çalışmanızın yedeği etkilenmedi."
+                        }
+                    }));
+                } catch (e4) { /* olay yayınlanamazsa akış bozulmaz */ }
+                return false;
+            }
+        }
+    }
+
+    /**
+     * Bir kurtarma noktasını duruma uygular.
+     *
+     * Geri dönmeden ÖNCE mevcut hâl için bir nokta açılır: yanlış sürüme
+     * dönen kullanıcı geri gelebilsin. Okul ADI ve TÜRÜ yine alınmaz
+     * (kimlik okul_kayit'tan gelir).
+     */
+    surumeDon(id) {
+        const liste = this._surumleriOku();
+        const nokta = liste.find(k => k.id === id);
+        if (!nokta) return false;
+        this.surumNoktasiKaydet(true);
+        return this.yereliUygula(nokta.veri);
+    }
+
+    /** Sürüm geçmişini siler (okul değişiminde). */
+    surumleriSil(kurumKodu) {
+        if (typeof window === "undefined" || !window.localStorage) return;
+        try { window.localStorage.removeItem(this.SURUM_ONEK + String(kurumKodu || "").trim()); }
+        catch (e) { /* silinemezse akış bozulmaz */ }
     }
 
     /** Yerel kopyayı okur. Dönüş: { kayitZamani, veri } veya null. */
