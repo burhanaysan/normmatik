@@ -229,8 +229,13 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
         "biri kapıyı atlarsa tutarsız mutabakat ekrana çıkar");
 
     const CSS = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+    // 06.09.2026: mutabakat paneli serit/kart duzeninden DENKLEM duzenine gecti.
+    // Bu denetim eskiden .ymt-serit ariyordu; o sinifi hicbir cizici artik
+    // basmiyor. Test yesil kalmaya devam etmisti cunku olu CSS dosyada
+    // duruyordu -- olu CSS temizlenince ortaya cikti. Artik GERCEKTEN basilan
+    // siniflar denetleniyor: denklem kutulari (.mt-kutu) + ayrinti tablosu.
     kontrol("mutabakat panelinin stili var",
-        /\.ymt-serit\s*\{/.test(CSS) && /\.ymt-detay\s*\{/.test(CSS));
+        /\.mt-kutu\s*\{/.test(CSS) && /\.ymt-detay\s*\{/.test(CSS));
     kontrol("ayrıntı tablosu yazdırmada da görünüyor",
         /@media print[\s\S]*\.ymt-detay\s*\{[\s\S]{0,80}display:\s*block\s*!important/.test(CSS));
 

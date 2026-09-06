@@ -157,13 +157,6 @@ body {
     transition: all 0.25s ease;
 }
 
-.header-left-terminal,
-.header-right-terminal {
-    display: flex;
-    align-items: center;
-    gap: 0.95rem;
-}
-
 /* Sol Blok: Logo & Kurumsal Kimlik */
 .logo-badge-executive {
     display: flex;
@@ -180,14 +173,6 @@ body {
 .logo-badge-executive:hover {
     box-shadow: 0 0 20px rgba(30, 58, 138, 0.45);
     transform: translateY(-1px);
-}
-
-.logo-shield-emblem {
-    font-size: 1.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .logo-text-executive {
@@ -403,13 +388,6 @@ body {
 
 .btn-history-circle:active {
     transform: scale(0.95);
-}
-
-/* Sağ Aksiyon Butonları & Araç Çubuğu (Standart 36px Yükseklik & Simetri) */
-.header-primary-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
 }
 
 .btn-header-elevated {
@@ -713,34 +691,6 @@ body {
     transform: translateX(-30px);
 }
 
-.sidebar-header {
-    padding: 0.65rem 0.85rem;
-    border-bottom: 1px solid var(--border-main);
-    background: var(--bg-card);
-    border-radius: 16px 16px 0 0;
-    flex-shrink: 0;
-}
-
-.sidebar-title-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.45rem;
-}
-
-.sidebar-title {
-    font-weight: 800;
-    font-size: 0.88rem;
-    color: var(--text-main);
-}
-
-.grade-tabs {
-    display: flex;
-    gap: 0.35rem;
-    margin-bottom: 0.5rem;
-    overflow-x: auto;
-}
-
 .grade-tab-btn {
     padding: 0.25rem 0.6rem;
     font-size: 0.74rem;
@@ -766,25 +716,6 @@ body {
     color: #ffffff;
     border-color: #0284c7;
     box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-input {
-    width: 100%;
-    padding: 0.3rem 0.5rem 0.3rem 1.6rem;
-    font-size: 0.75rem;
-    border: 1px solid var(--border-main);
-    border-radius: var(--radius-sm);
-    background: var(--bg-input);
-    color: var(--text-main);
-    outline: none;
-}
-
-.search-input:focus {
-    border-color: var(--primary);
 }
 
 .search-icon {
@@ -1390,42 +1321,6 @@ body {
     flex-shrink: 0;
 }
 
-.toolbar-meta-left {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    flex-shrink: 0;
-}
-
-.meta-chip {
-    height: 28px;
-    padding: 0 0.65rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    user-select: none;
-    box-sizing: border-box;
-}
-
-.meta-chip.student-chip {
-    /* Sol paneldeki öğrenci rozetiyle AYNI renk ailesi: ikisi de aynı bilgiyi
-       gösteriyor, farklı görünmeleri için sebep yok. Önceki hâli (#0f172a
-       zemin + beyaz yazı) açık temada ağır duruyordu. */
-    background: var(--primary-light);
-    color: var(--primary-text);
-    border: 1px solid var(--primary-border);
-}
-
-.meta-chip.special-chip {
-    background: linear-gradient(135deg, #7e22ce 0%, #6b21a8 100%);
-    color: #ffffff;
-    border: 1px solid #581c87;
-    box-shadow: 0 1px 3px rgba(126, 34, 206, 0.25);
-}
-
 .neon-status-card {
     height: 48px;
     min-height: 48px;
@@ -1638,48 +1533,6 @@ body {
     box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
 }
 
-/* Sağ Panel İçi Geniş ve Belirgin Kadro Aksiyon Butonu */
-.btn-sidebar-staff-action {
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.45rem 0.75rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.78rem;
-    font-weight: 800;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.btn-sidebar-staff-action.voc {
-    background: linear-gradient(135deg, rgba(147, 51, 234, 0.12) 0%, rgba(168, 85, 247, 0.18) 100%);
-    border: 1px solid rgba(147, 51, 234, 0.35);
-    color: #7e22ce;
-}
-
-.btn-sidebar-staff-action.voc:hover {
-    background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35);
-    transform: translateY(-1px);
-}
-
-.btn-sidebar-staff-action.acad {
-    background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(14, 165, 233, 0.15) 100%);
-    border: 1px solid rgba(2, 132, 199, 0.3);
-    color: #0369a1;
-}
-
-.btn-sidebar-staff-action.acad:hover {
-    background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
-    transform: translateY(-1px);
-}
-
 .action-btn-sparkle {
     font-size: 0.95rem;
     animation: sparkle-pulse 2s infinite ease-in-out;
@@ -1688,11 +1541,6 @@ body {
 @keyframes sparkle-pulse {
     0%, 100% { transform: scale(1); opacity: 0.9; }
     50% { transform: scale(1.2); opacity: 1; }
-}
-
-.action-btn-arrow {
-    font-size: 0.85rem;
-    transition: transform 0.2s ease;
 }
 
 .neon-action-btn:hover .action-btn-arrow {
@@ -1709,15 +1557,6 @@ body {
     display: block !important;
     scroll-behavior: smooth;
     background: transparent;
-}
-
-/* --- TEK BİRLEŞİK DERS ÇİZELGESİ VE ZARİF AYIRICI ŞERİTLER (UNIFIED TABLE) --- */
-.unified-course-card {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    overflow: visible;
 }
 
 .unified-card-toolbar {
@@ -1831,90 +1670,6 @@ body {
 .category-filter-btn.active .tab-hour-badge {
     background: rgba(255, 255, 255, 0.25);
     color: #ffffff;
-}
-
-/* Toolbar Sağ: Canlı Yük Özeti Çipi */
-.toolbar-total-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.25rem 0.65rem;
-    border-radius: 8px;
-    background: #ffffff;
-    border: 1.5px solid #93c5fd;
-    color: #1e40af;
-    font-size: 0.74rem;
-    font-weight: 800;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.toolbar-total-chip .chip-label {
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    letter-spacing: 0.02em;
-}
-
-/* --- DİKEY KATEGORİ ŞERİDİ (VERTICAL CATEGORY GUTTER RIBBON) --- */
-.category-vertical-cell {
-    padding: 0 !important;
-    text-align: center;
-    vertical-align: middle;
-    width: 38px;
-    min-width: 38px;
-    max-width: 42px;
-    border-right: 1.5px solid var(--border-main);
-    border-bottom: 1.5px solid var(--border-main) !important;
-    position: relative;
-    user-select: none;
-    box-sizing: border-box;
-}
-
-.category-vertical-ribbon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 125px; /* Minimum yükseklik sınırı: 1 ders olsa bile dikey '⏱️ X Saat' metni asla 2. satıra kaymaz! */
-    width: 100%;
-    padding: 0.35rem 0.1rem;
-    box-sizing: border-box;
-}
-
-.category-vertical-text {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    white-space: nowrap; /* Asla 2. satıra bölünmez */
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    line-height: 1;
-    display: inline-block;
-}
-
-/* Kategori Renk Temaları */
-.category-cell-ortak {
-    background: #f0f9ff !important;
-    color: #0369a1;
-    border-left: 3.5px solid #0284c7;
-}
-
-.category-cell-meslek {
-    background: #faf5ff !important;
-    color: #7e22ce;
-    border-left: 3.5px solid #9333ea;
-}
-
-.category-cell-secmeli {
-    background: #fffbeb !important;
-    color: #b45309;
-    border-left: 3.5px solid #d97706;
-}
-
-.category-cell-rehberlik {
-    background: #f0fdf4 !important;
-    color: #15803d;
-    border-left: 3.5px solid #16a34a;
 }
 
 /* --- KATEGORİ BÖLÜM BAŞLIK ŞERİTLERİ (CATEGORY DIVIDER BANNERS) --- */
@@ -2179,20 +1934,6 @@ body {
     line-height: 1;
     display: inline-flex;
     align-items: center;
-}
-
-.group-multiplier-pill {
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.08rem 0.32rem;
-    border-radius: 4px;
-    background: #faf5ff;
-    color: #7e22ce;
-    border: 1px solid #e9d5ff;
-    display: inline-flex;
-    align-items: center;
-    white-space: nowrap;
-    line-height: 1;
 }
 
 /* HEDEF TEMELLİ DESTEK EĞİTİMİ — SAAT DAĞITIMI
@@ -2493,13 +2234,6 @@ body {
     flex-shrink: 0;
 }
 
-.norm-kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.35rem;
-    margin-top: 0.4rem;
-}
-
 .kpi-card {
     border-radius: 8px;
     padding: 0.35rem 0.5rem;
@@ -2514,58 +2248,10 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
-.kpi-card-full {
-    grid-column: span 2;
-    padding: 0.35rem 0.65rem;
-}
-
-.kpi-load-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.kpi-load-left {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.kpi-load-icon {
-    font-size: 0.85rem;
-    line-height: 1;
-}
-
 .kpi-unit {
     font-size: 0.7rem;
     font-weight: 700;
     color: var(--text-muted);
-}
-
-.kpi-card-amber {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(251, 191, 36, 0.16) 100%);
-    border: 1.5px solid rgba(245, 158, 11, 0.35);
-}
-
-.kpi-card-blue {
-    background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(14, 165, 233, 0.15) 100%);
-    border: 1.5px solid rgba(2, 132, 199, 0.3);
-}
-
-.kpi-card-slate {
-    background: linear-gradient(135deg, rgba(100, 116, 139, 0.08) 0%, rgba(148, 163, 184, 0.15) 100%);
-    border: 1.5px solid rgba(100, 116, 139, 0.3);
-}
-
-.kpi-card-purple {
-    background: linear-gradient(135deg, rgba(147, 51, 234, 0.08) 0%, rgba(168, 85, 247, 0.15) 100%);
-    border: 1.5px solid rgba(147, 51, 234, 0.3);
-}
-
-.kpi-card-red {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, rgba(248, 113, 113, 0.15) 100%);
-    border: 1.5px solid rgba(239, 68, 68, 0.3);
 }
 
 .kpi-label {
@@ -2575,14 +2261,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
-
-.kpi-val {
-    font-size: 1.08rem;
-    font-weight: 900;
-    line-height: 1.15;
-}
-
-.kpi-val.amber { color: #d97706; }
 .kpi-val.blue { color: #0284c7; }
 .kpi-val.purple { color: #9333ea; }
 .kpi-val.red { color: var(--durum-ihtiyac); }
@@ -2635,16 +2313,6 @@ body {
     font-weight: 700;
     color: var(--text-main);
     font-size: 0.78rem;
-}
-
-.bubble-hint-chip {
-    padding: 0.1rem 0.35rem;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    background: rgba(2, 132, 199, 0.1);
-    color: #0284c7;
-    cursor: pointer;
-    transition: transform 0.15s;
 }
 
 .norm-row:hover .bubble-hint-chip {
@@ -2721,21 +2389,6 @@ body {
     background: #fee2e2;
     color: #dc2626;
     border: 1px solid #fca5a5;
-}
-
-/* --- 9. İNTERAKTİF SOHBET BALONU (ŞUBE KARTLARI CHIP YAPISI) --- */
-.branch-cell-wrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.bubble-hint-icon {
-    font-size: 0.8rem;
-    color: var(--primary);
-    opacity: 0.75;
-    cursor: pointer;
-    transition: transform 0.15s;
 }
 
 .norm-row {
@@ -3201,63 +2854,8 @@ body {
     background: var(--primary-light) !important;
 }
 
-/* Seçmeli Ders Modal / Çekmece Özel Kartları */
-.elective-course-card {
-    background: var(--bg-card) !important;
-    color: var(--text-main) !important;
-    border: 1px solid var(--border-main) !important;
-    border-radius: var(--radius-md) !important;
-    padding: 0.65rem 0.85rem !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 0.75rem !important;
-    margin-bottom: 0.5rem !important;
-    transition: all 0.15s ease !important;
-}
-
-.elective-course-card:hover {
-    background: var(--bg-hover) !important;
-    border-color: var(--border-focus) !important;
-    box-shadow: var(--shadow-sm);
-}
-
-.hour-chips button {
-    font-size: 0.72rem !important;
-    padding: 0.2rem 0.55rem !important;
-    font-weight: 700 !important;
-    border-radius: var(--radius-sm) !important;
-}
-
-/* Yan Çekmece (Drawer) */
-.drawer-panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 480px;
-    max-width: 92vw;
-    background: var(--modal-bg);
-    border-left: 1px solid var(--modal-border);
-    box-shadow: var(--modal-shadow);
-    z-index: 100000;
-    transform: translateX(100%);
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    flex-direction: column;
-}
-
 .drawer-backdrop.active .drawer-panel {
     transform: translateX(0);
-}
-
-.drawer-body {
-    flex: 1;
-    padding: 1.15rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
 }
 
 /* --- Toast Bildirimleri (Alttan Ortalanmış & Hafif Transparan Neon Kapsül) --- */
@@ -3398,76 +2996,11 @@ body {
     .toast-container { top: 0.6rem; right: 0.6rem; left: 0.6rem; max-width: none; align-items: stretch; }
 }
 
-
-/* MEB 3 TEMA SEÇMELİ DERS REHBERLİK & TEMA ETİKETLERİ */
-.elective-theme-advisory-box {
-    background: var(--bg-card-subtle);
-    border: 1px solid var(--border-main);
-    border-radius: var(--radius-md);
-    padding: 0.65rem 0.85rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.theme-advisory-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-}
-
-.theme-advisory-title {
-    font-size: 0.78rem;
-    font-weight: 800;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.theme-advisory-badge {
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.12rem 0.45rem;
-    border-radius: var(--radius-full);
-    background: rgba(14, 165, 233, 0.12);
-    color: #0284c7;
-    border: 1px solid rgba(14, 165, 233, 0.3);
-}
-
-.theme-advisory-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.theme-chip {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 0.2rem 0.55rem;
-    border-radius: var(--radius-sm);
-    background: var(--bg-card);
-    border: 1px solid var(--border-main);
-    color: var(--text-muted);
-    transition: all 0.15s ease;
-}
-
 .theme-chip.selected {
     border-color: var(--primary);
     background: rgba(37, 99, 235, 0.08);
     color: var(--text-main);
     font-weight: 700;
-}
-
-.theme-advisory-text {
-    font-size: 0.68rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-    margin: 0;
 }
 
 /* Tema Kart Etiketleri */
@@ -3541,10 +3074,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.65rem;
-}
-
-.header-icon {
-    font-size: 1.5rem;
 }
 
 .header-main-title {
@@ -4267,489 +3796,18 @@ body {
     margin-top: 0.2rem;
 }
 
-/* ==========================================================================
-   🏫 MASTER BRANŞ-ŞUBE DERS YÜKÜ MATRİSİ (GRID TABLE)
-   ========================================================================== */
-
-
-.master-grid-wrapper {
-    overflow: auto;
-    /* SIKIŞMASIN: altına DERS YÜKÜ MUTABAKATI şeridi eklendikten sonra
-       `flex-shrink: 1` yüzünden matris iki satıra kadar eziliyordu — 16
-       şubelik bir okulda rapor okunamaz hâle geliyordu. Artık kısalmaz;
-       sığmazsa rapor gövdesi kaydırılır. (Kullanıcı bildirimi, 06.09.2026.)
-       Aynı sınıf hata 2026-08-24'te branş tablosunda da yaşanmıştı. */
-    flex: 1 0 auto;
-    /* Rapor artık İKİ BÖLMELİ: üstte karar panosu, altta matris. Yükseklik
-       viewport'tan çıkarma yapılarak değil, matrise ayrılan kendi payı olarak
-       veriliyor — panel yüksekliği okulun branş sayısıyla değişiyor ve sabit
-       çıkarma tutmuyordu. Rapor gövdesi bölmeler arasında kaydırılır; matris
-       kendi içinde. (06.09.2026 yeniden tasarımı.) */
-    max-height: 52vh;
-    min-height: 220px;
-    border: 1.5px solid var(--border-main);
-    border-radius: 8px;
-    background: var(--bg-card);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
 .fullscreen-report-mode .master-grid-wrapper {
     max-height: calc(100vh - 245px);
-}
-
-.master-grid-table {
-    width: max-content;
-    min-width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    font-size: 0.8rem;
-}
-
-.master-grid-table thead {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-}
-
-.master-grid-table th {
-    background: #f1f5f9;
-    padding: 0.5rem 0.4rem;
-    font-weight: 800;
-    color: var(--text-main);
-    border-top: 1px solid var(--border-main);
-    border-bottom: 2px solid #2563eb;
-    border-right: 1.5px solid var(--border-main);
-    text-align: center;
-    white-space: nowrap;
-    user-select: none;
-    box-sizing: border-box;
-}
-
-.master-grid-table th:first-child,
-.master-grid-table td:first-child {
-    border-left: 1.5px solid var(--border-main);
-}
-
-/* 1. KATMAN: KADEME GRUPLANDIRMA ÜST BAŞLIĞI */
-.grade-group-header-row th {
-    padding: 0.45rem 0.6rem;
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.grade-super-header {
-    height: 36px !important;
-    min-height: 36px !important;
-    max-height: 36px !important;
-    line-height: 36px !important;
-    vertical-align: middle !important;
-    padding: 0 0.5rem !important;
-    font-size: 0.82rem !important;
-    font-weight: 800 !important;
-    border-bottom: 2px solid #2563eb !important;
-    border-right: 1px solid var(--border-main) !important;
-    box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.grade-super-header.grade-hazirlik { background: #fef3c7; color: #92400e; border-left: 2px solid #f59e0b; border-right: 2px solid #f59e0b; }
-.grade-super-header.grade-9 { background: #dbeafe; color: #1e40af; border-left: 2px solid #3b82f6; border-right: 2px solid #3b82f6; }
-.grade-super-header.grade-10 { background: #e0e7ff; color: #3730a3; border-left: 2px solid #6366f1; border-right: 2px solid #6366f1; }
-.grade-super-header.grade-11 { background: #f3e8ff; color: #6b21a8; border-left: 2px solid #a855f7; border-right: 2px solid #a855f7; }
-.grade-super-header.grade-12 { background: #fce7f3; color: #9d174d; border-left: 2px solid #ec4899; border-right: 2px solid #ec4899; }
-
-.sticky-col-header {
-    position: sticky;
-    left: 0;
-    z-index: 25 !important;
-    background: #e2e8f0 !important;
-    text-align: left !important;
-    border-right: 1.5px solid var(--border-main) !important;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-}
-
-.sticky-col-header.branch-course-head {
-    vertical-align: bottom !important;
-    padding: 0 !important;
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
-}
-
-.branch-course-head-inner {
-    padding: 0.65rem 0.55rem;
-    font-size: 0.78rem;
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.total-col-header, .norm-col-header {
-    vertical-align: bottom !important;
-    padding: 0 !important;
-    text-align: center !important;
-    box-sizing: border-box;
-}
-
-.total-col-header, .cell-total-course {
-    width: 48px !important;
-    min-width: 48px !important;
-    max-width: 48px !important;
-    font-size: 0.78rem !important;
-}
-
-.cell-sec-total {
-    width: 26px !important;
-    min-width: 26px !important;
-    max-width: 26px !important;
-    font-size: 0.76rem !important;
-    text-align: center !important;
-    box-sizing: border-box;
-}
-
-.norm-col-header, .cell-norm-contrib, .cell-grand-norm {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-    font-size: 0.78rem !important;
-}
-
-.stat-col-head-inner {
-    padding: 0.65rem 0.2rem;
-    font-size: 0.72rem;
-    font-weight: 800;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.sticky-col-cell {
-    position: sticky;
-    left: 0;
-    z-index: 10;
-    background: inherit;
-    border-right: 1.5px solid var(--border-main) !important;
-    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.04);
-    box-sizing: border-box;
-    width: 220px !important;
-    min-width: 220px !important;
-    max-width: 220px !important;
-}
-
-/* Sütun Başlıkları - Dinamik Dikey Hizalama */
-.sec-col-header {
-    vertical-align: bottom !important;
-    text-align: center !important;
-    border-right: 1px solid var(--border-main) !important;
-    border-bottom: 1.5px solid var(--border-main) !important;
-    box-sizing: border-box;
-}
-
-.sec-col-header.vertical-sec-header {
-    vertical-align: bottom !important;
-    padding: 0 0 4px 0 !important;
-    text-align: center !important;
-    width: 26px !important;
-    min-width: 26px !important;
-    max-width: 26px !important;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.vertical-sec-box {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    white-space: nowrap;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.25rem;
-    width: 26px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.vertical-sec-box .sec-header-title {
-    font-size: 0.70rem;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-    color: #1e40af;
-}
-
-.vertical-sec-box .sec-header-meta {
-    font-size: 0.60rem;
-    font-weight: 700;
-    color: #64748b;
-}
-
-/* Branş ve Alan Başlık Şeritleri (Düz ve Net Hatlar) */
-.branch-summary-strip td {
-    background: #e0f2fe !important;
-    border-top: 2px solid #0284c7 !important;
-    border-bottom: 2px solid #0284c7 !important;
-    border-right: 1.5px solid var(--border-main) !important;
-    box-sizing: border-box;
-}
-
-.area-summary-strip td {
-    background: #f3e8ff !important;
-    border-top: 2px solid #9333ea !important;
-    border-bottom: 2px solid #9333ea !important;
-    border-right: 1.5px solid var(--border-main) !important;
-    box-sizing: border-box;
-}
-
-.branch-strip-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.45rem 0.85rem;
-}
-
-.branch-title-text {
-    font-weight: 800;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
-}
-
-.branch-summary-strip .branch-title-text {
-    color: #0369a1;
-}
-
-.area-summary-strip .branch-title-text {
-    color: #7e22ce;
-}
-
-.branch-strip-metrics {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.badge-metric {
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    background: #ffffff;
-    border: 1.5px solid var(--border-main);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .badge-metric.status-tam { background: #dcfce7; color: #15803d; border-color: #86efac; }
 .badge-metric.status-ihtiyac { background: #e0f2fe; color: #0284c7; border-color: #7dd3fc; }
 .badge-metric.status-fazla { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
 
-/* Ders Satırları - Excel Tarzı Düz ve Net Izgara Hücreleri */
-.course-data-row td {
-    padding: 0.35rem 0.35rem;
-    border-bottom: 1px solid var(--border-main) !important;
-    border-right: 1px solid var(--border-main) !important;
-    text-align: center;
-    vertical-align: middle;
-    box-sizing: border-box;
-}
-
-.course-data-row.row-odd td {
-    background-color: #ffffff;
-}
-
-.course-data-row.row-even td {
-    background-color: #f8fafc;
-}
-
-.course-data-row:hover td {
-    background-color: rgba(2, 132, 199, 0.08) !important;
-}
-
 .course-name-cell {
     text-align: left !important;
     padding-left: 1.15rem !important;
     box-sizing: border-box;
-}
-
-.course-name-inner {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    width: 100%;
-    overflow: hidden;
-}
-
-.course-bullet {
-    font-size: 0.55rem;
-    color: var(--primary);
-    opacity: 0.7;
-}
-
-.course-name-text {
-    font-weight: 700;
-    color: var(--text-main);
-    font-size: 0.8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.pill-baraj {
-    font-size: 0.62rem;
-    font-weight: 800;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    background: #fee2e2;
-    color: #dc2626;
-    border: 1px solid #fca5a5;
-    flex-shrink: 0;
-}
-
-.pill-atolye {
-    font-size: 0.62rem;
-    font-weight: 800;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    background: #f3e8ff;
-    color: #9333ea;
-    border: 1px solid #d8b4fe;
-    flex-shrink: 0;
-}
-
-/* Eğik çizgili / paylaştırılmış ders: aynı ders birden fazla branşın altında
-   görünür. İşaret olmazsa "ders iki kez sayılmış" sanılır. */
-.pill-bolunmus {
-    display: inline-block;
-    margin-left: 0.3rem;
-    padding: 0.02rem 0.3rem;
-    border-radius: 4px;
-    background: #ede9fe;
-    color: #6d28d9;
-    border: 1px solid #c4b5fd;
-    font-size: 0.58rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    vertical-align: middle;
-}
-
-/* Excel Hücresi Tarzı Sayısal Gösterim */
-.cell-hour {
-    font-size: 0.82rem !important;
-    font-weight: 700 !important;
-    font-variant-numeric: tabular-nums;
-    text-align: center !important;
-    vertical-align: middle !important;
-    width: 26px !important;
-    min-width: 26px !important;
-    max-width: 26px !important;
-    padding: 0.25rem 0.05rem !important;
-    box-sizing: border-box;
-    user-select: text;
-}
-
-.cell-hour.active-hour {
-    color: #1d4ed8 !important;
-    background-color: rgba(37, 99, 235, 0.04) !important;
-}
-
-.cell-hour.cell-merged-hour {
-    color: #7c3aed !important;
-    background-color: rgba(124, 58, 237, 0.08) !important;
-    font-weight: 800 !important;
-}
-
-.merge-badge-icon {
-    font-size: 0.65rem;
-    margin-left: 2px;
-    vertical-align: super;
-    opacity: 0.85;
-}
-
-.matrix-dash {
-    color: #94a3b8;
-    opacity: 0.45;
-    font-size: 0.82rem;
-    font-weight: 400;
-}
-
-.hour-bubble {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 28px;
-    height: 24px;
-    padding: 0 0.35rem;
-    border-radius: 6px;
-    background: #e0f2fe;
-    color: #0369a1;
-    font-weight: 800;
-    font-size: 0.82rem;
-    border: 1.5px solid #7dd3fc;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.cell-hour.empty-hour {
-    color: var(--text-subtle);
-    opacity: 0.5;
-    font-weight: 600;
-}
-
-.cell-total-course {
-    font-weight: 800;
-    color: var(--text-main);
-    background: rgba(2, 132, 199, 0.05) !important;
-    text-align: center !important;
-    font-size: 0.85rem;
-}
-
-.cell-norm-contrib {
-    text-align: center !important;
-    color: var(--text-muted);
-}
-
-/* Footer Satırı */
-.master-grid-table tfoot {
-    position: sticky;
-    bottom: 0;
-    z-index: 20;
-}
-
-.grand-total-row td {
-    background: #0f172a !important;
-    color: #ffffff !important;
-    font-weight: 800;
-    padding: 0.6rem 0.5rem;
-    text-align: center;
-    border-top: 2.5px solid #38bdf8;
-    border-bottom: 2px solid #0f172a;
-    border-right: 1.5px solid #334155;
-}
-
-.grand-total-label {
-    text-align: left !important;
-    padding-left: 0.85rem !important;
-    background: #0f172a !important;
-    color: #ffffff !important;
-    font-size: 0.82rem;
-    letter-spacing: 0.02em;
-}
-
-.cell-grand-total {
-    background: #0284c7 !important;
-    color: #ffffff !important;
-    font-size: 0.95rem;
-    border-right-color: #0369a1 !important;
 }
 
 /* ==========================================================================
@@ -5041,238 +4099,17 @@ body {
     --durum-tam: #15803d;
     --durum-tam-zemin: #eaf6ee;
 }
-
-.karar-panosu {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-}
-
-.kp-kpi {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
-    gap: 0.5rem;
-}
-
-.kp-kart {
-    background: var(--bg-card-subtle);
-    border: 1px solid var(--border-subtle);
-    border-radius: 9px;
-    padding: 0.45rem 0.65rem;
-}
-
-.kp-et {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.kp-v {
-    font-size: 1.45rem;
-    font-weight: 800;
-    line-height: 1.1;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-main);
-}
-
-.kp-alt { font-size: 0.68rem; color: var(--text-muted); }
-
-.kp-ayirac { display: flex; align-items: center; gap: 0.55rem; margin-top: 0.15rem; }
-.kp-ayirac h4 { margin: 0; font-size: 0.78rem; font-weight: 800; color: var(--text-main); }
-.kp-cizgi { flex: 1; height: 1px; background: var(--border-subtle); }
-.kp-say { font-size: 0.68rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
-
-/* TEK BİÇİM: bütün branşlar aynı bileşen. Ayrı "dikkat"/"dengede" kutuları
-   kaldırıldı — hangi kutuda olduğu veriyle değişince ekranın ŞEKLİ de
-   değişiyor, kullanıcı her açılışta gözünü yeniden ayarlıyordu. */
-.kp-liste {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
-    gap: 0.4rem;
-}
-
-.kp-brans {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: baseline;
-    gap: 0.1rem 0.5rem;
-    padding: 0.4rem 0.55rem 0.4rem 0.65rem;
-    border: 1px solid var(--border-subtle);
-    border-left: 3px solid var(--border-main);
-    border-radius: 8px;
-    background: var(--bg-card);
-}
-
-.kp-brans.ih { border-left-color: var(--durum-ihtiyac); background: var(--durum-ihtiyac-zemin); }
-.kp-brans.fz { border-left-color: var(--durum-fazla);   background: var(--durum-fazla-zemin); }
-.kp-brans.tm { border-left-color: var(--durum-tam); }
-
-.kp-ad { font-size: 0.78rem; font-weight: 700; color: var(--text-main); line-height: 1.25; }
-
-.kp-fark {
-    font-size: 0.95rem;
-    font-weight: 800;
-    line-height: 1;
-    white-space: nowrap;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-muted);
-}
-.kp-brans.ih .kp-fark { color: var(--durum-ihtiyac); }
-.kp-brans.fz .kp-fark { color: var(--durum-fazla); }
-.kp-brans.tm .kp-fark { color: var(--durum-tam); font-size: 0.72rem; }
-
-.kp-detay {
-    grid-column: 1 / -1;
-    font-size: 0.66rem;
-    color: var(--text-muted);
-    font-variant-numeric: tabular-nums;
-}
-
-.kp-efsane {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.85rem;
-    font-size: 0.67rem;
-    color: var(--text-muted);
-}
-.kp-efsane span { display: inline-flex; align-items: center; gap: 0.3rem; }
-.kp-efsane i { width: 9px; height: 9px; border-radius: 2px; display: block; }
-.kp-efsane i.ih { background: var(--durum-ihtiyac); }
-.kp-efsane i.fz { background: var(--durum-fazla); }
-.kp-efsane i.tm { background: var(--durum-tam); }
-.kp-efsane .kp-efsane-son { margin-left: auto; }
-
-/* --- Matris başlığı: panelden matrise geçişi göstersin --- */
-.matris-baslik {
-    display: flex;
-    align-items: baseline;
-    gap: 0.55rem;
-    margin: 0.25rem 0 0.45rem;
-}
-.matris-baslik h4 { margin: 0; font-size: 0.82rem; font-weight: 800; color: var(--text-main); }
-.matris-alt { font-size: 0.7rem; color: var(--text-muted); }
-
-/* ==========================================================================
-   MUTABAKAT KÖPRÜSÜ (waterfall)
-   Kalem kalem tablo yerine tek bakışta okunan bir geçiş grafiği:
-   başlangıç sütunu, artıran/azaltan kalemler havada, sonuç sütunu.
-   ========================================================================== */
-.mutabakat-kopru {
-    flex: 0 1 auto;
-    min-width: 0;
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 10px;
-    background: var(--bg-card);
-    padding: 0.4rem 0.6rem 0.5rem;
-}
-
-.kopru-baslik {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.63rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    white-space: nowrap;
-    margin-bottom: 0.3rem;
-}
-
-.kopru-alan { position: relative; width: 260px; max-width: 100%; }
-.kopru-svg { display: block; width: 100%; height: 44px; overflow: visible; }
-
-.kopru-cubuk { fill: #94a3b8; }
 .kopru-cubuk.bas  { fill: #0284c7; }
 .kopru-cubuk.son  { fill: #0f172a; }
 .kopru-cubuk.arti { fill: #d97706; }
 .kopru-cubuk.eksi { fill: #7c3aed; }
-.kopru-bag { stroke: var(--border-main); stroke-width: 1; stroke-dasharray: 2 2; }
-
-.kopru-etiketler { position: relative; height: 26px; margin-top: 2px; }
-.kopru-et {
-    position: absolute;
-    transform: translateX(-50%);
-    text-align: center;
-    line-height: 1.15;
-}
-.kopru-say {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-main);
-}
 .kopru-say.arti { color: #b45309; }
 .kopru-say.eksi { color: #6d28d9; }
 .kopru-say.bas  { color: #0369a1; }
-.kopru-ad {
-    display: block;
-    font-size: 0.56rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-}
-
-/* ==========================================================================
-   MATRİS (C) — düz başlık, boş hücre, ısı yoğunluğu
-   ========================================================================== */
-.duz-sec-header {
-    display: table-cell;
-    vertical-align: bottom;
-    text-align: center;
-    padding: 0.3rem 0.15rem 0.35rem !important;
-    line-height: 1.15;
-}
-.duz-sec-header .sec-header-title {
-    display: block;
-    font-size: 0.62rem;
-    font-weight: 800;
-    color: var(--text-main);
-    white-space: nowrap;
-}
-.duz-sec-header .sec-header-meta {
-    display: block;
-    font-size: 0.55rem;
-    color: var(--text-muted);
-    font-variant-numeric: tabular-nums;
-}
-
-/* Boş hücre gerçekten boş: 272 hücrenin 121'i "—" çizgisiydi. */
-.master-grid-table td.empty-hour { background: transparent !important; }
-
-/* Isı yoğunluğu: saat arttıkça zemin koyulaşır (--isi 0..1). */
-.master-grid-table td.active-hour {
-    background: rgba(2, 132, 199, calc(0.07 + var(--isi, 0.4) * 0.28)) !important;
-    font-weight: 700;
-}
 
 @media print {
-    .karar-panosu { break-inside: avoid !important; page-break-inside: avoid !important; }
-    .kp-kart, .kp-brans {
-        background: #ffffff !important;
-        border: 0.5pt solid #94a3b8 !important;
-        box-shadow: none !important;
-    }
-    .kp-brans.ih { border-left: 2pt solid #000000 !important; }
-    .kp-brans.fz { border-left: 1.5pt dashed #000000 !important; }
-    .kp-v, .kp-ad, .kp-fark { color: #000000 !important; }
-    .kp-et, .kp-alt, .kp-detay, .kp-efsane { color: #333333 !important; }
-
-    .mutabakat-kopru {
-        border: 0.5pt solid #000000 !important;
-        background: #ffffff !important;
-    }
-    .kopru-cubuk { fill: #64748b !important; }
     .kopru-cubuk.bas { fill: #334155 !important; }
     .kopru-cubuk.son { fill: #000000 !important; }
-    .kopru-say, .kopru-ad { color: #000000 !important; }
-
-    /* Kâğıtta ısı zemini okunmaz; sayı yeter. */
-    .master-grid-table td.active-hour { background: #ffffff !important; }
 }
 
 /* ==========================================================================
@@ -5314,99 +4151,6 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.ymt-serit {
-    flex: 0 1 auto;
-    min-width: 0;
-    overflow-x: auto;
-    border: 2px solid #0284c7;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);
-    padding: 0.35rem 0.6rem 0.45rem;
-}
-
-.ymt-serit-baslik {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.64rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    color: #0369a1;
-    margin-bottom: 0.3rem;
-    white-space: nowrap;
-}
-
-.ymt-kartlar {
-    display: flex;
-    align-items: stretch;
-    gap: 0.3rem;
-    /* Sarmaz: şeridin yüksekliği her ekran genişliğinde aynı kalsın. */
-    flex-wrap: nowrap;
-}
-
-.ymt-kart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 74px;
-    padding: 0.2rem 0.5rem;
-    border-radius: 7px;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-card);
-    line-height: 1.15;
-}
-
-.ymt-kart-etiket {
-    font-size: 0.6rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    white-space: nowrap;
-}
-
-.ymt-kart-sayi {
-    font-size: 1rem;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-    color: var(--text-main);
-}
-
-.ymt-islem {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--text-muted);
-}
-
-/* Ham çizelge — mavi (öğrenci saati) */
-.ymt-kart-ham { border-color: #7dd3fc; background: #f0f9ff; }
-.ymt-kart-ham .ymt-kart-sayi { color: #0369a1; }
-
-/* Yükü ARTIRAN kalem — kehribar */
-.ymt-kart-arti { border-color: #fcd34d; background: #fffbeb; }
-.ymt-kart-arti .ymt-kart-sayi { color: #b45309; }
-
-/* Yükü AZALTAN kalem — mor */
-.ymt-kart-eksi { border-color: #c4b5fd; background: #f5f3ff; }
-.ymt-kart-eksi .ymt-kart-sayi { color: #6d28d9; }
-
-/* Sonuç — vurgulu koyu kart */
-.ymt-kart-sonuc {
-    border-color: #0f172a;
-    background: #0f172a;
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.28);
-}
-.ymt-kart-sonuc .ymt-kart-etiket { color: #bae6fd; }
-.ymt-kart-sonuc .ymt-kart-sayi { color: #ffffff; font-size: 1.1rem; }
-
-/* Fark yoksa panel yeşile döner: "kontrol edildi, aynı". */
-.ymt-serit-esit { border-color: #16a34a; background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%); box-shadow: 0 4px 14px rgba(22, 163, 74, 0.15); }
-.ymt-serit-esit .ymt-serit-baslik { color: #15803d; }
-.ymt-serit-esit .ymt-kart-sonuc { border-color: #14532d; background: #14532d; }
-.ymt-serit-esit .ymt-kart-sonuc .ymt-kart-etiket { color: #bbf7d0; }
 
 .ymt-ac-btn {
     margin-left: auto;
@@ -5498,17 +4242,6 @@ body {
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-ad { color: #ffffff; font-weight: 800; }
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-deger { color: #ffffff; font-size: 1rem; }
 .yuk-mutabakat-tablo .ymt-sonuc .ymt-not { color: #cbd5e1; }
-
-/* Branş şeridi ile satır toplamı ayrıştığında basılan açıklama satırı. */
-.ymt-brans-fark td {
-    background: #fffbeb;
-    border-top: 1px dashed #f59e0b;
-    font-size: 0.72rem;
-    color: #92400e;
-    padding: 0.3rem 0.5rem 0.3rem 1.6rem;
-    text-align: left;
-    font-style: italic;
-}
 
 /* ==========================================================================
    📚 BRANŞ DETAY CETVELİ — KART DÜZENİ
@@ -5724,19 +4457,6 @@ body {
 .kpi-orange .kpi-value { color: var(--durum-fazla); }
 .kpi-neutral .kpi-value { color: var(--text-muted); }
 
-.norm-status-summary-bar {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 0.55rem 0.85rem;
-    border-radius: 8px;
-    background: var(--bg-card-subtle);
-    border: 1px solid var(--border-main);
-    margin-bottom: 1.15rem;
-    font-size: 0.8rem;
-    flex-shrink: 0;
-}
-
 .status-summary-item {
     display: flex;
     align-items: center;
@@ -5748,10 +4468,6 @@ body {
     height: 9px;
     border-radius: 50%;
 }
-
-.stat-tam .dot { background: #16a34a; }
-.stat-ihtiyac .dot { background: #dc2626; }
-.stat-fazla .dot { background: #ea580c; }
 
 /* ==========================================================================
    🏛️ YENİ MİNİMALİST YÖNETİCİ İCMALİ & KADRO CETVELİ DİZAYNI
@@ -6410,60 +5126,6 @@ body {
         line-height: 1.15 !important;
     }
 
-    .sec-col-header.vertical-sec-header {
-        min-width: 18px !important;
-        max-width: 24px !important;
-        width: 20px !important;
-        height: 28mm !important;
-        padding: 1px !important;
-        vertical-align: bottom !important;
-    }
-
-    .vertical-sec-box {
-        writing-mode: vertical-rl !important;
-        transform: rotate(180deg) !important;
-        max-height: 26mm !important;
-        display: inline-flex !important;
-        align-items: center !important;
-    }
-
-    .vertical-sec-box .sec-header-title {
-        font-size: 6.5pt !important;
-        font-weight: 800 !important;
-        color: #000000 !important;
-    }
-
-    .vertical-sec-box .sec-header-meta {
-        font-size: 5pt !important;
-        color: #334155 !important;
-    }
-
-    .vertical-header-mode .course-data-row td.cell-hour {
-        width: 20px !important;
-        padding: 1px !important;
-    }
-
-    .sticky-col-header,
-    .sticky-col-cell {
-        position: static !important;
-        box-shadow: none !important;
-        background: #ffffff !important;
-    }
-
-    .branch-summary-strip,
-    .area-summary-strip {
-        background: #f1f5f9 !important;
-        border: 1.5px solid #000000 !important;
-        page-break-after: avoid !important;
-        break-after: avoid !important;
-    }
-
-    .branch-title-text {
-        color: #000000 !important;
-        font-size: 7.5pt !important;
-        font-weight: 800 !important;
-    }
-
     /* Mutabakat kâğıda da girer — rapor ilçeye/il'e bu hâliyle gidiyor.
        EKRAN ŞERİDİ basılmaz (rapor başlığı zaten `no-print`); kâğıda AYRINTI
        TABLOSU gider ve ekranda kapalı olsa bile HER ZAMAN açık basılır.
@@ -6510,43 +5172,6 @@ body {
         color: #000000 !important;
         border: 0.5pt solid #000000 !important;
         font-size: 6pt !important;
-    }
-
-    .pill-bolunmus {
-        background: #ffffff !important;
-        color: #000000 !important;
-        border: 0.5pt solid #000000 !important;
-        font-size: 5.5pt !important;
-    }
-
-    .ymt-brans-fark td {
-        background: #ffffff !important;
-        color: #000000 !important;
-        border-top: 0.5pt dashed #000000 !important;
-        font-size: 6.5pt !important;
-    }
-
-    .badge-metric {
-        border: 1px solid #000000 !important;
-        color: #000000 !important;
-        background: #ffffff !important;
-        font-size: 6.5pt !important;
-    }
-
-    .hour-bubble {
-        background: transparent !important;
-        color: #000000 !important;
-        border: none !important;
-        font-weight: 800 !important;
-        font-size: 7.5pt !important;
-        padding: 0 !important;
-    }
-
-    .grand-total-row td {
-        background: #f1f5f9 !important;
-        color: #000000 !important;
-        border-top: 2px solid #000000 !important;
-        font-size: 7.5pt !important;
     }
 
     tr {
@@ -7083,15 +5708,6 @@ body {
     box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2) !important;
 }
 
-.badge-special-edu {
-    background-color: #7c3aed;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 0.72rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-}
-
 
 /* ==========================================================================
    MEB NORM KADRO - FLUID PROPORTIONAL SCALING & ADAPTIVE RESPONSIVE ENGINE (v2.0)
@@ -7216,12 +5832,6 @@ body {
 .header-section-module.section-cloud-actions {
     flex-shrink: 0 !important;
     gap: clamp(0.25rem, 0.4vw, 0.45rem) !important;
-}
-
-.btn-header-action {
-    padding: clamp(0.24rem, 0.38vh, 0.36rem) clamp(0.45rem, 0.65vw, 0.75rem) !important;
-    font-size: clamp(0.68rem, 0.75vw, 0.78rem) !important;
-    white-space: nowrap !important;
 }
 
 /* 3. AKIŞKAN ÇALIŞMA ALANI VE ORANTILI YÜZEN PANELLER (FLUID 3-ISLAND WORKSPACE) */
@@ -7417,36 +6027,12 @@ body {
     padding: clamp(0.18rem, 0.3vh, 0.28rem) clamp(0.35rem, 0.6vw, 0.65rem) !important;
 }
 
-.table-branch-select {
-    width: 100% !important;
-    max-width: 100% !important;
-    font-size: clamp(0.68rem, 0.74vw, 0.78rem) !important;
-    padding: 0.2rem clamp(0.25rem, 0.4vw, 0.5rem) !important;
-    text-overflow: ellipsis !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-}
-
-.table-link-btn {
-    padding: 0.15rem clamp(0.25rem, 0.4vw, 0.45rem) !important;
-    font-size: clamp(0.65rem, 0.7vw, 0.74rem) !important;
-}
-
 /* 6. AKILLI DUYARLI KADEMELER (RESPONSIVE ADAPTIVE BREAKPOINTS) */
 
 /* Laptop / Daraltılmış Masaüstü (1100px - 1350px) */
-@media (max-width: 1350px) {
-    .btn-header-action span.btn-label-long {
-        display: none;
-    }
-}
-
 @media (max-width: 1100px) {
     .school-type-tag {
         max-width: 160px !important;
-    }
-    .btn-header-action {
-        padding: 0.3rem 0.45rem !important;
     }
 }
 
@@ -8063,35 +6649,10 @@ body.resizing .middle-canvas {
     box-shadow: 0 0 10px rgba(2, 132, 199, 0.8) !important;
 }
 
-
-/* ==========================================================================
-   ☁️ GOOGLE CLOUD CANLI YEDEKLEME VE GÜVENLİK ROZETİ (HEADER PILL)
-   ========================================================================== */
-.cloud-sync-badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
-    padding: 0.24rem 0.65rem !important;
-    border-radius: var(--radius-full) !important;
-    font-size: 0.74rem !important;
-    font-weight: 800 !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
-    transition: all 0.25s ease !important;
-    user-select: none !important;
-    cursor: default !important;
-    white-space: nowrap !important;
-}
-
 .cloud-sync-badge.saved {
     background: rgba(16, 185, 129, 0.15) !important;
     border: 1.5px solid #10b981 !important;
     color: #10b981 !important;
-}
-
-.cloud-sync-badge.syncing {
-    background: rgba(2, 132, 199, 0.15) !important;
-    border: 1.5px solid #0284c7 !important;
-    color: #38bdf8 !important;
 }
 
 .cloud-sync-badge.local {
@@ -8100,48 +6661,15 @@ body.resizing .middle-canvas {
     color: #f59e0b !important;
 }
 
-.cloud-icon.spin {
-    animation: cloudSpin 1s linear infinite !important;
-    display: inline-block !important;
-}
-
 @keyframes cloudSpin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-}
-
-
-/* ==========================================================================
-   ☁️ SAĞ ÜST KÖŞE KOMPAKT BULUT GÖSTERGESİ (28px Tool Height)
-   ========================================================================== */
-.cloud-sync-badge-compact {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.35rem !important;
-    height: 28px !important;
-    min-height: 28px !important;
-    padding: 0 0.55rem !important;
-    border-radius: 6px !important;
-    font-size: 0.76rem !important;
-    font-weight: 800 !important;
-    user-select: none !important;
-    white-space: nowrap !important;
-    line-height: 1 !important;
-    transition: all 0.2s ease !important;
-    cursor: default !important;
 }
 
 .cloud-sync-badge-compact.saved {
     background: rgba(16, 185, 129, 0.15) !important;
     border: 1px solid #10b981 !important;
     color: #10b981 !important;
-}
-
-.cloud-sync-badge-compact.syncing {
-    background: rgba(2, 132, 199, 0.15) !important;
-    border: 1px solid #0284c7 !important;
-    color: #38bdf8 !important;
 }
 
 .cloud-sync-badge-compact.local {
@@ -8176,22 +6704,6 @@ body.resizing .middle-canvas {
     display: none !important;
 }
 
-/* GENEL BÖLGE TAŞIYICI */
-.header-zone {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    flex-shrink: 0 !important;
-}
-
-/* BÖLGE 1: LOGO VE OKUL KİMLİĞİ */
-.zone-left {
-    flex: 1 1 auto !important;
-    min-width: 220px !important;
-    max-width: 420px !important;
-    overflow: hidden !important;
-}
-
 .logo-badge-executive {
     background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
     border: 1px solid #38bdf8 !important;
@@ -8220,114 +6732,12 @@ body.resizing .middle-canvas {
     margin-top: 0.15rem !important;
 }
 
-.school-identity-box {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.2rem !important;
-    background: rgba(15, 23, 42, 0.75) !important;
-    border: 1.5px solid #334155 !important;
-    border-radius: 8px !important;
-    padding: 0.25rem 0.65rem !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    overflow: hidden !important;
-    max-width: 100% !important;
-}
-
-.school-identity-box:hover {
-    border-color: #38bdf8 !important;
-    background: #17233d !important;
-}
-
-.school-name-row {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-}
-
 .school-name-text {
     font-weight: 800 !important;
     color: #f8fafc !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-}
-
-.school-lock-chip {
-    font-size: 0.68rem !important;
-    font-weight: 800 !important;
-    font-family: monospace !important;
-    background: rgba(2, 132, 199, 0.2) !important;
-    border: 1px solid rgba(56, 189, 248, 0.4) !important;
-    color: #38bdf8 !important;
-    padding: 0.1rem 0.35rem !important;
-    border-radius: 4px !important;
-    flex-shrink: 0 !important;
-}
-
-.school-badges-row {
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.35rem !important;
-}
-
-.season-chip {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.25rem !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid #334155 !important;
-    border-radius: 4px !important;
-    padding: 0.05rem 0.35rem !important;
-    font-size: 0.72rem !important;
-}
-
-.season-chip-select {
-    background: transparent !important;
-    border: none !important;
-    color: #cbd5e1 !important;
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    outline: none !important;
-    cursor: pointer !important;
-    padding: 0 !important;
-}
-
-.type-chip {
-    font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid #334155 !important;
-    border-radius: 4px !important;
-    color: #94a3b8 !important;
-    padding: 0.05rem 0.4rem !important;
-    white-space: nowrap !important;
-}
-
-/* STANDART BUTONLAR (TAM 32PX YÜKSEKLİK) */
-.btn-hdr-action {
-    height: 32px !important;
-    min-height: 32px !important;
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.35rem !important;
-    padding: 0 0.75rem !important;
-    font-size: 0.78rem !important;
-    font-weight: 800 !important;
-    border-radius: 7px !important;
-    cursor: pointer !important;
-    border: 1px solid transparent !important;
-    transition: all 0.2s ease !important;
-    white-space: nowrap !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
-}
-
-.btn-hdr-action:hover {
-    transform: translateY(-1px) !important;
 }
 
 .btn-staff-vocational {
@@ -8346,128 +6756,6 @@ body.resizing .middle-canvas {
 }
 .btn-staff-academic:hover {
     box-shadow: 0 0 12px rgba(96, 165, 250, 0.4) !important;
-}
-
-.btn-reports-gradient {
-    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
-    border-color: #38bdf8 !important;
-    color: #ffffff !important;
-}
-.btn-reports-gradient:hover {
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
-}
-
-/* BELİRGİN SIFIRLAMA BUTONU */
-.btn-reset-prominent {
-    background: rgba(239, 68, 68, 0.12) !important;
-    border: 1.5px solid #ef4444 !important;
-    color: #f87171 !important;
-}
-.btn-reset-prominent:hover {
-    background: #ef4444 !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 12px rgba(239, 68, 68, 0.4) !important;
-}
-
-/* GRUPLANMIŞ ÇİPLER (HİSTORY & VERİ) */
-.history-chip-group, .data-chip-group {
-    display: inline-flex !important;
-    align-items: center !important;
-    background: rgba(15, 23, 42, 0.75) !important;
-    border: 1.5px solid #334155 !important;
-    border-radius: 7px !important;
-    height: 32px !important;
-    box-sizing: border-box !important;
-    padding: 0 0.25rem !important;
-    gap: 0.2rem !important;
-}
-
-.btn-hist-circle {
-    width: 24px !important;
-    height: 24px !important;
-    border-radius: 50% !important;
-    border: none !important;
-    background: #1e293b !important;
-    color: #38bdf8 !important;
-    font-size: 0.95rem !important;
-    font-weight: 900 !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.15s ease !important;
-}
-.btn-hist-circle:hover {
-    background: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-/* SAĞ ARAÇ BUTONLARI */
-.btn-hdr-tool {
-    height: 32px !important;
-    min-height: 32px !important;
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.3rem !important;
-    padding: 0 0.6rem !important;
-    font-size: 0.76rem !important;
-    font-weight: 700 !important;
-    border-radius: 7px !important;
-    border: 1.5px solid #334155 !important;
-    background: #1e293b !important;
-    color: #f1f5f9 !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    transition: all 0.2s ease !important;
-}
-
-.btn-hdr-tool:hover {
-    border-color: #38bdf8 !important;
-    color: #38bdf8 !important;
-    background: #17233d !important;
-}
-
-.btn-tool-license {
-    background: rgba(2, 132, 199, 0.15) !important;
-    border-color: #0284c7 !important;
-    color: #38bdf8 !important;
-}
-.btn-tool-license:hover {
-    background: #0284c7 !important;
-    color: #ffffff !important;
-}
-
-.btn-tool-logout {
-    background: rgba(239, 68, 68, 0.12) !important;
-    border-color: rgba(239, 68, 68, 0.5) !important;
-    color: #f87171 !important;
-}
-.btn-tool-logout:hover {
-    background: #ef4444 !important;
-    border-color: #ef4444 !important;
-    color: #ffffff !important;
-}
-
-.btn-hdr-circle {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    border-radius: 7px !important;
-    border: 1.5px solid #334155 !important;
-    background: #1e293b !important;
-    color: #f1f5f9 !important;
-    font-size: 0.95rem !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: all 0.2s ease !important;
-}
-.btn-hdr-circle:hover {
-    border-color: #f59e0b !important;
-    transform: translateY(-1px) !important;
 }
 
 /* ==========================================================================
