@@ -610,11 +610,34 @@ console.log("\nYerleşim koruması");
             renksiz.length === 0,
             "renksiz tür: " + renksiz.join(", ") + " — koyu varsayılana düşerler");
 
-    denetle("R20c hata bildirimi kırmızı",
-            /\.toast\.toast-error[^{]*\{[^}]*background:\s*#d32f2f/.test(css));
+    // 06.09.2026 son tasarım: dört tür de KOYU CAM. Ayrım dolguda değil,
+    // VURGU renginde — kenar, ikon ve süre çubuğu. Hata en doygun vurguyu
+    // alır (kırmızı), çünkü kullanıcıyı durdurması gereken tek tür odur.
+    // Denetim rengin kodunu değil, hatanın AYRIŞTIĞINI korur.
+    {
+        const hataKurali = (css.match(/\.toast\.toast-error,[\s\S]*?\{([^}]*)\}/) || ["", ""])[1];
+        denetle("R20c hata bildirimi kırmızı vurguyla ayrışıyor",
+                /rgba\(248,\s*113,\s*113/.test(hataKurali)
+                && /rgba\(239,\s*68,\s*68/.test(hataKurali),
+                "hata türü diğerlerinden ayrışmalı")
+    }
 
-    denetle("R20d bildirim SAĞ ÜSTTE",
-            /\.toast-container\s*\{[\s\S]*?top:\s*1rem[\s\S]*?right:\s*1rem/.test(css));
+    // KONUM: iki kez taşındı, ikisi de kullanıcı gözlemiyle.
+    //  1) top:1rem  -> üst çubuğun (72-90px) ÜSTÜNE biniyordu, fark edilmiyordu.
+    //  2) sağ üst   -> sağdaki Norm Kadro panelini örtüyordu; o panel yeşil
+    //     rozet dolu olduğu için yeşil kutu KAMUFLE oluyordu. Kullanıcı:
+    //     "silik, okunmayan, ekrana bakan birisi asla onun çıktığını görmez."
+    // Karar: ALT ORTA + koyu cam. Denetim eski değeri değil bu değişmezi
+    // korur: bildirim üst şeride ya da sağ panele geri taşınmasın.
+    {
+        const kapsayici = (css.match(/\.toast-container\s*\{([^}]*)\}/) || ["", ""])[1];
+        denetle("R20d bildirim ALT ORTADA (üst şeritte veya sağ panelde değil)",
+                /bottom:\s*1\.5rem/.test(kapsayici)
+                && /left:\s*50%/.test(kapsayici)
+                && /top:\s*auto/.test(kapsayici)
+                && /right:\s*auto/.test(kapsayici),
+                "sağ üst denendi ve bırakıldı: Norm Kadro panelini örtüyordu");
+    }
 
     // DİKKAT: [\s\S]*? kural SINIRLARINI aşıp başka bir kuraldaki nowrap'i
     // buluyordu. Yalnızca `.toast {` kuralının GÖVDESİNE bakıyoruz.
@@ -644,10 +667,26 @@ console.log("\nYerleşim koruması");
     denetle("R20j hata bildirimi ekran okuyucuya öncelikli duyuruluyor",
             /aria-live[\s\S]{0,140}assertive/.test(ui));
 
+    // 06.09.2026 kullanıcı kararı, aynen: "sağa sola sürüklenerek değil.
+    // solup gitsin." Kaydırmalı giriş/çıkış, silme süpürmesi ve duman
+    // efekti tek tek denendi ve REDDEDİLDİ. Bildirim yerinden kımıldamaz;
+    // yalnızca saydamlığı değişir. Biri transform eklerse burası kırmızı yanar.
+    {
+        const gir = (css.match(/@keyframes toastGir\s*\{([\s\S]*?)\}\s*\n/) || ["", ""])[1];
+        const cik = (css.match(/@keyframes toastCik\s*\{([\s\S]*?)\}\s*\n/) || ["", ""])[1];
+        denetle("R20l bildirim yerinden KIMILDAMIYOR (yalnızca solma)",
+                gir.length > 0 && cik.length > 0
+                && !/transform|translate|scale/.test(gir)
+                && !/transform|translate|scale/.test(cik),
+                "kullanıcı kaydırmayı açıkça reddetti; yalnızca opacity değişmeli");
+    }
+
     denetle("R20k hata bildirimi başarıdan UZUN duruyor",
             (() => {
-                const b = ui.match(/success:\s*\{[^}]*sure:\s*(\d+)/);
-                const h = ui.match(/error:\s*\{[^}]*sure:\s*(\d+)/);
+                // Alan adı `sure` -> `bekle` oldu: artık toplam ömür değil,
+                // TAM GÖRÜNÜR kalma süresi. Beliriş/solma ayrı değişkenlerde.
+                const b = ui.match(/success:\s*\{[^}]*bekle:\s*(\d+)/);
+                const h = ui.match(/error:\s*\{[^}]*bekle:\s*(\d+)/);
                 return b && h && Number(h[1]) > Number(b[1]);
             })(),
             "kritik uyarı okunacak kadar kalmalı");

@@ -9,10 +9,40 @@
          cikmasi icin. yonetim.html'de de ayni etiket var. -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="MEB Norm Kadro ve Haftalık Ders Dağıtımı Çalışma Terminali">
-    <link rel="stylesheet" href="css/app.css?v=20260906_2006">
+    <link rel="stylesheet" href="css/app.css?v=20260907_0028">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
+
+    <!-- ACILIS PERDESI
+         Kullanici bildirimi (06.09.2026): "beyaz bir ekranda beklememeli."
+         Olculdu: acilista Google sunucularina gidis-donus bekleniyor ve
+         arayuz o bitene kadar cizilmiyordu; ekran bombos beyaz kaliyordu.
+         Bu perde, sayfa acilir acilmaz (JS beklemeden) gorunur ve ilk cizim
+         tamamlaninca kaldirilir. Agi hizlandirmaz; BEKLEMEYI GORUNUR kilar. -->
+    <div id="acilis-perde" class="acilis-perde" role="status" aria-live="polite">
+        <div class="acilis-ic">
+            <div class="acilis-logo">NormMatik<span>&#8482;</span></div>
+            <div class="acilis-cubuk"><i></i></div>
+            <div class="acilis-metin" id="acilis-metin">Çalışma alanınız hazırlanıyor…</div>
+        </div>
+    </div>
+    <script>
+        // Perdeyi kaldirma yolu TEK yerde dursun: app.js de, yonetim.html de
+        // bunu cagirir. Iki ayri kaldirma kodu zamanla ayrisirdi.
+        window.acilisPerdesiniKaldir = function () {
+            var p = document.getElementById("acilis-perde");
+            if (!p) return;
+            p.classList.add("gizle");
+            setTimeout(function () { if (p.parentNode) p.remove(); }, 260);
+        };
+        // Emniyet: paket hic yuklenmezse ya da baslatma takilirsa kullanici
+        // sonsuza kadar "hazirlaniyor" yazisina bakmasin.
+        setTimeout(function () {
+            var m = document.getElementById("acilis-metin");
+            if (m) m.textContent = "Beklenenden uzun sürdü. Bağlantınızı kontrol edip sayfayı yenileyin.";
+        }, 20000);
+    </script>
 
     <!-- 1. ÜST BAŞLIK (EXECUTIVE MARKET TERMINAL HEADER) -->
     <header class="app-header" id="app-header">
@@ -82,7 +112,7 @@
     <script src="js/xlsx.full.min.js"></script>
     
     <!-- ANA UYGULAMA PAKETİ -->
-    <script src="js/bundle.js?v=20260906_2006"></script>
+    <script src="js/bundle.js?v=20260907_0028"></script>
 
     <!-- GÜVENLİ OTURUM VE SAYFA YÖNETİCİSİ -->
     <script>

@@ -171418,14 +171418,23 @@ class UIComponentManager {
      * yolu tıkamamalı.
      */
     showToast(message, type = "success") {
+        // Süreler kullanıcı tarafından canlı denenerek seçildi (06.09.2026):
+        // beliriş 0,50 sn solarak · kalma 1,60 sn · solma 1,15 sn.
+        // 1,60 sn BAŞARI bildirimi içindir. Hata mesajı okunacak kadar
+        // durmalı, o yüzden tür sıralaması korunuyor: uyarı ve hata daha uzun.
+        const GIR = 500;    // beliriş (yalnızca saydamlık; kutu kımıldamaz)
+        const SOL = 1150;   // solma
         const TURLER = {
-            success: { sinif: "success", ikon: "✓", sure: 3200 },
-            info:    { sinif: "info",    ikon: "i", sure: 4200 },
-            warning: { sinif: "warning", ikon: "!", sure: 5200 },
-            error:   { sinif: "error",   ikon: "✕", sure: 6500 },
-            danger:  { sinif: "error",   ikon: "✕", sure: 6500 }
+            success: { sinif: "success", ikon: "✓", bekle: 1600 },
+            info:    { sinif: "info",    ikon: "i", bekle: 2300 },
+            warning: { sinif: "warning", ikon: "!", bekle: 3100 },
+            error:   { sinif: "error",   ikon: "✕", bekle: 4300 },
+            danger:  { sinif: "error",   ikon: "✕", bekle: 4300 }
         };
         const t = TURLER[type] || TURLER.success;
+        // Kutunun tam görünür kaldığı toplam süre: beliriş + bekleme.
+        // Geri sayım çubuğu da bu süreyi gösterir.
+        t.sure = GIR + t.bekle;
 
         let container = document.getElementById("toast-container");
         if (!container) {
@@ -171443,6 +171452,8 @@ class UIComponentManager {
         const toast = document.createElement("div");
         toast.className = `toast toast-${t.sinif}`;
         toast.style.setProperty("--toast-sure", t.sure + "ms");
+        toast.style.setProperty("--toast-gir", GIR + "ms");
+        toast.style.setProperty("--toast-sol", SOL + "ms");
         toast.innerHTML = `
             <span class="toast-ikon" aria-hidden="true">${t.ikon}</span>
             <span class="toast-metin">${message}</span>
@@ -171460,7 +171471,7 @@ class UIComponentManager {
             setTimeout(() => {
                 toast.remove();
                 if (container && container.children.length === 0) container.remove();
-            }, 260);
+            }, SOL);
         };
 
         // Kalan süreyi takip et: fare üzerindeyken saymayı DURDUR.
@@ -176976,7 +176987,20 @@ class MebNormApplication {
                     // Okul adı/türü de burada 'okul_kayit'tan alınıyor: veritabanı
                     // kuralı okulun bunları değiştirmesini zaten reddediyor, bu
                     // yüzden ekranda da yetkili kaynak burasıdır.
-                    const lisans = await cloudService.loadLicenceInfo(session.kurumKodu);
+                    // İKİ OKUMA AYNI ANDA (06.09.2026)
+                    // Önceden sıralı bekleniyordu: önce lisans, o bitince
+                    // okul verisi. İki gidiş-dönüş üst üste binince arayüz
+                    // toplamları kadar bekliyordu ve ekran beyaz kalıyordu.
+                    // Çağrılar birbirinden bağımsız; yalnızca SONUÇLARIN
+                    // uygulanma sırası önemli, o da aşağıda aynen korunuyor.
+                    const lisansSozu = cloudService.loadLicenceInfo(session.kurumKodu);
+                    const veriSozu   = cloudService.loadSchoolData(session.kurumKodu);
+                    // "İşlenmemiş reddetme" uyarısını önler; gerçek hata
+                    // aşağıdaki await'te yeniden fırlar ve yakalanır.
+                    lisansSozu.catch(function () {});
+                    veriSozu.catch(function () {});
+
+                    const lisans = await lisansSozu;
                     if (lisans.kayit) {
                         if (lisans.kayit.okulAdi)  appState.state.okulBilgisi.okulAdi  = lisans.kayit.okulAdi;
                         if (lisans.kayit.okulTuru) appState.state.okulBilgisi.okulTuru = lisans.kayit.okulTuru;
@@ -176999,7 +177023,7 @@ class MebNormApplication {
                         }
                     }
 
-                    const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
+                    const cloudData = await veriSozu;
                     if (cloudData) {
                         // Okul adı/türü yalnızca 'okul_kayit' YOKSA buradan alınır.
                         // Kural, kaydedilen adın okul_kayit'takiyle birebir aynı
@@ -177190,12 +177214,18 @@ class MebNormApplication {
             this.bindKeyboardShortcuts();
             this.render();
 
+            // Ekranda gerçek içerik var; perde görevini bitirdi.
+            if (window.acilisPerdesiniKaldir) window.acilisPerdesiniKaldir();
+
             console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
         } catch (error) {
             // BAŞLATMA ÇÖKTÜ — kullanıcı yarım bir ekranla kalır.
             // Eskiden yalnızca konsola yazılıyordu: müdür neyin ters gittiğini
             // bilmeden çalışmaya devam ediyor, girdiği veri hiçbir yere
             // gitmiyordu. Sessiz yol bırakmıyoruz. (06.09.2026 sınıflandırması.)
+            // Perde ÖNCE kalkmalı: yoksa hata mesajı perdenin arkasında
+            // kalır ve kullanıcı sonsuza kadar "hazırlanıyor" yazısına bakar.
+            if (window.acilisPerdesiniKaldir) window.acilisPerdesiniKaldir();
             console.error("Uygulama başlatma hatası:", error);
             try {
                 if (this.ui && typeof this.ui.showToast === "function") {

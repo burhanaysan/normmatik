@@ -77,7 +77,20 @@ class MebNormApplication {
                     // Okul adı/türü de burada 'okul_kayit'tan alınıyor: veritabanı
                     // kuralı okulun bunları değiştirmesini zaten reddediyor, bu
                     // yüzden ekranda da yetkili kaynak burasıdır.
-                    const lisans = await cloudService.loadLicenceInfo(session.kurumKodu);
+                    // İKİ OKUMA AYNI ANDA (06.09.2026)
+                    // Önceden sıralı bekleniyordu: önce lisans, o bitince
+                    // okul verisi. İki gidiş-dönüş üst üste binince arayüz
+                    // toplamları kadar bekliyordu ve ekran beyaz kalıyordu.
+                    // Çağrılar birbirinden bağımsız; yalnızca SONUÇLARIN
+                    // uygulanma sırası önemli, o da aşağıda aynen korunuyor.
+                    const lisansSozu = cloudService.loadLicenceInfo(session.kurumKodu);
+                    const veriSozu   = cloudService.loadSchoolData(session.kurumKodu);
+                    // "İşlenmemiş reddetme" uyarısını önler; gerçek hata
+                    // aşağıdaki await'te yeniden fırlar ve yakalanır.
+                    lisansSozu.catch(function () {});
+                    veriSozu.catch(function () {});
+
+                    const lisans = await lisansSozu;
                     if (lisans.kayit) {
                         if (lisans.kayit.okulAdi)  appState.state.okulBilgisi.okulAdi  = lisans.kayit.okulAdi;
                         if (lisans.kayit.okulTuru) appState.state.okulBilgisi.okulTuru = lisans.kayit.okulTuru;
@@ -100,7 +113,7 @@ class MebNormApplication {
                         }
                     }
 
-                    const cloudData = await cloudService.loadSchoolData(session.kurumKodu);
+                    const cloudData = await veriSozu;
                     if (cloudData) {
                         // Okul adı/türü yalnızca 'okul_kayit' YOKSA buradan alınır.
                         // Kural, kaydedilen adın okul_kayit'takiyle birebir aynı
@@ -291,12 +304,18 @@ class MebNormApplication {
             this.bindKeyboardShortcuts();
             this.render();
 
+            // Ekranda gerçek içerik var; perde görevini bitirdi.
+            if (window.acilisPerdesiniKaldir) window.acilisPerdesiniKaldir();
+
             console.log("Uygulama başarıyla Google Cloud-Native olarak yüklendi.");
         } catch (error) {
             // BAŞLATMA ÇÖKTÜ — kullanıcı yarım bir ekranla kalır.
             // Eskiden yalnızca konsola yazılıyordu: müdür neyin ters gittiğini
             // bilmeden çalışmaya devam ediyor, girdiği veri hiçbir yere
             // gitmiyordu. Sessiz yol bırakmıyoruz. (06.09.2026 sınıflandırması.)
+            // Perde ÖNCE kalkmalı: yoksa hata mesajı perdenin arkasında
+            // kalır ve kullanıcı sonsuza kadar "hazırlanıyor" yazısına bakar.
+            if (window.acilisPerdesiniKaldir) window.acilisPerdesiniKaldir();
             console.error("Uygulama başlatma hatası:", error);
             try {
                 if (this.ui && typeof this.ui.showToast === "function") {
