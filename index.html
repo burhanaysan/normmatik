@@ -3,9 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı</title>
+    <title>MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik</title>
     <meta name="description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
-    <link rel="stylesheet" href="css/landing.css?v=20260907_2129">
+    <link rel="canonical" href="https://www.normmatik.com.tr/">
+
+    <!-- SOSYAL PAYLASIM (Open Graph / Twitter) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NormMatik">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:url" content="https://www.normmatik.com.tr/">
+    <meta property="og:title" content="MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik">
+    <meta property="og:description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik">
+    <meta name="twitter:description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
+
+    <!-- YAPISAL VERI
+         SSS semasi, sayfadaki GORUNEN soru-cevaplardan uretildi. Gorunmeyen
+         icerigi semaya koymak Google tarafindan ihlal sayilir; o yuzden metin
+         birebir asagidaki <details> bloklariyla ayni. -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NormMatik",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "tr-TR",
+    "url": "https://www.normmatik.com.tr/",
+    "description": "MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.",
+    "audience": {
+        "@type": "Audience",
+        "audienceType": "Okul yöneticileri ve öğretmenler"
+    },
+    "featureList": [
+        "MEB Norm Kadro Yönetmeliği'ne göre öğretmen normu hesaplama",
+        "Haftalık ders yükü hesaplama",
+        "TTKB haftalık ders çizelgelerinden şube kurma",
+        "Branş bazlı öğretmen ihtiyaç ve fazla analizi",
+        "İdareci ve rehber öğretmen normu",
+        "Excel ve PDF çıktı"
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Hesaplamalar resmî midir?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. NormMatik bir karar destek aracıdır; okul içi ön hazırlık için kullanılır. Resmî norm kadro belirleme yetkisi Bakanlık ve il/ilçe millî eğitim müdürlüklerindedir, resmî işlemlerde MEBBİS esastır."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Öğrenci ve öğretmen bilgileri sisteme girilecek mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. Sistem isim, T.C. Kimlik No veya iletişim bilgisi istemez ve saklamaz. Yalnızca sayılarla çalışır: şubedeki öğrenci sayısı, branştaki öğretmen sayısı."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Kurulum gerekiyor mu?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. Tarayıcıdan açılır. Okul bilgisayarına program kurmanız, yönetici izni almanız gerekmez."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Ders çizelgeleri güncel mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Çizelgeler MEB'in yayımladığı çerçeve programlardan çıkarılır ve Kurul kararları yenilendikçe güncellenir. Her çizelgenin hangi karara dayandığı kayıt altında tutulur."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Demo ile lisanslı sürüm arasındaki fark nedir?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Demoda en fazla üç şube oluşturabilir, çıktıları filigranlı alırsınız. Lisanslı sürümde şube sınırı yoktur, Excel dışa aktarımı ve filigransız çıktı açılır."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Verilerimi kaybeder miyim?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Çalışmanız kurum kodunuza bağlı olarak bulutta saklanır. Bilgisayar değişse veya tarayıcı temizlense de okulunuzun verisi durur."
+            }
+        }
+    ]
+}
+    </script>
+    <link rel="stylesheet" href="css/landing.css?v=20260907_2227">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -22,6 +119,7 @@
             <li><a href="#nedir">Ne işe yarar</a></li>
             <li><a href="#kademeler">Kademeler</a></li>
             <li><a href="#galeri">Ekranlar</a></li>
+            <li><a href="#excel">Excel</a></li>
             <li><a href="#sorular">Sorular</a></li>
         </ul>
 
@@ -33,14 +131,14 @@
 <section class="giris">
     <div class="kap">
         <div class="giris-ic">
-            <span class="rozet">Norm Kadro Yönetmeliği ve TTKB çizelgeleri esas alınır</span>
+            <span class="rozet">Madde 18, 19 ve 21 dâhil — Norm Kadro Yönetmeliği ve resmî TTKB ders çizelgeleri esas alınır</span>
 
-            <h1>Okulunuzun norm kadrosunu<br><span class="vurgu">Excel'siz</span> hesaplayın.</h1>
+            <h1>Okulunuzun <span class="vurgu">ders yükü</span> ve <span class="vurgu">norm kadrosu</span> hesabı.</h1>
 
             <p class="giris-alt">
-                Şubelerinizi girin, haftalık ders yükü ve branş bazlı öğretmen
-                ihtiyacı anında karşınıza çıksın. Hesaplamalar MEB'in yayımladığı
-                çizelgelere ve Norm Kadro Yönetmeliği'ne dayanır.
+                Hangi branşta kaç öğretmen ihtiyacınız, kaç fazlanız var? Şubelerinizi girin,
+                haftalık ders yükü ve branş bazlı norm ihtiyacı branş branş karşınıza çıksın.
+                Her sayının nereden geldiğini madde madde gösterir; hesabı satır satır kontrol edebilirsiniz.
             </p>
 
             <div class="giris-dugmeler">
@@ -204,6 +302,61 @@
                 <div class="galeri-yazi">
                     <h4>Atölye ve seçmeli</h4>
                     <p>Grup bölünmeleri ve seçmeli ders dengesi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXCEL -->
+<!-- NEDEN VAR: Search Console'da "ders yükü hesaplama excel" (10 gösterim,
+     konum 7,5) ve "meslek lisesi norm kadro hesaplama excel" (6 gösterim,
+     konum 9,0) gerçekten aranan sorgular. Excel'i reddetmek yerine
+     karşılıyoruz: neyi iyi yapar, nerede zorlanır. -->
+<section class="bolum" id="excel">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Excel ile yapıyorsanız</h2>
+            <p>
+                Çoğu okul norm hesabını Excel'de tutuyor. Excel iyi bir araçtır; zorlanılan yer
+                hesabın kendisi değil, çizelgeyi ve mevzuatı güncel tutmaktır.
+            </p>
+        </div>
+
+        <div class="guven-liste">
+            <div class="guven">
+                <div>
+                    <b>Çizelgeyi elle yazmak</b>
+                    <span>Her okul türünün ve her sınıf seviyesinin haftalık ders çizelgesi
+                    ayrıdır. Bunları tabloya elle geçirmek uzun sürer; Kurul kararı
+                    yenilendiğinde tabloyu baştan gözden geçirmek gerekir.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Gözden kaçan yük kalemleri</b>
+                    <span>Birleştirilmiş şubede ders tek öğretmene yazılır, bölünen derste
+                    grup sayısı kadar çarpılır, yöneticinin okuttuğu saat ilgili branşın
+                    yükünden düşülür. Bu kalemler formüle girmezse norm olduğundan
+                    yüksek ya da düşük çıkar.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Hesabın izini sürmek</b>
+                    <span>“Bu branşta neden 3 norm çıktı?” sorusunun cevabı, iç içe geçmiş
+                    formüllerin arasında kaybolur. NormMatik her sayının hangi maddeden ve
+                    hangi şubeden geldiğini satır satır gösterir.</span>
+                </div>
+            </div>
+
+            <div class="guven">
+                <div>
+                    <b>Excel'i bırakmanız gerekmiyor</b>
+                    <span>NormMatik sonuçları Excel ve PDF olarak dışa aktarır; kendi
+                    dosyanızla çalışmaya kaldığınız yerden devam edebilirsiniz.</span>
                 </div>
             </div>
         </div>

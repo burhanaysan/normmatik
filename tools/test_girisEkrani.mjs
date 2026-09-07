@@ -40,9 +40,20 @@ function olumcul(m) {
 
 /* ---- index.html içindeki betiği çıkar --------------------------------- */
 const html = fs.readFileSync(path.join(KOK, "index.html"), "utf8");
-const m = html.match(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/);
-if (!m) olumcul("index.html içinde satır içi betik bulunamadı.");
-const betik = m[1];
+// DİKKAT (07.09.2026): sayfada artık `type="application/ld+json"` blokları da
+// var (arama motorları için yapısal veri). Onlar JavaScript DEĞİL, veridir;
+// vm içinde çalıştırılınca sözdizimi hatası verir ve bu test kırılır.
+// Bu yüzden yalnızca ÇALIŞTIRILABİLİR betikler alınır: type niteliği ya hiç
+// yok ya da bir JavaScript türü.
+const betikBloklari = [...html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter((x) => {
+        const t = (x[1].match(/\btype\s*=\s*["']([^"']+)["']/) || ["", ""])[1].toLowerCase();
+        return !t || t === "text/javascript" || t === "application/javascript" || t === "module";
+    })
+    .map((x) => x[2]);
+if (!betikBloklari.length) olumcul("index.html içinde satır içi betik bulunamadı.");
+// Giriş akışını taşıyan blok, en uzun olanıdır.
+const betik = betikBloklari.slice().sort((a, b) => b.length - a.length)[0];
 kontrol("ölçüm geçerli: giriş betiği çıkarıldı", betik.length > 2000, betik.length + " karakter");
 kontrol("ölçüm geçerli: betik giriş formunu bağlıyor",
     betik.includes("form-login") && betik.includes("signInWithPassword"));
