@@ -163755,6 +163755,52 @@ const SECMELI_TEMA_KURALLARI = {
 
     turNotu(okulTuru) { return this.TUR_NOTLARI[String(okulTuru || "")] || ""; },
 
+    /* ---- HAVUZ: TEK YETKİLİ GRUP KAYNAĞI -------------------------------
+       Ders şubeye eklenirken `grup` alanı kopyalanıyor. Kaynak çizelgede bir
+       düzeltme yapılırsa o kopya ESKİ kalır ve ekranda yanlış tema görünür
+       (müşteri bildirdi, 07.09.2026: Adabımuaşeret ile Türk Sosyal Hayatında
+       Aile, çizelge düzeltildiği hâlde "Din, Ahlak ve Değer" görünüyordu).
+
+       Bu yüzden tema, önce HAVUZDAN okunur; kayıtlı değer yalnızca havuzda
+       bulunamayan dersler için yedektir. Müşteri verisine dokunmadan,
+       geçmişte eklenmiş dersler de kendiliğinden düzelir.                  */
+    _havuzDizini: null,
+
+    _dizinKur() {
+        const H = (typeof window !== "undefined" && window.SECMELI_HAVUZU)
+            ? window.SECMELI_HAVUZU
+            : (typeof SECMELI_HAVUZU !== "undefined" ? SECMELI_HAVUZU : null);
+        const d = {};
+        if (H) {
+            Object.keys(H).forEach((tur) => {
+                d[tur] = {};
+                const siniflar = H[tur] || {};
+                Object.keys(siniflar).forEach((sinif) => {
+                    (siniflar[sinif] || []).forEach((k) => {
+                        const ad = this.sadelestir(k && k.ders);
+                        if (ad && k.grup && !d[tur][ad]) d[tur][ad] = k.grup;
+                    });
+                });
+            });
+        }
+        this._havuzDizini = d;
+        return d;
+    },
+
+    /** Okul türü + ders adı için resmî çizelgedeki grup. Yoksa "". */
+    havuzdanGrup(okulTuru, dersAdi) {
+        const d = this._havuzDizini || this._dizinKur();
+        const t = d[String(okulTuru || "")];
+        if (!t) return "";
+        return t[this.sadelestir(dersAdi)] || "";
+    },
+
+    /** Tema kimliği: önce havuz, sonra kayıtlı değer. */
+    temaCozOncelikli(okulTuru, dersAdi, kayitliGrup) {
+        const h = this.havuzdanGrup(okulTuru, dersAdi);
+        return this.temaCoz(h || kayitliGrup);
+    },
+
     /* ---- HEDEF TEMELLİ DESTEK EĞİTİMİ ---------------------------------
        Ayrı bir kural: içerik listesi ve DERS BAŞINA 1-3 saat sınırı.
        Kaynak: TTKB Sayı 05 ve DÖGM İHL çizelgesi md. 34 (aynı ifade).
@@ -167749,7 +167795,9 @@ class MebReportsEngine {
                 const meslekMi = !!(c.isVocational || c.isElectiveVocational || c.isAtolye
                     || String(c.kategori || "").indexOf("MESLEK") >= 0);
 
-                const kovaId = meslekMi ? "MESLEK" : (K ? K.temaCoz(c.grup) : "BILINMIYOR");
+                // Tema ÖNCE havuzdan: sube kaydindaki `grup` eski kalabilir.
+                const kovaId = meslekMi ? "MESLEK"
+                    : (K ? K.temaCozOncelikli(okulTuru, cName, c.grup) : "BILINMIYOR");
                 const kova = stats[kovaId] || stats.BILINMIYOR;
                 kova.count += 1;
                 kova.hours += h;
@@ -172644,7 +172692,12 @@ class UIComponentManager {
         const _K = (typeof window !== 'undefined' && window.SECMELI_TEMA_KURALLARI)
             ? window.SECMELI_TEMA_KURALLARI
             : (typeof SECMELI_TEMA_KURALLARI !== 'undefined' ? SECMELI_TEMA_KURALLARI : null);
-        const _kanon = _K ? _K.temaCoz(item.grup) : "BILINMIYOR";
+        // Tema ÖNCE havuzdan okunur: sube kaydindaki `grup` eski olabilir.
+        const _tur = (this.state && this.state.state && this.state.state.okulBilgisi)
+            ? (this.state.state.okulBilgisi.okulTuru || "") : "";
+        const _kanon = _K
+            ? _K.temaCozOncelikli(_tur, item.ders || item.ders_adi, item.grup)
+            : "BILINMIYOR";
         if (_kanon === "DEGER") {
             return {
                 id: "DEGER", subId: "DEGER", title: "Din, Ahlak ve Değer",
@@ -172657,6 +172710,22 @@ class UIComponentManager {
                 id: "SANAT", subId: "SANAT", title: "Kültür, Sanat ve Spor",
                 badge: "🎨 Kültür, Sanat ve Spor", badgeClass: "theme-badge-sanat",
                 color: "#b45309", icon: "🎨"
+            };
+        }
+        if (_kanon === "AKADEMIK") {
+            // Akademik Çalışmalar üç TEMADAN BİRİ DEĞİL; ayrı grup. Rozeti
+            // "İnsan, Toplum ve Bilim" göstermek, raporla çelişki üretiyordu.
+            return {
+                id: "AKADEMIK", subId: "AKADEMIK", title: "Akademik Çalışmalar",
+                badge: "📚 Akademik Çalışmalar", badgeClass: "theme-badge-akademik",
+                color: "#475569", icon: "📚"
+            };
+        }
+        if (_kanon === "PROGRAM" || _kanon === "OKUL_OZEL") {
+            return {
+                id: "PROGRAM", subId: "PROGRAM", title: "Program/Proje Dersi",
+                badge: "🧩 Program/Proje Dersi", badgeClass: "theme-badge-program",
+                color: "#be185d", icon: "🧩"
             };
         }
         // _kanon === "BILIM" ise aşağı düşer: alt başlık ayrımı orada yapılır.

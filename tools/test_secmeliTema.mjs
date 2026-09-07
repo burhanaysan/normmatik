@@ -220,8 +220,12 @@ const ilk = (r) => r.themeSections[0];
         r6.stats.BILIM.count === 0 && r6.stats.BILINMIYOR.count === 1);
 
     // Akademik Çalışmalar tema sayılmamalı
+    // "Seçmeli Matematik" resmî çizelgede gerçekten AKADEMİK ÇALIŞMALAR'da.
+    // (Önce "Matematik Uygulamaları" yazılmıştı; o ders çizelgede
+    //  "İnsan, Toplum ve Bilim" grubunda ve düzeltme sonrası havuzdan öyle
+    //  çözülüyor — test bunu doğru şekilde yakaladı.)
     const r7 = ilk(rapor("anadolu_lisesi", 9, [
-        ders("Matematik Uygulamaları", "AKADEMİK ÇALIŞMALAR"),
+        ders("Seçmeli Matematik", "AKADEMİK ÇALIŞMALAR"),
         ders("Temel Dinî Bilgiler", "DİN, AHLAK VE DEĞER"),
         ders("Spor Eğitimi", "KÜLTÜR, SANAT VE SPOR")
     ]));
@@ -271,9 +275,9 @@ const ilk = (r) => r.themeSections[0];
    İkisinin de resmî grubu farklıydı. Tema kimliği artık tek kaynaktan gelir. */
 {
     const UIsrc = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
-    denetle("seçici, temayı resmî gruptan çözüyor",
-        /_kanon\s*=\s*_K\s*\?\s*_K\.temaCoz\(item\.grup\)/.test(UIsrc),
-        "getElectiveThemeInfo tek kaynağa bağlı olmalı");
+    denetle("seçici, temayı resmî HAVUZDAN çözüyor",
+        /_K\.temaCozOncelikli\(_tur,\s*item\.ders/.test(UIsrc),
+        "getElectiveThemeInfo havuzu esas almalı; şubede kayıtlı grup yalnızca yedek");
     denetle("resmî grup BİLİM ise ders adı taraması onu EZEMİYOR",
         /if \(!_bilimKesin && \(norm\.includes\("din"\)/.test(UIsrc)
         && /if \(!_bilimKesin && \(norm\.includes\("sanat"\)/.test(UIsrc),
@@ -291,6 +295,56 @@ const ilk = (r) => r.themeSections[0];
         /saglananSayi\}\/\$\{sec\.uyum\.kapsamSayi\} grup/.test(UIsrc2));
     denetle("uygun satırdaki eksik grup UYARI olarak sunulmuyor",
         /bu seviyede şart değil/.test(UIsrc2));
+}
+
+/* ====== 8) HAVUZ TEK YETKİLİ KAYNAK ==================================== */
+/* Müşteri bildirimi (07.09.2026): kaynak çizelgedeki grup hataları
+   düzeltildiği hâlde ekranda hâlâ eski tema görünüyordu.
+
+   Sebebi: ders şubeye eklenirken `grup` alanı O ANDAKİ havuz değeriyle
+   KOPYALANIYOR, sonra hep o kopya kullanılıyordu. Yani veri düzeltmesi
+   zaten eklenmiş dersleri düzeltmiyordu — müşterinin kaydında eski grup
+   duruyordu.
+
+   Kural: tema ÖNCE havuzdan okunur, kayıtlı `grup` yalnızca yedektir.
+   Böylece hiçbir müşteri verisine dokunmadan geçmiş kayıtlar da düzelir. */
+{
+    // Bu üç ders, resmî çizelgede "Kültür, Sanat ve Spor" grubunda; eski
+    // ayrıştırıcı hepsini "Din, Ahlak ve Değer" yazmıştı.
+    const ESKI = "DİN, AHLAK VE DEĞER";
+    denetle("kayıtlı ESKİ grup, havuzdaki doğru grup tarafından eziliyor",
+        K.temaCozOncelikli("anadolu_lisesi", "Adabımuaşeret", ESKI) === "SANAT"
+        && K.temaCozOncelikli("anadolu_lisesi", "Türk Sosyal Hayatında Aile", ESKI) === "SANAT"
+        && K.temaCozOncelikli("anadolu_lisesi", "İslam Bilim Tarihi", ESKI) === "SANAT",
+        "müşterinin bildirdiği üç ders");
+
+    denetle("etiketin üstünde kalan dersler de düzeldi",
+        K.temaCozOncelikli("anadolu_lisesi", "Demokrasi ve İnsan Hakları", ESKI) === "BILIM"
+        && K.temaCozOncelikli("anadolu_lisesi", "Düşünme Eğitimi", ESKI) === "BILIM"
+        && K.temaCozOncelikli("anadolu_lisesi", "Astronomi ve Uzay Bilimleri", "AKADEMİK ÇALIŞMALAR") === "BILIM");
+
+    denetle("doğru olan kayıt bozulmuyor",
+        K.temaCozOncelikli("anadolu_lisesi", "Kur'an-ı Kerim", ESKI) === "DEGER");
+
+    denetle("havuzda olmayan derste kayıtlı değer YEDEK olarak kullanılıyor",
+        K.temaCozOncelikli("anadolu_lisesi", "Böyle Bir Ders Yok", "KÜLTÜR, SANAT VE SPOR") === "SANAT");
+
+    denetle("çizelgede düzeltilen gruplar havuza yansımış",
+        K.havuzdanGrup("anadolu_lisesi", "Adabımuaşeret") === "KÜLTÜR, SANAT VE SPOR"
+        && K.havuzdanGrup("fen_lisesi", "Düşünme Eğitimi") === "İNSAN, TOPLUM VE BİLİM",
+        "kaynak JSON PDF'in tablo çizgilerinden yeniden yazıldı");
+
+    // Sayı 05 kapsamındaki turlerde artik YARIM grup adi kalmamali.
+    const havuz2 = fs.readFileSync(path.join(KOK, "js", "secmeli_havuzu.js"), "utf8");
+    const YARIM = ["VE BİLİM", "İNSAN, TOPLUM", "İNSAN, TOPLUM VE", "KÜLTÜR, SANAT", "VE SPOR"];
+    const sayi05 = ["anadolu_lisesi", "hazirlik_anadolu_lisesi", "fen_lisesi",
+                    "hazirlik_fen_lisesi", "sosyal_bilimler_lisesi"];
+    const bozuk = [];
+    for (const t of sayi05) {
+        const blok = (havuz2.split('"' + t + '": {')[1] || "").split("\n    },")[0];
+        for (const y of YARIM) if (blok.indexOf('grup: "' + y + '"') >= 0) bozuk.push(t + " -> " + y);
+    }
+    denetle("Sayı 05 türlerinde yarım grup adı kalmadı", bozuk.length === 0, bozuk.join(" | "));
 }
 
 /* ---- sonuç ------------------------------------------------------------ */

@@ -3093,6 +3093,21 @@ body {
 }
 
 /* Tema Kart Etiketleri */
+/* Akademik Çalışmalar üç temadan biri DEĞİL: nötr gri, temalarla
+   karışmasın. (07.09.2026 — rozet önce yanlışlıkla "İnsan, Toplum ve
+   Bilim" gösteriyordu.) */
+.theme-badge-akademik {
+    background: rgba(71, 85, 105, 0.12) !important;
+    color: #475569 !important;
+    border: 1px solid rgba(71, 85, 105, 0.3) !important;
+}
+
+.theme-badge-program {
+    background: rgba(190, 24, 93, 0.12) !important;
+    color: #be185d !important;
+    border: 1px solid rgba(190, 24, 93, 0.3) !important;
+}
+
 .theme-badge-bilim {
     background: rgba(8, 145, 178, 0.12) !important;
     color: #0891b2 !important;

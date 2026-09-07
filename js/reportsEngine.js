@@ -581,7 +581,9 @@ class MebReportsEngine {
                 const meslekMi = !!(c.isVocational || c.isElectiveVocational || c.isAtolye
                     || String(c.kategori || "").indexOf("MESLEK") >= 0);
 
-                const kovaId = meslekMi ? "MESLEK" : (K ? K.temaCoz(c.grup) : "BILINMIYOR");
+                // Tema ÖNCE havuzdan: sube kaydindaki `grup` eski kalabilir.
+                const kovaId = meslekMi ? "MESLEK"
+                    : (K ? K.temaCozOncelikli(okulTuru, cName, c.grup) : "BILINMIYOR");
                 const kova = stats[kovaId] || stats.BILINMIYOR;
                 kova.count += 1;
                 kova.hours += h;

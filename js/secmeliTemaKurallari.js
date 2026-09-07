@@ -202,6 +202,52 @@ const SECMELI_TEMA_KURALLARI = {
 
     turNotu(okulTuru) { return this.TUR_NOTLARI[String(okulTuru || "")] || ""; },
 
+    /* ---- HAVUZ: TEK YETKİLİ GRUP KAYNAĞI -------------------------------
+       Ders şubeye eklenirken `grup` alanı kopyalanıyor. Kaynak çizelgede bir
+       düzeltme yapılırsa o kopya ESKİ kalır ve ekranda yanlış tema görünür
+       (müşteri bildirdi, 07.09.2026: Adabımuaşeret ile Türk Sosyal Hayatında
+       Aile, çizelge düzeltildiği hâlde "Din, Ahlak ve Değer" görünüyordu).
+
+       Bu yüzden tema, önce HAVUZDAN okunur; kayıtlı değer yalnızca havuzda
+       bulunamayan dersler için yedektir. Müşteri verisine dokunmadan,
+       geçmişte eklenmiş dersler de kendiliğinden düzelir.                  */
+    _havuzDizini: null,
+
+    _dizinKur() {
+        const H = (typeof window !== "undefined" && window.SECMELI_HAVUZU)
+            ? window.SECMELI_HAVUZU
+            : (typeof SECMELI_HAVUZU !== "undefined" ? SECMELI_HAVUZU : null);
+        const d = {};
+        if (H) {
+            Object.keys(H).forEach((tur) => {
+                d[tur] = {};
+                const siniflar = H[tur] || {};
+                Object.keys(siniflar).forEach((sinif) => {
+                    (siniflar[sinif] || []).forEach((k) => {
+                        const ad = this.sadelestir(k && k.ders);
+                        if (ad && k.grup && !d[tur][ad]) d[tur][ad] = k.grup;
+                    });
+                });
+            });
+        }
+        this._havuzDizini = d;
+        return d;
+    },
+
+    /** Okul türü + ders adı için resmî çizelgedeki grup. Yoksa "". */
+    havuzdanGrup(okulTuru, dersAdi) {
+        const d = this._havuzDizini || this._dizinKur();
+        const t = d[String(okulTuru || "")];
+        if (!t) return "";
+        return t[this.sadelestir(dersAdi)] || "";
+    },
+
+    /** Tema kimliği: önce havuz, sonra kayıtlı değer. */
+    temaCozOncelikli(okulTuru, dersAdi, kayitliGrup) {
+        const h = this.havuzdanGrup(okulTuru, dersAdi);
+        return this.temaCoz(h || kayitliGrup);
+    },
+
     /* ---- HEDEF TEMELLİ DESTEK EĞİTİMİ ---------------------------------
        Ayrı bir kural: içerik listesi ve DERS BAŞINA 1-3 saat sınırı.
        Kaynak: TTKB Sayı 05 ve DÖGM İHL çizelgesi md. 34 (aynı ifade).

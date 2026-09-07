@@ -1247,7 +1247,12 @@ export class UIComponentManager {
         const _K = (typeof window !== 'undefined' && window.SECMELI_TEMA_KURALLARI)
             ? window.SECMELI_TEMA_KURALLARI
             : (typeof SECMELI_TEMA_KURALLARI !== 'undefined' ? SECMELI_TEMA_KURALLARI : null);
-        const _kanon = _K ? _K.temaCoz(item.grup) : "BILINMIYOR";
+        // Tema ÖNCE havuzdan okunur: sube kaydindaki `grup` eski olabilir.
+        const _tur = (this.state && this.state.state && this.state.state.okulBilgisi)
+            ? (this.state.state.okulBilgisi.okulTuru || "") : "";
+        const _kanon = _K
+            ? _K.temaCozOncelikli(_tur, item.ders || item.ders_adi, item.grup)
+            : "BILINMIYOR";
         if (_kanon === "DEGER") {
             return {
                 id: "DEGER", subId: "DEGER", title: "Din, Ahlak ve Değer",
@@ -1260,6 +1265,22 @@ export class UIComponentManager {
                 id: "SANAT", subId: "SANAT", title: "Kültür, Sanat ve Spor",
                 badge: "🎨 Kültür, Sanat ve Spor", badgeClass: "theme-badge-sanat",
                 color: "#b45309", icon: "🎨"
+            };
+        }
+        if (_kanon === "AKADEMIK") {
+            // Akademik Çalışmalar üç TEMADAN BİRİ DEĞİL; ayrı grup. Rozeti
+            // "İnsan, Toplum ve Bilim" göstermek, raporla çelişki üretiyordu.
+            return {
+                id: "AKADEMIK", subId: "AKADEMIK", title: "Akademik Çalışmalar",
+                badge: "📚 Akademik Çalışmalar", badgeClass: "theme-badge-akademik",
+                color: "#475569", icon: "📚"
+            };
+        }
+        if (_kanon === "PROGRAM" || _kanon === "OKUL_OZEL") {
+            return {
+                id: "PROGRAM", subId: "PROGRAM", title: "Program/Proje Dersi",
+                badge: "🧩 Program/Proje Dersi", badgeClass: "theme-badge-program",
+                color: "#be185d", icon: "🧩"
             };
         }
         // _kanon === "BILIM" ise aşağı düşer: alt başlık ayrımı orada yapılır.
