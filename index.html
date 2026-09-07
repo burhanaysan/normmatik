@@ -102,7 +102,7 @@
     ]
 }
     </script>
-    <link rel="stylesheet" href="css/landing.css?v=20260908_0023">
+    <link rel="stylesheet" href="css/landing.css?v=20260908_0108">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -120,10 +120,12 @@
             <li><a href="#kademeler">Kademeler</a></li>
             <li><a href="#galeri">Ekranlar</a></li>
             <li><a href="#excel">Excel</a></li>
-            <li><a href="ders-yuku-hesaplama.html">Ders yükü hesaplama</a></li>
+            <li><a href="#rehberler">Rehberler</a></li>
             <li><a href="#sorular">Sorular</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
         </ul>
 
+        <a class="dugme dugme-ikincil" href="#iletisim">Lisans Al</a>
         <button class="dugme dugme-birincil" id="btn-trigger-login">Kurum Girişi</button>
     </div>
 </header>
@@ -322,7 +324,9 @@
                 Çoğu okul norm hesabını Excel'de tutuyor. Excel iyi bir araçtır; zorlanılan yer
                 hesabın kendisi değil, çizelgeyi ve mevzuatı güncel tutmaktır.
                 Hesabın adımlarını ve mevzuat kalemlerini
-                <a href="ders-yuku-hesaplama.html">ders yükü hesaplama rehberinde</a> anlattık.
+                <a href="ders-yuku-hesaplama.html">ders yükü hesaplama rehberinde</a>,
+                normların tamamını ve ölçütlerini
+                <a href="norm-kadro-hesaplama.html">norm kadro hesaplama rehberinde</a> anlattık.
             </p>
         </div>
 
@@ -486,6 +490,75 @@
     </div>
 </section>
 
+<!-- REHBERLER
+     Uc icerik sayfasi ust menude ayri ayri duruyordu; menu 9 ogeye cikip
+     satir atliyordu. Tek baslikta toplandi. Bu bolum ayni zamanda o
+     sayfalara ana sayfadan aciklayici metinli ic baglanti verir. -->
+<section class="bolum bolum-gri" id="rehberler">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Rehberler</h2>
+            <p>Hesabı kendiniz yapmak isterseniz, mevzuata dayalı adım adım anlatımlar.</p>
+        </div>
+
+        <div class="izgara">
+            <div class="kutu">
+                <h3><a href="ders-yuku-hesaplama.html">Ders yükü hesaplama</a></h3>
+                <p>Şubeden branş toplamına kadar yöntem, yükü değiştiren dört kalem
+                   ve sayısal bir örnek.</p>
+            </div>
+
+            <div class="kutu">
+                <h3><a href="norm-kadro-hesaplama.html">Norm kadro hesaplama</a></h3>
+                <p>Müdür, müdür yardımcısı, öğretmen ve rehber öğretmen normları;
+                   normun ne zaman belirlendiği ve ne zaman değiştiği.</p>
+            </div>
+
+            <div class="kutu">
+                <h3><a href="meslek-lisesi-norm-kadro.html">Meslek lisesi norm kadro</a></h3>
+                <p>Atölye normu, şubenin gruplara bölünmesi, işletmelerde meslek
+                   eğitimi ve MESEM çırak gruplandırması.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- İLETİŞİM / LİSANS
+     08.09.2026'da eklendi. Oncesinde siteye ulasmanin TEK yolu, giris
+     kutusunun icine gomulu "Sifremi unuttum" baglantisiydi; lisans almak
+     isteyen birinin izleyebilecegi hicbir yol yoktu. -->
+<section class="bolum" id="iletisim">
+    <div class="kap">
+        <div class="bolum-basi">
+            <h2>Lisans almak veya soru sormak için</h2>
+            <p>
+                WhatsApp'tan yazın, aynı gün dönüş yapıyoruz. Okulunuzun durumuna göre
+                neyin nasıl çalışacağını konuşalım.
+            </p>
+        </div>
+
+        <div class="yazi-dar">
+            <a class="dugme dugme-birincil dugme-buyuk"
+               href="https://wa.me/905062777049?text=Merhaba,%20NormMatik%20lisans%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%0AOkul%3A%20%0AKurum%20kodu%3A%20%0A%C4%B0l%2F%C4%B0l%C3%A7e%3A%20"
+               target="_blank" rel="noopener">WhatsApp ile yazın</a>
+
+            <p class="iletisim-not">
+                Mesajınızda şunları yazarsanız işi tek seferde bitiririz:
+            </p>
+            <ul class="iletisim-liste">
+                <li>Okulun adı</li>
+                <li>Kurum kodu</li>
+                <li>İl / ilçe</li>
+            </ul>
+            <p class="iletisim-not">
+                Henüz denemediyseniz önce
+                <a href="#" id="link-iletisim-demo">demo okulu açın</a>;
+                ne yaptığını gördükten sonra konuşmak ikimizin de işini kolaylaştırır.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- GİRİŞ KUTUSU -->
 <div class="auth-modal-overlay" id="auth-modal">
     <div class="auth-modal-box">
@@ -529,6 +602,7 @@
 
 <!-- ALT BİLGİ -->
 <footer class="landing-footer">
+    <p><a href="https://wa.me/905062777049?text=Merhaba,%20NormMatik%20lisans%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%0AOkul%3A%20%0AKurum%20kodu%3A%20%0A%C4%B0l%2F%C4%B0l%C3%A7e%3A%20" target="_blank" rel="noopener">Lisans ve destek için WhatsApp</a></p>
     <p>© 2026 NormMatik™ — Norm kadro ve ders yükü hesaplama yazılımı.</p>
     <p>
         Bağımsız eğitim teknolojisi yazılımı · 5846 sayılı FSEK kapsamında korunmaktadır.<br>
@@ -547,7 +621,8 @@
         const demoBtns = [
             document.getElementById('btn-open-demo-school'),
             document.getElementById('btn-hero-demo'),
-            document.getElementById('link-demo-school')
+            document.getElementById('link-demo-school'),
+            document.getElementById('link-iletisim-demo')
         ];
 
         triggerBtns.forEach(btn => btn?.addEventListener('click', () => {

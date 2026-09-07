@@ -120,7 +120,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 .ust-menu { display: none; gap: 1.4rem; list-style: none; }
 
+/* Telefonda üst çubukta artık İKİ düğme var (Lisans Al + Kurum Girişi).
+   Varsayılan düğme ölçüsüyle 375px'te çubuk 393px'e taşıyordu; dar ekranda
+   ölçü küçültülür, 640px'ten itibaren normale döner. */
+.ust .dugme { padding: .5rem .7rem; font-size: .84rem; }
+
 .ust-menu a {
+    white-space: nowrap;      /* menu ogeleri satir atlamasin */
     color: var(--metin-soluk);
     text-decoration: none;
     font-size: .9rem;
@@ -129,6 +135,44 @@ img { max-width: 100%; height: auto; display: block; }
     border-bottom: 2px solid transparent;
 }
 .ust-menu a:hover { color: var(--mavi); border-bottom-color: var(--mavi); }
+
+/* ------------------------------------------------------------------ İLETİŞİM
+   08.09.2026: sayfada iletişim bölümü YOKTU. Ulaşmanın tek yolu giriş
+   kutusunun içindeki "Şifremi unuttum" bağlantısıydı; lisans almak isteyen
+   biri hiçbir şey bulamıyordu. Bu blok o boşluğu kapatır. */
+.yazi-dar {
+    max-width: 460px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.iletisim-not {
+    color: var(--metin-soluk);
+    font-size: .9rem;
+    margin-top: 1.2rem;
+}
+
+.iletisim-liste {
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .4rem .5rem;
+    margin: .6rem 0 0;
+    padding: 0;
+}
+
+.iletisim-liste li {
+    background: var(--zemin);
+    border: 1px solid var(--cizgi);
+    border-radius: 999px;
+    padding: .3rem .75rem;
+    font-size: .85rem;
+    color: var(--metin);
+}
+
+.landing-footer a { color: var(--mavi); text-decoration: none; }
+.landing-footer a:hover { text-decoration: underline; }
 
 /* ------------------------------------------------------------------ DÜĞMELER */
 .dugme {
@@ -307,6 +351,9 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 1.2rem;
 }
 .bolum-gri .kutu { background: var(--beyaz); }
+
+.kutu h3 a { color: var(--mavi); text-decoration: none; }
+.kutu h3 a:hover { text-decoration: underline; }
 
 .kutu h3 {
     font-size: 1rem;
@@ -556,6 +603,8 @@ img { max-width: 100%; height: auto; display: block; }
    ========================================================================== */
 
 @media (min-width: 640px) {
+    .ust .dugme { padding: .62rem 1.05rem; font-size: inherit; }
+
     .giris-dugmeler,
     .kapanis-dugmeler { flex-direction: row; justify-content: center; }
 

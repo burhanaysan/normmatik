@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meslek Lisesi Norm Kadro Hesaplama: Atölye, Grup ve MESEM</title>
+    <meta name="description" content="Meslek lisesinde norm kadro nasıl hesaplanır? Atölye normu (Md. 19), şubenin gruplara bölünmesi (Md. 22/1-ç), işletmelerde meslek eğitimi ve MESEM çırak gruplandırması; gerçek çizelge saatleriyle sayısal örnek.">
+    <link rel="canonical" href="https://www.normmatik.com.tr/meslek-lisesi-norm-kadro.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NormMatik">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:url" content="https://www.normmatik.com.tr/meslek-lisesi-norm-kadro.html">
+    <meta property="og:title" content="Meslek Lisesi Norm Kadro Hesaplama: Atölye, Grup ve MESEM">
+    <meta property="og:description" content="Atölye normu, şubenin gruplara bölünmesi, işletmelerde meslek eğitimi ve MESEM; gerçek çizelge saatleriyle sayısal örnek.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Meslek Lisesi Norm Kadro Hesaplama: Atölye, Grup ve MESEM">
+    <meta name="twitter:description" content="Atölye normu, şubenin gruplara bölünmesi, işletmelerde meslek eğitimi ve MESEM; gerçek çizelge saatleriyle sayısal örnek.">
+
+    <!-- YAPISAL VERI
+         SSS semasindaki metin, asagidaki <details> bloklariyla BIREBIR aynidir.
+         Gorunmeyen icerigi semaya koymak Google tarafindan ihlal sayilir. -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "NormMatik", "item": "https://www.normmatik.com.tr/" },
+        { "@type": "ListItem", "position": 2, "name": "Meslek lisesi norm kadro", "item": "https://www.normmatik.com.tr/meslek-lisesi-norm-kadro.html" }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Bir şube en fazla kaç gruba bölünebilir?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Bir şubede 4'ten fazla grup oluşturulamaz. Kaynaştırma/bütünleştirme yoluyla eğitimine devam eden öğrenciler gruplara eşit dağıtılmak kaydıyla, bu durumda bulunan en az 2 öğrencinin bulunduğu gruplar ikiye bölünür; ancak grup sayısı hiçbir şekilde 5'i geçemez."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "İşletmelerde meslek eğitimi dersi norm hesabına girer mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. Madde 19'a göre atölye ve laboratuvar öğretmeni normu belirlenirken işletmelerde meslek eğitimi dersi de toplam ders yüküne dâhil edilir. 12. sınıfta bu ders tek başına haftada 24 saate kadar çıkabildiği için normu belirgin biçimde etkiler."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "MESEM'de şubeler gruplara bölünür mü?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. Meslekî eğitim merkezi programında alan/dal derslerine ilişkin ders yükü hesaplanırken şubeler gruplara bölünmez. Ayrıca bir şubedeki öğrenci sayısı grup oluşturma sayısının altındaysa, işletmelerde meslek eğitimi dersi dışındaki alan/dal dersleri ders yükü hesabına dâhil edilmez."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Meslek lisesine ek müdür yardımcısı normu hangi durumlarda verilir?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Döner sermaye işletmesi bulunmak, tam gün tam yıl eğitim uygulaması yapmak, 3308 sayılı Kanun kapsamında işletmelerde meslekî eğitime en az 100 öğrenci göndermek ve aynı Kanunun 25. maddesi kapsamında sigorta işlemi yapılan en az 500 öğrencisi olmak, her biri için ayrı ayrı 1 ilave müdür yardımcısı normu doğurur. Yatılı veya pansiyonlu olmak da ayrı bir sebeptir."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Atölye şefinin bakım onarım saatleri ders yüküne yazılır mı?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. Alan/bölüm, atölye ve laboratuvar şeflerinin; atölyelerdeki makine ve teçhizatın bakımı, onarımı ve öğretime hazır hâlde bulundurulması kapsamında yaptıkları göreve ilişkin ders saatleri de alanın ders yükü hesabında dikkate alınır."
+            }
+        }
+    ]
+}
+    </script>
+
+    <link rel="stylesheet" href="css/landing.css?v=20260908_0108">
+    <style>
+        /* Icerik sayfalari icin ortak yazi stili (ders-yuku ve norm-kadro
+           sayfalariyla ayni). landing.css'e dokunulmadi. */
+        .yazi { max-width: 720px; margin: 0 auto; font-size: 1rem; }
+        .yazi p { color: var(--metin); font-size: 1rem; line-height: 1.75; margin-bottom: 1rem; }
+        .yazi h2 { font-size: 1.45rem; font-weight: 800; letter-spacing: -.015em; margin: 2.4rem 0 .7rem; }
+        .yazi h3 { font-size: 1.12rem; font-weight: 700; margin: 1.5rem 0 .4rem; }
+        .yazi ul, .yazi ol { margin: 0 0 1rem 1.1rem; }
+        .yazi li { color: var(--metin); font-size: 1rem; line-height: 1.7; margin-bottom: .4rem; }
+        .yazi strong { font-weight: 700; }
+
+        .kunye { color: var(--metin-soluk); font-size: .85rem; margin-bottom: 1.6rem; }
+        .kunye a { color: var(--mavi); }
+
+        .alinti {
+            border-left: 3px solid var(--mavi);
+            background: var(--mavi-soluk);
+            padding: .85rem 1rem;
+            margin: 0 0 1.2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .alinti p { margin: 0; font-size: .93rem; }
+        .alinti cite { display: block; margin-top: .45rem; font-size: .8rem; color: var(--metin-soluk); font-style: normal; }
+
+        .tablo-sar { overflow-x: auto; margin-bottom: 1.2rem; }
+        .yazi table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+        .yazi th, .yazi td { border: 1px solid var(--cizgi); padding: .5rem .65rem; text-align: left; }
+        .yazi th { background: var(--zemin); font-weight: 700; }
+        .yazi td.sayi, .yazi th.sayi { text-align: right; font-variant-numeric: tabular-nums; }
+        .yazi tfoot td { font-weight: 700; background: var(--zemin); }
+
+        /* Yanlis hesap ile dogru hesabi yan yana koyan kutu. */
+        .karsilastir { display: grid; grid-template-columns: 1fr; gap: .8rem; margin-bottom: 1.2rem; }
+        @media (min-width: 640px) { .karsilastir { grid-template-columns: repeat(3, 1fr); } }
+        .kart-h { border: 1px solid var(--cizgi); border-radius: 10px; padding: .8rem .9rem; background: var(--kart); }
+        .kart-h b { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; color: var(--metin-soluk); margin-bottom: .35rem; }
+        .kart-h .buyuk { font-size: 1.6rem; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+        .kart-h span { display: block; font-size: .84rem; color: var(--metin-soluk); margin-top: .3rem; }
+        .kart-dogru { border-color: var(--yesil); }
+        .kart-dogru .buyuk { color: var(--yesil); }
+
+        .kapanis { border: 1px solid var(--cizgi); border-radius: 12px; padding: 1.1rem 1.2rem; background: var(--kart); }
+        .kapanis p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<!-- ÜST ÇUBUK -->
+<header class="ust">
+    <div class="ust-ic">
+        <a href="index.html" class="marka">
+            <span class="marka-im">N</span>
+            <span>NormMatik</span>
+        </a>
+
+        <ul class="ust-menu">
+            <li><a href="index.html#nedir">Ne işe yarar</a></li>
+            <li><a href="ders-yuku-hesaplama.html">Ders yükü hesaplama</a></li>
+            <li><a href="norm-kadro-hesaplama.html">Norm kadro hesaplama</a></li>
+            <li><a href="index.html#sorular">Sorular</a></li>
+        </ul>
+
+        <a class="dugme dugme-birincil" href="index.html">Ana sayfa</a>
+    </div>
+</header>
+
+<section class="bolum">
+    <div class="kap">
+        <article class="yazi">
+
+            <p class="kunye"><a href="index.html">NormMatik</a> › Meslek lisesi norm kadro</p>
+
+            <h1>Meslek lisesinde norm kadro nasıl hesaplanır?</h1>
+
+            <p>
+                Meslek lisesinin norm hesabı, genel liseninkinden yalnızca daha uzun değil,
+                <strong>yapısal olarak farklıdır</strong>. Üç ayrı sebepten:
+            </p>
+            <ul>
+                <li>Okulda <strong>iki ayrı norm formülü</strong> aynı anda işler: genel bilgi ve
+                    meslek dersleri Madde 18'e, atölye ve laboratuvar dersleri Madde 19'a tabidir.</li>
+                <li>Alan/dal derslerinde <strong>şube gruplara bölünür</strong> ve ders yükü grup
+                    sayısıyla çarpılır (Md. 22/1-ç).</li>
+                <li><strong>İşletmelerde meslek eğitimi</strong> dersi de atölye yüküne dâhildir ve
+                    tek başına haftada 24 saate kadar çıkabilir.</li>
+            </ul>
+            <p>
+                Bu üçü birlikte, aynı okulda aynı alan için üç farklı sonuç üretebilir. Aşağıda
+                gerçek bir çizelgenin saatleriyle bunu göstereceğiz. Normların genel çerçevesi için
+                <a href="norm-kadro-hesaplama.html">norm kadro hesaplama sayfasına</a>, ders yükünün
+                nasıl toplandığı için
+                <a href="ders-yuku-hesaplama.html">ders yükü hesaplama sayfasına</a> bakabilirsiniz.
+            </p>
+
+            <h2>İki ayrı yük, iki ayrı formül</h2>
+            <p>
+                Meslek lisesinde bir öğretmenin yükü hangi kategoriye giriyorsa o maddeye tabidir.
+                İki formülün kademeleri birbirine hiç benzemez:
+            </p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Madde 18 — genel bilgi ve meslek dersleri</th><th>Madde 19 — atölye ve laboratuvar</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>6-31 saate kadar 1</td><td>15-41'e kadar 1</td></tr>
+                        <tr><td>31-42 saate kadar 2</td><td>41-81'e kadar 2</td></tr>
+                        <tr><td>42'den fazlası: her 21 saat için 1</td><td>81-121'e kadar 3</td></tr>
+                        <tr><td>artan ≥ 15 saat ise +1</td><td>121-161'e kadar 4</td></tr>
+                        <tr><td></td><td>161-201'e kadar 5</td></tr>
+                        <tr><td></td><td>201'den fazlası: her 40 saat için 1, artan ≥ 20 saat ise +1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Atölye yükünü yanlışlıkla Madde 18 ile hesaplamak normu şişirir ve fark yük
+                büyüdükçe açılır: 200 saatlik bir atölye yükü Madde 19'a göre <strong>5</strong>,
+                Madde 18'e göre <strong>9</strong> norm verir.
+            </p>
+
+            <h2>Şubenin gruplara bölünmesi (Md. 22/1-ç)</h2>
+            <div class="alinti">
+                <p>"Meslekî ve teknik örgün ve yaygın eğitim kurumlarında alan/dal derslerine ilişkin
+                   ders yükü, haftalık ders çizelgesine göre her bir sınıfta okutulan ders miktarının
+                   grup sayısı ile çarpımı sonucunda bulunur."</p>
+                <cite>Norm Kadro Yönetmeliği, Madde 22, 1. fıkra (ç) bendi</cite>
+            </div>
+            <p>
+                Bölünme şartı var: dersler <strong>ayrı fizikî ortam, atölye ve laboratuvarlarda
+                veya farklı makine, araç ve gereçle grup çalışması şeklinde</strong> yapılıyorsa şube
+                gruplara ayrılır. Grup sayısı öğrenci sayısına <em>ve sınıf seviyesine</em> göre
+                değişir — bu ikinci nokta en çok atlanan yerdir:
+            </p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Öğrenci sayısı</th><th class="sayi">9. sınıf</th><th class="sayi">10, 11, 12. sınıf</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>8-17 arası</td><td class="sayi">—</td><td class="sayi">1</td></tr>
+                        <tr><td>10-21 arası</td><td class="sayi">1</td><td class="sayi">—</td></tr>
+                        <tr><td>17-25 arası</td><td class="sayi">—</td><td class="sayi">2</td></tr>
+                        <tr><td>21-31 arası</td><td class="sayi">2</td><td class="sayi">—</td></tr>
+                        <tr><td>25-33 arası</td><td class="sayi">—</td><td class="sayi">3</td></tr>
+                        <tr><td>31 ve üzeri</td><td class="sayi">3</td><td class="sayi">—</td></tr>
+                        <tr><td>33 ve üzeri</td><td class="sayi">—</td><td class="sayi">4</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Tavan kuralları: bir şubede <strong>4'ten fazla grup oluşturulamaz</strong>.
+                Kaynaştırma/bütünleştirme yoluyla eğitimine devam eden öğrencilerin gruplara eşit
+                dağıtılması kaydıyla, bu durumda bulunan en az 2 öğrencinin olduğu gruplar ikiye
+                bölünür; ancak grup sayısı <strong>hiçbir şekilde 5'i geçemez</strong>.
+            </p>
+
+            <h2>İşletmelerde meslek eğitimi</h2>
+            <p>
+                Madde 19, atölye ve laboratuvar normunu belirlerken <strong>işletmelerde meslek
+                eğitimi dersini de toplam yüke dâhil eder</strong>. 12. sınıfta bu ders çoğu alanda
+                haftalık 24 saattir; yani tek bir 12. sınıf şubesi, atölye yüküne tek başına 24 saat
+                ekler. Hesaba katılmadığında normun bir basamak aşağı düşmesi olağandır.
+            </p>
+
+            <h2>Sayısal örnek</h2>
+            <p>
+                Bilişim Teknolojileri alanı, Yazılım Geliştirme dalı (Anadolu Meslek Programı).
+                Aşağıdaki meslek dersi saatleri resmî haftalık ders çizelgesinden alınmıştır:
+            </p>
+            <ul>
+                <li><strong>10. sınıf:</strong> Nesne Tabanlı Programlama 10 + Robotik ve Kodlama 3 = 13 saat</li>
+                <li><strong>11. sınıf:</strong> Web Tabanlı Uygulama Geliştirme 9 + Mobil Uygulamalar 4 + Grafik ve Canlandırma 4 = 17 saat</li>
+                <li><strong>12. sınıf:</strong> İşletmelerde Mesleki Eğitim 24 saat</li>
+            </ul>
+            <p>Okulda bu daldan üç şube var:</p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Şube</th><th class="sayi">Öğrenci</th><th class="sayi">Grup</th><th class="sayi">Ders saati</th><th class="sayi">Yük</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>10-A</td><td class="sayi">28</td><td class="sayi">3</td><td class="sayi">13</td><td class="sayi">39</td></tr>
+                        <tr><td>11-A</td><td class="sayi">20</td><td class="sayi">2</td><td class="sayi">17</td><td class="sayi">34</td></tr>
+                        <tr><td>12-A</td><td class="sayi">15</td><td class="sayi">1</td><td class="sayi">24</td><td class="sayi">24</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="4">Toplam atölye/laboratuvar yükü</td><td class="sayi">97</td></tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p>
+                97 saat, Madde 19'un "81-121'e kadar 3" kademesine denk gelir:
+                <strong>3 atölye ve laboratuvar öğretmeni normu</strong>.
+            </p>
+            <p>Aynı okulda iki yaygın hata ne yapardı:</p>
+            <div class="karsilastir">
+                <div class="kart-h kart-dogru">
+                    <b>Doğru hesap</b>
+                    <span class="buyuk">3</span>
+                    <span>97 saat, Md. 19</span>
+                </div>
+                <div class="kart-h">
+                    <b>Grup bölünmesi atlanırsa</b>
+                    <span class="buyuk">2</span>
+                    <span>13+17+24 = 54 saat, Md. 19</span>
+                </div>
+                <div class="kart-h">
+                    <b>Md. 18 kullanılırsa</b>
+                    <span class="buyuk">4</span>
+                    <span>97 saat, yanlış madde</span>
+                </div>
+            </div>
+            <p>
+                Tek bir alanda, tek bir daldaki üç şube için sonuç 2 ile 4 arasında oynuyor. Bir
+                meslek lisesinde sekiz-on alan olduğu düşünülürse, hatanın okul geneline etkisi
+                tek tek bakıldığında görünenden çok daha büyüktür.
+            </p>
+
+            <h2>Meslekî eğitim merkezi (MESEM)</h2>
+            <p>
+                MESEM'in kuralları meslek lisesininkinden ayrıdır ve iki nokta özellikle önemlidir:
+            </p>
+            <ul>
+                <li>
+                    <strong>Şubeler gruplara bölünmez.</strong> Ayrıca bir şubedeki öğrenci sayısı
+                    grup oluşturma sayısının altındaysa, işletmelerde meslek eğitimi dersi
+                    <em>dışındaki</em> alan/dal dersleri ders yükü hesabına hiç dâhil edilmez
+                    (Md. 22/2).
+                </li>
+                <li>
+                    <strong>İşletmelerde meslek eğitimi yükü çırak sayısına göre gruplandırılır.</strong>
+                    Meslek alanındaki tüm sınıf seviyelerinde kayıtlı toplam çırak sayısı esas alınır:
+                    10-41 çırağa kadar 1, 41-81'e kadar 2, 81-121'e kadar 3 ve bu şekilde her 40
+                    çırakta bir artarak 441 ve daha fazlası için 12'ye ulaşır. Ders yükü, çerçeve
+                    öğretim programındaki işletmelerde meslek eğitimi ders saati ile bu grup sayısının
+                    çarpımıdır.
+                </li>
+            </ul>
+            <p>
+                Alanın toplam ders yükü ise, işletmelerde meslek eğitimi yüküne o alanda okutulan
+                haftalık alan/dal ders saatleri eklenerek bulunur (Md. 22/3).
+            </p>
+
+            <h2>Meslek lisesine özgü yönetici normları</h2>
+            <p>
+                Madde 14, kurumun taşıdığı her özellik için <strong>ayrı ayrı</strong> 1 ilave müdür
+                yardımcısı normu verir. Meslek liselerini doğrudan ilgilendirenler:
+            </p>
+            <ul>
+                <li>Döner sermaye işletmesi bulunması</li>
+                <li>Tam gün tam yıl eğitim uygulaması yapılması</li>
+                <li>3308 sayılı Kanun kapsamında işletmelerde meslekî eğitime <strong>en az 100
+                    öğrenci</strong> gönderilmesi</li>
+                <li>Aynı Kanunun 25. maddesi kapsamında sigorta işlemi yapılan <strong>en az 500
+                    öğrencisi</strong> olması</li>
+                <li>Yatılı veya pansiyonlu olunması</li>
+            </ul>
+            <p>
+                Bunlar birikir; ancak müdür yardımcısı normu, öğrenci sayısı 1500'e kadar olan
+                kurumlarda 6'yı, 1500 ve daha fazla olanlarda 7'yi hiçbir şekilde geçemez.
+            </p>
+
+            <h3>Alan/bölüm, atölye ve laboratuvar şefi</h3>
+            <p>
+                Şef için <strong>ayrı norm verilmez</strong>; şef normu alanla ilgili öğretmen norm
+                kadrosunun içinde değerlendirilir (Md. 20). Buna karşılık şefin, atölyelerdeki makine
+                ve teçhizatın bakımı, onarımı ve öğretime hazır hâlde bulundurulması kapsamında
+                yaptığı göreve ilişkin <strong>ders saatleri alanın ders yükü hesabına dâhil edilir</strong>
+                (Md. 22/1-c). Yani şef için kadro eklenmez, ama saatleri yükte sayılır.
+            </p>
+
+            <h2>Sık sorulanlar</h2>
+            <div class="sss">
+                <details>
+                    <summary>Bir şube en fazla kaç gruba bölünebilir?</summary>
+                    <div class="cevap">
+                        Bir şubede 4'ten fazla grup oluşturulamaz. Kaynaştırma/bütünleştirme yoluyla
+                        eğitimine devam eden öğrenciler gruplara eşit dağıtılmak kaydıyla, bu
+                        durumda bulunan en az 2 öğrencinin bulunduğu gruplar ikiye bölünür; ancak
+                        grup sayısı hiçbir şekilde 5'i geçemez.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>İşletmelerde meslek eğitimi dersi norm hesabına girer mi?</summary>
+                    <div class="cevap">
+                        Evet. Madde 19'a göre atölye ve laboratuvar öğretmeni normu belirlenirken
+                        işletmelerde meslek eğitimi dersi de toplam ders yüküne dâhil edilir. 12.
+                        sınıfta bu ders tek başına haftada 24 saate kadar çıkabildiği için normu
+                        belirgin biçimde etkiler.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>MESEM'de şubeler gruplara bölünür mü?</summary>
+                    <div class="cevap">
+                        Hayır. Meslekî eğitim merkezi programında alan/dal derslerine ilişkin ders
+                        yükü hesaplanırken şubeler gruplara bölünmez. Ayrıca bir şubedeki öğrenci
+                        sayısı grup oluşturma sayısının altındaysa, işletmelerde meslek eğitimi
+                        dersi dışındaki alan/dal dersleri ders yükü hesabına dâhil edilmez.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Meslek lisesine ek müdür yardımcısı normu hangi durumlarda verilir?</summary>
+                    <div class="cevap">
+                        Döner sermaye işletmesi bulunmak, tam gün tam yıl eğitim uygulaması yapmak,
+                        3308 sayılı Kanun kapsamında işletmelerde meslekî eğitime en az 100 öğrenci
+                        göndermek ve aynı Kanunun 25. maddesi kapsamında sigorta işlemi yapılan en az
+                        500 öğrencisi olmak, her biri için ayrı ayrı 1 ilave müdür yardımcısı normu
+                        doğurur. Yatılı veya pansiyonlu olmak da ayrı bir sebeptir.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Atölye şefinin bakım onarım saatleri ders yüküne yazılır mı?</summary>
+                    <div class="cevap">
+                        Evet. Alan/bölüm, atölye ve laboratuvar şeflerinin; atölyelerdeki makine ve
+                        teçhizatın bakımı, onarımı ve öğretime hazır hâlde bulundurulması kapsamında
+                        yaptıkları göreve ilişkin ders saatleri de alanın ders yükü hesabında
+                        dikkate alınır.
+                    </div>
+                </details>
+            </div>
+
+            <h2>Bu hesabı program üzerinden yapmak</h2>
+            <div class="kapanis">
+                <p>
+                    NormMatik meslek liselerini kapsayarak geliştirildi: alan ve dal seçildiğinde
+                    resmî haftalık ders çizelgesi hazır gelir, grup bölünmesi sınıf seviyesine göre
+                    uygulanır, atölye yükü Madde 19 ile ayrı yürütülür, işletmelerde meslek eğitimi
+                    yüke dâhil edilir. Meslekî eğitim merkezleri için ayrı çırak gruplandırması
+                    yapılır. Her sayının hangi maddeden ve hangi şubeden geldiği satır satır
+                    gösterilir.
+                </p>
+                <p>
+                    <a class="dugme dugme-birincil" href="index.html">NormMatik'i incele</a>
+                </p>
+                <p style="font-size:.85rem;color:var(--metin-soluk);margin-top:.9rem;">
+                    Bu sayfadaki bilgiler genel bilgilendirme amaçlıdır. Resmî norm kadro belirleme
+                    yetkisi Bakanlık ve il/ilçe millî eğitim müdürlüklerindedir; resmî işlemlerde
+                    MEBBİS esastır. Yönetmelik metninin ve haftalık ders çizelgelerinin güncel hâli
+                    için Resmî Gazete'yi ve Talim ve Terbiye Kurulu kararlarını esas alınız.
+                </p>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+<footer class="landing-footer">
+    <p><a href="https://wa.me/905062777049?text=Merhaba,%20NormMatik%20lisans%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%0AOkul%3A%20%0AKurum%20kodu%3A%20%0A%C4%B0l%2F%C4%B0l%C3%A7e%3A%20" target="_blank" rel="noopener">Lisans ve destek için WhatsApp</a> &nbsp;·&nbsp; <a href="index.html#iletisim">İletişim</a></p>
+    <p>© 2026 NormMatik™ — Norm kadro ve ders yükü hesaplama yazılımı.</p>
+    <p>
+        Bağımsız eğitim teknolojisi yazılımı · 5846 sayılı FSEK kapsamında korunmaktadır.<br>
+        Millî Eğitim Bakanlığı ile resmî bir bağı yoktur; Bakanlıkça onaylanmış ya da yetkilendirilmiş değildir.
+    </p>
+</footer>
+
+</body>
+</html>

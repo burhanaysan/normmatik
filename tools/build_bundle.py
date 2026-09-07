@@ -143,7 +143,9 @@ def surum_damgala():
     INDEX_HTML = os.path.join(BASE_DIR, "index.html")
     # SEO icerik sayfalari. Bunlar da landing.css kullanir; damgalanmazlarsa
     # tasarim degistiginde ziyaretcinin onbelleginde eski stil kalir.
-    ICERIK_SAYFALARI = [os.path.join(BASE_DIR, "ders-yuku-hesaplama.html")]
+    ICERIK_SAYFALARI = [os.path.join(BASE_DIR, "ders-yuku-hesaplama.html"),
+                       os.path.join(BASE_DIR, "norm-kadro-hesaplama.html"),
+                       os.path.join(BASE_DIR, "meslek-lisesi-norm-kadro.html")]
 
     for yol, desen, yeni, ad in [
             (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
