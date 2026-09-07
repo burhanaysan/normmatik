@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ders Yükü Hesaplama: Haftalık Ders Yükü Nasıl Hesaplanır?</title>
+    <meta name="description" content="Okulda haftalık ders yükü nasıl hesaplanır? Şubeden branş toplamına kadar adım adım yöntem, Norm Kadro Yönetmeliği'nin ders yükünü etkileyen maddeleri (Md. 18/1, 22/1-ç, 22/4, 22/6) ve sayısal bir örnek.">
+    <link rel="canonical" href="https://www.normmatik.com.tr/ders-yuku-hesaplama.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="NormMatik">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:url" content="https://www.normmatik.com.tr/ders-yuku-hesaplama.html">
+    <meta property="og:title" content="Ders Yükü Hesaplama: Haftalık Ders Yükü Nasıl Hesaplanır?">
+    <meta property="og:description" content="Şubeden branş toplamına kadar adım adım yöntem, ders yükünü etkileyen yönetmelik maddeleri ve sayısal bir örnek.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ders Yükü Hesaplama: Haftalık Ders Yükü Nasıl Hesaplanır?">
+    <meta name="twitter:description" content="Şubeden branş toplamına kadar adım adım yöntem, ders yükünü etkileyen yönetmelik maddeleri ve sayısal bir örnek.">
+
+    <!-- YAPISAL VERI
+         SSS semasindaki metin, asagidaki <details> bloklariyla BIREBIR aynidir.
+         Gorunmeyen icerigi semaya koymak Google tarafindan ihlal sayilir. -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "NormMatik", "item": "https://www.normmatik.com.tr/" },
+        { "@type": "ListItem", "position": 2, "name": "Ders yükü hesaplama", "item": "https://www.normmatik.com.tr/ders-yuku-hesaplama.html" }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Ders yükü ile norm kadro aynı şey mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hayır. Ders yükü, bir branşta okulda haftada kaç saat ders okutulduğudur; bir saat sayısıdır. Norm kadro ise o ders yüküne karşılık okula kaç öğretmen kadrosu düştüğüdür. Önce ders yükü bulunur, sonra yönetmelikteki kademelere göre norma çevrilir."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Seçmeli dersler ders yüküne dâhil mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. Okulda fiilen okutulan seçmeli dersler, hangi öğretmenin alanına giriyorsa o alanın ders yüküne eklenir. Bu yüzden seçmeli ders tercihleri norm sonucunu doğrudan değiştirir."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Müdür ve müdür yardımcısının girdiği dersler ders yüküne eklenir mi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Okulun ders yüküne eklenir, ancak norm hesabında ilgili alanın yükünden düşülür. Norm Kadro Yönetmeliği'nin 22. maddesinin 6. fıkrası şöyledir: Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Birleştirilmiş şubede ders yükü nasıl yazılır?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ders iki şubeye birden okutuluyorsa yük bir kez sayılır. İki şubenin saatlerini ayrı ayrı toplamak, o branşın yükünü olduğundan yüksek gösterir."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Ders yükü hesabı için hangi çizelgeye bakmalıyım?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Talim ve Terbiye Kurulu'nun okul türüne özel haftalık ders çizelgesine. Her okul türünün ve her sınıf seviyesinin çizelgesi ayrıdır; Kurul kararı yenilendiğinde ders adları, saatler ve seçmeli havuzları değişebilir."
+            }
+        }
+    ]
+}
+    </script>
+
+    <link rel="stylesheet" href="css/landing.css?v=20260908_0023">
+    <style>
+        /* Bu sayfa uzun metin icerir; karsilama sayfasinda uzun metin
+           bloguna ihtiyac olmadigi icin landing.css'te boyle bir sinif yok.
+           Kurallar sayfaya ozel ve dar kapsamli tutuldu; landing.css'e
+           dokunulmadi ki karsilama sayfasi etkilenmesin. */
+        /* Govde olcusu bilerek landing.css'in .85rem'inden buyuk: burasi
+           1800 kelimelik bir yazi, karsilama sayfasi degil. 13,6 px'te
+           okumak yoruyordu. */
+        .yazi { max-width: 720px; margin: 0 auto; font-size: 1rem; }
+        .yazi p { color: var(--metin); font-size: 1rem; line-height: 1.75; margin-bottom: 1rem; }
+        .yazi h2 { font-size: 1.45rem; font-weight: 800; letter-spacing: -.015em; margin: 2.4rem 0 .7rem; }
+        .yazi h3 { font-size: 1.12rem; font-weight: 700; margin: 1.5rem 0 .4rem; }
+        .yazi ul, .yazi ol { margin: 0 0 1rem 1.1rem; }
+        .yazi li { color: var(--metin); font-size: 1rem; line-height: 1.7; margin-bottom: .4rem; }
+        .yazi strong { font-weight: 700; }
+
+        .kunye { color: var(--metin-soluk); font-size: .85rem; margin-bottom: 1.6rem; }
+        .kunye a { color: var(--mavi); }
+
+        /* Mevzuat alintisi: kendi cumlemizle karismasin diye ayri kutuda. */
+        .alinti {
+            border-left: 3px solid var(--mavi);
+            background: var(--mavi-soluk);
+            padding: .85rem 1rem;
+            margin: 0 0 1.2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .alinti p { margin: 0; font-size: .93rem; }
+        .alinti cite { display: block; margin-top: .45rem; font-size: .8rem; color: var(--metin-soluk); font-style: normal; }
+
+        .tablo-sar { overflow-x: auto; margin-bottom: 1.2rem; }
+        .yazi table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+        .yazi th, .yazi td { border: 1px solid var(--cizgi); padding: .5rem .65rem; text-align: left; }
+        .yazi th { background: var(--zemin); font-weight: 700; }
+        .yazi td.sayi, .yazi th.sayi { text-align: right; font-variant-numeric: tabular-nums; }
+        .yazi tfoot td { font-weight: 700; background: var(--zemin); }
+
+        .kapanis { border: 1px solid var(--cizgi); border-radius: 12px; padding: 1.1rem 1.2rem; background: var(--kart); }
+        .kapanis p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<!-- ÜST ÇUBUK -->
+<header class="ust">
+    <div class="ust-ic">
+        <a href="index.html" class="marka">
+            <span class="marka-im">N</span>
+            <span>NormMatik</span>
+        </a>
+
+        <ul class="ust-menu">
+            <li><a href="index.html#nedir">Ne işe yarar</a></li>
+            <li><a href="index.html#kademeler">Kademeler</a></li>
+            <li><a href="index.html#excel">Excel</a></li>
+            <li><a href="index.html#sorular">Sorular</a></li>
+        </ul>
+
+        <a class="dugme dugme-birincil" href="index.html">Ana sayfa</a>
+    </div>
+</header>
+
+<section class="bolum">
+    <div class="kap">
+        <article class="yazi">
+
+            <p class="kunye"><a href="index.html">NormMatik</a> › Ders yükü hesaplama</p>
+
+            <h1>Okulda ders yükü nasıl hesaplanır?</h1>
+
+            <p>
+                Ders yükü, bir branşta okulda <strong>haftada kaç saat ders okutulduğudur</strong>.
+                Norm kadro hesabının çıkış noktası budur: önce her branşın haftalık saat toplamı
+                bulunur, sonra bu toplam Millî Eğitim Bakanlığına Bağlı Eğitim Kurumları Yönetici
+                ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik'teki kademelere göre
+                öğretmen sayısına çevrilir.
+            </p>
+
+            <p>
+                Hesabın kendisi basit bir toplama işlemidir. Zorlanılan yer toplama değil,
+                <strong>neyin toplamaya girdiği</strong>: hangi çizelgeye bakılacağı, birleştirilmiş
+                şubenin nasıl sayılacağı, atölye dersinde şubenin kaça bölüneceği ve yöneticilerin
+                girdiği saatlerin ne olacağı. Aşağıda önce yöntem, sonra bu kalemler ve sayısal bir
+                örnek var.
+            </p>
+
+            <h2>Adım adım yöntem</h2>
+
+            <h3>1. Şubeleri çıkarın</h3>
+            <p>
+                Sınıf seviyesinde değil, <strong>şube</strong> seviyesinde çalışın: 9-A, 9-B, 9-C…
+                Ders yükü şube başına oluşur. Meslek liselerinde şubenin alanı ve dalı da gerekir,
+                çünkü alan/dal derslerinin çizelgesi ona göre değişir.
+            </p>
+
+            <h3>2. Her şubenin haftalık ders çizelgesini yazın</h3>
+            <p>
+                Kaynak, Talim ve Terbiye Kurulu'nun <strong>okul türüne özel haftalık ders
+                çizelgesidir</strong>. Anadolu lisesi ile güzel sanatlar lisesinin, ortaokul ile imam
+                hatip ortaokulunun çizelgeleri ayrıdır. Zorunlu derslerin saatleri çizelgede sabittir;
+                seçmeli dersler ise okulun seçtiği kadar yer tutar.
+            </p>
+
+            <h3>3. Dersleri branşa eşleyin</h3>
+            <p>
+                Her dersin hangi alan öğretmeni tarafından okutulacağı, Kurul'un öğretmenlik
+                alanları çizelgesinde yazılıdır. Bu eşleme her zaman sezgisel değildir; örneğin
+                "T.C. İnkılap Tarihi ve Atatürkçülük" Tarih alanına, "İslam Bilim Tarihi" yine Tarih
+                alanına yazılır. Yanlış eşleme, iki branşın normunu birden bozar.
+            </p>
+
+            <h3>4. Branş toplamlarını çıkarın</h3>
+            <p>
+                Bütün şubelerin saatlerini branş branş toplayın. Bu aşamada elinizde her alan için
+                tek bir sayı olur: o alanın <strong>haftalık ders yükü</strong>.
+            </p>
+
+            <h3>5. Düzeltme kalemlerini uygulayın</h3>
+            <p>
+                Ham toplam çoğu zaman doğru sonuç vermez. Aşağıdaki dört kalem yükü ya artırır ya
+                azaltır; hesaba girmezse norm olduğundan yüksek veya düşük çıkar.
+            </p>
+
+            <h2>Ders yükünü değiştiren dört kalem</h2>
+
+            <h3>Yöneticilerin girdiği dersler (Md. 22/6)</h3>
+            <p>
+                Müdürün ve müdür yardımcılarının okuttuğu saatler okulda fiilen okutulur, yani
+                okulun ders yüküne dâhildir. Ancak <strong>norm hesabında ilgili alanın yükünden
+                düşülür</strong>:
+            </p>
+            <div class="alinti">
+                <p>"Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri
+                   ilgili alanın ders yükünden düşülerek belirlenir."</p>
+                <cite>Norm Kadro Yönetmeliği, Madde 22, 6. fıkra</cite>
+            </div>
+            <p>
+                Matematik öğretmeni olan bir müdür yardımcısı haftada 6 saat derse giriyorsa,
+                matematik alanının norma esas yükü 6 saat azalır. Bu kalem tek başına bir normu
+                götürebilir; aşağıdaki örnekte tam olarak bu oluyor.
+            </p>
+
+            <h3>Grup bölünmesi (Md. 22/1-ç)</h3>
+            <p>
+                Meslekî ve teknik eğitimde alan/dal dersleri ayrı atölye, laboratuvar veya farklı
+                makine ile grup çalışması şeklinde yapılıyorsa şube gruplara bölünür ve ders yükü
+                <strong>grup sayısıyla çarpılır</strong>. Grup sayısı öğrenci sayısına ve
+                <strong>sınıf seviyesine</strong> göre değişir:
+            </p>
+            <ul>
+                <li><strong>9. sınıf:</strong> 10-21 öğrenciye kadar 1, 21-31 öğrenciye kadar 2, 31'den fazla öğrenci için 3.</li>
+                <li><strong>10, 11 ve 12. sınıf:</strong> 8-17 öğrenciye kadar 1, 17-25 öğrenciye kadar 2, 25-33 öğrenciye kadar 3, 33 ve daha fazla öğrenci için 4.</li>
+            </ul>
+            <p>
+                Bir şubede 4'ten fazla grup oluşturulamaz. Kaynaştırma/bütünleştirme yoluyla eğitimine
+                devam eden en az 2 öğrencinin bulunduğu gruplar, öğrenciler gruplara eşit dağıtılmak
+                kaydıyla ikiye bölünür; grup sayısı hiçbir şekilde 5'i geçemez. Grup sayısını sınıf
+                seviyesinden bağımsız tek bir tabloyla hesaplamak, 9. sınıfı olan okullarda sistematik
+                hata üretir.
+            </p>
+
+            <h3>Spor ve güzel sanatlar liselerinin alan dersleri (Md. 22/4)</h3>
+            <p>
+                Bu okullarda alan derslerinin yükü ayrı hesaplanır. Öğrencinin öğretmenle bire bir
+                çalışmasını gerektiren derslerde haftalık ders saatine <strong>her iki öğrenci için
+                6 saate kadar</strong>; koro eğitimi, çalgı toplulukları, atölye ve benzeri grup
+                çalışması gerektiren derslerde <strong>her grup için 10 saate kadar</strong> ilave
+                edilir. Bir şube 3'ten fazla gruba ayrılamaz ve her grup 8 öğrenciden az olamaz.
+            </p>
+
+            <h3>Birleştirilmiş şubeler</h3>
+            <p>
+                Bir ders iki şubeye birlikte okutuluyorsa yük <strong>bir kez</strong> sayılır. Ayrı
+                ayrı toplamak o branşın yükünü olduğundan yüksek gösterir ve gerçekte olmayan bir
+                norm üretir.
+            </p>
+
+            <h2>Ders yükünden norma geçiş (Md. 18/1)</h2>
+            <p>
+                Genel bilgi ve meslek dersleri için kademeler şöyledir:
+            </p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Haftalık ders yükü</th><th class="sayi">Norm</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>6 saatin altı</td><td class="sayi">0</td></tr>
+                        <tr><td>6-31 saate kadar</td><td class="sayi">1</td></tr>
+                        <tr><td>31-42 saate kadar</td><td class="sayi">2</td></tr>
+                        <tr><td>42'den fazlası</td><td class="sayi">her 21 saat için 1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Son satırın devamı çoğu zaman gözden kaçar: bu hesaplamadan sonra
+                <strong>artan ders yükü en az 15 saat ise ilave olarak 1 norm daha verilir</strong>.
+                Atölye ve laboratuvar dersleri bu maddeye değil, Madde 19'a tabidir; ikisini aynı
+                formülle hesaplamak normu yaklaşık iki katına çıkarır.
+            </p>
+
+            <h2>Sayısal örnek</h2>
+            <p>
+                Bir Anadolu lisesinde matematik alanı. Çizelgeye göre matematik dersi 9 ve 10. sınıfta
+                haftada 6 saat; 11 ve 12. sınıfta ortak ders olarak yer almaz, okulun seçtiği seçmeli
+                matematik dersleri üzerinden yük oluşur. Okulun bir müdür yardımcısı matematik
+                öğretmenidir ve haftada 6 saat derse girmektedir.
+            </p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Kalem</th><th>Hesap</th><th class="sayi">Saat</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>9. sınıf matematik</td><td>5 şube × 6 saat</td><td class="sayi">30</td></tr>
+                        <tr><td>10. sınıf matematik</td><td>4 şube × 6 saat</td><td class="sayi">24</td></tr>
+                        <tr><td>11-12. sınıf seçmeli matematik dersleri</td><td>okulun seçimine göre</td><td class="sayi">26</td></tr>
+                        <tr><td>Müdür yardımcısının girdiği saat</td><td>Md. 22/6 gereği düşülür</td><td class="sayi">−6</td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><td colspan="2">Norma esas ders yükü</td><td class="sayi">74</td></tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p>
+                74 saat, 42'nin üzerindedir: 42 saate 2 norm, artan 32 saatin içinde bir tam 21 saat
+                için 1 norm daha, kalan 11 saat 15'in altında kaldığı için ilave norm yok.
+                <strong>Sonuç: 3 norm.</strong>
+            </p>
+            <p>
+                Müdür yardımcısının 6 saati düşülmeseydi yük 80 saat olurdu: 42'ye 2 norm, artan 38
+                saatte bir tam 21 için 1 norm, kalan 17 saat 15'in üzerinde olduğu için 1 norm daha —
+                yani <strong>4 norm</strong>. Tek bir kalem, sonucu bir norm değiştiriyor.
+            </p>
+
+            <h2>Excel ile yapıyorsanız</h2>
+            <p>
+                Çoğu okul bu hesabı Excel'de tutuyor ve Excel bu iş için fazlasıyla yeterli bir
+                araç. Zorlanılan yer hesabın kendisi değil, iki şey:
+            </p>
+            <ul>
+                <li>
+                    <strong>Çizelgeyi güncel tutmak.</strong> Her okul türünün ve her sınıf
+                    seviyesinin çizelgesi ayrıdır; Kurul kararı yenilendiğinde ders adları, saatler
+                    ve seçmeli havuzları değişir. Tabloyu her seferinde baştan gözden geçirmek gerekir.
+                </li>
+                <li>
+                    <strong>Hesabın izini sürmek.</strong> "Bu branşta neden 3 norm çıktı?" sorusunun
+                    cevabı, iç içe geçmiş formüllerin arasında kaybolur. Özellikle grup bölünmesi ve
+                    Md. 22/6 düşümü tabloya girmediğinde sonuç sessizce yanlış çıkar — formül hata
+                    vermez, sadece yanlış sayıyı üretir.
+                </li>
+            </ul>
+            <p>
+                Bu iki nokta dışında Excel'i bırakmanız için bir sebep yok. Yukarıdaki adımları kendi
+                tablonuzda uygularsanız doğru sonuca ulaşırsınız.
+            </p>
+
+            <h2>Sık sorulanlar</h2>
+            <div class="sss">
+                <details>
+                    <summary>Ders yükü ile norm kadro aynı şey mi?</summary>
+                    <div class="cevap">
+                        Hayır. Ders yükü, bir branşta okulda haftada kaç saat ders okutulduğudur;
+                        bir saat sayısıdır. Norm kadro ise o ders yüküne karşılık okula kaç öğretmen
+                        kadrosu düştüğüdür. Önce ders yükü bulunur, sonra yönetmelikteki kademelere
+                        göre norma çevrilir.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Seçmeli dersler ders yüküne dâhil mi?</summary>
+                    <div class="cevap">
+                        Evet. Okulda fiilen okutulan seçmeli dersler, hangi öğretmenin alanına
+                        giriyorsa o alanın ders yüküne eklenir. Bu yüzden seçmeli ders tercihleri
+                        norm sonucunu doğrudan değiştirir.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Müdür ve müdür yardımcısının girdiği dersler ders yüküne eklenir mi?</summary>
+                    <div class="cevap">
+                        Okulun ders yüküne eklenir, ancak norm hesabında ilgili alanın yükünden
+                        düşülür. Norm Kadro Yönetmeliği'nin 22. maddesinin 6. fıkrası şöyledir:
+                        Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders
+                        saatleri ilgili alanın ders yükünden düşülerek belirlenir.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Birleştirilmiş şubede ders yükü nasıl yazılır?</summary>
+                    <div class="cevap">
+                        Ders iki şubeye birden okutuluyorsa yük bir kez sayılır. İki şubenin
+                        saatlerini ayrı ayrı toplamak, o branşın yükünü olduğundan yüksek gösterir.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Ders yükü hesabı için hangi çizelgeye bakmalıyım?</summary>
+                    <div class="cevap">
+                        Talim ve Terbiye Kurulu'nun okul türüne özel haftalık ders çizelgesine. Her
+                        okul türünün ve her sınıf seviyesinin çizelgesi ayrıdır; Kurul kararı
+                        yenilendiğinde ders adları, saatler ve seçmeli havuzları değişebilir.
+                    </div>
+                </details>
+            </div>
+
+            <h2>Bu hesabı program üzerinden yapmak</h2>
+            <div class="kapanis">
+                <p>
+                    NormMatik, yukarıdaki adımların tamamını yürüten bir karar destek aracıdır:
+                    çizelgeyi okul türüne göre hazır getirir, branş toplamlarını çıkarır, grup
+                    bölünmesi ve Md. 22/6 düşümü gibi kalemleri hesaba katar ve her sayının hangi
+                    maddeden geldiğini satır satır gösterir. Kurulum gerekmez, tarayıcıdan çalışır.
+                </p>
+                <p>
+                    <a class="dugme dugme-birincil" href="index.html">NormMatik'i incele</a>
+                </p>
+                <p style="font-size:.85rem;color:var(--metin-soluk);margin-top:.9rem;">
+                    Bu sayfadaki bilgiler genel bilgilendirme amaçlıdır. Resmî norm kadro belirleme
+                    yetkisi Bakanlık ve il/ilçe millî eğitim müdürlüklerindedir; resmî işlemlerde
+                    MEBBİS esastır. Yönetmelik metninin güncel hâli için Resmî Gazete'yi esas alınız.
+                </p>
+            </div>
+
+        </article>
+    </div>
+</section>
+
+<footer class="landing-footer">
+    <p>© 2026 NormMatik™ — Norm kadro ve ders yükü hesaplama yazılımı.</p>
+    <p>
+        Bağımsız eğitim teknolojisi yazılımı · 5846 sayılı FSEK kapsamında korunmaktadır.<br>
+        Millî Eğitim Bakanlığı ile resmî bir bağı yoktur; Bakanlıkça onaylanmış ya da yetkilendirilmiş değildir.
+    </p>
+</footer>
+
+</body>
+</html>

@@ -141,6 +141,9 @@ def surum_damgala():
     # "stil neden değişmedi?" sorusunun cevabı buradaydı.
     YONETIM_HTML = os.path.join(BASE_DIR, "yonetim.html")
     INDEX_HTML = os.path.join(BASE_DIR, "index.html")
+    # SEO icerik sayfalari. Bunlar da landing.css kullanir; damgalanmazlarsa
+    # tasarim degistiginde ziyaretcinin onbelleginde eski stil kalir.
+    ICERIK_SAYFALARI = [os.path.join(BASE_DIR, "ders-yuku-hesaplama.html")]
 
     for yol, desen, yeni, ad in [
             (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
@@ -156,7 +159,9 @@ def surum_damgala():
             (INDEX_HTML, r'(css/landing\.css\?v=)[^"\']+', r'\g<1>' + damga,
              "index.html landing.css ?v="),
             (SW_JS, r'(const CACHE_NAME\s*=\s*")[^"]+(")',
-             r'\g<1>meb-normmatik-' + damga + r'\g<2>', "sw.js CACHE_NAME")]:
+             r'\g<1>meb-normmatik-' + damga + r'\g<2>', "sw.js CACHE_NAME")] + [
+            (p, r'(css/landing\.css\?v=)[^"\']+', r'\g<1>' + damga,
+             os.path.basename(p) + " landing.css ?v=") for p in ICERIK_SAYFALARI]:
         if not os.path.exists(yol):
             sonuc.append("  ! BULUNAMADI: %s" % yol)
             continue
