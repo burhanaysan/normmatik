@@ -35,7 +35,6 @@ SW_JS = os.path.join(BASE_DIR, "sw.js")
 # Örn. normEngine.js, NORM_RULES_CONFIG'i kullanabilmek için normRulesConfig.js'ten
 # SONRA gelmek zorundadır.
 BUNDLE_FILES = [
-    "licenseCore.js",
     "licenseClientManager.js",
     "fiyat.js",                  # uiComponents.js'ten ÖNCE (lisans fiyatı tek kaynak)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
@@ -65,7 +64,6 @@ BUNDLE_FILES = [
 
 EXPORTS_CODE = """
 if (typeof window !== 'undefined') {
-    if (typeof MebLicenseCore !== 'undefined') window.MebLicenseCore = MebLicenseCore;
     if (typeof MebLicenseClientManager !== 'undefined') window.MebLicenseClientManager = MebLicenseClientManager;
     if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();
@@ -252,7 +250,12 @@ def build_bundle():
 
     bundle_path = os.path.join(JS_DIR, "bundle.js")
     output = "\n".join(combined)
-    with open(bundle_path, "w", encoding="utf-8") as f:
+    # newline="\n" ZORUNLU: Windows'ta varsayılan davranış her satır sonunu
+    # CRLF yapıyordu. Git commit'te LF'ye normalize ettiği için dosya bozulmuyordu
+    # ama çalışma kopyası ile depodaki kopya BAYT BAYT farklı oluyordu; boyut
+    # karşılaştıran herkes yanlış sonuca varıyordu (08.09.2026'da tam olarak bu
+    # oldu: 292 satır silindiği hâlde dosya "168 KB büyümüş" göründü).
+    with open(bundle_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(output)
 
     print("NormMatik paketleyici")

@@ -39,7 +39,7 @@ const kontrol = (ad, kosul, ayrinti) => {
 };
 
 const KRITIK = ["app.js", "state.js", "cloudDatabaseService.js", "authService.js",
-    "firebaseAuth.js", "licenseClientManager.js", "licenseCore.js", "database.js",
+    "firebaseAuth.js", "licenseClientManager.js", "database.js",
     "eOkulImporter.js", "liveUpdateSyncEngine.js", "normEngine.js",
     "curriculumEngine.js", "reportsEngine.js", "uiComponents.js"];
 

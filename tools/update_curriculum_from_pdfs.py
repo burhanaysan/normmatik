@@ -184,78 +184,28 @@ ALIAS_NORM = {
 }
 
 def build_bundle():
-    files = [
-        "licenseCore.js",
-        "licenseClientManager.js",
-        "normRulesConfig.js",
-        "liveUpdateSyncEngine.js",
-        "strict_pdf_curriculum_db.js",
-        "strict_elective_courses_db.js",
-                "database.js",
-        "curriculumEngine.js",
-        "normEngine.js",
-        "reportsEngine.js",
-        "authService.js",
-        "cloudDatabaseService.js",
-        "state.js",
-        "eOkulImporter.js",
-        "uiComponents.js",
-        "app.js"
-    ]
-    combined = []
-    for f_name in files:
-        f_path = os.path.join(JS_DIR, f_name)
-        if not os.path.exists(f_path):
-            continue
-        with open(f_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-            lines = []
-            for line in content.splitlines():
-                if line.startswith("import ") or line.startswith("export {"):
-                    continue
-                line = line.replace("export class ", "class ")
-                line = line.replace("export const ", "const ")
-                line = line.replace("export function ", "function ")
-                line = line.replace("export default ", "")
-                lines.append(line)
-            combined.append("\n// ==================== " + f_name + " ====================\n")
-            combined.append("\n".join(lines))
-            
-    exports_code = """
-if (typeof window !== 'undefined') {
-    if (typeof MebLicenseCore !== 'undefined') window.MebLicenseCore = MebLicenseCore;
-    if (typeof MebLicenseClientManager !== 'undefined') window.MebLicenseClientManager = MebLicenseClientManager;
-    if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
-        window.licenseManager = new MebLicenseClientManager();
-    }
-    if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
-    if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
-    if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
-        window.syncEngine = new LiveUpdateSyncEngine();
-    }
-    if (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined') window.STRICT_PDF_CURRICULUM_DB = STRICT_PDF_CURRICULUM_DB;
-    if (typeof STRICT_ELECTIVE_COURSES_DB !== 'undefined') window.STRICT_ELECTIVE_COURSES_DB = STRICT_ELECTIVE_COURSES_DB;
-    if (typeof dbService !== 'undefined') window.dbService = dbService;
-    if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
-    if (typeof normEngine !== 'undefined') window.normEngine = normEngine;
-    if (typeof MebReportsEngine !== 'undefined') window.MebReportsEngine = MebReportsEngine;
-    if (typeof reportsEngine === 'undefined' && typeof MebReportsEngine !== 'undefined') {
-        window.reportsEngine = new MebReportsEngine();
-    }
-    if (typeof authService !== 'undefined') window.authService = authService;
-    if (typeof cloudDatabaseService !== 'undefined') window.cloudDatabaseService = cloudDatabaseService;
-    if (typeof cloudDbService !== 'undefined') window.cloudDbService = cloudDbService;
-    if (typeof appState !== 'undefined') window.appState = appState;
-    if (typeof uiComponents !== 'undefined') window.uiComponents = uiComponents;
-    if (typeof EOkulImporter !== 'undefined') window.EOkulImporter = EOkulImporter;
-    if (typeof mebApp !== 'undefined') window.mebApp = mebApp;
-}
-"""
-    combined.append(exports_code)
-    bundle_path = os.path.join(JS_DIR, "bundle.js")
-    with open(bundle_path, 'w', encoding='utf-8') as f:
-        f.write("\n".join(combined))
-    print(f"Created bundle.js: {bundle_path} successfully!")
+    """KALDIRILDI (08.09.2026) — burada IKINCI bir paketleyici duruyordu.
+
+    Neden tehlikeliydi: kendi dosya listesi vardi ve o liste 2026 Agustos'ta
+    donmustu. tools/build_bundle.py ile karsilastirildiginda DOKUZ dosya
+    eksikti:
+
+        fiyat.js, mesem_curriculum_db.js, ortaogretim_cizelgeleri.js,
+        secmeli_havuzu.js, ozel_egitim_cizelgeleri.js, hedef_temelli_dersler.js,
+        ozel_program_temalari.js, secmeliTemaKurallari.js, firebaseAuth.js
+
+    Yani bu fonksiyon calistirilsaydi, saglam bundle.js'in UZERINE eksik bir
+    paket yazacakti: firebaseAuth yok -> giris coker; secmeli havuzu ve
+    cizelgeler yok -> mufredat bos gelir. Hicbir hata vermeden.
+
+    Iki ayri paket listesi tutmanin guvenli yolu yok. Tek yetkili yer artik
+    tools/build_bundle.py.
+    """
+    raise SystemExit(
+        "Bu betigin paketleyicisi kaldirildi. "
+        "Paketlemek icin:  python tools/build_bundle.py"
+    )
+
 
 def build_all():
     print(">> [1/3] PDF Dosyaları Taranıyor ve Ayrıştırılıyor...")

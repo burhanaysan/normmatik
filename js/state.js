@@ -1204,19 +1204,64 @@ export class AppStateService {
     }
 
     // --- Ders & Seçmeli Yönetimi ---
+
+    /**
+     * Seçmeli ders adını EŞLEŞTİRME ANAHTARINA çevirir.
+     *
+     * NEDEN (08.09.2026 — kullanıcı bildirimi): aynı ders aynı şubeye birden
+     * fazla kez eklenebiliyordu. Eskiden karşılaştırma tam metin eşitliğiydi
+     * (`===`), bu yüzden "Seçmeli Matematik", "SEÇMELİ MATEMATİK" ve
+     * "  seçmeli matematik  " ÜÇ AYRI ders sayılıyordu. Üçü de branş yüküne
+     * ekleniyor, norm olduğundan yüksek çıkıyordu — ekranda hiçbir uyarı yok.
+     *
+     * Türkçe güvenli sadeleştirme SECMELI_TEMA_KURALLARI'ndan alınır;
+     * toLocaleLowerCase KULLANILMAZ ("İ" küçültülünce ayrı bir nokta
+     * karakteri üretir ve eşleşme kaçar).
+     */
+    _secmeliAnahtar(ad) {
+        const K = (typeof SECMELI_TEMA_KURALLARI !== 'undefined')
+            ? SECMELI_TEMA_KURALLARI
+            : ((typeof window !== 'undefined' && window.SECMELI_TEMA_KURALLARI)
+                ? window.SECMELI_TEMA_KURALLARI : null);
+        if (K && typeof K.sadelestir === 'function') return K.sadelestir(ad);
+        // Kurallar dosyası yoksa da makul bir anahtar üret; sessizce
+        // tam-metin eşitliğine düşmek hatayı geri getirirdi.
+        return String(ad == null ? "" : ad).trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
     addElectiveCourse(sectionId, electiveCourse) {
         if (!this._secmeliKilidiniDenetle()) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
+        const anahtar = this._secmeliAnahtar(electiveCourse.ders || electiveCourse.ders_adi);
+        const existingIdx = sec.secmeliDersler.findIndex(
+            d => this._secmeliAnahtar(d.ders || d.ders_adi) === anahtar);
+
         this.pushHistory();
-        const existingIdx = sec.secmeliDersler.findIndex(d => (d.ders || d.ders_adi) === (electiveCourse.ders || electiveCourse.ders_adi));
+        let sonuc;
         if (existingIdx >= 0) {
-            sec.secmeliDersler[existingIdx] = electiveCourse;
+            // Aynı ders zaten var: SAATİ GÜNCELLENİR, ikinci kayıt açılmaz.
+            //
+            // GÖRÜNEN AD KORUNUR. Kullanıcı dersi elle "  seçmeli  matematik  "
+            // diye yazarsa kayıt güncellenir ama ad, resmî çizelgeden gelen
+            // ilk hâliyle ("Seçmeli Matematik") kalır; yoksa dağınık yazım
+            // raporlara ve PDF çıktısına geçerdi.
+            const oncekiAd = sec.secmeliDersler[existingIdx].ders
+                || sec.secmeliDersler[existingIdx].ders_adi;
+            sec.secmeliDersler[existingIdx] = Object.assign({}, electiveCourse, { ders: oncekiAd });
+            delete sec.secmeliDersler[existingIdx].ders_adi;
+            sonuc = { eklendi: false, guncellendi: true, oncekiAd: oncekiAd };
         } else {
-            sec.secmeliDersler.push(electiveCourse);
+            // Yeni kayıtta da adın baş/son boşluğu ve tekrarlı boşlukları
+            // temizlenir; aynı ders iki farklı yazımla girilmesin.
+            const temizAd = String(electiveCourse.ders || electiveCourse.ders_adi || "")
+                .trim().replace(/\s+/g, " ");
+            sec.secmeliDersler.push(Object.assign({}, electiveCourse, { ders: temizAd }));
+            sonuc = { eklendi: true, guncellendi: false, oncekiAd: null };
         }
         this.notify();
+        return sonuc;
     }
 
     removeElectiveCourse(sectionId, courseName) {
@@ -1224,10 +1269,13 @@ export class AppStateService {
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
-        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        // Silme ile ekleme AYNI anahtarı kullanmalı; yoksa eklenebilen ama
+        // silinemeyen ders oluşur. (Eski karşılaştırma Türkçe harfleri
+        // tamamen atıyordu: "seçmeli" -> "semeli".)
+        const norm = this._secmeliAnahtar(courseName);
         this.pushHistory();
         sec.secmeliDersler = sec.secmeliDersler.filter(d => {
-            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            const dNorm = this._secmeliAnahtar(d.ders || d.ders_adi);
             return dNorm !== norm;
         });
         this.notify();

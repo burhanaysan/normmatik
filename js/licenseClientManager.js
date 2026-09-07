@@ -8,8 +8,6 @@ class MebLicenseClientManager {
         this.licenseKeyStorageKey = "meb_norm_license_key";
         this.firstRunStorageKey = "meb_norm_first_run_date";
         this.activeLicense = null;
-        this.core = new MebLicenseCore();
-        this.currentHardwareId = "HW-STANDALONE-DEVICE";
         this.licenseStatus = {
             isValid: false,
             licenseType: "NONE",
@@ -40,11 +38,12 @@ class MebLicenseClientManager {
     }
 
     async init() {
-        try {
-            this.currentHardwareId = await MebLicenseCore.generateHardwareFingerprint();
-        } catch (e) {
-            this.currentHardwareId = "HW-STANDALONE-DEVICE";
-        }
+        // KALDIRILDI (08.09.2026): cihaz parmak izi (HWID) hesabi.
+        // Lisans 2026-08-24'te cihaza degil KURUMA baglandi; uretilen kimlik
+        // o gunden beri hicbir yerde okunmuyordu. Onunla birlikte
+        // js/licenseCore.js (ECDSA imza cekirdegi) de kaldirildi: imza
+        // dogrulamasi da cagrilmiyordu, haklar artik sunucudaki abonelik
+        // kaydindan geliyor.
 
         // Başlangıç durumu her zaman DEMO'dur. Giriş yapan okulun gerçek
         // hakları, bulutdan 'abonelik' kaydı okunduktan sonra
@@ -85,7 +84,6 @@ class MebLicenseClientManager {
             kurumKodu: "*",
             okulAdi: "Deneme ve İnceleme Okulu",
             okulTuru: "*",
-            hardwareId: this.currentHardwareId,
             reason: isExpired ? "Demo sürümünde en fazla 3 şube oluşturulabilir. Lütfen lisans anahtarınızı giriniz." : null
         };
 
@@ -155,7 +153,6 @@ class MebLicenseClientManager {
             kurumKodu: kimlik.kurumKodu || '',
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
-            hardwareId: this.currentHardwareId,
             bitis: abonelik.bitis || '',
             reason: null
         };
@@ -177,7 +174,6 @@ class MebLicenseClientManager {
             kurumKodu: kimlik.kurumKodu || '',
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
-            hardwareId: this.currentHardwareId,
             reason: null
         };
         return this.licenseStatus;

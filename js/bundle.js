@@ -1,285 +1,4 @@
 
-// ==================== licenseCore.js ====================
-
-/**
- * MEB NORM KADRO SİSTEMİ - KRİPTOGRAFİK LİSANS ÇEKİRDEĞİ (ECDSA P-256 / SHA-256)
- * Copyright (c) 2026 Burhan AYSAN. Tüm hakları saklıdır.
- * 
- * Bu modül; Web Crypto API (Browser) ve Node.js crypto ortamlarında hibrit çalışır.
- * Asimetrik dijital imzalama (ECDSA P-256) ile lisans üretir ve doğrular.
- */
-
-// Gömülü Master Açık Anahtar (Client-Side Public Key)
-const MASTER_PUBLIC_KEY_JWK = {
-    "kty": "EC",
-    "x": "Ixop_Vp8qOnI_cJ555RRs4c7A9karZ8JlyIrwojiRwA",
-    "y": "8mAoQOD1uzeBqcJcgwTprG69YI8jzH1BsP9mLMap3E8",
-    "crv": "P-256",
-    "kid": "meb-norm-master-key-2026",
-    "alg": "ES256",
-    "key_ops": ["verify"]
-};
-
-class MebLicenseCore {
-    constructor() {
-        this.publicKeyJwk = MASTER_PUBLIC_KEY_JWK;
-        this.cryptoSubtle = (typeof window !== 'undefined' && window.crypto && window.crypto.subtle) ? window.crypto.subtle : null;
-    }
-
-    // Base64URL Kodlama & Çözme
-    static base64UrlEncode(bufferOrStr) {
-        let str = "";
-        if (typeof bufferOrStr === 'string') {
-            if (typeof btoa !== 'undefined') {
-                str = btoa(unescape(encodeURIComponent(bufferOrStr)));
-            } else {
-                str = Buffer.from(bufferOrStr, 'utf-8').toString('base64');
-            }
-        } else {
-            if (typeof btoa !== 'undefined') {
-                const bytes = new Uint8Array(bufferOrStr);
-                let binary = '';
-                for (let i = 0; i < bytes.byteLength; i++) {
-                    binary += String.fromCharCode(bytes[i]);
-                }
-                str = btoa(binary);
-            } else {
-                str = Buffer.from(bufferOrStr).toString('base64');
-            }
-        }
-        return str.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    }
-
-    static base64UrlDecode(base64UrlStr) {
-        let base64 = base64UrlStr.replace(/-/g, '+').replace(/_/g, '/');
-        while (base64.length % 4) {
-            base64 += '=';
-        }
-        if (typeof atob !== 'undefined') {
-            const binaryStr = atob(base64);
-            const bytes = new Uint8Array(binaryStr.length);
-            for (let i = 0; i < binaryStr.length; i++) {
-                bytes[i] = binaryStr.charCodeAt(i);
-            }
-            return bytes;
-        } else {
-            return new Uint8Array(Buffer.from(base64, 'base64'));
-        }
-    }
-
-    static base64UrlDecodeToString(base64UrlStr) {
-        let base64 = base64UrlStr.replace(/-/g, '+').replace(/_/g, '/');
-        while (base64.length % 4) {
-            base64 += '=';
-        }
-        if (typeof atob !== 'undefined') {
-            return decodeURIComponent(escape(atob(base64)));
-        } else {
-            return Buffer.from(base64, 'base64').toString('utf-8');
-        }
-    }
-
-    /**
-     * Browser Web Crypto API ile Açık Anahtarı İçe Aktarma
-     */
-    async importPublicKey(jwk = null) {
-        if (!this.cryptoSubtle) {
-            throw new Error("Web Crypto API bu ortamda bulunamadı.");
-        }
-        const keyData = jwk || this.publicKeyJwk;
-        return await this.cryptoSubtle.importKey(
-            "jwk",
-            keyData,
-            { name: "ECDSA", namedCurve: "P-256" },
-            true,
-            ["verify"]
-        );
-    }
-
-    /**
-     * Lisans Verisini Doğrulama (Browser İstemci Tarafı)
-     * @param {string} licenseToken - "MEBNORM.<PAYLOAD_B64>.<SIGNATURE_B64>"
-     * @param {string} expectedKurumKodu - Doğrulanacak kurum kodu (Opsiyonel)
-     * @param {string} currentHardwareId - Doğrulanacak cihaz kimliği (Opsiyonel)
-     */
-    async verifyLicenseToken(licenseToken, expectedKurumKodu = null, currentHardwareId = null) {
-        try {
-            if (!licenseToken || typeof licenseToken !== 'string') {
-                return { isValid: false, reason: "Lisans anahtarı boş veya geçersiz formatta." };
-            }
-
-            const cleanToken = licenseToken.trim().replace(/^['"]|['"]$/g, '');
-            const parts = cleanToken.split('.');
-
-            if (parts.length !== 3 || parts[0] !== 'MEBNORM') {
-                return { isValid: false, reason: "Geçersiz lisans yapısı. 'MEBNORM...' ile başlamalıdır." };
-            }
-
-            const payloadB64 = parts[1];
-            const signatureB64 = parts[2];
-
-            const payloadJsonStr = MebLicenseCore.base64UrlDecodeToString(payloadB64);
-            const payload = JSON.parse(payloadJsonStr);
-
-            // 1. Dijital İmza Doğrulaması (Kriptografik İspat)
-            const dataToVerifyStr = `MEBNORM.${payloadB64}`;
-            const signatureBytes = MebLicenseCore.base64UrlDecode(signatureB64);
-
-            let isSigValid = false;
-
-            if (this.cryptoSubtle) {
-                const encoder = new TextEncoder();
-                const dataToVerify = encoder.encode(dataToVerifyStr);
-                const cryptoKey = await this.importPublicKey();
-                isSigValid = await this.cryptoSubtle.verify(
-                    { name: "ECDSA", hash: { name: "SHA-256" } },
-                    cryptoKey,
-                    signatureBytes,
-                    dataToVerify
-                );
-            } else if (typeof require !== 'undefined') {
-                // Node.js fallback for testing
-                const crypto = require('crypto');
-                const verify = crypto.createVerify('SHA256');
-                verify.update(Buffer.from(dataToVerifyStr));
-                verify.end();
-                const nodePubKey = crypto.createPublicKey({ key: this.publicKeyJwk, format: 'jwk' });
-                isSigValid = verify.verify(
-                    { key: nodePubKey, dsaEncoding: 'ieee-p1363' },
-                    Buffer.from(signatureBytes)
-                );
-            }
-
-            if (!isSigValid) {
-                return { isValid: false, reason: "Lisans imzası geçersiz veya değiştirilmiş! Kriptografik doğrulama başarısız." };
-            }
-
-            // 2. Süre Kontrolü (Expiration Check)
-            const now = new Date();
-            const expireDate = new Date(payload.expireDate);
-            if (now > expireDate) {
-                return {
-                    isValid: false,
-                    isExpired: true,
-                    reason: `Lisans süresi ${payload.expireDate} tarihinde dolmuştur. Lütfen lisansınızı yenileyiniz.`,
-                    payload
-                };
-            }
-
-            // 3. Kurum Kodu Eşleşme Kontrolü (Komşu Okul Savunması)
-            if (expectedKurumKodu && payload.kurumKodu !== "*" && payload.licenseType !== "MASTER_DEVELOPER") {
-                if (String(payload.kurumKodu).trim() !== String(expectedKurumKodu).trim()) {
-                    return {
-                        isValid: false,
-                        reason: `Bu lisans anahtarı [${payload.kurumKodu} - ${payload.okulAdi || 'Farklı Kurum'}] adına kayıtlıdır. Aktif kurum kodu (${expectedKurumKodu}) ile uyuşmuyor!`,
-                        payload
-                    };
-                }
-            }
-
-            // 4. Donanım / Bilgisayar Kilidi Kontrolü (Hardware Lock)
-            if (currentHardwareId && payload.hardwareId && payload.hardwareId !== "*" && payload.licenseType !== "MASTER_DEVELOPER") {
-                if (payload.hardwareId !== currentHardwareId) {
-                    return {
-                        isValid: false,
-                        reason: "Bu lisans anahtarı farklı bir bilgisayar için üretilmiştir. Başka cihazda kullanılamaz.",
-                        payload
-                    };
-                }
-            }
-
-            // Lisans Tamamen Geçerli
-            const daysRemaining = Math.max(0, Math.ceil((expireDate - now) / (1000 * 60 * 60 * 24)));
-
-            return {
-                isValid: true,
-                payload,
-                daysRemaining,
-                licenseType: payload.licenseType,
-                isMaster: payload.licenseType === "MASTER_DEVELOPER",
-                isDemo: payload.licenseType === "DEMO",
-                isAnnual: payload.licenseType === "ANNUAL_SCHOOL",
-                kurumKodu: payload.kurumKodu,
-                okulAdi: payload.okulAdi,
-                okulTuru: payload.okulTuru,
-                maxSections: payload.maxSections || -1
-            };
-
-        } catch (err) {
-            return { isValid: false, reason: "Lisans çözümlenirken hata oluştu: " + err.message };
-        }
-    }
-
-    /**
-     * Cihaz Donanım Parmak İzi Üretimi (Hardware Fingerprint)
-     */
-    static async generateHardwareFingerprint() {
-        if (typeof window === 'undefined' || typeof navigator === 'undefined') {
-            return "HW-STATIC-TEST-NODE";
-        }
-
-        try {
-            const nav = window.navigator || {};
-            const screen = window.screen || {};
-            
-            // Canvas Parmak İzi
-            let canvasHash = "";
-            try {
-                const canvas = document.createElement('canvas');
-                canvas.width = 200;
-                canvas.height = 50;
-                const ctx = canvas.getContext('2d');
-                ctx.textBaseline = "top";
-                ctx.font = "14px 'Arial'";
-                ctx.textBaseline = "alphabetic";
-                ctx.fillStyle = "#f60";
-                ctx.fillRect(125, 1, 62, 20);
-                ctx.fillStyle = "#069";
-                ctx.fillText("MEB Norm Security 2026", 2, 15);
-                ctx.fillStyle = "rgba(102, 204, 0, 0.7)";
-                ctx.fillText("MEB Norm Security 2026", 4, 17);
-                canvasHash = canvas.toDataURL();
-            } catch (e) {
-                canvasHash = "canvas_disabled";
-            }
-
-            const rawString = [
-                nav.userAgent || '',
-                nav.language || '',
-                nav.hardwareConcurrency || '4',
-                nav.deviceMemory || '8',
-                screen.width || '1920',
-                screen.height || '1080',
-                screen.colorDepth || '24',
-                new Date().getTimezoneOffset(),
-                canvasHash
-            ].join('###');
-
-            const encoder = new TextEncoder();
-            const data = encoder.encode(rawString);
-            
-            if (window.crypto && window.crypto.subtle) {
-                const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-                return `HW-${hashHex.substring(0, 4).toUpperCase()}-${hashHex.substring(4, 8).toUpperCase()}-${hashHex.substring(8, 12).toUpperCase()}-${hashHex.substring(12, 16).toUpperCase()}`;
-            }
-
-            return "HW-GENERIC-DEFAULT";
-        } catch (e) {
-            return "HW-STANDALONE-DEVICE";
-        }
-    }
-}
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { MebLicenseCore, MASTER_PUBLIC_KEY_JWK };
-}
-if (typeof window !== 'undefined') {
-    window.MebLicenseCore = MebLicenseCore;
-    window.MASTER_PUBLIC_KEY_JWK = MASTER_PUBLIC_KEY_JWK;
-}
-
 // ==================== licenseClientManager.js ====================
 
 /**
@@ -292,8 +11,6 @@ class MebLicenseClientManager {
         this.licenseKeyStorageKey = "meb_norm_license_key";
         this.firstRunStorageKey = "meb_norm_first_run_date";
         this.activeLicense = null;
-        this.core = new MebLicenseCore();
-        this.currentHardwareId = "HW-STANDALONE-DEVICE";
         this.licenseStatus = {
             isValid: false,
             licenseType: "NONE",
@@ -324,11 +41,12 @@ class MebLicenseClientManager {
     }
 
     async init() {
-        try {
-            this.currentHardwareId = await MebLicenseCore.generateHardwareFingerprint();
-        } catch (e) {
-            this.currentHardwareId = "HW-STANDALONE-DEVICE";
-        }
+        // KALDIRILDI (08.09.2026): cihaz parmak izi (HWID) hesabi.
+        // Lisans 2026-08-24'te cihaza degil KURUMA baglandi; uretilen kimlik
+        // o gunden beri hicbir yerde okunmuyordu. Onunla birlikte
+        // js/licenseCore.js (ECDSA imza cekirdegi) de kaldirildi: imza
+        // dogrulamasi da cagrilmiyordu, haklar artik sunucudaki abonelik
+        // kaydindan geliyor.
 
         // Başlangıç durumu her zaman DEMO'dur. Giriş yapan okulun gerçek
         // hakları, bulutdan 'abonelik' kaydı okunduktan sonra
@@ -369,7 +87,6 @@ class MebLicenseClientManager {
             kurumKodu: "*",
             okulAdi: "Deneme ve İnceleme Okulu",
             okulTuru: "*",
-            hardwareId: this.currentHardwareId,
             reason: isExpired ? "Demo sürümünde en fazla 3 şube oluşturulabilir. Lütfen lisans anahtarınızı giriniz." : null
         };
 
@@ -439,7 +156,6 @@ class MebLicenseClientManager {
             kurumKodu: kimlik.kurumKodu || '',
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
-            hardwareId: this.currentHardwareId,
             bitis: abonelik.bitis || '',
             reason: null
         };
@@ -461,7 +177,6 @@ class MebLicenseClientManager {
             kurumKodu: kimlik.kurumKodu || '',
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
-            hardwareId: this.currentHardwareId,
             reason: null
         };
         return this.licenseStatus;
@@ -170383,19 +170098,64 @@ class AppStateService {
     }
 
     // --- Ders & Seçmeli Yönetimi ---
+
+    /**
+     * Seçmeli ders adını EŞLEŞTİRME ANAHTARINA çevirir.
+     *
+     * NEDEN (08.09.2026 — kullanıcı bildirimi): aynı ders aynı şubeye birden
+     * fazla kez eklenebiliyordu. Eskiden karşılaştırma tam metin eşitliğiydi
+     * (`===`), bu yüzden "Seçmeli Matematik", "SEÇMELİ MATEMATİK" ve
+     * "  seçmeli matematik  " ÜÇ AYRI ders sayılıyordu. Üçü de branş yüküne
+     * ekleniyor, norm olduğundan yüksek çıkıyordu — ekranda hiçbir uyarı yok.
+     *
+     * Türkçe güvenli sadeleştirme SECMELI_TEMA_KURALLARI'ndan alınır;
+     * toLocaleLowerCase KULLANILMAZ ("İ" küçültülünce ayrı bir nokta
+     * karakteri üretir ve eşleşme kaçar).
+     */
+    _secmeliAnahtar(ad) {
+        const K = (typeof SECMELI_TEMA_KURALLARI !== 'undefined')
+            ? SECMELI_TEMA_KURALLARI
+            : ((typeof window !== 'undefined' && window.SECMELI_TEMA_KURALLARI)
+                ? window.SECMELI_TEMA_KURALLARI : null);
+        if (K && typeof K.sadelestir === 'function') return K.sadelestir(ad);
+        // Kurallar dosyası yoksa da makul bir anahtar üret; sessizce
+        // tam-metin eşitliğine düşmek hatayı geri getirirdi.
+        return String(ad == null ? "" : ad).trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
     addElectiveCourse(sectionId, electiveCourse) {
         if (!this._secmeliKilidiniDenetle()) return;
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
+        const anahtar = this._secmeliAnahtar(electiveCourse.ders || electiveCourse.ders_adi);
+        const existingIdx = sec.secmeliDersler.findIndex(
+            d => this._secmeliAnahtar(d.ders || d.ders_adi) === anahtar);
+
         this.pushHistory();
-        const existingIdx = sec.secmeliDersler.findIndex(d => (d.ders || d.ders_adi) === (electiveCourse.ders || electiveCourse.ders_adi));
+        let sonuc;
         if (existingIdx >= 0) {
-            sec.secmeliDersler[existingIdx] = electiveCourse;
+            // Aynı ders zaten var: SAATİ GÜNCELLENİR, ikinci kayıt açılmaz.
+            //
+            // GÖRÜNEN AD KORUNUR. Kullanıcı dersi elle "  seçmeli  matematik  "
+            // diye yazarsa kayıt güncellenir ama ad, resmî çizelgeden gelen
+            // ilk hâliyle ("Seçmeli Matematik") kalır; yoksa dağınık yazım
+            // raporlara ve PDF çıktısına geçerdi.
+            const oncekiAd = sec.secmeliDersler[existingIdx].ders
+                || sec.secmeliDersler[existingIdx].ders_adi;
+            sec.secmeliDersler[existingIdx] = Object.assign({}, electiveCourse, { ders: oncekiAd });
+            delete sec.secmeliDersler[existingIdx].ders_adi;
+            sonuc = { eklendi: false, guncellendi: true, oncekiAd: oncekiAd };
         } else {
-            sec.secmeliDersler.push(electiveCourse);
+            // Yeni kayıtta da adın baş/son boşluğu ve tekrarlı boşlukları
+            // temizlenir; aynı ders iki farklı yazımla girilmesin.
+            const temizAd = String(electiveCourse.ders || electiveCourse.ders_adi || "")
+                .trim().replace(/\s+/g, " ");
+            sec.secmeliDersler.push(Object.assign({}, electiveCourse, { ders: temizAd }));
+            sonuc = { eklendi: true, guncellendi: false, oncekiAd: null };
         }
         this.notify();
+        return sonuc;
     }
 
     removeElectiveCourse(sectionId, courseName) {
@@ -170403,10 +170163,13 @@ class AppStateService {
         const sec = this.state.subeler.find(s => s.id === sectionId);
         if (!sec) return;
 
-        const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+        // Silme ile ekleme AYNI anahtarı kullanmalı; yoksa eklenebilen ama
+        // silinemeyen ders oluşur. (Eski karşılaştırma Türkçe harfleri
+        // tamamen atıyordu: "seçmeli" -> "semeli".)
+        const norm = this._secmeliAnahtar(courseName);
         this.pushHistory();
         sec.secmeliDersler = sec.secmeliDersler.filter(d => {
-            const dNorm = String(d.ders || d.ders_adi || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            const dNorm = this._secmeliAnahtar(d.ders || d.ders_adi);
             return dNorm !== norm;
         });
         this.notify();
@@ -173014,13 +172777,19 @@ class UIComponentManager {
         const zorunluList = currentSec.zorunluDersler || [];
         const zorunluHours = zorunluList.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
 
-        // Şubedeki mevcut seçmeli dersleri yerel taslak (draft) durumuna al
+        // Şubedeki mevcut seçmeli dersleri yerel taslak (draft) durumuna al.
+        //
+        // Map'in anahtarı ADIN KENDİSİ DEĞİL, sadeleştirilmiş hâlidir
+        // (08.09.2026). Ham ad kullanılınca "Seçmeli Matematik" ile
+        // "SEÇMELİ MATEMATİK" iki ayrı anahtar oluyor ve aynı ders şubeye
+        // iki kez giriyordu. Görünen ad kaydın içinde `ders` alanında durur.
+        const anahtar = (ad) => this.state._secmeliAnahtar(ad);
         const draftSelections = new Map();
         (currentSec.secmeliDersler || []).forEach(d => {
             const courseName = d.ders || d.ders_adi;
             const hour = parseInt(d.saat || d.ders_saati || 2, 10);
             const matched = electives.find(e => e.ders === courseName);
-            draftSelections.set(courseName, {
+            draftSelections.set(anahtar(courseName), {
                 ders: courseName,
                 saat: hour,
                 grup: d.grup || (matched ? matched.grup : "Seçmeli"),
@@ -173131,8 +172900,8 @@ class UIComponentManager {
                         </div>
                         <div class="theme-group-items">
                             ${groupCourses.map(item => {
-                                const isSelected = draftSelections.has(item.ders);
-                                const draftItem = draftSelections.get(item.ders);
+                                const isSelected = draftSelections.has(anahtar(item.ders));
+                                const draftItem = draftSelections.get(anahtar(item.ders));
                                 const activeHours = isSelected ? draftItem.saat : (item.selectedHour || item.hoursOptions[0] || 2);
 
                                 return `
@@ -173173,11 +172942,11 @@ class UIComponentManager {
                     const item = electives.find(i => i.ders === cName);
                     if (!item) return;
 
-                    if (draftSelections.has(cName)) {
-                        draftSelections.delete(cName);
+                    if (draftSelections.has(anahtar(cName))) {
+                        draftSelections.delete(anahtar(cName));
                     } else {
                         const h = item.selectedHour || item.hoursOptions[0] || 2;
-                        draftSelections.set(cName, {
+                        draftSelections.set(anahtar(cName), {
                             ders: item.ders,
                             saat: h,
                             grup: item.grup || "Seçmeli",
@@ -173202,13 +172971,13 @@ class UIComponentManager {
 
                     item.selectedHour = hour;
 
-                    if (draftSelections.has(cName)) {
+                    if (draftSelections.has(anahtar(cName))) {
                         // Zaten seçiliyse saatini güncelle
-                        const currentDraft = draftSelections.get(cName);
+                        const currentDraft = draftSelections.get(anahtar(cName));
                         currentDraft.saat = hour;
                     } else {
                         // Seçili değilse direkt bu saat ile seç
-                        draftSelections.set(cName, {
+                        draftSelections.set(anahtar(cName), {
                             ders: item.ders,
                             saat: hour,
                             grup: item.grup || "Seçmeli",
@@ -173343,7 +173112,23 @@ class UIComponentManager {
                 ? window.curriculumEngine.resolveBranch(cName, targetSec.alanId || targetSec.alanAdi, "SEÇMELİ DERSLER")
                 : "Diğer";
 
-            draftSelections.set(cName, {
+            // AYNI DERS ZATEN VAR MI? Kullanıcı listede bulunan bir dersi
+            // elle yazarsa (küçük/büyük harf ya da boşluk farkıyla) eskiden
+            // ikinci bir kayıt açılıyordu. Artık uyarı verilir, saat
+            // güncellenir; şubede tek kayıt kalır.
+            const mevcut = draftSelections.get(anahtar(cName));
+            if (mevcut) {
+                mevcut.saat = cHour;
+                document.getElementById("custom-el-name").value = "";
+                this.showToast(
+                    `"${mevcut.ders}" zaten seçili. Yeni kayıt açılmadı, saati ${cHour} olarak güncellendi.`,
+                    "warning");
+                updateHeaderAndCommitBtn();
+                renderList();
+                return;
+            }
+
+            draftSelections.set(anahtar(cName), {
                 ders: cName,
                 saat: cHour,
                 grup: "Özel Seçmeli",
@@ -179672,7 +179457,6 @@ if (typeof document !== 'undefined') {
 }
 
 if (typeof window !== 'undefined') {
-    if (typeof MebLicenseCore !== 'undefined') window.MebLicenseCore = MebLicenseCore;
     if (typeof MebLicenseClientManager !== 'undefined') window.MebLicenseClientManager = MebLicenseClientManager;
     if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();

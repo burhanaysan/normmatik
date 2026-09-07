@@ -1394,13 +1394,19 @@ export class UIComponentManager {
         const zorunluList = currentSec.zorunluDersler || [];
         const zorunluHours = zorunluList.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
 
-        // Şubedeki mevcut seçmeli dersleri yerel taslak (draft) durumuna al
+        // Şubedeki mevcut seçmeli dersleri yerel taslak (draft) durumuna al.
+        //
+        // Map'in anahtarı ADIN KENDİSİ DEĞİL, sadeleştirilmiş hâlidir
+        // (08.09.2026). Ham ad kullanılınca "Seçmeli Matematik" ile
+        // "SEÇMELİ MATEMATİK" iki ayrı anahtar oluyor ve aynı ders şubeye
+        // iki kez giriyordu. Görünen ad kaydın içinde `ders` alanında durur.
+        const anahtar = (ad) => this.state._secmeliAnahtar(ad);
         const draftSelections = new Map();
         (currentSec.secmeliDersler || []).forEach(d => {
             const courseName = d.ders || d.ders_adi;
             const hour = parseInt(d.saat || d.ders_saati || 2, 10);
             const matched = electives.find(e => e.ders === courseName);
-            draftSelections.set(courseName, {
+            draftSelections.set(anahtar(courseName), {
                 ders: courseName,
                 saat: hour,
                 grup: d.grup || (matched ? matched.grup : "Seçmeli"),
@@ -1511,8 +1517,8 @@ export class UIComponentManager {
                         </div>
                         <div class="theme-group-items">
                             ${groupCourses.map(item => {
-                                const isSelected = draftSelections.has(item.ders);
-                                const draftItem = draftSelections.get(item.ders);
+                                const isSelected = draftSelections.has(anahtar(item.ders));
+                                const draftItem = draftSelections.get(anahtar(item.ders));
                                 const activeHours = isSelected ? draftItem.saat : (item.selectedHour || item.hoursOptions[0] || 2);
 
                                 return `
@@ -1553,11 +1559,11 @@ export class UIComponentManager {
                     const item = electives.find(i => i.ders === cName);
                     if (!item) return;
 
-                    if (draftSelections.has(cName)) {
-                        draftSelections.delete(cName);
+                    if (draftSelections.has(anahtar(cName))) {
+                        draftSelections.delete(anahtar(cName));
                     } else {
                         const h = item.selectedHour || item.hoursOptions[0] || 2;
-                        draftSelections.set(cName, {
+                        draftSelections.set(anahtar(cName), {
                             ders: item.ders,
                             saat: h,
                             grup: item.grup || "Seçmeli",
@@ -1582,13 +1588,13 @@ export class UIComponentManager {
 
                     item.selectedHour = hour;
 
-                    if (draftSelections.has(cName)) {
+                    if (draftSelections.has(anahtar(cName))) {
                         // Zaten seçiliyse saatini güncelle
-                        const currentDraft = draftSelections.get(cName);
+                        const currentDraft = draftSelections.get(anahtar(cName));
                         currentDraft.saat = hour;
                     } else {
                         // Seçili değilse direkt bu saat ile seç
-                        draftSelections.set(cName, {
+                        draftSelections.set(anahtar(cName), {
                             ders: item.ders,
                             saat: hour,
                             grup: item.grup || "Seçmeli",
@@ -1723,7 +1729,23 @@ export class UIComponentManager {
                 ? window.curriculumEngine.resolveBranch(cName, targetSec.alanId || targetSec.alanAdi, "SEÇMELİ DERSLER")
                 : "Diğer";
 
-            draftSelections.set(cName, {
+            // AYNI DERS ZATEN VAR MI? Kullanıcı listede bulunan bir dersi
+            // elle yazarsa (küçük/büyük harf ya da boşluk farkıyla) eskiden
+            // ikinci bir kayıt açılıyordu. Artık uyarı verilir, saat
+            // güncellenir; şubede tek kayıt kalır.
+            const mevcut = draftSelections.get(anahtar(cName));
+            if (mevcut) {
+                mevcut.saat = cHour;
+                document.getElementById("custom-el-name").value = "";
+                this.showToast(
+                    `"${mevcut.ders}" zaten seçili. Yeni kayıt açılmadı, saati ${cHour} olarak güncellendi.`,
+                    "warning");
+                updateHeaderAndCommitBtn();
+                renderList();
+                return;
+            }
+
+            draftSelections.set(anahtar(cName), {
                 ders: cName,
                 saat: cHour,
                 grup: "Özel Seçmeli",
