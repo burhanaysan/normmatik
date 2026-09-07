@@ -541,6 +541,47 @@ if (typeof window !== 'undefined') {
     window.licenseManager = new MebLicenseClientManager();
 }
 
+// ==================== fiyat.js ====================
+
+/**
+ * NORMMATİK — LİSANS FİYATI (TEK KAYNAK)
+ * =============================================================================
+ * NEDEN AYRI BİR DOSYA (08.09.2026):
+ *   Fiyat DÖRT ayrı yerde yazılıydı: lisans penceresindeki kart, o pencereden
+ *   gönderilen WhatsApp mesajı, index.html'deki fiyat kutusu ve index.html'in
+ *   JSON-LD "Offer" şeması. Fiyat değiştiğinde dördünü birden güncellemek
+ *   gerekiyordu; biri unutulursa HATA VERMEZ, sessizce çelişirdi — site bir
+ *   fiyat, uygulama başka bir fiyat söylerdi.
+ *
+ *   Artık tek yer burasıdır. Uygulama tarafı bu sabiti doğrudan okur;
+ *   index.html ise `python tools/build_bundle.py` çalıştığında buradan
+ *   otomatik güncellenir (bkz. build_bundle.py -> fiyat_senkronize).
+ *
+ * DEĞİŞTİRİRKEN: yalnızca aşağıdaki değerleri düzenleyin, sonra
+ *   python tools/build_bundle.py
+ * çalıştırın. Başka hiçbir dosyaya dokunmayın.
+ */
+const NORMMATIK_FIYAT = {
+    tutar: 490,                  // sayı — JSON-LD "price" alanına bu gider
+    paraBirimi: "TRY",
+    simge: "₺",
+    gosterim: "490 ₺",           // uygulama içi gösterim
+    gosterimSite: "490 TL",      // karşılama sayfası gösterimi
+    sureAy: 12,
+    kapsamMetni: "okul başına · 12 ay",
+    // Sürenin NE ZAMAN başladığı: "2026-2027 sezonu" değil, satın alma tarihi.
+    // Site ile uygulama bu noktada çelişiyordu (08.09.2026'da hizalandı).
+    sureNotu: "Satın alma tarihinden itibaren 12 ay",
+    semaAciklama: "Okul başına 12 aylık lisans"
+};
+
+if (typeof window !== 'undefined') {
+    window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { NORMMATIK_FIYAT };
+}
+
 // ==================== normRulesConfig.js ====================
 
 /**
@@ -177332,6 +177373,15 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
     // --- LİSANS DOĞRULAMA VE AKTİVASYON MERKEZİ MODALI ---
     openLicenseModal() {
+        // Fiyat TEK KAYNAKTAN gelir: js/fiyat.js. Daha once dort ayri yerde
+        // yazilidiydi (bu pencere, WhatsApp mesaji, index.html kutusu ve
+        // index.html JSON-LD semasi); biri unutulunca site ile uygulama
+        // sessizce farkli fiyat soyluyordu.
+        const F = (typeof NORMMATIK_FIYAT !== 'undefined')
+            ? NORMMATIK_FIYAT
+            : ((typeof window !== 'undefined' && window.NORMMATIK_FIYAT) ? window.NORMMATIK_FIYAT : {
+                gosterim: "—", sureAy: 12, sureNotu: "Satın alma tarihinden itibaren 12 ay"
+              });
         const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 3 };
         const okulInfo = this.state.state.okulBilgisi || {};
         const types = this.db.getSchoolTypes();
@@ -177347,7 +177397,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
         let typeOptionsHtml = `<option value="" ${!currentType ? 'selected disabled' : ''}>-- Lütfen Okul / Kurum Türünü Seçiniz --</option>`;
         for (const [catName, catTypes] of Object.entries(grouped)) {
-            typeOptionsHtml += `<optgroup label="📂 ${catName}">`;
+            typeOptionsHtml += `<optgroup label="${catName}">`;
             catTypes.forEach(t => {
                 typeOptionsHtml += `<option value="${t.id}" ${currentType === t.id ? 'selected' : ''}>${t.name}</option>`;
             });
@@ -177356,11 +177406,11 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
         
         let statusBadge = "";
         if (lic.isMaster) {
-            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">👑 Geliştirici Erişimi - Sınırsız</span>`;
+            statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">Geliştirici Erişimi — Sınırsız</span>`;
         } else if (lic.isAnnual) {
-            statusBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1.5px solid #10b981; color: #10b981; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">🛡️ Yıllık Pro Lisans (${lic.daysRemaining} Gün Kaldı)</span>`;
+            statusBadge = `<span style="background: rgba(16, 185, 129, 0.2); border: 1.5px solid #10b981; color: #10b981; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">Yıllık Lisans — ${lic.daysRemaining} gün kaldı</span>`;
         } else {
-            statusBadge = `<span style="background: rgba(245, 158, 11, 0.2); border: 1.5px solid #f59e0b; color: #d97706; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">⏳ Ücretsiz Deneme Modu (Maks 3 Şube - Çıktılar Filigranlı)</span>`;
+            statusBadge = `<span style="background: rgba(245, 158, 11, 0.2); border: 1.5px solid #f59e0b; color: #d97706; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">Ücretsiz Deneme — En fazla 3 şube, çıktılar filigranlı</span>`;
         }
 
         const modalHtml = `
@@ -177368,10 +177418,9 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                 <div class="modal-box" style="max-width: 680px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
                     <div class="modal-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 1rem 1.3rem;">
                         <div class="modal-title" style="color: #fff; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; gap: 0.6rem;">
-                            <span style="font-size: 1.35rem;">🔑</span>
                             <div>
                                 <div>NormMatik™ Lisans & Güvenlik Merkezi</div>
-                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">5846 Sayılı FSEK & TÜRKPATENT Korumalı Asimetrik Lisans Sistemi</div>
+                                <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">5846 sayılı FSEK kapsamında korunur · Kuruma özel bulut lisansı</div>
                             </div>
                         </div>
                         <button class="modal-close-btn" id="btn-close-license-modal" style="color: #fff;">✕</button>
@@ -177381,12 +177430,12 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <!-- 1. LANSMAN FİYATI VE KAMPANYA KARTİ -->
                         <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 1.5px solid #0284c7; border-radius: 12px; padding: 0.9rem 1.1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;">
                             <div>
-                                <span style="background: #0284c7; color: #fff; font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase;">2026-2027 Sezonu Lansman Kampanyası</span>
+                                <span style="background: #0284c7; color: #fff; font-size: 0.68rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 4px; text-transform: uppercase;">2026-2027 Sezonu Lansman Fiyatı</span>
                                 <div style="font-size: 1.25rem; font-weight: 900; color: var(--text-main); margin-top: 0.25rem;">
-                                    490 ₺ <span style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-decoration: line-through;">1.500 ₺</span> <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ 1 Yıllık Okul Lisansı</span>
+                                    ${F.gosterim} <span style="font-size: 0.8rem; font-weight: 700; color: #16a34a;">/ Okul Lisansı</span>
                                 </div>
                                 <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.1rem;">
-                                    ✨ Sınırsız şube, 5 sekmeli Excel (.XLSX) çıktısı ve filigransız yazdırma.
+                                    ${F.sureNotu}. Sınırsız şube, 5 sekmeli Excel (.XLSX) çıktısı ve filigransız yazdırma.
                                 </div>
                             </div>
                         </div>
@@ -177394,7 +177443,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <!-- 2. DOĞRUDAN DÜZENLENEBİLİR OKUL VE LİSANS BİLGİLERİ -->
                         <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.9rem 1rem;">
                             <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: space-between;">
-                                <span>🏛️ Lisans Tanımlanacak Okul Bilgileri:</span>
+                                <span>Lisans Tanımlanacak Okul Bilgileri</span>
                                 <span style="font-size: 0.7rem; color: var(--text-muted); font-weight: 500;">(Doğrudan buradan güncelleyebilirsiniz)</span>
                             </div>
                             
@@ -177423,18 +177472,18 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             </div>
 
                             <div style="margin-top: 0.65rem; font-size: 0.72rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center;">
-                                <span>🔑 Giriş: MEB Kurum Kodu + şifreniz</span>
-                                <span style="color: #0284c7; font-weight: 800;">🔒 Kuruma Özel Lisans</span>
+                                <span>Giriş: MEB Kurum Kodu + şifreniz</span>
+                                <span style="color: #0284c7; font-weight: 800;">Kuruma Özel Lisans</span>
                             </div>
                         </div>
 
                         <!-- 3. WHATSAPP İLE TEK TIKLA LİSANS SATIN ALMA BUTONU -->
                         <div style="display: flex; flex-direction: column; gap: 0.4rem;">
                             <button class="btn" id="btn-send-whatsapp-license" style="background: #16a34a; border: 1px solid #15803d; color: #fff; width: 100%; padding: 0.85rem; font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25); transition: all 0.2s;">
-                                <span style="font-size: 1.25rem;">🟢</span> 📲 WhatsApp ile Hemen Lisans Al (+90 506 277 70 49)
+                                WhatsApp ile Lisans Al  ·  +90 506 277 70 49
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                ⚡ Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile 1 dakikada lisansınız tanımlanır.
+                                Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile lisansınız tanımlanır.
                             </div>
                         </div>
 
@@ -177521,13 +177570,13 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             // Cihaz kodu (HWID) mesajdan ÇIKARILDI (2026-08-24): lisans artık
             // cihaza değil kuruma bağlı. Okul istediği bilgisayardan girebilir.
-            const msg = `🏛️ NormMatik™ 1 YILLIK OKUL LİSANSI TALEBİ
+            const msg = `NormMatik™ OKUL LİSANSI TALEBİ
 * MEB Kurum Kodu: ${kKodu}
 * Okul Adı: ${oAdi}
 * İl / İlçe: ${ilIlce}
 * Okul Türü: ${turAdi}
 
-Merhaba, okulumuz için 1 yıllık NormMatik™ lisansı almak istiyorum. 490 ₺ lansman bedeli için FAST/IBAN bilgilerinizi iletebilir misiniz?`;
+Merhaba, okulumuz için NormMatik™ lisansı almak istiyorum (${F.sureAy} ay, ${F.gosterim}). FAST/IBAN bilgilerinizi iletebilir misiniz?`;
 
             const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
             window.open(waUrl, "_blank");
@@ -179628,6 +179677,7 @@ if (typeof window !== 'undefined') {
     if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();
     }
+    if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {

@@ -37,6 +37,7 @@ SW_JS = os.path.join(BASE_DIR, "sw.js")
 BUNDLE_FILES = [
     "licenseCore.js",
     "licenseClientManager.js",
+    "fiyat.js",                  # uiComponents.js'ten ÖNCE (lisans fiyatı tek kaynak)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
@@ -69,6 +70,7 @@ if (typeof window !== 'undefined') {
     if (typeof licenseManager === 'undefined' && typeof MebLicenseClientManager !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();
     }
+    if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
@@ -120,6 +122,55 @@ def strip_module_syntax(content):
         line = line.replace("export default ", "")
         lines.append(line)
     return "\n".join(lines)
+
+
+def fiyat_oku():
+    """js/fiyat.js icindeki degerleri okur. TEK KAYNAK oradadir."""
+    yol = os.path.join(JS_DIR, "fiyat.js")
+    metin = open(yol, "r", encoding="utf-8").read()
+    alanlar = {}
+    for ad in ("tutar", "gosterimSite", "kapsamMetni", "semaAciklama"):
+        m = re.search(ad + r'\s*:\s*"?([^",\n]+)"?', metin)
+        if not m:
+            return None
+        alanlar[ad] = m.group(1).strip()
+    return alanlar
+
+
+def fiyat_senkronize():
+    """index.html'deki fiyat, js/fiyat.js ile ayni olsun.
+
+    NEDEN: fiyat DORT yerde yaziliydi (lisans penceresi, WhatsApp mesaji,
+    index.html kutusu, index.html JSON-LD semasi). Fiyat degistiginde biri
+    unutulursa HATA VERMEZ; site bir sey, uygulama baska sey soyler. Bu
+    fonksiyon site tarafini mekanik olarak hizalar; uygulama tarafi zaten
+    sabiti dogrudan okur.
+    """
+    f = fiyat_oku()
+    sonuc = []
+    if not f:
+        return ["  ! js/fiyat.js okunamadi, index.html fiyati DEGISMEDI"]
+
+    yol = os.path.join(BASE_DIR, "index.html")
+    if not os.path.exists(yol):
+        return ["  ! index.html bulunamadi"]
+    with open(yol, "r", encoding="utf-8") as fh:
+        metin = fh.read()
+
+    kurallar = [
+        (r'(<div class="fiyat-tutar">)[^<]*(</div>)', f["gosterimSite"], "fiyat kutusu tutar"),
+        (r'(<div class="fiyat-kapsam">)[^<]*(</div>)', f["kapsamMetni"], "fiyat kutusu kapsam"),
+        (r'("price":\s*")[^"]*(")', f["tutar"], "JSON-LD price"),
+        (r'("description":\s*")Okul başına[^"]*(")', f["semaAciklama"], "JSON-LD teklif açıklaması"),
+    ]
+    for desen, deger, ad in kurallar:
+        metin, n = re.subn(desen, lambda m: m.group(1) + deger + m.group(2), metin, count=1)
+        sonuc.append(("  + %-28s -> %s" % (ad, deger)) if n
+                     else ("  ! ETIKET BULUNAMADI: %s" % ad))
+
+    with open(yol, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(metin)
+    return sonuc
 
 
 def surum_damgala():
@@ -216,6 +267,11 @@ def build_bundle():
     print("  bundle.js  : {:,} bayt / {:,} satir".format(
         len(output.encode("utf-8")), output.count("\n") + 1))
     print("  konum      : {}".format(bundle_path))
+    print()
+    print("  LISANS FIYATI (kaynak: js/fiyat.js):")
+    for satir in fiyat_senkronize():
+        print(satir)
+
     print()
     print("  SURUM ETIKETLERI (onbellek tazeleme):")
     damga, satirlar = surum_damgala()
