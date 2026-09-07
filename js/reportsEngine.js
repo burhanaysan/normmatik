@@ -524,59 +524,128 @@ class MebReportsEngine {
     }
 
     // --- 7. 3-TEMA SEÇMELİ DERS DENGE RAPORU ---
+    /**
+     * SEÇMELİ DERS TEMA DAĞILIMI VE UYGUNLUK ANALİZİ
+     *
+     * YENİDEN YAZILDI (07.09.2026). Eski hâlin üç kusuru ölçülerek bulundu:
+     *
+     *   1) Tema, dersin ADINDAN tahmin ediliyordu. Resmî grup bilgisi zaten
+     *      `c.grup` alanında duruyordu ve hiç kullanılmıyordu. Daha kötüsü,
+     *      hiçbir anahtar kelimeye uymayan ders SESSİZCE "Bilim" sayılıyordu;
+     *      denge olduğundan iyi görünüyordu.
+     *   2) Tek kural bütün okullara uygulanıyordu ("üç temanın üçü de olmalı").
+     *      Bu kural yalnızca ortaokulda ve 9-10. sınıfta doğru; 11-12'de iki
+     *      tema yeterli, güzel sanatlar/spor liselerinde iki tema şart, imam
+     *      hatipte tema sistemi hiç yok, meslek liselerinde kural yok.
+     *      Yani sekme okul türlerinin ÇOĞUNDA yanlış uyarı üretiyordu.
+     *   3) Kaynak veride grup adı satır kırılmasından ikiye bölünmüştü
+     *      ("İNSAN, TOPLUM" + "VE BİLİM"). Kanonikleştirme artık
+     *      secmeliTemaKurallari.js içinde ve müşterinin KAYITLI eski
+     *      verisini de onarır.
+     *
+     * Kurallar ve kaynakları js/secmeliTemaKurallari.js dosyasındadır.
+     * Kuralı bulunamayan okul türünde UYARI ÜRETİLMEZ; yalnızca dağılım
+     * gösterilir. Dayanağı gösterilemeyen uyarı, uyarı olmamasından kötüdür.
+     */
     generateElectiveThemeReport(state) {
         const subeler = state.subeler || [];
         const schoolInfo = state.okulBilgisi || {};
+        const okulTuru = schoolInfo.okulTuru || "";
 
-        const themeReport = subeler.map(sec => {
+        const K = (typeof window !== "undefined" && window.SECMELI_TEMA_KURALLARI)
+            ? window.SECMELI_TEMA_KURALLARI
+            : (typeof SECMELI_TEMA_KURALLARI !== "undefined" ? SECMELI_TEMA_KURALLARI : null);
+
+        const KOVALAR = ["BILIM", "DEGER", "SANAT", "AKADEMIK", "OKUL_OZEL",
+                         "PROGRAM", "MESLEK", "BILINMIYOR"];
+        const bosKovalar = () => {
+            const o = {};
+            KOVALAR.forEach(k => { o[k] = { count: 0, hours: 0, courses: [] }; });
+            return o;
+        };
+
+        let kuralliSubeVar = false;
+
+        const themeSections = subeler.map(sec => {
             const electives = sec.secmeliDersler || [];
-            const stats = {
-                BILIM: { count: 0, hours: 0, courses: [] },
-                DEGER: { count: 0, hours: 0, courses: [] },
-                SANAT: { count: 0, hours: 0, courses: [] },
-                VOC: { count: 0, hours: 0, courses: [] }
-            };
-
-            let totalElectiveH = 0;
+            const stats = bosKovalar();
+            let totalElectiveHours = 0;
+            const hedefTemelli = [];
 
             electives.forEach(c => {
-                const cName = c.ders || c.ders_adi;
-                const h = parseInt(c.saat || c.ders_saati || 0, 10);
-                totalElectiveH += h;
+                const cName = c.ders || c.ders_adi || "";
+                const h = parseInt(c.saat || c.ders_saati || 0, 10) || 0;
+                totalElectiveHours += h;
 
-                const norm = (String(cName) + " " + String(c.kategori || "")).toLowerCase()
-                    .replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g')
-                    .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/['’\-\.\,\(\)]/g, '');
+                // Meslek seçmelileri tema sistemine girmez; ayrı kovada durur.
+                const meslekMi = !!(c.isVocational || c.isElectiveVocational || c.isAtolye
+                    || String(c.kategori || "").indexOf("MESLEK") >= 0);
 
-                let themeId = "BILIM";
-                if (c.isVocational || c.isElectiveVocational || (c.kategori || "").includes("MESLEK")) {
-                    themeId = "VOC";
-                } else if (norm.includes("din") || norm.includes("kuran") || norm.includes("peygamber") || norm.includes("siyer") || norm.includes("ahlak") || norm.includes("adab") || norm.includes("deger")) {
-                    themeId = "DEGER";
-                } else if (norm.includes("sanat") || norm.includes("muzik") || norm.includes("gorsel") || norm.includes("spor") || norm.includes("masal") || norm.includes("oyun") || norm.includes("drama")) {
-                    themeId = "SANAT";
+                const kovaId = meslekMi ? "MESLEK" : (K ? K.temaCoz(c.grup) : "BILINMIYOR");
+                const kova = stats[kovaId] || stats.BILINMIYOR;
+                kova.count += 1;
+                kova.hours += h;
+                kova.courses.push({ ad: cName, saat: h, grup: c.grup || "" });
+
+                // HEDEF TEMELLİ DESTEK EĞİTİMİ — ders başına 1-3 saat kuralı
+                if (K && K.hedefTemelliMi(cName)) {
+                    const dagilim = c.bransDagilimi || null;
+                    const ihlaller = [];
+                    if (dagilim) {
+                        Object.keys(dagilim).forEach(brans => {
+                            const bs = parseInt(dagilim[brans], 10) || 0;
+                            if (bs < 1 || bs > 3) ihlaller.push({ brans: brans, saat: bs });
+                        });
+                    }
+                    hedefTemelli.push({
+                        ad: cName, saat: h, dagilim: dagilim,
+                        dagitilmamis: !dagilim || Object.keys(dagilim).length === 0,
+                        ihlaller: ihlaller
+                    });
                 }
-
-                stats[themeId].count += 1;
-                stats[themeId].hours += h;
-                stats[themeId].courses.push(`${cName} (${h}s)`);
             });
+
+            // UYGUNLUK — yalnızca kaynağı gösterilebilen kural varsa
+            const kural = K ? K.kuralBul(okulTuru, sec.sinifSeviyesi) : null;
+            let uyum = null;
+            if (kural) {
+                kuralliSubeVar = true;
+                const saglanan = kural.temalar.filter(t => stats[t].count > 0);
+                const eksik = kural.temalar.filter(t => stats[t].count === 0);
+                uyum = {
+                    uygun: saglanan.length >= kural.enAzFarkli,
+                    saglananSayi: saglanan.length,
+                    gerekenSayi: kural.enAzFarkli,
+                    kapsamSayi: kural.temalar.length,
+                    saglanan: saglanan,
+                    eksik: eksik,
+                    hepsiGerekli: kural.enAzFarkli === kural.temalar.length,
+                    metin: kural.metin,
+                    kaynak: kural.kaynak
+                };
+            }
 
             return {
                 sectionName: sec.subeAdi,
                 grade: sec.sinifSeviyesi,
-                totalElectiveHours: totalElectiveH,
+                totalElectiveHours: totalElectiveHours,
                 stats: stats,
-                isBalanced: stats.BILIM.count > 0 && stats.DEGER.count > 0 && stats.SANAT.count > 0
+                uyum: uyum,
+                hedefTemelli: hedefTemelli
             };
         });
 
         return {
             reportType: "ELECTIVE_THEME_REPORT",
-            title: "3-Tema Seçmeli Ders Tercih Dengesi ve Dağılım Analizi",
+            title: "Seçmeli Ders Tema Dağılımı ve Mevzuat Uygunluğu",
             generatedAt: new Date().toLocaleString("tr-TR"),
             schoolInfo: schoolInfo,
-            themeSections: themeReport
+            okulTuru: okulTuru,
+            kuralliSubeVar: kuralliSubeVar,
+            turNotu: K ? K.turNotu(okulTuru) : "",
+            temaTanimlari: K ? K.TEMALAR : {},
+            digerGruplar: K ? K.DIGER_GRUPLAR : {},
+            themeSections: themeSections
         };
     }
 

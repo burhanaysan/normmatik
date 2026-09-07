@@ -163549,6 +163549,221 @@ const OZEL_PROGRAM_TEMALARI = {
     }
 };
 
+// ==================== secmeliTemaKurallari.js ====================
+
+/* ===========================================================================
+   NormMatik™ — SEÇMELİ DERS TEMA KURALLARI
+   ===========================================================================
+   NEDEN VAR (kullanıcı sorusu, 07.09.2026)
+   ----------------------------------------
+   "3-Tema Seçmeli Ders Tercih Dengesi" sekmesi mevzuata uygun mu? Ölçüldü,
+   DEĞİLDİ. Üç ayrı kusur vardı:
+
+     1) Tema, dersin ADINDAN tahmin ediliyordu ("din" geçiyorsa Değer, "sanat"
+        geçiyorsa Sanat...). Oysa resmî grup bilgisi zaten her seçmeli dersin
+        `grup` alanında duruyordu. Eşleşmeyen her ders SESSİZCE "Bilim"
+        sayılıyordu.
+     2) Tek bir kural bütün okullara uygulanıyordu: "üç temanın üçü de olmalı."
+        Bu kural yalnızca ortaokulda ve 9-10. sınıflarda doğru. Diğer her yerde
+        YANLIŞ UYARI üretiyordu.
+     3) Kaynak veride grup adı satır kırılması yüzünden ikiye bölünmüştü
+        ("İNSAN, TOPLUM" + "VE BİLİM"). Bu dosyadaki kanonikleştirme onu da
+        onarır — hem havuzdaki hem müşteride KAYITLI eski veriyi.
+
+   BU DOSYA ELLE YAZILDI ama kuralların tamamı kaynağından okundu; her kuralın
+   yanında hangi TTKB kararından geldiği yazılıdır. Kaynağı bulunamayan yere
+   KURAL YAZILMADI — uyarı üretmeyen okul türleri bilinçli olarak boştur.
+
+   Kapsam kararı: kural metni bulunamayan yerde uyarı gösterilmez. Dayanağı
+   gösterilemeyen bir uyarı, uyarı olmamasından kötüdür.
+   ======================================================================== */
+
+const SECMELI_TEMA_KURALLARI = {
+
+    /* ---- ÜÇ RESMÎ TEMA ------------------------------------------------ */
+    TEMALAR: {
+        BILIM: { id: "BILIM", ad: "İnsan, Toplum ve Bilim", kisa: "İnsan/Toplum/Bilim", ikon: "🔬", renk: "#0284c7" },
+        DEGER: { id: "DEGER", ad: "Din, Ahlak ve Değer", kisa: "Din/Ahlak/Değer", ikon: "🕌", renk: "#7c3aed" },
+        SANAT: { id: "SANAT", ad: "Kültür, Sanat ve Spor", kisa: "Kültür/Sanat/Spor", ikon: "🎨", renk: "#b45309" }
+    },
+
+    /* Tema OLMAYAN ama havuzda bulunan gruplar. Sayıma katılmaz, ayrı gösterilir. */
+    DIGER_GRUPLAR: {
+        AKADEMIK: { id: "AKADEMIK", ad: "Akademik Çalışmalar", ikon: "📚", renk: "#475569" },
+        OKUL_OZEL: { id: "OKUL_OZEL", ad: "Okul Türüne Özel Gruplar", ikon: "🏫", renk: "#0f766e" },
+        PROGRAM: { id: "PROGRAM", ad: "Program/Proje Dersleri", ikon: "🧩", renk: "#be185d" },
+        BILINMIYOR: { id: "BILINMIYOR", ad: "Grubu Belirsiz", ikon: "❔", renk: "#9ca3af" }
+    },
+
+    /* ---- HAM GRUP ADI -> TEMA ------------------------------------------
+       Havuzdaki 25 farklı ham grup adının TAMAMI tarandı ve buraya yazıldı.
+       Yarım adlar (PDF satır kırılmasından) bilerek listede: müşterinin
+       şubesinde KAYITLI eski `grup` değerleri de doğru çözülsün diye.       */
+    HAM_ESLEME: {
+        // İnsan, Toplum ve Bilim — tam ve yarım hâlleri
+        "insan toplum ve bilim": "BILIM",
+        "insan toplum ve": "BILIM",
+        "insan toplum": "BILIM",
+        "ve bilim": "BILIM",
+        "bilim": "BILIM",
+        // Din, Ahlak ve Değer
+        "din ahlak ve deger": "DEGER",
+        "din ahlak": "DEGER",
+        "ve deger": "DEGER",
+        // Kültür, Sanat ve Spor — tam ve yarım hâlleri
+        "kultur sanat ve spor": "SANAT",
+        "kultur sanat ve": "SANAT",
+        "kultur sanat": "SANAT",
+        "ve spor": "SANAT",
+        // Tema olmayanlar
+        "akademik calismalar": "AKADEMIK",
+        "temel islam bilimleri": "OKUL_OZEL",
+        "turk islam sanatlari": "OKUL_OZEL",
+        "secmeli": "BILINMIYOR"
+    },
+
+    /* Türkçe güvenli sadeleştirme.
+       toLocaleUpperCase/LowerCase EŞLEME ANAHTARI için kullanılmaz: "İ"
+       küçültülünce ayrı bir nokta karakteri üretir ve eşleşme kaçar. */
+    sadelestir(s) {
+        return String(s == null ? "" : s)
+            .replace(/İ/g, "i").replace(/I/g, "i").replace(/ı/g, "i")
+            .replace(/Ş/g, "s").replace(/ş/g, "s")
+            .replace(/Ğ/g, "g").replace(/ğ/g, "g")
+            .replace(/Ü/g, "u").replace(/ü/g, "u")
+            .replace(/Ö/g, "o").replace(/ö/g, "o")
+            .replace(/Ç/g, "c").replace(/ç/g, "c")
+            .replace(/Â/g, "a").replace(/â/g, "a")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, " ")
+            .trim();
+    },
+
+    /**
+     * Ham grup adını tema kimliğine çevirir.
+     * Dönüş: "BILIM" | "DEGER" | "SANAT" | "AKADEMIK" | "OKUL_OZEL"
+     *        | "PROGRAM" | "BILINMIYOR"
+     *
+     * ASLA sessizce bir temaya düşmez. Çözülemeyen "BILINMIYOR" döner ve
+     * raporda ayrı gösterilir — eski kodun en tehlikeli yanı, tanımadığı her
+     * dersi "Bilim" sayıp dengeyi olduğundan iyi göstermesiydi.
+     */
+    temaCoz(grupAdi) {
+        const n = this.sadelestir(grupAdi);
+        if (!n) return "BILINMIYOR";
+        if (Object.prototype.hasOwnProperty.call(this.HAM_ESLEME, n)) return this.HAM_ESLEME[n];
+        // İHL/İHO program-proje grupları: "... PROGRAMI/PROJESİ DERSLERİ"
+        if (n.indexOf("programi") >= 0 || n.indexOf("projesi") >= 0 || n.indexOf("program secmeli") >= 0) {
+            return "PROGRAM";
+        }
+        return "BILINMIYOR";
+    },
+
+    temaMi(id) { return id === "BILIM" || id === "DEGER" || id === "SANAT"; },
+
+    /* ---- KURALLAR ------------------------------------------------------
+       Her kaydın `kaynak` alanı, kuralın okunduğu resmî belgedir.
+       `enAzFarkli`: listelenen temalardan KAÇ FARKLISINDAN en az birer ders
+       seçilmiş olmalı. Liste uzunluğuna eşitse "hepsinden" demektir.        */
+    KURALLAR: [
+        {
+            ad: "Ortaokul — üç grubun her birinden",
+            turler: ["ortaokul_temel_egitim"],
+            seviyeler: ["5", "6", "7", "8"],
+            temalar: ["BILIM", "DEGER", "SANAT"],
+            enAzFarkli: 3,
+            metin: "Üç seçmeli ders grubunun her birinden her yıl en az birer ders seçilmesi zorunludur.",
+            kaynak: "İlköğretim Kurumları (İlkokul-Ortaokul) Haftalık Ders Çizelgesi — Uygulama Açıklamaları"
+        },
+        {
+            ad: "Genel liseler 9-10 — üç grubun her birinden",
+            turler: ["anadolu_lisesi", "hazirlik_anadolu_lisesi", "fen_lisesi", "hazirlik_fen_lisesi",
+                     "sosyal_bilimler_lisesi", "ozel_program_fen_lisesi", "ozel_program_sosyal_lisesi"],
+            seviyeler: ["9", "10"],
+            temalar: ["BILIM", "DEGER", "SANAT"],
+            enAzFarkli: 3,
+            metin: "9 ve 10. sınıfta üç seçmeli ders grubunun her birinden en az birer ders seçilmesi zorunludur.",
+            kaynak: "TTKB Sayı 05 (Anadolu/Fen/Sosyal Bilimler Lisesi) · Sayı 24 · Sayı 25"
+        },
+        {
+            ad: "Genel liseler 11-12 — üç gruptan en az ikisi",
+            turler: ["anadolu_lisesi", "hazirlik_anadolu_lisesi", "fen_lisesi", "hazirlik_fen_lisesi",
+                     "sosyal_bilimler_lisesi", "ozel_program_fen_lisesi", "ozel_program_sosyal_lisesi"],
+            seviyeler: ["11", "12"],
+            temalar: ["BILIM", "DEGER", "SANAT"],
+            enAzFarkli: 2,
+            metin: "11 ve 12. sınıfta üç seçmeli ders grubunun en az ikisinden birer ders seçilmesi zorunludur.",
+            kaynak: "TTKB Sayı 05 (Anadolu/Fen/Sosyal Bilimler Lisesi) · Sayı 24 · Sayı 25"
+        },
+        {
+            ad: "Güzel sanatlar ve spor liseleri — iki grup",
+            turler: ["guzel_sanatlar_gorsel", "guzel_sanatlar_muzik", "guzel_sanatlar_tiyatro",
+                     "guzel_sanatlar_turk_muzigi", "spor_lisesi"],
+            seviyeler: ["9", "10", "11", "12"],
+            temalar: ["BILIM", "DEGER"],
+            enAzFarkli: 2,
+            metin: "Her sınıf seviyesinde “İnsan, Toplum ve Bilim” ile “Din, Ahlak ve Değer” gruplarından en az birer ders seçilmelidir.",
+            kaynak: "TTKB Sayı 06 (Görsel/Tiyatro) · Sayı 07 (Müzik/Türk Müziği) · Sayı 09 (Spor Lisesi)"
+        }
+        /* KURAL YAZILMAYAN TÜRLER — bilinçli boşluk, eksik değil:
+           · anadolu_imam_hatip_lisesi / hazirlik_imam_hatip_lisesi
+                Çizelgede tema değil "A" ve "B" grubu var (md. 1). Program
+                türüne göre yalnız A ya da A+B seçilebilir (md. 8). Tema
+                uyarısı üretmek yanlış olurdu.
+           · imam_hatip_ortaokulu
+                Ana çizelgede üç tema başlığı VAR ama 14 açıklamanın hiçbirinde
+                seçim kuralı YOK. Kendi çizelgesi kuralı tekrarlamıyor.
+                Dağılım bilgi olarak gösterilir, uyarı çıkmaz.
+           · mesleki_ve_teknik_anadolu_lisesi, anadolu_teknik_programi,
+             meslek_okulu, meslek_ortaokulu, mesleki_egitim_merkezi
+                5 MTEGM çizelgesinde tema kuralı hiç geçmiyor (0 eşleşme).
+           · ozel_egitim_*  -> çizelgelerinde "seçmeli" kelimesi bile yok.
+           · hazırlık sınıfı -> kural metni yalnızca 9-12'yi sayıyor.          */
+    ],
+
+    /* Okul türü + sınıf seviyesi için geçerli kuralı bulur. Yoksa null. */
+    kuralBul(okulTuru, sinifSeviyesi) {
+        const t = String(okulTuru || "");
+        const s = String(sinifSeviyesi == null ? "" : sinifSeviyesi).trim();
+        for (const k of this.KURALLAR) {
+            if (k.turler.indexOf(t) >= 0 && k.seviyeler.indexOf(s) >= 0) return k;
+        }
+        return null;
+    },
+
+    /* Okul türü için açıklayıcı not (kuralı olmayanlarda "neden uyarı yok"). */
+    TUR_NOTLARI: {
+        anadolu_imam_hatip_lisesi:
+            "Anadolu imam hatip liselerinde seçmeli dersler üç temaya değil “A” ve “B” grubuna ayrılır. Uygulanan program/projeye göre öğrenci yalnız “A” ya da “A ve B” gruplarından seçim yapar (DÖGM çizelgesi md. 1 ve md. 8). Bu nedenle tema dengesi uyarısı gösterilmez.",
+        hazirlik_imam_hatip_lisesi:
+            "Anadolu imam hatip liselerinde seçmeli dersler üç temaya değil “A” ve “B” grubuna ayrılır (DÖGM çizelgesi md. 1 ve md. 8). Bu nedenle tema dengesi uyarısı gösterilmez.",
+        imam_hatip_ortaokulu:
+            "İmam hatip ortaokulu çizelgesinde tema başlıkları yer alıyor, ancak çizelge açıklamalarında “her gruptan en az birer ders” türünde bir seçim kuralı bulunmuyor. Dayanağı olmayan uyarı üretmemek için dağılım yalnızca bilgi amaçlı gösterilir.",
+        mesleki_ve_teknik_anadolu_lisesi:
+            "Mesleki ve teknik ortaöğretim çizelgelerinde seçmeli ders tema kuralı bulunmuyor; seçmeliler alan/dal yapısına göre belirlenir.",
+        anadolu_teknik_programi:
+            "Mesleki ve teknik ortaöğretim çizelgelerinde seçmeli ders tema kuralı bulunmuyor.",
+        meslek_okulu:
+            "Mesleki ve teknik ortaöğretim çizelgelerinde seçmeli ders tema kuralı bulunmuyor.",
+        mesleki_egitim_merkezi:
+            "Mesleki eğitim merkezi (MESEM) çizelgelerinde seçmeli ders tema kuralı bulunmuyor.",
+        ozel_egitim_meslek_okulu:
+            "Özel eğitim çizelgelerinde seçmeli ders yapısı bulunmuyor.",
+        ozel_egitim_uygulama_okulu:
+            "Özel eğitim çizelgelerinde seçmeli ders yapısı bulunmuyor."
+    },
+
+    turNotu(okulTuru) { return this.TUR_NOTLARI[String(okulTuru || "")] || ""; },
+
+    /* ---- HEDEF TEMELLİ DESTEK EĞİTİMİ ---------------------------------
+       Ayrı bir kural: içerik listesi ve DERS BAŞINA 1-3 saat sınırı.
+       Kaynak: TTKB Sayı 05 ve DÖGM İHL çizelgesi md. 34 (aynı ifade).
+       Kapsam listesi js/hedef_temelli_dersler.js içinde ÜRETİLMİŞ hâlde.    */
+    hedefTemelliMi(dersAdi) {
+        return this.sadelestir(dersAdi).indexOf("hedef temelli") >= 0;
+    }
+};
+
 // ==================== database.js ====================
 
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
@@ -167477,59 +167692,128 @@ class MebReportsEngine {
     }
 
     // --- 7. 3-TEMA SEÇMELİ DERS DENGE RAPORU ---
+    /**
+     * SEÇMELİ DERS TEMA DAĞILIMI VE UYGUNLUK ANALİZİ
+     *
+     * YENİDEN YAZILDI (07.09.2026). Eski hâlin üç kusuru ölçülerek bulundu:
+     *
+     *   1) Tema, dersin ADINDAN tahmin ediliyordu. Resmî grup bilgisi zaten
+     *      `c.grup` alanında duruyordu ve hiç kullanılmıyordu. Daha kötüsü,
+     *      hiçbir anahtar kelimeye uymayan ders SESSİZCE "Bilim" sayılıyordu;
+     *      denge olduğundan iyi görünüyordu.
+     *   2) Tek kural bütün okullara uygulanıyordu ("üç temanın üçü de olmalı").
+     *      Bu kural yalnızca ortaokulda ve 9-10. sınıfta doğru; 11-12'de iki
+     *      tema yeterli, güzel sanatlar/spor liselerinde iki tema şart, imam
+     *      hatipte tema sistemi hiç yok, meslek liselerinde kural yok.
+     *      Yani sekme okul türlerinin ÇOĞUNDA yanlış uyarı üretiyordu.
+     *   3) Kaynak veride grup adı satır kırılmasından ikiye bölünmüştü
+     *      ("İNSAN, TOPLUM" + "VE BİLİM"). Kanonikleştirme artık
+     *      secmeliTemaKurallari.js içinde ve müşterinin KAYITLI eski
+     *      verisini de onarır.
+     *
+     * Kurallar ve kaynakları js/secmeliTemaKurallari.js dosyasındadır.
+     * Kuralı bulunamayan okul türünde UYARI ÜRETİLMEZ; yalnızca dağılım
+     * gösterilir. Dayanağı gösterilemeyen uyarı, uyarı olmamasından kötüdür.
+     */
     generateElectiveThemeReport(state) {
         const subeler = state.subeler || [];
         const schoolInfo = state.okulBilgisi || {};
+        const okulTuru = schoolInfo.okulTuru || "";
 
-        const themeReport = subeler.map(sec => {
+        const K = (typeof window !== "undefined" && window.SECMELI_TEMA_KURALLARI)
+            ? window.SECMELI_TEMA_KURALLARI
+            : (typeof SECMELI_TEMA_KURALLARI !== "undefined" ? SECMELI_TEMA_KURALLARI : null);
+
+        const KOVALAR = ["BILIM", "DEGER", "SANAT", "AKADEMIK", "OKUL_OZEL",
+                         "PROGRAM", "MESLEK", "BILINMIYOR"];
+        const bosKovalar = () => {
+            const o = {};
+            KOVALAR.forEach(k => { o[k] = { count: 0, hours: 0, courses: [] }; });
+            return o;
+        };
+
+        let kuralliSubeVar = false;
+
+        const themeSections = subeler.map(sec => {
             const electives = sec.secmeliDersler || [];
-            const stats = {
-                BILIM: { count: 0, hours: 0, courses: [] },
-                DEGER: { count: 0, hours: 0, courses: [] },
-                SANAT: { count: 0, hours: 0, courses: [] },
-                VOC: { count: 0, hours: 0, courses: [] }
-            };
-
-            let totalElectiveH = 0;
+            const stats = bosKovalar();
+            let totalElectiveHours = 0;
+            const hedefTemelli = [];
 
             electives.forEach(c => {
-                const cName = c.ders || c.ders_adi;
-                const h = parseInt(c.saat || c.ders_saati || 0, 10);
-                totalElectiveH += h;
+                const cName = c.ders || c.ders_adi || "";
+                const h = parseInt(c.saat || c.ders_saati || 0, 10) || 0;
+                totalElectiveHours += h;
 
-                const norm = (String(cName) + " " + String(c.kategori || "")).toLowerCase()
-                    .replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g')
-                    .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/['’\-\.\,\(\)]/g, '');
+                // Meslek seçmelileri tema sistemine girmez; ayrı kovada durur.
+                const meslekMi = !!(c.isVocational || c.isElectiveVocational || c.isAtolye
+                    || String(c.kategori || "").indexOf("MESLEK") >= 0);
 
-                let themeId = "BILIM";
-                if (c.isVocational || c.isElectiveVocational || (c.kategori || "").includes("MESLEK")) {
-                    themeId = "VOC";
-                } else if (norm.includes("din") || norm.includes("kuran") || norm.includes("peygamber") || norm.includes("siyer") || norm.includes("ahlak") || norm.includes("adab") || norm.includes("deger")) {
-                    themeId = "DEGER";
-                } else if (norm.includes("sanat") || norm.includes("muzik") || norm.includes("gorsel") || norm.includes("spor") || norm.includes("masal") || norm.includes("oyun") || norm.includes("drama")) {
-                    themeId = "SANAT";
+                const kovaId = meslekMi ? "MESLEK" : (K ? K.temaCoz(c.grup) : "BILINMIYOR");
+                const kova = stats[kovaId] || stats.BILINMIYOR;
+                kova.count += 1;
+                kova.hours += h;
+                kova.courses.push({ ad: cName, saat: h, grup: c.grup || "" });
+
+                // HEDEF TEMELLİ DESTEK EĞİTİMİ — ders başına 1-3 saat kuralı
+                if (K && K.hedefTemelliMi(cName)) {
+                    const dagilim = c.bransDagilimi || null;
+                    const ihlaller = [];
+                    if (dagilim) {
+                        Object.keys(dagilim).forEach(brans => {
+                            const bs = parseInt(dagilim[brans], 10) || 0;
+                            if (bs < 1 || bs > 3) ihlaller.push({ brans: brans, saat: bs });
+                        });
+                    }
+                    hedefTemelli.push({
+                        ad: cName, saat: h, dagilim: dagilim,
+                        dagitilmamis: !dagilim || Object.keys(dagilim).length === 0,
+                        ihlaller: ihlaller
+                    });
                 }
-
-                stats[themeId].count += 1;
-                stats[themeId].hours += h;
-                stats[themeId].courses.push(`${cName} (${h}s)`);
             });
+
+            // UYGUNLUK — yalnızca kaynağı gösterilebilen kural varsa
+            const kural = K ? K.kuralBul(okulTuru, sec.sinifSeviyesi) : null;
+            let uyum = null;
+            if (kural) {
+                kuralliSubeVar = true;
+                const saglanan = kural.temalar.filter(t => stats[t].count > 0);
+                const eksik = kural.temalar.filter(t => stats[t].count === 0);
+                uyum = {
+                    uygun: saglanan.length >= kural.enAzFarkli,
+                    saglananSayi: saglanan.length,
+                    gerekenSayi: kural.enAzFarkli,
+                    kapsamSayi: kural.temalar.length,
+                    saglanan: saglanan,
+                    eksik: eksik,
+                    hepsiGerekli: kural.enAzFarkli === kural.temalar.length,
+                    metin: kural.metin,
+                    kaynak: kural.kaynak
+                };
+            }
 
             return {
                 sectionName: sec.subeAdi,
                 grade: sec.sinifSeviyesi,
-                totalElectiveHours: totalElectiveH,
+                totalElectiveHours: totalElectiveHours,
                 stats: stats,
-                isBalanced: stats.BILIM.count > 0 && stats.DEGER.count > 0 && stats.SANAT.count > 0
+                uyum: uyum,
+                hedefTemelli: hedefTemelli
             };
         });
 
         return {
             reportType: "ELECTIVE_THEME_REPORT",
-            title: "3-Tema Seçmeli Ders Tercih Dengesi ve Dağılım Analizi",
+            title: "Seçmeli Ders Tema Dağılımı ve Mevzuat Uygunluğu",
             generatedAt: new Date().toLocaleString("tr-TR"),
             schoolInfo: schoolInfo,
-            themeSections: themeReport
+            okulTuru: okulTuru,
+            kuralliSubeVar: kuralliSubeVar,
+            turNotu: K ? K.turNotu(okulTuru) : "",
+            temaTanimlari: K ? K.TEMALAR : {},
+            digerGruplar: K ? K.DIGER_GRUPLAR : {},
+            themeSections: themeSections
         };
     }
 
@@ -172348,19 +172632,52 @@ class UIComponentManager {
             };
         }
 
+        // RESMÎ GRUP ÖNCE (07.09.2026)
+        // ------------------------------------------------------------------
+        // Aşağıdaki anahtar kelime taraması, dersin ADINDAN tema tahmin eder.
+        // Oysa çizelgeden gelen resmî grup bilgisi `item.grup` alanında duruyor.
+        // İki ayrı yöntem kullanılınca aynı ders seçicide bir tema, raporda
+        // başka tema görünebiliyordu. Tema kimliği artık TEK KAYNAKTAN:
+        // secmeliTemaKurallari.js. Anahtar kelime taraması yalnızca (a) grubu
+        // çözülemeyen kalemler ve (b) "İnsan, Toplum ve Bilim" içindeki alt
+        // başlıklar (Bilişim / Yabancı Diller) için yedek olarak kalıyor.
+        const _K = (typeof window !== 'undefined' && window.SECMELI_TEMA_KURALLARI)
+            ? window.SECMELI_TEMA_KURALLARI
+            : (typeof SECMELI_TEMA_KURALLARI !== 'undefined' ? SECMELI_TEMA_KURALLARI : null);
+        const _kanon = _K ? _K.temaCoz(item.grup) : "BILINMIYOR";
+        if (_kanon === "DEGER") {
+            return {
+                id: "DEGER", subId: "DEGER", title: "Din, Ahlak ve Değer",
+                badge: "🕊️ Din, Ahlak ve Değer", badgeClass: "theme-badge-deger",
+                color: "#7c3aed", icon: "🕊️"
+            };
+        }
+        if (_kanon === "SANAT") {
+            return {
+                id: "SANAT", subId: "SANAT", title: "Kültür, Sanat ve Spor",
+                badge: "🎨 Kültür, Sanat ve Spor", badgeClass: "theme-badge-sanat",
+                color: "#b45309", icon: "🎨"
+            };
+        }
+        // _kanon === "BILIM" ise aşağı düşer: alt başlık ayrımı orada yapılır.
+
         const norm = (String(item.ders || "") + " " + String(item.grup || "")).toLowerCase()
             .replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ş/g, 's').replace(/ğ/g, 'g')
             .replace(/ü/g, 'u').replace(/ö/g, 'o').replace(/ç/g, 'c')
             .replace(/['’\-\.\,\(\)]/g, '');
-        
+
+        // Grubu resmî olarak BİLİM çözülenlerde din/sanat anahtar kelimeleri
+        // devreye girmemeli; yoksa resmî grup yine ders adına ezdirilir.
+        const _bilimKesin = (_kanon === "BILIM");
+
         // 1. Din, Ahlak ve Değer
-        if (norm.includes("din") || norm.includes("kuran") || norm.includes("peygamber") || 
+        if (!_bilimKesin && (norm.includes("din") || norm.includes("kuran") || norm.includes("peygamber") || 
             norm.includes("siyer") || norm.includes("ahlak") || norm.includes("adab") || 
             norm.includes("nezaket") || norm.includes("deger") || norm.includes("fikih") || 
             norm.includes("tefsir") || norm.includes("hadis") || norm.includes("akaid") || 
             norm.includes("kelam") || norm.includes("hitabet") || norm.includes("tasavvuf") || 
             norm.includes("islam") || norm.includes("yon verenler") || norm.includes("temel dini") ||
-            norm.includes("arapca (metin") || norm.includes("dini musiki")) {
+            norm.includes("arapca (metin") || norm.includes("dini musiki"))) {
             return {
                 id: "DEGER",
                 subId: "DEGER",
@@ -172373,7 +172690,7 @@ class UIComponentManager {
         }
 
         // 2. Kültür, Sanat ve Spor
-        if (norm.includes("sanat") || norm.includes("muzik") || norm.includes("gorsel") || 
+        if (!_bilimKesin && (norm.includes("sanat") || norm.includes("muzik") || norm.includes("gorsel") || 
             norm.includes("spor") || norm.includes("fiziki") || norm.includes("resim") || 
             norm.includes("heykel") || norm.includes("masal") || norm.includes("destan") || 
             norm.includes("oyun") || norm.includes("drama") || norm.includes("tiyatro") || 
@@ -172381,7 +172698,7 @@ class UIComponentManager {
             norm.includes("ebru") || norm.includes("hat") || norm.includes("tezhip") || 
             norm.includes("minyatur") || norm.includes("calgi") || norm.includes("koro") || 
             norm.includes("sinema") || norm.includes("fotograf") || norm.includes("beden egitimi") ||
-            norm.includes("diksiyon") || norm.includes("estetik") || norm.includes("ritim")) {
+            norm.includes("diksiyon") || norm.includes("estetik") || norm.includes("ritim"))) {
             return {
                 id: "SANAT",
                 subId: "SANAT",
@@ -173717,8 +174034,25 @@ class UIComponentManager {
 
                             <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
                                 <div style="font-size: 0.78rem; font-weight: 800; color: #b45309; margin-bottom: 0.15rem;">📉 Yöneticilerin Okuttuğu Ders Saatleri (Md. 22/6)</div>
-                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
-                                    Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir. Hangi branşta kaç saat derse giriliyorsa o branşa yazın.
+                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.45; margin-bottom: 0.4rem;">
+                                    Alanlara göre öğretmen norm kadroları, yöneticilerin girmiş olduğu ders saatleri ilgili alanın ders yükünden düşülerek belirlenir.
+                                </div>
+                                <!-- NEDEN BU UYARI VAR (kullanıcı sorusu, 07.09.2026)
+                                     Önceki metin "hangi branşta derse giriliyorsa o branşa yazın"
+                                     diyordu; doğruydu ama İDARECİNİN KENDİ BRANŞI diye okunmaya
+                                     açıktı. Yanlış okuma iki branşta birden hatalı norm üretir:
+                                     idarecinin branşı haksız yere norm kaybeder, dersin branşı
+                                     hayalet norm taşımaya devam eder. Ölçüldü ve doğrulandı:
+                                     motor düşümü DERSİN branşından yapıyor (Md. 22/6, "ilgili alan").
+                                     Bu kutu o yanlış okumayı kapatmak için var. -->
+                                <div style="font-size: 0.7rem; line-height: 1.45; margin-bottom: 0.5rem; background: rgba(180, 83, 9, 0.08); border-left: 3px solid #b45309; border-radius: 6px; padding: 0.45rem 0.6rem; color: var(--text-main);">
+                                    <b>İdarecinin kendi branşını değil, GİRDİĞİ DERSİN branşını yazın.</b>
+                                    <div style="color: var(--text-muted); margin-top: 0.25rem;">
+                                        Örnek: <b>Edebiyat</b> branşlı müdür yardımcısı haftada 6 saat <b>Beden Eğitimi</b> dersine giriyorsa,
+                                        6 saati <b>Beden Eğitimi</b> satırına yazın; Edebiyat satırı <b>0</b> kalır.
+                                        Ders okulun haftalık yükünde sayılmaya devam eder, yalnızca norm hesabından düşülür.
+                                        <b>Dersin branş atamasını değiştirmeyin</b> — hesap bozulur.
+                                    </div>
                                 </div>
                                 <input type="text" id="admin-teaching-search" placeholder="🔍 Branş Ara..." class="form-control" style="width: 100%; padding: 0.35rem 0.65rem; font-size: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem;">
                                 <div id="admin-teaching-container" style="max-height: 26vh; overflow-y: auto; padding-right: 0.25rem;">
@@ -175946,11 +176280,111 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
     }
 
     // 7. 3-TEMA SEÇMELİ DERS DENGESİ RENDER
+    /**
+     * SEÇMELİ TEMA SEKMESİ — çizim
+     *
+     * Kural varsa uygunluk sütunu ve eksik tema uyarısı gösterilir; kuralı
+     * olmayan okul türünde SADECE dağılım gösterilir ve nedeni yazılır.
+     * Uyarı dili bilinçli olarak BİLGİLENDİRİCİ: kullanıcı kararı (07.09.2026)
+     * "öğretmenin kurallara uymaması kendi sorumluluğunda; biz sadece
+     * uyarımızı yapalım."
+     */
     renderElectiveThemeReport(data, isMono) {
         const stateData = this.state.state;
         const antet = stateData.okulBilgisi.antet || {};
+        const T = data.temaTanimlari || {};
+        const kacar = (x) => String(x == null ? "" : x)
+            .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-        let html = `
+        const temaBasliklari = ["BILIM", "DEGER", "SANAT"]
+            .filter(id => T[id])
+            .map(id => `<th>${T[id].ikon} ${kacar(T[id].ad).toLocaleUpperCase("tr-TR")}</th>`).join("");
+
+        // --- Okul türü bandı: kural var mı, yok mu ---
+        let kuralBandi = "";
+        if (data.kuralliSubeVar) {
+            const ornek = (data.themeSections.find(x => x.uyum) || {}).uyum;
+            kuralBandi = `
+                <div style="background: rgba(2,132,199,0.07); border-left: 4px solid #0284c7; border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.9rem; font-size: 0.82rem;">
+                    <div style="font-weight: 800; color: #075985; margin-bottom: 0.2rem;">📘 Bu okul türünde uygulanan kural</div>
+                    <div style="color: var(--text-main);">${kacar(ornek ? ornek.metin : "")}</div>
+                    <div style="color: var(--text-muted); font-size: 0.74rem; margin-top: 0.25rem;">Dayanak: ${kacar(ornek ? ornek.kaynak : "")}</div>
+                </div>`;
+        } else {
+            kuralBandi = `
+                <div style="background: rgba(120,140,165,0.10); border-left: 4px solid #64748b; border-radius: 8px; padding: 0.7rem 0.9rem; margin-bottom: 0.9rem; font-size: 0.82rem;">
+                    <div style="font-weight: 800; color: #334155; margin-bottom: 0.2rem;">ℹ️ Bu okul türü için tema seçim kuralı uygulanmıyor</div>
+                    <div style="color: var(--text-main);">${kacar(data.turNotu || "Bu okul türünün haftalık ders çizelgesinde seçmeli ders tema kuralı bulunmuyor. Aşağıdaki dağılım yalnızca bilgi amaçlıdır.")}</div>
+                </div>`;
+        }
+
+        const satirlar = data.themeSections.map(sec => {
+            const st = sec.stats;
+            const hucre = (id) => {
+                const k = st[id] || { hours: 0, count: 0 };
+                const bos = k.count === 0;
+                return `<td style="${bos ? "color: var(--text-muted);" : "font-weight:700;"}">${k.hours}s <span class="text-xs text-muted">(${k.count})</span></td>`;
+            };
+            let uyumHucre = "";
+            if (sec.uyum) {
+                if (sec.uyum.uygun) {
+                    uyumHucre = `<td><span class="status-badge-lg status-tam">✅ Uygun</span></td>`;
+                } else {
+                    const eksikAd = sec.uyum.eksik.map(id => (T[id] ? T[id].kisa : id)).join(", ");
+                    uyumHucre = `<td><span class="status-badge-lg status-ihtiyac">⚠️ Eksik</span>
+                        <div class="text-xs" style="color:#b45309; margin-top:0.2rem;">${kacar(eksikAd)} yok
+                        <span style="color:var(--text-muted);">(${sec.uyum.saglananSayi}/${sec.uyum.gerekenSayi} grup)</span></div></td>`;
+                }
+            }
+            const belirsiz = st.BILINMIYOR || { count: 0, hours: 0 };
+            return `
+                <tr>
+                    <td class="font-medium">${kacar(sec.sectionName)}</td>
+                    <td>${kacar(sec.grade)}</td>
+                    <td><strong>${sec.totalElectiveHours}s</strong></td>
+                    ${hucre("BILIM")}${hucre("DEGER")}${hucre("SANAT")}
+                    ${hucre("AKADEMIK")}${hucre("MESLEK")}
+                    <td style="${belirsiz.count ? "color:#b45309;font-weight:700;" : "color:var(--text-muted);"}">${belirsiz.hours}s <span class="text-xs">(${belirsiz.count})</span></td>
+                    ${uyumHucre}
+                </tr>`;
+        }).join("");
+
+        // --- Hedef Temelli Destek Eğitimi ---
+        const ht = [];
+        data.themeSections.forEach(sec => (sec.hedefTemelli || []).forEach(h => ht.push({ sube: sec.sectionName, h: h })));
+        let hedefBolum = "";
+        if (ht.length) {
+            const ihlalli = ht.filter(x => x.h.ihlaller.length > 0 || x.h.dagitilmamis);
+            hedefBolum = `
+                <div style="margin-top: 1.4rem;">
+                    <div style="font-weight: 800; font-size: 0.9rem; margin-bottom: 0.4rem;">🎯 Hedef Temelli Destek Eğitimi</div>
+                    <div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        Şubenin saati, çizelgede sayılan derslere paylaştırılır; <b>ders başına en az 1, en fazla 3 saat</b> verilir.
+                        Ders notla değerlendirilmez. <span style="color:var(--text-muted);">Dayanak: TTKB Sayı 05 · DÖGM İHL çizelgesi md. 34</span>
+                    </div>
+                    <div class="table-responsive-container">
+                        <table class="report-data-table">
+                            <thead><tr><th>ŞUBE</th><th>TOPLAM SAAT</th><th>BRANŞ DAĞILIMI</th><th>DURUM</th></tr></thead>
+                            <tbody>
+                                ${ht.map(x => {
+                                    const d = x.h.dagilim || {};
+                                    const liste = Object.keys(d).map(b => `${kacar(b)}: ${d[b]}s`).join(" · ") || "—";
+                                    let durum = `<span class="status-badge-lg status-tam">✅ Uygun</span>`;
+                                    if (x.h.dagitilmamis) {
+                                        durum = `<span class="status-badge-lg status-ihtiyac">⚠️ Paylaştırılmamış</span>`;
+                                    } else if (x.h.ihlaller.length) {
+                                        durum = `<span class="status-badge-lg status-ihtiyac">⚠️ ${kacar(x.h.ihlaller.map(i => i.brans + " " + i.saat + "s").join(", "))}</span>`;
+                                    }
+                                    return `<tr><td class="font-medium">${kacar(x.sube)}</td><td><strong>${x.h.saat}s</strong></td><td>${liste}</td><td>${durum}</td></tr>`;
+                                }).join("")}
+                            </tbody>
+                        </table>
+                    </div>
+                    ${ihlalli.length ? `<div style="font-size:0.76rem;color:#b45309;margin-top:0.35rem;">Ders başına 1-3 saat sınırının dışında kalan ya da hiç paylaştırılmamış ${ihlalli.length} kayıt var.</div>` : ""}
+                </div>`;
+        }
+
+        return `
             <!-- Resmî Yazdırma Başlığı -->
             <div class="official-print-header only-print">
                 <div class="print-header-top">
@@ -175962,7 +176396,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
-                        <div class="print-doc-title">3-TEMA SEÇMELİ DERS DAĞILIM VE DENGE ANALİZİ</div>
+                        <div class="print-doc-title">SEÇMELİ DERS TEMA DAĞILIMI VE MEVZUAT UYGUNLUĞU</div>
                     </div>
                     <div class="print-meta-right">
                         <div><strong>Eğt. Sezonu:</strong> ${stateData.okulBilgisi.sezon || '2026-2027'}</div>
@@ -175973,44 +176407,39 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             </div>
 
             <div class="report-page-header no-print">
-                <div class="report-page-title">${data.title}</div>
-                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • TTKB 3 Ana Tema Seçim Analizi</div>
+                <div class="report-page-title">${kacar(data.title)}</div>
+                <div class="report-page-subtitle">${kacar(data.schoolInfo.okulAdi || 'MEB Kurumu')} • Seçmeli ders grupları resmî çizelgeden okunur</div>
             </div>
+
+            ${kuralBandi}
 
             <div class="table-responsive-container">
                 <table class="report-data-table">
                     <thead>
                         <tr>
-                            <th>ŞUBE</th>
-                            <th>TOPLAM SEÇMELİ</th>
-                            <th>1. İNSAN, TOPLUM & BİLİM</th>
-                            <th>2. DİN, AHLAK VE DEĞER</th>
-                            <th>3. KÜLTÜR, SANAT & SPOR</th>
-                            <th>SEÇMELİ MESLEK</th>
-                            <th>3-TEMA DENGESİ</th>
+                            <th>ŞUBE</th><th>SINIF</th><th>TOPLAM</th>
+                            ${temaBasliklari}
+                            <th>📚 AKADEMİK ÇALIŞMALAR</th>
+                            <th>🟣 SEÇMELİ MESLEK</th>
+                            <th>❔ GRUBU BELİRSİZ</th>
+                            ${data.kuralliSubeVar ? "<th>UYGUNLUK</th>" : ""}
                         </tr>
                     </thead>
-                    <tbody>
-                        ${data.themeSections.map(sec => `
-                            <tr>
-                                <td class="font-medium">${sec.sectionName}</td>
-                                <td><strong>${sec.totalElectiveHours}s</strong></td>
-                                <td>${sec.stats.BILIM.hours}s <span class="text-xs text-muted">(${sec.stats.BILIM.count} ders)</span></td>
-                                <td>${sec.stats.DEGER.hours}s <span class="text-xs text-muted">(${sec.stats.DEGER.count} ders)</span></td>
-                                <td>${sec.stats.SANAT.hours}s <span class="text-xs text-muted">(${sec.stats.SANAT.count} ders)</span></td>
-                                <td>${sec.stats.VOC.hours}s <span class="text-xs text-muted">(${sec.stats.VOC.count} ders)</span></td>
-                                <td>
-                                    ${sec.isBalanced ? 
-                                        '<span class="status-badge-lg status-tam">✅ 3-Tema Dengeli</span>' : 
-                                        '<span class="status-badge-lg status-ihtiyac">⚠️ Tek Yönlü</span>'}
-                                </td>
-                            </tr>
-                        `).join("")}
-                    </tbody>
+                    <tbody>${satirlar}</tbody>
                 </table>
             </div>
+
+            ${hedefBolum}
+
+            <div style="margin-top: 1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.5;">
+                <b>Not:</b> Tema bilgisi dersin adından tahmin edilmez; resmî haftalık ders çizelgesindeki
+                <b>grup</b> bilgisinden okunur. Grubu çözülemeyen dersler bir temaya sayılmaz,
+                “grubu belirsiz” sütununda gösterilir.<br>
+                Mevzuat kuralı <b>öğrenci</b> bazlıdır; bu çizelge <b>şube</b> düzeyinde çalıştığı için
+                buradaki sonuç bir <b>göstergedir</b>. Seçimlerin mevzuata uygunluğundan okul idaresi
+                ve ilgili zümre sorumludur.
+            </div>
         `;
-        return html;
     }
 
     // =========================================================================
@@ -178990,6 +179419,7 @@ if (typeof window !== 'undefined') {
     if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
     if (typeof HEDEF_TEMELLI !== 'undefined') window.HEDEF_TEMELLI = HEDEF_TEMELLI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
+    if (typeof SECMELI_TEMA_KURALLARI !== 'undefined') window.SECMELI_TEMA_KURALLARI = SECMELI_TEMA_KURALLARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

@@ -47,6 +47,8 @@ BUNDLE_FILES = [
     "ozel_egitim_cizelgeleri.js", # curriculumEngine.js'ten ÖNCE (üretilmiş çizelge)
     "hedef_temelli_dersler.js",  # normEngine.js'ten ÖNCE (üretilmiş kapsam listesi)
     "ozel_program_temalari.js",  # curriculumEngine.js'ten ÖNCE (üretilmiş tema tablosu)
+    "secmeliTemaKurallari.js",   # reportsEngine.js ve uiComponents.js'ten ÖNCE
+                                 # (seçmeli tema kuralları + kanonik grup eşlemesi)
     "database.js",
     "curriculumEngine.js",
     "normEngine.js",
@@ -80,6 +82,7 @@ if (typeof window !== 'undefined') {
     if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
     if (typeof HEDEF_TEMELLI !== 'undefined') window.HEDEF_TEMELLI = HEDEF_TEMELLI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;
+    if (typeof SECMELI_TEMA_KURALLARI !== 'undefined') window.SECMELI_TEMA_KURALLARI = SECMELI_TEMA_KURALLARI;
     if (typeof dbService !== 'undefined') window.dbService = dbService;
     if (typeof curriculumEngine !== 'undefined') window.curriculumEngine = curriculumEngine;
     if (typeof normEngine !== 'undefined') window.normEngine = normEngine;

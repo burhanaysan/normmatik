@@ -246,6 +246,61 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
         /DERS YÜKÜ MUTABAKATI/.test(APP));
 }
 
+/* ---- 5) Md. 22/6 DÜŞÜMÜ HANGİ BRANŞTAN YAPILIYOR? --------------------- */
+/* NEDEN VAR (kullanıcı sorusu, 07.09.2026)
+   "Edebiyat branşlı müdür yardımcısı Beden Eğitimi dersine giriyor. Ders okul
+   yükünde sayılmalı ama Beden Eğitimi normunu doğurmamalı. Dersin branşına
+   idarecinin branşını eklersek hesap karışıyor."
+
+   Yönetmelik Md. 22/6: "...yöneticilerin girmiş olduğu ders saatleri İLGİLİ
+   ALANIN ders yükünden düşülerek belirlenir." İlgili alan = GİRİLEN DERSİN
+   alanı; idarecinin kadro branşı DEĞİL.
+
+   Bu test o anlamı sabitler. Biri ileride düşümü idarecinin branşına
+   bağlamaya kalkarsa ya da düşüm ham çizelge saatine sızarsa kırmızı yanar. */
+{
+    const okul = MEVCUTLAR.map(([sinif, ogr], i) => ({
+        id: "y" + i, ad: sinif + "-" + i, sinifSeviyesi: String(sinif), ogrenciSayisi: ogr,
+        zorunluDersler: [
+            { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı" },
+            { ders: "Beden Eğitimi ve Spor", saat: 2, atananBrans: "Beden Eğitimi" }
+        ],
+        secmeliDersler: []
+    }));
+    const bul = (r, ad) => (r.branchReport || []).find(b => b.branchName === ad);
+
+    const yok = ne.calculateSchoolNorms(okul, {}, "anadolu_lisesi", {});
+    const var_ = ne.calculateSchoolNorms(okul, {}, "anadolu_lisesi", {
+        adminOptions: { yoneticiDersYukleri: { "Beden Eğitimi": 6 } }
+    });
+
+    const beA = bul(yok, "Beden Eğitimi"), beB = bul(var_, "Beden Eğitimi");
+    const edA = bul(yok, "Türk Dili ve Edebiyatı"), edB = bul(var_, "Türk Dili ve Edebiyatı");
+
+    kontrol("ölçüm geçerli: iki branş da raporda var", !!(beA && beB && edA && edB));
+    kontrol("düşüm GİRİLEN DERSİN branşından yapılıyor",
+        beA.totalHours - beB.totalHours === 6,
+        beA.totalHours + " -> " + beB.totalHours);
+    kontrol("idarecinin kendi branşı ETKİLENMİYOR",
+        edA.totalHours === edB.totalHours,
+        "Edebiyat " + edA.totalHours + " -> " + edB.totalHours);
+    kontrol("ders OKUL YÜKÜNDE kalıyor (ham çizelge saati değişmiyor)",
+        yok.yukMutabakati.hamCizelgeSaati === var_.yukMutabakati.hamCizelgeSaati,
+        yok.yukMutabakati.hamCizelgeSaati + " -> " + var_.yukMutabakati.hamCizelgeSaati);
+    kontrol("norma esas yük tam düşülen kadar azalıyor",
+        yok.yukMutabakati.normaEsasYuk - var_.yukMutabakati.normaEsasYuk === 6);
+
+    // Arayüz, bu ayrımı kullanıcıya AÇIKÇA söylemek zorunda: metin silinirse
+    // aynı yanlış anlama geri gelir.
+    const UI = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    kontrol("arayüz 'kendi branşını değil' uyarısını gösteriyor",
+        /İdarecinin kendi branşını değil/.test(UI)
+        && /GİRDİĞİ DERSİN branşını yazın/.test(UI));
+    kontrol("uyarı somut bir örnek veriyor",
+        /Edebiyat/.test(UI) && /Beden Eğitimi/.test(UI)
+        && /branş atamasını değiştirmeyin/i.test(UI));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
