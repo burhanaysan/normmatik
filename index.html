@@ -102,7 +102,7 @@
     ]
 }
     </script>
-    <link rel="stylesheet" href="css/landing.css?v=20260908_0108">
+    <link rel="stylesheet" href="css/landing.css?v=20260908_0121">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -482,9 +482,14 @@
 <section class="kapanis bolum-gri">
     <div class="kap">
         <h2>Önce deneyin, sonra karar verin.</h2>
-        <p>Demo okulda bütün özellikler açıktır. Kayıt istemez.</p>
+        <p>
+            İki hazır demo okul var; ikisi de kayıt istemez. Meslek lisesi demosunda
+            atölye normu, şubenin gruplara bölünmesi ve işletme koordinatörlüğü çalışır hâlde
+            görünür.
+        </p>
         <div class="kapanis-dugmeler">
-            <button class="dugme dugme-birincil dugme-buyuk" id="btn-open-demo-school">Demo Okulu Başlat</button>
+            <button class="dugme dugme-birincil dugme-buyuk" id="btn-open-demo-school">Genel Lise Demosu</button>
+            <button class="dugme dugme-birincil dugme-buyuk" id="btn-open-demo-meslek" data-demo="meslek">Meslek Lisesi Demosu</button>
             <button class="dugme dugme-ikincil dugme-buyuk" onclick="document.getElementById('btn-trigger-login').click()">Kurum Girişi</button>
         </div>
     </div>
@@ -622,7 +627,8 @@
             document.getElementById('btn-open-demo-school'),
             document.getElementById('btn-hero-demo'),
             document.getElementById('link-demo-school'),
-            document.getElementById('link-iletisim-demo')
+            document.getElementById('link-iletisim-demo'),
+            document.getElementById('btn-open-demo-meslek')
         ];
 
         triggerBtns.forEach(btn => btn?.addEventListener('click', () => {
@@ -634,18 +640,26 @@
             authModal.classList.remove('active');
         });
 
-        demoBtns.forEach(btn => btn?.addEventListener('click', (e) => {
-            e.preventDefault();
+        // Demo baslaticilar. data-demo="meslek" tasiyan dugme MESLEK LISESI
+        // demosunu acar; digerleri anadolu lisesi demosunu. Tek kod yolu
+        // kullanilir, boylece oturum temizligi ikisinde de ayni calisir.
+        const demoBaslat = (tur) => {
             yerelIzleriTemizle();
-            const demoSession = {
-                kurumKodu: "123456",
-                okulAdi: "DEMO LİSESİ",
-                okulTuru: "anadolu_lisesi",
+            const meslek = tur === "meslek";
+            sessionStorage.setItem("normmatik_active_session", JSON.stringify({
+                kurumKodu: meslek ? "123457" : "123456",
+                okulAdi: meslek ? "DEMO MESLEKİ VE TEKNİK ANADOLU LİSESİ" : "DEMO LİSESİ",
+                okulTuru: meslek ? "mesleki_ve_teknik_anadolu_lisesi" : "anadolu_lisesi",
+                demoTuru: meslek ? "meslek" : "genel",
                 isDemo: true,
                 loginTime: new Date().toISOString()
-            };
-            sessionStorage.setItem("normmatik_active_session", JSON.stringify(demoSession));
+            }));
             window.location.href = "app.html";
+        };
+
+        demoBtns.forEach(btn => btn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            demoBaslat(btn.dataset.demo);
         }));
 
         // ---------------------------------------------------------------

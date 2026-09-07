@@ -147,6 +147,75 @@ kontrol("9. sınıf ortak ders toplamı 32 (çizelgeyle aynı)",
         .filter(d => d.kategori === "ORTAK DERSLER")
         .reduce((a, d) => a + d.saat, 0), 32);
 
+/* ====== 6) MESLEK LİSESİ DEMOSU ======================================
+   08.09.2026'da eklendi. Tek demo vardı ve anadolu lisesi olarak kilitliydi;
+   ürünün en ayırt edici tarafı — atölye normu (Md. 19), sınıf seviyesine
+   duyarlı grup bölünmesi (Md. 22/1-ç), işletme koordinatörlüğü — demoya
+   giren hiç kimseye görünmüyordu.
+
+   Bu bölüm o demonun VİTRİN OLARAK çalıştığını denetler. Sessizce bozulması
+   çok kolay: şubenin alanı ya da dalı yanlış yazılırsa müfredat motoru boş
+   liste döndürür, ekran "şubeler var ama ders yok" hâline gelir ve hiçbir
+   hata görünmez. */
+console.log("\n── 6. Meslek lisesi demosu");
+w.appState.loadDemoMeslekLisesi(w.dbService, w.curriculumEngine);
+const m = w.appState.state;
+const mSubeler = m.subeler || [];
+
+kontrol("okul türü meslekî ve teknik",
+    m.okulBilgisi.okulTuru, "mesleki_ve_teknik_anadolu_lisesi");
+enAz("en az 6 şube", mSubeler.length, 6);
+kontrol("hiçbir şube boş çizelgeyle kalmadı",
+    mSubeler.filter(x => !(x.zorunluDersler || []).length).length, 0);
+kontrol("10-12. sınıfların hepsinde alan ve dal yazılı",
+    mSubeler.filter(x => x.sinifSeviyesi !== "9" && !(x.alanId && x.dalAdi)).length, 0);
+kontrol("9. sınıf alansız (ortak program)",
+    mSubeler.filter(x => x.sinifSeviyesi === "9" && x.alanId).length, 0);
+
+const mRe = new w.MebReportsEngine(w.dbService, w.normEngine, w.curriculumEngine);
+const mNorm = w.normEngine.calculateSchoolNorms(
+    mSubeler, m.mevcutOgretmenler, m.okulBilgisi.okulTuru, mRe.buildCoordinatorMap(m));
+
+console.log(`   ${mSubeler.length} şube, ${mNorm.totalStudents} öğrenci, `
+    + `${mNorm.totalHours} saat, ${mNorm.totalCalculatedNorm} norm`);
+
+// Ürünün farkı tam olarak burada görünür: atölye normu Madde 19'dan gelir.
+const atolyeli = mNorm.branchReport.filter(x => x.workshopNorm > 0);
+enAz("en az iki alanda atölye normu çıkıyor", atolyeli.length, 2);
+kontrol("atölye normu Madde 19'dan hesaplanıyor",
+    atolyeli.every(x => /Madde 19/.test(x.formulaExplanation || "")), true);
+
+// Grup bölünmesi SINIF SEVİYESİNE duyarlı olmalı; tek tabloyla yapılırsa
+// 9. sınıflı okullarda sistematik hata üretir.
+const grupNotlari = mNorm.branchReport.flatMap(x => x.courses || [])
+    .filter(c => String(c.note || "").includes("22/1-ç"));
+enAz("grup bölünmesi uygulanmış ders var", grupNotlari.length, 5);
+kontrol("28 öğrencili 10. sınıf 3 gruba bölünüyor",
+    grupNotlari.some(c => /10\. sınıf, 28 öğrenci .{0,3} 3 grup/.test(c.note)), true);
+
+// İşletme koordinatörlüğü: Norm Kadro Yönetmeliği DIŞINDAN gelen tek kalem
+// (OÖKY Md. 88 / Ek Ders Kararı) ve Madde 19 yüküne eklenir.
+enAz("12. sınıf işletme koordinatörlüğü yüke giriyor",
+    mNorm.branchReport.flatMap(x => x.courses || []).filter(c => c.isCoordinator).length, 2);
+
+// Md. 14: döner sermaye + 100 stajyer = 2 ilave müdür yardımcısı normu.
+kontrol("ilave müdür yardımcısı normu 2 (Md. 14)",
+    mNorm.adminNorms.mudurYardimcisiExtra, 2);
+
+// Vitrin: norm tablosu tek renk olmamalı.
+const mDurum = new Set(mNorm.branchReport.map(x => x.statusType));
+kontrol("norm tablosunda hem İhtiyaç hem Fazla görünüyor",
+    mDurum.has("ihtiyac") && mDurum.has("fazla"), true);
+
+// İki demo GERÇEKTEN farklı şeyler mi gösteriyor: genel lise demosunda
+// atölye normu hiç çıkmamalı. Çıkarsa demolardan biri yanlış kurulmuştur.
+w.appState.loadDemoSchool(w.dbService, w.curriculumEngine);
+const g = w.appState.state;
+const gNorm = w.normEngine.calculateSchoolNorms(
+    g.subeler, g.mevcutOgretmenler, g.okulBilgisi.okulTuru, mRe.buildCoordinatorMap(g));
+kontrol("genel lise demosunda atölye normu yok",
+    gNorm.branchReport.filter(x => x.workshopNorm > 0).length, 0);
+
 console.log("\n" + "=".repeat(66));
 if (!hatalar.length) {
     console.log(`✅ DEMO OKUL SAĞLAM — ${gecti} kontrol başarılı, 0 hata`);

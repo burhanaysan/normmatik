@@ -392,6 +392,140 @@ export class AppStateService {
         this.notify();
     }
 
+    /**
+     * MESLEK LISESI DEMOSU
+     * ====================
+     * NEDEN VAR (08.09.2026): Tek demo vardi ve ANADOLU LISESI olarak
+     * kilitliydi. Urunun en zor ve en ayirt edici tarafi -- atolye normu
+     * (Md. 19), sinif seviyesine duyarli grup bolunmesi (Md. 22/1-c),
+     * isletmelerde meslek egitimi ve isletme koordinatorlugu -- demoya
+     * giren hic kimseye gorunmuyordu. Ziyaretci anadolu lisesi goruyor,
+     * "bunu Excel'de de yaparim" deyip cikiyordu.
+     *
+     * Bu demo o bosluga bakar. Sayilar RASTGELE DEGIL: motorla
+     * hesaplanip secildi, boylece ekranda su uc sey birden gorunur:
+     *   Bilisim Tekn.  107s -> 3 norm (mevcut 2) -> 1 Ihtiyac
+     *   Elektrik-Elek.  94s -> 3 norm (mevcut 3) -> Tam
+     *   Turk Dili       34s -> 2 norm (mevcut 3) -> 1 Fazla
+     *
+     * Dersler yine ELLE YAZILMAZ; mufredat motorundan alinir ki
+     * cizelge duzeltmeleri demoya da ulassin.
+     */
+    loadDemoMeslekLisesi(dbService, curriculumEngine) {
+        this.pushHistory();
+        const TUR = "mesleki_ve_teknik_anadolu_lisesi";
+
+        const dersler = (sinif, alanId, dalAdi) => {
+            const ce = curriculumEngine || (typeof window !== 'undefined' && window.curriculumEngine);
+            const liste = (ce && typeof ce.getMandatoryCourses === 'function')
+                ? (ce.getMandatoryCourses(TUR, String(sinif), alanId, dalAdi) || [])
+                : [];
+            // Kopyalanir: subede yapilan duzenleme mufredat sabitini bozmasin.
+            return liste.map(d => ({
+                ders: d.ders,
+                saat: d.saat,
+                kategori: d.kategori || "ORTAK DERSLER",
+                atananBrans: d.atananBrans,
+                baraj_ders: !!d.baraj_ders,
+                isAtolye: !!d.isAtolye
+            }));
+        };
+
+        const yap = (ad, sinif, ogrenci, alanId, dalAdi) => ({
+            id: "sube_mdemo_" + ad.replace("-", "").toLowerCase(),
+            subeAdi: ad,
+            sinifSeviyesi: String(sinif),
+            ogrenciSayisi: ogrenci,
+            alanId: alanId,
+            dalAdi: dalAdi,
+            zorunluDersler: dersler(sinif, alanId, dalAdi),
+            secmeliDersler: [],
+            rehberlikVarMi: String(sinif) !== "12"
+        });
+
+        const BIL = ["bilisim", "Yazılım Geliştirme"];
+        const ELK = ["elektrik", "Elektrik Tesisatları ve Dağıtımı"];
+
+        this.state = {
+            okulBilgisi: {
+                okulAdi: "DEMO MESLEKİ VE TEKNİK ANADOLU LİSESİ",
+                kurumKodu: "754124",
+                il: "ANKARA",
+                ilce: "ÇANKAYA",
+                sezon: "2026-2027",
+                okulTuru: TUR,
+                okulTuruKilitli: true,
+                isDemo: true,
+                antet: {
+                    ilValiligi: "ANKARA VALİLİĞİ",
+                    ilceMem: "Çankaya İlçe Millî Eğitim Müdürlüğü",
+                    resmiOkulAdi: "DEMO MESLEKİ VE TEKNİK ANADOLU LİSESİ",
+                    kurumKodu: "754124",
+                    logoBase64: null,
+                    hazirlayanUnvan: "Müdür Yardımcısı",
+                    hazirlayanAdSoyad: "Ahmet YILMAZ",
+                    kontrolUnvan: "Müdür Yardımcısı",
+                    kontrolAdSoyad: "Mehmet DEMİR",
+                    onaylayanUnvan: "Okul Müdürü",
+                    onaylayanAdSoyad: "Burhan AYSAN"
+                },
+                adminOptions: {
+                    isPansiyonluMdrYrd: false,
+                    isPansiyonluBasyrd: false,
+                    // Md. 14/1-b ve 14/1-c: her ozellik AYRI 1 ilave mudur
+                    // yardimcisi normu dogurur. Meslek lisesini genel liseden
+                    // ayiran yerlerden biri budur; demoda gorunsun.
+                    hasDonerSermaye: true,
+                    isTamGunTamYil: false,
+                    hasStajyer100Plus: true,
+                    hasSigortali500Plus: false,
+                    isTasimaMerkezi: false,
+                    isBirlestirilmis: false,
+                    isKampusIcinde: false,
+                    isAyniBinadaKucuk: false,
+                    ekSinifOgrencileri: 0,
+                    isIlceEnKalabalikKurum: false,
+                    mevcutRehberOgretmeni: 1,
+                    mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
+                    yoneticiDersYukleri: {}
+                }
+            },
+            // 9. sinif meslek lisesinde ALANSIZDIR (ortak program); alan
+            // secimi 10. siniftan itibaren baslar. Iki alan bilerek secildi:
+            // ogrenci sayilari farkli oldugu icin grup sayilari da farkli
+            // cikar ve Md. 22/1-c ekranda gorunur hale gelir.
+            subeler: [
+                yap("9-A", 9, 32, null, null),
+                yap("9-B", 9, 28, null, null),
+                yap("10-A", 10, 28, BIL[0], BIL[1]),   // 28 ogr -> 3 grup
+                yap("10-B", 10, 22, ELK[0], ELK[1]),   // 22 ogr -> 2 grup
+                yap("11-A", 11, 20, BIL[0], BIL[1]),   // 20 ogr -> 2 grup
+                yap("11-B", 11, 18, ELK[0], ELK[1]),   // 18 ogr -> 2 grup
+                yap("12-A", 12, 15, BIL[0], BIL[1]),   // 15 ogr -> 1 grup + koordinatorluk
+                yap("12-B", 12, 14, ELK[0], ELK[1])    // 14 ogr -> 1 grup + koordinatorluk
+            ],
+            aktifSubeId: "sube_mdemo_10a",
+            mevcutOgretmenler: {
+                "Bilişim Teknolojileri": 2,             // norm 3 -> 1 Ihtiyac
+                "Elektrik-Elektronik Teknolojisi": 3,   // norm 3 -> Tam
+                "Türk Dili ve Edebiyatı": 3,            // norm 2 -> 1 Fazla
+                "Matematik": 1,
+                "İngilizce": 1,
+                "Tarih": 1,
+                "Coğrafya": 1,
+                "Fizik": 1,
+                "Kimya": 1,
+                "Biyoloji": 1,
+                "Felsefe": 1,
+                "Din Kültürü ve Ahlak Bilgisi": 1,
+                "Beden Eğitimi": 1
+            },
+            koordinatorlukYukleri: {},
+            ozelOkulBranslari: []
+        };
+        this.notify();
+    }
+
     setAdminOptions(adminOpts) {
         this.pushHistory();
         if (!this.state.okulBilgisi.adminOptions) {

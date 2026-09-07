@@ -48,8 +48,17 @@ class MebNormApplication {
                 // ders yükleri ve norm tablosunda Tam / İhtiyaç / Fazla
                 // durumlarının üçü birden. (Kullanıcı kararı, 27.08.2026:
                 // "bu veriyi göm, her açan da otomatik görmüş olur.")
-                appState.loadDemoSchool(dbService, curriculumEngine);
-                appState.state.okulBilgisi.kurumKodu = "123456";
+                // 08.09.2026: iki demo var. Meslek lisesi demosu, urunun
+                // atolye normu / grup bolunmesi / isletme koordinatorlugu
+                // tarafini gosterir; anadolu lisesi demosunda bunlarin
+                // hicbiri gorunmuyordu.
+                if (session.demoTuru === "meslek") {
+                    appState.loadDemoMeslekLisesi(dbService, curriculumEngine);
+                    appState.state.okulBilgisi.kurumKodu = "123457";
+                } else {
+                    appState.loadDemoSchool(dbService, curriculumEngine);
+                    appState.state.okulBilgisi.kurumKodu = "123456";
+                }
                 appState.state.okulBilgisi.okulTuruKilitli = true;
                 appState.state.okulBilgisi.isDemo = true;
                 appState.history = [JSON.stringify(appState.state)];
