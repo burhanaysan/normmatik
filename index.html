@@ -102,7 +102,7 @@
     ]
 }
     </script>
-    <link rel="stylesheet" href="css/landing.css?v=20260908_0121">
+    <link rel="stylesheet" href="css/landing.css?v=20260908_0124">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -144,12 +144,20 @@
                 Her sayının nereden geldiğini madde madde gösterir; hesabı satır satır kontrol edebilirsiniz.
             </p>
 
+            <!-- Iki demo da ILK EKRANDA. Meslek lisesi demosu once yalnizca
+                 sayfanin en altindaydi; oraya inen olmuyordu ve urunun en
+                 ayirt edici tarafi (atolye normu, grup bolunmesi, isletme
+                 koordinatorlugu) hic gorunmuyordu. -->
             <div class="giris-dugmeler">
-                <button class="dugme dugme-birincil dugme-buyuk" id="btn-hero-login">Kurum Kodu ile Giriş</button>
-                <button class="dugme dugme-ikincil dugme-buyuk" id="btn-hero-demo">Önce Demo Okulu Deneyin</button>
+                <button class="dugme dugme-birincil dugme-buyuk" id="btn-hero-demo">Genel Lise Demosu</button>
+                <button class="dugme dugme-birincil dugme-buyuk" id="btn-hero-demo-meslek" data-demo="meslek">Meslek Lisesi Demosu</button>
+                <button class="dugme dugme-ikincil dugme-buyuk" id="btn-hero-login">Kurum Kodu ile Giriş</button>
             </div>
 
-            <p class="giris-not">Demo için kayıt gerekmez. Kurulum yok, tarayıcıdan çalışır.</p>
+            <p class="giris-not">
+                Demo için kayıt gerekmez. Meslek lisesi demosunda atölye normu, şubenin
+                gruplara bölünmesi ve işletme koordinatörlüğü çalışır hâlde görünür.
+            </p>
         </div>
 
         <!-- Ürünün kendisi ilk ekranda görünür: en iyi anlatım bu. -->
@@ -628,7 +636,8 @@
             document.getElementById('btn-hero-demo'),
             document.getElementById('link-demo-school'),
             document.getElementById('link-iletisim-demo'),
-            document.getElementById('btn-open-demo-meslek')
+            document.getElementById('btn-open-demo-meslek'),
+            document.getElementById('btn-hero-demo-meslek')
         ];
 
         triggerBtns.forEach(btn => btn?.addEventListener('click', () => {
