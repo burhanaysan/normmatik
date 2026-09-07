@@ -347,6 +347,56 @@ const ilk = (r) => r.themeSections[0];
     denetle("Sayı 05 türlerinde yarım grup adı kalmadı", bozuk.length === 0, bozuk.join(" | "));
 }
 
+/* ====== 9) SPOR LİSESİ ve ORTAOKUL — aynı kayma tekrarlamasın ==========
+   08.09.2026: Sayı 09 (Spor Lisesi) ve Sayı 10 (Tematik Spor) çizelgeleri de
+   Sayı 05/06/07 ile BİREBİR aynı kaymayı taşıyordu — 11'er ders. Sebep aynı:
+   birleştirilmiş grup hücresinin etiketi hücrenin ortasına yazılıyor,
+   metin sırasına bakan ayrıştırıcı dersleri bir bant yukarı kaydırıyor.
+
+   Bu bölüm, düzeltilmiş değerleri kilitler. Ortaokul satırları ise
+   DENETLENMİŞ ve zaten doğru çıkmıştır (30/30); buraya, ileride bir
+   yeniden üretim onu bozarsa yakalansın diye konuldu. */
+{
+    const S = "spor_lisesi", O = "ortaokul_temel_egitim";
+
+    denetle("spor lisesi: etiketin ALTINDAKİ dersler Kültür/Sanat/Spor'da",
+        K.havuzdanGrup(S, "Adabımuaşeret") === "KÜLTÜR, SANAT VE SPOR"
+        && K.havuzdanGrup(S, "Türk Sosyal Hayatında Aile") === "KÜLTÜR, SANAT VE SPOR"
+        && K.havuzdanGrup(S, "İslam Bilim Tarihi") === "KÜLTÜR, SANAT VE SPOR",
+        "Sayı 09 çizelgesi, PDF tablo çizgilerinden doğrulandı");
+
+    denetle("spor lisesi: etiketin ÜSTÜNDEKİ dersler İnsan/Toplum/Bilim'de",
+        K.havuzdanGrup(S, "Astronomi ve Uzay Bilimleri") === "İNSAN, TOPLUM VE BİLİM"
+        && K.havuzdanGrup(S, "Düşünme Eğitimi") === "İNSAN, TOPLUM VE BİLİM"
+        && K.havuzdanGrup(S, "Demokrasi ve İnsan Hakları") === "İNSAN, TOPLUM VE BİLİM");
+
+    denetle("spor lisesi: doğru olan Din/Ahlak/Değer kaydı bozulmadı",
+        K.havuzdanGrup(S, "Kur'an-ı Kerim") === "DİN, AHLAK VE DEĞER");
+
+    // Ortaokul havuzu grup adlarini BASLIK harfle tutuyor ("Kültür, Sanat
+    // ve Spor"), lise havuzu BUYUK harfle. Uygulama ikisini de temaCoz ile
+    // cozdugu icin dogru olcut ham metin degil KANONIK temadir.
+    denetle("ortaokul teması PDF ile birebir (30/30 denetlendi)",
+        K.temaCozOncelikli(O, "Görgü Kuralları ve Nezaket", "") === "SANAT"
+        && K.temaCozOncelikli(O, "Türk Sosyal Hayatında Aile", "") === "BILIM"
+        && K.temaCozOncelikli(O, "Ahlak ve Vatandaşlık Eğitimi", "") === "DEGER",
+        "ortaokul çizelgesinde kayma YOK; bu satır bozulmayı yakalamak için");
+
+    // Kayma imzasi: "Adabimuaseret"in DIN/AHLAK/DEGER'de gorunmesi. Tema
+    // havuzu olan HICBIR turde bir daha olmamali.
+    const havuz3 = fs.readFileSync(path.join(KOK, "js", "secmeli_havuzu.js"), "utf8");
+    const turler = [...havuz3.matchAll(/^\s{4}"([a-z_0-9]+)": \{/gm)].map(m => m[1]);
+    const kaymis = [];
+    for (const t of turler) {
+        const g = K.havuzdanGrup(t, "Adabımuaşeret");
+        if (g && g.indexOf("AHLAK") >= 0) kaymis.push(t);
+    }
+    denetle("havuzdaki okul türleri okunabildi", turler.length >= 10,
+        "bulunan: " + turler.length);
+    denetle("hiçbir okul türünde eski kayma imzası kalmadı",
+        kaymis.length === 0, kaymis.join(", "));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

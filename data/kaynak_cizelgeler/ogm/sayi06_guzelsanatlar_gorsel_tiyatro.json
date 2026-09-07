@@ -951,7 +951,7 @@
             },
             {
               "ders_adi": "FEN BİLİMLERİ UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -975,7 +975,7 @@
             },
             {
               "ders_adi": "MATEMATİK UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -999,7 +999,7 @@
             },
             {
               "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1032,7 +1032,7 @@
             },
             {
               "ders_adi": "SOSYAL BİLİM ÇALIŞMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -1062,7 +1062,7 @@
             },
             {
               "ders_adi": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -1094,7 +1094,7 @@
             },
             {
               "ders_adi": "PROJE TASARIMI VE UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -1125,7 +1125,7 @@
             },
             {
               "ders_adi": "DÜŞÜNME EĞİTİMİ",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1146,7 +1146,7 @@
             },
             {
               "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1179,7 +1179,7 @@
             },
             {
               "ders_adi": "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ",
-              "grup": "İNSAN, TOPLUM VE",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1200,7 +1200,7 @@
             },
             {
               "ders_adi": "İKLİM, ÇEVRE VE YENİLİKÇİ ÇÖZÜMLER",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1221,7 +1221,7 @@
             },
             {
               "ders_adi": "TEMEL HUKUK BİLGİSİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1248,7 +1248,7 @@
             },
             {
               "ders_adi": "GİRİŞİMCİLİK",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1272,7 +1272,7 @@
             },
             {
               "ders_adi": "METİN TAHLİLLERİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -1299,7 +1299,7 @@
             },
             {
               "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -1332,7 +1332,7 @@
             },
             {
               "ders_adi": "OSMANLI TÜRKÇESİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 3,
               "dipnot": null,
               "saatler": {
@@ -1356,7 +1356,7 @@
             },
             {
               "ders_adi": "TÜRK DÜNYASI COĞRAFYASI",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1377,7 +1377,7 @@
             },
             {
               "ders_adi": "ORTAK TÜRK EDEBİYATI",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1398,7 +1398,7 @@
             },
             {
               "ders_adi": "ORTAK TÜRK TARİHİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1587,7 +1587,7 @@
             },
             {
               "ders_adi": "ADABIMUAŞERET",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1605,7 +1605,7 @@
             },
             {
               "ders_adi": "TÜRK SOSYAL HAYATINDA AİLE",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -1632,7 +1632,7 @@
             },
             {
               "ders_adi": "İSLAM BİLİM TARİHİ",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2594,7 +2594,7 @@
             },
             {
               "ders_adi": "FEN BİLİMLERİ UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -2618,7 +2618,7 @@
             },
             {
               "ders_adi": "MATEMATİK UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -2642,7 +2642,7 @@
             },
             {
               "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2675,7 +2675,7 @@
             },
             {
               "ders_adi": "SOSYAL BİLİM ÇALIŞMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -2705,7 +2705,7 @@
             },
             {
               "ders_adi": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -2737,7 +2737,7 @@
             },
             {
               "ders_adi": "PROJE TASARIMI VE UYGULAMALARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -2769,7 +2769,7 @@
             },
             {
               "ders_adi": "DÜŞÜNME EĞİTİMİ",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2790,7 +2790,7 @@
             },
             {
               "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
-              "grup": "AKADEMİK ÇALIŞMALAR",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2823,7 +2823,7 @@
             },
             {
               "ders_adi": "SÜRDÜRÜLEBİLİR TARIM VE GIDA GÜVENLİĞİ",
-              "grup": "İNSAN, TOPLUM VE",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2844,7 +2844,7 @@
             },
             {
               "ders_adi": "İKLİM, ÇEVRE VE YENİLİKÇİ ÇÖZÜMLER",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2865,7 +2865,7 @@
             },
             {
               "ders_adi": "TEMEL HUKUK BİLGİSİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2892,7 +2892,7 @@
             },
             {
               "ders_adi": "GİRİŞİMCİLİK",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -2916,7 +2916,7 @@
             },
             {
               "ders_adi": "METİN TAHLİLLERİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 2,
               "dipnot": null,
               "saatler": {
@@ -2943,7 +2943,7 @@
             },
             {
               "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 4,
               "dipnot": null,
               "saatler": {
@@ -2976,7 +2976,7 @@
             },
             {
               "ders_adi": "OSMANLI TÜRKÇESİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 3,
               "dipnot": null,
               "saatler": {
@@ -3000,7 +3000,7 @@
             },
             {
               "ders_adi": "TÜRK DÜNYASI COĞRAFYASI",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -3021,7 +3021,7 @@
             },
             {
               "ders_adi": "ORTAK TÜRK EDEBİYATI",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -3042,7 +3042,7 @@
             },
             {
               "ders_adi": "ORTAK TÜRK TARİHİ",
-              "grup": "BİLİM",
+              "grup": "İNSAN, TOPLUM VE BİLİM",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -3231,7 +3231,7 @@
             },
             {
               "ders_adi": "ADABIMUAŞERET",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -3249,7 +3249,7 @@
             },
             {
               "ders_adi": "TÜRK SOSYAL HAYATINDA AİLE",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {
@@ -3276,7 +3276,7 @@
             },
             {
               "ders_adi": "İSLAM BİLİM TARİHİ",
-              "grup": "DİN, AHLAK VE DEĞER",
+              "grup": "KÜLTÜR, SANAT VE SPOR",
               "kac_kez_secilebilir": 1,
               "dipnot": null,
               "saatler": {

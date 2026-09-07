@@ -44,3 +44,7 @@ firebase-debug*.log
 .env
 .env.*
 _onizleme_rapor.html
+
+# Cizelge duzeltme betiklerinin zaman damgali yedekleri; kaynak surumler
+# zaten gitte. Canliya cikmasinlar.
+*.yedek_*
