@@ -146,6 +146,64 @@ img { max-width: 100%; height: auto; display: block; }
     text-align: center;
 }
 
+/* Fiyat kutusu. Kullanici karari 08.09.2026: fiyat ana sayfada yazsin,
+   ama ilk ekranda degil -- once urun gorunsun, sonra tutar. */
+.fiyat-kutu {
+    border: 1px solid var(--cizgi-koyu);
+    border-radius: 14px;
+    background: var(--kart);
+    padding: 1.3rem 1.2rem 1.1rem;
+    margin-bottom: 1.4rem;
+}
+
+.fiyat-tutar {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1;
+    color: var(--metin);
+    font-variant-numeric: tabular-nums;
+}
+
+.fiyat-kapsam {
+    color: var(--metin-soluk);
+    font-size: .92rem;
+    margin-top: .35rem;
+}
+
+.fiyat-liste {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    text-align: left;
+    display: grid;
+    gap: .4rem;
+}
+
+.fiyat-liste li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: .92rem;
+    color: var(--metin);
+}
+
+/* Onay isareti CSS ile: emoji kullanmiyoruz, sayfanin geri kalaninda da yok. */
+.fiyat-liste li::before {
+    content: "";
+    position: absolute;
+    left: .25rem; top: .34rem;
+    width: .38rem; height: .68rem;
+    border: solid var(--yesil);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.fiyat-not {
+    color: var(--metin-soluk);
+    font-size: .82rem;
+    margin: .9rem 0 0;
+}
+
 .iletisim-not {
     color: var(--metin-soluk);
     font-size: .9rem;
