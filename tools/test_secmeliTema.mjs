@@ -280,6 +280,19 @@ const ilk = (r) => r.themeSections[0];
         "parantez şart: '&&' , '||' den önce bağlar");
 }
 
+/* ====== 7) UYGUN SATIRDA DA GRUP SAYISI GÖRÜNÜYOR MU? ================= */
+/* Kullanıcı sorusu (07.09.2026): 11-12. sınıfta üç gruptan ikisi yeterli.
+   Yalnız yeşil rozet görününce "üçü de tamam mı?" tereddüdü doğuyordu.
+   Artık uygun satırda da "2/3 grup" yazıyor, eksik grubun adı da — ama
+   uyarı olarak değil, "bu seviyede şart değil" notuyla. */
+{
+    const UIsrc2 = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    denetle("uygun satırda kaç gruptan seçildiği yazıyor",
+        /saglananSayi\}\/\$\{sec\.uyum\.kapsamSayi\} grup/.test(UIsrc2));
+    denetle("uygun satırdaki eksik grup UYARI olarak sunulmuyor",
+        /bu seviyede şart değil/.test(UIsrc2));
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

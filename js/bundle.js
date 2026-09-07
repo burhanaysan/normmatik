@@ -176328,7 +176328,17 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             let uyumHucre = "";
             if (sec.uyum) {
                 if (sec.uyum.uygun) {
-                    uyumHucre = `<td><span class="status-badge-lg status-tam">✅ Uygun</span></td>`;
+                    // UYGUN satırda da kaç gruptan seçildiği yazılır (07.09.2026).
+                    // Sebep: 11-12. sınıfta üç gruptan İKİSİ yeterli; kullanıcı
+                    // yalnız yeşil rozeti görünce "üçü de tamam mı?" diye
+                    // tereddüt ediyordu. Eksik grup varsa adı da söylenir ama
+                    // uyarı DEĞİL, bilgi olarak — o seviyede şart değil.
+                    const _hepsi = sec.uyum.saglananSayi >= sec.uyum.kapsamSayi;
+                    const _eksikAd = sec.uyum.eksik.map(id => (T[id] ? T[id].kisa : id)).join(", ");
+                    uyumHucre = `<td><span class="status-badge-lg status-tam">✅ Uygun</span>
+                        <div class="text-xs" style="color: var(--text-muted); margin-top: 0.2rem;">
+                            ${sec.uyum.saglananSayi}/${sec.uyum.kapsamSayi} grup${_hepsi ? "" : ` · ${kacar(_eksikAd)} yok (bu seviyede şart değil)`}
+                        </div></td>`;
                 } else {
                     const eksikAd = sec.uyum.eksik.map(id => (T[id] ? T[id].kisa : id)).join(", ");
                     uyumHucre = `<td><span class="status-badge-lg status-ihtiyac">⚠️ Eksik</span>
