@@ -663,6 +663,12 @@ export class AppStateService {
             dalAdi: sectionData.dalAdi || null,
             isSpecialEdu: isSpecialEdu,
             specialEduType: sectionData.specialEduType || null,
+            // Md. 17/1: norm engel türüne VE kademeye göre değişir.
+            // Varsayılan "hafif_zihinsel": e-Okul dosyalarında en sık geçen ve
+            // içe aktarıcının metinden çıkarabildiği tür. Kullanıcı şube
+            // düzenleme ekranından değiştirebilir.
+            engelTuru: sectionData.engelTuru || sectionData.specialEduType
+                || (sectionData.isSpecialEdu ? "hafif_zihinsel" : null),
             zorunluDersler: sectionData.zorunluDersler || [],
             secmeliDersler: sectionData.secmeliDersler || [],
             rehberlikVarMi: sectionData.rehberlikVarMi !== false && !isSpecialEdu

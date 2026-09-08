@@ -1272,18 +1272,33 @@ class MebNormApplication {
         const activeAreaObj = activeSec.alanId ? dbService.getVocationalAreas().find(a => a.id === activeSec.alanId) : null;
         const activeAreaName = activeAreaObj ? activeAreaObj.name.replace(/ Alanı$/i, '') : "";
 
-        const schoolTypeMap = {
+        // ŞUBE KARTINDAKİ KADEME ETİKETİ
+        //
+        // Burada eskiden ELLE YAZILMIŞ 9 kayıtlık bir harita vardı ve
+        // bulunamayan her tür 'Ortaöğretim' yazıyordu. Ölçüldü (09.09.2026):
+        // veri tabanındaki 22 okul türünden 15'i yanlış etiketleniyordu —
+        // ortaokul, imam hatip ortaokulu, dört güzel sanatlar türü, bütün
+        // hazırlıklı liseler, ATP, meslek ortaokulu, özel eğitim uygulama
+        // okulu. Haritada ayrıca veri tabanında karşılığı olmayan iki ölü
+        // anahtar vardı ('imam_hatip_lisesi', 'guzel_sanatlar_lisesi').
+        //
+        // Ad artık TEK KAYNAKTAN, dbService.getSchoolTypes()'tan gelir.
+        // Aşağıdaki liste yalnızca uzun adları kısaltır; bir tür buraya
+        // yazılmasa da doğru adıyla görünür.
+        const KISA_AD = {
             'mesleki_ve_teknik_anadolu_lisesi': 'MTAL (AMP)',
-            'anadolu_lisesi': 'Anadolu Lisesi',
-            'fen_lisesi': 'Fen Lisesi',
-            'imam_hatip_lisesi': 'İmam Hatip Lisesi',
+            'anadolu_teknik_programi': 'ATP',
             'mesleki_egitim_merkezi': 'MESEM',
-            'guzel_sanatlar_lisesi': 'Güzel Sanatlar Lisesi',
-            'spor_lisesi': 'Spor Lisesi',
-            'sosyal_bilimler_lisesi': 'Sosyal Bilimler Lisesi',
-            'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu'
+            'ortaokul_temel_egitim': 'Ortaokul',
+            'imam_hatip_ortaokulu': 'İmam Hatip Ortaokulu',
+            'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu',
+            'ozel_egitim_uygulama_okulu': 'Özel Eğitim Uygulama Okulu'
         };
-        const schoolTypeShort = schoolTypeMap[schoolType] || 'Ortaöğretim';
+        let schoolTypeShort = KISA_AD[schoolType];
+        if (!schoolTypeShort) {
+            const turBilgisi = (dbService.getSchoolTypes() || []).find(t => t.id === schoolType);
+            schoolTypeShort = turBilgisi ? turBilgisi.name : 'Okul';
+        }
         const gradeDisplay = String(activeSec.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık' : `${activeSec.sinifSeviyesi}. Sınıf`;
         const isSpecialEduSec = !!activeSec.isSpecialEdu || (activeSec.subeAdi && activeSec.subeAdi.includes("Özel Eğt")) || (activeSec.dalAdi && activeSec.dalAdi.includes("Özel Eğit")) || activeSec.alanId === "ozel_egitim";
 

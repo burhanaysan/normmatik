@@ -264,6 +264,15 @@ export class EOkulImporter {
         const skippedZeros = [];
         const letterGroupCount = {};
 
+        // Md. 22/1-b: müdür yardımcısı normuna esas öğrenci sayısına okula
+        // kayıtlı ANA SINIFI / uygulama sınıfı / alt özel eğitim sınıfı
+        // öğrencileri de dâhil edilir. Bu satırlarda sınıf seviyesi rakam
+        // içermediği için (örn. "Ana Sınıfı / A Şubesi") eskiden sessizce
+        // atlanıyorlardı: 09.09.2026'daki dosyada 70 öğrenci yok sayıldı ve
+        // kullanıcıya HİÇBİR ŞEY söylenmedi (dosya 799 diyordu, sistem 729).
+        let anaSinifiOgrenci = 0;
+        const anaSinifiSubeler = [];
+
         for (let r = 0; r < rows.length; r++) {
             const row = rows[r];
             if (!row || row.length === 0) continue;
@@ -302,14 +311,52 @@ export class EOkulImporter {
             let rawArea = "";
             let isSınavlı = false;
             let isSpecialEdu = false;
+            let engelTuru = null;
 
             const parenMatch = firstCell.match(/\((.*?)\)$/);
             if (parenMatch) {
                 rawArea = parenMatch[1].trim();
                 const rawUpper = rawArea.toUpperCase();
                 if (rawUpper.includes("SINAVLI")) isSınavlı = true;
-                if (rawUpper.includes("ZİHİNSEL") || rawUpper.includes("ENGELLİ") || rawUpper.includes("ÖZEL EĞİTİM")) isSpecialEdu = true;
                 if (rawUpper.includes("ALANI YOK")) rawArea = "";
+            }
+
+            // ÖZEL EĞİTİM: SATIRIN TAMAMINA bakılır, yalnızca parantez içine değil.
+            //
+            // 09.09.2026 — gerçek bir ortaokul dosyasında (IOG02000) satırlar
+            // şöyle geliyordu:
+            //     "6. Sınıf-Hafif Zihinsel / A Şubesi"
+            // Parantez yok, TİRE var. Eski kod yalnızca parantez içine baktığı
+            // için bu üç şube NORMAL şube sayıldı: tam ortaokul çizelgesi
+            // yüklendi, adları gerçek 6-A/7-A/8-A ile çakıştı ve okulun ders
+            // yükü 89 saat, öğretmen normu 2 kadro fazla çıktı. Hiçbir uyarı
+            // görünmedi.
+            const satirUpper = firstCell.toUpperCase();
+            if (satirUpper.includes("ZİHİNSEL") || satirUpper.includes("ZIHINSEL") ||
+                satirUpper.includes("ENGELLİ") || satirUpper.includes("ENGELLI") ||
+                satirUpper.includes("ÖZEL EĞİTİM") || satirUpper.includes("OZEL EGITIM") ||
+                satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM") ||
+                satirUpper.includes("İŞİTME") || satirUpper.includes("GÖRME")) {
+                isSpecialEdu = true;
+            }
+
+            // ENGEL TÜRÜ: Md. 17/1 normu türe göre değişiyor, e-Okul satırı
+            // çoğu zaman bunu yazıyor ("Hafif Zihinsel", "Orta Zihinsel",
+            // "Otizm"...). Yakalanamazsa "hafif_zihinsel" varsayılır; bu
+            // e-Okul dosyalarında en sık geçen tür ve kullanıcı şube düzenleme
+            // ekranından değiştirebilir.
+            if (isSpecialEdu) {
+                if (satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM")
+                    || satirUpper.includes("ORTA") || satirUpper.includes("AĞIR") || satirUpper.includes("AGIR")) {
+                    engelTuru = "orta_agir_otizm";
+                } else if (satirUpper.includes("İŞİTME") || satirUpper.includes("ISITME")
+                    || satirUpper.includes("GÖRME") || satirUpper.includes("GORME")) {
+                    engelTuru = "gorme_isitme";
+                } else if (satirUpper.includes("BİRDEN FAZLA") || satirUpper.includes("ÇOKLU")) {
+                    engelTuru = "birden_fazla";
+                } else {
+                    engelTuru = "hafif_zihinsel";
+                }
             }
 
             // 4. Öğrenci Sayısı Tespiti
@@ -335,6 +382,16 @@ export class EOkulImporter {
                 boysCount = numCells[0];
                 girlsCount = numCells[1];
                 totalStudents = boysCount + girlsCount;
+            }
+
+            // Ana sınıfı / okul öncesi satırları: şube olarak açılmaz (ortaokul
+            // müfredatı uygulanamaz) ama öğrencileri norma esas sayıya girer.
+            if (!grade && /ANA\s*S[IİI]N[IİI]F|OKUL\s*ÖNCES|ANAOKUL/i.test(upperFirst)) {
+                if (totalStudents > 0) {
+                    anaSinifiOgrenci += totalStudents;
+                    anaSinifiSubeler.push({ raw: firstCell, count: totalStudents });
+                }
+                continue;
             }
 
             if (!grade || !secLetter) continue;
@@ -378,7 +435,8 @@ export class EOkulImporter {
                 matchedAreaName: isSpecialEdu ? "Özel Eğitim" : (matchedArea ? matchedArea.name : (rawArea || null)),
                 dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : null,
                 isSınavlı: isSınavlı,
-                isSpecialEdu: isSpecialEdu
+                isSpecialEdu: isSpecialEdu,
+                engelTuru: engelTuru
             });
         }
 
@@ -388,9 +446,14 @@ export class EOkulImporter {
                 totalStudents: parsedSections.reduce((sum, s) => sum + s.studentCount, 0),
                 skippedZeroCount: skippedZeros.length,
                 reportType: "OOG01001R010_ICMAL",
-                grades: [...new Set(parsedSections.map(s => s.grade))]
+                grades: [...new Set(parsedSections.map(s => s.grade))],
+                // Şube açılmayan ama norma esas sayıya giren öğrenciler.
+                anaSinifiOgrenci: anaSinifiOgrenci,
+                anaSinifiSubeSayisi: anaSinifiSubeler.length,
+                ozelEgitimSubeSayisi: parsedSections.filter(x => x.isSpecialEdu).length
             },
             sections: parsedSections,
+            anaSinifiSubeler: anaSinifiSubeler,
             skippedZeros: skippedZeros
         };
     }
@@ -509,8 +572,21 @@ export class EOkulImporter {
      * @param {string} schoolType 
      * @param {boolean} clearExisting 
      */
-    applySectionsToState(stateService, parsedSections, schoolType = null, clearExisting = true) {
+    applySectionsToState(stateService, parsedSections, schoolType = null, clearExisting = true, ozet = null) {
         stateService.pushHistory();
+
+        // Md. 22/1-b: ana sınıfı / uygulama sınıfı / alt özel eğitim sınıfı
+        // öğrencileri müdür yardımcısı normuna esas sayıya DÂHİLDİR. Bu
+        // satırlardan şube açılmaz, ama öğrencileri kaybolmamalı.
+        if (ozet && ozet.anaSinifiOgrenci > 0 && stateService.state.okulBilgisi) {
+            const ao = stateService.state.okulBilgisi.adminOptions
+                || (stateService.state.okulBilgisi.adminOptions = {});
+            const mevcut = parseInt(ao.ekSinifOgrencileri, 10) || 0;
+            // Elle girilmiş daha büyük bir değer varsa ezilmez.
+            if (ozet.anaSinifiOgrenci > mevcut) {
+                ao.ekSinifOgrencileri = ozet.anaSinifiOgrenci;
+            }
+        }
 
         if (clearExisting) {
             stateService.state.subeler = [];
@@ -615,7 +691,8 @@ export class EOkulImporter {
                 alanId: areaId,
                 dalAdi: dalAdi,
                 isSpecialEdu: isSpecialEdu,
-                specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
+                specialEduType: isSpecialEdu ? (sec.engelTuru || "hafif_zihinsel") : null,
+                engelTuru: isSpecialEdu ? (sec.engelTuru || "hafif_zihinsel") : null,
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,

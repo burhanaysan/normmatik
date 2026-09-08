@@ -165952,6 +165952,61 @@ class NormEngine {
     }
 
     /**
+     * MEB Norm Kadro Yönetmeliği MADDE 17/1 — özel eğitim sınıfı normu
+     *
+     * Norm ŞUBE BAŞINA verilir ve ENGEL TÜRÜ ile KADEME'ye göre değişir:
+     *
+     *   (a) özel eğitim anasınıfı .......................................... 1
+     *   (b) görme/işitme engelliler, İLKOKULDA .............................. 1
+     *   (ç) orta/ağır zihinsel veya otizm, her derece ve türde .............. 2
+     *   (d) hafif zihinsel, İLKOKUL ve ORTAOKUL ............................ 2
+     *   (e) hafif zihinsel, LİSE ........................................... 1
+     *   (f) birden fazla engel ............................................. 2
+     *   (c) mülga (17/10/2016-2016/9488 K.)
+     *
+     * NEDEN AYRI FONKSİYON (09.09.2026): burada eskiden `şube sayısı * 2`
+     * yazıyordu. Lise kademesindeki hafif zihinsel şubeler (e bendi: 1) iki
+     * katı norm üretiyordu ve hiçbir yerde engel türü sorulmuyordu.
+     *
+     * Yönetmeliğin açıkça düzenlemediği bileşimlerde (örn. görme/işitme
+     * engelliler ORTAOKUL veya LİSE kademesinde) sayı DÜŞÜRÜLMEZ; 2 kalır ve
+     * dayanak metninde bunun bir varsayım olduğu yazılır. Sessizce norm
+     * eksiltmek, fazla göstermekten daha tehlikelidir.
+     *
+     * @param {string} engelTuru  hafif_zihinsel | orta_agir_otizm | gorme_isitme | birden_fazla
+     * @param {string|number} sinifSeviyesi
+     * @returns {{norm:number, dayanak:string}}
+     */
+    ozelEgitimSubeNormu(engelTuru, sinifSeviyesi) {
+        const tur = String(engelTuru || "hafif_zihinsel");
+        const ham = String(sinifSeviyesi == null ? "" : sinifSeviyesi).toLowerCase();
+        const sayi = parseInt(ham, 10);
+
+        if (ham.includes("ana") || ham.includes("okuloncesi") || ham.includes("okul oncesi")) {
+            return { norm: 1, dayanak: "Md. 17/1-a (özel eğitim anasınıfı)" };
+        }
+
+        const ilkokul  = sayi >= 1 && sayi <= 4;
+        const ortaokul = sayi >= 5 && sayi <= 8;
+        const lise     = sayi >= 9 && sayi <= 12;
+
+        if (tur === "orta_agir_otizm") {
+            return { norm: 2, dayanak: "Md. 17/1-ç (orta/ağır zihinsel veya otizm)" };
+        }
+        if (tur === "birden_fazla") {
+            return { norm: 2, dayanak: "Md. 17/1-f (birden fazla engel)" };
+        }
+        if (tur === "gorme_isitme") {
+            if (ilkokul) return { norm: 1, dayanak: "Md. 17/1-b (görme/işitme, ilkokul)" };
+            return { norm: 2, dayanak: "Md. 17/1-b yalnızca ilkokulu düzenliyor; bu kademe için 2 varsayıldı — kontrol ediniz" };
+        }
+        // hafif_zihinsel (varsayılan)
+        if (lise) return { norm: 1, dayanak: "Md. 17/1-e (hafif zihinsel, lise kademesi)" };
+        if (ilkokul || ortaokul) return { norm: 2, dayanak: "Md. 17/1-d (hafif zihinsel, ilkokul/ortaokul)" };
+        return { norm: 2, dayanak: "Md. 17/1-d (kademe belirsiz, ilkokul/ortaokul varsayıldı)" };
+    }
+
+    /**
      * MEB Norm Kadro Yönetmeliği MADDE 18/1
      * Genel bilgi ve meslek dersleri öğretmeni norm kadrosu.
      * 6-30 -> 1 | 31-42 -> 2 | 42'den fazlası: her 21 saate 1, artan >=15 ise +1
@@ -166141,6 +166196,28 @@ class NormEngine {
         };
 
         subeler.forEach(sec => {
+            // ÖZEL EĞİTİM ŞUBELERİ BRANŞ YÜKÜNE YAZILMAZ.
+            //
+            // Md. 17/1: özel eğitim sınıflarının normu ŞUBE BAŞINA verilir
+            // (ilkokul/ortaokul kademesinde hafif düzeyde zihin engelliler
+            // için her şube 2 norm). Dersleri özel eğitim öğretmeni okutur;
+            // Türkçe ya da Matematik branşının Md. 18 yüküne girmez.
+            //
+            // 09.09.2026'da ölçüldü: bu ayrım yoktu ve saatler ÇİFTE
+            // SAYILIYORDU. Gerçek bir ortaokul dosyasında 3 özel eğitim
+            // şubesinin 89 saati hem "Özel Eğitim -> 6 norm" satırında hem de
+            // Türkçe (+21s), Matematik (+15s), Fen (+12s) yüklerinin içinde
+            // görünüyordu; okulun normu 6 kadro fazla çıkıyordu.
+            //
+            // Bu şubelerin saatleri aşağıdaki özel eğitim bloğunda ayrıca
+            // toplanır; burada yalnızca branş bazlı Md. 18 birikiminden
+            // çıkarılır.
+            if (sec.isSpecialEdu
+                || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
+                || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"))) {
+                return;
+            }
+
             const isGrade12 = String(sec.sinifSeviyesi) === "12";
             const gradeLevel = sec.sinifSeviyesi;
             // Kaynaştırma öğrenci sayısı (Madde 22/1-ç). Arayüzde henüz bu alan
@@ -166383,13 +166460,21 @@ class NormEngine {
         allBranchesSet.delete("Rehberlik ve Psikolojik Danışmanlık");
         allBranchesSet.delete("Rehberlik / Psikolojik Danışmanlık");
 
-        // Özel Eğitim Sınıfları Kontrolü (MEB Norm Kadro Yön. Md. 17/1-c Kuralı: 1 Şube = 2 Norm)
+        // Özel eğitim sınıfları — Md. 17/1. Norm ŞUBE BAŞINA ve ENGEL TÜRÜNE
+        // göre hesaplanır; eskiden burada sabit "şube x 2" vardı ve lise
+        // kademesindeki hafif zihinsel şubeler (Md. 17/1-e: 1) iki katı
+        // norm üretiyordu.
         const specialEduSections = subeler.filter(s => s.isSpecialEdu || (s.subeAdi && s.subeAdi.includes("Özel Eğt")) || (s.dalAdi && s.dalAdi.includes("Özel Eğit")));
         const specialEduSectionCount = specialEduSections.length;
-        
+
         if (specialEduSectionCount > 0) {
             allBranchesSet.delete("Özel Eğitim");
-            const specialEduNorm = specialEduSectionCount * 2;
+            const ozelDetay = specialEduSections.map(sec => {
+                const h = this.ozelEgitimSubeNormu(
+                    sec.engelTuru || sec.specialEduType, sec.sinifSeviyesi);
+                return { sube: sec.subeAdi, norm: h.norm, dayanak: h.dayanak };
+            });
+            const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
             const specialEduHours = specialEduSections.reduce((sum, s) => {
                 const h = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
                 return sum + (h > 0 ? h : 30);
@@ -166425,7 +166510,10 @@ class NormEngine {
                 statusText: statusText,
                 statusType: statusType,
                 statusBadge: statusBadge,
-                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1-c: Her özel eğitim sınıfı için 2 Norm Kadro (${specialEduSectionCount} Şube x 2 = ${specialEduNorm} Norm)`,
+                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1 — şube başına, engel türüne göre: `
+                    + ozelDetay.map(x => `${x.sube} = ${x.norm} (${x.dayanak})`).join(" · ")
+                    + ` ➔ Toplam ${specialEduNorm} Norm`,
+                ozelEgitimDetay: ozelDetay,
                 courses: branchCourseDetails["Özel Eğitim"] || [],
                 isSpecialEdu: true
             });
@@ -169557,6 +169645,12 @@ class AppStateService {
             dalAdi: sectionData.dalAdi || null,
             isSpecialEdu: isSpecialEdu,
             specialEduType: sectionData.specialEduType || null,
+            // Md. 17/1: norm engel türüne VE kademeye göre değişir.
+            // Varsayılan "hafif_zihinsel": e-Okul dosyalarında en sık geçen ve
+            // içe aktarıcının metinden çıkarabildiği tür. Kullanıcı şube
+            // düzenleme ekranından değiştirebilir.
+            engelTuru: sectionData.engelTuru || sectionData.specialEduType
+                || (sectionData.isSpecialEdu ? "hafif_zihinsel" : null),
             zorunluDersler: sectionData.zorunluDersler || [],
             secmeliDersler: sectionData.secmeliDersler || [],
             rehberlikVarMi: sectionData.rehberlikVarMi !== false && !isSpecialEdu
@@ -171008,6 +171102,15 @@ class EOkulImporter {
         const skippedZeros = [];
         const letterGroupCount = {};
 
+        // Md. 22/1-b: müdür yardımcısı normuna esas öğrenci sayısına okula
+        // kayıtlı ANA SINIFI / uygulama sınıfı / alt özel eğitim sınıfı
+        // öğrencileri de dâhil edilir. Bu satırlarda sınıf seviyesi rakam
+        // içermediği için (örn. "Ana Sınıfı / A Şubesi") eskiden sessizce
+        // atlanıyorlardı: 09.09.2026'daki dosyada 70 öğrenci yok sayıldı ve
+        // kullanıcıya HİÇBİR ŞEY söylenmedi (dosya 799 diyordu, sistem 729).
+        let anaSinifiOgrenci = 0;
+        const anaSinifiSubeler = [];
+
         for (let r = 0; r < rows.length; r++) {
             const row = rows[r];
             if (!row || row.length === 0) continue;
@@ -171046,14 +171149,52 @@ class EOkulImporter {
             let rawArea = "";
             let isSınavlı = false;
             let isSpecialEdu = false;
+            let engelTuru = null;
 
             const parenMatch = firstCell.match(/\((.*?)\)$/);
             if (parenMatch) {
                 rawArea = parenMatch[1].trim();
                 const rawUpper = rawArea.toUpperCase();
                 if (rawUpper.includes("SINAVLI")) isSınavlı = true;
-                if (rawUpper.includes("ZİHİNSEL") || rawUpper.includes("ENGELLİ") || rawUpper.includes("ÖZEL EĞİTİM")) isSpecialEdu = true;
                 if (rawUpper.includes("ALANI YOK")) rawArea = "";
+            }
+
+            // ÖZEL EĞİTİM: SATIRIN TAMAMINA bakılır, yalnızca parantez içine değil.
+            //
+            // 09.09.2026 — gerçek bir ortaokul dosyasında (IOG02000) satırlar
+            // şöyle geliyordu:
+            //     "6. Sınıf-Hafif Zihinsel / A Şubesi"
+            // Parantez yok, TİRE var. Eski kod yalnızca parantez içine baktığı
+            // için bu üç şube NORMAL şube sayıldı: tam ortaokul çizelgesi
+            // yüklendi, adları gerçek 6-A/7-A/8-A ile çakıştı ve okulun ders
+            // yükü 89 saat, öğretmen normu 2 kadro fazla çıktı. Hiçbir uyarı
+            // görünmedi.
+            const satirUpper = firstCell.toUpperCase();
+            if (satirUpper.includes("ZİHİNSEL") || satirUpper.includes("ZIHINSEL") ||
+                satirUpper.includes("ENGELLİ") || satirUpper.includes("ENGELLI") ||
+                satirUpper.includes("ÖZEL EĞİTİM") || satirUpper.includes("OZEL EGITIM") ||
+                satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM") ||
+                satirUpper.includes("İŞİTME") || satirUpper.includes("GÖRME")) {
+                isSpecialEdu = true;
+            }
+
+            // ENGEL TÜRÜ: Md. 17/1 normu türe göre değişiyor, e-Okul satırı
+            // çoğu zaman bunu yazıyor ("Hafif Zihinsel", "Orta Zihinsel",
+            // "Otizm"...). Yakalanamazsa "hafif_zihinsel" varsayılır; bu
+            // e-Okul dosyalarında en sık geçen tür ve kullanıcı şube düzenleme
+            // ekranından değiştirebilir.
+            if (isSpecialEdu) {
+                if (satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM")
+                    || satirUpper.includes("ORTA") || satirUpper.includes("AĞIR") || satirUpper.includes("AGIR")) {
+                    engelTuru = "orta_agir_otizm";
+                } else if (satirUpper.includes("İŞİTME") || satirUpper.includes("ISITME")
+                    || satirUpper.includes("GÖRME") || satirUpper.includes("GORME")) {
+                    engelTuru = "gorme_isitme";
+                } else if (satirUpper.includes("BİRDEN FAZLA") || satirUpper.includes("ÇOKLU")) {
+                    engelTuru = "birden_fazla";
+                } else {
+                    engelTuru = "hafif_zihinsel";
+                }
             }
 
             // 4. Öğrenci Sayısı Tespiti
@@ -171079,6 +171220,16 @@ class EOkulImporter {
                 boysCount = numCells[0];
                 girlsCount = numCells[1];
                 totalStudents = boysCount + girlsCount;
+            }
+
+            // Ana sınıfı / okul öncesi satırları: şube olarak açılmaz (ortaokul
+            // müfredatı uygulanamaz) ama öğrencileri norma esas sayıya girer.
+            if (!grade && /ANA\s*S[IİI]N[IİI]F|OKUL\s*ÖNCES|ANAOKUL/i.test(upperFirst)) {
+                if (totalStudents > 0) {
+                    anaSinifiOgrenci += totalStudents;
+                    anaSinifiSubeler.push({ raw: firstCell, count: totalStudents });
+                }
+                continue;
             }
 
             if (!grade || !secLetter) continue;
@@ -171122,7 +171273,8 @@ class EOkulImporter {
                 matchedAreaName: isSpecialEdu ? "Özel Eğitim" : (matchedArea ? matchedArea.name : (rawArea || null)),
                 dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : null,
                 isSınavlı: isSınavlı,
-                isSpecialEdu: isSpecialEdu
+                isSpecialEdu: isSpecialEdu,
+                engelTuru: engelTuru
             });
         }
 
@@ -171132,9 +171284,14 @@ class EOkulImporter {
                 totalStudents: parsedSections.reduce((sum, s) => sum + s.studentCount, 0),
                 skippedZeroCount: skippedZeros.length,
                 reportType: "OOG01001R010_ICMAL",
-                grades: [...new Set(parsedSections.map(s => s.grade))]
+                grades: [...new Set(parsedSections.map(s => s.grade))],
+                // Şube açılmayan ama norma esas sayıya giren öğrenciler.
+                anaSinifiOgrenci: anaSinifiOgrenci,
+                anaSinifiSubeSayisi: anaSinifiSubeler.length,
+                ozelEgitimSubeSayisi: parsedSections.filter(x => x.isSpecialEdu).length
             },
             sections: parsedSections,
+            anaSinifiSubeler: anaSinifiSubeler,
             skippedZeros: skippedZeros
         };
     }
@@ -171253,8 +171410,21 @@ class EOkulImporter {
      * @param {string} schoolType 
      * @param {boolean} clearExisting 
      */
-    applySectionsToState(stateService, parsedSections, schoolType = null, clearExisting = true) {
+    applySectionsToState(stateService, parsedSections, schoolType = null, clearExisting = true, ozet = null) {
         stateService.pushHistory();
+
+        // Md. 22/1-b: ana sınıfı / uygulama sınıfı / alt özel eğitim sınıfı
+        // öğrencileri müdür yardımcısı normuna esas sayıya DÂHİLDİR. Bu
+        // satırlardan şube açılmaz, ama öğrencileri kaybolmamalı.
+        if (ozet && ozet.anaSinifiOgrenci > 0 && stateService.state.okulBilgisi) {
+            const ao = stateService.state.okulBilgisi.adminOptions
+                || (stateService.state.okulBilgisi.adminOptions = {});
+            const mevcut = parseInt(ao.ekSinifOgrencileri, 10) || 0;
+            // Elle girilmiş daha büyük bir değer varsa ezilmez.
+            if (ozet.anaSinifiOgrenci > mevcut) {
+                ao.ekSinifOgrencileri = ozet.anaSinifiOgrenci;
+            }
+        }
 
         if (clearExisting) {
             stateService.state.subeler = [];
@@ -171359,7 +171529,8 @@ class EOkulImporter {
                 alanId: areaId,
                 dalAdi: dalAdi,
                 isSpecialEdu: isSpecialEdu,
-                specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
+                specialEduType: isSpecialEdu ? (sec.engelTuru || "hafif_zihinsel") : null,
+                engelTuru: isSpecialEdu ? (sec.engelTuru || "hafif_zihinsel") : null,
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
@@ -172418,14 +172589,34 @@ class UIComponentManager {
                                 * Dal seçildiğinde o dala ait özel alan/dal dersleri orta panele otomatik gelir.
                             </p>
                         </div>
-                        <!-- 🟣 ÖZEL EĞİTİM SINIFI SEÇENEĞİ (MEB NORM KADRO YÖN. MD. 17/1-C) -->
+                        <!-- 🟣 ÖZEL EĞİTİM SINIFI (MEB Norm Kadro Yön. Md. 17/1) -->
                         <div class="form-group" style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 0.75rem; margin-top: 0.5rem;">
                             <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #6d28d9; cursor: pointer; margin-bottom: 0;">
                                 <input type="checkbox" id="sec-is-special-edu" ${sectionToEdit?.isSpecialEdu ? 'checked' : ''}>
-                                🟣 Özel Eğitim Sınıfı (MEB Norm Kadro Yön. Md. 17/1-c)
+                                🟣 Özel Eğitim Sınıfı (MEB Norm Kadro Yön. Md. 17/1)
                             </label>
-                            <p style="font-size: 0.73rem; color: #5b21b6; margin-top: 0.35rem; margin-bottom: 0; line-height: 1.4;">
-                                * İşaretlendiğinde bu şube için doğrudan <strong>2 Özel Eğitim Öğretmeni Normu</strong> tahsis edilir ve haftalık 30 saatlik özel eğitim müfredatı yüklenir.
+
+                            <!-- ENGEL TÜRÜ
+                                 Md. 17/1 normu engel türüne VE kademeye göre değiştirir:
+                                 hafif zihinsel ilkokul/ortaokulda 2, LİSEDE 1. Bu alan
+                                 09.09.2026'da eklendi; öncesinde tür sorulmuyor, her şube
+                                 sabit 2 sayılıyordu ve lise şubeleri iki katı norm
+                                 üretiyordu. -->
+                            <div id="sec-engel-turu-kutu" style="margin-top: 0.6rem; ${sectionToEdit?.isSpecialEdu ? '' : 'display: none;'}">
+                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700; color: #5b21b6;">Engel Türü *</label>
+                                <select id="sec-engel-turu" class="form-control" style="font-size: 0.85rem;">
+                                    <option value="hafif_zihinsel" ${(!sectionToEdit?.engelTuru || sectionToEdit?.engelTuru === 'hafif_zihinsel') ? 'selected' : ''}>Hafif düzeyde zihinsel engel</option>
+                                    <option value="orta_agir_otizm" ${sectionToEdit?.engelTuru === 'orta_agir_otizm' ? 'selected' : ''}>Orta / ağır düzeyde zihinsel engel veya otizm</option>
+                                    <option value="gorme_isitme" ${sectionToEdit?.engelTuru === 'gorme_isitme' ? 'selected' : ''}>Görme veya işitme engeli</option>
+                                    <option value="birden_fazla" ${sectionToEdit?.engelTuru === 'birden_fazla' ? 'selected' : ''}>Birden fazla engel</option>
+                                </select>
+                                <p id="sec-engel-turu-not" style="font-size: 0.73rem; color: #5b21b6; margin: 0.4rem 0 0; line-height: 1.4;"></p>
+                            </div>
+
+                            <p style="font-size: 0.73rem; color: #5b21b6; margin-top: 0.5rem; margin-bottom: 0; line-height: 1.4;">
+                                * İşaretlendiğinde şubeye özel eğitim müfredatı yüklenir ve normu
+                                Md. 17/1'e göre ayrıca hesaplanır. Bu şubenin ders saatleri branş
+                                öğretmeni normuna (Md. 18) yazılmaz.
                             </p>
                         </div>
                         ${isEditing ? `
@@ -172452,6 +172643,35 @@ class UIComponentManager {
         const gradeSelect = document.getElementById("sec-grade");
         const areaSelect = document.getElementById("sec-area");
         const branchSelect = document.getElementById("sec-branch");
+
+        // ENGEL TÜRÜ KUTUSU: yalnızca özel eğitim işaretliyken görünür ve
+        // seçilen türe göre Md. 17/1'in kaç norm verdiğini CANLI yazar.
+        // Kullanıcı sayıyı sonradan raporda görüp şaşırmasın diye burada
+        // söylenir.
+        const ozelKutu = document.getElementById("sec-is-special-edu");
+        const engelKutu = document.getElementById("sec-engel-turu-kutu");
+        const engelSecim = document.getElementById("sec-engel-turu");
+        const engelNot = document.getElementById("sec-engel-turu-not");
+
+        const engelNotYaz = () => {
+            if (!engelNot || !engelSecim) return;
+            const sinif = gradeSelect ? gradeSelect.value : "";
+            const hesap = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSubeNormu)
+                ? normEngine.ozelEgitimSubeNormu(engelSecim.value, sinif)
+                : null;
+            engelNot.innerHTML = hesap
+                ? `Bu şube için <strong>${hesap.norm} özel eğitim öğretmeni normu</strong> — ${hesap.dayanak}`
+                : "";
+        };
+        const engelKutuTazele = () => {
+            if (!engelKutu || !ozelKutu) return;
+            engelKutu.style.display = ozelKutu.checked ? "" : "none";
+            if (ozelKutu.checked) engelNotYaz();
+        };
+        ozelKutu?.addEventListener("change", engelKutuTazele);
+        engelSecim?.addEventListener("change", engelNotYaz);
+        gradeSelect?.addEventListener("change", engelNotYaz);
+        engelKutuTazele();
 
         const updateDynamicBranches = () => {
             if (!areaSelect || !branchSelect) return;
@@ -172485,6 +172705,9 @@ class UIComponentManager {
                 const areaId = document.getElementById("sec-area")?.value || null;
                 const dalName = document.getElementById("sec-branch")?.value || null;
                 const isSpecialEdu = document.getElementById("sec-is-special-edu")?.checked || false;
+                const engelTuru = isSpecialEdu
+                    ? (document.getElementById("sec-engel-turu")?.value || "hafif_zihinsel")
+                    : null;
 
                 if (isEditing) {
                     const originalCourses = sectionToEdit.zorunluDersler || [];
@@ -172517,7 +172740,8 @@ class UIComponentManager {
                         alanId: isSpecialEdu ? "ozel_egitim" : areaId,
                         dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
                         isSpecialEdu: isSpecialEdu,
-                        specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
+                        specialEduType: engelTuru,
+                        engelTuru: engelTuru,
                         zorunluDersler: updatedCourses,
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu
                     });
@@ -172536,7 +172760,8 @@ class UIComponentManager {
                         alanId: isSpecialEdu ? "ozel_egitim" : areaId,
                         dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
                         isSpecialEdu: isSpecialEdu,
-                        specialEduType: isSpecialEdu ? "hafif_zihinsel" : null,
+                        specialEduType: engelTuru,
+                        engelTuru: engelTuru,
                         zorunluDersler: defaultCourses,
                         secmeliDersler: [],
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu
@@ -176820,7 +177045,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 📥 e-Okul'dan Otomatik Şube & Öğrenci İçe Aktarma Sihirbazı
                             </div>
                             <div style="font-size: 0.8rem; color: #bfdbfe; margin-top: 0.25rem;">
-                                e-Okul Sınıf Şube Öğrenci Sayıları (.xls / .xlsx) dosyasını yükleyerek tüm okulu 2 saniyede kurun.
+                                e-Okul'dan indireceğiniz şube listesi tablosuyla okulunuzun bütün şubelerini tek seferde kurun.
                             </div>
                         </div>
                         <button class="modal-close-btn" id="btn-close-eokul-modal" style="color: #fff; font-size: 1.5rem; cursor: pointer; background: none; border: none;">&times;</button>
@@ -176837,37 +177062,75 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 <input type="file" id="eokul-file-input" accept=".xls,.xlsx,.csv" style="display: none;">
                             </div>
 
+                            <!-- REHBER
+                                 09.09.2026'da yeniden yazıldı. Eski metin yalnızca İKİ
+                                 ORTAÖĞRETİM rapor kodunu sayıyor, ikincisinin altında da
+                                 "Temel Eğitim" yazıyordu. Oysa ilköğretimde raporun kodu
+                                 bile farklı: OOG = OrtaÖğretim, IOG = İlkÖğretim
+                                 (örn. IOG02000_98.XLS). Kullanıcı o adı arayıp bulamıyordu.
+
+                                 Ayrıca kod listesi vermek yanıltıcı: ayrıştırıcı rapor
+                                 KODUNA değil dosyanın İÇERİĞİNE bakıyor. Nitekim daha önce
+                                 hiç görmediği IOG02000_98.XLS dosyasını sorunsuz okudu.
+                                 Bu yüzden önce genel kural yazıldı, kodlar örnek olarak
+                                 kaldı. -->
                             <div class="eokul-guide-card" style="margin-top: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.2rem; font-size: 0.84rem; color: #334155; line-height: 1.6;">
                                 <div style="font-weight: 800; color: #1e3a8a; font-size: 0.92rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                                    💡 e-Okul'dan Bu Belgeler Nasıl İndirilir? (Desteklenen 2 Rapor)
+                                    💡 Hangi dosyayı yükleyeceğim?
                                 </div>
-                                <div style="margin-bottom: 0.35rem;"><strong>Adım 1:</strong> e-Okul Yönetim Bilgi Sistemi ➔ <strong>Ortaöğretim / İlköğretim Öğrenci İşlemleri</strong> modülüne girin.</div>
+
+                                <div style="margin-bottom: 0.6rem;">
+                                    e-Okul'dan indireceğiniz, <strong>şube adlarını ve şube mevcutlarını</strong>
+                                    gösteren herhangi bir tabloyla okulunuzun bütün şubelerini tek seferde
+                                    kurabilirsiniz. Sistem dosyanın rapor koduna değil <strong>içeriğine</strong>
+                                    bakar; e-Okul'un kademeye göre değişen adlandırmaları sorun çıkarmaz.
+                                </div>
+
+                                <div style="margin-bottom: 0.35rem;"><strong>Adım 1:</strong> e-Okul Yönetim Bilgi Sistemi ➔ okulunuzun kademesine göre <strong>Ortaöğretim</strong> veya <strong>İlköğretim Kurumları</strong> modülüne girin.</div>
                                 <div style="margin-bottom: 0.35rem;"><strong>Adım 2:</strong> Üst menüdeki <strong>Yazıcı (Raporlar)</strong> simgesine tıklayın.</div>
-                                <div style="margin-bottom: 0.5rem;"><strong>Adım 3:</strong> Aşağıdaki 2 rapordan okulunuza uygun olanı seçip <strong>Excel (.XLS / .XLSX)</strong> olarak indirin ve buraya yükleyin:</div>
-                                
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; margin: 0.6rem 0;">
+                                <div style="margin-bottom: 0.6rem;"><strong>Adım 3:</strong> Şube listesi / şube öğrenci sayıları raporunu <strong>Excel (.XLS / .XLSX)</strong> olarak indirip buraya yükleyin.</div>
+
+                                <div style="font-weight: 700; color: #475569; font-size: 0.8rem; margin-bottom: 0.4rem;">Sık kullanılan raporlar (örnektir, başkaları da çalışır):</div>
+
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem; margin: 0.2rem 0 0.6rem;">
                                     <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 8px; padding: 0.75rem 0.9rem;">
                                         <div style="font-weight: 800; color: #1d4ed8; font-size: 0.84rem; margin-bottom: 0.25rem;">
-                                            🥇 OOG01001R076 — Şube Listesi (Dal Bilgili)
+                                            Ortaöğretim — OOG01001R076
                                         </div>
                                         <div style="font-size: 0.77rem; color: #1e40af;">
-                                            <strong>Önerilen (MTAL / ÇPAL / Tüm Okullar):</strong> 11 ve 12. sınıfların uzmanlık <em>dal bilgilerini</em> de otomatik aktarır ve dal müfredatlarını doğrudan bağlar.
+                                            <em>Şube Listesi (Dal Bilgili).</em> <strong>Meslek liselerinde önerilir:</strong>
+                                            11 ve 12. sınıfların dal bilgisini de aktarır, dal müfredatını doğrudan bağlar.
+                                        </div>
+                                    </div>
+                                    <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 8px; padding: 0.75rem 0.9rem;">
+                                        <div style="font-weight: 800; color: #1d4ed8; font-size: 0.84rem; margin-bottom: 0.25rem;">
+                                            Ortaöğretim — OOG01001R010
+                                        </div>
+                                        <div style="font-size: 0.77rem; color: #1e40af;">
+                                            <em>Sınıf Şube Öğrenci Sayıları.</em> Sınıf seviyesi, şubeler ve
+                                            kız/erkek öğrenci sayılarını içeren standart özet tablo.
                                         </div>
                                     </div>
                                     <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 8px; padding: 0.75rem 0.9rem;">
                                         <div style="font-weight: 800; color: #15803d; font-size: 0.84rem; margin-bottom: 0.25rem;">
-                                            🥈 OOG01001R010 — Sınıf Şube Öğrenci Sayıları
+                                            İlkokul / Ortaokul — IOG02000
                                         </div>
                                         <div style="font-size: 0.77rem; color: #166534;">
-                                            <strong>Genel / Standart İcmal (OGM, DÖGM, Temel Eğitim):</strong> Sınıf seviyesi, şubeler, alanlar ve kız/erkek öğrenci sayılarını içeren standart özet tablodur.
+                                            <em>Sınıf Şube Öğrenci Sayıları.</em> Dosya adı genelde
+                                            <strong>IOG02000_98.XLS</strong> biçimindedir. İmam hatip ortaokulları
+                                            da bu raporu kullanır.
                                         </div>
                                     </div>
                                 </div>
 
-                                <div style="margin-top: 0.5rem; color: #059669; font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem;">
-                                    <span>✨</span> <span>Sistem her iki formatı da otomatik algılar; sıfır (0) mevcutlu şubeleri eler ve özel eğitim sınıflarını doğrudan tanır.</span>
+                                <div style="margin-top: 0.5rem; color: #059669; font-weight: 700; font-size: 0.8rem; display: flex; align-items: flex-start; gap: 0.35rem;">
+                                    <span>✨</span>
+                                    <span>Sistem biçimi kendisi algılar: sıfır (0) mevcutlu şubeleri eler, özel eğitim
+                                    sınıflarını ayrı işaretler, ana sınıfı öğrencilerini norma esas sayıya ekler ve
+                                    ne yaptığını yükleme sonunda size yazar.</span>
                                 </div>
                             </div>
+</div>
                         </div>
 
                         <!-- 2. ADIM: AYRIŞTIRMA ÖNİZLEME ALANI (DOSYA SEÇİLİNCE GÖRÜNÜR) -->
@@ -177136,10 +177399,31 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                 this.state.setSchoolType(selectedSchoolType);
             }
 
-            importer.applySectionsToState(this.state, parsedData.sections, selectedSchoolType, clearExisting);
+            // 5. argüman ÖZET: ana sınıfı öğrencileri (şube açılmaz ama Md. 22/1-b
+            // gereği norma esas sayıya girer) buradan taşınır.
+            importer.applySectionsToState(this.state, parsedData.sections, selectedSchoolType,
+                clearExisting, parsedData.schoolSummary);
 
             this.closeModal("eokul-import-modal");
             this.showToast(`🎉 ${parsedData.sections.length} Şube ve ${parsedData.schoolSummary.totalStudents} Öğrenci e-Okul'dan Başarıyla Kuruldu!`, "success");
+
+            // DOSYADA OLUP ŞUBE AÇILMAYAN SATIRLAR AÇIKÇA SÖYLENİR.
+            // Eskiden sessizce düşüyorlardı: 09.09.2026'daki ortaokul
+            // dosyasında 70 ana sınıfı öğrencisi yok sayıldı, kullanıcı
+            // dosyada 799 yazarken ekranda 729 gördü ve sebebini bilmedi.
+            const oz = parsedData.schoolSummary || {};
+            const notlar = [];
+            if (oz.anaSinifiOgrenci > 0) {
+                notlar.push(`${oz.anaSinifiSubeSayisi} ana sınıfı şubesi için ders çizelgesi kurulmadı, `
+                    + `${oz.anaSinifiOgrenci} öğrencisi "norma esas öğrenci sayısı"na eklendi (Md. 22/1-b).`);
+            }
+            if (oz.ozelEgitimSubeSayisi > 0) {
+                notlar.push(`${oz.ozelEgitimSubeSayisi} özel eğitim şubesi ayrı işaretlendi; `
+                    + `bunlara genel çizelge değil özel eğitim çizelgesi uygulanır.`);
+            }
+            notlar.forEach((mesaj, i) => {
+                setTimeout(() => this.showToast(mesaj, "info", 9000), 2200 + i * 1000);
+            });
 
             const warnings = (this.state.state.subeler || []).filter(s => s.eOkulWarning).map(s => s.eOkulWarning);
             if (warnings.length > 0) {
@@ -178658,18 +178942,33 @@ class MebNormApplication {
         const activeAreaObj = activeSec.alanId ? dbService.getVocationalAreas().find(a => a.id === activeSec.alanId) : null;
         const activeAreaName = activeAreaObj ? activeAreaObj.name.replace(/ Alanı$/i, '') : "";
 
-        const schoolTypeMap = {
+        // ŞUBE KARTINDAKİ KADEME ETİKETİ
+        //
+        // Burada eskiden ELLE YAZILMIŞ 9 kayıtlık bir harita vardı ve
+        // bulunamayan her tür 'Ortaöğretim' yazıyordu. Ölçüldü (09.09.2026):
+        // veri tabanındaki 22 okul türünden 15'i yanlış etiketleniyordu —
+        // ortaokul, imam hatip ortaokulu, dört güzel sanatlar türü, bütün
+        // hazırlıklı liseler, ATP, meslek ortaokulu, özel eğitim uygulama
+        // okulu. Haritada ayrıca veri tabanında karşılığı olmayan iki ölü
+        // anahtar vardı ('imam_hatip_lisesi', 'guzel_sanatlar_lisesi').
+        //
+        // Ad artık TEK KAYNAKTAN, dbService.getSchoolTypes()'tan gelir.
+        // Aşağıdaki liste yalnızca uzun adları kısaltır; bir tür buraya
+        // yazılmasa da doğru adıyla görünür.
+        const KISA_AD = {
             'mesleki_ve_teknik_anadolu_lisesi': 'MTAL (AMP)',
-            'anadolu_lisesi': 'Anadolu Lisesi',
-            'fen_lisesi': 'Fen Lisesi',
-            'imam_hatip_lisesi': 'İmam Hatip Lisesi',
+            'anadolu_teknik_programi': 'ATP',
             'mesleki_egitim_merkezi': 'MESEM',
-            'guzel_sanatlar_lisesi': 'Güzel Sanatlar Lisesi',
-            'spor_lisesi': 'Spor Lisesi',
-            'sosyal_bilimler_lisesi': 'Sosyal Bilimler Lisesi',
-            'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu'
+            'ortaokul_temel_egitim': 'Ortaokul',
+            'imam_hatip_ortaokulu': 'İmam Hatip Ortaokulu',
+            'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu',
+            'ozel_egitim_uygulama_okulu': 'Özel Eğitim Uygulama Okulu'
         };
-        const schoolTypeShort = schoolTypeMap[schoolType] || 'Ortaöğretim';
+        let schoolTypeShort = KISA_AD[schoolType];
+        if (!schoolTypeShort) {
+            const turBilgisi = (dbService.getSchoolTypes() || []).find(t => t.id === schoolType);
+            schoolTypeShort = turBilgisi ? turBilgisi.name : 'Okul';
+        }
         const gradeDisplay = String(activeSec.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık' : `${activeSec.sinifSeviyesi}. Sınıf`;
         const isSpecialEduSec = !!activeSec.isSpecialEdu || (activeSec.subeAdi && activeSec.subeAdi.includes("Özel Eğt")) || (activeSec.dalAdi && activeSec.dalAdi.includes("Özel Eğit")) || activeSec.alanId === "ozel_egitim";
 

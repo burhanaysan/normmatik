@@ -562,6 +562,61 @@ export class NormEngine {
     }
 
     /**
+     * MEB Norm Kadro Yönetmeliği MADDE 17/1 — özel eğitim sınıfı normu
+     *
+     * Norm ŞUBE BAŞINA verilir ve ENGEL TÜRÜ ile KADEME'ye göre değişir:
+     *
+     *   (a) özel eğitim anasınıfı .......................................... 1
+     *   (b) görme/işitme engelliler, İLKOKULDA .............................. 1
+     *   (ç) orta/ağır zihinsel veya otizm, her derece ve türde .............. 2
+     *   (d) hafif zihinsel, İLKOKUL ve ORTAOKUL ............................ 2
+     *   (e) hafif zihinsel, LİSE ........................................... 1
+     *   (f) birden fazla engel ............................................. 2
+     *   (c) mülga (17/10/2016-2016/9488 K.)
+     *
+     * NEDEN AYRI FONKSİYON (09.09.2026): burada eskiden `şube sayısı * 2`
+     * yazıyordu. Lise kademesindeki hafif zihinsel şubeler (e bendi: 1) iki
+     * katı norm üretiyordu ve hiçbir yerde engel türü sorulmuyordu.
+     *
+     * Yönetmeliğin açıkça düzenlemediği bileşimlerde (örn. görme/işitme
+     * engelliler ORTAOKUL veya LİSE kademesinde) sayı DÜŞÜRÜLMEZ; 2 kalır ve
+     * dayanak metninde bunun bir varsayım olduğu yazılır. Sessizce norm
+     * eksiltmek, fazla göstermekten daha tehlikelidir.
+     *
+     * @param {string} engelTuru  hafif_zihinsel | orta_agir_otizm | gorme_isitme | birden_fazla
+     * @param {string|number} sinifSeviyesi
+     * @returns {{norm:number, dayanak:string}}
+     */
+    ozelEgitimSubeNormu(engelTuru, sinifSeviyesi) {
+        const tur = String(engelTuru || "hafif_zihinsel");
+        const ham = String(sinifSeviyesi == null ? "" : sinifSeviyesi).toLowerCase();
+        const sayi = parseInt(ham, 10);
+
+        if (ham.includes("ana") || ham.includes("okuloncesi") || ham.includes("okul oncesi")) {
+            return { norm: 1, dayanak: "Md. 17/1-a (özel eğitim anasınıfı)" };
+        }
+
+        const ilkokul  = sayi >= 1 && sayi <= 4;
+        const ortaokul = sayi >= 5 && sayi <= 8;
+        const lise     = sayi >= 9 && sayi <= 12;
+
+        if (tur === "orta_agir_otizm") {
+            return { norm: 2, dayanak: "Md. 17/1-ç (orta/ağır zihinsel veya otizm)" };
+        }
+        if (tur === "birden_fazla") {
+            return { norm: 2, dayanak: "Md. 17/1-f (birden fazla engel)" };
+        }
+        if (tur === "gorme_isitme") {
+            if (ilkokul) return { norm: 1, dayanak: "Md. 17/1-b (görme/işitme, ilkokul)" };
+            return { norm: 2, dayanak: "Md. 17/1-b yalnızca ilkokulu düzenliyor; bu kademe için 2 varsayıldı — kontrol ediniz" };
+        }
+        // hafif_zihinsel (varsayılan)
+        if (lise) return { norm: 1, dayanak: "Md. 17/1-e (hafif zihinsel, lise kademesi)" };
+        if (ilkokul || ortaokul) return { norm: 2, dayanak: "Md. 17/1-d (hafif zihinsel, ilkokul/ortaokul)" };
+        return { norm: 2, dayanak: "Md. 17/1-d (kademe belirsiz, ilkokul/ortaokul varsayıldı)" };
+    }
+
+    /**
      * MEB Norm Kadro Yönetmeliği MADDE 18/1
      * Genel bilgi ve meslek dersleri öğretmeni norm kadrosu.
      * 6-30 -> 1 | 31-42 -> 2 | 42'den fazlası: her 21 saate 1, artan >=15 ise +1
@@ -751,6 +806,28 @@ export class NormEngine {
         };
 
         subeler.forEach(sec => {
+            // ÖZEL EĞİTİM ŞUBELERİ BRANŞ YÜKÜNE YAZILMAZ.
+            //
+            // Md. 17/1: özel eğitim sınıflarının normu ŞUBE BAŞINA verilir
+            // (ilkokul/ortaokul kademesinde hafif düzeyde zihin engelliler
+            // için her şube 2 norm). Dersleri özel eğitim öğretmeni okutur;
+            // Türkçe ya da Matematik branşının Md. 18 yüküne girmez.
+            //
+            // 09.09.2026'da ölçüldü: bu ayrım yoktu ve saatler ÇİFTE
+            // SAYILIYORDU. Gerçek bir ortaokul dosyasında 3 özel eğitim
+            // şubesinin 89 saati hem "Özel Eğitim -> 6 norm" satırında hem de
+            // Türkçe (+21s), Matematik (+15s), Fen (+12s) yüklerinin içinde
+            // görünüyordu; okulun normu 6 kadro fazla çıkıyordu.
+            //
+            // Bu şubelerin saatleri aşağıdaki özel eğitim bloğunda ayrıca
+            // toplanır; burada yalnızca branş bazlı Md. 18 birikiminden
+            // çıkarılır.
+            if (sec.isSpecialEdu
+                || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
+                || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"))) {
+                return;
+            }
+
             const isGrade12 = String(sec.sinifSeviyesi) === "12";
             const gradeLevel = sec.sinifSeviyesi;
             // Kaynaştırma öğrenci sayısı (Madde 22/1-ç). Arayüzde henüz bu alan
@@ -993,13 +1070,21 @@ export class NormEngine {
         allBranchesSet.delete("Rehberlik ve Psikolojik Danışmanlık");
         allBranchesSet.delete("Rehberlik / Psikolojik Danışmanlık");
 
-        // Özel Eğitim Sınıfları Kontrolü (MEB Norm Kadro Yön. Md. 17/1-c Kuralı: 1 Şube = 2 Norm)
+        // Özel eğitim sınıfları — Md. 17/1. Norm ŞUBE BAŞINA ve ENGEL TÜRÜNE
+        // göre hesaplanır; eskiden burada sabit "şube x 2" vardı ve lise
+        // kademesindeki hafif zihinsel şubeler (Md. 17/1-e: 1) iki katı
+        // norm üretiyordu.
         const specialEduSections = subeler.filter(s => s.isSpecialEdu || (s.subeAdi && s.subeAdi.includes("Özel Eğt")) || (s.dalAdi && s.dalAdi.includes("Özel Eğit")));
         const specialEduSectionCount = specialEduSections.length;
-        
+
         if (specialEduSectionCount > 0) {
             allBranchesSet.delete("Özel Eğitim");
-            const specialEduNorm = specialEduSectionCount * 2;
+            const ozelDetay = specialEduSections.map(sec => {
+                const h = this.ozelEgitimSubeNormu(
+                    sec.engelTuru || sec.specialEduType, sec.sinifSeviyesi);
+                return { sube: sec.subeAdi, norm: h.norm, dayanak: h.dayanak };
+            });
+            const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
             const specialEduHours = specialEduSections.reduce((sum, s) => {
                 const h = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
                 return sum + (h > 0 ? h : 30);
@@ -1035,7 +1120,10 @@ export class NormEngine {
                 statusText: statusText,
                 statusType: statusType,
                 statusBadge: statusBadge,
-                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1-c: Her özel eğitim sınıfı için 2 Norm Kadro (${specialEduSectionCount} Şube x 2 = ${specialEduNorm} Norm)`,
+                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1 — şube başına, engel türüne göre: `
+                    + ozelDetay.map(x => `${x.sube} = ${x.norm} (${x.dayanak})`).join(" · ")
+                    + ` ➔ Toplam ${specialEduNorm} Norm`,
+                ozelEgitimDetay: ozelDetay,
                 courses: branchCourseDetails["Özel Eğitim"] || [],
                 isSpecialEdu: true
             });

@@ -199,6 +199,137 @@ if (karsilastirma < 60)
     }
 }
 
+/* ====== ÖZEL EĞİTİM ŞUBESİ BRANŞ YÜKÜNE ÇİFTE YAZILMAZ =================
+   Gerçek bir ortaokul e-Okul dosyasıyla bulundu (09.09.2026).
+
+   Md. 17/1: özel eğitim sınıflarının normu ŞUBE BAŞINA verilir — ilkokul ve
+   ortaokul kademesinde hafif düzeyde zihin engelliler için her şube 2 norm.
+   Dersleri özel eğitim öğretmeni okutur, dolayısıyla o saatler Türkçe veya
+   Matematik branşının Madde 18 yüküne GİRMEZ.
+
+   HATA: bu ayrım yoktu. Aynı saatler hem "Özel Eğitim -> N norm" satırında
+   hem de genel branşların yükünde sayılıyordu. Ölçülen okulda 3 özel eğitim
+   şubesinin 89 saati Türkçe'ye +21, Matematik'e +15, Fen'e +12 olarak
+   yazılmış, okulun normu 6 kadro fazla çıkmıştı. Ekranda hiçbir uyarı yoktu;
+   toplam ders yükü doğru göründüğü için fark edilmesi de zordu. */
+{
+    const ce2 = w.curriculumEngine, ne2 = w.normEngine;
+    const TUR = "ortaokul_temel_egitim";
+
+    const sube = (ad, sinif, ogr, ozel) => ({
+        id: "t_" + ad,
+        subeAdi: ad,
+        sinifSeviyesi: String(sinif),
+        ogrenciSayisi: ogr,
+        isSpecialEdu: !!ozel,
+        specialEduType: ozel ? "hafif_zihinsel" : null,
+        alanId: ozel ? "ozel_egitim" : null,
+        dalAdi: ozel ? "Özel Eğitim Sınıfı" : null,
+        zorunluDersler: ce2.getMandatoryCourses(
+            TUR, String(sinif), ozel ? "ozel_egitim" : null,
+            ozel ? "Özel Eğitim Sınıfı" : null) || [],
+        secmeliDersler: [],
+        rehberlikVarMi: !ozel
+    });
+
+    const yalnizNormal = [sube("6-B", 6, 30), sube("7-B", 7, 30), sube("8-B", 8, 30)];
+    const ozelDe = yalnizNormal.concat([
+        sube("6-A (Özel Eğt)", 6, 3, true),
+        sube("7-A (Özel Eğt)", 7, 3, true),
+        sube("8-A (Özel Eğt)", 8, 1, true)
+    ]);
+
+    const hesapla = (liste) => ne2.calculateSchoolNorms(liste, {}, TUR, {});
+    const a = hesapla(yalnizNormal);
+    const b = hesapla(ozelDe);
+
+    const brans = (r, ad) => {
+        const x = (r.branchReport || []).find(y => y.branchName === ad);
+        return x ? x.totalHours : 0;
+    };
+
+    // Özel eğitim şubeleri eklenince GENEL branşların yükü DEĞİŞMEMELİ.
+    for (const ad of ["Türkçe", "Matematik", "Fen Bilimleri", "Görsel Sanatlar"]) {
+        kontrol(`özel eğitim şubesi "${ad}" branş yüküne eklenmiyor`,
+            brans(a, ad) === brans(b, ad),
+            `${ad}: normal ${brans(a, ad)}s -> özel eğitim eklenince ${brans(b, ad)}s`);
+    }
+
+    // Ama Md. 17 normu ayrı satır olarak GELMELİ: 3 şube x 2 = 6.
+    const ozelSatir = (b.branchReport || []).find(x => x.isSpecialEdu || x.branchName === "Özel Eğitim");
+    kontrol("özel eğitim normu ayrı satırda veriliyor", !!ozelSatir);
+    kontrol("Md. 17: ortaokulda her özel eğitim şubesi 2 norm",
+        !!ozelSatir && ozelSatir.calculatedNorm === 6,
+        ozelSatir ? ("bulunan: " + ozelSatir.calculatedNorm) : "satır yok");
+
+    // Saatler kaybolmuyor: okulun TOPLAM ders yükü artıyor.
+    kontrol("özel eğitim saatleri okul toplamına dâhil",
+        b.totalHours > a.totalHours,
+        `toplam ${a.totalHours}s -> ${b.totalHours}s`);
+
+    // Özel eğitim şubesine ÖZEL EĞİTİM çizelgesi uygulanıyor mu (genel değil).
+    const ozelDers = ozelDe[3].zorunluDersler || [];
+    const genelDers = yalnizNormal[0].zorunluDersler || [];
+    const saat = (l, ad) => {
+        const d = l.find(x => (x.ders || x.ders_adi) === ad);
+        return d ? d.saat : null;
+    };
+    kontrol("özel eğitim şubesi genel çizelgeyi almıyor",
+        saat(ozelDers, "Türkçe") !== saat(genelDers, "Türkçe"),
+        `özel: ${saat(ozelDers, "Türkçe")}s, genel: ${saat(genelDers, "Türkçe")}s`);
+}
+
+/* ====== Md. 17/1 — NORM ENGEL TÜRÜNE VE KADEMEYE GÖRE ==================
+   09.09.2026'da eklendi. Motor eskiden BÜTÜN özel eğitim şubelerini
+   "şube x 2" sayıyordu ve engel türü hiç sorulmuyordu. Oysa Md. 17/1:
+
+       (a) özel eğitim anasınıfı ................................. 1
+       (b) görme/işitme engelliler, İLKOKULDA .................... 1
+       (ç) orta/ağır zihinsel veya otizm, her kademede ........... 2
+       (d) hafif zihinsel, ilkokul ve ortaokul ................... 2
+       (e) hafif zihinsel, LİSE ................................. 1
+       (f) birden fazla engel ................................... 2
+
+   Yani lisedeki hafif zihinsel şubeler iki katı norm üretiyordu. */
+{
+    const ne3 = w.normEngine;
+    const N = (tur, sinif) => ne3.ozelEgitimSubeNormu(tur, sinif);
+
+    kontrol("Md. 17/1-d: hafif zihinsel ortaokulda 2", N("hafif_zihinsel", "7").norm, 2);
+    kontrol("Md. 17/1-d: hafif zihinsel ilkokulda 2", N("hafif_zihinsel", "3").norm, 2);
+    kontrol("Md. 17/1-e: hafif zihinsel LİSEDE 1", N("hafif_zihinsel", "11").norm, 1);
+    kontrol("Md. 17/1-ç: orta/ağır veya otizm her kademede 2",
+        N("orta_agir_otizm", "3").norm === 2 && N("orta_agir_otizm", "11").norm === 2, true);
+    kontrol("Md. 17/1-b: görme/işitme ilkokulda 1", N("gorme_isitme", "2").norm, 1);
+    kontrol("Md. 17/1-f: birden fazla engel 2", N("birden_fazla", "8").norm, 2);
+    kontrol("Md. 17/1-a: özel eğitim anasınıfı 1", N("hafif_zihinsel", "anasinifi").norm, 1);
+
+    // Yönetmeliğin düzenlemediği bileşimde sayı DÜŞÜRÜLMEZ ve bunun bir
+    // varsayım olduğu dayanak metninde yazar.
+    const belirsiz = N("gorme_isitme", "11");
+    kontrol("düzenlenmemiş bileşimde norm düşürülmüyor", belirsiz.norm, 2);
+    kontrol("düzenlenmemiş bileşimde varsayım olduğu yazıyor",
+        /varsayıldı|kontrol ediniz/.test(belirsiz.dayanak), true);
+
+    // Her dönüş bir MADDE DAYANAĞI taşımalı: rapordaki sayı gerekçesiz kalmasın.
+    for (const t of ["hafif_zihinsel", "orta_agir_otizm", "gorme_isitme", "birden_fazla"]) {
+        kontrol(`dayanak metni var (${t})`, /Md\. 17\/1/.test(N(t, "7").dayanak), true);
+    }
+
+    // Uçtan uca: lise kademesinde hafif zihinsel şube 1 norm üretmeli.
+    const liseSube = {
+        id: "t_lise", subeAdi: "10-A (Özel Eğt)", sinifSeviyesi: "10", ogrenciSayisi: 5,
+        isSpecialEdu: true, engelTuru: "hafif_zihinsel", specialEduType: "hafif_zihinsel",
+        alanId: "ozel_egitim", dalAdi: "Özel Eğitim Sınıfı",
+        zorunluDersler: [{ ders: "Türkçe", saat: 5, atananBrans: "Türkçe" }],
+        secmeliDersler: [], rehberlikVarMi: false
+    };
+    const rLise = ne3.calculateSchoolNorms([liseSube], {}, "anadolu_lisesi", {});
+    const satirLise = (rLise.branchReport || []).find(x => x.branchName === "Özel Eğitim");
+    kontrol("uçtan uca: lise hafif zihinsel şubesi 1 norm",
+        satirLise ? satirLise.calculatedNorm : null, 1);
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
