@@ -301,6 +301,78 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
         && /branş atamasını değiştirmeyin/i.test(UI));
 }
 
+/* ====== ÖZEL EĞİTİM ŞUBESİ VARKEN MUTABAKAT TUTMALI =====================
+   09.09.2026 — gerçek bir ortaokulda mutabakat paneli hiç basılmadı.
+
+   Sebep: özel eğitim şubelerinin saatleri Md. 17 gereği genel branş havuzuna
+   alınmıyor, ama denklemin "çarpan artışı" kalemi bu saatleri hâlâ tabanda
+   sayıyordu. Sonuç: carpanArtisi −89 gibi anlamsız bir değere düşüyor,
+   `tutarli` false oluyor ve arayüz paneli SESSİZCE gizliyordu.
+
+   Gizleme kuralı doğru ("yanlış mutabakat, mutabakat olmamasından kötüdür"),
+   ama tutarsızlığın kendisi hataydı. Bu bölüm hem denklemin tuttuğunu hem de
+   özel eğitim saatinin ayrı kalem olarak raporlandığını denetler.
+
+   Not: özel eğitim şubeleri LİSE kademesinde de açılır; senaryolar ortaokul
+   ve lise için ayrı ayrı kuruldu. */
+{
+    const ce2 = w.curriculumEngine;
+    const sube = (ad, tur, sinif, ozel) => ({
+        id: "m_" + ad,
+        subeAdi: ad,
+        sinifSeviyesi: String(sinif),
+        ogrenciSayisi: 20,
+        isSpecialEdu: !!ozel,
+        engelTuru: ozel ? "hafif_zihinsel" : null,
+        alanId: ozel ? "ozel_egitim" : null,
+        dalAdi: ozel ? "Özel Eğitim Sınıfı" : null,
+        zorunluDersler: ce2.getMandatoryCourses(
+            tur, String(sinif), ozel ? "ozel_egitim" : null,
+            ozel ? "Özel Eğitim Sınıfı" : null) || [],
+        secmeliDersler: [],
+        rehberlikVarMi: !ozel
+    });
+
+    const senaryolar = [
+        ["ortaokul + özel eğitim şubesi", "ortaokul_temel_egitim",
+            [sube("6-B", "ortaokul_temel_egitim", 6), sube("7-B", "ortaokul_temel_egitim", 7),
+             sube("6-A (Özel Eğt)", "ortaokul_temel_egitim", 6, true)]],
+        ["lise + özel eğitim şubesi", "anadolu_lisesi",
+            [sube("9-A", "anadolu_lisesi", 9), sube("10-A", "anadolu_lisesi", 10),
+             sube("10-B (Özel Eğt)", "anadolu_lisesi", 10, true)]],
+        ["tamamı özel eğitim (meslek okulu)", "ozel_egitim_meslek_okulu",
+            ["9", "10", "11", "12"].map(x => sube(x + "-A", "ozel_egitim_meslek_okulu", x, true))],
+        ["özel eğitim şubesi YOK", "anadolu_lisesi",
+            [sube("9-A", "anadolu_lisesi", 9), sube("10-A", "anadolu_lisesi", 10)]]
+    ];
+
+    for (const [ad, tur, liste] of senaryolar) {
+        const r = ne.calculateSchoolNorms(liste, {}, tur, {});
+        const m = r.yukMutabakati;
+
+        kontrol(`mutabakat tutarlı — ${ad}`, m.tutarli === true,
+            `ham ${m.hamCizelgeSaati} + çarpan ${m.carpanArtisi} − birleşik ${m.birlesikSubeDusumu}`
+            + ` − yönetici ${m.yoneticiDersDusumu} + koordinatörlük ${m.koordinatorlukEki}`
+            + ` = ${m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu - m.yoneticiDersDusumu + m.koordinatorlukEki}`
+            + `, norma esas ${m.normaEsasYuk}`);
+
+        // Değişmez, açıkça yeniden kurulur.
+        kontrol(`denklem sağlanıyor — ${ad}`,
+            m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu
+            - m.yoneticiDersDusumu + m.koordinatorlukEki === m.normaEsasYuk, true);
+
+        // Çarpan artışı bir ARTIŞ kalemidir; eksiye düşüyorsa taban yanlış
+        // kurulmuş demektir (regresyonun imzası tam olarak buydu).
+        kontrol(`çarpan artışı eksiye düşmüyor — ${ad}`, m.carpanArtisi >= 0,
+            "carpanArtisi: " + m.carpanArtisi);
+
+        const ozelVar = liste.some(x => x.isSpecialEdu);
+        kontrol(`özel eğitim saati ayrı raporlanıyor — ${ad}`,
+            ozelVar ? m.ozelEgitimSaati > 0 : m.ozelEgitimSaati === 0,
+            "ozelEgitimSaati: " + m.ozelEgitimSaati);
+    }
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

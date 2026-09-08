@@ -4007,6 +4007,15 @@ export class UIComponentManager {
         const k = data.kpi || {};
         const m = data.yukMutabakati || null;
 
+        // Özel eğitim şubelerinin kimlikleri: ızgarada sütunları var, branş
+        // yükünde payları yok (Md. 17). Aradaki farkı kartta adıyla yazmak
+        // için gerekiyor.
+        const ozelSubeIdleri = new Set((stateData.subeler || [])
+            .filter(x => x.isSpecialEdu
+                || (x.subeAdi && x.subeAdi.includes("Özel Eğt"))
+                || (x.dalAdi && x.dalAdi.includes("Özel Eğit")))
+            .map(x => x.id));
+
         /* --- branşları aciliyete göre sırala --- */
         const puan = (b) => (b.fark < 0 ? 0 : (b.fark > 0 ? 1 : 2));
         const branslar = (data.sortedBranchNames || []).map(ad => {
@@ -4016,12 +4025,37 @@ export class UIComponentManager {
                 ad: ad,
                 meslek: !!(grp && grp.isVocational),
                 dersler: grp ? Object.values(grp.courses) : [],
+                // Yük MOTORDAN mı geldi, yoksa ızgara toplamına mı düştük?
+                // Ayrımı bilmek şart: motor özel eğitim saatlerini dışarıda
+                // bırakır, ızgara toplamı ise onları İÇERİR. İkisi karıştığında
+                // aşağıdaki dipnot aynı saati iki kez sayıyordu (Rehberlik ve
+                // Tarih kartlarında "27 saat, 27 saat: aradaki +3 saat" gibi
+                // kendi içinde çelişen bir cümle çıkıyordu).
+                motordan: rap.totalHours !== undefined,
                 yuk: (rap.totalHours !== undefined) ? rap.totalHours : (grp ? grp.totalHours : 0),
                 norm: rap.calculatedNorm || 0,
                 mevcut: rap.currentTeachers || 0,
                 fark: rap.diff || 0,
                 dusum: rap.adminDeductedHours || 0,
-                koord: rap.coordinatorHours || 0
+                koord: rap.coordinatorHours || 0,
+                // Bu branşın ders satırlarında görünen ama yüküne YAZILMAYAN
+                // saatler: özel eğitim şubelerinden gelenler. Md. 17'ye göre
+                // o şubelerin normu ayrı verilir; saatleri Md. 18 yüküne
+                // girmez. Sebep yazılmazsa kartta "diğer düzeltmeler" diye
+                // muğlak bir not kalıyordu.
+                // Izgarada sütun olarak GÖRÜNEN ama branş yüküne YAZILMAYAN
+                // saatler: özel eğitim şubelerinden gelenler.
+                //
+                // Kaynak bilerek ızgaranın kendisi (sectionHours). Motorun
+                // ders dökümü (rap.courses) bu şubeleri hiç içermiyor —
+                // Md. 17 gereği genel branş havuzuna alınmıyorlar. Oysa
+                // kullanıcının kartta gördüğü satır toplamı ızgaradan geliyor;
+                // farkı açıklayacak sayı da orada.
+                ozelEgitim: (rap.totalHours === undefined) ? 0 : (grp ? Object.values(grp.courses) : []).reduce((t, c) => {
+                    const sh = c.sectionHours || {};
+                    return t + Object.keys(sh).reduce((u, id) =>
+                        u + (ozelSubeIdleri.has(id) ? (parseInt(sh[id], 10) || 0) : 0), 0);
+                }, 0)
             };
         }).sort((a, b) =>
             puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
@@ -4086,11 +4120,13 @@ export class UIComponentManager {
             // (Türk Dili başlığı 74 derken satırları 80 topluyordu.)
             const satirToplami = dersler.reduce((t, c) => t + (c.totalHours || 0), 0);
             const bransFarki = b.yuk - satirToplami;
-            const kalanFark = bransFarki + b.dusum - b.koord;
+            const kalanFark = bransFarki + b.dusum - b.koord + b.ozelEgitim;
 
             const dipnot = [];
             if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
             if (b.koord) dipnot.push(`İşletmelerde mesleki eğitim koordinatörlüğü <b>+${b.koord}</b> saat eklendi (Md. 19/1).`);
+            if (b.ozelEgitim) dipnot.push(`Özel eğitim şubelerinin <b>${b.ozelEgitim}</b> saati bu branşın yüküne yazılmadı: `
+                + `o şubelerin normu şube başına ayrıca veriliyor (Md. 17/1) ve dersleri özel eğitim öğretmeni okutuyor.`);
             if (kalanFark !== 0) {
                 dipnot.push(`Ders satırları toplamı <b>${satirToplami}</b> saat, branş yükü <b>${b.yuk}</b> saat: `
                     + `aradaki <b>${kalanFark > 0 ? "+" : "−"}${Math.abs(kalanFark)}</b> saat `

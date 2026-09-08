@@ -784,9 +784,21 @@ export class NormEngine {
         // Değişmez (test_yukMutabakati.mjs bunu denetler):
         //   ham + çarpan − birleşik − yönetici + koordinatörlük === totalHours
         let hamCizelgeSaati = 0;
+        // Özel eğitim şubelerinin saatleri AYRICA sayılır. Bu saatler genel
+        // branş havuzuna girmez (Md. 17: norm şube başına verilir, dersleri
+        // özel eğitim öğretmeni okutur) ama okulun toplam yükünde dururlar ve
+        // "Özel Eğitim" satırı olarak geri gelirler. Mutabakat denkleminde
+        // ayrı tutulmazsa çarpan kalemi eksiye düşüyor ve denklem tutmuyordu
+        // (09.09.2026 — ortaokulda mutabakat paneli bu yüzden hiç basılmadı).
+        let ozelEgitimSaati = 0;
         subeler.forEach(sec => {
+            const ozelMi = sec.isSpecialEdu
+                || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
+                || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"));
             [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])].forEach(c => {
-                hamCizelgeSaati += parseInt(c.saat || c.ders_saati || 0, 10) || 0;
+                const saat = parseInt(c.saat || c.ders_saati || 0, 10) || 0;
+                hamCizelgeSaati += saat;
+                if (ozelMi) ozelEgitimSaati += saat;
             });
         });
         // Motorun fiilen branşlara (ve branşsız havuzuna) yazdığı toplam yük.
@@ -1247,10 +1259,13 @@ export class NormEngine {
             .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
         const koordinatorlukEki = Object.values(branchCoordinatorMap)
             .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
-        const carpanArtisi = islenmisYuk - (hamCizelgeSaati - birlesikSubeDusumu);
+        // Çarpan artışı YALNIZCA genel branş havuzu için anlamlıdır; özel
+        // eğitim saatleri o havuza hiç girmediği için taban toplamdan düşülür.
+        const carpanArtisi = islenmisYuk - (hamCizelgeSaati - birlesikSubeDusumu - ozelEgitimSaati);
 
         const yukMutabakati = {
             hamCizelgeSaati,
+            ozelEgitimSaati,
             carpanArtisi,
             birlesikSubeDusumu,
             yoneticiDersDusumu,
