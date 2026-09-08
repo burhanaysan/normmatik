@@ -4228,7 +4228,11 @@ export class UIComponentManager {
      */
     renderMutabakatDenklem(m) {
         const k = this.mutabakatKalemleri(m);
-        if (!k || k.satirlar.length === 0) return "";
+        // Kalem yoksa bile ÖZEL EĞİTİM saati varsa basılır: o saatler branş
+        // kartlarında görünmediği için müdür kartları toplayıp üstteki sayıyı
+        // tutturamıyor ve "mutabakat yok" diyor. Denklem iki kutuya iner
+        // (çizelge = norma esas), ayrıntı bölümü farkın nerede olduğunu yazar.
+        if (!k || (k.satirlar.length === 0 && !k.ozelEgitimSaati)) return "";
 
         const kutu = (tur, ad, deger, not) => `
             <div class="mt-kutu ${tur}">
@@ -4248,7 +4252,9 @@ export class UIComponentManager {
             <div class="mt-denklem">
                 <div class="mt-baslik">
                     <h4>Ders yükü mutabakatı</h4>
-                    <span class="mt-ipucu">Öğrencinin gördüğü saat ile öğretmenin okuttuğu yük neden farklı?</span>
+                    <span class="mt-ipucu">${k.satirlar.length
+                        ? "Öğrencinin gördüğü saat ile öğretmenin okuttuğu yük neden farklı?"
+                        : "Branş kartlarının toplamı neden üstteki sayıyı tutmuyor?"}</span>
                     <label for="ymt-ac-kapa" class="ymt-ac-btn no-print" title="Kalemlerin ayrıntılı dökümünü aç / kapat">
                         <span class="ymt-lbl-ac">Ayrıntı</span><span class="ymt-lbl-kapa">Gizle</span>
                     </label>
@@ -4286,7 +4292,18 @@ export class UIComponentManager {
             { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", kisa: "koordinatörlük", deger: m.koordinatorlukEki, isaret: "+",
               not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
         ].filter(r => r.deger !== 0);
-        return { satirlar, fark: m.normaEsasYuk - m.hamCizelgeSaati };
+        // Özel eğitim saatleri denklemin İKİ TARAFINDA da var (ham çizelgede
+        // ve norma esas yükte), o yüzden bir GEÇİŞ KALEMİ değil. Ama branş
+        // kartlarında görünmüyorlar — normları Md. 17'ye göre şube başına
+        // ayrı veriliyor. Kullanıcı kartları toplayıp üstteki sayıyı
+        // tutturamayınca "mutabakat yok" diyor. Bu yüzden ayrı bir bilgi
+        // satırı olarak taşınıyor. (09.09.2026 kullanıcı bildirimi.)
+        return {
+            satirlar,
+            fark: m.normaEsasYuk - m.hamCizelgeSaati,
+            ozelEgitimSaati: m.ozelEgitimSaati || 0,
+            genelBransYuku: (m.normaEsasYuk || 0) - (m.ozelEgitimSaati || 0)
+        };
     }
 
     /**
@@ -4297,7 +4314,7 @@ export class UIComponentManager {
      */
     renderMutabakatAnahtar(m) {
         const k = this.mutabakatKalemleri(m);
-        if (!k || k.satirlar.length === 0) return "";
+        if (!k || (k.satirlar.length === 0 && !k.ozelEgitimSaati)) return "";
         return `<input type="checkbox" id="ymt-ac-kapa" class="ymt-ac-kapa" hidden>`;
     }
 
@@ -4311,16 +4328,25 @@ export class UIComponentManager {
      */
     renderMutabakatDetay(m) {
         const k = this.mutabakatKalemleri(m);
-        if (!k || k.satirlar.length === 0) return "";
+        if (!k || (k.satirlar.length === 0 && !k.ozelEgitimSaati)) return "";
 
         return `
             <div class="ymt-detay">
                 <div class="ymt-detay-giris">
                     Matrisin alt satırındaki <strong>${m.hamCizelgeSaati} saat</strong>, öğrencilerin haftada gördüğü ders saatidir.
                     Norm hesabına giren <strong>${m.normaEsasYuk} saat</strong> ise öğretmenlerin okuttuğu ders yüküdür.
-                    İkisi de doğrudur; aşağıdaki kalemler ikisi arasındaki farkı oluşturur.
-                    ${k.fark === 0 ? "<strong>Bu okulda kalemler birbirini götürdüğü için iki sayı eşit çıkmıştır</strong> — kalem oluşmadığı için değil." : ""}
+                    ${k.satirlar.length ? "İkisi de doğrudur; aşağıdaki kalemler ikisi arasındaki farkı oluşturur." : ""}
+                    ${(k.satirlar.length && k.fark === 0) ? "<strong>Bu okulda kalemler birbirini götürdüğü için iki sayı eşit çıkmıştır</strong> — kalem oluşmadığı için değil." : ""}
+                    ${(!k.satirlar.length && !k.ozelEgitimSaati) ? "<strong>Bu okulda ikisini ayıran bir kalem oluşmamıştır</strong>; sayılar birebir aynıdır." : ""}
                 </div>
+                ${k.ozelEgitimSaati ? `
+                <div class="ymt-detay-giris" style="border-top: 1px dashed var(--border-main); padding-top: 0.6rem; margin-top: 0.6rem;">
+                    Bu toplamın <strong>${k.ozelEgitimSaati} saati özel eğitim şubelerine</strong> aittir ve
+                    yukarıdaki branş kartlarında <strong>görünmez</strong>: o şubelerin normu ders yükünden değil,
+                    <strong>şube başına</strong> verilir (Md. 17/1) ve derslerini özel eğitim öğretmeni okutur.
+                    Branş kartlarının topladığı yük <strong>${k.genelBransYuku} saattir</strong>;
+                    ${k.genelBransYuku} + ${k.ozelEgitimSaati} = <strong>${m.normaEsasYuk} saat</strong>.
+                </div>` : ""}
                 <table class="yuk-mutabakat-tablo">
                     <tbody>
                         <tr class="ymt-ham">

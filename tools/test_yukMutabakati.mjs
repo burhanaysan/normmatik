@@ -373,6 +373,27 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     }
 }
 
+/* ---- panel, özel eğitim varken de basılmalı ---------------------------- */
+/* 09.09.2026: denklem tutar hâle geldi ama panel yine görünmedi — dört kalemin
+   dördü de sıfır olduğu için. Oysa özel eğitim saatleri branş kartlarında
+   görünmüyor; müdür kartları toplayıp üstteki sayıyı tutturamıyor. Panelin
+   basılma koşulu bu durumu da kapsamalı. */
+{
+    const UIsrc = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+
+    const guardlar = [...UIsrc.matchAll(
+        /if \(!k \|\| \(k\.satirlar\.length === 0 && !k\.ozelEgitimSaati\)\) return "";/g)];
+    kontrol("panelin üç kapısı da özel eğitim saatini gözetiyor",
+        guardlar.length, 3);
+
+    kontrol("kalem üreticisi özel eğitim saatini dışarı veriyor",
+        /ozelEgitimSaati: m\.ozelEgitimSaati \|\| 0/.test(UIsrc), true);
+    kontrol("branş kartlarının toplamı ayrıca hesaplanıyor",
+        /genelBransYuku:/.test(UIsrc), true);
+    kontrol("panel metni Md. 17'ye dayanıyor",
+        /şube başına<\/strong> verilir \(Md\. 17\/1\)/.test(UIsrc), true);
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
