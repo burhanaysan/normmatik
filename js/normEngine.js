@@ -663,7 +663,8 @@ export class NormEngine {
      * 201+ : her 40 saate 1, artan >=20 ise +1
      *
      * DİKKAT: Bu formül Madde 18'den tamamen ayrıdır. Atölye yükünü Madde 18
-     * ile hesaplamak normu yaklaşık iki katına çıkarır (önceki sürümün hatası).
+     * ile hesaplamak normu şişirir (önceki sürümün hatası): 200 saatlik yük
+     * Madde 19'da 5, Madde 18'de 9 norm verir.
      *
      * @param {number} hours - Branşın ATÖLYE/LABORATUVAR yükü
      * @returns {Object} { normCount, formulaExplanation }

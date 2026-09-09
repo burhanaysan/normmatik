@@ -79,7 +79,7 @@
 }
     </script>
 
-    <link rel="stylesheet" href="css/landing.css?v=20260909_2304">
+    <link rel="stylesheet" href="css/landing.css?v=20260909_2310">
     <style>
         /* Icerik sayfalari icin ortak yazi stili. ders-yuku-hesaplama.html
            ile ayni; iki sayfada da yerinde tutuldu ki landing.css'e
@@ -255,8 +255,39 @@
             <p>
                 Branşın haftalık ders yüküne bakılır: 6-31 saate kadar 1, 31-42 saate kadar 2, 42'den
                 fazlasında her 21 saat için 1 norm; bu hesaptan sonra artan yük en az 15 saat ise 1
-                norm daha. Ders yükünün nasıl bulunacağını, hangi kalemlerin eklenip düşüleceğini ve
-                sayısal bir örneği
+                norm daha.
+            </p>
+
+            <!-- NEDEN TABLO: Search Console'da "norm tablosu" (10), "norm hesaplama
+                 çizelgesi" (6), "norm hesaplama tablosu" (4), "norm hesaplama cetveli"
+                 (2), "norm kadro tablosu" (1) = 23 gösterim / 0 tıklama. Arayan kişi
+                 düz kural cümlesi değil, bakıp okuyacağı bir cetvel istiyor. Aşağıdaki
+                 aralıklar yönetmelik metninden değil, uygulamanın kullandığı formülün
+                 açılımından çıkarıldı; ikisi birbirini tutmalı. -->
+            <p>Aynı kuralın cetvel hâli:</p>
+            <div class="tablo-sar">
+                <table>
+                    <thead>
+                        <tr><th>Haftalık ders yükü</th><th class="sayi">Norm</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>6 saatin altı</td><td class="sayi">Norm verilmez</td></tr>
+                        <tr><td>6-30 saat</td><td class="sayi">1</td></tr>
+                        <tr><td>31-56 saat</td><td class="sayi">2</td></tr>
+                        <tr><td>57-77 saat</td><td class="sayi">3</td></tr>
+                        <tr><td>78-98 saat</td><td class="sayi">4</td></tr>
+                        <tr><td>99-119 saat</td><td class="sayi">5</td></tr>
+                        <tr><td>120-140 saat</td><td class="sayi">6</td></tr>
+                        <tr><td>Sonrası</td><td class="sayi">her 21 saatte 1</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                42 saatten sonra basamaklar 21 saatte bir ilerler; bir basamağın içindeki
+                sıçrama, artan yükün 15 saati bulmasından gelir. Örnek: 56 saat 2 norm verir,
+                <strong>57 saat 3 norm</strong> verir — çünkü 42'nin üstünde artan 15 saat
+                tamamlanmıştır. Ders yükünün nasıl bulunacağını, hangi kalemlerin eklenip
+                düşüleceğini ve sayısal bir örneği
                 <a href="ders-yuku-hesaplama.html">ders yükü hesaplama sayfasında</a> ayrıntılı
                 anlattık.
             </p>
