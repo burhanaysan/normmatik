@@ -122,6 +122,33 @@ def strip_module_syntax(content):
     return "\n".join(lines)
 
 
+def gorsel_damgala():
+    """Karsilama sayfasindaki ekran goruntulerine surum etiketi basar.
+
+    NEDEN: goruntuler AYNI DOSYA ADIYLA degistiriliyor (ekran_5.jpg gibi).
+    Etiket olmazsa siteye daha once girmis ziyaretci tarayici onbelleginden
+    ESKI resmi gormeye devam eder ve bunu kimse fark etmez. Ayni sessiz hata
+    app.css'te 2026-08-24'te, landing.css'te 2026-08-26'da yasandi; bu sefer
+    goruntuler icin (09.09.2026).
+
+    Damga her pakette yenilenir; goruntu degismese de zararsizdir, yalnizca
+    bir kereligine yeniden indirilir.
+    """
+    damga = datetime.datetime.now().strftime("%Y%m%d_%H%M")
+    yol = os.path.join(BASE_DIR, "index.html")
+    if not os.path.exists(yol):
+        return ["  ! index.html bulunamadi"]
+    with open(yol, "r", encoding="utf-8") as fh:
+        metin = fh.read()
+    yeni_metin, n = re.subn(r'(screenshots/ekran_\d+\.jpg\?v=)[^"\']+',
+                            lambda m: m.group(1) + damga, metin)
+    if not n:
+        return ["  ! ETIKET BULUNAMADI: screenshots/ekran_N.jpg?v= (ELLE EKLEYIN)"]
+    with open(yol, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(yeni_metin)
+    return ["  + %d gorsel referansi -> %s" % (n, damga)]
+
+
 def fiyat_oku():
     """js/fiyat.js icindeki degerleri okur. TEK KAYNAK oradadir."""
     yol = os.path.join(JS_DIR, "fiyat.js")
@@ -270,6 +297,11 @@ def build_bundle():
     print("  bundle.js  : {:,} bayt / {:,} satir".format(
         len(output.encode("utf-8")), output.count("\n") + 1))
     print("  konum      : {}".format(bundle_path))
+    print()
+    print("  EKRAN GORUNTULERI (onbellek tazeleme):")
+    for satir in gorsel_damgala():
+        print(satir)
+
     print()
     print("  LISANS FIYATI (kaynak: js/fiyat.js):")
     for satir in fiyat_senkronize():
