@@ -165396,6 +165396,13 @@ if (typeof window !== 'undefined') {
 // Bu dosyaya sabit sayı yazmayın; yönetmelik değişikliği config'ten yapılır.
 
 class NormEngine {
+    /**
+     * Şubede gerçek bir meslek alanını GÖSTERMEYEN, yalnızca müfredat
+     * çözümlemesi için uydurulmuş alan kimlikleri. isMeslekiKurum() bunları
+     * saymaz. Yeni bir sahte kimlik eklenirse buraya da yazılmalıdır.
+     */
+    static SAHTE_ALAN_KIMLIKLERI = new Set(["ozel_egitim"]);
+
     // Müdür başyardımcısı ünvanı yürürlükte mi? Ayrıntılı gerekçe
     // calculateAdminNorms() içinde, Madde 6 bölümünün başındadır.
     // false  -> norm üretilmez, arayüz ve raporlarda hiç görünmez
@@ -165459,6 +165466,35 @@ class NormEngine {
         const residual = extra % overflow.intervalHours;
         const bonus = residual >= overflow.residualBonusMinHours ? 1 : 0;
         return overflow.baseNorm + whole + bonus;
+    }
+
+    /**
+     * Kurum, işletmelerde meslek eğitimi (koordinatörlük) yapan bir MESLEKİ
+     * kurum mu? Başlıktaki etiket, kadro panelindeki koordinatörlük alanı ve
+     * koordinatörlük saatlerinin norma eklenmesi bu tek karara bağlıdır.
+     *
+     * NEDEN TEK YERDE (müşteri bildirimi, 09.09.2026)
+     * ----------------------------------------------
+     * Aynı kural app.js'te iki, uiComponents.js'te bir, burada bir olmak üzere
+     * DÖRT kopya hâlinde yazılıydı ve hepsinde şu vardı:
+     *     subeler.some(s => s.alanId)
+     * Oysa eOkulImporter.js özel eğitim şubelerine SAHTE bir alan kimliği
+     * yazar: alanId = "ozel_egitim". Sonuç: içinde bir özel eğitim şubesi olan
+     * ORTAOKUL "mesleki kurum" sayılıyor, başlıkta "Kadro & Koordinatörlük"
+     * çıkıyor ve koordinatörlük saati girme alanı açılıyordu. Ortaokulda
+     * işletmelerde meslek eğitimi yoktur; oraya girilen saat normu şişirirdi.
+     *
+     * "ozel_egitim_meslek_okulu" okul TÜRÜ "meslek" içerdiği için mesleki
+     * sayılmaya devam eder; o kurumlarda işletmelerde meslek eğitimi vardır.
+     */
+    isMeslekiKurum(schoolType, subeler) {
+        const t = String(schoolType || "");
+        if (t.includes("meslek") || t.includes("teknik") || t.includes("mtegm")) {
+            return true;
+        }
+        // Gerçek bir alana bağlı şube varsa mesleki kurumdur; sahte alanlar hariç.
+        return (subeler || []).some(
+            (s) => s && s.alanId && !NormEngine.SAHTE_ALAN_KIMLIKLERI.has(s.alanId));
     }
 
     /**
@@ -166354,7 +166390,7 @@ class NormEngine {
 
         // İşletmelerde Mesleki Eğitim / Koordinatörlük Yüklerinin İlavesi
         // Dayanak: MEB Norm Kadro Yönetmeliği Madde 22/2-3 (MESEM) ve OÖKY Md. 88 / Ek Ders Kararı Md. 15 (MTAL)
-        const isVocationalSchool = String(schoolType).includes("meslek") || String(schoolType).includes("teknik") || String(schoolType).includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = this.isMeslekiKurum(schoolType, subeler);
         const isMesem = String(schoolType).includes("mesleki_egitim_merkezi") || String(schoolType).includes("mesem");
 
         // MESEM İçin Alan Bazlı Toplam Çırak Sayılarının Hesaplanması
@@ -168870,6 +168906,42 @@ class CloudDatabaseService {
         return true;
     }
 
+    /**
+     * OKULUN BULUT KAYDINI SİLER (sıfırlama).
+     *
+     * NEDEN AYRI BİR YOL (müşteri olayı, 09.09.2026)
+     * ---------------------------------------------
+     * Kullanıcı okul türünü değiştirmek için "Tümünü Sıfırla" dedi. Uygulamada
+     * silme yolu yoktu; sıfırlanmış okul BOŞ bir kayıt olarak YAZILMAYA
+     * çalışıldı ve veritabanı kuralı bunu reddetti:
+     *     ".validate": "!newData.exists() || newData.hasChildren(['okulAdi','subeler'])"
+     * Firebase boş diziyi saklamaz, dolayısıyla `subeler` çocuğu hiç oluşmaz ve
+     * koşul düşer. Kullanıcı ekranda "erişim yetkiniz yok" görüyordu — oysa
+     * yetkisi tamdı; SIFIRLAMA YAPILAMIYORDU.
+     *
+     * Kuralın `!newData.exists()` dalı silmeye zaten izin veriyor; eksik olan
+     * istemci tarafıydı. Sıfırlama artık kaydı YAZMAK yerine SİLİYOR.
+     *
+     * Bekleyen otomatik kayıt önce iptal edilir: 600 ms'lik kuyrukta duran bir
+     * PUT, silmeden hemen sonra çalışıp kaydı geri yaratırdı.
+     */
+    async silBulutVerisi(kurumKodu) {
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key) return { ok: false, mesaj: "Kurum kodu tanımlı değil.", kalici: true };
+
+        clearTimeout(this.saveTimeout);
+        this.bekleyenKayit = null;
+
+        const sonuc = await this._istekTekrarli("school_data/" + key, "DELETE", null);
+        if (sonuc.ok) {
+            this.lastSyncTime = new Date();
+            this._durumBildir(true, "Okul verisi sıfırlandı.");
+        } else {
+            this._durumBildir(false, "SIFIRLAMA BAŞARISIZ: " + sonuc.mesaj, sonuc.kalici);
+        }
+        return sonuc;
+    }
+
     /** Okul verilerini buluta kaydeder. */
     async saveSchoolData(kurumKodu, state) {
         const key = this.getEffectiveKey(kurumKodu);
@@ -168983,6 +169055,23 @@ class CloudDatabaseService {
         if (bitisMs <= Date.now()) {
             const g = new Date(bitisMs).toLocaleDateString("tr-TR");
             return `Abonelik süresi dolmuş (bitiş: ${g}). Süre uzatılmadan veri kaydedilemez.`;
+        }
+
+        // BOŞ OKUL — EN SONA BAKILIR.
+        //
+        // Kural `hasChildren(['okulAdi','subeler'])` ister; Firebase boş diziyi
+        // saklamadığı için sıfırlanmış okulda `subeler` çocuğu hiç oluşmaz ve
+        // ret gelir. Sıfırlama artık DELETE ile yapıldığından normal akışta bu
+        // duruma düşülmemeli; düşülürse sebebi doğru yazsın.
+        //
+        // SIRA ÖNEMLİ: bu kontrol önce yapılırsa sahiplik/ad/tür/abonelik
+        // sebeplerini gölgeler — şubesiz bir okulda gerçek sorun onlardan biri
+        // olabilir. (test_bulutKayitDurumu bunu yakaladı, 09.09.2026.)
+        if (!Array.isArray(veri.subeler) || veri.subeler.length === 0) {
+            return "Kaydedilecek şube yok. Veritabanı boş bir okul kaydını kabul "
+                 + "etmiyor; bu koruma, dolu bir kaydın yanlışlıkla silinmesini "
+                 + "önler. Okulu sıfırlamak istiyorsanız 'Tümünü Sıfırla' "
+                 + "düğmesini kullanın; buluttaki kayıt o yoldan silinir.";
         }
 
         return null;   // bilinen şartların hepsi tutuyor; sebep başka
@@ -170726,10 +170815,30 @@ class AppStateService {
      *
      * 5 saniyelik pay: normal akışta yerel kayıt buluttan birkaç yüz ms sonra
      * yazılır; bu farkı "çakışma" saymak her açılışta soru sordururdu.
+     *
+     * "YENİ OLAN KAZANIR"IN İSTİSNASI (müşteri olayı, 09.09.2026 23:22)
+     * -----------------------------------------------------------------
+     * Kullanıcı okul türünü değiştirmek için okulu sıfırladı. Sıfırlanmış okul
+     * her zaman EN YENİDİR: 27 şubelik bulut kaydı 23:12'de, boş yerel kopya
+     * 23:22'de yazılmıştı. Açılışta "daha yeni çalışma bulundu" diye sorulan
+     * kutuda kullanıcı Tamam'a bastı — yani 27 şubenin üstüne 0 şube yazılması
+     * istendi. Veriyi kurtaran şey, Firebase kuralının boş kaydı reddetmesi
+     * oldu; yani tesadüf.
+     *
+     * Bu yüzden artık: yerelde HİÇ şube yokken bulutta varsa, yerel kopya
+     * "daha yeni" sayılmaz ve soru hiç sorulmaz. Boş bir kopyanın dolu bir
+     * kaydın önüne geçmesinin meşru bir hâli yoktur; kullanıcı gerçekten
+     * sıfırdan başlamak istiyorsa zaten sıfırlanmış ekranla çalışmaya devam
+     * eder ve ilk şubeyi eklediğinde kayıt normal yoluyla gider.
      */
     yerelBulutSecimi(cloudData, yerel) {
-        const yok = { yereliKullan: false, sorulmali: false, sebep: "", bulutZaman: 0, yerelZaman: 0 };
+        const yok = { yereliKullan: false, sorulmali: false, sebep: "",
+                      bulutZaman: 0, yerelZaman: 0, yerelSube: 0, bulutSube: 0 };
         if (!yerel || !yerel.veri) return yok;
+
+        const subeSay = (v) => (v && Array.isArray(v.subeler)) ? v.subeler.length : 0;
+        const yerelSube = subeSay(yerel.veri);
+        const bulutSube = subeSay(cloudData);
 
         const bulutZaman = (cloudData && cloudData.lastUpdated) ? Date.parse(cloudData.lastUpdated) : 0;
         const yerelZaman = yerel.kayitZamani ? Date.parse(yerel.kayitZamani) : 0;
@@ -170738,19 +170847,28 @@ class AppStateService {
 
         const b = Number.isFinite(bulutZaman) ? bulutZaman : 0;
 
+        const olcum = { bulutZaman: b, yerelZaman, yerelSube, bulutSube };
+
         if (!cloudData) {
-            return {
-                yereliKullan: true, sorulmali: false, bulutZaman: b, yerelZaman,
+            return Object.assign({}, olcum, {
+                yereliKullan: true, sorulmali: false,
                 sebep: "Buluttan veri alınamadı; bu bilgisayardaki son kopya açıldı."
-            };
+            });
+        }
+        // BOŞ YEREL KOPYA, DOLU BULUT KAYDINI ASLA EZEMEZ. Gerekçe yukarıda.
+        if (yerelSube === 0 && bulutSube > 0) {
+            return Object.assign({}, yok, olcum, {
+                sebep: "Bu bilgisayardaki kopya boş; buluttaki " + bulutSube
+                     + " şubelik kayıt kullanıldı."
+            });
         }
         if (yerelZaman > b + 5000) {
-            return {
-                yereliKullan: true, sorulmali: true, bulutZaman: b, yerelZaman,
+            return Object.assign({}, olcum, {
+                yereliKullan: true, sorulmali: true,
                 sebep: "Bu bilgisayarda kalmış daha yeni çalışmanız geri yüklendi."
-            };
+            });
         }
-        return Object.assign({}, yok, { bulutZaman: b, yerelZaman });
+        return Object.assign({}, yok, olcum);
     }
 
     /**
@@ -172498,10 +172616,44 @@ class UIComponentManager {
         `;
         this.renderModal(modalHtml);
 
-        document.getElementById("btn-confirm-reset-school").addEventListener("click", () => {
+        document.getElementById("btn-confirm-reset-school").addEventListener("click", async () => {
+            const kod = this.state.state.okulBilgisi?.kurumKodu;
+
             this.state.resetSchool();
             this.closeModal("reset-confirm-modal");
             this.openSchoolSetupModal();
+
+            // SIFIRLAMA ÜÇ YERİ BİRDEN TEMİZLER (müşteri olayı, 09.09.2026).
+            //
+            // Eskiden yalnızca ekrandaki durum sıfırlanıyordu. Arkasından
+            // otomatik kayıt devreye girip BOŞ okulu buluta YAZMAYA çalışıyor,
+            // veritabanı kuralı bunu reddediyor ve kullanıcıya "erişim
+            // yetkiniz yok" deniyordu. Yetki sorunu yoktu; sıfırlama olmuyordu.
+            // Üstelik buluttaki eski kayıt ve bu bilgisayardaki yerel kopya
+            // yerinde kalıyor, ilk yenilemede "daha yeni çalışma bulundu"
+            // kutusu çıkıp sıfırlamayı geri alabiliyordu.
+            //
+            // Silme, veritabanı kuralının zaten izin verdiği yoldur
+            // (".validate": "!newData.exists() || ...").
+            if (kod) {
+                try { this.state.yereliSil(kod); } catch (e) { /* yerel yoksa sorun değil */ }
+                try {
+                    const bulut = (typeof window !== "undefined") && window.cloudDbService;
+                    if (bulut && typeof bulut.silBulutVerisi === "function") {
+                        const sonuc = await bulut.silBulutVerisi(kod);
+                        if (sonuc && !sonuc.ok) {
+                            this.showToast(
+                                "Ekrandaki okul sıfırlandı ama buluttaki kayıt silinemedi: "
+                                + sonuc.mesaj, "error");
+                            return;
+                        }
+                    }
+                } catch (e) {
+                    this.showToast("Buluttaki kayıt silinemedi: " + (e?.message || e), "error");
+                    return;
+                }
+            }
+
             this.showToast("Okul sıfırlandı. Lütfen yeni okul türünü seçin.", "warning");
         });
     }
@@ -174036,7 +174188,7 @@ class UIComponentManager {
         const subeler = this.state.state.subeler || [];
         const vocAreas = this.db.getVocationalAreas();
         const schoolType = this.state.state.okulBilgisi.okulTuru || "";
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
         const adminOpts = this.state.state.okulBilgisi.adminOptions || {};
         const totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
@@ -178368,7 +178520,7 @@ class MebNormApplication {
         `).join("");
 
         const schoolType = info.okulTuru || "";
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || (appState.state.subeler || []).some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, appState.state.subeler);
         const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
@@ -179608,7 +179760,7 @@ class MebNormApplication {
             `;
         }).join("");
 
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
         const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve 12. Sınıf Koordinatörlük Yüklerini Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
 
         panelEl.innerHTML = `

@@ -927,10 +927,44 @@ export class UIComponentManager {
         `;
         this.renderModal(modalHtml);
 
-        document.getElementById("btn-confirm-reset-school").addEventListener("click", () => {
+        document.getElementById("btn-confirm-reset-school").addEventListener("click", async () => {
+            const kod = this.state.state.okulBilgisi?.kurumKodu;
+
             this.state.resetSchool();
             this.closeModal("reset-confirm-modal");
             this.openSchoolSetupModal();
+
+            // SIFIRLAMA ÜÇ YERİ BİRDEN TEMİZLER (müşteri olayı, 09.09.2026).
+            //
+            // Eskiden yalnızca ekrandaki durum sıfırlanıyordu. Arkasından
+            // otomatik kayıt devreye girip BOŞ okulu buluta YAZMAYA çalışıyor,
+            // veritabanı kuralı bunu reddediyor ve kullanıcıya "erişim
+            // yetkiniz yok" deniyordu. Yetki sorunu yoktu; sıfırlama olmuyordu.
+            // Üstelik buluttaki eski kayıt ve bu bilgisayardaki yerel kopya
+            // yerinde kalıyor, ilk yenilemede "daha yeni çalışma bulundu"
+            // kutusu çıkıp sıfırlamayı geri alabiliyordu.
+            //
+            // Silme, veritabanı kuralının zaten izin verdiği yoldur
+            // (".validate": "!newData.exists() || ...").
+            if (kod) {
+                try { this.state.yereliSil(kod); } catch (e) { /* yerel yoksa sorun değil */ }
+                try {
+                    const bulut = (typeof window !== "undefined") && window.cloudDbService;
+                    if (bulut && typeof bulut.silBulutVerisi === "function") {
+                        const sonuc = await bulut.silBulutVerisi(kod);
+                        if (sonuc && !sonuc.ok) {
+                            this.showToast(
+                                "Ekrandaki okul sıfırlandı ama buluttaki kayıt silinemedi: "
+                                + sonuc.mesaj, "error");
+                            return;
+                        }
+                    }
+                } catch (e) {
+                    this.showToast("Buluttaki kayıt silinemedi: " + (e?.message || e), "error");
+                    return;
+                }
+            }
+
             this.showToast("Okul sıfırlandı. Lütfen yeni okul türünü seçin.", "warning");
         });
     }
@@ -2465,7 +2499,7 @@ export class UIComponentManager {
         const subeler = this.state.state.subeler || [];
         const vocAreas = this.db.getVocationalAreas();
         const schoolType = this.state.state.okulBilgisi.okulTuru || "";
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
         const adminOpts = this.state.state.okulBilgisi.adminOptions || {};
         const totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 

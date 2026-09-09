@@ -5,6 +5,13 @@
 import { NORM_RULES_CONFIG } from './normRulesConfig.js';
 
 export class NormEngine {
+    /**
+     * Şubede gerçek bir meslek alanını GÖSTERMEYEN, yalnızca müfredat
+     * çözümlemesi için uydurulmuş alan kimlikleri. isMeslekiKurum() bunları
+     * saymaz. Yeni bir sahte kimlik eklenirse buraya da yazılmalıdır.
+     */
+    static SAHTE_ALAN_KIMLIKLERI = new Set(["ozel_egitim"]);
+
     // Müdür başyardımcısı ünvanı yürürlükte mi? Ayrıntılı gerekçe
     // calculateAdminNorms() içinde, Madde 6 bölümünün başındadır.
     // false  -> norm üretilmez, arayüz ve raporlarda hiç görünmez
@@ -68,6 +75,35 @@ export class NormEngine {
         const residual = extra % overflow.intervalHours;
         const bonus = residual >= overflow.residualBonusMinHours ? 1 : 0;
         return overflow.baseNorm + whole + bonus;
+    }
+
+    /**
+     * Kurum, işletmelerde meslek eğitimi (koordinatörlük) yapan bir MESLEKİ
+     * kurum mu? Başlıktaki etiket, kadro panelindeki koordinatörlük alanı ve
+     * koordinatörlük saatlerinin norma eklenmesi bu tek karara bağlıdır.
+     *
+     * NEDEN TEK YERDE (müşteri bildirimi, 09.09.2026)
+     * ----------------------------------------------
+     * Aynı kural app.js'te iki, uiComponents.js'te bir, burada bir olmak üzere
+     * DÖRT kopya hâlinde yazılıydı ve hepsinde şu vardı:
+     *     subeler.some(s => s.alanId)
+     * Oysa eOkulImporter.js özel eğitim şubelerine SAHTE bir alan kimliği
+     * yazar: alanId = "ozel_egitim". Sonuç: içinde bir özel eğitim şubesi olan
+     * ORTAOKUL "mesleki kurum" sayılıyor, başlıkta "Kadro & Koordinatörlük"
+     * çıkıyor ve koordinatörlük saati girme alanı açılıyordu. Ortaokulda
+     * işletmelerde meslek eğitimi yoktur; oraya girilen saat normu şişirirdi.
+     *
+     * "ozel_egitim_meslek_okulu" okul TÜRÜ "meslek" içerdiği için mesleki
+     * sayılmaya devam eder; o kurumlarda işletmelerde meslek eğitimi vardır.
+     */
+    isMeslekiKurum(schoolType, subeler) {
+        const t = String(schoolType || "");
+        if (t.includes("meslek") || t.includes("teknik") || t.includes("mtegm")) {
+            return true;
+        }
+        // Gerçek bir alana bağlı şube varsa mesleki kurumdur; sahte alanlar hariç.
+        return (subeler || []).some(
+            (s) => s && s.alanId && !NormEngine.SAHTE_ALAN_KIMLIKLERI.has(s.alanId));
     }
 
     /**
@@ -963,7 +999,7 @@ export class NormEngine {
 
         // İşletmelerde Mesleki Eğitim / Koordinatörlük Yüklerinin İlavesi
         // Dayanak: MEB Norm Kadro Yönetmeliği Madde 22/2-3 (MESEM) ve OÖKY Md. 88 / Ek Ders Kararı Md. 15 (MTAL)
-        const isVocationalSchool = String(schoolType).includes("meslek") || String(schoolType).includes("teknik") || String(schoolType).includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = this.isMeslekiKurum(schoolType, subeler);
         const isMesem = String(schoolType).includes("mesleki_egitim_merkezi") || String(schoolType).includes("mesem");
 
         // MESEM İçin Alan Bazlı Toplam Çırak Sayılarının Hesaplanması

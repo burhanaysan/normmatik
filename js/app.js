@@ -580,7 +580,7 @@ class MebNormApplication {
         `).join("");
 
         const schoolType = info.okulTuru || "";
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || (appState.state.subeler || []).some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, appState.state.subeler);
         const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
@@ -1820,7 +1820,7 @@ class MebNormApplication {
             `;
         }).join("");
 
-        const isVocationalSchool = schoolType.includes("meslek") || schoolType.includes("teknik") || schoolType.includes("mtegm") || subeler.some(s => s.alanId);
+        const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
         const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve 12. Sınıf Koordinatörlük Yüklerini Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
 
         panelEl.innerHTML = `

@@ -1727,10 +1727,30 @@ export class AppStateService {
      *
      * 5 saniyelik pay: normal akışta yerel kayıt buluttan birkaç yüz ms sonra
      * yazılır; bu farkı "çakışma" saymak her açılışta soru sordururdu.
+     *
+     * "YENİ OLAN KAZANIR"IN İSTİSNASI (müşteri olayı, 09.09.2026 23:22)
+     * -----------------------------------------------------------------
+     * Kullanıcı okul türünü değiştirmek için okulu sıfırladı. Sıfırlanmış okul
+     * her zaman EN YENİDİR: 27 şubelik bulut kaydı 23:12'de, boş yerel kopya
+     * 23:22'de yazılmıştı. Açılışta "daha yeni çalışma bulundu" diye sorulan
+     * kutuda kullanıcı Tamam'a bastı — yani 27 şubenin üstüne 0 şube yazılması
+     * istendi. Veriyi kurtaran şey, Firebase kuralının boş kaydı reddetmesi
+     * oldu; yani tesadüf.
+     *
+     * Bu yüzden artık: yerelde HİÇ şube yokken bulutta varsa, yerel kopya
+     * "daha yeni" sayılmaz ve soru hiç sorulmaz. Boş bir kopyanın dolu bir
+     * kaydın önüne geçmesinin meşru bir hâli yoktur; kullanıcı gerçekten
+     * sıfırdan başlamak istiyorsa zaten sıfırlanmış ekranla çalışmaya devam
+     * eder ve ilk şubeyi eklediğinde kayıt normal yoluyla gider.
      */
     yerelBulutSecimi(cloudData, yerel) {
-        const yok = { yereliKullan: false, sorulmali: false, sebep: "", bulutZaman: 0, yerelZaman: 0 };
+        const yok = { yereliKullan: false, sorulmali: false, sebep: "",
+                      bulutZaman: 0, yerelZaman: 0, yerelSube: 0, bulutSube: 0 };
         if (!yerel || !yerel.veri) return yok;
+
+        const subeSay = (v) => (v && Array.isArray(v.subeler)) ? v.subeler.length : 0;
+        const yerelSube = subeSay(yerel.veri);
+        const bulutSube = subeSay(cloudData);
 
         const bulutZaman = (cloudData && cloudData.lastUpdated) ? Date.parse(cloudData.lastUpdated) : 0;
         const yerelZaman = yerel.kayitZamani ? Date.parse(yerel.kayitZamani) : 0;
@@ -1739,19 +1759,28 @@ export class AppStateService {
 
         const b = Number.isFinite(bulutZaman) ? bulutZaman : 0;
 
+        const olcum = { bulutZaman: b, yerelZaman, yerelSube, bulutSube };
+
         if (!cloudData) {
-            return {
-                yereliKullan: true, sorulmali: false, bulutZaman: b, yerelZaman,
+            return Object.assign({}, olcum, {
+                yereliKullan: true, sorulmali: false,
                 sebep: "Buluttan veri alınamadı; bu bilgisayardaki son kopya açıldı."
-            };
+            });
+        }
+        // BOŞ YEREL KOPYA, DOLU BULUT KAYDINI ASLA EZEMEZ. Gerekçe yukarıda.
+        if (yerelSube === 0 && bulutSube > 0) {
+            return Object.assign({}, yok, olcum, {
+                sebep: "Bu bilgisayardaki kopya boş; buluttaki " + bulutSube
+                     + " şubelik kayıt kullanıldı."
+            });
         }
         if (yerelZaman > b + 5000) {
-            return {
-                yereliKullan: true, sorulmali: true, bulutZaman: b, yerelZaman,
+            return Object.assign({}, olcum, {
+                yereliKullan: true, sorulmali: true,
                 sebep: "Bu bilgisayarda kalmış daha yeni çalışmanız geri yüklendi."
-            };
+            });
         }
-        return Object.assign({}, yok, { bulutZaman: b, yerelZaman });
+        return Object.assign({}, yok, olcum);
     }
 
     /**

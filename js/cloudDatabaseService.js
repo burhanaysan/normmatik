@@ -350,6 +350,42 @@ export class CloudDatabaseService {
         return true;
     }
 
+    /**
+     * OKULUN BULUT KAYDINI SİLER (sıfırlama).
+     *
+     * NEDEN AYRI BİR YOL (müşteri olayı, 09.09.2026)
+     * ---------------------------------------------
+     * Kullanıcı okul türünü değiştirmek için "Tümünü Sıfırla" dedi. Uygulamada
+     * silme yolu yoktu; sıfırlanmış okul BOŞ bir kayıt olarak YAZILMAYA
+     * çalışıldı ve veritabanı kuralı bunu reddetti:
+     *     ".validate": "!newData.exists() || newData.hasChildren(['okulAdi','subeler'])"
+     * Firebase boş diziyi saklamaz, dolayısıyla `subeler` çocuğu hiç oluşmaz ve
+     * koşul düşer. Kullanıcı ekranda "erişim yetkiniz yok" görüyordu — oysa
+     * yetkisi tamdı; SIFIRLAMA YAPILAMIYORDU.
+     *
+     * Kuralın `!newData.exists()` dalı silmeye zaten izin veriyor; eksik olan
+     * istemci tarafıydı. Sıfırlama artık kaydı YAZMAK yerine SİLİYOR.
+     *
+     * Bekleyen otomatik kayıt önce iptal edilir: 600 ms'lik kuyrukta duran bir
+     * PUT, silmeden hemen sonra çalışıp kaydı geri yaratırdı.
+     */
+    async silBulutVerisi(kurumKodu) {
+        const key = this.getEffectiveKey(kurumKodu);
+        if (!key) return { ok: false, mesaj: "Kurum kodu tanımlı değil.", kalici: true };
+
+        clearTimeout(this.saveTimeout);
+        this.bekleyenKayit = null;
+
+        const sonuc = await this._istekTekrarli("school_data/" + key, "DELETE", null);
+        if (sonuc.ok) {
+            this.lastSyncTime = new Date();
+            this._durumBildir(true, "Okul verisi sıfırlandı.");
+        } else {
+            this._durumBildir(false, "SIFIRLAMA BAŞARISIZ: " + sonuc.mesaj, sonuc.kalici);
+        }
+        return sonuc;
+    }
+
     /** Okul verilerini buluta kaydeder. */
     async saveSchoolData(kurumKodu, state) {
         const key = this.getEffectiveKey(kurumKodu);
@@ -463,6 +499,23 @@ export class CloudDatabaseService {
         if (bitisMs <= Date.now()) {
             const g = new Date(bitisMs).toLocaleDateString("tr-TR");
             return `Abonelik süresi dolmuş (bitiş: ${g}). Süre uzatılmadan veri kaydedilemez.`;
+        }
+
+        // BOŞ OKUL — EN SONA BAKILIR.
+        //
+        // Kural `hasChildren(['okulAdi','subeler'])` ister; Firebase boş diziyi
+        // saklamadığı için sıfırlanmış okulda `subeler` çocuğu hiç oluşmaz ve
+        // ret gelir. Sıfırlama artık DELETE ile yapıldığından normal akışta bu
+        // duruma düşülmemeli; düşülürse sebebi doğru yazsın.
+        //
+        // SIRA ÖNEMLİ: bu kontrol önce yapılırsa sahiplik/ad/tür/abonelik
+        // sebeplerini gölgeler — şubesiz bir okulda gerçek sorun onlardan biri
+        // olabilir. (test_bulutKayitDurumu bunu yakaladı, 09.09.2026.)
+        if (!Array.isArray(veri.subeler) || veri.subeler.length === 0) {
+            return "Kaydedilecek şube yok. Veritabanı boş bir okul kaydını kabul "
+                 + "etmiyor; bu koruma, dolu bir kaydın yanlışlıkla silinmesini "
+                 + "önler. Okulu sıfırlamak istiyorsanız 'Tümünü Sıfırla' "
+                 + "düğmesini kullanın; buluttaki kayıt o yoldan silinir.";
         }
 
         return null;   // bilinen şartların hepsi tutuyor; sebep başka
