@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik</title>
-    <meta name="description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
+    <title>MEB Norm Hesaplama ve Ders Yükü Hesaplama Programı | NormMatik</title>
+    <meta name="description" content="Norm hesaplama ve ders yükü hesaplama programı. MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınır. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
     <link rel="canonical" href="https://www.normmatik.com.tr/">
 
     <!-- SOSYAL PAYLASIM (Open Graph / Twitter) -->
@@ -12,11 +12,11 @@
     <meta property="og:site_name" content="NormMatik">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:url" content="https://www.normmatik.com.tr/">
-    <meta property="og:title" content="MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik">
-    <meta property="og:description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
+    <meta property="og:title" content="MEB Norm Hesaplama ve Ders Yükü Hesaplama Programı | NormMatik">
+    <meta property="og:description" content="Norm hesaplama ve ders yükü hesaplama programı. MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınır. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="MEB Norm Kadro ve Ders Yükü Hesaplama Programı | NormMatik">
-    <meta name="twitter:description" content="MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
+    <meta name="twitter:title" content="MEB Norm Hesaplama ve Ders Yükü Hesaplama Programı | NormMatik">
+    <meta name="twitter:description" content="Norm hesaplama ve ders yükü hesaplama programı. MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınır. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.">
 
     <!-- YAPISAL VERI
          SSS semasi, sayfadaki GORUNEN soru-cevaplardan uretildi. Gorunmeyen
@@ -31,7 +31,7 @@
     "operatingSystem": "Web",
     "inLanguage": "tr-TR",
     "url": "https://www.normmatik.com.tr/",
-    "description": "MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınarak geliştirilen norm kadro ve ders yükü hesaplama yazılımı. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.",
+    "description": "Norm hesaplama ve ders yükü hesaplama programı. MEB Norm Kadro Yönetmeliği ve TTKB haftalık ders çizelgeleri esas alınır. Ortaokul, lise, imam hatip, mesleki ve teknik eğitim (69 alan) ile MESEM kademelerini kapsar. Bağımsız bir yazılımdır.",
     "audience": {
         "@type": "Audience",
         "audienceType": "Okul yöneticileri ve öğretmenler"
@@ -64,6 +64,38 @@
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Hayır. NormMatik bir karar destek aracıdır; okul içi ön hazırlık için kullanılır. Resmî norm kadro belirleme yetkisi Bakanlık ve il/ilçe millî eğitim müdürlüklerindedir, resmî işlemlerde MEBBİS esastır."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Norm kadro nasıl hesaplanır?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Genel bilgi ve meslek dersleri öğretmeninde branşın haftalık ders yüküne bakılır: 6-31 saate kadar 1, 31-42 saate kadar 2, 42 saatten fazlasında her 21 saat için 1 norm; bu hesaptan sonra artan yük en az 15 saat ise 1 norm daha verilir (Madde 18). Atölye ve laboratuvar öğretmeninin formülü ayrıdır. Normların tamamını ve ölçütlerini norm kadro hesaplama rehberinde anlattık."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Haftalık ders yükü nasıl hesaplanır?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Şubelerin haftalık ders çizelgesindeki saatler branş branş toplanır. Birleştirilmiş şubede ders tek öğretmene yazılır, gruplara bölünen derste grup sayısı kadar çarpılır, yöneticilerin okuttuğu saatler ilgili branşın yükünden düşülür. Adımları ve sayısal örneği ders yükü hesaplama rehberinde bulabilirsiniz."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Atölye ve laboratuvar dersleri norma nasıl yansır?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Atölye ve laboratuvar öğretmeni normu Madde 19'a tabidir; eşikleri Madde 18'den farklıdır (40 saat / 20 saat). İkisi karıştırılırsa sonuç şişer: 200 saatlik bir atölye yükü Madde 19'a göre 5, Madde 18'e göre 9 norm verir. Meslek liselerinde en sık karşılaşılan hata budur. Grup bölünmesinin atölye yükünü nasıl büyüttüğünü meslek lisesi norm kadro sayfasında anlattık."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Norm tablosu veya çizelge çıktısı alabilir miyim?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet. Branş branş ders yükünü, normu ve mevcut öğretmen sayısını gösteren tabloyu Excel ve PDF olarak dışa aktarabilirsiniz. Her satırda normun hangi maddeden geldiği yazılıdır."
             }
         },
         {
@@ -109,7 +141,7 @@
     ]
 }
     </script>
-    <link rel="stylesheet" href="css/landing.css?v=20260909_2100">
+    <link rel="stylesheet" href="css/landing.css?v=20260909_2304">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
@@ -174,7 +206,7 @@
              gorebiliyorsunuz ve alt kenardaki yumusak gecis bunun bir
              onizleme oldugunu soyluyor. -->
         <div class="ekran-cerceve gallery-card"
-             data-img="screenshots/ekran_1.jpg?v=20260909_2100"
+             data-img="screenshots/ekran_1.jpg?v=20260909_2304"
              data-title="NormMatik çalışma alanı — solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu">
             <div class="ekran-cubuk">
                 <span class="ekran-nokta"></span>
@@ -183,7 +215,7 @@
                 <span class="ekran-adres">normmatik.com.tr</span>
             </div>
             <div class="ekran-govde">
-                <img src="screenshots/ekran_1.jpg?v=20260909_2100" alt="NormMatik çalışma alanı: solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu" width="2880" height="1920" loading="eager">
+                <img src="screenshots/ekran_1.jpg?v=20260909_2304" alt="NormMatik çalışma alanı: solda şubeler, ortada ders dağıtımı, sağda canlı norm tablosu" width="2880" height="1920" loading="eager">
                 <span class="ekran-ipucu">Büyütmek için tıklayın</span>
             </div>
         </div>
@@ -275,48 +307,48 @@
         </div>
 
         <div class="galeri">
-            <div class="gallery-card" data-img="screenshots/ekran_1.jpg?v=20260909_2100" data-title="Çalışma alanı: şubeler, ders dağıtımı ve canlı norm tablosu">
-                <img src="screenshots/ekran_1.jpg?v=20260909_2100" alt="Çalışma alanı" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_1.jpg?v=20260909_2304" data-title="Çalışma alanı: şubeler, ders dağıtımı ve canlı norm tablosu">
+                <img src="screenshots/ekran_1.jpg?v=20260909_2304" alt="Çalışma alanı" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>Çalışma alanı</h4>
                     <p>Şubeler, ders dağıtımı ve norm tablosu aynı ekranda.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-img="screenshots/ekran_2.jpg?v=20260909_2100" data-title="Kadrolu öğretmen sayılarının branş branş girilmesi">
-                <img src="screenshots/ekran_2.jpg?v=20260909_2100" alt="Kadro yönetimi ekranı" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_2.jpg?v=20260909_2304" data-title="Kadrolu öğretmen sayılarının branş branş girilmesi">
+                <img src="screenshots/ekran_2.jpg?v=20260909_2304" alt="Kadro yönetimi ekranı" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>Kadro girişi</h4>
                     <p>Branş branş mevcut öğretmen sayısı; norm farkı buradan çıkar.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-img="screenshots/ekran_3.jpg?v=20260909_2100" data-title="Şube tanımlama: sınıf seviyesi, mevcut ve özel eğitim sınıfı">
-                <img src="screenshots/ekran_3.jpg?v=20260909_2100" alt="Şube düzenleme penceresi" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_3.jpg?v=20260909_2304" data-title="Şube tanımlama: sınıf seviyesi, mevcut ve özel eğitim sınıfı">
+                <img src="screenshots/ekran_3.jpg?v=20260909_2304" alt="Şube düzenleme penceresi" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>Şube tanımlama</h4>
                     <p>Sınıf seviyesi, öğrenci mevcudu ve özel eğitim sınıfı seçeneği.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-img="screenshots/ekran_4.jpg?v=20260909_2100" data-title="e-Okul dosyasından şubelerin tek seferde kurulması">
-                <img src="screenshots/ekran_4.jpg?v=20260909_2100" alt="e-Okul içe aktarma sihirbazı" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_4.jpg?v=20260909_2304" data-title="e-Okul dosyasından şubelerin tek seferde kurulması">
+                <img src="screenshots/ekran_4.jpg?v=20260909_2304" alt="e-Okul içe aktarma sihirbazı" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>e-Okul'dan aktarma</h4>
                     <p>Şube listesi dosyasını yükleyin, şubeler kendiliğinden kurulsun.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-img="screenshots/ekran_5.jpg?v=20260909_2100" data-title="Master yük matrisi: her branşın şube şube ders dağılımı">
-                <img src="screenshots/ekran_5.jpg?v=20260909_2100" alt="Master ders dağıtım ve branş-şube yük matrisi" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_5.jpg?v=20260909_2304" data-title="Master yük matrisi: her branşın şube şube ders dağılımı">
+                <img src="screenshots/ekran_5.jpg?v=20260909_2304" alt="Master ders dağıtım ve branş-şube yük matrisi" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>Yük matrisi</h4>
                     <p>Her branşın hangi şubede kaç saat okuttuğu tek tabloda.</p>
                 </div>
             </div>
 
-            <div class="gallery-card" data-img="screenshots/ekran_6.jpg?v=20260909_2100" data-title="Yönetici icmali: okul geneli norm, kadro ve fark tablosu">
-                <img src="screenshots/ekran_6.jpg?v=20260909_2100" alt="Yönetici icmal raporu" loading="lazy">
+            <div class="gallery-card" data-img="screenshots/ekran_6.jpg?v=20260909_2304" data-title="Yönetici icmali: okul geneli norm, kadro ve fark tablosu">
+                <img src="screenshots/ekran_6.jpg?v=20260909_2304" alt="Yönetici icmal raporu" loading="lazy">
                 <div class="galeri-yazi">
                     <h4>Yönetici icmali</h4>
                     <p>Okul geneli norm, mevcut kadro ve branş branş fark.</p>
@@ -346,6 +378,18 @@
         </div>
 
         <div class="guven-liste">
+            <div class="guven">
+                <div>
+                    <b>Hazır norm hesaplama robotu indirdiyseniz</b>
+                    <span>İnternette dolaşan norm hesaplama robotu ve şablon dosyaları hesabın
+                    çatısını kurar. Bakılacak nokta, dosyanın hangi tarihli Kurul kararına ve
+                    Yönetmeliğin hangi maddesine göre yazıldığıdır: çizelge yenilendiğinde
+                    dosya kendiliğinden güncellenmez, formülün içine bakmadan da anlaşılmaz.
+                    NormMatik çizelgeleri MEB'in yayımladığı belgelerden çıkarır ve her sayının
+                    dayanağını gösterir.</span>
+                </div>
+            </div>
+
             <div class="guven">
                 <div>
                     <b>Çizelgeyi elle yazmak</b>
@@ -444,6 +488,53 @@
                     Hayır. NormMatik bir karar destek aracıdır; okul içi ön hazırlık için
                     kullanılır. Resmî norm kadro belirleme yetkisi Bakanlık ve il/ilçe
                     millî eğitim müdürlüklerindedir, resmî işlemlerde MEBBİS esastır.
+                </div>
+            </details>
+
+            <details>
+                <summary>Norm kadro nasıl hesaplanır?</summary>
+                <div class="cevap">
+                    Genel bilgi ve meslek dersleri öğretmeninde branşın haftalık ders yüküne
+                    bakılır: 6-31 saate kadar 1, 31-42 saate kadar 2, 42 saatten fazlasında her
+                    21 saat için 1 norm; bu hesaptan sonra artan yük en az 15 saat ise 1 norm
+                    daha verilir (Madde 18). Atölye ve laboratuvar öğretmeninin formülü ayrıdır.
+                    Normların tamamını ve ölçütlerini
+                    <a href="norm-kadro-hesaplama.html">norm kadro hesaplama rehberinde</a>
+                    anlattık.
+                </div>
+            </details>
+
+            <details>
+                <summary>Haftalık ders yükü nasıl hesaplanır?</summary>
+                <div class="cevap">
+                    Şubelerin haftalık ders çizelgesindeki saatler branş branş toplanır.
+                    Birleştirilmiş şubede ders tek öğretmene yazılır, gruplara bölünen derste
+                    grup sayısı kadar çarpılır, yöneticilerin okuttuğu saatler ilgili branşın
+                    yükünden düşülür. Adımları ve sayısal örneği
+                    <a href="ders-yuku-hesaplama.html">ders yükü hesaplama rehberinde</a>
+                    bulabilirsiniz.
+                </div>
+            </details>
+
+            <details>
+                <summary>Atölye ve laboratuvar dersleri norma nasıl yansır?</summary>
+                <div class="cevap">
+                    Atölye ve laboratuvar öğretmeni normu Madde 19'a tabidir; eşikleri Madde
+                    18'den farklıdır (40 saat / 20 saat). İkisi karıştırılırsa sonuç şişer:
+                    200 saatlik bir atölye yükü Madde 19'a göre 5, Madde 18'e göre 9 norm
+                    verir. Meslek liselerinde en sık karşılaşılan hata budur. Grup
+                    bölünmesinin atölye yükünü nasıl büyüttüğünü
+                    <a href="meslek-lisesi-norm-kadro.html">meslek lisesi norm kadro sayfasında</a>
+                    anlattık.
+                </div>
+            </details>
+
+            <details>
+                <summary>Norm tablosu veya çizelge çıktısı alabilir miyim?</summary>
+                <div class="cevap">
+                    Evet. Branş branş ders yükünü, normu ve mevcut öğretmen sayısını gösteren
+                    tabloyu Excel ve PDF olarak dışa aktarabilirsiniz. Her satırda normun hangi
+                    maddeden geldiği yazılıdır.
                 </div>
             </details>
 
