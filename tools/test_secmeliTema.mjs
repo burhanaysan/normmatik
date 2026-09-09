@@ -397,6 +397,76 @@ const ilk = (r) => r.themeSections[0];
         kaymis.length === 0, kaymis.join(", "));
 }
 
+/* ====== 10) SEÇMELİ ÇEKMECESİ HİÇBİR DERSİ DÜŞÜRMEZ ====================
+   Canlı müşteri bildirimi (09.09.2026, Anadolu lisesi müdürü):
+   "12. sınıflarda akademik seçmeli dersleri önce seçmiştim, şimdi listede
+   göremiyorum."
+
+   SEBEP: seçmeli ekleme çekmecesi dersleri THEME_GROUPS listesindeki
+   gruplara göre çiziyor. Hiçbir gruba girmeyen ders EKRANA HİÇ BASILMIYOR
+   ve hiçbir uyarı çıkmıyor. `getElectiveThemeInfo` AKADEMIK/PROGRAM
+   döndürmeye başlayınca (aynı oturumda, rozet düzeltmesiyle) o gruplar
+   listede olmadığı için dersler sessizce kayboldu:
+       Anadolu lisesi 11. sınıf → 12 ders, 12. sınıf → 14 ders
+       (Seçmeli Matematik, Fizik, Kimya, Biyoloji, Türk Dili ve Edebiyatı,
+        Tarih, Coğrafya ...)
+   Şubeye DAHA ÖNCE eklenmiş dersler görünmeye devam ettiği için hata geç
+   fark edildi: şube listesi ayrı bir yerde çiziliyor.
+
+   Bu bölüm iki şeyi birden denetler:
+     1. Havuzdaki HER dersin, HER okul türünde bir gruba düştüğünü,
+     2. Kod tarafında güvenlik ağının durduğunu (eşleşmeyen ders "Diğer"
+        başlığı altında yine gösterilsin — yanlış başlık, görünmemekten iyi). */
+{
+    const UIsrc2 = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    const blok = UIsrc2.slice(UIsrc2.indexOf("const THEME_GROUPS"),
+                              UIsrc2.indexOf("const renderList"));
+    const anahtarlar = [...blok.matchAll(/key: "([A-Z_]+)"/g)].map(m => m[1]);
+
+    denetle("çekmece grup listesi okunabildi", anahtarlar.length >= 6,
+        "bulunan: " + anahtarlar.join(", "));
+    denetle("Akademik Çalışmalar grubu listede", anahtarlar.includes("AKADEMIK"),
+        "müşteri bildirimi 09.09.2026 — bu grup yoktu");
+    denetle("Program / Proje grubu listede", anahtarlar.includes("PROGRAM"));
+
+    // Güvenlik ağı: eşleşmeyen ders yine de basılmalı.
+    denetle("eşleşmeyen dersler için güvenlik ağı var",
+        /__DIGER__/.test(UIsrc2) && /esitlenmeyen/.test(UIsrc2),
+        "bir tema listede yoksa ders ekrandan kaybolmamalı");
+
+    // Havuzdaki her ders bir gruba düşmeli — okul türü ve sınıf ayrımı yapmadan.
+    const ui2 = Object.create(w.UIComponentManager.prototype);
+    const havuz = w.SECMELI_HAVUZU || {};
+    const kayip = [];
+    let taranan = 0;
+    for (const tur of Object.keys(havuz)) {
+        ui2.state = { state: { okulBilgisi: { okulTuru: tur } } };
+        for (const sinif of Object.keys(havuz[tur])) {
+            for (const d of havuz[tur][sinif]) {
+                taranan++;
+                const t = ui2.getElectiveThemeInfo({ ders: d.ders, grup: d.grup });
+                if (!anahtarlar.includes(t.subId) && !anahtarlar.includes(t.id)) {
+                    kayip.push(`${tur}/${sinif}: ${d.ders} [${t.subId || t.id}]`);
+                }
+            }
+        }
+    }
+    denetle("havuzdaki hiçbir ders çekmeceden düşmüyor", kayip.length === 0,
+        kayip.slice(0, 6).join(" | ") + (kayip.length > 6 ? ` ... (+${kayip.length - 6})` : ""));
+    denetle("tarama gerçekten çalıştı", taranan > 500, "taranan ders: " + taranan);
+
+    // Müşterinin bildirdiği somut dersler, Anadolu lisesi 12'de görünmeli.
+    ui2.state = { state: { okulBilgisi: { okulTuru: "anadolu_lisesi" } } };
+    const on12 = (havuz["anadolu_lisesi"] || {})["12"] || [];
+    for (const ad of ["SEÇMELİ MATEMATİK", "SEÇMELİ FİZİK", "SEÇMELİ KİMYA", "SEÇMELİ BİYOLOJİ"]) {
+        const d = on12.find(x => x.ders === ad);
+        const t = d ? ui2.getElectiveThemeInfo({ ders: d.ders, grup: d.grup }) : null;
+        denetle(`12. sınıfta "${ad}" bir gruba düşüyor`,
+            !!t && (anahtarlar.includes(t.subId) || anahtarlar.includes(t.id)),
+            d ? ("tema: " + (t.subId || t.id)) : "ders havuzda bulunamadı");
+    }
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {

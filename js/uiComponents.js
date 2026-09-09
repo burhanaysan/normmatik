@@ -1476,6 +1476,8 @@ export class UIComponentManager {
         const sanatCount = electives.filter(i => i.theme.subId === "SANAT").length;
         const dilCount = electives.filter(i => i.theme.subId === "DIL").length;
         const bilisimCount = electives.filter(i => i.theme.subId === "BILISIM").length;
+        const akademikCount = electives.filter(i => i.theme.subId === "AKADEMIK").length;
+        const programCount = electives.filter(i => i.theme.subId === "PROGRAM").length;
         
         let currentFilter = "ALL";
         let searchQuery = "";
@@ -1524,7 +1526,17 @@ export class UIComponentManager {
             { key: "SANAT", title: "Kültür, Sanat ve Spor Dersleri", icon: "🎨", color: "#d97706" },
             { key: "DIL", title: "Yabancı Diller ve İletişim Dersleri", icon: "🗣️", color: "#4f46e5" },
             { key: "BILISIM", title: "Bilişim ve Dijital Teknolojiler", icon: "💻", color: "#0891b2" },
-            { key: "VOC", title: "Seçmeli Meslek ve Atölye Dersleri", icon: "⚙️", color: "#7c3aed" }
+            { key: "VOC", title: "Seçmeli Meslek ve Atölye Dersleri", icon: "⚙️", color: "#7c3aed" },
+            // AKADEMİK ve PROGRAM 09.09.2026'da EKLENDİ.
+            //
+            // Bu iki grup listede yoktu ve aşağıdaki döngü yalnızca listedeki
+            // gruplara giren dersleri çiziyordu: eşleşmeyen ders EKRANA HİÇ
+            // BASILMIYORDU. Anadolu lisesinde 11. sınıfta 12, 12. sınıfta 14
+            // seçmeli ders (Seçmeli Matematik, Fizik, Kimya, Biyoloji, Türk
+            // Dili ve Edebiyatı, Tarih, Coğrafya...) yeni şubeye eklenemiyordu.
+            // Bir okul müdürü bildirdi.
+            { key: "AKADEMIK", title: "Akademik Çalışmalar", icon: "📚", color: "#475569" },
+            { key: "PROGRAM", title: "Program / Proje Dersleri", icon: "🧩", color: "#be185d" }
         ];
 
         const renderList = () => {
@@ -1556,8 +1568,25 @@ export class UIComponentManager {
 
             let groupsHtml = "";
 
-            THEME_GROUPS.forEach(grp => {
-                const groupCourses = filtered.filter(item => (item.theme.subId === grp.key || item.theme.id === grp.key));
+            // GÜVENLİK AĞI: hiçbir ders sessizce düşmesin.
+            //
+            // Döngü yalnızca THEME_GROUPS'taki anahtarlara bakıyor; listede
+            // olmayan bir tema üretildiği anda o dersler ekrandan kayboluyor
+            // ve HİÇBİR UYARI çıkmıyor. 09.09.2026'da tam olarak bu oldu.
+            // Artık eşleşmeyenler "Diğer" başlığı altında yine gösterilir:
+            // yanlış başlık, görünmemekten iyidir.
+            const bilinenAnahtarlar = new Set(THEME_GROUPS.map(g => g.key));
+            const esitlenmeyen = filtered.filter(item =>
+                !bilinenAnahtarlar.has(item.theme.subId) && !bilinenAnahtarlar.has(item.theme.id));
+
+            const cizilecekGruplar = esitlenmeyen.length
+                ? THEME_GROUPS.concat([{ key: "__DIGER__", title: "Diğer Seçmeli Dersler", icon: "•", color: "#64748b" }])
+                : THEME_GROUPS;
+
+            cizilecekGruplar.forEach(grp => {
+                const groupCourses = grp.key === "__DIGER__"
+                    ? esitlenmeyen
+                    : filtered.filter(item => (item.theme.subId === grp.key || item.theme.id === grp.key));
                 if (groupCourses.length === 0) return;
 
                 groupsHtml += `
@@ -1702,6 +1731,16 @@ export class UIComponentManager {
                             <button class="calm-tab-btn" data-tab="BILISIM">
                                 💻 Bilişim (${bilisimCount})
                             </button>
+                            ${akademikCount > 0 ? `
+                                <button class="calm-tab-btn" data-tab="AKADEMIK">
+                                    📚 Akademik Çalışmalar (${akademikCount})
+                                </button>
+                            ` : ''}
+                            ${programCount > 0 ? `
+                                <button class="calm-tab-btn" data-tab="PROGRAM">
+                                    🧩 Program / Proje (${programCount})
+                                </button>
+                            ` : ''}
                             ${vocCount > 0 ? `
                                 <button class="calm-tab-btn" data-tab="VOC">
                                     ⚙️ Seçmeli Meslek (${vocCount})
