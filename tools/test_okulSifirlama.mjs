@@ -202,6 +202,116 @@ kontrol("ikisi de boşken patlamaz", s4 && typeof s4.yereliKullan === "boolean")
     }
 }
 
+/* =======================================================================
+   5) SIFIRLA -> HEMEN "GERİ AL"  (kullanıcı sorusu, 10.09.2026)
+   -----------------------------------------------------------------------
+   Kullanıcı okulu sıfırlar, tarayıcıdan çıkmadan geri al tuşuna basar.
+   Beklenen: 27 şube ekrana geri gelir VE buluta yeni kayıt olarak yazılır.
+
+   Buradaki asıl tehlike SIRA. Sıfırlama DELETE gönderir; geri al 600 ms
+   gecikmeli bir PUT planlar. Silme yavaş kalırsa istekler tersine sıralanır:
+       PUT (kayıt geri gelir) ... sonra DELETE (kaydı yine siler)
+   Ekranda 27 şube görünür, bulut boş kalırdı.
+   ==================================================================== */
+{
+    // Geçmiş, uygulamanın açılıştaki hâliyle kurulur.
+    st.state.okulBilgisi.kurumKodu = "131313";
+    st.state.okulBilgisi.okulAdi = "DENEME ORTAOKULU";
+    st.state.okulBilgisi.okulTuru = "ortaokul";
+    st.state.okulBilgisi.isDemo = false;
+    st.state.subeler = new Array(27).fill(0).map((_, i) => ({
+        id: "s" + i, subeAdi: "5-" + i, sinifSeviyesi: "5",
+        ogrenciSayisi: 26, zorunluDersler: [], secmeliDersler: []
+    }));
+    st.history = [JSON.stringify(st.state)];
+    st.historyIndex = 0;
+
+    st.resetSchool();
+    kontrol("sıfırlama sonrası ekranda şube kalmaz", st.state.subeler.length === 0,
+        String(st.state.subeler.length));
+    kontrol("sıfırlama kurum kimliğini korur",
+        st.state.okulBilgisi.kurumKodu === "131313");
+
+    const geriAlindi = st.undo();
+    kontrol("geri al çalışır", geriAlindi === true);
+    kontrol("geri al 27 şubeyi getirir", st.state.subeler.length === 27,
+        String(st.state.subeler.length));
+    kontrol("geri al kurum kodunu bozmaz",
+        st.state.okulBilgisi.kurumKodu === "131313");
+
+    // Yeniden ileri alınabilmeli (kullanıcı fikrini yine değiştirebilir).
+    kontrol("geri alınan sıfırlama tekrar uygulanabilir",
+        st.redo() === true && st.state.subeler.length === 0);
+    st.undo();
+}
+
+/* ---- İstek SIRASI: silme bitmeden kayıt gitmemeli -------------------- */
+{
+    const sira = [];
+    const eskiIstek = bulut._istekTekrarli;
+    // Silmeyi BİLEREK yavaşlatıyoruz; hatalı sürümde PUT öne geçer.
+    bulut._istekTekrarli = (yol, yontem) => new Promise((coz) => {
+        const gecikme = yontem === "DELETE" ? 40 : 0;
+        setTimeout(() => { sira.push(yontem); coz({ ok: true, veri: null }); }, gecikme);
+    });
+
+    const silme = bulut.silBulutVerisi("131313");
+    // Kullanıcı silme havadayken geri al'a bastı: kayıt hemen denenir.
+    const kayit = bulut.saveSchoolData("131313", {
+        okulBilgisi: { kurumKodu: "131313", okulAdi: "DENEME ORTAOKULU",
+                       okulTuru: "ortaokul", sezon: "2026-2027" },
+        subeler: [{ id: "a" }],
+        mevcutOgretmenler: {}, koordinatorlukYukleri: {},
+    });
+    await Promise.all([silme, kayit]);
+
+    kontrol("her iki istek de gitti", sira.length === 2, sira.join(","));
+    kontrol("silme, kayıttan ÖNCE tamamlanır",
+        sira[0] === "DELETE" && sira[1] === "PUT",
+        "sıra: " + sira.join(" -> ") + "  (ters sıra bulutta boş okul bırakırdı)");
+
+    bulut._istekTekrarli = eskiIstek;
+    bulut._silmeSozu = null;
+}
+
+/* =======================================================================
+   6) UYARI METİNLERİ VE BUTON YÖNÜ  (kullanıcı kararı, 10.09.2026)
+   -----------------------------------------------------------------------
+   İki metin kusuru düzeltildi:
+     a) Sıfırlama onayı, buluttaki kaydın da silineceğini ve geri al'ın
+        yalnızca sayfa yenilenmeden çalıştığını söylemiyordu.
+     b) Çakışma kutusunda window.confirm'in varsayılan butonu (Tamam)
+        GERİ DÖNÜŞÜ OLMAYAN seçeneğe bağlıydı: düşünmeden Enter'a basan
+        kullanıcı bulut kaydını eziyordu. Yön tersine çevrildi.
+   ==================================================================== */
+{
+    const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    // DIKKAT: adin ilk gectigi yer CAGRI (satir 858), tanim degil. Duz
+    // indexOf yanlis bloga bakiyordu ve testin ilk hali bu yuzden kirildi.
+    const i = ui.indexOf("    openResetSchoolConfirmModal() {");
+    kontrol("sıfırlama onay kutusunun TANIMI bulundu", i > 0);
+    const blok = ui.slice(i, i + 3000);
+    kontrol("onay kutusu buluttaki kaydın da silineceğini söyler",
+        /buluttaki kayd[ıi]n[ıi]z[ıi] da siler/i.test(blok));
+    kontrol("onay kutusu geri al'ı tarif eder", /geri al/i.test(blok));
+    kontrol("onay kutusu yenileme sonrası dönüş olmadığını söyler",
+        /yeniledikten sonra d[öo]n[üu][şs] yoktur/i.test(blok));
+    kontrol("onay kutusu şube SAYISINI yazar", blok.includes("${subeSayisi} şubenin tamamı"));
+
+    const app = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
+    const j = app.indexOf("buluta gönderilememiş DAHA YENİ");
+    kontrol("çakışma kutusu bulundu", j > 0);
+    const kutu = app.slice(j - 400, j + 1600);
+    // Yön: onay artık confirm'in TERSİ olmalı; Tamam = buluttakini kullan.
+    kontrol("Tamam güvenli seçeneğe bağlı (onay = !confirm)",
+        /onay\s*=\s*!\s*window\.confirm/.test(kutu),
+        "Tamam hâlâ bulut kaydını ezen seçenekte");
+    kontrol("kutu şube sayılarını gösterir",
+        kutu.includes("secim.bulutSube") && kutu.includes("secim.yerelSube"));
+    kontrol("kutu üzerine yazılacağını açıkça söyler", /ÜSTÜNE YAZILIR/.test(kutu));
+    kontrol("kutu yerel kopyanın silinmeyeceğini söyler", /SİLİNMEZ/.test(kutu));
+}
+
 /* ---- SONUÇ ----------------------------------------------------------- */
 if (hatalar.length) {
     console.log(`\n${hatalar.length} KONTROL BASARISIZ (${gecen} gecti)\n`);

@@ -47,6 +47,18 @@ export class CloudDatabaseService {
          * 'normmatik-bulut-durum' olayı olarak yayınlanıyor.
          */
         this.sonDurum = { basarili: null, mesaj: "", zaman: null, kalici: false };
+
+        /**
+         * Havadaki silme isteği (varsa).
+         *
+         * NEDEN VAR (09.09.2026): kullanıcı okulu sıfırlayıp HEMEN "geri al"a
+         * basabilir. Sıfırlama DELETE gönderir; geri al ise 600 ms gecikmeli
+         * bir PUT planlar. Silme yavaş kalırsa sıra tersine dönerdi:
+         *     PUT (kayıt geri gelir) ... sonra DELETE (kaydı yine siler)
+         * Ekranda 27 şube görünür, bulutta hiçbir şey olmazdı. Kayıt, silme
+         * bitmeden gönderilmiyor.
+         */
+        this._silmeSozu = null;
     }
 
     /**
@@ -376,7 +388,14 @@ export class CloudDatabaseService {
         clearTimeout(this.saveTimeout);
         this.bekleyenKayit = null;
 
-        const sonuc = await this._istekTekrarli("school_data/" + key, "DELETE", null);
+        const soz = this._istekTekrarli("school_data/" + key, "DELETE", null);
+        this._silmeSozu = soz.catch(() => null);   // kayıt bunu bekler, hatası burada işlenir
+        let sonuc;
+        try {
+            sonuc = await soz;
+        } finally {
+            this._silmeSozu = null;
+        }
         if (sonuc.ok) {
             this.lastSyncTime = new Date();
             this._durumBildir(true, "Okul verisi sıfırlandı.");
@@ -424,6 +443,13 @@ export class CloudDatabaseService {
             console.error("☁️ [NormMatik Bulut] " + m);
             this._durumBildir(false, "KAYIT BAŞARISIZ: " + m, true);
             return;
+        }
+
+        // SIRA GÜVENCESİ: havada bir silme varsa önce o bitsin. Sıfırlamadan
+        // hemen sonra "geri al"a basıldığında PUT'un DELETE'ten önce gitmesi,
+        // ekranda dolu görünen ama bulutta silinmiş bir okul bırakırdı.
+        if (this._silmeSozu) {
+            try { await this._silmeSozu; } catch (e) { /* silme hatası kaydı durdurmaz */ }
         }
 
         this.isSaving = true;

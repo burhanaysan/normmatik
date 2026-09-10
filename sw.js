@@ -20,7 +20,7 @@
 // Çözüm: eşleştirmede { ignoreSearch: true } ve app.html'in listeye
 // eklenmesi. Ayrıca çalışma anında indirilen dosyalar da önbelleğe alınıyor.
 // ===================================================================
-const CACHE_NAME = "meb-normmatik-20260910_0016";
+const CACHE_NAME = "meb-normmatik-20260910_2313";
 
 const ASSETS_TO_CACHE = [
     "./",
@@ -33,7 +33,12 @@ const ASSETS_TO_CACHE = [
     "./manifest.json",
     "./icons/icon-192.png",
     "./icons/icon-512.png",
-    "./icons/app_icon.ico"
+    "./icons/app_icon.ico",
+    // Marka ikonu (mavi kare + beyaz N). Ureteci: tools/uret_favicon.py
+    "./favicon.ico",
+    "./icons/normmatik-96.png",
+    "./icons/normmatik-192.png",
+    "./icons/apple-touch-icon.png"
 ];
 
 // Bu adresler ASLA önbelleğe alınmaz: canlı veri ve kimlik doğrulama.

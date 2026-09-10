@@ -168603,6 +168603,18 @@ class CloudDatabaseService {
          * 'normmatik-bulut-durum' olayı olarak yayınlanıyor.
          */
         this.sonDurum = { basarili: null, mesaj: "", zaman: null, kalici: false };
+
+        /**
+         * Havadaki silme isteği (varsa).
+         *
+         * NEDEN VAR (09.09.2026): kullanıcı okulu sıfırlayıp HEMEN "geri al"a
+         * basabilir. Sıfırlama DELETE gönderir; geri al ise 600 ms gecikmeli
+         * bir PUT planlar. Silme yavaş kalırsa sıra tersine dönerdi:
+         *     PUT (kayıt geri gelir) ... sonra DELETE (kaydı yine siler)
+         * Ekranda 27 şube görünür, bulutta hiçbir şey olmazdı. Kayıt, silme
+         * bitmeden gönderilmiyor.
+         */
+        this._silmeSozu = null;
     }
 
     /**
@@ -168932,7 +168944,14 @@ class CloudDatabaseService {
         clearTimeout(this.saveTimeout);
         this.bekleyenKayit = null;
 
-        const sonuc = await this._istekTekrarli("school_data/" + key, "DELETE", null);
+        const soz = this._istekTekrarli("school_data/" + key, "DELETE", null);
+        this._silmeSozu = soz.catch(() => null);   // kayıt bunu bekler, hatası burada işlenir
+        let sonuc;
+        try {
+            sonuc = await soz;
+        } finally {
+            this._silmeSozu = null;
+        }
         if (sonuc.ok) {
             this.lastSyncTime = new Date();
             this._durumBildir(true, "Okul verisi sıfırlandı.");
@@ -168980,6 +168999,13 @@ class CloudDatabaseService {
             console.error("☁️ [NormMatik Bulut] " + m);
             this._durumBildir(false, "KAYIT BAŞARISIZ: " + m, true);
             return;
+        }
+
+        // SIRA GÜVENCESİ: havada bir silme varsa önce o bitsin. Sıfırlamadan
+        // hemen sonra "geri al"a basıldığında PUT'un DELETE'ten önce gitmesi,
+        // ekranda dolu görünen ama bulutta silinmiş bir okul bırakırdı.
+        if (this._silmeSozu) {
+            try { await this._silmeSozu; } catch (e) { /* silme hatası kaydı durdurmaz */ }
         }
 
         this.isSaving = true;
@@ -172594,6 +172620,12 @@ class UIComponentManager {
     }
 
     openResetSchoolConfirmModal() {
+        // Kaç şubenin gideceğini SAYIYLA söyle. "Tüm şubeler" soyut kalıyor;
+        // "27 şube" okunduğunda insan durup düşünüyor.
+        const subeSayisi = (this.state.state.subeler || []).length;
+        const subeMetni = subeSayisi > 0
+            ? `<strong>${subeSayisi} şubenin tamamı</strong>, seçmeli dersleri ve norm hesaplarıyla birlikte silinecek`
+            : "<strong>mevcut çalışma silinecek</strong>";
         const modalHtml = `
             <div class="modal-overlay active" id="reset-confirm-modal">
                 <div class="modal-box" style="max-width: 480px;">
@@ -172603,8 +172635,18 @@ class UIComponentManager {
                     </div>
                     <div class="modal-body">
                         <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            Okul türünü değiştirmek mevcut <strong>tüm şubeleri, seçmeli dersleri ve norm hesaplarını silecektir</strong>.
+                            Okul türünü değiştirdiğinizde ${subeMetni}.
                             Sıfırdan yeni bir okul kurmak istediğinizden emin misiniz?
+                        </p>
+                        <!-- GERİ DÖNÜŞ SINIRI AÇIKÇA YAZILIR (kullanıcı sorusu, 10.09.2026).
+                             Geri al, hafızadaki geçmişten çalışır (state.history, son 30
+                             adım). Sayfa yenilenince o geçmiş sıfırlanır ve bulut kaydı da
+                             silinmiş olduğu için dönüş kalmaz. Kullanıcı bunu ancak
+                             deneyerek öğreniyordu. -->
+                        <p style="font-size: 0.82rem; color: var(--status-danger-text); line-height: 1.5; margin-top: .6rem;">
+                            Bu işlem <strong>buluttaki kaydınızı da siler</strong>.
+                            Sayfayı yenilemeden <strong>“geri al” (↶)</strong> ile dönebilirsiniz;
+                            sayfayı yeniledikten sonra dönüş yoktur.
                         </p>
                     </div>
                     <div class="modal-footer">
@@ -178103,15 +178145,34 @@ class MebNormApplication {
                         if (secim.yereliKullan) {
                             let onay = true;
                             if (secim.sorulmali) {
+                                // SORU BİLEREK TERSİNE KURULU (müşteri olayı, 09.09.2026).
+                                //
+                                // İki seçeneğin sonuçları EŞİT DEĞİL:
+                                //   buluttakini kullan -> yerel kopya silinmez, geri dönülür
+                                //   yereldekini kullan -> bulut kaydının ÜSTÜNE yazılır, dönüş yok
+                                //
+                                // window.confirm'de varsayılan (ve Enter'a basınca
+                                // seçilen) buton her zaman Tamam'dır. Eskiden Tamam
+                                // "yereldekini kullan" idi; yani düşünmeden onaylayan
+                                // kullanıcı geri dönüşü olmayan seçeneği seçiyordu.
+                                // Bir müşteri tam olarak bunu yaşadı: sıfırlanmış boş
+                                // okul, 27 şubelik bulut kaydının önüne geçmek üzereydi.
+                                // Tamam artık geri dönüşü OLAN seçeneğe bağlı.
+                                //
+                                // Şube sayıları da yazılıyor: iki tarihe bakarak
+                                // hangisinin dolu olduğunu anlamak mümkün değildi.
                                 const bt = secim.bulutZaman
                                     ? new Date(secim.bulutZaman).toLocaleString("tr-TR") : "yok";
                                 const yt = new Date(secim.yerelZaman).toLocaleString("tr-TR");
-                                onay = window.confirm(
+                                onay = !window.confirm(
                                     "Bu bilgisayarda, buluta gönderilememiş DAHA YENİ bir çalışma bulundu.\n\n" +
-                                    "Buluttaki kayıt : " + bt + "\n" +
-                                    "Bu bilgisayarda : " + yt + "\n\n" +
-                                    "Bu bilgisayardaki daha yeni çalışma geri yüklensin mi?\n" +
-                                    "(Hayır derseniz buluttaki kayıt kullanılır; yereldeki silinmez.)");
+                                    "Buluttaki kayıt : " + bt + "   (" + secim.bulutSube + " şube)\n" +
+                                    "Bu bilgisayarda : " + yt + "   (" + secim.yerelSube + " şube)\n\n" +
+                                    "BULUTTAKİ kayıtla devam edilsin mi?\n\n" +
+                                    "Tamam  →  buluttaki " + secim.bulutSube + " şubelik kayıt açılır.\n" +
+                                    "          Bu bilgisayardaki kopya SİLİNMEZ, sonra geri dönebilirsiniz.\n\n" +
+                                    "İptal   →  bu bilgisayardaki " + secim.yerelSube + " şubelik kopya yüklenir\n" +
+                                    "          ve buluta gönderilir. Buluttaki kaydın ÜSTÜNE YAZILIR.");
                             }
                             if (onay) {
                                 appState.yereliUygula(yerel.veri);

@@ -905,6 +905,12 @@ export class UIComponentManager {
     }
 
     openResetSchoolConfirmModal() {
+        // Kaç şubenin gideceğini SAYIYLA söyle. "Tüm şubeler" soyut kalıyor;
+        // "27 şube" okunduğunda insan durup düşünüyor.
+        const subeSayisi = (this.state.state.subeler || []).length;
+        const subeMetni = subeSayisi > 0
+            ? `<strong>${subeSayisi} şubenin tamamı</strong>, seçmeli dersleri ve norm hesaplarıyla birlikte silinecek`
+            : "<strong>mevcut çalışma silinecek</strong>";
         const modalHtml = `
             <div class="modal-overlay active" id="reset-confirm-modal">
                 <div class="modal-box" style="max-width: 480px;">
@@ -914,8 +920,18 @@ export class UIComponentManager {
                     </div>
                     <div class="modal-body">
                         <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-                            Okul türünü değiştirmek mevcut <strong>tüm şubeleri, seçmeli dersleri ve norm hesaplarını silecektir</strong>.
+                            Okul türünü değiştirdiğinizde ${subeMetni}.
                             Sıfırdan yeni bir okul kurmak istediğinizden emin misiniz?
+                        </p>
+                        <!-- GERİ DÖNÜŞ SINIRI AÇIKÇA YAZILIR (kullanıcı sorusu, 10.09.2026).
+                             Geri al, hafızadaki geçmişten çalışır (state.history, son 30
+                             adım). Sayfa yenilenince o geçmiş sıfırlanır ve bulut kaydı da
+                             silinmiş olduğu için dönüş kalmaz. Kullanıcı bunu ancak
+                             deneyerek öğreniyordu. -->
+                        <p style="font-size: 0.82rem; color: var(--status-danger-text); line-height: 1.5; margin-top: .6rem;">
+                            Bu işlem <strong>buluttaki kaydınızı da siler</strong>.
+                            Sayfayı yenilemeden <strong>“geri al” (↶)</strong> ile dönebilirsiniz;
+                            sayfayı yeniledikten sonra dönüş yoktur.
                         </p>
                     </div>
                     <div class="modal-footer">

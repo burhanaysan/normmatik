@@ -163,15 +163,34 @@ class MebNormApplication {
                         if (secim.yereliKullan) {
                             let onay = true;
                             if (secim.sorulmali) {
+                                // SORU BİLEREK TERSİNE KURULU (müşteri olayı, 09.09.2026).
+                                //
+                                // İki seçeneğin sonuçları EŞİT DEĞİL:
+                                //   buluttakini kullan -> yerel kopya silinmez, geri dönülür
+                                //   yereldekini kullan -> bulut kaydının ÜSTÜNE yazılır, dönüş yok
+                                //
+                                // window.confirm'de varsayılan (ve Enter'a basınca
+                                // seçilen) buton her zaman Tamam'dır. Eskiden Tamam
+                                // "yereldekini kullan" idi; yani düşünmeden onaylayan
+                                // kullanıcı geri dönüşü olmayan seçeneği seçiyordu.
+                                // Bir müşteri tam olarak bunu yaşadı: sıfırlanmış boş
+                                // okul, 27 şubelik bulut kaydının önüne geçmek üzereydi.
+                                // Tamam artık geri dönüşü OLAN seçeneğe bağlı.
+                                //
+                                // Şube sayıları da yazılıyor: iki tarihe bakarak
+                                // hangisinin dolu olduğunu anlamak mümkün değildi.
                                 const bt = secim.bulutZaman
                                     ? new Date(secim.bulutZaman).toLocaleString("tr-TR") : "yok";
                                 const yt = new Date(secim.yerelZaman).toLocaleString("tr-TR");
-                                onay = window.confirm(
+                                onay = !window.confirm(
                                     "Bu bilgisayarda, buluta gönderilememiş DAHA YENİ bir çalışma bulundu.\n\n" +
-                                    "Buluttaki kayıt : " + bt + "\n" +
-                                    "Bu bilgisayarda : " + yt + "\n\n" +
-                                    "Bu bilgisayardaki daha yeni çalışma geri yüklensin mi?\n" +
-                                    "(Hayır derseniz buluttaki kayıt kullanılır; yereldeki silinmez.)");
+                                    "Buluttaki kayıt : " + bt + "   (" + secim.bulutSube + " şube)\n" +
+                                    "Bu bilgisayarda : " + yt + "   (" + secim.yerelSube + " şube)\n\n" +
+                                    "BULUTTAKİ kayıtla devam edilsin mi?\n\n" +
+                                    "Tamam  →  buluttaki " + secim.bulutSube + " şubelik kayıt açılır.\n" +
+                                    "          Bu bilgisayardaki kopya SİLİNMEZ, sonra geri dönebilirsiniz.\n\n" +
+                                    "İptal   →  bu bilgisayardaki " + secim.yerelSube + " şubelik kopya yüklenir\n" +
+                                    "          ve buluta gönderilir. Buluttaki kaydın ÜSTÜNE YAZILIR.");
                             }
                             if (onay) {
                                 appState.yereliUygula(yerel.veri);
