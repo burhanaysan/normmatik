@@ -168310,12 +168310,37 @@ const OKUL_EPOSTA_ALANI = "okul.normmatik.com.tr";
 
 const DEPO_ANAHTARI = "normmatik_fb_kimlik";
 
-// KALICI DEPOLAMA KULLANILMIYOR (2026-08-24 kararı).
-// Kimlik jetonu sessionStorage'da tutulur: tarayıcı kapandığında oturum
-// kendiliğinden biter ve diskte hiçbir iz kalmaz. Bedeli, her tarayıcı
-// açılışında yeniden giriş yapılması; internet bankacılığındaki gibi.
-// Aynı sekmede sayfalar arası geçiş (index.html -> app.html) etkilenmez.
-const DEPO = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+// OTURUM SÜREKLİLİĞİ — İKİ KİP (2026-09-12 kararı; öncesi: yalnızca oturumluk)
+//
+//   Varsayılan (oturumluk): kimlik sessionStorage'da durur. Tarayıcı
+//   kapanınca oturum biter, diskte iz kalmaz. İnternet bankacılığı gibi.
+//
+//   "Bu cihazda açık kal" (kalıcı): kullanıcı giriş ekranında kutuyu
+//   işaretlerse kimlik localStorage'a yazılır ve tarayıcı kapansa da
+//   oturum sürer. Kullanıcı isteği: uygulama yılda birkaç kez
+//   kullanıldığı için şifre unutuluyor.
+//
+//   RİSK ve NEDEN İSTEĞE BAĞLI: kalıcı kipte o bilgisayarı açan HERKES
+//   okulun verisine ulaşır. Bu yüzden varsayılan DEĞİL, kullanıcının
+//   bilerek seçtiği bir kip; giriş ekranında ortak bilgisayar uyarısı var.
+//   Sunucudaki koruma değişmez: erişim yine kimlik jetonuna ve kurallara
+//   bağlıdır.
+const OTURUMLUK = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+const KALICI = () => (typeof localStorage !== "undefined") ? localStorage : null;
+
+function _depoOku(depo) {
+    try {
+        const d = depo();
+        const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
+        return ham ? JSON.parse(ham) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function _depoSil(depo) {
+    try { depo()?.removeItem(DEPO_ANAHTARI); } catch (e) { /* yok sayılır */ }
+}
 
 // idToken 1 saat geçerlidir. Süre dolmadan 5 dakika önce yenileriz ki
 // uzun süren bir kaydetme işleminin ortasında token ölmesin.
@@ -168333,32 +168358,41 @@ class FirebaseAuthService {
     }
 
     // --------------------------------------------------------------- depo
+    /** Önce oturumluk kip, yoksa "bu cihazda açık kal" kaydı. */
     _oku() {
-        try {
-            const d = DEPO();
-            const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
-            return ham ? JSON.parse(ham) : null;
-        } catch (e) {
-            return null;
-        }
+        return _depoOku(OTURUMLUK) || _depoOku(KALICI);
     }
 
+    /**
+     * Kimliği, kipine uygun depoya yazar ve ÖTEKİNİ temizler.
+     * İki depoda birden kimlik kalırsa, çıkış yapan kullanıcı bir sonraki
+     * açılışta eski kayıtla geri gelmiş gibi görünürdü.
+     */
     _yaz(kimlik) {
         this.kimlik = kimlik;
+        if (!kimlik) {
+            _depoSil(OTURUMLUK);
+            _depoSil(KALICI);
+            return;
+        }
+        const hedef = kimlik.kalici ? KALICI : OTURUMLUK;
+        const digeri = kimlik.kalici ? OTURUMLUK : KALICI;
         try {
-            const d = DEPO();
-            if (!d) return;
-            if (kimlik) d.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
-            else d.removeItem(DEPO_ANAHTARI);
+            hedef()?.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
         } catch (e) { /* özel mod: bellekte tutmaya devam ederiz */ }
+        _depoSil(digeri);
     }
 
     // -------------------------------------------------------------- giriş
     /**
      * Kurum kodu + parola ile giriş.
+     *
+     * kalici=true ise kimlik localStorage'a yazılır ("bu cihazda açık kal");
+     * varsayılan kipte sessionStorage'da durur ve tarayıcı kapanınca biter.
+     *
      * Dönüş: { basarili, uid?, kurumKodu?, hata? }
      */
-    async girisYap(kurumKodu, parola) {
+    async girisYap(kurumKodu, parola, kalici = false) {
         const kod = String(kurumKodu || "").trim();
         if (!kod || !parola) {
             return { basarili: false, hata: "Kurum kodu ve parola gereklidir." };
@@ -168389,6 +168423,7 @@ class FirebaseAuthService {
             kurumKodu: kod,
             idToken: cevap.idToken,
             refreshToken: cevap.refreshToken,
+            kalici: !!kalici,
             // expiresIn saniye cinsinden gelir.
             bitis: Date.now() + (parseInt(cevap.expiresIn, 10) || 3600) * 1000,
         });
@@ -168563,11 +168598,19 @@ class AuthService {
         return null;
     }
 
+    /**
+     * Oturumu okur.
+     *
+     * ÖNCE sessionStorage, sonra localStorage. 12.09.2026'ya kadar yalnızca
+     * sessionStorage okunuyordu: oturum tarayıcı kapanınca bitsin diye.
+     * Kullanıcı isteğiyle "bu cihazda açık kal" seçeneği eklendi; o kip
+     * işaretlenmişse kayıt localStorage'da durur. İşaretlenmediğinde eski
+     * davranış aynen sürer.
+     */
     getSession() {
         try {
-            // Yalnızca sessionStorage. localStorage BİLEREK okunmuyor:
-            // tarayıcı kapandıktan sonra oturum devam etmemeli.
-            const data = sessionStorage.getItem(this.SESSION_KEY);
+            const data = sessionStorage.getItem(this.SESSION_KEY)
+                      || localStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
@@ -168576,11 +168619,16 @@ class AuthService {
 
     setSession(sessionData) {
         try {
+            const kalici = !!(sessionData && sessionData.kalici);
             const jsonStr = JSON.stringify({
                 ...sessionData,
                 lastActive: new Date().toISOString()
             });
-            sessionStorage.setItem(this.SESSION_KEY, jsonStr);
+            (kalici ? localStorage : sessionStorage).setItem(this.SESSION_KEY, jsonStr);
+            // Kip değişmiş olabilir; öteki depoda eski kayıt kalmasın.
+            try {
+                (kalici ? sessionStorage : localStorage).removeItem(this.SESSION_KEY);
+            } catch (e2) { /* kalıntı silinemezse okuma sırası zaten doğruyu seçer */ }
         } catch (e) {
             // SESSİZ KALMA: oturum yazılamazsa kullanıcı bir sonraki sayfada
             // sebepsiz yere çıkmış olur ve neden olduğunu anlayamaz.
@@ -172763,6 +172811,113 @@ class UIComponentManager {
         document.getElementById("btn-save-edited-school-name")?.addEventListener("click", saveFn);
         inputEl?.addEventListener("keydown", (e) => {
             if (e.key === "Enter") saveFn();
+        });
+    }
+
+    /**
+     * Okulun kendi parolasını değiştirmesi (12.09.2026).
+     *
+     * NEDEN VAR: parolayı artık biz üretmiyoruz; okul kendi parolasını
+     * kuruyor ve istediği zaman buradan değiştirebiliyor. Biz hiçbir okulun
+     * parolasını bilmiyoruz — okul verisi silinirse "siz de biliyordunuz"
+     * denemez.
+     *
+     * NEDEN MEVCUT PAROLA SORULUYOR: okul bilgisayarı açık unutulursa, başına
+     * geçen biri parolayı değiştirip okulu kendi hesabından kilitleyebilir.
+     * Mevcut parola sorulunca bu mümkün olmaz. Ayrıca doğrulama Google'da
+     * yapılır, tarayıcıda değil.
+     */
+    openParolaDegistirModal() {
+        const fb = (typeof window !== "undefined") ? window.firebaseAuth : null;
+        if (!fb || !fb.oturumVar()) {
+            this.showToast(
+                "Şifre değiştirme yalnızca okul hesabıyla girişte kullanılabilir.",
+                "warning");
+            return;
+        }
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="parola-modal">
+                <div class="modal-box" style="max-width: 460px;">
+                    <div class="modal-header">
+                        <div class="modal-title">🔑 Şifremi Değiştir</div>
+                        <button class="modal-close-btn" onclick="document.getElementById('parola-modal').remove()">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label">Mevcut şifreniz</label>
+                            <input type="password" id="parola-mevcut" class="form-control" autocomplete="current-password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Yeni şifreniz (en az 8 karakter)</label>
+                            <input type="password" id="parola-yeni" class="form-control" autocomplete="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Yeni şifreniz (tekrar)</label>
+                            <input type="password" id="parola-yeni2" class="form-control" autocomplete="new-password">
+                        </div>
+                        <div id="parola-uyari" style="display:none; font-size:.82rem; margin-top:.4rem;"></div>
+                        <p style="font-size:.78rem; opacity:.75; margin-top:.6rem;">
+                            Şifrenizi yalnızca siz bilirsiniz; bizde kaydı yoktur.
+                            Unutursanız yeni şifre oluşturma bağlantısı için bize
+                            WhatsApp'tan yazın. Şifre değişince diğer cihazlardaki
+                            oturumlar kapanır.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" onclick="document.getElementById('parola-modal').remove()">Vazgeç</button>
+                        <button class="btn btn-primary" id="btn-parola-kaydet">Şifreyi Değiştir</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+        document.getElementById("parola-mevcut")?.focus();
+
+        const uyar = (metin, renk = "#f87171") => {
+            const el = document.getElementById("parola-uyari");
+            if (!el) return;
+            el.textContent = metin;
+            el.style.color = renk;
+            el.style.display = metin ? "block" : "none";
+        };
+
+        const kaydet = async () => {
+            const mevcut = document.getElementById("parola-mevcut")?.value || "";
+            const yeni = document.getElementById("parola-yeni")?.value || "";
+            const yeni2 = document.getElementById("parola-yeni2")?.value || "";
+            const dugme = document.getElementById("btn-parola-kaydet");
+
+            if (!mevcut) return uyar("Mevcut şifrenizi yazın.");
+            if (yeni.length < 8) return uyar("Yeni şifre en az 8 karakter olmalıdır.");
+            if (yeni !== yeni2) return uyar("Yeni şifreler birbirini tutmuyor.");
+            if (yeni === mevcut) return uyar("Yeni şifre eskisiyle aynı olamaz.");
+
+            if (dugme) { dugme.disabled = true; dugme.textContent = "Değiştiriliyor..."; }
+            uyar("");
+
+            // Önce mevcut parolayla yeniden giriş: hem doğrulama hem de taze
+            // bir kimlik jetonu sağlar (Google eski jetonla parola değişimini
+            // reddedebilir).
+            const kod = fb.kurumKodu;
+            const giris = await fb.girisYap(kod, mevcut);
+            if (!giris.basarili) {
+                if (dugme) { dugme.disabled = false; dugme.textContent = "Şifreyi Değiştir"; }
+                return uyar("Mevcut şifreniz hatalı.");
+            }
+
+            const sonuc = await fb.parolaDegistir(yeni);
+            if (dugme) { dugme.disabled = false; dugme.textContent = "Şifreyi Değiştir"; }
+            if (!sonuc.basarili) {
+                return uyar(sonuc.hata || "Şifre değiştirilemedi.");
+            }
+            this.closeModal("parola-modal");
+            this.showToast("Şifreniz değiştirildi. Yeni şifrenizi unutmayın.", "success");
+        };
+
+        document.getElementById("btn-parola-kaydet")?.addEventListener("click", kaydet);
+        document.getElementById("parola-yeni2")?.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") kaydet();
         });
     }
 
@@ -178793,15 +178948,6 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
-                        🔑 Lisans
-                    </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
-                        ❓ Rehber
-                    </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
-                        🕘 Geçmiş
-                    </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
                         💾 İndir
                     </button>
@@ -178809,11 +178955,38 @@ class MebNormApplication {
                         📂 Yükle
                     </button>
                     <input type="file" id="file-import-json" accept=".json" style="display:none;">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
-                        ⚖️ KVKK
-                    </button>
+                    <!--
+                        ⋯ AZ KULLANILAN ARAÇLAR (12.09.2026)
+                        Başlıkta düğme sayısı artınca dar ekranlarda sağdaki
+                        düğmeler görünmez oluyordu (kullanıcı bulgusu). Seyrek
+                        kullanılan dördü buraya alındı; hiçbiri KALDIRILMADI ve
+                        kimlikleri (id) aynı kaldı, dolayısıyla işleyişleri de aynı.
+                    -->
+                    <div class="header-more-wrap">
+                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK" aria-haspopup="true" aria-expanded="false">
+                            ⋯ Diğer
+                        </button>
+                        <div class="header-more-menu" id="header-more-menu" hidden>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
+                                🔑 Lisans
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
+                                ❓ Rehber
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
+                                🕘 Geçmiş
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
+                                ⚖️ KVKK
+                            </button>
+                        </div>
+                    </div>
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
+                    </button>
+                    <!-- 🔑 PAROLA DEĞİŞTİRME (parolayı yalnızca okul bilir) -->
+                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir">
+                        🔑 Şifre
                     </button>
                     <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
                     <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
@@ -178855,6 +179028,57 @@ class MebNormApplication {
         document.getElementById("btn-undo")?.addEventListener("click", () => appState.undo());
         document.getElementById("btn-redo")?.addEventListener("click", () => appState.redo());
         document.getElementById("btn-reset-school")?.addEventListener("click", () => this.ui.openResetSchoolConfirmModal());
+
+        // ⋯ DİĞER menüsü (12.09.2026): başlıkta yer kalmadığı için gruplanan
+        // seyrek araçlar. Menü SABİT konumlanır; .app-header bazı genişliklerde
+        // taşmayı kırpıyor ve mutlak konumda menü görünmez oluyordu.
+        const digerDugme = document.getElementById("btn-header-more");
+        const digerMenu = document.getElementById("header-more-menu");
+        if (digerDugme && digerMenu) {
+            const kapat = () => {
+                digerMenu.hidden = true;
+                digerDugme.setAttribute("aria-expanded", "false");
+            };
+            digerDugme.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (!digerMenu.hidden) { kapat(); return; }
+                digerMenu.hidden = false;
+                const r = digerDugme.getBoundingClientRect();
+                const g = digerMenu.offsetWidth || 168;
+                digerMenu.style.top = `${Math.round(r.bottom + 6)}px`;
+                digerMenu.style.left = `${Math.round(Math.max(8, Math.min(r.left, window.innerWidth - g - 8)))}px`;
+                digerDugme.setAttribute("aria-expanded", "true");
+            });
+            // Menüden bir araç seçilince menü kapansın.
+            digerMenu.addEventListener("click", () => kapat());
+
+            // Dışarı tıklama ve Esc: başlık her yeniden çizildiğinde bu
+            // dinleyiciler TEKRAR eklenmesin diye bir kez bağlanır.
+            if (!this._digerMenuKapatici) {
+                this._digerMenuKapatici = true;
+                const kapatHepsi = () => {
+                    const k = document.getElementById("header-more-menu");
+                    const d = document.getElementById("btn-header-more");
+                    if (k && !k.hidden) {
+                        k.hidden = true;
+                        d?.setAttribute("aria-expanded", "false");
+                    }
+                };
+                document.addEventListener("click", (e) => {
+                    const k = document.getElementById("header-more-menu");
+                    if (k && !k.hidden && !k.contains(e.target)
+                        && e.target?.id !== "btn-header-more") kapatHepsi();
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") kapatHepsi();
+                });
+            }
+        }
+
+        // 🔑 Okul kendi parolasını değiştirir (parolayı biz bilmiyoruz)
+        document.getElementById("btn-parola-degistir")?.addEventListener("click", () => {
+            this.ui.openParolaDegistirModal();
+        });
 
         // 🚪 Oturumu Kapat ve Ana Sayfaya Dön
         document.getElementById("btn-app-logout")?.addEventListener("click", () => {

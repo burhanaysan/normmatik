@@ -664,15 +664,6 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
-                        🔑 Lisans
-                    </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
-                        ❓ Rehber
-                    </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
-                        🕘 Geçmiş
-                    </button>
                     <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
                         💾 İndir
                     </button>
@@ -680,11 +671,38 @@ class MebNormApplication {
                         📂 Yükle
                     </button>
                     <input type="file" id="file-import-json" accept=".json" style="display:none;">
-                    <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
-                        ⚖️ KVKK
-                    </button>
+                    <!--
+                        ⋯ AZ KULLANILAN ARAÇLAR (12.09.2026)
+                        Başlıkta düğme sayısı artınca dar ekranlarda sağdaki
+                        düğmeler görünmez oluyordu (kullanıcı bulgusu). Seyrek
+                        kullanılan dördü buraya alındı; hiçbiri KALDIRILMADI ve
+                        kimlikleri (id) aynı kaldı, dolayısıyla işleyişleri de aynı.
+                    -->
+                    <div class="header-more-wrap">
+                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK" aria-haspopup="true" aria-expanded="false">
+                            ⋯ Diğer
+                        </button>
+                        <div class="header-more-menu" id="header-more-menu" hidden>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
+                                🔑 Lisans
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
+                                ❓ Rehber
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
+                                🕘 Geçmiş
+                            </button>
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
+                                ⚖️ KVKK
+                            </button>
+                        </div>
+                    </div>
                     <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
                         🔄
+                    </button>
+                    <!-- 🔑 PAROLA DEĞİŞTİRME (parolayı yalnızca okul bilir) -->
+                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir">
+                        🔑 Şifre
                     </button>
                     <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
                     <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
@@ -726,6 +744,57 @@ class MebNormApplication {
         document.getElementById("btn-undo")?.addEventListener("click", () => appState.undo());
         document.getElementById("btn-redo")?.addEventListener("click", () => appState.redo());
         document.getElementById("btn-reset-school")?.addEventListener("click", () => this.ui.openResetSchoolConfirmModal());
+
+        // ⋯ DİĞER menüsü (12.09.2026): başlıkta yer kalmadığı için gruplanan
+        // seyrek araçlar. Menü SABİT konumlanır; .app-header bazı genişliklerde
+        // taşmayı kırpıyor ve mutlak konumda menü görünmez oluyordu.
+        const digerDugme = document.getElementById("btn-header-more");
+        const digerMenu = document.getElementById("header-more-menu");
+        if (digerDugme && digerMenu) {
+            const kapat = () => {
+                digerMenu.hidden = true;
+                digerDugme.setAttribute("aria-expanded", "false");
+            };
+            digerDugme.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (!digerMenu.hidden) { kapat(); return; }
+                digerMenu.hidden = false;
+                const r = digerDugme.getBoundingClientRect();
+                const g = digerMenu.offsetWidth || 168;
+                digerMenu.style.top = `${Math.round(r.bottom + 6)}px`;
+                digerMenu.style.left = `${Math.round(Math.max(8, Math.min(r.left, window.innerWidth - g - 8)))}px`;
+                digerDugme.setAttribute("aria-expanded", "true");
+            });
+            // Menüden bir araç seçilince menü kapansın.
+            digerMenu.addEventListener("click", () => kapat());
+
+            // Dışarı tıklama ve Esc: başlık her yeniden çizildiğinde bu
+            // dinleyiciler TEKRAR eklenmesin diye bir kez bağlanır.
+            if (!this._digerMenuKapatici) {
+                this._digerMenuKapatici = true;
+                const kapatHepsi = () => {
+                    const k = document.getElementById("header-more-menu");
+                    const d = document.getElementById("btn-header-more");
+                    if (k && !k.hidden) {
+                        k.hidden = true;
+                        d?.setAttribute("aria-expanded", "false");
+                    }
+                };
+                document.addEventListener("click", (e) => {
+                    const k = document.getElementById("header-more-menu");
+                    if (k && !k.hidden && !k.contains(e.target)
+                        && e.target?.id !== "btn-header-more") kapatHepsi();
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") kapatHepsi();
+                });
+            }
+        }
+
+        // 🔑 Okul kendi parolasını değiştirir (parolayı biz bilmiyoruz)
+        document.getElementById("btn-parola-degistir")?.addEventListener("click", () => {
+            this.ui.openParolaDegistirModal();
+        });
 
         // 🚪 Oturumu Kapat ve Ana Sayfaya Dön
         document.getElementById("btn-app-logout")?.addEventListener("click", () => {

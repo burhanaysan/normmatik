@@ -904,6 +904,113 @@ export class UIComponentManager {
         });
     }
 
+    /**
+     * Okulun kendi parolasını değiştirmesi (12.09.2026).
+     *
+     * NEDEN VAR: parolayı artık biz üretmiyoruz; okul kendi parolasını
+     * kuruyor ve istediği zaman buradan değiştirebiliyor. Biz hiçbir okulun
+     * parolasını bilmiyoruz — okul verisi silinirse "siz de biliyordunuz"
+     * denemez.
+     *
+     * NEDEN MEVCUT PAROLA SORULUYOR: okul bilgisayarı açık unutulursa, başına
+     * geçen biri parolayı değiştirip okulu kendi hesabından kilitleyebilir.
+     * Mevcut parola sorulunca bu mümkün olmaz. Ayrıca doğrulama Google'da
+     * yapılır, tarayıcıda değil.
+     */
+    openParolaDegistirModal() {
+        const fb = (typeof window !== "undefined") ? window.firebaseAuth : null;
+        if (!fb || !fb.oturumVar()) {
+            this.showToast(
+                "Şifre değiştirme yalnızca okul hesabıyla girişte kullanılabilir.",
+                "warning");
+            return;
+        }
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="parola-modal">
+                <div class="modal-box" style="max-width: 460px;">
+                    <div class="modal-header">
+                        <div class="modal-title">🔑 Şifremi Değiştir</div>
+                        <button class="modal-close-btn" onclick="document.getElementById('parola-modal').remove()">✕</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label">Mevcut şifreniz</label>
+                            <input type="password" id="parola-mevcut" class="form-control" autocomplete="current-password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Yeni şifreniz (en az 8 karakter)</label>
+                            <input type="password" id="parola-yeni" class="form-control" autocomplete="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Yeni şifreniz (tekrar)</label>
+                            <input type="password" id="parola-yeni2" class="form-control" autocomplete="new-password">
+                        </div>
+                        <div id="parola-uyari" style="display:none; font-size:.82rem; margin-top:.4rem;"></div>
+                        <p style="font-size:.78rem; opacity:.75; margin-top:.6rem;">
+                            Şifrenizi yalnızca siz bilirsiniz; bizde kaydı yoktur.
+                            Unutursanız yeni şifre oluşturma bağlantısı için bize
+                            WhatsApp'tan yazın. Şifre değişince diğer cihazlardaki
+                            oturumlar kapanır.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline" onclick="document.getElementById('parola-modal').remove()">Vazgeç</button>
+                        <button class="btn btn-primary" id="btn-parola-kaydet">Şifreyi Değiştir</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+        document.getElementById("parola-mevcut")?.focus();
+
+        const uyar = (metin, renk = "#f87171") => {
+            const el = document.getElementById("parola-uyari");
+            if (!el) return;
+            el.textContent = metin;
+            el.style.color = renk;
+            el.style.display = metin ? "block" : "none";
+        };
+
+        const kaydet = async () => {
+            const mevcut = document.getElementById("parola-mevcut")?.value || "";
+            const yeni = document.getElementById("parola-yeni")?.value || "";
+            const yeni2 = document.getElementById("parola-yeni2")?.value || "";
+            const dugme = document.getElementById("btn-parola-kaydet");
+
+            if (!mevcut) return uyar("Mevcut şifrenizi yazın.");
+            if (yeni.length < 8) return uyar("Yeni şifre en az 8 karakter olmalıdır.");
+            if (yeni !== yeni2) return uyar("Yeni şifreler birbirini tutmuyor.");
+            if (yeni === mevcut) return uyar("Yeni şifre eskisiyle aynı olamaz.");
+
+            if (dugme) { dugme.disabled = true; dugme.textContent = "Değiştiriliyor..."; }
+            uyar("");
+
+            // Önce mevcut parolayla yeniden giriş: hem doğrulama hem de taze
+            // bir kimlik jetonu sağlar (Google eski jetonla parola değişimini
+            // reddedebilir).
+            const kod = fb.kurumKodu;
+            const giris = await fb.girisYap(kod, mevcut);
+            if (!giris.basarili) {
+                if (dugme) { dugme.disabled = false; dugme.textContent = "Şifreyi Değiştir"; }
+                return uyar("Mevcut şifreniz hatalı.");
+            }
+
+            const sonuc = await fb.parolaDegistir(yeni);
+            if (dugme) { dugme.disabled = false; dugme.textContent = "Şifreyi Değiştir"; }
+            if (!sonuc.basarili) {
+                return uyar(sonuc.hata || "Şifre değiştirilemedi.");
+            }
+            this.closeModal("parola-modal");
+            this.showToast("Şifreniz değiştirildi. Yeni şifrenizi unutmayın.", "success");
+        };
+
+        document.getElementById("btn-parola-kaydet")?.addEventListener("click", kaydet);
+        document.getElementById("parola-yeni2")?.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") kaydet();
+        });
+    }
+
     openResetSchoolConfirmModal() {
         // Kaç şubenin gideceğini SAYIYLA söyle. "Tüm şubeler" soyut kalıyor;
         // "27 şube" okunduğunda insan durup düşünüyor.

@@ -324,10 +324,17 @@ const YANIT = (durum, govde) => ({
         "parola hiçbir depoya yazılmamalı");
     kontrol("G7 kurum kodu sayımı bilerek gizleniyor (yorumla sabitlenmiş)",
         /Kullanıcı yok.*parola yanlış.*ayrım|ayrım, hangi kurum kodlarının/s.test(betik));
-    kontrol("G7 temizlik jetondan ÖNCE çağrılıyor",
-        betik.indexOf("yerelIzleriTemizle();") <
-        betik.indexOf('sessionStorage.setItem("normmatik_fb_kimlik"'),
-        "sonra çağrılırsa yeni jeton da silinir");
+    // 12.09.2026: jeton artık sabit sessionStorage'a değil, kullanıcının
+    // seçtiği depoya yazılıyor ("bu cihazda açık kal" → localStorage).
+    // Kontrolün AMACI aynı: temizlik jetondan ÖNCE çalışmalı. Bu yüzden
+    // depo adına değil, setItem çağrısının kendisine bakıyoruz.
+    {
+        const iTemizlik = betik.indexOf("yerelIzleriTemizle();");
+        const iJeton = betik.indexOf('setItem("normmatik_fb_kimlik"');
+        kontrol("G7 temizlik jetondan ÖNCE çağrılıyor",
+            iTemizlik > -1 && iJeton > -1 && iTemizlik < iJeton,
+            `temizlik=${iTemizlik} jeton=${iJeton} — sonra çağrılırsa yeni jeton da silinir`);
+    }
     kontrol("G7 yerel yedek önekleri korunanlar arasında",
         /KORUNAN_ONEKLER/.test(betik) && /normmatik_yerel_/.test(betik)
         && /normmatik_surumler_/.test(betik));

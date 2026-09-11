@@ -36,11 +36,19 @@ export class AuthService {
         return null;
     }
 
+    /**
+     * Oturumu okur.
+     *
+     * ÖNCE sessionStorage, sonra localStorage. 12.09.2026'ya kadar yalnızca
+     * sessionStorage okunuyordu: oturum tarayıcı kapanınca bitsin diye.
+     * Kullanıcı isteğiyle "bu cihazda açık kal" seçeneği eklendi; o kip
+     * işaretlenmişse kayıt localStorage'da durur. İşaretlenmediğinde eski
+     * davranış aynen sürer.
+     */
     getSession() {
         try {
-            // Yalnızca sessionStorage. localStorage BİLEREK okunmuyor:
-            // tarayıcı kapandıktan sonra oturum devam etmemeli.
-            const data = sessionStorage.getItem(this.SESSION_KEY);
+            const data = sessionStorage.getItem(this.SESSION_KEY)
+                      || localStorage.getItem(this.SESSION_KEY);
             return data ? JSON.parse(data) : null;
         } catch (e) {
             return null;
@@ -49,11 +57,16 @@ export class AuthService {
 
     setSession(sessionData) {
         try {
+            const kalici = !!(sessionData && sessionData.kalici);
             const jsonStr = JSON.stringify({
                 ...sessionData,
                 lastActive: new Date().toISOString()
             });
-            sessionStorage.setItem(this.SESSION_KEY, jsonStr);
+            (kalici ? localStorage : sessionStorage).setItem(this.SESSION_KEY, jsonStr);
+            // Kip değişmiş olabilir; öteki depoda eski kayıt kalmasın.
+            try {
+                (kalici ? sessionStorage : localStorage).removeItem(this.SESSION_KEY);
+            } catch (e2) { /* kalıntı silinemezse okuma sırası zaten doğruyu seçer */ }
         } catch (e) {
             // SESSİZ KALMA: oturum yazılamazsa kullanıcı bir sonraki sayfada
             // sebepsiz yere çıkmış olur ve neden olduğunu anlayamaz.

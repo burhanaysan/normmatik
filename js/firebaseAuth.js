@@ -36,12 +36,37 @@ const OKUL_EPOSTA_ALANI = "okul.normmatik.com.tr";
 
 const DEPO_ANAHTARI = "normmatik_fb_kimlik";
 
-// KALICI DEPOLAMA KULLANILMIYOR (2026-08-24 kararı).
-// Kimlik jetonu sessionStorage'da tutulur: tarayıcı kapandığında oturum
-// kendiliğinden biter ve diskte hiçbir iz kalmaz. Bedeli, her tarayıcı
-// açılışında yeniden giriş yapılması; internet bankacılığındaki gibi.
-// Aynı sekmede sayfalar arası geçiş (index.html -> app.html) etkilenmez.
-const DEPO = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+// OTURUM SÜREKLİLİĞİ — İKİ KİP (2026-09-12 kararı; öncesi: yalnızca oturumluk)
+//
+//   Varsayılan (oturumluk): kimlik sessionStorage'da durur. Tarayıcı
+//   kapanınca oturum biter, diskte iz kalmaz. İnternet bankacılığı gibi.
+//
+//   "Bu cihazda açık kal" (kalıcı): kullanıcı giriş ekranında kutuyu
+//   işaretlerse kimlik localStorage'a yazılır ve tarayıcı kapansa da
+//   oturum sürer. Kullanıcı isteği: uygulama yılda birkaç kez
+//   kullanıldığı için şifre unutuluyor.
+//
+//   RİSK ve NEDEN İSTEĞE BAĞLI: kalıcı kipte o bilgisayarı açan HERKES
+//   okulun verisine ulaşır. Bu yüzden varsayılan DEĞİL, kullanıcının
+//   bilerek seçtiği bir kip; giriş ekranında ortak bilgisayar uyarısı var.
+//   Sunucudaki koruma değişmez: erişim yine kimlik jetonuna ve kurallara
+//   bağlıdır.
+const OTURUMLUK = () => (typeof sessionStorage !== "undefined") ? sessionStorage : null;
+const KALICI = () => (typeof localStorage !== "undefined") ? localStorage : null;
+
+function _depoOku(depo) {
+    try {
+        const d = depo();
+        const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
+        return ham ? JSON.parse(ham) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function _depoSil(depo) {
+    try { depo()?.removeItem(DEPO_ANAHTARI); } catch (e) { /* yok sayılır */ }
+}
 
 // idToken 1 saat geçerlidir. Süre dolmadan 5 dakika önce yenileriz ki
 // uzun süren bir kaydetme işleminin ortasında token ölmesin.
@@ -59,32 +84,41 @@ export class FirebaseAuthService {
     }
 
     // --------------------------------------------------------------- depo
+    /** Önce oturumluk kip, yoksa "bu cihazda açık kal" kaydı. */
     _oku() {
-        try {
-            const d = DEPO();
-            const ham = d ? d.getItem(DEPO_ANAHTARI) : null;
-            return ham ? JSON.parse(ham) : null;
-        } catch (e) {
-            return null;
-        }
+        return _depoOku(OTURUMLUK) || _depoOku(KALICI);
     }
 
+    /**
+     * Kimliği, kipine uygun depoya yazar ve ÖTEKİNİ temizler.
+     * İki depoda birden kimlik kalırsa, çıkış yapan kullanıcı bir sonraki
+     * açılışta eski kayıtla geri gelmiş gibi görünürdü.
+     */
     _yaz(kimlik) {
         this.kimlik = kimlik;
+        if (!kimlik) {
+            _depoSil(OTURUMLUK);
+            _depoSil(KALICI);
+            return;
+        }
+        const hedef = kimlik.kalici ? KALICI : OTURUMLUK;
+        const digeri = kimlik.kalici ? OTURUMLUK : KALICI;
         try {
-            const d = DEPO();
-            if (!d) return;
-            if (kimlik) d.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
-            else d.removeItem(DEPO_ANAHTARI);
+            hedef()?.setItem(DEPO_ANAHTARI, JSON.stringify(kimlik));
         } catch (e) { /* özel mod: bellekte tutmaya devam ederiz */ }
+        _depoSil(digeri);
     }
 
     // -------------------------------------------------------------- giriş
     /**
      * Kurum kodu + parola ile giriş.
+     *
+     * kalici=true ise kimlik localStorage'a yazılır ("bu cihazda açık kal");
+     * varsayılan kipte sessionStorage'da durur ve tarayıcı kapanınca biter.
+     *
      * Dönüş: { basarili, uid?, kurumKodu?, hata? }
      */
-    async girisYap(kurumKodu, parola) {
+    async girisYap(kurumKodu, parola, kalici = false) {
         const kod = String(kurumKodu || "").trim();
         if (!kod || !parola) {
             return { basarili: false, hata: "Kurum kodu ve parola gereklidir." };
@@ -115,6 +149,7 @@ export class FirebaseAuthService {
             kurumKodu: kod,
             idToken: cevap.idToken,
             refreshToken: cevap.refreshToken,
+            kalici: !!kalici,
             // expiresIn saniye cinsinden gelir.
             bitis: Date.now() + (parseInt(cevap.expiresIn, 10) || 3600) * 1000,
         });

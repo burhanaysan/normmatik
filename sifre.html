@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Şifrenizi Belirleyin — NormMatik</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!--
+  NormMatik — ŞİFRE BELİRLEME SAYFASI  (12.09.2026)
+
+  NEDEN VAR
+  ---------
+  Okulun şifresini artık biz üretmiyoruz; okul kendi şifresini tek
+  kullanımlık bir bağlantıyla kuruyor. Firebase'in hazır sayfası bu işi
+  yapıyordu ama ekranda "131313@okul.normmatik.com.tr için" yazıyordu;
+  okullar bunu gerçek bir e-posta hesabı sanıyordu. Bu sayfa aynı işi
+  yapar, yalnızca KURUM KODUNU gösterir ve NormMatik görünümündedir.
+
+  GÜVENLİK
+  --------
+  Sayfadaki API anahtarı GİZLİ DEĞİLDİR (Firebase web anahtarı; projeyi
+  tanımlar, yetki vermez). Şifreyi kabul eden taraf Google'dır: tek
+  kullanımlık kod (oobCode) orada doğrulanır. Bu sayfa şifreyi hiçbir yere
+  kaydetmez, hiçbir yere göndermez; yalnızca Google'ın ucuna iletir.
+-->
+<style>
+    :root {
+        --zemin: #0b1329;
+        --kart: #111c38;
+        --cizgi: #24365f;
+        --metin: #e8eeff;
+        --sonuk: #9fb0d0;
+        --vurgu: #38bdf8;
+        --iyi: #34d399;
+        --kotu: #f87171;
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25rem;
+        background: radial-gradient(1200px 600px at 50% -10%, #16264d 0%, var(--zemin) 60%);
+        color: var(--metin);
+        font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    .kart {
+        width: 100%;
+        max-width: 430px;
+        background: var(--kart);
+        border: 1.5px solid var(--cizgi);
+        border-radius: 16px;
+        padding: 1.6rem 1.5rem 1.4rem;
+        box-shadow: 0 24px 60px -18px rgba(0, 0, 0, .7);
+    }
+    .marka { font-size: 1.05rem; font-weight: 800; letter-spacing: .02em; }
+    .marka span { color: var(--vurgu); }
+    .alt { font-size: .78rem; color: var(--sonuk); margin-top: .15rem; }
+    h1 { font-size: 1.22rem; margin: 1.25rem 0 .35rem; }
+    .aciklama { font-size: .86rem; color: var(--sonuk); line-height: 1.5; margin: 0 0 1rem; }
+    .kod-kutu {
+        background: rgba(56, 189, 248, .08);
+        border: 1px solid rgba(56, 189, 248, .35);
+        border-radius: 10px;
+        padding: .6rem .8rem;
+        margin-bottom: 1rem;
+        font-size: .86rem;
+    }
+    .kod-kutu b { font-size: 1.05rem; letter-spacing: .06em; }
+    label { display: block; font-size: .82rem; font-weight: 600; margin: .85rem 0 .3rem; }
+    input[type="password"] {
+        width: 100%;
+        padding: .7rem .8rem;
+        font-size: 1rem;
+        color: var(--metin);
+        background: #0c1730;
+        border: 1.5px solid var(--cizgi);
+        border-radius: 10px;
+    }
+    input[type="password"]:focus { outline: 2px solid var(--vurgu); outline-offset: 1px; }
+    button {
+        width: 100%;
+        margin-top: 1.1rem;
+        padding: .8rem 1rem;
+        font-size: .98rem;
+        font-weight: 700;
+        color: #06203a;
+        background: var(--vurgu);
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    button:disabled { opacity: .6; cursor: default; }
+    .uyari { font-size: .84rem; margin-top: .8rem; line-height: 1.45; }
+    .uyari.kotu { color: var(--kotu); }
+    .uyari.iyi { color: var(--iyi); }
+    .ipucu { font-size: .76rem; color: var(--sonuk); margin-top: 1rem; line-height: 1.5; }
+    a { color: var(--vurgu); }
+    .gizli { display: none; }
+</style>
+</head>
+<body>
+<main class="kart">
+    <div class="marka">Norm<span>Matik</span>™</div>
+    <div class="alt">MEB Norm Kadro ve Ders Yükü Çalışma Alanı</div>
+
+    <div id="yukleniyor">
+        <h1>Bağlantınız kontrol ediliyor…</h1>
+        <p class="aciklama">Lütfen bekleyin.</p>
+    </div>
+
+    <div id="form-alani" class="gizli">
+        <h1>Şifrenizi belirleyin</h1>
+        <p class="aciklama">
+            Bu şifreyi yalnızca siz bileceksiniz. NormMatik yöneticisinde
+            kaydı tutulmaz.
+        </p>
+        <div class="kod-kutu">Kurum kodunuz: <b id="kurum-kodu">—</b></div>
+
+        <label for="p1">Yeni şifreniz (en az 8 karakter)</label>
+        <input type="password" id="p1" autocomplete="new-password">
+
+        <label for="p2">Yeni şifreniz (tekrar)</label>
+        <input type="password" id="p2" autocomplete="new-password">
+
+        <button id="kaydet">Şifremi Kaydet</button>
+        <div id="uyari" class="uyari kotu gizli"></div>
+
+        <p class="ipucu">
+            Şifrenizi not edin. Uygulamaya girdikten sonra üstteki
+            <b>🔑 Şifre</b> düğmesinden istediğiniz zaman değiştirebilirsiniz.
+            Unutursanız yöneticinize yazın, yeni bir bağlantı gönderir.
+        </p>
+    </div>
+
+    <div id="bitti" class="gizli">
+        <h1>Şifreniz belirlendi ✓</h1>
+        <p class="aciklama">
+            Artık kurum kodunuz ve bu şifreyle giriş yapabilirsiniz.
+        </p>
+        <button id="girise-git">Giriş Ekranına Git</button>
+    </div>
+
+    <div id="hata-alani" class="gizli">
+        <h1>Bağlantı kullanılamıyor</h1>
+        <p class="aciklama" id="hata-metni"></p>
+        <p class="ipucu">
+            Yöneticinize WhatsApp'tan yazın; size yeni bir şifre oluşturma
+            bağlantısı göndersin.
+        </p>
+    </div>
+</main>
+
+<script>
+(function () {
+    "use strict";
+
+    // Firebase web anahtarı: gizli DEĞİLDİR, projeyi tanımlar.
+    var API = "AIzaSyBakAOLvTgNi66MOcaFIxccusWaCKA-p3E";
+    var UC = "https://identitytoolkit.googleapis.com/v1/accounts:resetPassword?key=" + API;
+    var EN_AZ = 8;
+
+    var q = new URLSearchParams(location.search);
+    // "kod" bizim ürettiğimiz kısa ad; "oobCode" Firebase'in kendi adı.
+    // İkisini de kabul ediyoruz ki elde kalan eski bağlantılar da çalışsın.
+    var kod = q.get("kod") || q.get("oobCode") || "";
+
+    var el = function (id) { return document.getElementById(id); };
+    var goster = function (id) { el(id).classList.remove("gizli"); };
+    var sakla = function (id) { el(id).classList.add("gizli"); };
+
+    function hata(metin) {
+        sakla("yukleniyor"); sakla("form-alani");
+        el("hata-metni").textContent = metin;
+        goster("hata-alani");
+    }
+
+    function mesaj(cevap) {
+        var m = (cevap && cevap.error && cevap.error.message) || "";
+        if (m.indexOf("EXPIRED_OOB_CODE") === 0) {
+            return "Bağlantının süresi dolmuş.";
+        }
+        if (m.indexOf("INVALID_OOB_CODE") === 0) {
+            return "Bağlantı geçersiz ya da daha önce kullanılmış.";
+        }
+        if (m.indexOf("WEAK_PASSWORD") === 0) {
+            return "Şifre çok kısa. En az " + EN_AZ + " karakter olmalı.";
+        }
+        if (m.indexOf("USER_DISABLED") === 0) {
+            return "Bu okul hesabı devre dışı. Yöneticinize başvurun.";
+        }
+        return "İşlem tamamlanamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.";
+    }
+
+    function istek(govde) {
+        return fetch(UC, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(govde)
+        }).then(function (r) {
+            return r.json().then(function (c) { return { ok: r.ok, c: c }; });
+        });
+    }
+
+    if (!kod) {
+        hata("Bağlantı eksik görünüyor. Mesajdaki bağlantının tamamını kopyaladığınızdan emin olun.");
+        return;
+    }
+
+    // 1) Kodu doğrula ve hangi okul olduğunu öğren. (Şifre göndermeden
+    //    yapılan bu çağrı yalnızca kodu kontrol eder.)
+    istek({ oobCode: kod }).then(function (s) {
+        if (!s.ok) { hata(mesaj(s.c)); return; }
+        var eposta = s.c.email || "";
+        el("kurum-kodu").textContent = eposta.split("@")[0] || "—";
+        sakla("yukleniyor");
+        goster("form-alani");
+        el("p1").focus();
+    }).catch(function () {
+        hata("Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edin.");
+    });
+
+    function uyar(metin, iyiMi) {
+        var u = el("uyari");
+        u.textContent = metin;
+        u.className = "uyari " + (iyiMi ? "iyi" : "kotu") + (metin ? "" : " gizli");
+    }
+
+    function kaydet() {
+        var p1 = el("p1").value, p2 = el("p2").value;
+        if (p1.length < EN_AZ) { uyar("Şifre en az " + EN_AZ + " karakter olmalıdır."); return; }
+        if (p1 !== p2) { uyar("İki şifre birbirini tutmuyor."); return; }
+
+        var d = el("kaydet");
+        d.disabled = true; d.textContent = "Kaydediliyor…";
+        uyar("");
+
+        istek({ oobCode: kod, newPassword: p1 }).then(function (s) {
+            d.disabled = false; d.textContent = "Şifremi Kaydet";
+            if (!s.ok) { uyar(mesaj(s.c)); return; }
+            sakla("form-alani");
+            goster("bitti");
+        }).catch(function () {
+            d.disabled = false; d.textContent = "Şifremi Kaydet";
+            uyar("Sunucuya ulaşılamadı. Tekrar deneyin.");
+        });
+    }
+
+    el("kaydet").addEventListener("click", kaydet);
+    el("p2").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") kaydet();
+    });
+    el("girise-git").addEventListener("click", function () {
+        location.href = "index.html";
+    });
+})();
+</script>
+</body>
+</html>
