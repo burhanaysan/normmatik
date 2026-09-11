@@ -363,7 +363,7 @@ const ilk = (r) => r.themeSections[0];
         K.havuzdanGrup(S, "Adabımuaşeret") === "KÜLTÜR, SANAT VE SPOR"
         && K.havuzdanGrup(S, "Türk Sosyal Hayatında Aile") === "KÜLTÜR, SANAT VE SPOR"
         && K.havuzdanGrup(S, "İslam Bilim Tarihi") === "KÜLTÜR, SANAT VE SPOR",
-        "Sayı 09 çizelgesi, PDF tablo çizgilerinden doğrulandı");
+        "Karar 2026/102 çizelgesi, PDF tablo çizgilerinden doğrulandı (11.09.2026)");
 
     denetle("spor lisesi: etiketin ÜSTÜNDEKİ dersler İnsan/Toplum/Bilim'de",
         K.havuzdanGrup(S, "Astronomi ve Uzay Bilimleri") === "İNSAN, TOPLUM VE BİLİM"

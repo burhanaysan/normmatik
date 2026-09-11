@@ -880,14 +880,14 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Sağlık Hizmetleri", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Temel Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Spor ve Beslenme", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Temel Spor Eğitimi", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Spor ve Beslenme", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Genel Jimnastik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Takım Sporları", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Spor Uygulamaları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false }
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ],
         "10": [
             { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
@@ -899,12 +899,10 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Takım Sporları", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Bireysel Sporlar", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Müsabaka Analizi", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Spor Uygulamaları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ],
         "11": [
@@ -921,7 +919,6 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Atletizm", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Takım Sporları", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Bireysel Sporlar", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Spor Uygulamaları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ],
         "12": [
@@ -930,7 +927,6 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Görsel Sanatlar/Müzik", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Beden Eğitimi ve Spor Tarihi", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Antrenman Bilgisi", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Antrenörlük Eğitimi", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Spor Yönetimi ve Organizasyonu", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
@@ -938,7 +934,6 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Atletizm", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Takım Sporları", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Bireysel Sporlar", saat: 4, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
-            { ders: "Spor Uygulamaları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ]
     }

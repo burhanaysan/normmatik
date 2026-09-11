@@ -48,3 +48,10 @@ _onizleme_rapor.html
 # Cizelge duzeltme betiklerinin zaman damgali yedekleri; kaynak surumler
 # zaten gitte. Canliya cikmasinlar.
 *.yedek_*
+
+# --- Mevzuat nöbetçisinin hafızası ----------------------------------------
+# GitHub Actions önbelleğinde yaşar. Yerel deneme çalıştırmalarında oluşan
+# kopya depoya girmesin: 4_Canliya_Yukle.bat "git add -A" yapıyor ve depo
+# herkese açık.
+.nobetci/
+tools/mevzuat_tarama_raporu.json

@@ -8,7 +8,7 @@ Proje ana klasöründeki **`Gelecek_Yil_Mufredat_Guncelle.bat`** dosyasına çif
 tıklayın. Ayrıntı için:
 
 ```
-04_veri_tabani_ve_araclar\pdf_donusturucu_hatti\OKUBENI.md
+04_veri_uretim_hatti\pdf_donusturucu_hatti\OKUBENI.md
 ```
 
 ---
@@ -26,7 +26,7 @@ ve sabit sıra numarasından ("Sütun 0 ➔ 9. Sınıf") tanıyordu. MEB PDF'ler
 bu yöntem **sütun kayması** üretiyor: bir dersin saati komşu sınıfın sütununa
 düşüyor ve hata hiçbir yerde görünmüyor.
 
-Yeni ayrıştırıcı (`04_veri_tabani_ve_araclar\pdf_donusturucu_hatti`) kelimeleri
+Yeni ayrıştırıcı (`04_veri_uretim_hatti\pdf_donusturucu_hatti`) kelimeleri
 sütun başlıklarının **koordinatına** göre yerleştirir; bu hata sınıfı yapısal
 olarak ortadan kalkar. Ayrıca:
 

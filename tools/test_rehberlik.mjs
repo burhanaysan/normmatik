@@ -24,7 +24,8 @@
    değerlerin sınıf başlıklarının altına düştüğü tek tek doğrulandı.
 
    Şaşırtıcı ama GERÇEK olanlar — bunlar hata değildir, çizelge böyledir:
-     • Spor Lisesi          9. sınıfta YOK
+     • Spor Lisesi          9. sınıfta YOKTU — Karar 2026/102 (02/09/2026) ile
+                            9. sınıfa da geldi; beklenti güncellendi (11.09.2026)
      • Güzel Sanatlar Görsel 10 ve 11. sınıfta YOK
      • Sosyal Bilimler      11. sınıfta YOK
      • Anadolu İmam Hatip   10, 11 ve 12. sınıfta YOK (yalnızca hazırlık ve 9)
@@ -92,7 +93,9 @@ const CIZELGE = {
     guzel_sanatlar_tiyatro:    { "9": 1, "10": 1, "11": 1, "12": 1 },
     guzel_sanatlar_muzik:      { "9": 1, "10": 1, "11": 1, "12": 1 },
     guzel_sanatlar_turk_muzigi:{ "9": 1, "10": 1, "11": 1, "12": 1 },
-    spor_lisesi:               { "9": 0, "10": 1, "11": 1, "12": 1 },
+    // Karar 2026/102 (02/09/2026) ile rehberlik 9. sınıfa da geldi; 2025/9'da
+    // 9. sınıf sütunu boştu. Yeni PDF s.2: "REHBERLİK VE YÖNLENDİRME 1 1 1 1".
+    spor_lisesi:               { "9": 1, "10": 1, "11": 1, "12": 1 },
     anadolu_imam_hatip_lisesi: { "9": 1, "10": 0, "11": 0, "12": 0 },
 };
 
@@ -145,12 +148,17 @@ if (karsilastirma < 30)
 // Karşı yön de denetlenmeli; yoksa "ekle" kuralı tek yönlü çalışır ve
 // çizelgede olmayan bir ders şubede kalmaya devam eder.
 {
-    const z = ce.getMandatoryCourses("spor_lisesi", "9", null, null) || [];
-    kontrol("Spor Lisesi 9 müfredatı dolu (ölçüm geçerli)", z.length > 0);
+    // Örnek, rehberliğin çizelgede GERÇEKTEN olmadığı yerden seçilir.
+    // 11.09.2026'ya kadar Spor Lisesi 9 idi; Karar 2026/102 ile rehberlik
+    // oraya da geldi. Güzel Sanatlar Görsel 10'da hâlâ yok (Sayı 06).
+    const z = ce.getMandatoryCourses("guzel_sanatlar_gorsel", "10", null, null) || [];
+    kontrol("Güzel Sanatlar Görsel 10 müfredatı dolu (ölçüm geçerli)", z.length > 0);
+    kontrol("örnek gerçekten rehberliksiz (ölçüm geçerli)",
+        z.filter(rehberlikMi).length === 0);
     const fazladan = z.concat([{ ders: "Rehberlik ve Yönlendirme", saat: 1,
         kategori: "ORTAK DERSLER", atananBrans: "Rehberlik" }]);
-    const sec = subeKur("spor_lisesi", "9", fazladan);
-    kontrol("çizelgede olmayan rehberlik siliniyor (Spor Lisesi 9)",
+    const sec = subeKur("guzel_sanatlar_gorsel", "10", fazladan);
+    kontrol("çizelgede olmayan rehberlik siliniyor (Güzel Sanatlar Görsel 10)",
         (sec.zorunluDersler || []).filter(rehberlikMi).length === 0);
 }
 

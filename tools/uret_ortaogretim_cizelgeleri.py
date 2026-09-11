@@ -23,7 +23,7 @@ KAYNAKLAR
     ogm/sayi05_anadolu_fen_sosyalbilimler.json   6 tablo
     ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json 2 tablo
     ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json 2 tablo
-    ogm/sayi09_spor_lisesi.json                  1 tablo
+    ogm/sayi102_spor_lisesi.json                  1 tablo
     ogm/sayi24_ozelprogram_fen_lisesi.json       1 tablo
     ogm/sayi25_ozelprogram_sosyalbilimler_lisesi.json 1 tablo
     dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json
@@ -77,7 +77,9 @@ TABLOLAR = [
     ("guzel_sanatlar_tiyatro",    "ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json", "Güzel Sanatlar Lisesi - Tiyatro"),
     ("guzel_sanatlar_muzik",      "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json", "Güzel Sanatlar Lisesi - Müzik"),
     ("guzel_sanatlar_turk_muzigi", "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json", "Güzel Sanatlar Lisesi - Türk Müziği"),
-    ("spor_lisesi",               "ogm/sayi09_spor_lisesi.json",                None),
+    # 11.09.2026: Karar 2026/102, 2025/9'u 2026-2027'den itibaren TÜM sınıflarda
+    # kaldırdı (haftalık 43 -> 40). Üretici: tools/uret_ogm_karar.py
+    ("spor_lisesi",               "ogm/sayi102_spor_lisesi.json",               None),
     # Meslek lisesi hazırlık sınıfı: YALNIZCA hazırlık sütununu tanımlar.
     # 9-12. sınıflar okulun alanına göre ayrı çizelgeden (strict_pdf_curriculum_db)
     # gelmeye devam eder. Bu yüzden bu iki tür için üretilen tabloda sadece

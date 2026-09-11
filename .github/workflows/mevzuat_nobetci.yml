@@ -1,28 +1,74 @@
-name: NormMatik Mevzuat Nöbetçisi (7/24 Bulut Tarama)
+name: NormMatik Mevzuat Nöbetçisi
+
+# NEDEN BU HÂLİ (11.09.2026)
+# v1 her çalıştırmada Telegram'a yazıyordu. v2 yalnızca değişiklikte yazar;
+# bunun için bir önceki taramayı HATIRLAMASI gerekir. GitHub'ın makineleri
+# her çalıştırmada sıfırdan kurulduğu için hafıza (.nobetci/durum.json)
+# Actions önbelleğiyle taşınır: başta geri yüklenir, sonda yeni anahtarla
+# kaydedilir. Önbellek bir sebeple silinirse bot tabanı sessizce yeniden
+# kurar ve tek bir "kuruldu" mesajı gönderir.
+#
+# Bot anahtarı YALNIZCA GitHub Secrets'tan okunur. Bu dosyaya asla anahtar
+# yazılmaz — depo herkese açık ve git geçmişi silinmez.
 
 on:
   schedule:
-    # Her gün Türkiye Saati ile 08:00, 14:00 ve 18:00'de otomatik çalışır (UTC 05:00, 11:00, 15:00)
+    # TSİ 08:00, 14:00, 18:00 (UTC 05, 11, 15). GitHub zamanlanmış işleri
+    # yoğunlukta saatlerce geciktirebilir; geçmişte 09:24, 15:00 ve 18:05
+    # UTC'de çalıştığı görüldü.
     - cron: '0 5 * * *'
     - cron: '0 11 * * *'
     - cron: '0 15 * * *'
-  workflow_dispatch: # İstenildiğinde GitHub üzerinden manuel tetikleme
+  workflow_dispatch:
+    inputs:
+      durum_raporu:
+        description: "Değişiklik olmasa da Telegram'a durum raporu gönder"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+# İki çalıştırma aynı hafızayı aynı anda okuyup yazmasın.
+concurrency:
+  group: mevzuat-nobetci
+  cancel-in-progress: false
 
 jobs:
-  scan-legislation:
+  tara:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Depoyu Klonla (Checkout)
+      - name: Depoyu al
         uses: actions/checkout@v4
 
-      - name: Python Kurulumu
+      - name: Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: MEB & Resmî Gazete Mevzuat Nöbetçisini Çalıştır
+      - name: Hafızayı geri yükle
+        uses: actions/cache/restore@v4
+        with:
+          path: .nobetci
+          key: nobetci-durum-${{ github.run_id }}
+          restore-keys: |
+            nobetci-durum-
+
+      - name: Kaynakları tara
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          python tools/mevzuat_nobetci_bot.py
+          NOBETCI_DURUM_DOSYASI: .nobetci/durum.json
+          NOBETCI_DURUM_RAPORU: ${{ github.event_name == 'workflow_dispatch' && inputs.durum_raporu }}
+        run: python tools/mevzuat_nobetci_bot.py
+
+      # Bot, Telegram'a gönderemediği bir değişikliği hafızaya YAZMAZ; o
+      # durumda eski hafıza aynen geri kaydedilir ve bir sonraki tarama
+      # değişikliği yeniden tespit eder.
+      - name: Hafızayı kaydet
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .nobetci
+          key: nobetci-durum-${{ github.run_id }}

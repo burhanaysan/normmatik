@@ -246,8 +246,9 @@ CIZELGELER = [
     "ogm/sayi05_anadolu_fen_sosyalbilimler.json",
     "ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json",
     "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json",
-    "ogm/sayi09_spor_lisesi.json",
-    "ogm/sayi10_tematik_spor_lisesi.json",
+    # 11.09.2026: 2025/9 ve 2025/10 yerine 2026/102 ve 2026/103.
+    "ogm/sayi102_spor_lisesi.json",
+    "ogm/sayi103_tematik_spor_lisesi.json",
 ]
 
 # Ortaokul cizelgesinin JSON yapisi farkli (tablolar/gruplar yok), ayri

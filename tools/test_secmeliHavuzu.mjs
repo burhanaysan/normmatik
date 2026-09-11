@@ -110,7 +110,7 @@ const ESLEME = [
         "Güzel Sanatlar Lisesi - Müzik"],
     ["guzel_sanatlar_turk_muzigi", "ogm/sayi07_guzelsanatlar_muzik_turkmuzigi.json",
         "Güzel Sanatlar Lisesi - Türk Müziği"],
-    ["spor_lisesi", "ogm/sayi09_spor_lisesi.json", null],
+    ["spor_lisesi", "ogm/sayi102_spor_lisesi.json", null],   // Karar 2026/102
     ["anadolu_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
     ["hazirlik_imam_hatip_lisesi", "dogm/anadolu_imam_hatip_lisesi_ve_hazirlik.json", null],
     ["ozel_program_fen_lisesi", "ogm/sayi24_ozelprogram_fen_lisesi.json", null],
