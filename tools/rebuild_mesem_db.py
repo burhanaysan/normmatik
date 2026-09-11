@@ -74,7 +74,19 @@ GRADES = ["9", "10", "11", "12"]
 KATEGORI_HARITASI = {
     "TEMEL DERSLER": "ORTAK DERSLER",
     "ALAN/DAL DERSLERİ": "ALAN VE DAL MESLEK DERSLERİ",
-    "İŞLETMELERDE MESLEKİ EĞİTİM": "ALAN VE DAL MESLEK DERSLERİ",
+    # ISLETMELERDE MESLEKI EGITIM KENDI KATEGORISINDE KALIR (11.09.2026)
+    # ------------------------------------------------------------------
+    # Eskiden bu da "ALAN VE DAL MESLEK DERSLERI"ne ceviriliyordu.
+    # Norm Kadro Yon. Md. 22/3 ise IKI AYRI kalem tanimlar:
+    #     alanin toplam yuku = isletme ders YUKU + alan/dal ders SAATLERI
+    # Birincisi Md. 22/2 baremiyle (cirak grubu x cerceve saati) bulunur,
+    # ikincisi duz toplanir. Kategoriler birlesince motor ikisini ayirt
+    # edemedi: 32 saati duz alan/dal yuku olarak saydi, USTUNE baremden
+    # geleni ekledi. Her subede +32 saat, yaklasik +1 norm sisme.
+    #
+    # Ad "MESLEK" icerdigi icin curriculumEngine'in isAtolye tespiti
+    # (kategori.includes("MESLEK")) bozulmadan calismaya devam eder.
+    "İŞLETMELERDE MESLEKİ EĞİTİM": "İŞLETMELERDE MESLEKİ EĞİTİM",
     "SEÇMELİ DERSLER": "SEÇMELİ DERSLER",
 }
 

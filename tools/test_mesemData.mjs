@@ -87,7 +87,15 @@ function norm(s) {
 // metin OLAMAZ. Yeni bir kategori eklenirse burada da bildirilmelidir.
 const GECERLI_KATEGORI = new Set([
     "ORTAK DERSLER",                // temel dersler -> genel yük (Madde 18)
-    "ALAN VE DAL MESLEK DERSLERİ",  // alan/dal + işletme -> atölye (Madde 19)
+    "ALAN VE DAL MESLEK DERSLERİ",  // alan/dal dersleri -> atölye (Madde 19)
+    // İŞLETME DERSİ ARTIK KENDİ KATEGORİSİNDE (11.09.2026)
+    // ----------------------------------------------------
+    // Eskiden "ALAN VE DAL MESLEK DERSLERİ"ne katlanıyordu. Oysa Md. 22/3 iki
+    // AYRI kalem tanımlar: işletme ders YÜKÜ (Md. 22/2 çırak baremiyle) +
+    // alan/dal ders SAATLERİ (düz toplam). Kategoriler birleşince motor
+    // ikisini ayıramadı; 32 saati hem düz saydı hem baremden ekledi, her
+    // şubede ~+1 norm şişme oldu. Ayrım bu yüzden geri getirildi.
+    "İŞLETMELERDE MESLEKİ EĞİTİM",
     "SEÇMELİ DERSLER",
 ]);
 

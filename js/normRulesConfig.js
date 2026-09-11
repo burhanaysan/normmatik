@@ -182,7 +182,22 @@ export const NORM_RULES_CONFIG = {
         firstTierUntilBelow: 41,           // 10-40 -> 1 grup
         intervalApprentices: 40,           // sonraki her 40 çırak -> +1 grup
         maxGroups: 12,                     // 441+ -> 12 (tavan)
-        weeklyHoursPerGroup: 32            // grup başına haftalık işletme eğitimi yükü
+
+        /**
+         * Md. 22/2: "İşletmelerde meslek eğitimi ders yükü ÇERÇEVE ÖĞRETİM
+         * PROGRAMINDA YER ALAN işletmelerde meslek eğitimi ders saati ile grup
+         * sayısının çarpımı sonucu bulunur."
+         *
+         * Saat artık ÇİZELGEDEN okunuyor; aşağıdaki değer yalnızca çizelgede o
+         * ders bulunamazsa devreye giren yedektir. 861 MESEM çizelgesi ölçüldü
+         * (11.09.2026): 856'sında bu ders 32 saat. Kalan 5 kayıt bu ders
+         * DEĞİL — adında "İşletme" geçen bambaşka derslerdir (Girişimcilik ve
+         * İşletme Yönetimi, Doğal Gaz Altyapım ve İşletme gibi) ve onlar
+         * gerçek ders yüküdür. Bu yüzden ders ADINA göre eşleşme YAPILMAZ;
+         * tek ölçüt KATEGORİDİR.
+         */
+        weeklyHoursPerGroupFallback: 32,
+        isletmeKategorisi: "İŞLETMELERDE MESLEKİ EĞİTİM"
     },
 
     /* =====================================================================

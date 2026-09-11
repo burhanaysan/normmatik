@@ -50,7 +50,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -89,7 +89,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -128,7 +128,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -167,7 +167,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -214,7 +214,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -259,7 +259,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -304,7 +304,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -349,7 +349,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -397,7 +397,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -437,7 +437,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -477,7 +477,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -511,7 +511,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -558,7 +558,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -603,7 +603,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -648,7 +648,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -687,7 +687,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -743,7 +743,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -782,7 +782,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -835,7 +835,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -886,7 +886,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -934,7 +934,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -980,7 +980,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1027,7 +1027,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1066,7 +1066,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1121,7 +1121,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1174,7 +1174,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1228,7 +1228,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1281,7 +1281,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1336,7 +1336,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1389,7 +1389,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1449,7 +1449,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1490,7 +1490,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1550,7 +1550,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1589,7 +1589,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1628,7 +1628,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1667,7 +1667,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1706,7 +1706,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1745,7 +1745,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1798,7 +1798,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1849,7 +1849,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1900,7 +1900,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -1951,7 +1951,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2002,7 +2002,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2053,7 +2053,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2101,7 +2101,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2147,7 +2147,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2193,7 +2193,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2233,7 +2233,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2273,7 +2273,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2313,7 +2313,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2360,7 +2360,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2405,7 +2405,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2450,7 +2450,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2501,7 +2501,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2546,7 +2546,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2597,7 +2597,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2661,7 +2661,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2700,7 +2700,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2739,7 +2739,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2778,7 +2778,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2817,7 +2817,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2856,7 +2856,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2895,7 +2895,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2934,7 +2934,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -2973,7 +2973,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3012,7 +3012,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3065,7 +3065,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3116,7 +3116,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3167,7 +3167,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3218,7 +3218,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3269,7 +3269,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3320,7 +3320,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3371,7 +3371,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3422,7 +3422,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3473,7 +3473,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3524,7 +3524,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3572,7 +3572,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3624,7 +3624,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3676,7 +3676,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3722,7 +3722,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3768,7 +3768,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3814,7 +3814,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3860,7 +3860,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3912,7 +3912,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3952,7 +3952,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -3992,7 +3992,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4045,7 +4045,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4096,7 +4096,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4147,7 +4147,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4198,7 +4198,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4249,7 +4249,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4294,7 +4294,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4339,7 +4339,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4390,7 +4390,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4435,7 +4435,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4480,7 +4480,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4535,7 +4535,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4588,7 +4588,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4642,7 +4642,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4695,7 +4695,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4753,7 +4753,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4792,7 +4792,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4831,7 +4831,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4870,7 +4870,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4917,7 +4917,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -4962,7 +4962,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5007,7 +5007,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5052,7 +5052,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5094,7 +5094,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5134,7 +5134,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5174,7 +5174,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5214,7 +5214,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5261,7 +5261,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5306,7 +5306,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5351,7 +5351,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5396,7 +5396,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5459,7 +5459,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5498,7 +5498,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5537,7 +5537,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5576,7 +5576,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5615,7 +5615,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5654,7 +5654,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5693,7 +5693,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5732,7 +5732,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5771,7 +5771,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5812,7 +5812,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5851,7 +5851,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5890,7 +5890,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5929,7 +5929,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -5974,7 +5974,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6013,7 +6013,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6052,7 +6052,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6097,7 +6097,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6136,7 +6136,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6178,7 +6178,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6212,7 +6212,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6252,7 +6252,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6286,7 +6286,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6332,7 +6332,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6372,7 +6372,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6412,7 +6412,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6452,7 +6452,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6492,7 +6492,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6533,7 +6533,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6572,7 +6572,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6611,7 +6611,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6644,7 +6644,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6683,7 +6683,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6722,7 +6722,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6755,7 +6755,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6794,7 +6794,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6833,7 +6833,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6890,7 +6890,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6929,7 +6929,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -6968,7 +6968,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7027,7 +7027,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7084,7 +7084,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7141,7 +7141,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7183,7 +7183,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7229,7 +7229,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7275,7 +7275,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7316,7 +7316,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7361,7 +7361,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7412,7 +7412,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7469,7 +7469,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7508,7 +7508,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7547,7 +7547,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7606,7 +7606,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7663,7 +7663,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7720,7 +7720,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7768,7 +7768,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7808,7 +7808,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7860,7 +7860,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7919,7 +7919,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -7976,7 +7976,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8033,7 +8033,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8088,7 +8088,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8135,7 +8135,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8183,7 +8183,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8236,7 +8236,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8296,7 +8296,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8335,7 +8335,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8374,7 +8374,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8413,7 +8413,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8452,7 +8452,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8491,7 +8491,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8538,7 +8538,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8583,7 +8583,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8628,7 +8628,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8679,7 +8679,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8730,7 +8730,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8769,7 +8769,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8817,7 +8817,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8857,7 +8857,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8903,7 +8903,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8949,7 +8949,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -8995,7 +8995,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9035,7 +9035,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9070,7 +9070,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9109,7 +9109,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9160,7 +9160,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9199,7 +9199,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9238,7 +9238,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9283,7 +9283,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9351,7 +9351,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9390,7 +9390,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9429,7 +9429,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9468,7 +9468,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9507,7 +9507,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9546,7 +9546,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9585,7 +9585,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9624,7 +9624,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9663,7 +9663,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9702,7 +9702,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9741,7 +9741,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9780,7 +9780,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9819,7 +9819,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9858,7 +9858,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9911,7 +9911,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -9962,7 +9962,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10013,7 +10013,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10064,7 +10064,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10115,7 +10115,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10166,7 +10166,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10217,7 +10217,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10268,7 +10268,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10319,7 +10319,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10370,7 +10370,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10421,7 +10421,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10472,7 +10472,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10523,7 +10523,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10574,7 +10574,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10622,7 +10622,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10668,7 +10668,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10714,7 +10714,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10760,7 +10760,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10806,7 +10806,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10852,7 +10852,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10898,7 +10898,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10944,7 +10944,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -10990,7 +10990,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11036,7 +11036,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11082,7 +11082,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11128,7 +11128,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11180,7 +11180,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11226,7 +11226,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11273,7 +11273,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11318,7 +11318,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11363,7 +11363,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11408,7 +11408,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11453,7 +11453,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11498,7 +11498,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11543,7 +11543,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11588,7 +11588,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11633,7 +11633,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11678,7 +11678,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11717,7 +11717,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11762,7 +11762,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11801,7 +11801,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11840,7 +11840,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11899,7 +11899,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11938,7 +11938,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -11977,7 +11977,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12016,7 +12016,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12055,7 +12055,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12096,7 +12096,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12135,7 +12135,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12174,7 +12174,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12213,7 +12213,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12252,7 +12252,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12288,7 +12288,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12334,7 +12334,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12374,7 +12374,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12408,7 +12408,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12448,7 +12448,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12483,7 +12483,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12522,7 +12522,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12555,7 +12555,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12612,7 +12612,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12651,7 +12651,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12711,7 +12711,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12750,7 +12750,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12789,7 +12789,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12828,7 +12828,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12867,7 +12867,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12906,7 +12906,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -12959,7 +12959,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13010,7 +13010,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13067,7 +13067,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13124,7 +13124,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13181,7 +13181,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13238,7 +13238,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13292,7 +13292,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13344,7 +13344,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13402,7 +13402,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13460,7 +13460,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13524,7 +13524,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13588,7 +13588,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13635,7 +13635,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13680,7 +13680,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13731,7 +13731,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13782,7 +13782,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13827,7 +13827,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13878,7 +13878,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13942,7 +13942,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -13987,7 +13987,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14032,7 +14032,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14077,7 +14077,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14130,7 +14130,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14181,7 +14181,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14232,7 +14232,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14283,7 +14283,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14337,7 +14337,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14389,7 +14389,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14441,7 +14441,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14493,7 +14493,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14552,7 +14552,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14609,7 +14609,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14660,7 +14660,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14717,7 +14717,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14774,7 +14774,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14813,7 +14813,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14852,7 +14852,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14905,7 +14905,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -14956,7 +14956,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15007,7 +15007,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15055,7 +15055,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15101,7 +15101,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15153,7 +15153,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15206,7 +15206,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15257,7 +15257,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15302,7 +15302,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15365,7 +15365,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15404,7 +15404,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15443,7 +15443,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15482,7 +15482,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15521,7 +15521,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15560,7 +15560,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15599,7 +15599,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15638,7 +15638,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15677,7 +15677,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15724,7 +15724,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15769,7 +15769,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15814,7 +15814,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15859,7 +15859,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15904,7 +15904,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15949,7 +15949,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -15994,7 +15994,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16039,7 +16039,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16084,7 +16084,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16138,7 +16138,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16184,7 +16184,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16230,7 +16230,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16276,7 +16276,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16328,7 +16328,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16374,7 +16374,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16426,7 +16426,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16472,7 +16472,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16518,7 +16518,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16559,7 +16559,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16598,7 +16598,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16649,7 +16649,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16688,7 +16688,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16733,7 +16733,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16784,7 +16784,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16829,7 +16829,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16880,7 +16880,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16925,7 +16925,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -16987,7 +16987,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": false
       }
      ],
@@ -17026,7 +17026,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17065,7 +17065,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17104,7 +17104,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17143,7 +17143,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17182,7 +17182,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17221,7 +17221,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17260,7 +17260,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17319,7 +17319,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": false
       }
      ],
@@ -17376,7 +17376,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17433,7 +17433,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17490,7 +17490,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17547,7 +17547,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17604,7 +17604,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17661,7 +17661,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17718,7 +17718,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17760,7 +17760,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": false
       }
      ],
@@ -17800,7 +17800,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17840,7 +17840,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17880,7 +17880,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17914,7 +17914,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17954,7 +17954,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -17988,7 +17988,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18028,7 +18028,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18075,7 +18075,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": false
       }
      ],
@@ -18120,7 +18120,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18159,7 +18159,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18198,7 +18198,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18243,7 +18243,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18288,7 +18288,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18339,7 +18339,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18384,7 +18384,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18448,7 +18448,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18487,7 +18487,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18526,7 +18526,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18565,7 +18565,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18604,7 +18604,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18643,7 +18643,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18682,7 +18682,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18721,7 +18721,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18760,7 +18760,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18799,7 +18799,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18846,7 +18846,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18891,7 +18891,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18936,7 +18936,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -18981,7 +18981,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19026,7 +19026,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19071,7 +19071,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19116,7 +19116,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19161,7 +19161,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19206,7 +19206,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19251,7 +19251,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19299,7 +19299,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19345,7 +19345,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19391,7 +19391,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19437,7 +19437,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19489,7 +19489,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19535,7 +19535,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19581,7 +19581,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19627,7 +19627,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19673,7 +19673,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19719,7 +19719,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19772,7 +19772,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19817,7 +19817,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19862,7 +19862,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19913,7 +19913,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -19964,7 +19964,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20009,7 +20009,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20054,7 +20054,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20105,7 +20105,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20150,7 +20150,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20195,7 +20195,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20251,7 +20251,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20290,7 +20290,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20337,7 +20337,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20382,7 +20382,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20430,7 +20430,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20482,7 +20482,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20541,7 +20541,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20592,7 +20592,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20651,7 +20651,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20690,7 +20690,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20729,7 +20729,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20768,7 +20768,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20807,7 +20807,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20860,7 +20860,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20911,7 +20911,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -20962,7 +20962,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21013,7 +21013,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21064,7 +21064,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21106,7 +21106,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21146,7 +21146,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21186,7 +21186,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21226,7 +21226,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21266,7 +21266,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21313,7 +21313,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21358,7 +21358,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21403,7 +21403,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21448,7 +21448,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21493,7 +21493,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21554,7 +21554,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21593,7 +21593,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21632,7 +21632,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21671,7 +21671,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21710,7 +21710,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21749,7 +21749,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21788,7 +21788,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21835,7 +21835,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21880,7 +21880,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21925,7 +21925,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -21970,7 +21970,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22015,7 +22015,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22060,7 +22060,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22105,7 +22105,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22153,7 +22153,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22199,7 +22199,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22245,7 +22245,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22291,7 +22291,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22337,7 +22337,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22383,7 +22383,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22429,7 +22429,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22476,7 +22476,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22521,7 +22521,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22566,7 +22566,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22617,7 +22617,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22662,7 +22662,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22713,7 +22713,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22758,7 +22758,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22824,7 +22824,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22863,7 +22863,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22902,7 +22902,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22941,7 +22941,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -22980,7 +22980,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23019,7 +23019,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23058,7 +23058,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23097,7 +23097,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23136,7 +23136,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23175,7 +23175,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23214,7 +23214,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23261,7 +23261,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23306,7 +23306,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23351,7 +23351,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23396,7 +23396,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23441,7 +23441,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23486,7 +23486,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23531,7 +23531,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23576,7 +23576,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23621,7 +23621,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23666,7 +23666,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23711,7 +23711,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23759,7 +23759,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23805,7 +23805,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23851,7 +23851,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23891,7 +23891,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23931,7 +23931,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -23977,7 +23977,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24023,7 +24023,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24069,7 +24069,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24115,7 +24115,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24155,7 +24155,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24195,7 +24195,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24242,7 +24242,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24287,7 +24287,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24332,7 +24332,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24377,7 +24377,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24428,7 +24428,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24479,7 +24479,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24524,7 +24524,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24569,7 +24569,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24614,7 +24614,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24659,7 +24659,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24704,7 +24704,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24759,7 +24759,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24812,7 +24812,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24872,7 +24872,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24925,7 +24925,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -24983,7 +24983,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25022,7 +25022,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25061,7 +25061,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25100,7 +25100,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25153,7 +25153,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25204,7 +25204,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25255,7 +25255,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25306,7 +25306,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25360,7 +25360,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25412,7 +25412,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25464,7 +25464,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25516,7 +25516,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25563,7 +25563,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25608,7 +25608,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25653,7 +25653,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25698,7 +25698,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25755,7 +25755,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25794,7 +25794,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25833,7 +25833,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25892,7 +25892,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -25949,7 +25949,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26006,7 +26006,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26072,7 +26072,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26130,7 +26130,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26188,7 +26188,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26241,7 +26241,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26286,7 +26286,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26331,7 +26331,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26387,7 +26387,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26426,7 +26426,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26479,7 +26479,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26530,7 +26530,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26584,7 +26584,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26636,7 +26636,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26689,7 +26689,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26746,7 +26746,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26807,7 +26807,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26846,7 +26846,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26885,7 +26885,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26924,7 +26924,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -26963,7 +26963,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27002,7 +27002,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27041,7 +27041,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27094,7 +27094,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27145,7 +27145,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27196,7 +27196,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27247,7 +27247,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27298,7 +27298,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27349,7 +27349,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27400,7 +27400,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27448,7 +27448,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27488,7 +27488,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27528,7 +27528,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27574,7 +27574,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27620,7 +27620,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27666,7 +27666,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27706,7 +27706,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27759,7 +27759,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27810,7 +27810,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27861,7 +27861,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27906,7 +27906,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -27951,7 +27951,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28002,7 +28002,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28053,7 +28053,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28114,7 +28114,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28173,7 +28173,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28215,7 +28215,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28262,7 +28262,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28330,7 +28330,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28369,7 +28369,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28408,7 +28408,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28447,7 +28447,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28486,7 +28486,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28525,7 +28525,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28564,7 +28564,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28603,7 +28603,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28642,7 +28642,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28681,7 +28681,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28720,7 +28720,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28759,7 +28759,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28798,7 +28798,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28845,7 +28845,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28890,7 +28890,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28935,7 +28935,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -28980,7 +28980,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29025,7 +29025,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29070,7 +29070,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29115,7 +29115,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29160,7 +29160,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29205,7 +29205,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29250,7 +29250,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29295,7 +29295,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29340,7 +29340,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29385,7 +29385,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29433,7 +29433,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29479,7 +29479,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29525,7 +29525,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29571,7 +29571,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29617,7 +29617,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29663,7 +29663,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29709,7 +29709,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29755,7 +29755,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29807,7 +29807,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29853,7 +29853,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29899,7 +29899,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29945,7 +29945,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -29991,7 +29991,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30032,7 +30032,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30071,7 +30071,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30110,7 +30110,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30155,7 +30155,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30200,7 +30200,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30245,7 +30245,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30284,7 +30284,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30323,7 +30323,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30374,7 +30374,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30413,7 +30413,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30458,7 +30458,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30497,7 +30497,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30542,7 +30542,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30605,7 +30605,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30644,7 +30644,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30683,7 +30683,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30722,7 +30722,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30761,7 +30761,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30800,7 +30800,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30839,7 +30839,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30878,7 +30878,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30917,7 +30917,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -30964,7 +30964,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31009,7 +31009,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31054,7 +31054,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31099,7 +31099,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31144,7 +31144,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31189,7 +31189,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31234,7 +31234,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31279,7 +31279,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31324,7 +31324,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31366,7 +31366,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31400,7 +31400,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31440,7 +31440,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31480,7 +31480,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31532,7 +31532,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31578,7 +31578,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31630,7 +31630,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31676,7 +31676,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31716,7 +31716,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31763,7 +31763,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31808,7 +31808,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31847,7 +31847,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31892,7 +31892,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31943,7 +31943,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -31988,7 +31988,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32045,7 +32045,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32090,7 +32090,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32135,7 +32135,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32197,7 +32197,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32236,7 +32236,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32275,7 +32275,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32314,7 +32314,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32353,7 +32353,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32392,7 +32392,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32431,7 +32431,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32470,7 +32470,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32529,7 +32529,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32586,7 +32586,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32643,7 +32643,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32700,7 +32700,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32757,7 +32757,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32814,7 +32814,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32871,7 +32871,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32928,7 +32928,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -32970,7 +32970,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33010,7 +33010,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33050,7 +33050,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33090,7 +33090,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33136,7 +33136,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33176,7 +33176,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33216,7 +33216,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33256,7 +33256,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33303,7 +33303,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33348,7 +33348,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33387,7 +33387,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33432,7 +33432,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33471,7 +33471,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33510,7 +33510,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33549,7 +33549,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33588,7 +33588,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33643,7 +33643,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33696,7 +33696,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33744,7 +33744,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33785,7 +33785,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33840,7 +33840,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33893,7 +33893,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33941,7 +33941,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -33982,7 +33982,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34042,7 +34042,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34081,7 +34081,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34120,7 +34120,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34159,7 +34159,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34198,7 +34198,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34237,7 +34237,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34278,7 +34278,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34323,7 +34323,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34368,7 +34368,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34413,7 +34413,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34458,7 +34458,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34503,7 +34503,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34545,7 +34545,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34585,7 +34585,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34625,7 +34625,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34665,7 +34665,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34705,7 +34705,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34745,7 +34745,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34786,7 +34786,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34825,7 +34825,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34864,7 +34864,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34903,7 +34903,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34948,7 +34948,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -34993,7 +34993,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -35054,7 +35054,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -35107,7 +35107,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -35155,7 +35155,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
@@ -35208,7 +35208,7 @@ export const MESEM_CURRICULUM_DB = {
       {
        "ders": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "saat": 32,
-       "kategori": "ALAN VE DAL MESLEK DERSLERİ",
+       "kategori": "İŞLETMELERDE MESLEKİ EĞİTİM",
        "baraj_ders": true
       }
      ],
