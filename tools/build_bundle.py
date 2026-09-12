@@ -39,6 +39,7 @@ BUNDLE_FILES = [
     "licenseClientManager.js",
     "fiyat.js",                  # uiComponents.js'ten ÖNCE (lisans fiyatı tek kaynak)
     "surum.js",                  # app.js/uiComponents.js'ten ONCE (surum numarasi tek kaynak)
+    "iletisim.js",               # uiComponents.js'ten ONCE (whatsapp mesaji tek kaynak)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
@@ -197,6 +198,87 @@ def fiyat_senkronize():
 
     with open(yol, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(metin)
+    return sonuc
+
+
+def iletisim_oku():
+    """js/iletisim.js icindeki telefon ve mesaj sablonlarini okur."""
+    yol = os.path.join(JS_DIR, "iletisim.js")
+    if not os.path.exists(yol):
+        return None
+    metin = open(yol, "r", encoding="utf-8").read()
+    m_tel = re.search(r'telefon:\s*"([^"]+)"', metin)
+    if not m_tel:
+        return None
+    # lisansMesaji iki parca halinde yazili: "...\n" + "..."
+    m_lis = re.search(r'lisansMesaji:\s*(.+?),\n\n', metin, re.S)
+    m_sif = re.search(r'sifreMesaji:\s*"([^"]+)"', metin)
+    if not (m_lis and m_sif):
+        return None
+
+    def birlestir(ham):
+        parcalar = re.findall(r'"((?:[^"\\]|\\.)*)"', ham)
+        return "".join(x.replace('\\n', '\n').replace('\\"', '"') for x in parcalar)
+
+    return {
+        "telefon": m_tel.group(1),
+        "lisans": birlestir(m_lis.group(1)),
+        "sifre": m_sif.group(1),
+    }
+
+
+def whatsapp_senkronize():
+    """Karsilama ve SEO sayfalarindaki wa.me baglantilarini js/iletisim.js
+    ile ayni yapar.
+
+    NEDEN (13.09.2026, kullanici bulgusu): lisans icin hazir WhatsApp mesaji
+    IKI ayri yerde elle yaziliydi. Uygulama icindeki surum, formdaki okul
+    bilgilerini mesaja gomuyordu; DEMO'da bu bilgiler SAHTE oldugu icin
+    saticiya her demo kullanicidan "Kurum Kodu: 123457 / DEMO MESLEKI VE
+    TEKNIK ANADOLU LISESI" gidiyordu. Tek kaynak js/iletisim.js'tir;
+    uygulama sabiti dogrudan okur, HTML tarafi burada hizalanir.
+    """
+    v = iletisim_oku()
+    if not v:
+        return ["  ! js/iletisim.js okunamadi, wa.me baglantilari DEGISMEDI"]
+
+    try:
+        from urllib.parse import quote
+    except ImportError:
+        from urllib import quote
+
+    # encodeURIComponent ile ayni kacis kumesi
+    kacilmaz = "!'()*-._~"
+    lisans_kodlu = quote(v["lisans"], safe=kacilmaz)
+    sifre_kodlu = quote(v["sifre"], safe=kacilmaz)
+
+    hedefler = ["index.html", "ders-yuku-hesaplama.html",
+                "norm-kadro-hesaplama.html", "meslek-lisesi-norm-kadro.html"]
+    sonuc = []
+    for ad in hedefler:
+        yol = os.path.join(BASE_DIR, ad)
+        if not os.path.exists(yol):
+            sonuc.append("  ! bulunamadi: %s" % ad)
+            continue
+        with open(yol, "r", encoding="utf-8") as fh:
+            metin = fh.read()
+        onceki = metin
+
+        # Lisans baglantilari: metni "Merhaba,%20NormMatik%20lisans" ile baslayan
+        metin = re.sub(
+            r'https://wa\.me/\d+\?text=Merhaba(?:,|%2C)%20NormMatik%20lisans[^"\']*',
+            "https://wa.me/" + v["telefon"] + "?text=" + lisans_kodlu, metin)
+        # Sifre baglantilari
+        metin = re.sub(
+            r'https://wa\.me/\d+\?text=Merhaba(?:,|%2C)%20NormMatik%20giri[^"\']*',
+            "https://wa.me/" + v["telefon"] + "?text=" + sifre_kodlu, metin)
+
+        if metin != onceki:
+            with open(yol, "w", encoding="utf-8", newline="\n") as fh:
+                fh.write(metin)
+            sonuc.append("  + %-30s hizalandi" % ad)
+        else:
+            sonuc.append("  = %-30s zaten ayni" % ad)
     return sonuc
 
 
@@ -360,6 +442,11 @@ def build_bundle():
     print()
     print("  EKRAN GORUNTULERI (onbellek tazeleme):")
     for satir in gorsel_damgala():
+        print(satir)
+
+    print()
+    print("  WHATSAPP MESAJI (kaynak: js/iletisim.js):")
+    for satir in whatsapp_senkronize():
         print(satir)
 
     print()

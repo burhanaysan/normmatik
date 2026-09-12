@@ -6190,6 +6190,14 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             typeOptionsHtml += `</optgroup>`;
         }
         
+        // İletişim — TEK KAYNAK js/iletisim.js (13.09.2026).
+        const iletisimBilgi = {
+            telefon: (typeof NORMMATIK_ILETISIM !== 'undefined')
+                ? NORMMATIK_ILETISIM.telefonGosterim
+                : ((typeof window !== 'undefined' && window.NORMMATIK_ILETISIM)
+                    ? window.NORMMATIK_ILETISIM.telefonGosterim : "")
+        };
+
         // Sürüm bilgisi — TEK KAYNAK js/surum.js (13.09.2026).
         const S = (typeof NORMMATIK_SURUM !== 'undefined')
             ? NORMMATIK_SURUM
@@ -6278,10 +6286,10 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <!-- 3. WHATSAPP İLE TEK TIKLA LİSANS SATIN ALMA BUTONU -->
                         <div style="display: flex; flex-direction: column; gap: 0.4rem;">
                             <button class="btn" id="btn-send-whatsapp-license" style="background: #16a34a; border: 1px solid #15803d; color: #fff; width: 100%; padding: 0.85rem; font-size: 0.95rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25); transition: all 0.2s;">
-                                WhatsApp ile Lisans Al  ·  +90 506 277 70 49
+                                WhatsApp ile Lisans Al  ·  ${iletisimBilgi.telefon}
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                Tıkladığınızda yukarıdaki okul bilgileriniz WhatsApp mesajı olarak hazırlanır; FAST/IBAN ile lisansınız tanımlanır.
+                                Tıkladığınızda hazır bir WhatsApp mesajı açılır; okul bilgilerinizi yazıp gönderin, FAST/IBAN ile lisansınız tanımlanır.
                             </div>
                         </div>
 
@@ -6358,43 +6366,25 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
         // WhatsApp ile Lisans Satın Alma Linki
         document.getElementById("btn-send-whatsapp-license")?.addEventListener("click", () => {
-            const kKodu = document.getElementById("lic-inp-kurum-kodu")?.value.trim() || "";
-            const oAdi = document.getElementById("lic-inp-okul-adi")?.value.trim() || "";
-            const turSelect = document.getElementById("lic-inp-okul-turu");
-            const oTuru = turSelect ? turSelect.value : "";
-
-            if (!kKodu) {
-                this.showToast("⚠️ Lütfen MEB Kurum Kodunuzu giriniz!", "warning");
-                document.getElementById("lic-inp-kurum-kodu")?.focus();
-                return;
-            }
-            if (!oAdi) {
-                this.showToast("⚠️ Lütfen Okul Adınızı giriniz!", "warning");
-                document.getElementById("lic-inp-okul-adi")?.focus();
-                return;
-            }
-            if (!oTuru) {
-                this.showToast("⚠️ Lütfen geçerli bir Okul / Kurum Türü seçiniz!", "warning");
-                document.getElementById("lic-inp-okul-turu")?.focus();
-                return;
-            }
+            // KALDIRILDI (13.09.2026): "önce kurum kodu / okul adı / okul türü
+            // doldurulsun" zorunluluğu. Mesaj artık bu alanları TAŞIMIYOR
+            // (bkz. aşağısı), dolayısıyla kapıyı açık tutmak yalnızca lisans
+            // almak isteyenin bize ulaşmasını engelliyordu. Kişi yine de bir
+            // şey yazdıysa kaydediliyor.
 
             syncSchoolInputs();
 
-            const turAdi = turSelect ? turSelect.options[turSelect.selectedIndex].text : "";
-            const ilIlce = document.getElementById("lic-inp-il-ilce")?.value.trim() || "Belirtilmedi";
-
-            // Cihaz kodu (HWID) mesajdan ÇIKARILDI (2026-08-24): lisans artık
-            // cihaza değil kuruma bağlı. Okul istediği bilgisayardan girebilir.
-            const msg = `NormMatik™ OKUL LİSANSI TALEBİ
-* MEB Kurum Kodu: ${kKodu}
-* Okul Adı: ${oAdi}
-* İl / İlçe: ${ilIlce}
-* Okul Türü: ${turAdi}
-
-Merhaba, okulumuz için NormMatik™ lisansı almak istiyorum (${F.sureAy} ay, ${F.gosterim}). FAST/IBAN bilgilerinizi iletebilir misiniz?`;
-
-            const waUrl = `https://wa.me/905062777049?text=${encodeURIComponent(msg)}`;
+            // MESAJ TEK KAYNAKTAN GELİR (13.09.2026, kullanıcı bulgusu)
+            // --------------------------------------------------------------
+            // Burada eskiden formdaki okul bilgileri mesaja gömülüyordu.
+            // DEMO'da o bilgiler SAHTE olduğu için satıcıya her seferinde
+            // "Kurum Kodu: 123457 / DEMO MESLEKİ VE TEKNİK ANADOLU LİSESİ"
+            // gidiyordu. Artık karşılama sayfasındaki kısa şablonun AYNISI
+            // kullanılıyor; kişi kendi okul bilgisini kendisi yazıyor.
+            // Şablon: js/iletisim.js
+            const waUrl = (typeof normmatikWhatsappBaglantisi === "function")
+                ? normmatikWhatsappBaglantisi()
+                : "https://wa.me/905062777049";
             window.open(waUrl, "_blank");
         });
 
