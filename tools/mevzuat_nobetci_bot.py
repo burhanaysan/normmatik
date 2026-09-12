@@ -81,7 +81,15 @@ TSI = datetime.timezone(datetime.timedelta(hours=3))
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36 NormMatikNobetci/2.0")
 ZAMAN_ASIMI = 30
-ARDISIK_HATA_ESIGI = 3     # kaynak bu kadar üst üste ulaşılamazsa bildirilir
+# Bir kaynağa BU KADAR SÜREDİR ulaşılamıyorsa uyarı gönderilir.
+#
+# NEDEN SAYI DEĞİL SÜRE (12.09.2026): eşik "üst üste 3 tarama"ydı. İki sorun
+# çıktı. (1) Resmî Gazete birkaç dakikalığına cevap vermeyi kesebiliyor —
+# ölçüldü: 12.09'da iki kez zaman aşımı, dakikalar sonra 0,2 sn'de HTTP 200.
+# Böyle bir kesinti üç taramaya denk gelirse boşuna uyarı çıkar. (2) GitHub
+# zamanlanmış çalışmaları geciktiriyor ya da atlıyor; 12.09'da günde 3 yerine
+# yalnızca 1 tarama koştu. Yani tarama SAYISI geçen zamanı anlatmıyor.
+ULASILAMAZ_SURESI_SAAT = 24
 EKSIK_YUKLEME_ORANI = 0.5  # liste öncekinin yarısının altına düşerse sayfa eksik yüklenmiş sayılır
 AKIS_TAVANI = 600          # akış kaynaklarında hafızada tutulan anahtar sayısı
 MESAJ_TAVANI = 3800        # Telegram sınırı 4096; pay bırakıldı
@@ -125,11 +133,11 @@ def tekrarli(fn, deneme=2, bekle=5):
             time.sleep(bekle)
 
 
-def al(url, kodlama="utf-8"):
+def al(url, kodlama="utf-8", deneme=2, bekle=5):
     def _al():
         with istek(url) as y:
             return y.read().decode(kodlama, "replace")
-    return tekrarli(_al)
+    return tekrarli(_al, deneme=deneme, bekle=bekle)
 
 
 # =========================================================================
@@ -283,7 +291,13 @@ def resmi_gazete():
         u = "https://www.resmigazete.gov.tr/eskiler/%s/%s/%s%s.htm" % (
             bugun.strftime("%Y"), bugun.strftime("%m"), bugun.strftime("%Y%m%d"), ek)
         try:
-            sayfa = al(u, kodlama="cp1254")
+            # Resmî Gazete DİĞERLERİNDEN DAHA SABIRLI denenir. Ölçüm
+            # (12.09.2026): site dakikalar içinde inip kalkıyor — aynı adres
+            # bir denemede 0,2 sn'de HTTP 200, yirmi dakika sonra üst üste üç
+            # denemede hiç yanıt vermedi (Türkiye'den de, GitHub'dan da).
+            # Üç deneme, aralarında 15 sn: kısa bir kesinti taramayı
+            # "ulaşılamadı" saymasın. En kötü hâlde taramaya ~1 dakika ekler.
+            sayfa = al(u, kodlama="cp1254", deneme=3, bekle=15)
         except urllib.error.HTTPError as e:
             if ek and e.code == 404:
                 continue
@@ -322,6 +336,91 @@ def ttkb_duyurular():
     return sonuc
 
 
+# İKGM (personel.meb.gov.tr) duyuruları — Norm Kadro Yönetmeliği'nin SAHİBİ
+# olan genel müdürlük. Resmî Gazete'ye ulaşılamadığı zamanlarda yönetmelik
+# değişikliğini kaçırmamak için ikinci kaynak (12.09.2026).
+#
+# SÜZGEÇ: akıştaki 50 duyurunun neredeyse tamamı yer değiştirme, atama ve
+# sınav duyurusu. "Norm kadro" sözü bunların başlıklarında da geçiyor
+# ("İhtiyaç ve Norm Kadro FAZLASI Öğretmenlerin Yer Değiştirmesi") — o yüzden
+# yalnızca anahtar kelimeye bakmak her hafta yanlış bildirim üretirdi.
+# Kural: "yönetmelik" geçiyorsa her hâlükârda ilgilidir; geçmiyorsa konu
+# kelimelerinden biri VARSA ve personel işlemi kelimelerinden hiçbiri YOKSA.
+IKGM_ILGILI = ("norm kadro", "ders saati", "cizelge", "ders okutma",
+               "atama ve ders", "atama esas")
+IKGM_HARIC = ("yer degistir", "fazlasi", "tercih", "sonuc", "basvuru",
+              "sinav", "gorevlendirme takvim", "atama sonuc")
+
+
+def ikgm_ilgili_mi(baslik):
+    s = sade(baslik)
+    # "yonetmeliK" DEĞİL "yonetmeli": Türkçede ek alınca k → ğ yumuşuyor
+    # ("Yönetmeliği", "Yönetmelikte", "Yönetmeliğinde"). Tam kelimeyi
+    # arayan ilk sürüm "Norm Kadro Yönetmeliği Değişikliği" başlığını
+    # KAÇIRIYORDU; birim testi yakaladı (12.09.2026).
+    if "yonetmeli" in s:
+        return True
+    return (any(k in s for k in IKGM_ILGILI)
+            and not any(h in s for h in IKGM_HARIC))
+
+
+def ikgm_duyurular():
+    """İKGM duyuru akışındaki mevzuat/norm ile ilgili başlıklar."""
+    def _al():
+        with istek("https://personel.meb.gov.tr/meb_iys_dosyalar/xml/"
+                   "rss_duyurular.xml") as y:
+            return y.read()
+    kok = ET.fromstring(tekrarli(_al))
+    sonuc = {}
+    for it in kok.iter("item"):
+        baslik = temiz(it.findtext("title"))
+        link = (it.findtext("link") or "").strip()
+        if link and ikgm_ilgili_mi(baslik):
+            sonuc[mutlak("https://personel.meb.gov.tr/", link)] = {
+                "baslik": baslik, "tarih": temiz(it.findtext("pubDate"))[:16]}
+    return sonuc
+
+
+def hata_kaydini_guncelle(onceki, simdi):
+    """
+    Bir kaynağa ulaşılamadığında hata kaydını günceller.
+
+    Dönüş: (kayit, gecen_saat, uyarilsin_mi)
+
+    Kayıt: {"adet": kaç taramadır, "ilk": ilk başarısızlık anı,
+            "bildirildi": uyarı gönderildi mi}
+
+    Kural: uyarı, kesinti SÜRESİ eşiği (ULASILAMAZ_SURESI_SAAT) aşınca ve
+    yalnızca BİR KEZ gönderilir. Kaynak düzelince kayıt silinir; bildirim
+    yapılmışsa çağıran taraf "yeniden ulaşılabiliyor" notunu ekler.
+
+    Eski hafızada bu alan düz bir SAYIydı. Sayı korunur, saat o andan
+    başlatılır: geçişte uyarı en fazla bir kez, bir eşik süresi gecikir.
+    """
+    if isinstance(onceki, int):
+        h = {"adet": onceki, "ilk": simdi.isoformat(timespec="minutes"),
+             "bildirildi": False}
+    elif isinstance(onceki, dict):
+        h = dict(onceki)
+    else:
+        h = {"adet": 0, "ilk": simdi.isoformat(timespec="minutes"),
+             "bildirildi": False}
+
+    h["adet"] = int(h.get("adet") or 0) + 1
+    try:
+        gecen_saat = ((simdi - datetime.datetime.fromisoformat(h["ilk"]))
+                      .total_seconds() / 3600.0)
+    except Exception:
+        # Bozuk ya da eksik tarih: sayacı şimdiden başlat, çökme.
+        h["ilk"] = simdi.isoformat(timespec="minutes")
+        gecen_saat = 0.0
+
+    uyar = gecen_saat >= ULASILAMAZ_SURESI_SAAT and not h.get("bildirildi")
+    if uyar:
+        h["bildirildi"] = True
+    return h, gecen_saat, uyar
+
+
 def _kaynak(anahtar, ad, fn, tur, derin=False):
     return {"anahtar": anahtar, "ad": ad, "fn": fn, "tur": tur, "derin": derin}
 
@@ -335,7 +434,9 @@ KAYNAKLAR = (
     + [_kaynak("meslek_mesem_%d" % s, "MTEGM · MESEM %d. sınıf çerçeve programları" % s,
                meslek_cop(2, s), "liste", True) for s in (9, 10, 11, 12)]
     + [_kaynak("resmi_gazete", "Resmî Gazete · MEB ile ilgili metinler", resmi_gazete, "akis"),
-       _kaynak("ttkb_duyuru", "TTKB · Duyurular (çizelge / karar / norm)", ttkb_duyurular, "akis")]
+       _kaynak("ttkb_duyuru", "TTKB · Duyurular (çizelge / karar / norm)", ttkb_duyurular, "akis"),
+       _kaynak("ikgm_duyuru", "İKGM · Personel duyuruları (yönetmelik / norm)",
+               ikgm_duyurular, "akis")]
 )
 
 
@@ -649,16 +750,23 @@ def calistir():
                 raise RuntimeError("sayfa eksik yüklendi: %d öğe (önceki %d)"
                                    % (len(simdiki), len(onceki)))
         except Exception as hata:
-            n = yeni["hatalar"].get(k["anahtar"], 0) + 1
-            yeni["hatalar"][k["anahtar"]] = n
-            saglik.append((k["ad"], "ULAŞILAMADI (%d. kez)" % n))
-            print("   [x] %-48s %s" % (k["ad"], kisa(hata)))
-            if n == ARDISIK_HATA_ESIGI:
-                uyarilar.append("⚠️ %s — %d taramadır ulaşılamıyor.\n    %s"
-                                % (e(k["ad"]), n, e(kisa(hata))))
+            h, gecen_saat, uyar = hata_kaydini_guncelle(
+                yeni["hatalar"].get(k["anahtar"]), simdi)
+            yeni["hatalar"][k["anahtar"]] = h
+
+            saglik.append((k["ad"], "ULAŞILAMADI (%d. kez, %d saattir)"
+                           % (h["adet"], gecen_saat)))
+            print("   [x] %-48s %s  (%d. kez, %.1f saat)"
+                  % (k["ad"], kisa(hata), h["adet"], gecen_saat))
+
+            if uyar:
+                uyarilar.append(
+                    "⚠️ %s — %d saattir ulaşılamıyor (%d tarama).\n    %s"
+                    % (e(k["ad"]), int(gecen_saat), h["adet"], e(kisa(hata))))
             continue
 
-        if yeni["hatalar"].pop(k["anahtar"], 0) >= ARDISIK_HATA_ESIGI:
+        eski_hata = yeni["hatalar"].pop(k["anahtar"], None)
+        if isinstance(eski_hata, dict) and eski_hata.get("bildirildi"):
             uyarilar.append("✅ %s — yeniden ulaşılabiliyor." % e(k["ad"]))
 
         degisen, kayit = karsilastir(k, onceki, simdiki)
