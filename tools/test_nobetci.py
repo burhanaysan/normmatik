@@ -167,6 +167,47 @@ denetle("durum raporunda ulasilamama sebebi de var",
 
 
 # =====================================================================
+#  3. Eksik ara sertifika (resmigazete.gov.tr)
+# =====================================================================
+print()
+print("Resmi Gazete ara sertifikasi")
+
+import ssl
+
+denetle("ara sertifika dosyasi duruyor", os.path.exists(bot.ARA_SERTIFIKALAR),
+        bot.ARA_SERTIFIKALAR)
+
+if os.path.exists(bot.ARA_SERTIFIKALAR):
+    bilgi = ssl._ssl._test_decode_cert(bot.ARA_SERTIFIKALAR)
+    konu = dict(x[0] for x in bilgi["subject"])
+    veren = dict(x[0] for x in bilgi["issuer"])
+    denetle("dogru ara sertifika (GeoTrust TLS RSA CA G1)",
+            konu.get("commonName") == "GeoTrust TLS RSA CA G1",
+            str(konu))
+    denetle("koku DigiCert Global Root G2",
+            veren.get("commonName") == "DigiCert Global Root G2", str(veren))
+
+    # Sertifikanin suresi dolarsa bot Resmi Gazete'yi yine okuyamaz hale
+    # gelir. Test, bitise 60 gunden az kalinca DUSER: sessizce bozulmak
+    # yerine onceden haber versin.
+    bitis = datetime.datetime.strptime(bilgi["notAfter"], "%b %d %H:%M:%S %Y %Z")
+    kalan = (bitis - datetime.datetime.utcnow()).days
+    denetle("ara sertifikanin omru bitmek uzere degil (>60 gun)", kalan > 60,
+            "kalan %d gun (bitis %s) -> yeni halkayi indir: "
+            "http://cacerts.geotrust.com/GeoTrustTLSRSACAG1.crt" % (kalan, bilgi["notAfter"]))
+
+denetle("bot ara sertifikayi SSL baglamina yukluyor",
+        "load_verify_locations(cafile=ARA_SERTIFIKALAR)" in kaynak)
+# DIKKAT: duz "CERT_NONE" aramasi YANLIS ALARM verir -- ifade, v1'in
+# dogrulamayi kapatmis oldugunu anlatan ACIKLAMA satirinda geciyor.
+# Aranacak olan CALISAN kodda kullanimi.
+kod_satirlari = [s for s in kaynak.splitlines() if not s.strip().startswith("#")]
+denetle("sertifika dogrulamasi ACIK kaldi (kodda CERT_NONE yok)",
+        not any("CERT_NONE" in s for s in kod_satirlari),
+        next((s.strip()[:60] for s in kod_satirlari if "CERT_NONE" in s), ""))
+
+
+# =====================================================================
 print()
 print("=" * 62)
 if not hatalar:

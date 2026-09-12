@@ -102,6 +102,25 @@ DERIN_BEKLEME = 0.3
 # Sertifika DOĞRULANIR. v1 doğrulamayı kapatmıştı (ssl.CERT_NONE).
 SSL = ssl.create_default_context()
 
+# EKSİK ARA SERTİFİKA (12.09.2026 — ölçülerek bulundu)
+# resmigazete.gov.tr el sıkışmada yalnızca kendi sertifikasını gönderiyor,
+# ara halkayı (GeoTrust TLS RSA CA G1) göndermiyor. Tarayıcılar ve Windows
+# o halkayı sertifikadaki adresten kendiliğinden indirdiği için sorun
+# görünmüyor; GitHub'ın Ubuntu makinesi indirmiyor ve doğrulama düşüyor:
+#     CERTIFICATE_VERIFY_FAILED: unable to get local issuer certificate
+# Bot bu yüzden 3 taramadır Resmî Gazete'yi okuyamıyordu.
+#
+# Eksik halka ara_sertifikalar.pem içinde. Yerel denemede kanıtlandı:
+# yalnız kök varken doğrulama düşüyor, halka eklenince 3'lü zincir kuruluyor.
+# Dosya yoksa bot yine çalışır; yalnızca bu kaynak okunamaz.
+ARA_SERTIFIKALAR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "ara_sertifikalar.pem")
+if os.path.exists(ARA_SERTIFIKALAR):
+    try:
+        SSL.load_verify_locations(cafile=ARA_SERTIFIKALAR)
+    except Exception as _hata:
+        print("[!] Ara sertifika yüklenemedi: %s" % _hata)
+
 
 # =========================================================================
 # Ağ
