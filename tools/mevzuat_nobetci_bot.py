@@ -754,8 +754,13 @@ def calistir():
                 yeni["hatalar"].get(k["anahtar"]), simdi)
             yeni["hatalar"][k["anahtar"]] = h
 
-            saglik.append((k["ad"], "ULAŞILAMADI (%d. kez, %d saattir)"
-                           % (h["adet"], gecen_saat)))
+            # SEBEP de rapora yazılır. Sebep eskiden yalnızca uyarı mesajına
+            # giriyordu; uyarı bir kez gönderildiği için, sonraki durum
+            # raporlarında "ULAŞILAMADI" görünüyor ama NEDEN görünmüyordu.
+            # Oysa tanıyı yapan şey o metin: "timed out" süzülme, "403"
+            # açık ret, "Name or service not known" DNS demek.
+            saglik.append((k["ad"], "ULAŞILAMADI (%d. kez, %d saattir) — %s"
+                           % (h["adet"], gecen_saat, kisa(hata))))
             print("   [x] %-48s %s  (%d. kez, %.1f saat)"
                   % (k["ad"], kisa(hata), h["adet"], gecen_saat))
 

@@ -160,6 +160,11 @@ denetle("Resmi Gazete daha sabirli deneniyor",
 denetle("al() deneme/bekle parametresi aliyor",
         "def al(url, kodlama=\"utf-8\", deneme=2, bekle=5)" in kaynak)
 
+# Durum raporu, ulasilamayan kaynagin SEBEBINI de yazmali; tani onunla
+# yapiliyor ("timed out" suzulme, "403" ret, DNS hatasi baska bir sey).
+denetle("durum raporunda ulasilamama sebebi de var",
+        'saattir) — %s"' in kaynak and "kisa(hata)" in kaynak)
+
 
 # =====================================================================
 print()
