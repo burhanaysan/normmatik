@@ -20,7 +20,7 @@
 // Çözüm: eşleştirmede { ignoreSearch: true } ve app.html'in listeye
 // eklenmesi. Ayrıca çalışma anında indirilen dosyalar da önbelleğe alınıyor.
 // ===================================================================
-const CACHE_NAME = "meb-normmatik-20260913_0029";
+const CACHE_NAME = "meb-normmatik-20260913_0048";
 
 const ASSETS_TO_CACHE = [
     "./",
@@ -31,13 +31,17 @@ const ASSETS_TO_CACHE = [
     "./js/bundle.js",
     "./js/xlsx.full.min.js",
     "./manifest.json",
-    "./icons/icon-192.png",
-    "./icons/icon-512.png",
-    "./icons/app_icon.ico",
     // Marka ikonu (mavi kare + beyaz N). Ureteci: tools/uret_favicon.py
+    // KALDIRILDI (13.09.2026): icon-192/512.png ve app_icon.ico -- eski
+    // "MEB NORM" kitap+kep gorseli. Hicbir sayfa onlari kullanmiyordu;
+    // yalnizca manifest.json ve bu liste hala onbellege aliyordu, bu yuzden
+    // uygulamayi ana ekrana ekleyen okul ESKI ikonu goruyordu.
     "./favicon.ico",
     "./icons/normmatik-96.png",
     "./icons/normmatik-192.png",
+    "./icons/normmatik-512.png",
+    "./icons/normmatik-maskable-192.png",
+    "./icons/normmatik-maskable-512.png",
     "./icons/apple-touch-icon.png"
 ];
 

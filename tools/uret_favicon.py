@@ -70,6 +70,34 @@ def ikon(kenar):
     return g.resize((kenar, kenar), Image.LANCZOS)
 
 
+def maskelenebilir_ikon(kenar):
+    """Android/PWA "maskable" ikonu.
+
+    NEDEN AYRI (13.09.2026): Android, ana ekrana eklenen ikonu KENDI
+    maskesiyle kirpar (daire, kare, damla -- markaya gore degisir). Kirpilan
+    alan kenardan iceri %10'dur; onemli icerik ortadaki %80'lik DAIREYE
+    sigmali. Normal ikonumuzda harf kutunun %62'sini kapliyor ve arka plan
+    yuvarlak kose tasiyor; o dosya "maskable" diye bildirilirse Android
+    koseleri bir kez daha kirpar, harfin kenarlari yenir.
+
+    Bu surumde: arka plan TASMALI (yuvarlak kose yok, seffaflik yok) ve harf
+    kucultuldu -- guvenli daireye rahat siger. Maskeyi platform uygular.
+    """
+    o = 4
+    b = kenar * o
+    g = Image.new("RGBA", (b, b), MAVI + (255,))   # tasmali zemin
+    d = ImageDraw.Draw(g)
+
+    # Harf, guvenli dairenin (cap = %80) icinde kalacak kadar kucuk.
+    f = _yazi_tipi(int(b * 0.45))
+    sol, ust, sag, alt = d.textbbox((0, 0), HARF, font=f)
+    x = (b - (sag - sol)) / 2 - sol
+    y = (b - (alt - ust)) / 2 - ust
+    d.text((x, y), HARF, font=f, fill=BEYAZ + (255,))
+
+    return g.resize((kenar, kenar), Image.LANCZOS)
+
+
 def uret():
     uretilen = []
 
@@ -90,6 +118,13 @@ def uret():
         yol = os.path.join(KOK, ad.replace("/", os.sep))
         os.makedirs(os.path.dirname(yol), exist_ok=True)
         ikon(kenar).save(yol, format="PNG", optimize=True)
+        uretilen.append(yol)
+
+    # 3) PWA "maskable" surumleri. manifest.json bunlari ayri bildirir.
+    for kenar, ad in [(192, "icons/normmatik-maskable-192.png"),
+                      (512, "icons/normmatik-maskable-512.png")]:
+        yol = os.path.join(KOK, ad.replace("/", os.sep))
+        maskelenebilir_ikon(kenar).save(yol, format="PNG", optimize=True)
         uretilen.append(yol)
 
     return uretilen
