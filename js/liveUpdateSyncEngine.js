@@ -81,7 +81,15 @@ export class LiveUpdateSyncEngine {
             }
 
             const remoteData = await response.json();
-            const currentVer = this.currentRules.metadata?.version || "2026.1.0";
+            // DÜZELTİLDİ (13.09.2026): burada UYGULAMA sürümü (version.json
+            // -> "3.0.0") ile MEVZUAT KURAL sürümü (normRulesConfig ->
+            // "2026.2.0") karşılaştırılıyordu. 2026 > 3 olduğu için bu kod
+            // hiçbir zaman "güncelleme var" diyemezdi. Artık iki taraf da
+            // uygulama sürümüdür; tek kaynak js/surum.js.
+            const yerel = (typeof NORMMATIK_SURUM !== 'undefined')
+                ? NORMMATIK_SURUM
+                : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+            const currentVer = yerel ? yerel.surum : "0.0.0";
             const remoteVer = remoteData.version;
 
             if (remoteVer && this.compareVersions(remoteVer, currentVer) > 0) {

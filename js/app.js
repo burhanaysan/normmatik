@@ -604,6 +604,15 @@ class MebNormApplication {
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
+        /* SÜRÜM NUMARASI (13.09.2026)
+           Tek kaynak js/surum.js. Burada logonun altında küçük bir etiket
+           olarak durur; okul destek istediğinde hangi sürümde olduğu
+           ekrandan okunur. Rapor altbilgisinde ve lisans penceresinde de
+           aynı sabitten gelir. */
+        const surumEtiketi = (typeof NORMMATIK_SURUM !== "undefined")
+            ? ("v" + NORMMATIK_SURUM.surum)
+            : "";
+
         /* 🔑 LİSANS ÇAĞRISI (12.09.2026, kullanıcı isteği)
            Lisans düğmesi "⋯ Diğer" menüsünün içinde kalıyordu; demoyu deneyen
            ziyaretçi lisans/fiyat penceresini bulamıyordu. Artık:
@@ -642,7 +651,7 @@ class MebNormApplication {
                 <div class="logo-badge-executive">
                     <div class="logo-text-executive">
                         <span class="logo-brand-title">NormMatik™</span>
-                        <span class="logo-brand-sub">MEB NORM SİSTEMİ</span>
+                        <span class="logo-brand-sub">MEB NORM SİSTEMİ <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
                     </div>
                 </div>
             </div>

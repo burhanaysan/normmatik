@@ -22,6 +22,7 @@ DOĞRULAMA (paketlemeden önce mutlaka):
 
 import datetime
 import os
+import json
 import re
 import sys
 
@@ -37,6 +38,7 @@ SW_JS = os.path.join(BASE_DIR, "sw.js")
 BUNDLE_FILES = [
     "licenseClientManager.js",
     "fiyat.js",                  # uiComponents.js'ten ÖNCE (lisans fiyatı tek kaynak)
+    "surum.js",                  # app.js/uiComponents.js'ten ONCE (surum numarasi tek kaynak)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
@@ -198,6 +200,64 @@ def fiyat_senkronize():
     return sonuc
 
 
+def surum_oku():
+    """js/surum.js icindeki degerleri okur. TEK KAYNAK oradadir."""
+    yol = os.path.join(JS_DIR, "surum.js")
+    if not os.path.exists(yol):
+        return None
+    metin = open(yol, "r", encoding="utf-8").read()
+    m_s = re.search(r'surum:\s*"([^"]+)"', metin)
+    m_t = re.search(r'yayinTarihi:\s*"([^"]+)"', metin)
+    if not (m_s and m_t):
+        return None
+    m_d = re.search(r"degisiklikler:\s*\[(.*?)\n    \]", metin, re.S)
+    liste = []
+    if m_d:
+        # Satir basina bir kayit; kacisli tirnaklari geri ac.
+        for satir in m_d.group(1).split("\n"):
+            satir = satir.strip().rstrip(",")
+            if satir.startswith('"') and satir.endswith('"'):
+                liste.append(satir[1:-1].replace('\\"', '"'))
+    return {"surum": m_s.group(1), "tarih": m_t.group(1), "degisiklikler": liste}
+
+
+def surum_json_yaz():
+    """Depo kokundeki version.json'u js/surum.js'ten UZERINE YAZAR.
+
+    NEDEN: surum numarasi iki yerde yaziliydi (version.json "2.0.1",
+    normRulesConfig.js "2026.2.0") ve ikisi birbirini tutmuyordu. Iki ayri
+    dogruluk kaynagi, birinin guncellenip digerinin unutulmasi demektir;
+    hata vermez, sessizce celisir. Artik tek kaynak js/surum.js'tir ve
+    version.json her pakette mekanik olarak ondan uretilir.
+    """
+    v = surum_oku()
+    if not v:
+        return ["  ! js/surum.js okunamadi, version.json DEGISMEDI"]
+
+    yol = os.path.join(BASE_DIR, "version.json")
+    try:
+        with open(yol, "r", encoding="utf-8") as fh:
+            veri = json.load(fh)
+    except Exception:
+        veri = {}
+
+    veri["appName"] = veri.get("appName") or "NormMatik\u2122"
+    veri["officialName"] = veri.get("officialName") or \
+        "NormMatik \u2014 MEB Norm Kadro ve Ders Y\u00fck\u00fc Hesaplama Yaz\u0131l\u0131m\u0131"
+    veri["version"] = v["surum"]
+    veri["releaseDate"] = v["tarih"]
+    veri["changelog"] = v["degisiklikler"]
+    # minEngineVersion: ayni ANA surumun ilk yayini. Eskiden elle yazilirdi.
+    veri["minEngineVersion"] = v["surum"].split(".")[0] + ".0.0"
+    veri.pop("rulesVersion", None)   # mevzuat surumu ayri kavram; karistiriyordu
+
+    with open(yol, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(veri, fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    return ["  + version.json -> %s (%s), %d degisiklik kaydi"
+            % (v["surum"], v["tarih"], len(v["degisiklikler"]))]
+
+
 def surum_damgala():
     """
     app.html'deki ?v= etiketini ve sw.js'deki CACHE_NAME'i tazeler.
@@ -300,6 +360,11 @@ def build_bundle():
     print()
     print("  EKRAN GORUNTULERI (onbellek tazeleme):")
     for satir in gorsel_damgala():
+        print(satir)
+
+    print()
+    print("  SURUM NUMARASI (kaynak: js/surum.js):")
+    for satir in surum_json_yaz():
         print(satir)
 
     print()

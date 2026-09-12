@@ -7105,3 +7105,21 @@ body.resizing .middle-canvas {
     .btn-lisans-cta { padding: 0 0.7rem !important; }
     .btn-lisans-cta .lisans-cta-yazi { display: none !important; }
 }
+
+
+/* ==========================================================================
+   SÜRÜM ETİKETİ   (13.09.2026)
+   --------------------------------------------------------------------------
+   Logonun altındaki "MEB NORM SİSTEMİ" yazısının devamında küçük bir
+   "· v3.0.0" durur. Ek yer kaplamaması için aynı satırda ve daha soluk;
+   marka yazısıyla yarışmaz ama okul destek istediğinde ekrandan okunur.
+   Numaranın tek kaynağı js/surum.js'tir.
+   ========================================================================== */
+.logo-surum {
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    color: #7dd3fc !important;
+    opacity: 0.85 !important;
+    font-variant-numeric: tabular-nums !important;
+    white-space: nowrap !important;
+}

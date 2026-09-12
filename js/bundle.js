@@ -235,16 +235,24 @@ class MebLicenseClientManager {
         return { allowed: true };
     }
 
+    /** Sürüm etiketi: "· v3.0.0". Tek kaynak js/surum.js. */
+    surumEki() {
+        const v = (typeof NORMMATIK_SURUM !== 'undefined')
+            ? NORMMATIK_SURUM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+        return v ? ("  ·  v" + v.surum) : "";
+    }
+
     getReportSecurityFooter() {
         if (this.licenseStatus.isMaster) {
-            return `👑 MEB Norm Kadro Master Geliştirici Sürümü - Burhan AYSAN`;
+            return `👑 MEB Norm Kadro Master Geliştirici Sürümü - Burhan AYSAN${this.surumEki()}`;
         }
 
         if (this.licenseStatus.isDemo) {
-            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)`;
+            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)${this.surumEki()}`;
         }
 
-        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}`;
+        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
     }
 }
 
@@ -297,6 +305,83 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = { NORMMATIK_FIYAT };
 }
 
+// ==================== surum.js ====================
+
+/**
+ * NORMMATİK — SÜRÜM NUMARASI (TEK KAYNAK)
+ * =============================================================================
+ * NEDEN AYRI BİR DOSYA (13.09.2026):
+ *   Sürüm numarası İKİ ayrı yerde yazılıydı ve ikisi birbirini tutmuyordu:
+ *     • version.json          -> "2.0.1"   (19.08.2026'da donmuş)
+ *     • normRulesConfig.js    -> "2026.2.0"
+ *   liveUpdateSyncEngine bu ikisini BİRBİRİYLE karşılaştırıyordu; 2026 > 2
+ *   olduğu için hiçbir zaman "güncelleme var" diyemezdi. İki ayrı numaralama
+ *   düzenini kıyaslamanın tipik sonucu: hata vermez, sessizce yanlış çalışır.
+ *
+ *   Artık tek yer burasıdır. Uygulama bu sabiti doğrudan okur; depo kökündeki
+ *   version.json ise `python tools/build_bundle.py` çalıştığında buradan
+ *   OTOMATİK yazılır (bkz. build_bundle.py -> surum_senkronize).
+ *
+ * NUMARANIN MANTIĞI (SemVer: ANA.EK.YAMA)
+ *   ANA  (3.0.0) : eskisini bozan değişiklik — kullanıcının elindeki bir şey
+ *                  (girişi, verisi, çıktısı) artık çalışmıyor
+ *   EK   (2.1.0) : yeni özellik, eskisi çalışmaya devam ediyor
+ *   YAMA (2.1.1) : hata düzeltme; davranış eskiden YANLIŞTI, şimdi doğru
+ *   Soldaki artınca sağındakiler SIFIRLANIR. 2.1.2 -> yeni özellik -> 2.2.0
+ *
+ * NEDEN 2.1.0, 3.0.0 DEĞİL (13.09.2026):
+ *   İlk yazımda "eski giriş bilgileri geçersiz oldu" diyerek ANA sürüm (3.0.0)
+ *   demiştim. Kullanıcı sordu, ÖLÇTÜM: yanlıştı. Canlı hesaplar denetlendi —
+ *   kayıtlı beş okulun HEPSİ 24.08.2026 ve sonrasında, yani yeni giriş
+ *   altyapısı kurulduktan SONRA açılmış. Eski düzenden taşınan tek bir hesap
+ *   yok; kimsenin girişi geçersiz olmadı. Denetim kaydında da hiçbir gerçek
+ *   okulda parola sıfırlama veya oturum düşürme işlemi görünmüyor.
+ *
+ *   Kullanıcının elindekini bozan bir değişiklik olmadığı için bu bir EK
+ *   sürümdür: çok sayıda yeni özellik ve düzeltme, ama eskisi çalışmaya
+ *   devam ediyor. 2.0.1 -> 2.1.0.
+ *
+ *   DERS: sürüm numarası bir SÖZ verir ("bozulan bir şey var/yok"). O sözü
+ *   hatırdan değil, ölçerek vermek gerekir.
+ *
+ * DEĞİŞTİRİRKEN: yalnızca aşağıdaki değerleri düzenleyin, sonra
+ *   python tools/build_bundle.py
+ * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
+ */
+const NORMMATIK_SURUM = {
+    surum: "2.1.0",
+    yayinTarihi: "2026-09-13",
+
+    // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
+    // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
+    // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
+    degisiklikler: [
+        "Şifrenizi artık yalnızca siz biliyorsunuz; uygulama içinden dilediğiniz zaman değiştirebilirsiniz. Mevcut giriş bilgileriniz geçerliliğini korur.",
+        "Müfredat verisi elle yazılmış listelerden çıkarılıp resmî MEB/TTKB çizelgelerinden üretiliyor (14 okul türü).",
+        "Haftalık hedef ders saati çizelgenin kendi toplam satırından okunuyor; 9. sınıfta 44 yerine 45 saat.",
+        "Atölye normu (Md. 19), rehber öğretmen normu (Md. 21) ve grup bölünmesi (Md. 22/1-ç) mevzuata göre düzeltildi.",
+        "MESEM ve özel eğitim müfredatları resmî çizelgelerden üretiliyor.",
+        "Özel Program Uygulayan Fen ve Sosyal Bilimler Liseleri ile hazırlık sınıflı tür eklendi (TTKB Sayı 104).",
+        "Şube öğrenci sayısı üst sınırı Ortaöğretim Kurumları Yönetmeliği'ne bağlandı (30/34/40).",
+        "Veriniz artık yalnızca bulutta değil, bu tarayıcıda da tutuluyor; sürüm geçmişinden eski hâle dönülebiliyor.",
+        "Mevzuat nöbetçisi 7/24 çalışıyor: Resmî Gazete ve TTKB değişiklikleri takip ediliyor.",
+        "Üst paneldeki seyrek kullanılan araçlar \"⋯ Diğer\" menüsünde toplandı."
+    ]
+};
+
+/** Ekranda gösterilecek kısa biçim: "v3.0.0" */
+function normmatikSurumEtiketi() {
+    return "v" + NORMMATIK_SURUM.surum;
+}
+
+if (typeof window !== 'undefined') {
+    window.NORMMATIK_SURUM = NORMMATIK_SURUM;
+    window.normmatikSurumEtiketi = normmatikSurumEtiketi;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { NORMMATIK_SURUM, normmatikSurumEtiketi };
+}
+
 // ==================== normRulesConfig.js ====================
 
 /**
@@ -325,6 +410,9 @@ if (typeof module !== 'undefined' && module.exports) {
 const NORM_RULES_CONFIG = {
     metadata: {
         systemName: "NormMatik™ Parametrik Kural Motoru",
+        // DİKKAT: bu, UYGULAMA sürümü DEĞİLDİR. Uygulama sürümü
+        // js/surum.js'tedir (tek kaynak). Buradaki numara mevzuat kural
+        // kümesinin kendi sürümüdür; ikisi karıştırılıyordu (13.09.2026).
         version: "2026.2.0",
         releaseDate: "2026-08-22",
         legislationTitle: "Millî Eğitim Bakanlığına Bağlı Eğitim Kurumları Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik",
@@ -760,7 +848,15 @@ class LiveUpdateSyncEngine {
             }
 
             const remoteData = await response.json();
-            const currentVer = this.currentRules.metadata?.version || "2026.1.0";
+            // DÜZELTİLDİ (13.09.2026): burada UYGULAMA sürümü (version.json
+            // -> "3.0.0") ile MEVZUAT KURAL sürümü (normRulesConfig ->
+            // "2026.2.0") karşılaştırılıyordu. 2026 > 3 olduğu için bu kod
+            // hiçbir zaman "güncelleme var" diyemezdi. Artık iki taraf da
+            // uygulama sürümüdür; tek kaynak js/surum.js.
+            const yerel = (typeof NORMMATIK_SURUM !== 'undefined')
+                ? NORMMATIK_SURUM
+                : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+            const currentVer = yerel ? yerel.surum : "0.0.0";
             const remoteVer = remoteData.version;
 
             if (remoteVer && this.compareVersions(remoteVer, currentVer) > 0) {
@@ -192463,6 +192559,18 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             typeOptionsHtml += `</optgroup>`;
         }
         
+        // Sürüm bilgisi — TEK KAYNAK js/surum.js (13.09.2026).
+        const S = (typeof NORMMATIK_SURUM !== 'undefined')
+            ? NORMMATIK_SURUM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+        const surumBilgi = {
+            etiket: S ? ("v" + S.surum) : "—",
+            tarih: S ? S.yayinTarihi : "—",
+            liste: (S && Array.isArray(S.degisiklikler) && S.degisiklikler.length)
+                ? S.degisiklikler.map(d => `<li>${d}</li>`).join("")
+                : "<li>Kayıt yok.</li>"
+        };
+
         let statusBadge = "";
         if (lic.isMaster) {
             statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">Geliştirici Erişimi — Sınırsız</span>`;
@@ -192555,6 +192663,24 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             MEB kurum kodu ve şifresiyle giriyor. Cihaza kilit de
                             kalktı — okul istediği bilgisayardan girebiliyor.
                         -->
+                        <!-- 4. SÜRÜM VE DEĞİŞİKLİKLER (13.09.2026)
+                             Numaranın uzun hâli burada durur: sürüm, yayın
+                             tarihi ve "neler değişti". Başlıktaki etiket
+                             kısa hâlidir; ikisi de js/surum.js'ten gelir. -->
+                        <details style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.7rem 0.9rem;">
+                            <summary style="cursor: pointer; font-size: 0.82rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; list-style: revert;">
+                                <span>Yazılım Sürümü</span>
+                                <span style="font-family: ui-monospace, monospace; font-weight: 900; color: var(--primary);">${surumBilgi.etiket}</span>
+                            </summary>
+                            <div style="font-size: 0.73rem; color: var(--text-muted); margin: 0.5rem 0 0.4rem;">
+                                Yayın tarihi: <strong>${surumBilgi.tarih}</strong>
+                            </div>
+                            <div style="font-size: 0.76rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">Neler değişti</div>
+                            <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.55; display: flex; flex-direction: column; gap: 0.2rem;">
+                                ${surumBilgi.liste}
+                            </ul>
+                        </details>
+
                         <div style="background: var(--bg-soft, #f1f5f9); border: 1px dashed var(--border-main); border-radius: 10px; padding: 0.75rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">
                             Lisansınız tanımlandıktan sonra <strong>çıkış yapıp yeniden giriş</strong> yapmanız yeterlidir.<br>
                             Anahtar girmenize, dosya yüklemenize gerek yoktur.
@@ -193264,6 +193390,15 @@ class MebNormApplication {
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
+        /* SÜRÜM NUMARASI (13.09.2026)
+           Tek kaynak js/surum.js. Burada logonun altında küçük bir etiket
+           olarak durur; okul destek istediğinde hangi sürümde olduğu
+           ekrandan okunur. Rapor altbilgisinde ve lisans penceresinde de
+           aynı sabitten gelir. */
+        const surumEtiketi = (typeof NORMMATIK_SURUM !== "undefined")
+            ? ("v" + NORMMATIK_SURUM.surum)
+            : "";
+
         /* 🔑 LİSANS ÇAĞRISI (12.09.2026, kullanıcı isteği)
            Lisans düğmesi "⋯ Diğer" menüsünün içinde kalıyordu; demoyu deneyen
            ziyaretçi lisans/fiyat penceresini bulamıyordu. Artık:
@@ -193302,7 +193437,7 @@ class MebNormApplication {
                 <div class="logo-badge-executive">
                     <div class="logo-text-executive">
                         <span class="logo-brand-title">NormMatik™</span>
-                        <span class="logo-brand-sub">MEB NORM SİSTEMİ</span>
+                        <span class="logo-brand-sub">MEB NORM SİSTEMİ <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
                     </div>
                 </div>
             </div>

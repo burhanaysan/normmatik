@@ -24,6 +24,9 @@
 export const NORM_RULES_CONFIG = {
     metadata: {
         systemName: "NormMatik™ Parametrik Kural Motoru",
+        // DİKKAT: bu, UYGULAMA sürümü DEĞİLDİR. Uygulama sürümü
+        // js/surum.js'tedir (tek kaynak). Buradaki numara mevzuat kural
+        // kümesinin kendi sürümüdür; ikisi karıştırılıyordu (13.09.2026).
         version: "2026.2.0",
         releaseDate: "2026-08-22",
         legislationTitle: "Millî Eğitim Bakanlığına Bağlı Eğitim Kurumları Yönetici ve Öğretmenlerinin Norm Kadrolarına İlişkin Yönetmelik",

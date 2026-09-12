@@ -232,16 +232,24 @@ class MebLicenseClientManager {
         return { allowed: true };
     }
 
+    /** Sürüm etiketi: "· v3.0.0". Tek kaynak js/surum.js. */
+    surumEki() {
+        const v = (typeof NORMMATIK_SURUM !== 'undefined')
+            ? NORMMATIK_SURUM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+        return v ? ("  ·  v" + v.surum) : "";
+    }
+
     getReportSecurityFooter() {
         if (this.licenseStatus.isMaster) {
-            return `👑 MEB Norm Kadro Master Geliştirici Sürümü - Burhan AYSAN`;
+            return `👑 MEB Norm Kadro Master Geliştirici Sürümü - Burhan AYSAN${this.surumEki()}`;
         }
 
         if (this.licenseStatus.isDemo) {
-            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)`;
+            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)${this.surumEki()}`;
         }
 
-        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}`;
+        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
     }
 }
 

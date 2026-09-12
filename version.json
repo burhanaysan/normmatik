@@ -1,19 +1,24 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.0.1",
-  "releaseDate": "2026-08-19",
+  "version": "2.1.0",
+  "releaseDate": "2026-09-13",
   "minEngineVersion": "2.0.0",
-  "rulesVersion": "2026.1",
   "distribution": {
     "channel": "stable",
     "liveUrl": "https://www.normmatik.com.tr",
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
-    "🎉 NormMatik 2.0 SaaS Dönüşümü Tamamlandı!",
-    "Yeni tanıtım ana sayfası (landing page) yayınlandı.",
-    "MEB Kurum Kodu ve Şifreli Okul Giriş Portalı devreye alındı.",
-    "Firebase Realtime Database ile canlı bulut senkronizasyonu ve otomatik yedekleme devreye alındı."
+    "Şifrenizi artık yalnızca siz biliyorsunuz; uygulama içinden dilediğiniz zaman değiştirebilirsiniz. Mevcut giriş bilgileriniz geçerliliğini korur.",
+    "Müfredat verisi elle yazılmış listelerden çıkarılıp resmî MEB/TTKB çizelgelerinden üretiliyor (14 okul türü).",
+    "Haftalık hedef ders saati çizelgenin kendi toplam satırından okunuyor; 9. sınıfta 44 yerine 45 saat.",
+    "Atölye normu (Md. 19), rehber öğretmen normu (Md. 21) ve grup bölünmesi (Md. 22/1-ç) mevzuata göre düzeltildi.",
+    "MESEM ve özel eğitim müfredatları resmî çizelgelerden üretiliyor.",
+    "Özel Program Uygulayan Fen ve Sosyal Bilimler Liseleri ile hazırlık sınıflı tür eklendi (TTKB Sayı 104).",
+    "Şube öğrenci sayısı üst sınırı Ortaöğretim Kurumları Yönetmeliği'ne bağlandı (30/34/40).",
+    "Veriniz artık yalnızca bulutta değil, bu tarayıcıda da tutuluyor; sürüm geçmişinden eski hâle dönülebiliyor.",
+    "Mevzuat nöbetçisi 7/24 çalışıyor: Resmî Gazete ve TTKB değişiklikleri takip ediliyor.",
+    "Üst paneldeki seyrek kullanılan araçlar \"⋯ Diğer\" menüsünde toplandı."
   ]
 }

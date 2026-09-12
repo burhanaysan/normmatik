@@ -6190,6 +6190,18 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             typeOptionsHtml += `</optgroup>`;
         }
         
+        // Sürüm bilgisi — TEK KAYNAK js/surum.js (13.09.2026).
+        const S = (typeof NORMMATIK_SURUM !== 'undefined')
+            ? NORMMATIK_SURUM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+        const surumBilgi = {
+            etiket: S ? ("v" + S.surum) : "—",
+            tarih: S ? S.yayinTarihi : "—",
+            liste: (S && Array.isArray(S.degisiklikler) && S.degisiklikler.length)
+                ? S.degisiklikler.map(d => `<li>${d}</li>`).join("")
+                : "<li>Kayıt yok.</li>"
+        };
+
         let statusBadge = "";
         if (lic.isMaster) {
             statusBadge = `<span style="background: rgba(139, 92, 246, 0.2); border: 1.5px solid #a855f7; color: #c084fc; padding: 0.35rem 0.85rem; border-radius: 9999px; font-weight: 800; font-size: 0.82rem;">Geliştirici Erişimi — Sınırsız</span>`;
@@ -6282,6 +6294,24 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             MEB kurum kodu ve şifresiyle giriyor. Cihaza kilit de
                             kalktı — okul istediği bilgisayardan girebiliyor.
                         -->
+                        <!-- 4. SÜRÜM VE DEĞİŞİKLİKLER (13.09.2026)
+                             Numaranın uzun hâli burada durur: sürüm, yayın
+                             tarihi ve "neler değişti". Başlıktaki etiket
+                             kısa hâlidir; ikisi de js/surum.js'ten gelir. -->
+                        <details style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.7rem 0.9rem;">
+                            <summary style="cursor: pointer; font-size: 0.82rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; list-style: revert;">
+                                <span>Yazılım Sürümü</span>
+                                <span style="font-family: ui-monospace, monospace; font-weight: 900; color: var(--primary);">${surumBilgi.etiket}</span>
+                            </summary>
+                            <div style="font-size: 0.73rem; color: var(--text-muted); margin: 0.5rem 0 0.4rem;">
+                                Yayın tarihi: <strong>${surumBilgi.tarih}</strong>
+                            </div>
+                            <div style="font-size: 0.76rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">Neler değişti</div>
+                            <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.55; display: flex; flex-direction: column; gap: 0.2rem;">
+                                ${surumBilgi.liste}
+                            </ul>
+                        </details>
+
                         <div style="background: var(--bg-soft, #f1f5f9); border: 1px dashed var(--border-main); border-radius: 10px; padding: 0.75rem; font-size: 0.78rem; color: var(--text-muted); text-align: center;">
                             Lisansınız tanımlandıktan sonra <strong>çıkış yapıp yeniden giriş</strong> yapmanız yeterlidir.<br>
                             Anahtar girmenize, dosya yüklemenize gerek yoktur.
