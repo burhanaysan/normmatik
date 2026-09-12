@@ -29,8 +29,19 @@ import url from "url";
 import vm from "vm";
 
 const KOK = path.dirname(path.dirname(url.fileURLToPath(import.meta.url)));
-const KAYNAK = path.join(KOK, "data", "kaynak_cizelgeler", "ogm",
-    "ozel_program_fen_lisesi.json");
+
+/* İKİ TÜR DE DENETLENİR (12.09.2026).
+   Sosyal Bilimler türü, çizelgesindeki "TASLAK" ibaresi yüzünden uzun süre
+   dışarıda kalmıştı; tema seçimi yoktu ve ZORUNLU tematik alan dersleri
+   (6/6/8/8/8 saat) hiçbir şubede görünmüyordu. Tür artık değişkenden gelir;
+   dosya, ilk tür bitince kendini ikinci tür için yeniden çalıştırır. */
+const TURLER = [
+    "ozel_program_fen_lisesi",
+    "ozel_program_sosyal_lisesi",
+    "ozel_program_hazirlik_anadolu_lisesi",   // TTKB Sayı 104, 02/09/2026
+];
+const TUR = process.env.NM_OZEL_PROGRAM_TUR || TURLER[0];
+const KAYNAK = path.join(KOK, "data", "kaynak_cizelgeler", "ogm", TUR + ".json");
 
 let gecen = 0;
 const hatalar = [];
@@ -68,7 +79,6 @@ w.dbService.masterData = JSON.parse(
     fs.readFileSync(path.join(KOK, "data", "meb_master_db.json"), "utf8"));
 w.dbService.isLoaded = true;
 
-const TUR = "ozel_program_fen_lisesi";
 const SINIFLAR = ["hazirlik", "9", "10", "11", "12"];
 
 const T = w.OZEL_PROGRAM_TEMALARI ? w.OZEL_PROGRAM_TEMALARI[TUR] : null;
@@ -80,8 +90,12 @@ const ce = w.curriculumEngine, st = w.appState;
 const UI = vm.runInContext("UIComponentManager", ctx);
 const ui = new UI(w.dbService, w.appState, w.normEngine, w.curriculumEngine);
 
-/* ---- 0) Kaynak gerçekten okundu mu? ----------------------------------- */
-if ((kaynak.tematik_alan_dersleri || []).length < 40)
+/* ---- 0) Kaynak gerçekten okundu mu? -----------------------------------
+   Bu bir BOŞLUK KORUMASIDIR: ayrıştırma sessizce boş dönerse test "hata
+   yok" demesin. Eşik önce 40'tı; o sayı Fen Lisesi'ne (47 ders) göre
+   yazılmıştı ve Sayı 104'ün 39 dersini geçersiz sayıyordu. Çizelgeye
+   özgü sayılar aşağıdaki tema/kota denetimlerinde zaten karşılaştırılıyor. */
+if ((kaynak.tematik_alan_dersleri || []).length < 20)
     olumcul("kaynakta yalnızca " + (kaynak.tematik_alan_dersleri || []).length + " tematik ders var.");
 
 const asgari = (v) => (v.tip === "sabit" ? v.saat : Math.min(...v.secenekler));
@@ -193,8 +207,12 @@ for (const tema of T.temalar) {
         }
     }
 }
-if (karsilastirma < 12)
-    olumcul("yalnızca " + karsilastirma + " tema-sınıf karşılaştırıldı.");
+// Örneklem koruması, tema SAYISINA göre ölçülür: sabit 12 eşiği 3 temalı
+// çizelgelere göreydi, Sayı 104'te 2 tema x 5 sınıf = 10 var ve hepsi
+// karşılaştırılıyor. Beklenen: her tema için en az 4 sınıf.
+if (karsilastirma < T.temalar.length * 4)
+    olumcul("yalnızca " + karsilastirma + " tema-sınıf karşılaştırıldı ("
+        + T.temalar.length + " tema).");
 
 /* ---- 3) Tema seçilmemişse tema dersi GELMEMELİ ------------------------ */
 for (const sinif of SINIFLAR) {
@@ -259,15 +277,48 @@ kontrol("meslek lisesi alan listesi dolu",
     kontrol("meslek lisesi müfredatı hâlâ geliyor", l.length > 0, l.length + " ders");
 }
 
+/* ---- tema seçim kutusu açık mı? --------------------------------------- */
+// Tema verisi doğru üretilse bile, okul türünde "hasAreas" bayrağı yoksa
+// arayüzde seçim kutusu ÇIKMAZ ve tematik dersler hiçbir şubeye girmez.
+// Sosyal Bilimler'de tam olarak bu olmuştu.
+{
+    const tur = (w.dbService.getSchoolTypes() || []).find((t) => t.id === TUR);
+    kontrol("okul türü tanımlı", !!tur, TUR);
+    if (tur) {
+        kontrol("tema seçim kutusu açık (hasAreas)", tur.hasAreas === true);
+        kontrol("seçim kutusunun başlığı tema diyor",
+            /tema/i.test(tur.temaAdi || ""), tur.temaAdi || "(yok)");
+    }
+    const alanlar = w.dbService.getVocationalAreas(TUR) || [];
+    kontrol("tema listesi seçim kutusuna geliyor",
+        alanlar.length === T.temalar.length,
+        alanlar.length + " / " + T.temalar.length);
+}
+
 /* ---- sonuç ------------------------------------------------------------ */
 console.log("=".repeat(70));
 if (hatalar.length) {
-    console.log("❌ ÖZEL PROGRAM LİSESİ HATALI — " + hatalar.length + " hata:");
+    console.log("❌ ÖZEL PROGRAM LİSESİ (" + TUR + ") HATALI — " + hatalar.length + " hata:");
     for (const h of hatalar.slice(0, 25)) console.log("   • " + h);
     if (hatalar.length > 25) console.log("   ... ve " + (hatalar.length - 25) + " tane daha");
     console.log("-".repeat(70));
     console.log(gecen + " kontrol başarılı, " + hatalar.length + " hata");
     process.exit(1);
 }
-console.log("✅ ÖZEL PROGRAM LİSESİ DOĞRU — " + gecen + " kontrol başarılı, 0 hata");
+console.log("✅ ÖZEL PROGRAM LİSESİ (" + TUR + ") DOĞRU — " + gecen
+    + " kontrol başarılı, 0 hata");
+
+/* Sıradaki tür: aynı dosyayı yeniden çalıştır. Ayrı süreç, çünkü uygulama
+   bağlamı (bundle) tür başına bir kez kuruluyor. */
+{
+    const sira = TURLER.indexOf(TUR);
+    if (sira > -1 && sira + 1 < TURLER.length) {
+        const { spawnSync } = await import("node:child_process");
+        const s = spawnSync(process.execPath, [url.fileURLToPath(import.meta.url)], {
+            stdio: "inherit",
+            env: { ...process.env, NM_OZEL_PROGRAM_TUR: TURLER[sira + 1] },
+        });
+        if (s.status !== 0) process.exit(s.status || 1);
+    }
+}
 console.log("=".repeat(70));

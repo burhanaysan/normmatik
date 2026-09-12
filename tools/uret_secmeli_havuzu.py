@@ -79,6 +79,13 @@ SINIFLAR = ["hazirlik", "5", "6", "7", "8", "9", "10", "11", "12"]
 # yeniden üretti; havuz artık o dosyayı okur.
 OZEL_PROGRAM_KAYNAKLARI = [
     ("ozel_program_fen_lisesi", "ogm/ozel_program_fen_lisesi.json"),
+    # 12.09.2026: Sosyal Bilimler ve TTKB Sayı 104 (Özel Program Uygulayan
+    # Hazırlık Sınıfı Bulunan Anadolu Lisesi) da artık aynı üreteçten
+    # geliyor. Buraya alınmasalardı bu türlerin ÇOK YÖNLÜ GELİŞİM dersleri
+    # seçmeli havuzuna hiç girmezdi.
+    ("ozel_program_sosyal_lisesi", "ogm/ozel_program_sosyal_lisesi.json"),
+    ("ozel_program_hazirlik_anadolu_lisesi",
+     "ogm/ozel_program_hazirlik_anadolu_lisesi.json"),
 ]
 
 ORTAOKUL_KAYNAKLARI = [

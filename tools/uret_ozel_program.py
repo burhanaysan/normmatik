@@ -57,12 +57,27 @@ import uret_ortaogretim_mufredat as temel            # noqa: E402
 from uret_ortaogretim_cizelgeleri import (            # noqa: E402
     brans_bul, BRANS_ATANMADI)
 PDF_KOK = r"C:\Users\burha\Desktop\03_meb_mevzuat_ve_cizelgeler\ogm_anadolu_ve_fen"
+# TTKB resmî kaynak arşivi (künye + SHA256 orada). Yeni kararların PDF'i
+# buraya iniyor; yolu projeye göre kuruluyor, elle yazılmıyor.
+ARSIV_KOK = os.path.join(os.path.dirname(BASE_DIR),
+                         "03_meb_mevzuat_ve_cizelgeler",
+                         "ttkb_haftalik_ders_cizelgeleri")
 CIKTI_KOK = os.path.join(BASE_DIR, "data", "kaynak_cizelgeler", "ogm")
 
 SINIFLAR = ["hazirlik", "9", "10", "11", "12"]
 
-# Sosyal Bilimler çizelgesi TASLAK damgalı olduğu için BİLEREK dışarıda.
-# Kesinleşmiş sürüm gelince buraya bir satır eklemek yeterli.
+# SOSYAL BİLİMLER 12.09.2026'DA EKLENDİ — "TASLAK" ibaresi duruyor, KASITLI.
+#
+# Bu çizelge, sayfa başındaki 4 puntoluk "TASLAK" kelimesi yüzünden dışarıda
+# bırakılmıştı. Yeniden bakıldığında görüldü ki:
+#   • TTKB bugün hâlâ TAM OLARAK bu dosyayı yayımlıyor (Sayı 25, 23/07/2025);
+#     kesinleşmiş başka bir sürüm YOK, künyede "yürürlükte".
+#   • Dışarıda bırakmanın bedeli sessizdi ve büyüktü: bu türdeki okul,
+#     ZORUNLU tematik alan derslerini (6/6/8/8/8 saat) hiç görmüyor, haftalık
+#     yükü ve dolayısıyla normu eksik çıkıyordu.
+# Eksik veriyle çalışmak, üzerinde "taslak" ibaresi olan RESMÎ veriyle
+# çalışmaktan daha riskli görüldü (kullanıcı kararı, 12.09.2026).
+# Nöbetçi bu PDF'i izliyor; MEB temiz sürümü yayımlarsa haber verecek.
 CIZELGELER = [
     {
         "tur": "ozel_program_fen_lisesi",
@@ -72,6 +87,41 @@ CIZELGELER = [
         "karar": "TTKB Sayı 24, 23/07/2025",
         "sayfa": 1,          # 0 tabanlı: çizelge 2. sayfada
         "tema_sayisi": 4,    # ORTAK TEMATİK + 3 tema
+        "gelisim_grup_sayisi": 4,
+    },
+    {
+        "tur": "ozel_program_sosyal_lisesi",
+        "pdf": "ozel_program_uygulayan_sosyal_bilimler_lisesi_haftalik_ders_.pdf",
+        "cikti": "ozel_program_sosyal_lisesi.json",
+        "ad": "Özel Program Uygulayan Sosyal Bilimler Lisesi Haftalık Ders Çizelgesi",
+        "karar": "TTKB Sayı 25, 23/07/2025 (belgede 'TASLAK' ibaresi var)",
+        "sayfa": 1,
+        # ORTAK TEMATİK + 5 tema: Medya ve İletişim / Siyaset Bilimi ve
+        # Uluslararası İlişkiler / İktisat ve İşletme / Edebiyat, Tarih ve
+        # Kültür / Yabancı Diller. ("Siyaset Bilimi ve" + "Uluslararası
+        # İlişkiler" çizelgede İKİ SATIRA bölünmüş TEK bir temadır; üreteç
+        # tema sınırını metinden değil tablo çizgilerinden okuduğu için
+        # bunu iki tema sanmaz.)
+        "tema_sayisi": 6,
+        "gelisim_grup_sayisi": 4,
+    },
+    {
+        # TTKB Sayı 104 (02/09/2026) — YENİ okul türü, kaldırdığı karar yok.
+        # Yapısı özel program liselerininkiyle aynı: hazırlık sütunu, tematik
+        # alan dersleri ve çok yönlü gelişim dersleri. Bu yüzden 9-12 kalıbına
+        # göre yazılmış uret_ogm_karar.py ile değil, bu üreteçle okunur.
+        "tur": "ozel_program_hazirlik_anadolu_lisesi",
+        "pdf": os.path.join(
+            ARSIV_KOK, "07_ozel_program",
+            "2026-09-09__ozel-program-uygulayan-hazirlik-sinifi-bulunan-anadolu-lises"
+            "__6aa1279ac2174243805061_Özel_Program_Uygulayan_Hazırlık_Sınıfı_"
+            "Bulunan_Anadolu_Lisesi_Haftalık_Ders_Çizelgesi.pdf"),
+        "cikti": "ozel_program_hazirlik_anadolu_lisesi.json",
+        "ad": "Özel Program Uygulayan Hazırlık Sınıfı Bulunan Anadolu Lisesi "
+              "Haftalık Ders Çizelgesi",
+        "karar": "TTKB Sayı 104, 02/09/2026",
+        "sayfa": 1,
+        "tema_sayisi": 2,    # TEMEL BİLİMLER + SOSYAL BİLİMLER
         "gelisim_grup_sayisi": 4,
     },
 ]
@@ -122,8 +172,10 @@ def sutun_merkezleri(parcalar):
     if not hazirlik:
         raise SystemExit("!! başlıkta HAZIRLIK sütunu bulunamadı")
     ust_y = hazirlik[0][2]
+    # Sınıf başlığı çizelgeye göre "9" ya da "9." yazılıyor (Sayı 104'te
+    # noktalı; ölçüldü 12.09.2026). Nokta isteğe bağlı.
     rakamlar = [p for p in parcalar
-                if re.fullmatch(r"9|10|11|12", p[3]) and not p[4]
+                if re.fullmatch(r"(9|10|11|12)\.?", p[3]) and not p[4]
                 and abs(p[2] - ust_y) < 4]
     if len(rakamlar) != 4:
         raise SystemExit("!! başlıkta 9-12 sütunları bulunamadı: %s"
@@ -175,7 +227,11 @@ def ders_adini_ayikla(ham):
 
 # --------------------------------------------------------------------------
 def cizelgeyi_coz(tanim):
-    yol = os.path.join(PDF_KOK, tanim["pdf"])
+    # "pdf" göreli ad ise PDF_KOK altında aranır; tam yol verilebilir.
+    # Sayı 104 gibi yeni kararlar TTKB resmî kaynak arşivinde duruyor
+    # (künye + SHA256 orada), eski çalışma klasöründe değil.
+    yol = (tanim["pdf"] if os.path.isabs(tanim["pdf"])
+           else os.path.join(PDF_KOK, tanim["pdf"]))
     if not os.path.exists(yol):
         raise SystemExit("!! PDF bulunamadı: %s" % yol)
     belge = fitz.open(yol)
@@ -202,12 +258,23 @@ def cizelgeyi_coz(tanim):
                     return s["y"], s
         return None, None
 
-    y_ortak, s_ortak = toplam_y("ORTAK DERS SAATİ TOPLAMI")
-    y_tema, s_tema = toplam_y("TEMATİK ALAN DERS SAATLERİ TOPLAMI")
-    y_gel, s_gel = toplam_y("ÇOK YÖNLÜ GELİŞİM DERS SAATLERİ TOPLAMI")
-    y_top, s_top = toplam_y("TOPLAM DERS SAATİ")
+    # DİKKAT — etiketler çizelgeden çizelgeye DEĞİŞİYOR (12.09.2026):
+    #     Fen Lisesi   : "ORTAK DERS SAATİ TOPLAMI"   / "TOPLAM DERS SAATİ"
+    #     Sosyal Bil.  : "ORTAK DERS SAATLERİ TOPLAMI" / "TOPLAM DERS SAAT"
+    # Birebir eşleşme arandığı için Sosyal Bilimler çizelgesi "bölüm toplam
+    # satırları bulunamadı" diyerek düşüyordu. Ortak ÖN EK aranıyor; ekler
+    # (SAATİ / SAATLERİ) fark etmiyor. Anahtarlar birbirinin alt dizgesi
+    # değil, yanlış satıra denk gelmez.
+    y_ortak, s_ortak = toplam_y("ORTAK DERS SAAT")
+    y_tema, s_tema = toplam_y("TEMATİK ALAN DERS SAAT")
+    y_gel, s_gel = toplam_y("ÇOK YÖNLÜ GELİŞİM DERS SAAT")
+    y_top, s_top = toplam_y("TOPLAM DERS SAAT")
     if None in (y_ortak, y_tema, y_gel, y_top):
-        raise SystemExit("!! bölüm toplam satırları bulunamadı")
+        eksik = [ad for ad, v in (("ORTAK", y_ortak), ("TEMATİK", y_tema),
+                                  ("GELİŞİM", y_gel), ("TOPLAM", y_top))
+                 if v is None]
+        raise SystemExit("!! bölüm toplam satırları bulunamadı: %s"
+                         % ", ".join(eksik))
 
     def satir_saatleri(s):
         saat = [None] * 5
@@ -228,8 +295,32 @@ def cizelgeyi_coz(tanim):
 
     # --- etiket (tema / grup) hücre sınırları: tablo çizgilerinden ----------
     cizgiler = yatay_cizgiler(sayfa)
-    # Etiket sütunu x aralığı: ders adları x~100'de, etiketler x 36..98'de.
-    etiket_cizgi = sorted(y for y, x0, x1 in cizgiler if x0 <= 40 and x1 >= 95)
+    # Etiket sütununu kesen çizgiler. Ders satırlarının çizgileri DIŞARIDA
+    # kalmalı; onlar ders adı sütununda başlar.
+    #
+    # ÖLÇÜLDÜ (12.09.2026) — eşik çizelgeye göre değişiyor:
+    #     Fen Lisesi : bölüm çizgileri x0=18, tema çizgileri x0=35,
+    #                  ders satırları x0=99
+    #     Sosyal Bil.: bölüm çizgileri x0=38, tema çizgileri x0=48,
+    #                  ders satırları x0=86
+    # Eski eşik (x0 <= 40) Sosyal'in TEMA çizgilerini (48) eliyordu; tema
+    # bulunamıyor, üretim duruyordu. 52, iki çizelgede de ders satırlarının
+    # (86 ve 99) altında kaldığı için ikisini birden doğru ayırır.
+    # Sütun başlangıçları ÖLÇÜLÜR, sabit yazılmaz. Tablo çizgilerinin x
+    # başlangıçları üç küme oluşturur ve bunlar iç içe sütunlardır:
+    #     bölüm sütunu < etiket (tema/grup) sütunu < ders adı sütunu
+    # Ölçüm: Fen 18 / 35 / 99, Sosyal Bilimler 38 / 48 / 86.
+    sayac = {}
+    for y, x0, x1 in cizgiler:
+        if x1 >= 95:
+            sayac[round(x0)] = sayac.get(round(x0), 0) + 1
+    if len(sayac) < 3:
+        raise SystemExit("!! sütun başlangıçları ayırt edilemedi: %s" % sayac)
+    bolum_x, etiket_x, ders_x = sorted(
+        sorted(sayac, key=lambda k: -sayac[k])[:3])
+
+    etiket_cizgi = sorted(y for y, x0, x1 in cizgiler
+                          if x0 <= etiket_x + 4 and x1 >= 95)
 
     def hucre_sinirlari(bas, son, beklenen_adet, ad):
         # Hücre sınırı YALNIZCA tablo çizgileridir. Bölüm toplam satırının
@@ -250,20 +341,38 @@ def cizelgeyi_coz(tanim):
                                 "çok yönlü gelişim grubu")
 
     def hucre_etiketi(bas, son):
-        """Hücre içindeki etiket parçalarını (x<98) birleştirir."""
+        """Hücre içindeki etiket parçalarını birleştirir.
+
+        Sınırlar ölçülen sütunlardan gelir: bölüm sütunundaki başlıklar
+        ("ORTAK DERSLER" gibi) dışarıda kalır, ders adları da öyle.
+        """
         parca = sorted((p for p in parcalar
-                        if bas < p[2] < son and 30 < p[0] < 98 and not p[4]),
+                        if bas < p[2] < son
+                        and bolum_x + 8 < p[0] < ders_x and not p[4]),
                        key=lambda q: q[2])
         return re.sub(r"\s+", " ", " ".join(p[3] for p in parca)).strip()
 
     # --- ders satırlarını topla --------------------------------------------
-    def dersleri_al(bas, son, ad_x_min, ad_x_max):
+    # sag_oncelikli=None: sütun ayıklaması yapma (tematik/gelişim blokları
+    # zaten tek sütunda). True/False yalnızca ORTAK blok için kullanılır.
+    def dersleri_al(bas, son, ad_x_min, ad_x_max, sag_oncelikli=None):
         cikti = []
         for s in satirlar:
             if not (bas < s["y"] < son):
                 continue
             adlar = [p for p in s["p"]
                      if ad_x_min <= p[0] < ad_x_max and not p[4]]
+            # ORTAK blokta ders adının hangi sütunda olduğu ÇİZELGEYE GÖRE
+            # DEĞİŞİYOR (ölçüldü 12.09.2026): Fen'de etiket sütununda (x≈36),
+            # Sosyal Bilimler'de ders sütununda (x≈86); Sosyal'de ayrıca
+            # "ORTAK DERSLER" başlığı adın SOLUNDA duruyor. Hangi sütun
+            # olduğu SAYILARAK belirlenir (aşağıda), satır satır tahmin
+            # edilmez: sabit sütun seçmek çizelgelerden birini bozuyordu.
+            # KATI: yalnızca seçilen sütun. Diğerine düşmek Fen'de ortak
+            # bloğa iki sahte ders ekliyordu (19 yerine 20, saatler şişti).
+            if sag_oncelikli is not None:
+                adlar = [p for p in adlar
+                         if (p[0] >= ders_x) == bool(sag_oncelikli)]
             if not adlar:
                 continue
             ham = re.sub(r"\s+", " ",
@@ -279,10 +388,29 @@ def cizelgeyi_coz(tanim):
                                           for i in range(5) if saat[i]}})
         return cikti
 
-    # Ortak derslerde etiket sütunu yoktur; ders adı x~35'ten başlar.
-    ortak = dersleri_al(0, y_ortak, 30, 98)
-    tematik = dersleri_al(y_ortak, y_tema, 98, 140)
-    gelisim = dersleri_al(y_tema, y_gel, 98, 140)
+    # Ortak derslerde etiket sütunu yoktur; ders adı etiket sütununda başlar.
+    # Tematik ve gelişim bloklarında ise ad, ders sütunundadır.
+    # Ortak blokta ders adı sütununu SAY ile bul: hangi sütunda daha çok
+    # satır varsa ders adları oradadır (Fen: sol/etiket, Sosyal: sağ/ders).
+    def _ortak_sutun_sayisi():
+        sol = sag = 0
+        for s in satirlar:
+            if not (0 < s["y"] < y_ortak):
+                continue
+            for p in s["p"]:
+                if p[4]:
+                    continue
+                if ders_x <= p[0] < ders_x + 45:
+                    sag += 1
+                elif bolum_x + 8 < p[0] < ders_x:
+                    sol += 1
+        return sol, sag
+
+    _sol, _sag = _ortak_sutun_sayisi()
+    ortak = dersleri_al(0, y_ortak, bolum_x + 8, ders_x + 45,
+                        sag_oncelikli=(_sag > _sol))
+    tematik = dersleri_al(y_ortak, y_tema, ders_x, ders_x + 45)
+    gelisim = dersleri_al(y_tema, y_gel, ders_x, ders_x + 45)
 
     for d in tematik:
         d["tema"] = next((hucre_etiketi(a, b) for a, b in tema_hucre
@@ -294,11 +422,28 @@ def cizelgeyi_coz(tanim):
     for d in tematik + gelisim + ortak:
         d.pop("y", None)
 
+    # REHBERLİK VE YÖNLENDİRME (12.09.2026)
+    # Gelişim toplamı ile genel toplam satırı ARASINDA, etiketi bölüm
+    # sütununda duran tek satırdır; ortak ders bloğunun dışında kaldığı için
+    # okunmuyordu. Zorunlu ve her sınıfta 1 saat: dışarıda bırakmak şube
+    # başına 1 saat eksik yük, dolayısıyla eksik rehber öğretmen normu demek.
+    rehberlik = {}
+    for s in satirlar:
+        if not (y_gel < s["y"] < y_top):
+            continue
+        if any("REHBERL" in p[3].upper() for p in s["p"]):
+            saat = satir_saatleri(s)
+            for i, sinif in enumerate(SINIFLAR):
+                if saat[i]:
+                    rehberlik[sinif] = saat[i]
+            break
+
     return {
         "belge_adi": tanim["ad"],
         "karar": tanim["karar"],
         "kaynak_pdf": tanim["pdf"],
         "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_program.py üretir.",
+        "rehberlik_ve_yonlendirme": rehberlik,
         "ortak_dersler": ortak,
         "tematik_alan_dersleri": tematik,
         "cok_yonlu_gelisim_dersleri": gelisim,

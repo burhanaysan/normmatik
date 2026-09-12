@@ -137,7 +137,17 @@ export class MebDatabaseService {
             // temaAdi ile değişiyor. 28.08.2026'ya kadar seçim yoktu ve bu
             // okulların 47 tematik dersi hiçbir şubede görünmüyordu.
             { id: "ozel_program_fen_lisesi", name: "Özel Program Uygulayan Fen Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true, temaAdi: "Okulun Teması" },
-            { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"] },
+            // 12.09.2026: Bu türde de TEMA seçilir (Medya ve İletişim /
+            // Siyaset Bilimi ve Uluslararası İlişkiler / İktisat ve İşletme /
+            // Edebiyat, Tarih ve Kültür / Yabancı Diller). Bayrak eksik
+            // olduğu için tema kutusu çıkmıyordu; okul, ZORUNLU tematik alan
+            // derslerini (6/6/8/8/8 saat) hiç göremiyor, haftalık yükü ve
+            // normu eksik çıkıyordu.
+            { id: "ozel_program_sosyal_lisesi", name: "Özel Program Uygulayan Sosyal Bilimler Lisesi (Proje)", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true, temaAdi: "Okulun Teması" },
+            // TTKB Sayı 104 (02/09/2026) — YENİ okul türü. Hazırlık sınıfı
+            // 40 saat (birinci yabancı dil 20), 9-12'de haftalık 45 saat.
+            // Tema seçilir: Temel Bilimler / Sosyal Bilimler.
+            { id: "ozel_program_hazirlik_anadolu_lisesi", name: "Özel Program Uygulayan Hazırlık Sınıfı Bulunan Anadolu Lisesi", category: "OGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true, temaAdi: "Okulun Teması" },
             { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },

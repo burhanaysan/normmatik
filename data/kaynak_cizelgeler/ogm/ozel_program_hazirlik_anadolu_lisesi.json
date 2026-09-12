@@ -1,7 +1,7 @@
 {
- "belge_adi": "Özel Program Uygulayan Fen Lisesi Haftalık Ders Çizelgesi",
- "karar": "TTKB Sayı 24, 23/07/2025",
- "kaynak_pdf": "ozel_program_uygulayan_fen_lisesi_haftalik_ders_cizelgesi.pdf",
+ "belge_adi": "Özel Program Uygulayan Hazırlık Sınıfı Bulunan Anadolu Lisesi Haftalık Ders Çizelgesi",
+ "karar": "TTKB Sayı 104, 02/09/2026",
+ "kaynak_pdf": "C:\\Users\\burha\\Desktop\\ders_yuku_ve_norm_hesaplama_projesi\\03_meb_mevzuat_ve_cizelgeler\\ttkb_haftalik_ders_cizelgeleri\\07_ozel_program\\2026-09-09__ozel-program-uygulayan-hazirlik-sinifi-bulunan-anadolu-lises__6aa1279ac2174243805061_Özel_Program_Uygulayan_Hazırlık_Sınıfı_Bulunan_Anadolu_Lisesi_Haftalık_Ders_Çizelgesi.pdf",
  "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_program.py üretir.",
  "rehberlik_ve_yonlendirme": {
   "hazirlik": {
@@ -9,6 +9,14 @@
    "saat": 1
   },
   "9": {
+   "tip": "sabit",
+   "saat": 1
+  },
+  "10": {
+   "tip": "sabit",
+   "saat": 1
+  },
+  "11": {
    "tip": "sabit",
    "saat": 1
   },
@@ -115,14 +123,82 @@
    }
   },
   {
-   "ders_adi": "FELSEFE",
+   "ders_adi": "MATEMATİK",
    "kac_kez_secilebilir": 1,
    "saatler": {
+    "hazirlik": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "9": {
+     "tip": "sabit",
+     "saat": 6
+    },
     "10": {
+     "tip": "sabit",
+     "saat": 6
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 6
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 6
+    }
+   }
+  },
+  {
+   "ders_adi": "FİZİK",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
      "tip": "sabit",
      "saat": 2
     },
-    "11": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "KİMYA",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "BİYOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "FELSEFE",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
      "tip": "sabit",
      "saat": 2
     }
@@ -155,120 +231,20 @@
    }
   },
   {
-   "ders_adi": "HAZIRLIK SINIFI MATEMATİK",
+   "ders_adi": "İKİNCİ YABANCI DİL",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "hazirlik": {
      "tip": "sabit",
-     "saat": 3
-    }
-   }
-  },
-  {
-   "ders_adi": "MATEMATİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 6
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 6
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 6
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 6
-    }
-   }
-  },
-  {
-   "ders_adi": "FİZİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 4
-    },
-    "12": {
-     "tip": "sabit",
      "saat": 4
     }
    }
   },
   {
-   "ders_adi": "KİMYA",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 4
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 4
-    }
-   }
-  },
-  {
-   "ders_adi": "BİYOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 4
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 4
-    }
-   }
-  },
-  {
-   "ders_adi": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+   "ders_adi": "DÜŞÜNME EĞİTİMİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
      "tip": "sabit",
      "saat": 2
     }
@@ -295,6 +271,52 @@
    }
   },
   {
+   "ders_adi": "PROGRAMLAMAYA GİRİŞ VE ALGORİTMA+PROGRAMLAMA DİLLERİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "hazirlik": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   }
+  },
+  {
+   "ders_adi": "AKADEMİK OKUMA VE YAZMA",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
+   "ders_adi": "BEDEN EĞİTİMİ VE SPOR/GÖRSEL SANATLAR/MÜZİK",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "hazirlik": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   }
+  },
+  {
    "ders_adi": "SAĞLIK BİLGİSİ VE TRAFİK KÜLTÜRÜ",
    "kac_kez_secilebilir": 1,
    "saatler": {
@@ -303,265 +325,32 @@
      "saat": 1
     }
    }
-  },
-  {
-   "ders_adi": "PROJE TASARIMI VE UYGULAMALARI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   }
-  },
-  {
-   "ders_adi": "FEN BİLİMLERİNDE AKADEMİK OKUMA VE YAZMA",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   }
   }
  ],
  "tematik_alan_dersleri": [
   {
-   "ders_adi": "PROGRAMLAMAYA GİRİŞ VE ALGORİTMA+PROGRAMLAMA DİLLERİ",
-   "kac_kez_secilebilir": 1,
+   "ders_adi": "TÜMLEŞİK BİLİMLER",
+   "kac_kez_secilebilir": 2,
    "saatler": {
     "hazirlik": {
      "tip": "sabit",
      "saat": 4
-    }
-   },
-   "tema": "ORTAK TEMATİK DERSLER"
-  },
-  {
-   "ders_adi": "TEMEL ELEKTRİK-ELEKTRONİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "ORTAK TEMATİK DERSLER"
-  },
-  {
-   "ders_adi": "TÜMLEŞİK BİLİMLER",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "ORTAK TEMATİK DERSLER"
-  },
-  {
-   "ders_adi": "SAYISAL ELEKTRONİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "BİLGİSAYARLI DEVRE SİMÜLASYONU VE BASKI DEVRE TASARIMI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
+    },
     "9": {
      "tip": "sabit",
      "saat": 2
     }
    },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
+   "tema": "TEMEL BİLİMLER"
   },
   {
-   "ders_adi": "MİKRODENETLEYİCİLER VE UYGULAMALARI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "NESNE TABANLI PROGRAMLAMA",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "VERİ BİLİMİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "ROBOTİK UYGULAMALARI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "AĞ TEKNOLOJİLERİ VE NESNELERİN İNTERNETİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "YAPAY ZEKÂ VE MAKİNE ÖĞRENMESİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "BİLGİSAYAR MİMARİSİ VE İŞLETİM SİSTEMLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "SİBER GÜVENLİK VE KRİPTOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "YAZILIM UYGULAMALARI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM"
-  },
-  {
-   "ders_adi": "HAVACILIK VE UZAYIN TEMELLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "SAYISAL ELEKTRONİK VE MİKRODENETLEYİCİLER",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "MEKANİĞİN TEMELLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "METEOROLOJİ",
+   "ders_adi": "YABANCI DİLDE AKADEMİK ÇALIŞMALAR",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "9": {
      "tip": "sabit",
      "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "ROBOTİK UYGULAMALARI",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "BİLGİSAYAR DESTEKLİ TASARIM VE MODELLEME",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "MALZEME BİLİMİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
+    },
     "10": {
      "tip": "sabit",
      "saat": 2
@@ -569,86 +358,8 @@
     "11": {
      "tip": "sabit",
      "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "HAVACILIK SİSTEMLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "SEYRÜSEFER",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
     },
     "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "İTKİ SİSTEMLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "UZAY TEKNOLOJİLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "SİMÜLASYON TEKNOLOJİLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "HAVACILIK VE UZAY TEKNOLOJİLERİ"
-  },
-  {
-   "ders_adi": "TÜMLEŞİK BİLİMLER",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
      "tip": "sabit",
      "saat": 2
     }
@@ -660,18 +371,12 @@
    "kac_kez_secilebilir": 2,
    "saatler": {
     "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     },
     "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     }
    },
    "tema": "TEMEL BİLİMLER"
@@ -681,18 +386,12 @@
    "kac_kez_secilebilir": 2,
    "saatler": {
     "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     },
     "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     }
    },
    "tema": "TEMEL BİLİMLER"
@@ -702,39 +401,42 @@
    "kac_kez_secilebilir": 2,
    "saatler": {
     "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     },
     "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
     }
    },
    "tema": "TEMEL BİLİMLER"
   },
   {
-   "ders_adi": "TEMEL BİLİMLERDE BİLİŞİM UYGULAMALARI",
-   "kac_kez_secilebilir": 4,
+   "ders_adi": "FEN BİLİMLERİ UYGULAMALARI",
+   "kac_kez_secilebilir": 2,
    "saatler": {
-    "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
     "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "MATEMATİK UYGULAMALARI",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
     },
     "11": {
      "tip": "sabit",
@@ -751,13 +453,6 @@
    "ders_adi": "FİNANSAL MATEMATİK",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
     "11": {
      "tip": "sabit",
      "saat": 2
@@ -773,35 +468,6 @@
    "ders_adi": "VERİ ANALİZİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "GELECEĞİN ENERJİ SİSTEMLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
     "11": {
      "tip": "sabit",
      "saat": 2
@@ -815,109 +481,6 @@
   },
   {
    "ders_adi": "İSTATİSTİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "BİYOTEKNOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "ANATOMİNİN TEMELLERİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "EPİDEMİYOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "BİYOKİMYA",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "tema": "TEMEL BİLİMLER"
-  },
-  {
-   "ders_adi": "MOLEKÜLER BİYOLOJİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "11": {
@@ -947,7 +510,7 @@
    "tema": "TEMEL BİLİMLER"
   },
   {
-   "ders_adi": "POLİMER KİMYASI",
+   "ders_adi": "GELECEĞİN ENERJİ SİSTEMLERİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "11": {
@@ -977,7 +540,82 @@
    "tema": "TEMEL BİLİMLER"
   },
   {
-   "ders_adi": "TIP BİLİMİNE GİRİŞ",
+   "ders_adi": "BİYOTEKNOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "ANATOMİNİN TEMELLERİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "EPİDEMİYOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "MOLEKÜLER BİYOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "BİYOKİMYA",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "POLİMER KİMYASI",
    "kac_kez_secilebilir": 1,
    "saatler": {
     "11": {
@@ -1010,10 +648,6 @@
    "ders_adi": "İLERİ MATEMATİK",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
     "12": {
      "tip": "sabit",
      "saat": 2
@@ -1031,22 +665,414 @@
     }
    },
    "tema": "TEMEL BİLİMLER"
+  },
+  {
+   "ders_adi": "SOSYAL BİLİM ÇALIŞMALARI",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "hazirlik": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "YABANCI DİLDE AKADEMİK ÇALIŞMALAR",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "EDEBİYAT UYGULAMALARI",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "EKONOMİNİN TEMEL KAVRAMLARI",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "MEDYA VE İLETİŞİM",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "YARATICI YAZARLIK ÇALIŞMALARI",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "TÜRKİYE'NİN KALKINMA SERÜVENİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "MİLLÎ GÜÇ UNSURLARI VE JEOPOLİTİK",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "SİYASİ TARİH:SÖMÜRGECİLİK VE SONRASI",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "TÜRK DEMOKRASİ TARİHİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "SİYASET SOSYOLOJİSİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "MEDENİYET TARİHİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "TARİHE YÖN VERENLER",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "TARİH FELSEFESİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "ÜLKELER COĞRAFYASI",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "SOSYAL ANTROPOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
+  },
+  {
+   "ders_adi": "PROJE TABANLI SOSYAL ARAŞTIRMA",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "tema": "SOSYAL BİLİMLER"
   }
  ],
  "cok_yonlu_gelisim_dersleri": [
+  {
+   "ders_adi": "PSİKOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
+  {
+   "ders_adi": "SOSYOLOJİ",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
+  {
+   "ders_adi": "MANTIK",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
+  {
+   "ders_adi": "FİZİK",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
+  {
+   "ders_adi": "KİMYA",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
+  {
+   "ders_adi": "BİYOLOJİ",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "11": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   },
+   "grup": "AKADEMİK ÇALIŞMALAR"
+  },
   {
    "ders_adi": "SEÇMELİ TÜRK DİLİ VE EDEBİYATI",
    "kac_kez_secilebilir": 2,
    "saatler": {
     "11": {
-     "tip": "sabit",
-     "saat": 1
+     "tip": "secenekli",
+     "secenekler": [
+      3,
+      5
+     ]
     },
     "12": {
      "tip": "secenekli",
      "secenekler": [
       3,
-      4
+      5
      ]
     }
    },
@@ -1057,8 +1083,11 @@
    "kac_kez_secilebilir": 1,
    "saatler": {
     "11": {
-     "tip": "sabit",
-     "saat": 1
+     "tip": "secenekli",
+     "secenekler": [
+      2,
+      4
+     ]
     },
     "12": {
      "tip": "secenekli",
@@ -1086,8 +1115,11 @@
    "kac_kez_secilebilir": 2,
    "saatler": {
     "11": {
-     "tip": "sabit",
-     "saat": 1
+     "tip": "secenekli",
+     "secenekler": [
+      2,
+      4
+     ]
     },
     "12": {
      "tip": "secenekli",
@@ -1100,64 +1132,23 @@
    "grup": "AKADEMİK ÇALIŞMALAR"
   },
   {
-   "ders_adi": "PSİKOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "grup": "AKADEMİK ÇALIŞMALAR"
-  },
-  {
-   "ders_adi": "SOSYOLOJİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "grup": "AKADEMİK ÇALIŞMALAR"
-  },
-  {
-   "ders_adi": "MANTIK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "grup": "AKADEMİK ÇALIŞMALAR"
-  },
-  {
    "ders_adi": "SEÇMELİ BİRİNCİ YABANCI DİL",
    "kac_kez_secilebilir": 2,
    "saatler": {
     "11": {
-     "tip": "sabit",
-     "saat": 1
+     "tip": "secenekli",
+     "secenekler": [
+      2,
+      10,
+      12
+     ]
     },
     "12": {
      "tip": "secenekli",
      "secenekler": [
       2,
-      3,
-      4
+      10,
+      12
      ]
     }
    },
@@ -1180,58 +1171,9 @@
    "grup": "AKADEMİK ÇALIŞMALAR"
   },
   {
-   "ders_adi": "FEN BİLİMLERİ UYGULAMALARI",
-   "kac_kez_secilebilir": 2,
-   "saatler": {
-    "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "12": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
-   "ders_adi": "MATEMATİK UYGULAMALARI",
-   "kac_kez_secilebilir": 2,
-   "saatler": {
-    "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "12": {
-     "tip": "secenekli",
-     "secenekler": [
-      2,
-      3
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
    "ders_adi": "ASTRONOMİ VE UZAY BİLİMLERİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -1264,8 +1206,8 @@
    "grup": "İNSAN, TOPLUM VE BİLİM"
   },
   {
-   "ders_adi": "ARAŞTIRMA YÖNTEM VE TEKNİKLERİ",
-   "kac_kez_secilebilir": 1,
+   "ders_adi": "BİLİŞİM TEKNOLOJİLERİ VE YAZILIM",
+   "kac_kez_secilebilir": 4,
    "saatler": {
     "9": {
      "tip": "secenekli",
@@ -1278,35 +1220,22 @@
      "tip": "secenekli",
      "secenekler": [
       1,
-      2
+      2,
+      3
      ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
-   "ders_adi": "SOSYAL BİLİM ÇALIŞMALARI",
-   "kac_kez_secilebilir": 2,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
     },
     "11": {
-     "tip": "sabit",
-     "saat": 2
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2,
+      3
+     ]
     },
     "12": {
      "tip": "secenekli",
      "secenekler": [
+      1,
       2,
       3
      ]
@@ -1316,13 +1245,29 @@
   },
   {
    "ders_adi": "PROJE TASARIMI VE UYGULAMALARI",
-   "kac_kez_secilebilir": 2,
+   "kac_kez_secilebilir": 4,
    "saatler": {
-    "11": {
+    "9": {
      "tip": "secenekli",
      "secenekler": [
       1,
       2
+     ]
+    },
+    "10": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2,
+      3
+     ]
+    },
+    "11": {
+     "tip": "secenekli",
+     "secenekler": [
+      2,
+      3,
+      4
      ]
     },
     "12": {
@@ -1337,44 +1282,9 @@
    "grup": "İNSAN, TOPLUM VE BİLİM"
   },
   {
-   "ders_adi": "DÜŞÜNME EĞİTİMİ",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
    "ders_adi": "DEMOKRASİ VE İNSAN HAKLARI",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -1402,6 +1312,95 @@
       1,
       2
      ]
+    }
+   },
+   "grup": "İNSAN, TOPLUM VE BİLİM"
+  },
+  {
+   "ders_adi": "METİN TAHLİLLERİ",
+   "kac_kez_secilebilir": 2,
+   "saatler": {
+    "9": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "10": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "11": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   },
+   "grup": "İNSAN, TOPLUM VE BİLİM"
+  },
+  {
+   "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
+   "kac_kez_secilebilir": 4,
+   "saatler": {
+    "9": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "10": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2,
+      3
+     ]
+    },
+    "11": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2,
+      4
+     ]
+    },
+    "12": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2,
+      4
+     ]
+    }
+   },
+   "grup": "İNSAN, TOPLUM VE BİLİM"
+  },
+  {
+   "ders_adi": "OSMANLI TÜRKÇESİ",
+   "kac_kez_secilebilir": 3,
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 2
     }
    },
    "grup": "İNSAN, TOPLUM VE BİLİM"
@@ -1477,133 +1476,6 @@
    "grup": "İNSAN, TOPLUM VE BİLİM"
   },
   {
-   "ders_adi": "GİRİŞİMCİLİK",
-   "kac_kez_secilebilir": 1,
-   "saatler": {
-    "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "12": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
-   "ders_adi": "METİN TAHLİLLERİ",
-   "kac_kez_secilebilir": 2,
-   "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
-   "ders_adi": "SEÇMELİ İKİNCİ YABANCI DİL",
-   "kac_kez_secilebilir": 5,
-   "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "12": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2,
-      3,
-      4
-     ]
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
-   "ders_adi": "OSMANLI TÜRKÇESİ",
-   "kac_kez_secilebilir": 3,
-   "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "9": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "grup": "İNSAN, TOPLUM VE BİLİM"
-  },
-  {
    "ders_adi": "TÜRK DÜNYASI COĞRAFYASI",
    "kac_kez_secilebilir": 1,
    "saatler": {
@@ -1667,6 +1539,27 @@
    "grup": "İNSAN, TOPLUM VE BİLİM"
   },
   {
+   "ders_adi": "GİRİŞİMCİLİK",
+   "kac_kez_secilebilir": 1,
+   "saatler": {
+    "11": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "12": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   },
+   "grup": "İNSAN, TOPLUM VE BİLİM"
+  },
+  {
    "ders_adi": "KUR’AN-I KERİM",
    "kac_kez_secilebilir": 4,
    "saatler": {
@@ -1678,21 +1571,6 @@
      "tip": "sabit",
      "saat": 2
     },
-    "11": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 2
-    }
-   },
-   "grup": "DİN, AHLAK VE DEĞER"
-  },
-  {
-   "ders_adi": "KUR’AN-I KERİM’İN ANLAM DÜNYASI",
-   "kac_kez_secilebilir": 2,
-   "saatler": {
     "11": {
      "tip": "sabit",
      "saat": 2
@@ -1743,13 +1621,41 @@
    "ders_adi": "TEMEL DİNÎ BİLGİLER",
    "kac_kez_secilebilir": 2,
    "saatler": {
-    "hazirlik": {
+    "9": {
      "tip": "secenekli",
      "secenekler": [
       1,
       2
      ]
     },
+    "10": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "11": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    },
+    "12": {
+     "tip": "secenekli",
+     "secenekler": [
+      1,
+      2
+     ]
+    }
+   },
+   "grup": "DİN, AHLAK VE DEĞER"
+  },
+  {
+   "ders_adi": "KLASİK AHLAK METİNLERİ",
+   "kac_kez_secilebilir": 3,
+   "saatler": {
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -1810,43 +1716,16 @@
    "grup": "DİN, AHLAK VE DEĞER"
   },
   {
-   "ders_adi": "KLASİK AHLAK METİNLERİ",
-   "kac_kez_secilebilir": 3,
+   "ders_adi": "KUR’AN-I KERİM’İN ANLAM DÜNYASI",
+   "kac_kez_secilebilir": 2,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "9": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
-    "10": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "11": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
+     "tip": "sabit",
+     "saat": 2
     },
     "12": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
+     "tip": "sabit",
+     "saat": 2
     }
    },
    "grup": "DİN, AHLAK VE DEĞER"
@@ -1855,19 +1734,11 @@
    "ders_adi": "ADABIMUAŞERET",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 1
-    },
     "9": {
      "tip": "sabit",
      "saat": 1
     },
     "10": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "11": {
      "tip": "sabit",
      "saat": 1
     }
@@ -1878,13 +1749,6 @@
    "ders_adi": "TÜRK SOSYAL HAYATINDA AİLE",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -1920,13 +1784,6 @@
    "ders_adi": "İSLAM BİLİM TARİHİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -1962,10 +1819,6 @@
    "ders_adi": "TÜRK KÜLTÜR VE MEDENİYET TARİHİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "sabit",
-     "saat": 2
-    },
     "9": {
      "tip": "sabit",
      "saat": 2
@@ -1989,13 +1842,6 @@
    "ders_adi": "İSLAM KÜLTÜR VE MEDENİYETİ",
    "kac_kez_secilebilir": 1,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -2029,15 +1875,8 @@
   },
   {
    "ders_adi": "SPOR EĞİTİMİ",
-   "kac_kez_secilebilir": 5,
+   "kac_kez_secilebilir": 3,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -2049,7 +1888,8 @@
      "tip": "secenekli",
      "secenekler": [
       1,
-      2
+      2,
+      3
      ]
     },
     "11": {
@@ -2071,15 +1911,8 @@
   },
   {
    "ders_adi": "SANAT EĞİTİMİ",
-   "kac_kez_secilebilir": 5,
+   "kac_kez_secilebilir": 3,
    "saatler": {
-    "hazirlik": {
-     "tip": "secenekli",
-     "secenekler": [
-      1,
-      2
-     ]
-    },
     "9": {
      "tip": "secenekli",
      "secenekler": [
@@ -2091,7 +1924,8 @@
      "tip": "secenekli",
      "secenekler": [
       1,
-      2
+      2,
+      3
      ]
     },
     "11": {
@@ -2116,11 +1950,11 @@
   "ortak": [
    {
     "tip": "sabit",
-    "saat": 30
+    "saat": 40
    },
    {
     "tip": "sabit",
-    "saat": 32
+    "saat": 34
    },
    {
     "tip": "sabit",
@@ -2128,17 +1962,25 @@
    },
    {
     "tip": "sabit",
-    "saat": 37
+    "saat": 21
    },
    {
     "tip": "sabit",
-    "saat": 31
+    "saat": 21
    }
   ],
   "tematik": [
    {
     "tip": "sabit",
-    "saat": 10
+    "saat": 4
+   },
+   {
+    "tip": "sabit",
+    "saat": 6
+   },
+   {
+    "tip": "sabit",
+    "saat": 6
    },
    {
     "tip": "sabit",
@@ -2147,36 +1989,25 @@
    {
     "tip": "sabit",
     "saat": 8
-   },
-   {
-    "tip": "sabit",
-    "saat": 4
-   },
-   {
-    "tip": "sabit",
-    "saat": 4
    }
   ],
   "gelisim": [
+   null,
    {
     "tip": "sabit",
     "saat": 4
    },
    {
     "tip": "sabit",
-    "saat": 4
+    "saat": 5
    },
    {
     "tip": "sabit",
-    "saat": 4
+    "saat": 15
    },
    {
     "tip": "sabit",
-    "saat": 4
-   },
-   {
-    "tip": "sabit",
-    "saat": 9
+    "saat": 15
    }
   ],
   "toplam": [

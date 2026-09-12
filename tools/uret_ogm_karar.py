@@ -110,6 +110,15 @@ KARARLAR = [
     },
 ]
 
+# SAYI 104 BURADA DEĞİL, BİLEREK (12.09.2026)
+# "Özel Program Uygulayan Hazırlık Sınıfı Bulunan Anadolu Lisesi" (02/09/2026)
+# bu üretecin kalıbına UYMUYOR: burada çizelgeler 9-12 olmak üzere dört
+# sütunludur, Sayı 104'te ise HAZIRLIK sütunu da vardır; ayrıca çizelge
+# tematik alan dersleri ve çok yönlü gelişim dersleri bloklarını taşır.
+# Bu yapının üreteci tools/uret_ozel_program.py'dir ve Sayı 104 oraya
+# eklenmiştir. (Denendi: buradan okutmak "Sinif basligi bulunamadi" ile
+# duruyor — kalıp gerçekten farklı.)
+
 
 # ---------------------------------------------------------------------------
 # Metin yardımcıları
@@ -421,7 +430,11 @@ def uret(karar, kunye, yaz):
         matris, egik = tablo_matrisi(d[1])
         aciklama = temiz_metin(d[2]) if d.page_count > 2 else ""
 
-    onceki, onceki_yol = onceki_json(os.path.join(JSN, karar["onceki"]))
+    # "onceki" YOK olabilir: Sayı 104 gibi YENİ bir program ilk kez
+    # yayımlandığında kaldırdığı bir karar yoktur. Eskiden bu alan her karar
+    # için zorunluydu ve yeni programda çökerdi.
+    onceki, onceki_yol = (onceki_json(os.path.join(JSN, karar["onceki"]))
+                          if karar.get("onceki") else (None, None))
     onceki_gruplar = {}
     if onceki:
         for g in onceki["tablolar"][0]["gruplar"]:

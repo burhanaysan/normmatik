@@ -732,6 +732,68 @@ const ORTAOGRETIM_CIZELGELERI = {
             { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
         ]
     },
+    "ozel_program_hazirlik_anadolu_lisesi": {
+        "hazirlik": [
+            { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 3, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 3, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 20, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "İkinci Yabancı Dil", saat: 4, atananBrans: "Almanca", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Düşünme Eğitimi", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Veri Bilimine Giriş", saat: 2, atananBrans: "— Branş Atanmadı —", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Programlamaya Giriş ve Algoritma+programlama Dilleri", saat: 4, atananBrans: "— Branş Atanmadı —", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ],
+        "9": [
+            { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Büyük Veri", saat: 2, atananBrans: "— Branş Atanmadı —", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Sağlık Bilgisi ve Trafik Kültürü", saat: 1, atananBrans: "Sağlık Hizmetleri", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ],
+        "10": [
+            { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Coğrafya", saat: 2, atananBrans: "Coğrafya", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Fizik", saat: 2, atananBrans: "Fizik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Kimya", saat: 2, atananBrans: "Kimya", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Biyoloji", saat: 2, atananBrans: "Biyoloji", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Felsefe", saat: 2, atananBrans: "Felsefe", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Akademik Okuma ve Yazma", saat: 2, atananBrans: "— Branş Atanmadı —", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ],
+        "11": [
+            { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Tarih", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ],
+        "12": [
+            { ders: "Türk Dili ve Edebiyatı", saat: 5, atananBrans: "Türk Dili ve Edebiyatı", baraj_ders: true, kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Tarih", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Matematik", saat: 6, atananBrans: "Matematik", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Birinci Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Beden Eğitimi ve Spor/Görsel Sanatlar/Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER", isAtolye: false },
+            { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK", isAtolye: false }
+        ]
+    },
     "ozel_program_sosyal_lisesi": {
         "hazirlik": [
             { ders: "Hazırlık Sınıfı Türk Dili ve Edebiyatı", saat: 3, atananBrans: "Türk Dili ve Edebiyatı", kategori: "ORTAK DERSLER", isAtolye: false },

@@ -71,6 +71,10 @@ TABLOLAR = [
     # eksiksiz çizelgeyi görür. Tersi olsaydı hazırlık sınıfı çizelgesiz
     # kalırdı.
     ("sosyal_bilimler_lisesi",    "ogm/sayi05_anadolu_fen_sosyalbilimler.json", "Hazırlık Sınıfı Bulunan Sosyal Bilimler Lisesi"),
+    # TTKB Sayı 104 (02/09/2026) — YENİ okul türü. Kaynağı, özel program
+    # üretecinin yazdığı JSON; biçimi farklı olduğu için "__OZELPROGRAM__".
+    ("ozel_program_hazirlik_anadolu_lisesi",
+     "ogm/ozel_program_hazirlik_anadolu_lisesi.json", "__OZELPROGRAM__"),
     ("ozel_program_fen_lisesi",   "ogm/sayi24_ozelprogram_fen_lisesi.json",     None),
     ("ozel_program_sosyal_lisesi", "ogm/sayi25_ozelprogram_sosyalbilimler_lisesi.json", None),
     ("guzel_sanatlar_gorsel",     "ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json", "Güzel Sanatlar Lisesi - Görsel Sanatlar"),
@@ -207,6 +211,12 @@ BRANSI_BELIRSIZ_DERSLER = {
     "projetasarimiveuygulamalari",
     "fenbilimlerindeakademikokumaveyazma",
     "sosyalbilimlerdeakademikokumaveyazma",
+    # TTKB Sayı 104 (02/09/2026) ile gelen iki yeni ortak ders. Resmî
+    # "Öğretmenlik Alanları, Atama ve Ders Okutma Esasları" çizelgesinde
+    # ARANDI, geçmiyorlar (çizelge bu derslerden eski). Branşı tahmin
+    # etmek yerine boş bırakılıyor; saatleri yine de şube yüküne girer.
+    "programlamayagirisvealgoritmaprogramlamadilleri",
+    "akademikokumaveyazma",
 }
 BRANS_ATANMADI = "— Branş Atanmadı —"
 
@@ -365,6 +375,45 @@ def ogm_tablosu(j, tablo_adi, harita, uyarilar, okul_turu=None):
     return sonuc, t.get("toplam_ders_saati")
 
 
+def ozel_program_tablosu(j, harita, uyarilar, okul_turu=None):
+    """
+    ÖZEL PROGRAM biçimindeki kaynaktan zorunlu ortak dersleri kurar.
+
+    NEDEN AYRI: özel program çizelgelerini tools/uret_ozel_program.py okuyor
+    (tema ve çok yönlü gelişim bloklarını da çözdüğü için) ve farklı bir JSON
+    biçimi yazıyor: karar biçimindeki "tablolar/gruplar" yerine düz
+    "ortak_dersler" listesi.
+
+    TEMATİK ve ÇOK YÖNLÜ GELİŞİM dersleri BURAYA GİRMEZ. Onlar tema
+    tablosundan (OZEL_PROGRAM_TEMALARI) ve seçmeli havuzundan gelir; buraya
+    da konsaydı aynı ders iki kez sayılır, şube yükü ve norm şişerdi.
+    """
+    sonuc = {s: [] for s in SINIFLAR}
+    for d in (j.get("ortak_dersler") or []):
+        ad = d.get("ders_adi") or ""
+        secim = next((v for k, v in temel.SECIM_SATIRLARI.items()
+                      if temel.anahtar(k) == temel.anahtar(ad)), None)
+        gorunen = secim["gorunen"] if secim else temel.baslik_yap(ad)
+        brans = brans_bul(harita, ad, uyarilar, okul_turu)
+        if not brans:
+            continue
+        baraj = temel.anahtar(ad) == temel.anahtar("TÜRK DİLİ VE EDEBİYATI")
+        for s in SINIFLAR:
+            saat = saat_al((d.get("saatler") or {}).get(s))
+            if saat:
+                sonuc[s].append(ders_kaydi(gorunen, saat, brans, baraj=baraj))
+
+    for s, h in (j.get("rehberlik_ve_yonlendirme") or {}).items():
+        saat = saat_al(h)
+        if saat and s in sonuc:
+            sonuc[s].append(ders_kaydi("Rehberlik ve Yönlendirme", saat,
+                                       "Rehberlik", kategori="REHBERLİK"))
+
+    toplam = [(v or {}).get("saat") for v in
+              (j.get("cizelge_toplamlari") or {}).get("toplam", [])]
+    return sonuc, toplam
+
+
 def aihl_tablosu(j, harita, uyarilar, okul_turu=None):
     ac = j.get("ana_cizelge") or {}
     sonuc = {s: [] for s in SINIFLAR}
@@ -453,6 +502,8 @@ def uret():
 
         if tablo_adi == "__AIHL__":
             veri, toplam = aihl_tablosu(j, harita, uyarilar, tur)
+        elif tablo_adi == "__OZELPROGRAM__":
+            veri, toplam = ozel_program_tablosu(j, harita, uyarilar, tur)
         else:
             veri, toplam = ogm_tablosu(j, tablo_adi, harita, uyarilar, tur)
         if veri is None:
