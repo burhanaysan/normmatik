@@ -630,6 +630,41 @@ export class NormEngine {
      * HİÇBİR DERS gruplara bölünemez. Okul müdürü bildirimi (05.09.2026) ve
      * mevzuat teyidi bu yöndedir.
      */
+    /**
+     * ŞUBE ÖĞRENCİ SAYISI — MEB Ortaöğretim Kurumları Yönetmeliği
+     * (Değişik: RG-22/2/2025-32821).
+     *
+     * Dönüş: { esas, ustSinir, kaynak, durum }
+     *   esas      : bir şubeye alınacak öğrenci sayısı (30 ya da 34)
+     *   ustSinir  : zorunlu hâllerde çıkılabilecek sayı (40)
+     *   durum     : "uygun" | "esasAsildi" | "ustSinirAsildi"
+     *
+     * NEDEN: şube bölme sihirbazında eşik 34 olarak sabit yazılmıştı.
+     * Merkezî sınavla öğrenci alan okullarda ve spor/güzel sanatlar
+     * liselerinde sınır 30; ayrıca 34'ü aşmak tek başına bölmeyi zorunlu
+     * kılmaz, yönetmelik 40'a kadar izin verir.
+     */
+    subeKapasitesi(schoolType, studentCount = 0) {
+        const k = (this.rules && this.rules.sectionCapacityRules) || {};
+        const tur = String(schoolType || "");
+        // Ortaöğretim dışındaki kademeler bu yönetmeliğin kapsamında değil;
+        // sayı uydurmak yerine "tanımsız" döndürülür.
+        if ((k.kapsamDisiTurler || []).includes(tur)) {
+            return {
+                esas: null, ustSinir: null, durum: "kapsamDisi",
+                kaynak: "Bu kademe Ortaöğretim Kurumları Yönetmeliği kapsamında değil"
+            };
+        }
+        const esasOtuz = (k.otuzKisilikTurler || []).includes(tur);
+        const esas = esasOtuz ? (k.merkeziSinavlaOgrenciAlan || 30)
+                              : (k.digerOrtaogretim || 34);
+        const ustSinir = k.zorunluHaldeUstSinir || 40;
+        const n = parseInt(studentCount, 10) || 0;
+        const durum = n > ustSinir ? "ustSinirAsildi"
+                    : (n > esas ? "esasAsildi" : "uygun");
+        return { esas, ustSinir, durum, kaynak: k.legalRef || "" };
+    }
+
     grupBolunmesiSerbestMi(schoolType) {
         const t = String(schoolType || "").toLowerCase();
         if (!t) return false;

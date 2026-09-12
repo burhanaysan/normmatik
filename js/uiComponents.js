@@ -2219,6 +2219,19 @@ export class UIComponentManager {
         // Toplam ders saati
         const totalHours = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
 
+        // ŞUBE KAPASİTESİ — MEB Ortaöğretim Kurumları Yönetmeliği
+        // (Değişik: RG-22/2/2025-32821). Eşik burada SABİT 34'tü ve
+        // dayanağı yazılı değildi: merkezî sınavla öğrenci alan okullarda
+        // ve spor/güzel sanatlar liselerinde sınır 30, diğerlerinde 34,
+        // zorunlu hâllerde 40'a kadar. Kural artık normRulesConfig'te.
+        const kapasite = this.normEngine.subeKapasitesi(
+            this.state.state.okulBilgisi?.okulTuru, totalStudents);
+        const kapasiteRozeti = {
+            uygun: `✅ Uygun (sınır ${kapasite.esas})`,
+            esasAsildi: `⚠️ ${kapasite.esas} aşıldı — ${kapasite.ustSinir}'a kadar artırılabilir`,
+            ustSinirAsildi: `⛔ ${kapasite.ustSinir} üstü — bölünmesi gerekir`,
+        }[kapasite.durum];
+
         // Meslek dal listesi (Varsa)
         const isVoc = !!section.alanId;
         const vocAreas = this.db.getVocationalAreas();
@@ -2242,7 +2255,7 @@ export class UIComponentManager {
                                 </div>
                             </div>
                             <div style="font-size: 0.72rem; font-weight: 700; background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 6px;">
-                                MEB Kapasite: ${totalStudents > 34 ? '⚠️ Bölünme Önerilir' : '✅ Uygun'}
+                                <span title="${kapasite.kaynak}">MEB Kapasite: ${kapasiteRozeti}</span>
                             </div>
                         </div>
 

@@ -607,6 +607,60 @@ const NORM_RULES_CONFIG = {
     },
 
     /* =====================================================================
+     * 7b. ŞUBE ÖĞRENCİ SAYISI (şube bölme sihirbazının dayanağı)
+     * ---------------------------------------------------------------------
+     * KAYNAK: MEB Ortaöğretim Kurumları Yönetmeliği, kontenjan belirleme
+     * komisyonu maddesi (Değişik: RG-22/2/2025-32821). Metin:
+     *
+     *   "Merkezi sınav puanıyla öğrenci alan okul/program/alanlar ile spor
+     *    liseleri ve güzel sanatlar liselerinde bir şubeye alınacak öğrenci
+     *    sayısı 30'dur. Anadolu liselerinde, Anadolu imam hatip liselerinde,
+     *    mesleki ve teknik Anadolu liselerinin Anadolu meslek programlarında,
+     *    çok programlı Anadolu liselerinde, mesleki ve teknik eğitim
+     *    merkezlerinde ve mesleki eğitim merkezlerinde ise bir şubeye
+     *    alınacak öğrenci sayısının 34 olması esastır. Ancak ... bu sayı
+     *    40'a kadar artırılabilir."
+     *
+     * NEDEN BURADA: sihirbazda eşik 34 olarak SABİT yazılmıştı ve hiçbir
+     * yerde dayanağı yoktu. Merkezî sınavla öğrenci alan okullarda (fen,
+     * sosyal bilimler, proje okulları) ve spor/güzel sanatlar liselerinde
+     * sınır 30 olduğu için 31-34 arası şube "uygun" görünüyordu. Ayrıca
+     * 34 aşıldığında bölme ZORUNLU değildir; yönetmelik 40'a kadar izin
+     * verir, karar kontenjan belirleme komisyonunundur.
+     * ===================================================================== */
+    sectionCapacityRules: {
+        legalRef: "MEB Ortaöğretim Kurumları Yönetmeliği (Değişik: RG-22/2/2025-32821)",
+        merkeziSinavlaOgrenciAlan: 30,
+        digerOrtaogretim: 34,
+        zorunluHaldeUstSinir: 40,
+        // 30 uygulanan türler: merkezî sınavla öğrenci alanlar + spor ve
+        // güzel sanatlar liseleri. (Anadolu teknik programı da merkezî
+        // sınavla öğrenci alır.)
+        otuzKisilikTurler: [
+            "fen_lisesi", "hazirlik_fen_lisesi",
+            "sosyal_bilimler_lisesi",
+            "ozel_program_fen_lisesi", "ozel_program_sosyal_lisesi",
+            "ozel_program_hazirlik_anadolu_lisesi",
+            "anadolu_teknik_programi",
+            "spor_lisesi",
+            "guzel_sanatlar_muzik", "guzel_sanatlar_gorsel",
+            "guzel_sanatlar_tiyatro", "guzel_sanatlar_turk_muzigi"
+        ],
+        // Güzel sanatlar ve spor liselerinde şube açılabilmesi için asgari
+        // öğrenci sayısı (aynı yönetmelik).
+        yetenekSinaviAsgariOgrenci: 10,
+        // KAPSAM: bu yönetmelik ORTAÖĞRETİM içindir. Ortaokul/ilkokul
+        // (İlköğretim Kurumları Yönetmeliği) ve özel eğitim okulları
+        // (Özel Eğitim Hizmetleri Yönetmeliği) başka hükümlere tabidir;
+        // o sayılar elimizde RESMÎ kaynakla doğrulanmadığı için buraya
+        // YAZILMADI. Bu türlerde sihirbaz sınır göstermez, uydurmaz.
+        kapsamDisiTurler: [
+            "ortaokul_temel_egitim", "imam_hatip_ortaokulu", "meslek_ortaokulu",
+            "ozel_egitim_meslek_okulu", "ozel_egitim_uygulama_okulu"
+        ]
+    },
+
+    /* =====================================================================
      * 8. KADEMELİ MÜFREDAT VE MAARİF MODELİ GEÇİŞİ
      * ===================================================================== */
     curriculumModelTransitions: {
@@ -166573,6 +166627,41 @@ class NormEngine {
      * HİÇBİR DERS gruplara bölünemez. Okul müdürü bildirimi (05.09.2026) ve
      * mevzuat teyidi bu yöndedir.
      */
+    /**
+     * ŞUBE ÖĞRENCİ SAYISI — MEB Ortaöğretim Kurumları Yönetmeliği
+     * (Değişik: RG-22/2/2025-32821).
+     *
+     * Dönüş: { esas, ustSinir, kaynak, durum }
+     *   esas      : bir şubeye alınacak öğrenci sayısı (30 ya da 34)
+     *   ustSinir  : zorunlu hâllerde çıkılabilecek sayı (40)
+     *   durum     : "uygun" | "esasAsildi" | "ustSinirAsildi"
+     *
+     * NEDEN: şube bölme sihirbazında eşik 34 olarak sabit yazılmıştı.
+     * Merkezî sınavla öğrenci alan okullarda ve spor/güzel sanatlar
+     * liselerinde sınır 30; ayrıca 34'ü aşmak tek başına bölmeyi zorunlu
+     * kılmaz, yönetmelik 40'a kadar izin verir.
+     */
+    subeKapasitesi(schoolType, studentCount = 0) {
+        const k = (this.rules && this.rules.sectionCapacityRules) || {};
+        const tur = String(schoolType || "");
+        // Ortaöğretim dışındaki kademeler bu yönetmeliğin kapsamında değil;
+        // sayı uydurmak yerine "tanımsız" döndürülür.
+        if ((k.kapsamDisiTurler || []).includes(tur)) {
+            return {
+                esas: null, ustSinir: null, durum: "kapsamDisi",
+                kaynak: "Bu kademe Ortaöğretim Kurumları Yönetmeliği kapsamında değil"
+            };
+        }
+        const esasOtuz = (k.otuzKisilikTurler || []).includes(tur);
+        const esas = esasOtuz ? (k.merkeziSinavlaOgrenciAlan || 30)
+                              : (k.digerOrtaogretim || 34);
+        const ustSinir = k.zorunluHaldeUstSinir || 40;
+        const n = parseInt(studentCount, 10) || 0;
+        const durum = n > ustSinir ? "ustSinirAsildi"
+                    : (n > esas ? "esasAsildi" : "uygun");
+        return { esas, ustSinir, durum, kaynak: k.legalRef || "" };
+    }
+
     grupBolunmesiSerbestMi(schoolType) {
         const t = String(schoolType || "").toLowerCase();
         if (!t) return false;
@@ -174670,6 +174759,19 @@ class UIComponentManager {
         // Toplam ders saati
         const totalHours = [...(section.zorunluDersler || []), ...(section.secmeliDersler || [])].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
 
+        // ŞUBE KAPASİTESİ — MEB Ortaöğretim Kurumları Yönetmeliği
+        // (Değişik: RG-22/2/2025-32821). Eşik burada SABİT 34'tü ve
+        // dayanağı yazılı değildi: merkezî sınavla öğrenci alan okullarda
+        // ve spor/güzel sanatlar liselerinde sınır 30, diğerlerinde 34,
+        // zorunlu hâllerde 40'a kadar. Kural artık normRulesConfig'te.
+        const kapasite = this.normEngine.subeKapasitesi(
+            this.state.state.okulBilgisi?.okulTuru, totalStudents);
+        const kapasiteRozeti = {
+            uygun: `✅ Uygun (sınır ${kapasite.esas})`,
+            esasAsildi: `⚠️ ${kapasite.esas} aşıldı — ${kapasite.ustSinir}'a kadar artırılabilir`,
+            ustSinirAsildi: `⛔ ${kapasite.ustSinir} üstü — bölünmesi gerekir`,
+        }[kapasite.durum];
+
         // Meslek dal listesi (Varsa)
         const isVoc = !!section.alanId;
         const vocAreas = this.db.getVocationalAreas();
@@ -174693,7 +174795,7 @@ class UIComponentManager {
                                 </div>
                             </div>
                             <div style="font-size: 0.72rem; font-weight: 700; background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 6px;">
-                                MEB Kapasite: ${totalStudents > 34 ? '⚠️ Bölünme Önerilir' : '✅ Uygun'}
+                                <span title="${kapasite.kaynak}">MEB Kapasite: ${kapasiteRozeti}</span>
                             </div>
                         </div>
 
