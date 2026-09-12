@@ -892,7 +892,10 @@ class MebNormApplication {
         if (section?.isSpecialEdu || (section?.subeAdi && section.subeAdi.includes("Özel Eğt")) || section?.alanId === "ozel_egitim") {
             return 30; // MEB Özel Eğitim Hizmetleri Yön. Md. 28 Haftalık Standart Yük
         }
-        return dbService.getOfficialTargetHours(schoolType, section?.sinifSeviyesi, section?.alanId);
+        // dalAdi da gönderilir: 12. sınıfta AMP/ATP çizelgelerinin toplamı
+        // farklı olabiliyor (44 / 45 / 46), doğru çizelgeyi dal adı seçer.
+        return dbService.getOfficialTargetHours(schoolType, section?.sinifSeviyesi,
+            section?.alanId, section?.dalAdi);
     }
 
     // --- 2. SOL PANEL (ŞUBE LİSTESİ) RENDER ---
@@ -926,7 +929,16 @@ class MebNormApplication {
             const totalHours = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
             const targetHours = this.getTargetWeeklyHours(s, schoolType);
             const isActive = s.id === aktifId;
-            const hourStatus = totalHours === targetHours ? 'status-ok' : (totalHours > targetHours ? 'status-over' : 'status-under');
+            // Hedef çizelgeden okunamadıysa (null) durum rengi verilmez ve
+            // uydurma bir hedef gösterilmez.
+            const hedefVar = Number.isFinite(targetHours) && targetHours > 0;
+            const hourStatus = !hedefVar ? 'status-unknown'
+                : (totalHours === targetHours ? 'status-ok'
+                    : (totalHours > targetHours ? 'status-over' : 'status-under'));
+            const hedefMetni = hedefVar ? `${totalHours}/${targetHours}s` : `${totalHours}s`;
+            const hedefBaslik = hedefVar
+                ? `Haftalık Ders Saati: ${totalHours} / ${targetHours} Saat`
+                : `Haftalık Ders Saati: ${totalHours} Saat (çizelge toplamı veride yok)`;
             const isSpecialEdu = !!s.isSpecialEdu || (s.subeAdi && s.subeAdi.includes("Özel Eğt")) || (s.dalAdi && s.dalAdi.includes("Özel Eğit")) || s.alanId === "ozel_egitim";
             
             let dalText = "";
@@ -971,8 +983,8 @@ class MebNormApplication {
                                 <span class="sec-badge-pill student-pill" title="Mevcut: ${s.ogrenciSayisi} Öğrenci">
                                     <span class="pill-icon">👥</span>${s.ogrenciSayisi}
                                 </span>
-                                <span class="sec-badge-pill hour-pill ${hourStatus}" title="Haftalık Ders Saati: ${totalHours} / ${targetHours} Saat">
-                                    <span class="chip-pulse-dot"></span>${totalHours}/${targetHours}s
+                                <span class="sec-badge-pill hour-pill ${hourStatus}" title="${hedefBaslik}">
+                                    <span class="chip-pulse-dot"></span>${hedefMetni}
                                 </span>
                             </div>
 
@@ -1249,17 +1261,18 @@ class MebNormApplication {
         const secmeliHours = secmeliCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
         const rehberlikHours = rehberlikCourses.reduce((sum, d) => sum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
 
-        let statusState = "success";
-        let statusHoursText = `${totalHours} / ${targetHours} Saat`;
-        let statusBadgeTitle = "Tamamlandı";
-        let statusBadgeSub = "Haftalık Yük Tam";
+        const hedefVar = Number.isFinite(targetHours) && targetHours > 0;
+        let statusState = hedefVar ? "success" : "neutral";
+        let statusHoursText = hedefVar ? `${totalHours} / ${targetHours} Saat` : `${totalHours} Saat`;
+        let statusBadgeTitle = hedefVar ? "Tamamlandı" : "Çizelge toplamı yok";
+        let statusBadgeSub = hedefVar ? "Haftalık Yük Tam" : "Hedef gösterilemiyor";
 
-        if (totalHours < targetHours) {
+        if (hedefVar && totalHours < targetHours) {
             statusState = "warning";
             statusHoursText = `${totalHours} / ${targetHours} Saat`;
             statusBadgeTitle = `${targetHours - totalHours} Saat Eksik`;
             statusBadgeSub = "Seçmeli Ders";
-        } else if (totalHours > targetHours) {
+        } else if (hedefVar && totalHours > targetHours) {
             statusState = "danger";
             statusHoursText = `${totalHours} / ${targetHours} Saat`;
             statusBadgeTitle = `+${totalHours - targetHours} Saat Fazla`;
@@ -1311,7 +1324,9 @@ class MebNormApplication {
                     if (isFilteringAll || (!hasCourses && currentCategoryFilter === grp.type)) {
                         let targetHintHtml = "";
                         if (isSecmeli) {
-                            const expectedElectiveHours = Math.max(0, targetHours - ortakHours - meslekHours - rehberlikHours);
+                            const expectedElectiveHours = hedefVar
+                                ? Math.max(0, targetHours - ortakHours - meslekHours - rehberlikHours)
+                                : 0;
                             if (expectedElectiveHours > 0 || secmeliHours > 0) {
                                 targetHintHtml = `<span class="category-target-badge ${secmeliHours >= expectedElectiveHours && expectedElectiveHours > 0 ? 'badge-complete' : (expectedElectiveHours === 0 ? 'badge-complete' : 'badge-pending')}">Seçilen: ${secmeliHours} / Hedef: ${expectedElectiveHours} Saat</span>`;
                             }
@@ -1449,7 +1464,7 @@ class MebNormApplication {
 
                     <!-- SAĞ: TELEMETRİ KARTI & SEÇMELİ DERS BUTONU -->
                     <div class="hero-telemetry-block">
-                        <div class="neon-status-card ${statusState}" title="Haftalık Toplam Ders Saati: ${totalHours} / ${targetHours} Saat (${statusBadgeTitle} - ${statusBadgeSub})">
+                        <div class="neon-status-card ${statusState}" title="Haftalık Toplam Ders Saati: ${statusHoursText} (${statusBadgeTitle} - ${statusBadgeSub})">
                             <div class="neon-status-left">
                                 <div class="neon-status-header">
                                     <span class="neon-status-dot ${statusState}"></span>

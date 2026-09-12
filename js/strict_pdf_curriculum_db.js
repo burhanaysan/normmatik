@@ -10,6 +10,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103,6 +113,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -196,6 +216,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -289,6 +319,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -382,6 +422,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -475,6 +525,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -570,6 +630,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -681,6 +751,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -792,6 +872,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -903,6 +993,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1014,6 +1114,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1125,6 +1235,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1238,6 +1358,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1319,6 +1449,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1406,6 +1546,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1481,6 +1631,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1562,6 +1722,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1631,6 +1801,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1708,6 +1888,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1747,6 +1937,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1786,6 +1986,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1819,6 +2029,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1856,6 +2076,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -1955,6 +2185,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2054,6 +2294,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2153,6 +2403,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2252,6 +2512,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2351,6 +2621,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2452,6 +2732,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2551,6 +2841,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2650,6 +2950,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2749,6 +3059,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2848,6 +3168,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -2947,6 +3277,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3048,6 +3388,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3129,6 +3479,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3210,6 +3570,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3285,6 +3655,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3360,6 +3740,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3429,6 +3819,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3500,6 +3900,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3539,6 +3949,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3578,6 +3998,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3611,6 +4041,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3648,6 +4088,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3741,6 +4191,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3836,6 +4296,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -3929,6 +4399,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4024,6 +4504,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 26,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4087,6 +4577,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 26,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4152,6 +4652,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4191,6 +4701,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4234,6 +4754,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4327,6 +4857,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4420,6 +4960,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4513,6 +5063,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4606,6 +5166,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4699,6 +5269,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4794,6 +5374,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4887,6 +5477,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -4980,6 +5580,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5073,6 +5683,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5166,6 +5786,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5259,6 +5889,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5354,6 +5994,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5429,6 +6079,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5498,6 +6158,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5567,6 +6237,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5636,6 +6316,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5699,6 +6389,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5764,6 +6464,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5803,6 +6513,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5842,6 +6562,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5875,6 +6605,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -5912,6 +6652,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6011,6 +6761,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6110,6 +6870,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6209,6 +6979,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6308,6 +7088,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6407,6 +7197,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6508,6 +7308,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6601,6 +7411,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6694,6 +7514,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6787,6 +7617,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6880,6 +7720,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -6973,6 +7823,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7068,6 +7928,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7143,6 +8013,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7218,6 +8098,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7287,6 +8177,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7356,6 +8256,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7419,6 +8329,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7484,6 +8404,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7523,6 +8453,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7562,6 +8502,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7595,6 +8545,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7632,6 +8592,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7725,6 +8695,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7818,6 +8798,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -7911,6 +8901,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8004,6 +9004,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8097,6 +9107,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8190,6 +9210,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8283,6 +9313,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8376,6 +9416,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8469,6 +9519,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8562,6 +9622,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8655,6 +9725,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8750,6 +9830,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8849,6 +9939,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -8948,6 +10048,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9047,6 +10157,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9146,6 +10266,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9245,6 +10375,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9344,6 +10484,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9443,6 +10593,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9542,6 +10702,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9641,6 +10811,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9740,6 +10920,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9839,6 +11029,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -9940,6 +11140,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10015,6 +11225,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10090,6 +11310,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10165,6 +11395,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10240,6 +11480,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10315,6 +11565,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10390,6 +11650,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10465,6 +11735,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10540,6 +11820,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10609,6 +11899,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10678,6 +11978,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10747,6 +12057,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10818,6 +12138,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10857,6 +12187,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10896,6 +12236,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10935,6 +12285,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -10974,6 +12334,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11007,6 +12377,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11040,6 +12420,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11073,6 +12463,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11110,6 +12510,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11215,6 +12625,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11320,6 +12740,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11427,6 +12857,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11532,6 +12972,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11637,6 +13087,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11744,6 +13204,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11837,6 +13307,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11918,6 +13398,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -11995,6 +13485,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12034,6 +13534,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12071,6 +13581,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12170,6 +13690,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12269,6 +13799,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12368,6 +13908,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12467,6 +14017,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12566,6 +14126,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12667,6 +14237,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12766,6 +14346,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12865,6 +14455,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -12966,6 +14566,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13041,6 +14651,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13116,6 +14736,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13187,6 +14817,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13226,6 +14866,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13263,6 +14913,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13368,6 +15028,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13473,6 +15143,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13578,6 +15258,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13683,6 +15373,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13788,6 +15488,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13895,6 +15605,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -13988,6 +15708,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14081,6 +15811,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14180,6 +15920,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14273,6 +16023,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14366,6 +16126,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14467,6 +16237,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 19,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14542,6 +16322,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 19,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14629,6 +16419,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 19,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14710,6 +16510,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 10,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14773,6 +16583,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 10,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14842,6 +16662,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 10,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14907,6 +16737,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14946,6 +16786,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -14985,6 +16835,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15024,6 +16884,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15057,6 +16927,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15090,6 +16970,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15127,6 +17017,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15196,6 +17096,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15265,6 +17175,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15336,6 +17256,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 15,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15411,6 +17341,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 15,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15486,6 +17426,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 15,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15563,6 +17513,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 30,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15638,6 +17598,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 30,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15713,6 +17683,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 30,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15790,6 +17770,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15853,6 +17843,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -15934,6 +17934,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 46
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16019,6 +18029,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16118,6 +18138,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16217,6 +18247,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16316,6 +18356,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16415,6 +18465,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16514,6 +18574,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16613,6 +18683,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16712,6 +18792,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16811,6 +18901,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -16910,6 +19010,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17009,6 +19119,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17108,6 +19228,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17211,6 +19341,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17304,6 +19444,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17397,6 +19547,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17490,6 +19650,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17583,6 +19753,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17676,6 +19856,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17769,6 +19959,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17862,6 +20062,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -17955,6 +20165,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18048,6 +20268,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18141,6 +20371,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18234,6 +20474,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18327,6 +20577,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18420,6 +20680,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18513,6 +20783,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18606,6 +20886,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18701,6 +20991,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18800,6 +21100,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18899,6 +21209,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -18998,6 +21318,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19097,6 +21427,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19196,6 +21536,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19295,6 +21645,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19394,6 +21754,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19493,6 +21863,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19592,6 +21972,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19691,6 +22081,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19790,6 +22190,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19889,6 +22299,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -19988,6 +22408,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20087,6 +22517,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20186,6 +22626,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20287,6 +22737,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20362,6 +22822,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20437,6 +22907,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20506,6 +22986,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20581,6 +23071,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20656,6 +23156,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20725,6 +23235,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20794,6 +23314,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20863,6 +23393,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -20932,6 +23472,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21001,6 +23551,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21064,6 +23624,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21127,6 +23697,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21190,6 +23770,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21253,6 +23843,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21316,6 +23916,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21381,6 +23991,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21420,6 +24040,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21459,6 +24089,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21498,6 +24138,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21537,6 +24187,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21576,6 +24236,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21609,6 +24279,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21642,6 +24322,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21675,6 +24365,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21708,6 +24408,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21741,6 +24451,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21778,6 +24498,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21865,6 +24595,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -21952,6 +24692,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22039,6 +24789,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22126,6 +24886,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22213,6 +24983,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22302,6 +25082,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22395,6 +25185,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22494,6 +25294,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22587,6 +25397,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22686,6 +25506,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22779,6 +25609,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22880,6 +25720,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -22961,6 +25811,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23036,6 +25896,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23105,6 +25975,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23180,6 +26060,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23243,6 +26133,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23314,6 +26214,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23353,6 +26263,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23392,6 +26312,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23425,6 +26355,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23462,6 +26402,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23561,6 +26511,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23660,6 +26620,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23761,6 +26731,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23860,6 +26840,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -23959,6 +26949,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24062,6 +27062,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24161,6 +27171,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24260,6 +27280,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24361,6 +27391,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24460,6 +27500,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24559,6 +27609,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24660,6 +27720,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24735,6 +27805,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24804,6 +27884,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24869,6 +27959,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24908,6 +28008,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -24945,6 +28055,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25044,6 +28164,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25143,6 +28273,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25244,6 +28384,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25343,6 +28493,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25442,6 +28602,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25545,6 +28715,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25644,6 +28824,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25743,6 +28933,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25844,6 +29044,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -25943,6 +29153,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26042,6 +29262,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26143,6 +29373,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26224,6 +29464,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26299,6 +29549,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26370,6 +29630,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26409,6 +29679,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26446,6 +29726,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 37,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 2,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 40
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26497,6 +29787,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 11,
+          "secmeliMeslek": null,
+          "secmeli": 5,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 44
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26598,6 +29898,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26705,6 +30015,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 25,
+          "meslek": 8,
+          "secmeliMeslek": 11,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26812,6 +30132,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26849,6 +30179,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -26954,6 +30294,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27059,6 +30409,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27166,6 +30526,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27271,6 +30641,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27376,6 +30756,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27483,6 +30873,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27564,6 +30964,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27639,6 +31049,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27710,6 +31130,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27749,6 +31179,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27786,6 +31226,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27879,6 +31329,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -27972,6 +31432,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28065,6 +31535,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28158,6 +31638,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28251,6 +31741,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28344,6 +31844,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28437,6 +31947,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28530,6 +32050,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28625,6 +32155,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28718,6 +32258,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28811,6 +32361,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28904,6 +32464,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -28997,6 +32567,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29090,6 +32670,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29183,6 +32773,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29276,6 +32876,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29369,6 +32979,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29464,6 +33084,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29539,6 +33169,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29614,6 +33254,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29689,6 +33339,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29764,6 +33424,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29839,6 +33509,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29914,6 +33594,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -29983,6 +33673,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30052,6 +33752,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30123,6 +33833,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30162,6 +33882,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30201,6 +33931,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30240,6 +33980,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30273,6 +34023,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30306,6 +34066,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30343,6 +34113,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30442,6 +34222,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30541,6 +34331,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30642,6 +34442,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30747,6 +34557,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30852,6 +34672,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -30959,6 +34789,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31034,6 +34874,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31103,6 +34953,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31168,6 +35028,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31207,6 +35077,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31244,6 +35124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31343,6 +35233,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31442,6 +35342,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31541,6 +35451,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31640,6 +35560,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31739,6 +35669,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31840,6 +35780,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -31939,6 +35889,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32038,6 +35998,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32137,6 +36107,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32236,6 +36216,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32335,6 +36325,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32436,6 +36436,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32511,6 +36521,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32586,6 +36606,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32661,6 +36691,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32736,6 +36776,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32805,6 +36855,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32876,6 +36936,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32915,6 +36985,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32954,6 +37034,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -32987,6 +37077,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33024,6 +37124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33123,6 +37233,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33222,6 +37342,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33321,6 +37451,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33420,6 +37560,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33519,6 +37669,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33620,6 +37780,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33719,6 +37889,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33818,6 +37998,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -33917,6 +38107,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34016,6 +38216,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34115,6 +38325,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34216,6 +38436,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34291,6 +38521,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34366,6 +38606,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34441,6 +38691,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34516,6 +38776,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34585,6 +38855,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34656,6 +38936,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 24,
+          "meslek": 18,
+          "secmeliMeslek": null,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 43
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34741,6 +39031,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34840,6 +39140,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -34939,6 +39249,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35040,6 +39360,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35139,6 +39469,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35238,6 +39578,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35339,6 +39689,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35414,6 +39774,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35489,6 +39859,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35560,6 +39940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35599,6 +39989,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35636,6 +40036,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35735,6 +40145,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35834,6 +40254,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -35935,6 +40365,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36034,6 +40474,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36133,6 +40583,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36234,6 +40694,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36315,6 +40785,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36390,6 +40870,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36461,6 +40951,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36500,6 +41000,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36537,6 +41047,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36630,6 +41150,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36723,6 +41253,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36816,6 +41356,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -36909,6 +41459,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37002,6 +41562,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37097,6 +41667,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37196,6 +41776,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37289,6 +41879,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37388,6 +41988,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37481,6 +42091,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37580,6 +42200,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37675,6 +42305,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37756,6 +42396,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37837,6 +42487,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37906,6 +42566,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -37975,6 +42645,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38038,6 +42718,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38103,6 +42793,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38142,6 +42842,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38181,6 +42891,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38214,6 +42934,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38251,6 +42981,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38356,6 +43096,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38461,6 +43211,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38568,6 +43328,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38673,6 +43443,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38778,6 +43558,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38885,6 +43675,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -38960,6 +43760,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39029,6 +43839,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39094,6 +43914,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39133,6 +43963,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39170,6 +44010,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 37,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 2,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 40
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
@@ -39215,6 +44065,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39314,6 +44174,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 37,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 2,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 40
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
@@ -39359,6 +44229,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39458,6 +44338,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 37,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 2,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 40
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
@@ -39503,6 +44393,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39604,6 +44504,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39709,6 +44619,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39814,6 +44734,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39927,6 +44857,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -39990,6 +44930,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40059,6 +45009,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40132,6 +45092,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40225,6 +45195,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40318,6 +45298,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40413,6 +45403,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40512,6 +45512,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40611,6 +45621,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40712,6 +45732,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40793,6 +45823,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40874,6 +45914,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40951,6 +46001,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -40990,6 +46050,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41027,6 +46097,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41126,6 +46206,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41225,6 +46315,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41324,6 +46424,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41423,6 +46533,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41522,6 +46642,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41623,6 +46753,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41722,6 +46862,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41821,6 +46971,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -41920,6 +47080,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42025,6 +47195,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42130,6 +47310,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42229,6 +47419,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42328,6 +47528,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42427,6 +47637,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42526,6 +47746,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42631,6 +47861,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42736,6 +47976,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42835,6 +48085,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -42934,6 +48194,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43033,6 +48303,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43132,6 +48412,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43237,6 +48527,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43342,6 +48642,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43443,6 +48753,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43518,6 +48838,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43593,6 +48923,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43668,6 +49008,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43743,6 +49093,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43818,6 +49178,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43893,6 +49263,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -43962,6 +49342,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44031,6 +49421,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44100,6 +49500,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44169,6 +49579,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44238,6 +49658,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44307,6 +49737,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44370,6 +49810,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44433,6 +49883,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44496,6 +49956,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44559,6 +50029,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44622,6 +50102,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44687,6 +50177,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44726,6 +50226,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44765,6 +50275,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44804,6 +50324,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44843,6 +50373,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44882,6 +50422,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44921,6 +50471,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44954,6 +50514,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -44987,6 +50557,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45020,6 +50600,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45053,6 +50643,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45086,6 +50686,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45123,6 +50733,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45222,6 +50842,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45321,6 +50951,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45422,6 +51062,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45515,6 +51165,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45608,6 +51268,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45703,6 +51373,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45778,6 +51458,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45847,6 +51537,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45912,6 +51612,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45951,6 +51661,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -45988,6 +51708,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46075,6 +51805,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46162,6 +51902,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46249,6 +51999,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46336,6 +52096,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46423,6 +52193,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46510,6 +52290,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46597,6 +52387,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46684,6 +52484,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46773,6 +52583,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46872,6 +52692,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -46965,6 +52795,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47058,6 +52898,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47157,6 +53007,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47250,6 +53110,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47343,6 +53213,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47442,6 +53322,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47535,6 +53425,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47630,6 +53530,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47705,6 +53615,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47780,6 +53700,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47855,6 +53785,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47924,6 +53864,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -47993,6 +53943,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48062,6 +54022,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48125,6 +54095,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48188,6 +54168,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48253,6 +54243,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48292,6 +54292,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48331,6 +54341,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48370,6 +54390,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48403,6 +54433,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48436,6 +54476,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48473,6 +54523,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48566,6 +54626,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48659,6 +54729,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48752,6 +54832,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48845,6 +54935,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -48938,6 +55038,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49031,6 +55141,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49124,6 +55244,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49217,6 +55347,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49312,6 +55452,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49417,6 +55567,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49510,6 +55670,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49615,6 +55785,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49720,6 +55900,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49813,6 +56003,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -49918,6 +56118,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50023,6 +56233,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50116,6 +56336,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50223,6 +56453,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50310,6 +56550,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50397,6 +56647,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50484,6 +56744,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50559,6 +56829,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50634,6 +56914,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50721,6 +57011,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50790,6 +57090,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50859,6 +57169,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50942,6 +57262,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -50981,6 +57311,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51020,6 +57360,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51059,6 +57409,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51092,6 +57452,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51125,6 +57495,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51162,6 +57542,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51219,6 +57609,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51276,6 +57676,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51335,6 +57745,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 31,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51422,6 +57842,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 31,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51497,6 +57927,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 31,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51580,6 +58020,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51661,6 +58111,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51736,6 +58196,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51825,6 +58295,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -51924,6 +58404,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52017,6 +58507,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52114,6 +58614,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52207,6 +58717,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52300,6 +58820,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52395,6 +58925,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52494,6 +59034,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52593,6 +59143,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52694,6 +59254,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52769,6 +59339,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52838,6 +59418,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52903,6 +59493,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52942,6 +59542,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -52979,6 +59589,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53072,6 +59692,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53165,6 +59795,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53260,6 +59900,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53353,6 +60003,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53446,6 +60106,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53541,6 +60211,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53616,6 +60296,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53691,6 +60381,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53762,6 +60462,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53801,6 +60511,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53838,6 +60558,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -53943,6 +60673,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54048,6 +60788,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54155,6 +60905,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54260,6 +61020,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54365,6 +61135,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54472,6 +61252,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54559,6 +61349,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54634,6 +61434,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54705,6 +61515,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54744,6 +61564,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54781,6 +61611,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54874,6 +61714,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -54967,6 +61817,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55060,6 +61920,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55153,6 +62023,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55246,6 +62126,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55339,6 +62229,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55432,6 +62332,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55525,6 +62435,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55618,6 +62538,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55711,6 +62641,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55804,6 +62744,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55897,6 +62847,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -55990,6 +62950,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56083,6 +63053,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56176,6 +63156,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56269,6 +63259,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56362,6 +63362,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56455,6 +63465,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56548,6 +63568,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56643,6 +63673,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56742,6 +63782,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56841,6 +63891,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -56934,6 +63994,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57039,6 +64109,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57144,6 +64224,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57243,6 +64333,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57342,6 +64442,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57441,6 +64551,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57540,6 +64660,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57639,6 +64769,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57732,6 +64872,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57837,6 +64987,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -57942,6 +65102,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58041,6 +65211,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58140,6 +65320,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58239,6 +65429,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58338,6 +65538,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58437,6 +65647,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58530,6 +65750,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58635,6 +65865,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58740,6 +65980,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58839,6 +66089,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -58938,6 +66198,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59037,6 +66307,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59132,6 +66412,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59207,6 +66497,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59288,6 +66588,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59363,6 +66673,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59444,6 +66764,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59525,6 +66855,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59600,6 +66940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59681,6 +67031,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59762,6 +67122,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59837,6 +67207,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59912,6 +67292,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -59981,6 +67371,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60056,6 +67456,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60125,6 +67535,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60194,6 +67614,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60269,6 +67699,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60344,6 +67784,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60413,6 +67863,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60482,6 +67942,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60545,6 +68015,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60614,6 +68094,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60677,6 +68167,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60740,6 +68240,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60809,6 +68319,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60878,6 +68398,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60949,6 +68479,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -60988,6 +68528,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61027,6 +68577,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61066,6 +68626,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61105,6 +68675,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61144,6 +68724,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61183,6 +68773,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61222,6 +68822,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61261,6 +68871,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61294,6 +68914,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61327,6 +68957,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61360,6 +69000,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61393,6 +69043,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61426,6 +69086,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61459,6 +69129,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61492,6 +69172,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61525,6 +69215,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61562,6 +69262,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61661,6 +69371,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61760,6 +69480,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61859,6 +69589,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -61958,6 +69698,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62057,6 +69807,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62156,6 +69916,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62255,6 +70025,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62354,6 +70134,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62457,6 +70247,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62550,6 +70350,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62643,6 +70453,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62736,6 +70556,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62829,6 +70659,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -62922,6 +70762,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63017,6 +70867,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63110,6 +70970,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63203,6 +71073,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63296,6 +71176,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63389,6 +71279,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63482,6 +71382,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63577,6 +71487,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63652,6 +71572,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63721,6 +71651,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63790,6 +71730,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63859,6 +71809,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63922,6 +71882,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -63987,6 +71957,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64026,6 +72006,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64065,6 +72055,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64098,6 +72098,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64135,6 +72145,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64234,6 +72254,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64333,6 +72363,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64432,6 +72472,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64531,6 +72581,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64630,6 +72690,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64729,6 +72799,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64828,6 +72908,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -64927,6 +73017,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65028,6 +73128,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65127,6 +73237,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65226,6 +73346,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65325,6 +73455,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65424,6 +73564,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65523,6 +73673,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65624,6 +73784,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65705,6 +73875,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65786,6 +73966,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65861,6 +74051,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -65936,6 +74136,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66005,6 +74215,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66076,6 +74296,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66115,6 +74345,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66154,6 +74394,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66187,6 +74437,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66224,6 +74484,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66317,6 +74587,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66410,6 +74690,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66503,6 +74793,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66596,6 +74896,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66689,6 +74999,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66784,6 +75104,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66883,6 +75213,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -66982,6 +75322,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67081,6 +75431,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67180,6 +75540,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67279,6 +75649,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67380,6 +75760,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67461,6 +75851,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67542,6 +75942,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67623,6 +76033,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67704,6 +76124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67779,6 +76209,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67856,6 +76296,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67895,6 +76345,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67934,6 +76394,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -67967,6 +76437,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68004,6 +76484,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68097,6 +76587,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68190,6 +76690,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68285,6 +76795,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68384,6 +76904,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68483,6 +77013,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68584,6 +77124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68659,6 +77209,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68734,6 +77294,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68805,6 +77375,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68844,6 +77424,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68881,6 +77471,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -68980,6 +77580,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69079,6 +77689,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69178,6 +77798,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69277,6 +77907,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69376,6 +78016,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69477,6 +78127,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69576,6 +78236,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69675,6 +78345,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69774,6 +78454,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69873,6 +78563,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -69972,6 +78672,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70073,6 +78783,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70154,6 +78874,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70229,6 +78959,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70310,6 +79050,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70379,6 +79129,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70454,6 +79214,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70519,6 +79289,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70558,6 +79338,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70597,6 +79387,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70630,6 +79430,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70667,6 +79477,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70760,6 +79580,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70853,6 +79683,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -70946,6 +79786,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71039,6 +79889,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71132,6 +79992,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71227,6 +80097,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71320,6 +80200,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71413,6 +80303,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71506,6 +80406,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71599,6 +80509,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71692,6 +80612,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71787,6 +80717,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71856,6 +80796,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -71925,6 +80875,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72000,6 +80960,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72075,6 +81045,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72144,6 +81124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72215,6 +81205,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72254,6 +81254,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72293,6 +81303,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72326,6 +81346,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72363,6 +81393,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72450,6 +81490,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72537,6 +81587,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72624,6 +81684,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72711,6 +81781,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72798,6 +81878,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72885,6 +81975,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -72972,6 +82072,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73059,6 +82169,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73146,6 +82266,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73233,6 +82363,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73320,6 +82460,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73407,6 +82557,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73494,6 +82654,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73581,6 +82751,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73670,6 +82850,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73769,6 +82959,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73868,6 +83068,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -73967,6 +83177,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74066,6 +83286,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74165,6 +83395,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74264,6 +83504,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74363,6 +83613,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74462,6 +83722,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74561,6 +83831,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74660,6 +83940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74759,6 +84049,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74858,6 +84158,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -74957,6 +84267,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75056,6 +84376,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75157,6 +84487,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75238,6 +84578,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75313,6 +84663,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75388,6 +84748,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75469,6 +84839,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75550,6 +84930,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75619,6 +85009,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75688,6 +85088,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75757,6 +85167,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75826,6 +85246,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75895,6 +85325,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -75958,6 +85398,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76021,6 +85471,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76084,6 +85544,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76147,6 +85617,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76212,6 +85692,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76251,6 +85741,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76290,6 +85790,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76329,6 +85839,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76368,6 +85888,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76407,6 +85937,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76440,6 +85980,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76473,6 +86023,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76506,6 +86066,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76539,6 +86109,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76576,6 +86156,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76675,6 +86265,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76774,6 +86374,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76873,6 +86483,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -76972,6 +86592,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77071,6 +86701,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77172,6 +86812,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77277,6 +86927,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77388,6 +87048,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77493,6 +87163,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77604,6 +87284,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77709,6 +87399,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77822,6 +87522,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -77915,6 +87625,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78002,6 +87722,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78077,6 +87807,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78158,6 +87898,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78227,6 +87977,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78304,6 +88064,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78343,6 +88113,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78382,6 +88162,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78415,6 +88205,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78452,6 +88252,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78551,6 +88361,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78650,6 +88470,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78749,6 +88579,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78848,6 +88688,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -78947,6 +88797,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79048,6 +88908,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 29,
+          "meslek": 11,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79131,6 +89001,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 30,
+          "meslek": 10,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79214,6 +89094,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 30,
+          "meslek": 10,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79305,6 +89195,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79392,6 +89292,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79479,6 +89389,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79566,6 +89486,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79653,6 +89583,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79740,6 +89680,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79827,6 +89777,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -79914,6 +89874,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80001,6 +89971,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80088,6 +90068,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80175,6 +90165,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80262,6 +90262,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80349,6 +90359,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80436,6 +90456,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80523,6 +90553,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80612,6 +90652,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80711,6 +90761,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80810,6 +90870,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -80909,6 +90979,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81008,6 +91088,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81107,6 +91197,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81206,6 +91306,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81305,6 +91415,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81404,6 +91524,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81503,6 +91633,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81602,6 +91742,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81701,6 +91851,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81800,6 +91960,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81899,6 +92069,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -81998,6 +92178,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82099,6 +92289,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82180,6 +92380,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82255,6 +92465,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82330,6 +92550,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82411,6 +92641,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82492,6 +92732,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82561,6 +92811,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82630,6 +92890,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82699,6 +92969,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82768,6 +93048,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82837,6 +93127,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82900,6 +93200,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -82963,6 +93273,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83026,6 +93346,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83089,6 +93419,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83154,6 +93494,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83193,6 +93543,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83232,6 +93592,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83271,6 +93641,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83310,6 +93690,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83349,6 +93739,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83382,6 +93782,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83415,6 +93825,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83448,6 +93868,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83481,6 +93911,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83518,6 +93958,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83623,6 +94073,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83728,6 +94188,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83833,6 +94303,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -83938,6 +94418,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84043,6 +94533,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84150,6 +94650,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84261,6 +94771,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84372,6 +94892,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84483,6 +95013,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84594,6 +95134,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84705,6 +95255,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84818,6 +95378,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -84911,6 +95481,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85004,6 +95584,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85085,6 +95675,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85166,6 +95766,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85241,6 +95851,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85318,6 +95938,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85357,6 +95987,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85396,6 +96036,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85429,6 +96079,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85466,6 +96126,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85559,6 +96229,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85652,6 +96332,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85747,6 +96437,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85852,6 +96552,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -85957,6 +96667,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86064,6 +96784,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86139,6 +96869,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86214,6 +96954,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86285,6 +97035,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86324,6 +97084,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86361,6 +97131,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86454,6 +97234,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86547,6 +97337,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86642,6 +97442,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86741,6 +97551,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86840,6 +97660,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -86941,6 +97771,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87022,6 +97862,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87091,6 +97941,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87156,6 +98016,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87195,6 +98065,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87232,6 +98112,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87331,6 +98221,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87430,6 +98330,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87531,6 +98441,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87630,6 +98550,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87729,6 +98659,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87830,6 +98770,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87905,6 +98855,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -87980,6 +98940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88051,6 +99021,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88090,6 +99070,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88127,6 +99117,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 37,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": null
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI",
@@ -88172,6 +99172,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 11,
+          "secmeliMeslek": null,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": null
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88273,6 +99283,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88380,6 +99400,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 25,
+          "meslek": 8,
+          "secmeliMeslek": 11,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88475,6 +99505,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88512,6 +99552,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88605,6 +99655,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88698,6 +99758,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88791,6 +99861,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88884,6 +99964,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -88977,6 +100067,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89070,6 +100170,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89163,6 +100273,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89256,6 +100376,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89351,6 +100481,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89450,6 +100590,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89549,6 +100699,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89648,6 +100808,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89747,6 +100917,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89846,6 +101026,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -89945,6 +101135,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90044,6 +101244,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90143,6 +101353,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90244,6 +101464,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90325,6 +101555,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90406,6 +101646,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90487,6 +101737,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90556,6 +101816,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90625,6 +101895,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90694,6 +101974,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90757,6 +102047,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90820,6 +102120,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90885,6 +102195,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90924,6 +102244,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -90963,6 +102293,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91002,6 +102342,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91035,6 +102385,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91068,6 +102428,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91105,6 +102475,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91210,6 +102590,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91315,6 +102705,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91420,6 +102820,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91525,6 +102935,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91630,6 +103050,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91737,6 +103167,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91848,6 +103288,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -91959,6 +103409,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92070,6 +103530,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92181,6 +103651,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92292,6 +103772,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92403,6 +103893,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92514,6 +104014,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92625,6 +104135,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92738,6 +104258,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92825,6 +104355,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92912,6 +104452,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -92999,6 +104549,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93074,6 +104634,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93149,6 +104719,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93224,6 +104804,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93293,6 +104883,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93362,6 +104962,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93433,6 +105043,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93472,6 +105092,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93511,6 +105141,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93550,6 +105190,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93583,6 +105233,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93616,6 +105276,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93653,6 +105323,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93752,6 +105432,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93853,6 +105543,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -93958,6 +105658,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94059,6 +105769,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 26,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94134,6 +105854,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 26,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94211,6 +105941,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 26,
+          "secmeliMeslek": 5,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94256,6 +105996,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94299,6 +106049,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94398,6 +106158,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94497,6 +106267,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94596,6 +106376,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94695,6 +106485,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94794,6 +106594,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94895,6 +106705,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -94994,6 +106814,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95093,6 +106923,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95192,6 +107032,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95291,6 +107141,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95390,6 +107250,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95491,6 +107361,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95572,6 +107452,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95653,6 +107543,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95728,6 +107628,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95803,6 +107713,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95872,6 +107792,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95943,6 +107873,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -95982,6 +107922,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96021,6 +107971,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96054,6 +108014,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96091,6 +108061,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96184,6 +108164,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96277,6 +108267,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96372,6 +108372,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96465,6 +108475,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96558,6 +108578,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96653,6 +108683,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96734,6 +108774,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96809,6 +108859,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96880,6 +108940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96919,6 +108989,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -96956,6 +109036,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97061,6 +109151,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97166,6 +109266,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97273,6 +109383,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97378,6 +109498,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97483,6 +109613,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97590,6 +109730,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97671,6 +109821,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97752,6 +109912,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97829,6 +109999,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97868,6 +110048,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97905,6 +110095,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -97998,6 +110198,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98091,6 +110301,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98184,6 +110404,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98277,6 +110507,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98370,6 +110610,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98463,6 +110713,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98556,6 +110816,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98649,6 +110919,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98742,6 +111022,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98835,6 +111125,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -98928,6 +111228,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99021,6 +111331,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99114,6 +111434,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99207,6 +111537,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99302,6 +111642,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99401,6 +111751,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99500,6 +111860,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99605,6 +111975,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99698,6 +112078,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99797,6 +112187,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99896,6 +112296,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -99995,6 +112405,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100100,6 +112520,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100193,6 +112623,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100292,6 +112732,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100391,6 +112841,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100490,6 +112950,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100595,6 +113065,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100688,6 +113168,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100789,6 +113279,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100870,6 +113370,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -100945,6 +113455,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101014,6 +113534,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101089,6 +113619,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101164,6 +113704,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101239,6 +113789,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101308,6 +113868,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101377,6 +113947,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101446,6 +114026,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101515,6 +114105,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101584,6 +114184,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101647,6 +114257,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101710,6 +114330,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101773,6 +114403,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101838,6 +114478,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101877,6 +114527,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101916,6 +114576,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101955,6 +114625,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -101994,6 +114674,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102033,6 +114723,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102066,6 +114766,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102099,6 +114809,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102132,6 +114852,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102165,6 +114895,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102202,6 +114942,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102295,6 +115045,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102388,6 +115148,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102481,6 +115251,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102574,6 +115354,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102667,6 +115457,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102762,6 +115562,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102861,6 +115671,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -102960,6 +115780,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103059,6 +115889,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103158,6 +115998,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103257,6 +116107,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103358,6 +116218,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103433,6 +116303,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103508,6 +116388,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103583,6 +116473,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103658,6 +116558,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103727,6 +116637,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103798,6 +116718,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103837,6 +116767,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103876,6 +116816,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103909,6 +116859,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -103946,6 +116906,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104045,6 +117015,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104144,6 +117124,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104243,6 +117233,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104344,6 +117344,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104443,6 +117453,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104542,6 +117562,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104641,6 +117671,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 16,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104742,6 +117782,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 23,
+          "secmeliMeslek": 8,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104847,6 +117897,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 23,
+          "secmeliMeslek": 8,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -104952,6 +118012,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 14,
+          "secmeliMeslek": null,
+          "secmeli": 17,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105039,6 +118109,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 14,
+          "secmeliMeslek": null,
+          "secmeli": 17,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 47
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105128,6 +118208,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105167,6 +118257,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105206,6 +118306,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105239,6 +118349,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105276,6 +118396,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105375,6 +118505,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105474,6 +118614,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105573,6 +118723,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105672,6 +118832,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105771,6 +118941,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105872,6 +119052,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -105977,6 +119167,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106082,6 +119282,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106187,6 +119397,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106292,6 +119512,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106397,6 +119627,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106504,6 +119744,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106597,6 +119847,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106678,6 +119938,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106759,6 +120029,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106834,6 +120114,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106909,6 +120199,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -106980,6 +120280,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107019,6 +120329,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107058,6 +120378,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107091,6 +120421,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107128,6 +120468,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107229,6 +120579,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107332,6 +120692,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107425,6 +120795,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107518,6 +120898,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107613,6 +121003,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107712,6 +121112,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107811,6 +121221,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107912,6 +121332,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -107987,6 +121417,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108056,6 +121496,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108121,6 +121571,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108160,6 +121620,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108197,6 +121667,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108296,6 +121776,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108395,6 +121885,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108494,6 +121994,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108593,6 +122103,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108692,6 +122212,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 12,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108793,6 +122323,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108892,6 +122432,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -108991,6 +122541,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 27,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109092,6 +122652,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 17,
+          "secmeliMeslek": 12,
+          "secmeli": null,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109167,6 +122737,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "isletmelerde_mesleki_egitime_11_sinifta_baslayan_okullar_icin",
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 25,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109236,6 +122816,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 15,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 20,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109301,6 +122891,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": 24,
+          "secmeliMeslek": 7,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109340,6 +122940,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "ATP",
         "varyant": null,
+        "chartTotals": {
+          "ortak": 10,
+          "meslek": null,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": 31,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109377,6 +122987,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109434,6 +123054,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "9",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 28,
+          "meslek": 13,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": null,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109493,6 +123123,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "10",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 31,
+          "meslek": 9,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109564,6 +123204,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "11",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",
@@ -109641,6 +123291,16 @@ export const STRICT_PDF_CURRICULUM_DB = {
         "grade": "12",
         "program": "AMP",
         "varyant": "protokol_kapsamindaki_okullar_icin",
+        "chartTotals": {
+          "ortak": 34,
+          "meslek": 6,
+          "secmeliMeslek": null,
+          "secmeli": 4,
+          "akademikDestek": null,
+          "rehberlik": 1,
+          "toplam": 45
+        },
+        "totalsMismatch": null,
         "courses": [
           {
             "ders": "TÜRK DİLİ VE EDEBİYATI",

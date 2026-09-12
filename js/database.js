@@ -608,13 +608,31 @@ export class MebDatabaseService {
         return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru || {};
     }
 
-        getOfficialTargetHours(schoolType, gradeLevel, areaId) {
+        getOfficialTargetHours(schoolType, gradeLevel, areaId, dalName) {
         const sType = String(schoolType || "").toLowerCase();
         const gStr = String(gradeLevel || "");
-        
-        if (sType.includes("meslek") || sType.includes("teknik") || sType.includes("mtegm") || areaId) {
-            if (gStr === "9") return 44;
-            return 45;
+
+        // ------------------------------------------------------------------
+        // 1) MESLEK LİSELERİ: SAYI ÇİZELGEDEN OKUNUR (12.09.2026)
+        //
+        // Burada "9. sınıf -> 44, diğerleri -> 45" diye elle yazılmış bir
+        // tahmin vardı. Ölçüldü: MTAL çizelgelerinin hiçbirinde 9. sınıf 44
+        // değil, hepsi 45; 12. sınıf ise alana göre 44/45/46. Yanlış hedef
+        // yüzünden ekranda "3 saat eksik seçmeli ders" yazıyordu, oysa
+        // çizelge 4 saat istiyor: uygulamayı dinleyen okul her şubede 1 saat
+        // eksik yük oluşturuyordu.
+        //
+        // Çizelge bulunamazsa null döner; UI sayı göstermez. Uydurulmuş bir
+        // hedef, hedefsizlikten daha zararlıdır.
+        // ------------------------------------------------------------------
+        const meslekMi = sType.includes("meslek") || sType.includes("teknik")
+            || sType.includes("mtegm") || !!areaId;
+        if (meslekMi && !sType.includes("mesleki_egitim_merkezi")) {
+            const ce = (typeof curriculumEngine !== "undefined") ? curriculumEngine
+                : ((typeof window !== "undefined") ? window.curriculumEngine : null);
+            const t = (ce && typeof ce.cizelgeToplamlari === "function")
+                ? ce.cizelgeToplamlari(schoolType, gradeLevel, areaId, dalName) : null;
+            return (t && t.toplam) ? t.toplam : null;
         }
         if (sType.includes("ortaokul") && !sType.includes("imam_hatip")) {
             return 35;

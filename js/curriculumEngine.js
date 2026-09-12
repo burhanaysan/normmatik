@@ -4,6 +4,61 @@ import { MESEM_CURRICULUM_DB } from './mesem_curriculum_db.js';
 // Kurumsal Müfredat ve Ders Çözümleme Motoru (CurriculumEngine)
 // TTKB Haftalık Ders Çizelgeleri ve MEB Norm Standartları (v5.3 - 2026-2027)
 
+// MTEGM alan kimliği -> çizelge veri tabanı anahtarı.
+// 12.09.2026: fonksiyon içinden MODÜL düzeyine taşındı; çizelge
+// toplamlarını okuyan yeni işlev de aynı haritayı kullanıyor.
+// Mantık DEĞİŞMEDİ, yalnızca yeri değişti.
+const ALAN_ANAHTARLARI = {
+    "tesisat_teknolojisi_ve_iklimlendirme": "tesisat",
+    "bilisim_teknolojileri": "bilisim",
+    "elektrik_elektronik_teknolojisi": "elektrik",
+    "makine_ve_tasarim_teknolojisi": "makine",
+    "motorlu_araclar_teknolojisi": "motorluarac",
+    "kimya_teknolojisi": "kimya",
+    "insaat_teknolojisi": "insaat",
+    "mobilya_ve_ic_mekan_tasarimi": "mobilya",
+    "metal_teknolojisi": "metal",
+    "moda_tasarim_teknolojileri": "moda",
+    "yiyecek_icecek_hizmetleri": "yiyecek",
+    "cocuk_gelisimi_ve_egitimi": "cocukgelisimi",
+    "grafik_ve_fotograf": "grafik",
+    "guzellik_hizmetleri": "guzellik",
+    "hasta_ve_yasli_hizmetleri": "hasta",
+    "adalet": "adalet",
+    "muhasebe_ve_finansman": "muhasebe",
+    "pazarlama_ve_perakende": "pazarlama",
+    "buro_yonetimi_ve_yonetici_asistanligi": "buro",
+    "halkla_iliskiler": "halklailiskiler",
+    "gazetecilik": "gazetecilik",
+    "radyo_televizyon": "radyotv",
+    "saglik_hizmetleri": "saglik",
+    "tarim": "tarim",
+    "hayvan_yetistiriciligi_ve_sagligi": "hayvanyetistiriciligi",
+    "laboratuvar_hizmetleri": "laboratuvar",
+    "gida_teknolojisi": "gida",
+    "tekstil_teknolojisi": "tekstil",
+    "biyomedikal_cihaz_teknolojileri": "biyomedikal",
+    "denizcilik": "denizcilik",
+    "gemi_yapimi": "gemi",
+    "havacilik_ve_uzay_teknolojisi": "havacilikveuzaypro",
+    "ucak_bakim": "ucak",
+    "rayli_sistemler_teknolojisi": "rayli",
+    "harita_tapu_kadastro": "harita",
+    "maden_teknolojisi": "maden",
+    "matbaa_teknolojisi": "matbaa",
+    "seramik_ve_cam_teknolojisi": "seramikpro",
+    "kuyumculuk_teknolojisi": "kuyumculuk",
+    "plastik_teknolojisi": "plastiktek",
+    "yenilenebilir_enerji_teknolojileri": "yenilenebilir",
+    "itfaiyecilik_ve_yangin_guvenligi": "itfaiyecilik",
+    "konaklama_ve_seyahat_hizmetleri": "konaklama",
+    "endustriyel_otomasyon_teknolojileri": "endustriyel",
+    "mikromekanik": "mikromekanik",
+    "siber_guvenlik": "siber",
+    "yapay_zeka_ve_veri_bilimi": "yapayzeka"
+};
+
+
 class MebCurriculumEngine {
     constructor(dbService) {
         this.db = dbService;
@@ -545,6 +600,54 @@ class MebCurriculumEngine {
     // --- KAPSAMLI ZORUNLU DERS ÇÖZÜMLEME (UNIVERSAL RESOLVER) ---
     // --- KAPSAMLI VE %100 MEB UYUMLU ZORUNLU DERS ÇÖZÜMLEME (CANONICAL UNIVERSAL RESOLVER) ---
         // --- SADECE VE SADECE PDF TABLOLARINDAN ÇEKİLEN KESİN MÜFREDAT ÇÖZÜMLEYİCİ ---
+    /**
+     * ÇİZELGENİN KENDİ TOPLAMLARI (meslek liseleri) — 12.09.2026
+     *
+     * NEDEN: haftalık hedef saat uygulamada UYDURULUYORDU. database.js'te
+     * "meslek lisesi 9. sınıf -> 44, diğerleri -> 45" diye elle yazılmış bir
+     * tahmin vardı. Resmî çizelgelerde 9. sınıf HİÇBİR alanda 44 değil; hepsi
+     * 45. Sonuç: ekranda "3 saat eksik seçmeli ders" yazıyordu, çizelge ise
+     * 4 saat istiyor — uygulamayı dinleyen okul her şubede 1 saat eksik yük
+     * oluşturuyordu.
+     *
+     * Artık sayı çizelgeden gelir (rebuild_curriculum_db.py -> chartTotals).
+     *
+     * DÜRÜST SINIR: aynı sınıfta birden fazla çizelge varsa (AMP/ATP ve
+     * varyantlar) ve bunların toplamları birbirinden FARKLIYSA, dal adından
+     * kesin eşleşme bulunamadığında null döner. Yanlış sayı göstermektense
+     * hiç göstermemek doğrudur.
+     */
+    cizelgeToplamlari(schoolType, gradeLevel, areaId, dalName) {
+        const gStr = String(gradeLevel || "");
+        const anahtar = ALAN_ANAHTARLARI[areaId] || (areaId ? String(areaId).toLowerCase() : "");
+        const db = (typeof STRICT_PDF_CURRICULUM_DB !== "undefined") ? STRICT_PDF_CURRICULUM_DB : null;
+        const alan = (db && anahtar) ? db[anahtar] : null;
+        const liste = alan ? alan[gStr] : null;
+        if (!liste || !liste.length) return null;
+
+        const tip = String(schoolType || "").toLowerCase();
+        const isAmp = !tip.includes("teknik") && !tip.includes("atp");
+        const programa_uygun = liste.filter(s => {
+            const t = this.normalizeName(s.title || "").toLowerCase();
+            const atp = t.includes("anadolu teknik programi") && !t.includes("anadolu meslek programi");
+            const amp = t.includes("anadolu meslek programi") && !t.includes("anadolu teknik programi");
+            return isAmp ? !atp : !amp;
+        });
+        const adaylar = programa_uygun.length ? programa_uygun : liste;
+
+        let secilen = null;
+        if (dalName) {
+            const normDal = this.normalizeName(dalName).toLowerCase();
+            secilen = adaylar.find(s => this.normalizeName(s.title || "").toLowerCase().includes(normDal)) || null;
+        }
+        if (!secilen) {
+            const toplamlar = new Set(adaylar.map(s => (s.chartTotals || {}).toplam));
+            if (toplamlar.size > 1) return null;      // çelişkili: sayı uydurma
+            secilen = adaylar[0];
+        }
+        return (secilen && secilen.chartTotals) ? secilen.chartTotals : null;
+    }
+
     getMandatoryCourses(schoolType, grade, areaId = null, dalName = null) {
         const gStr = String(grade);
         const result = [];
@@ -918,55 +1021,7 @@ class MebCurriculumEngine {
         //
         // MESEM buraya hiç ulaşmaz: 1.2 bloğu her durumda dönüş yapar.
         if (schoolTypeStr.includes("meslek") || schoolTypeStr.includes("teknik") || schoolTypeStr.includes("mtegm") || areaId) {
-            const ALIAS_MAP = {
-                "tesisat_teknolojisi_ve_iklimlendirme": "tesisat",
-                "bilisim_teknolojileri": "bilisim",
-                "elektrik_elektronik_teknolojisi": "elektrik",
-                "makine_ve_tasarim_teknolojisi": "makine",
-                "motorlu_araclar_teknolojisi": "motorluarac",
-                "kimya_teknolojisi": "kimya",
-                "insaat_teknolojisi": "insaat",
-                "mobilya_ve_ic_mekan_tasarimi": "mobilya",
-                "metal_teknolojisi": "metal",
-                "moda_tasarim_teknolojileri": "moda",
-                "yiyecek_icecek_hizmetleri": "yiyecek",
-                "cocuk_gelisimi_ve_egitimi": "cocukgelisimi",
-                "grafik_ve_fotograf": "grafik",
-                "guzellik_hizmetleri": "guzellik",
-                "hasta_ve_yasli_hizmetleri": "hasta",
-                "adalet": "adalet",
-                "muhasebe_ve_finansman": "muhasebe",
-                "pazarlama_ve_perakende": "pazarlama",
-                "buro_yonetimi_ve_yonetici_asistanligi": "buro",
-                "halkla_iliskiler": "halklailiskiler",
-                "gazetecilik": "gazetecilik",
-                "radyo_televizyon": "radyotv",
-                "saglik_hizmetleri": "saglik",
-                "tarim": "tarim",
-                "hayvan_yetistiriciligi_ve_sagligi": "hayvanyetistiriciligi",
-                "laboratuvar_hizmetleri": "laboratuvar",
-                "gida_teknolojisi": "gida",
-                "tekstil_teknolojisi": "tekstil",
-                "biyomedikal_cihaz_teknolojileri": "biyomedikal",
-                "denizcilik": "denizcilik",
-                "gemi_yapimi": "gemi",
-                "havacilik_ve_uzay_teknolojisi": "havacilikveuzaypro",
-                "ucak_bakim": "ucak",
-                "rayli_sistemler_teknolojisi": "rayli",
-                "harita_tapu_kadastro": "harita",
-                "maden_teknolojisi": "maden",
-                "matbaa_teknolojisi": "matbaa",
-                "seramik_ve_cam_teknolojisi": "seramikpro",
-                "kuyumculuk_teknolojisi": "kuyumculuk",
-                "plastik_teknolojisi": "plastiktek",
-                "yenilenebilir_enerji_teknolojileri": "yenilenebilir",
-                "itfaiyecilik_ve_yangin_guvenligi": "itfaiyecilik",
-                "konaklama_ve_seyahat_hizmetleri": "konaklama",
-                "endustriyel_otomasyon_teknolojileri": "endustriyel",
-                "mikromekanik": "mikromekanik",
-                "siber_guvenlik": "siber",
-                "yapay_zeka_ve_veri_bilimi": "yapayzeka"
-            };
+            const ALIAS_MAP = ALAN_ANAHTARLARI;
 
             const lookupKey = ALIAS_MAP[areaId] || (areaId ? areaId.toLowerCase() : "");
             const areaDb = (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined' && lookupKey) ? STRICT_PDF_CURRICULUM_DB[lookupKey] : null;

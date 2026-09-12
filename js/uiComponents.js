@@ -1598,8 +1598,8 @@ export class UIComponentManager {
 
         const schoolType = this.state.state.okulBilgisi.okulTuru || "";
         const targetHours = (window.app && typeof window.app.getTargetWeeklyHours === 'function') 
-            ? window.app.getTargetWeeklyHours(section, schoolType) 
-            : 40;
+            ? window.app.getTargetWeeklyHours(section, schoolType)
+            : null;   // 12.09.2026: varsayılan 40 UYDURMAYDI; hedef yoksa null.
 
         const currentSec = this.state.getActiveSection() || section;
         const zorunluList = currentSec.zorunluDersler || [];

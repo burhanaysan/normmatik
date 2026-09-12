@@ -242,6 +242,60 @@ def kayit_to_cizelge(rec, alan_adi, program):
             ("baraj_ders", False),
         ]))
 
+    # ---------------------------------------------------------------------
+    # CIZELGENIN KENDI TOPLAMLARI  (12.09.2026)
+    #
+    # NEDEN: uygulama haftalik hedef saati BILMIYORDU. database.js icinde
+    # elle yazilmis bir tahmin vardi: "meslek lisesi 9. sinif -> 44, digerleri
+    # -> 45". Olculdu: MTAL cizelgelerinin HICBIRINDE 9. sinif 44 degil, hepsi
+    # 45; 12. sinif ise alana gore 44/45/46. Ekranda "3 saat eksik secmeli
+    # ders" yaziyordu, oysa cizelge 4 saat istiyor: uygulamayi dinleyen okul
+    # her subede 1 saat eksik yuk olusturuyordu.
+    #
+    # Toplamlar ayristiricidan ZATEN geliyordu (rec["ozet"]); bu uretici
+    # onlari disari tasimiyordu. Artik tasiniyor ve DOGRULANIYOR: ayristirilan
+    # derslerin kategori toplami cizelgenin kendi toplamiyla karsilastirilir.
+    # Tutmuyorsa derslerde supheli bir sey var demektir.
+    # ---------------------------------------------------------------------
+    ozet = rec.get("ozet") or {}
+
+    def _sayi(v):
+        try:
+            return int(v)
+        except (TypeError, ValueError):
+            return None
+
+    meslek_toplami = _sayi(ozet.get("meslek_ders_saati_toplami"))
+    if meslek_toplami is None:
+        meslek_toplami = _sayi(ozet.get("alan_dal_dersleri_toplami"))
+
+    toplamlar = OrderedDict([
+        ("ortak", _sayi(ozet.get("ortak_dersler_toplami"))),
+        ("meslek", meslek_toplami),
+        ("secmeliMeslek", _sayi(ozet.get("secmeli_meslek_ders_saati_toplami"))),
+        ("secmeli", _sayi(ozet.get("secmeli_ders_saati_toplami"))),
+        ("akademikDestek", _sayi(ozet.get("akademik_destek_ders_saati_toplami"))),
+        ("rehberlik", _sayi(ozet.get("rehberlik_ve_yonlendirme"))),
+        ("toplam", _sayi(ozet.get("toplam_ders_saati"))),
+    ])
+
+    uretilen = {"ortak": 0, "meslek": 0, "rehberlik": 0}
+    for c in dersler:
+        k = c["kategori"]
+        if k == "REHBERLİK":
+            uretilen["rehberlik"] += c["saat"]
+        elif "MESLEK" in k:
+            uretilen["meslek"] += c["saat"]
+        else:
+            uretilen["ortak"] += c["saat"]
+
+    sapmalar = []
+    for alan in ("ortak", "meslek", "rehberlik"):
+        beklenen = toplamlar[alan]
+        if beklenen is not None and uretilen[alan] != beklenen:
+            sapmalar.append("%s: çizelge %d, dersler %d"
+                            % (alan, beklenen, uretilen[alan]))
+
     return OrderedDict([
         ("page", sayfa_no(rec.get("kaynak_sayfa"))),
         ("title", baslik_uret(alan_adi, rec.get("dal_adi") or "ALAN ORTAK",
@@ -249,6 +303,8 @@ def kayit_to_cizelge(rec, alan_adi, program):
         ("grade", str(rec.get("sinif_seviyesi") or "")),
         ("program", program),
         ("varyant", rec.get("varyant")),
+        ("chartTotals", toplamlar),
+        ("totalsMismatch", sapmalar or None),
         ("courses", dersler),
     ])
 
