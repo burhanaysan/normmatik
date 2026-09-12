@@ -604,6 +604,38 @@ class MebNormApplication {
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
         const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
+        /* 🔑 LİSANS ÇAĞRISI (12.09.2026, kullanıcı isteği)
+           Lisans düğmesi "⋯ Diğer" menüsünün içinde kalıyordu; demoyu deneyen
+           ziyaretçi lisans/fiyat penceresini bulamıyordu. Artık:
+             • DEMO'da   -> başlığın en solunda, logonun hemen yanında BÜYÜK
+                            ve göze çarpan bir düğme (sağ taraf dar ekranda
+                            kayabiliyor, sol taraf her zaman görünür).
+             • LİSANSLI'da -> başlıkta HİÇ GÖRÜNMEZ; yeri yine ⋯ menüsüdür,
+                            böylece okul lisans bilgisine yine ulaşabilir.
+           Düğme kimliği iki durumda da btn-open-license'tır ve aynı anda
+           yalnızca BİRİ basılır — kimlik çakışması olmaz. */
+        const lisansDurumu = (typeof window !== "undefined" && window.licenseManager)
+            ? (window.licenseManager.licenseStatus || {})
+            : {};
+        const demoMu = !!(info.isDemo || lisansDurumu.isDemo);
+        const kalanGun = Number(lisansDurumu.daysRemaining);
+        const lisansIpucu = Number.isFinite(kalanGun) && kalanGun > 0
+            ? `Deneme sürümü — ${kalanGun} gün kaldı. Lisans almak ve tüm özellikleri açmak için tıklayın.`
+            : "Lisans almak ve tüm özellikleri açmak için tıklayın.";
+        const lisansCtaHtml = demoMu ? `
+            <div class="header-section-module section-lisans-cta">
+                <button class="btn btn-lisans-cta" id="btn-open-license" title="${lisansIpucu}">
+                    <span class="lisans-cta-ikon">🔑</span>
+                    <span class="lisans-cta-yazi">Lisans Al</span>
+                </button>
+            </div>
+            <div class="header-terminal-divider"></div>
+        ` : "";
+        const menuLisansHtml = demoMu ? "" : `
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
+                                🔑 Lisans
+                            </button>`;
+
         headerEl.innerHTML = `
             <!-- 1. BÖLÜM: SİSTEM BAŞLIĞI -->
             <div class="header-section-module section-logo">
@@ -614,7 +646,8 @@ class MebNormApplication {
                     </div>
                 </div>
             </div>
-            
+
+            ${lisansCtaHtml}
             <div class="header-terminal-divider"></div>
 
             <!-- 2. BÖLÜM: OKUL BİLGİLERİ (GENİŞ VE FERAH) -->
@@ -679,13 +712,10 @@ class MebNormApplication {
                         kimlikleri (id) aynı kaldı, dolayısıyla işleyişleri de aynı.
                     -->
                     <div class="header-more-wrap">
-                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="${demoMu ? 'Diğer araçlar: Rehber, Geçmiş, KVKK' : 'Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK'}" aria-haspopup="true" aria-expanded="false">
                             ⋯ Diğer
                         </button>
-                        <div class="header-more-menu" id="header-more-menu" hidden>
-                            <button class="btn btn-sm btn-header-tool" id="btn-open-license" style="background: rgba(14, 165, 233, 0.18); border: 1.5px solid #0284c7; color: var(--primary); font-weight: 800;" title="Lisans Merkezi">
-                                🔑 Lisans
-                            </button>
+                        <div class="header-more-menu" id="header-more-menu" hidden>${menuLisansHtml}
                             <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
                                 ❓ Rehber
                             </button>
@@ -748,9 +778,20 @@ class MebNormApplication {
         // ⋯ DİĞER menüsü (12.09.2026): başlıkta yer kalmadığı için gruplanan
         // seyrek araçlar. Menü SABİT konumlanır; .app-header bazı genişliklerde
         // taşmayı kırpıyor ve mutlak konumda menü görünmez oluyordu.
+        // Basligin onceki cizimde GOVDEYE tasinmis menu kalintisini temizle.
+        document.querySelectorAll("body > #header-more-menu").forEach(x => x.remove());
         const digerDugme = document.getElementById("btn-header-more");
         const digerMenu = document.getElementById("header-more-menu");
         if (digerDugme && digerMenu) {
+            // BULGU (12.09.2026, kullanici): dugme "calismiyordu". Olculdu —
+            // menu aciliyor (hidden=false, display:flex) ama GORUNMUYOR.
+            // Sebep: .app-header uzerinde backdrop-filter: blur(24px) var.
+            // Bu ozellik, sabit (fixed) konumlu torunlar icin o elemani
+            // KAPSAYICI BLOK yapar; boylece menu artik ekrana degil basliga
+            // gore konumlanir VE basligin overflow:auto + 60px yuksekligi
+            // tarafindan kirpilir. Menunun ust kenari 64px oldugu icin
+            // tamami kirpiliyordu. Cozum: menuyu govdeye tasimak (portal).
+            document.body.appendChild(digerMenu);
             const kapat = () => {
                 digerMenu.hidden = true;
                 digerDugme.setAttribute("aria-expanded", "false");

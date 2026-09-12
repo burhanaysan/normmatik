@@ -98,6 +98,19 @@ denetle("menü dışarı tıklayınca/Esc ile kapanıyor",
 denetle("menü yeniden çizimde dinleyici biriktirmiyor",
     /_digerMenuKapatici/.test(appJs));
 
+/* BULGU (12.09.2026, kullanıcı): "üst paneldeki Diğer butonu çalışmadı".
+   Ölçüldü: menü açılıyordu (hidden=false, display:flex) ama GÖRÜNMÜYORDU.
+   .app-header üzerinde backdrop-filter: blur(24px) var; bu özellik sabit
+   (fixed) konumlu torunlar için o elemanı KAPSAYICI BLOK yapar. Menü artık
+   ekrana değil başlığa göre konumlanıyor ve başlığın overflow:auto + 60px
+   yüksekliği tarafından tamamen kırpılıyordu (menünün üstü 64px).
+   Çözüm: menü açılmadan önce GÖVDEYE taşınır. Bu iki denetim, çözümün
+   sessizce geri alınmasını engeller. */
+denetle("menü gövdeye taşınıyor (başlıkta kırpılmasın)",
+    /document\.body\.appendChild\(digerMenu\)/.test(appJs));
+denetle("önceki çizimden kalan menü kopyası temizleniyor",
+    /body\s*>\s*#header-more-menu/.test(appJs));
+
 // --- 5. Paket güncel mi --------------------------------------------------
 denetle("bundle.js yeniden üretilmiş (menü)", bundle.includes("header-more-menu"));
 denetle("bundle.js yeniden üretilmiş (kalıcı kip)", bundle.includes("_depoOku"));

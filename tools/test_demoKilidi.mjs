@@ -171,6 +171,43 @@ console.log("── 5. Lisanslı kullanıcı hiçbir kısıtla karşılaşmıyor
     kontrol("lisanslıda şube silinebildi", sb().length, oncekiSayi - 1);
 }
 
+/* ---------------------------------------------------------------------
+   LİSANS DÜĞMESİ NEREDE DURUYOR?   (12.09.2026, kullanıcı isteği)
+
+   "Lisans butonunu görünür bir yere koysak, biraz da büyük olsa.
+    Lisanslı kullanıcılarda görünmesin, demolarda görünsün."
+
+   Kural: başlıkta AYNI ANDA tek bir btn-open-license bulunur.
+     • demo      -> logonun yanında BÜYÜK çağrı düğmesi (.btn-lisans-cta)
+     • lisanslı  -> başlıkta yok; yalnızca "⋯ Diğer" menüsünde
+
+   Bu denetimler KAYNAK düzeyindedir (burada DOM yok). Davranışın kendisi
+   12.09.2026'da tarayıcıda iki durumda da canlı doğrulandı: demoda düğme
+   logonun yanında 40px yükseklikte çıktı ve lisans penceresini açtı;
+   lisanslı taklidinde başlıktan kalktı, menüye döndü, oradan da açıldı.
+   --------------------------------------------------------------------- */
+{
+    const appJs = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
+    const css = fs.readFileSync(path.join(KOK, "css", "app.css"), "utf8");
+
+    kontrol("demo tespiti lisans durumunu da okuyor",
+        /const demoMu = !!\(info\.isDemo \|\| lisansDurumu\.isDemo\)/.test(appJs), true);
+    kontrol("çağrı düğmesi YALNIZCA demoda basılıyor",
+        /const lisansCtaHtml = demoMu \? `/.test(appJs), true);
+    kontrol("menüdeki lisans YALNIZCA lisanslıda basılıyor",
+        /const menuLisansHtml = demoMu \? "" :/.test(appJs), true);
+    kontrol("başlıkta iki lisans düğmesi aynı anda olamaz",
+        (appJs.match(/id="btn-open-license"/g) || []).length, 2);
+    kontrol("çağrı düğmesinin biçimi tanımlı",
+        /\.btn-lisans-cta\s*\{/.test(css), true);
+    kontrol("çağrı düğmesi diğer başlık düğmelerinden BÜYÜK",
+        /\.btn-lisans-cta[\s\S]{0,400}height: 40px/.test(css), true);
+    kontrol("hareketi kapatan kullanıcıda nabız çalışmıyor",
+        /prefers-reduced-motion: no-preference[\s\S]{0,200}lisansNabiz/.test(css), true);
+    kontrol("paket yeniden üretilmiş (lisans çağrısı)",
+        KAYNAK.includes("btn-lisans-cta"), true);
+}
+
 console.log("\n" + "=".repeat(70));
 if (!hatalar.length) {
     console.log(`✅ DEMO KİLİDİ DOĞRU — ${gecti} kontrol başarılı, 0 hata`);
