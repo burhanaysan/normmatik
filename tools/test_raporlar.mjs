@@ -542,11 +542,14 @@ console.log("\nYerleşim koruması");
     // DAVRANIŞ: panel gerçekten çiziliyor ve motorun sayılarını gösteriyor mu?
     const gridVeri = R.generateMasterLoadGrid(st.state);
     const gridHtml = html("renderMasterGridReport", gridVeri, false, true);
+    // Özel Eğitim özet kartı (14.09.2026) dersi atanmış branş olmadığı için
+    // sortedBranchNames'te yok; varsa bir kart fazladan beklenir.
+    const ozelKartBeklenen = R.ozelEgitimSatirlari(gridVeri).length > 0 ? 1 : 0;
     denetle("R19j her branş için bir kart basılıyor",
             (gridHtml.match(/class="dd-brans/g) || []).length
-                === gridVeri.sortedBranchNames.length,
+                === gridVeri.sortedBranchNames.length + ozelKartBeklenen,
             (gridHtml.match(/class="dd-brans/g) || []).length + " kart / "
-                + gridVeri.sortedBranchNames.length + " branş");
+                + gridVeri.sortedBranchNames.length + " branş + " + ozelKartBeklenen + " özel eğitim");
     denetle("R19k kartlar aciliyete göre sıralı (açığı olan önce)",
             (() => {
                 const sira = [...gridHtml.matchAll(/class="dd-durum (acik|fazla|tam)"/g)]

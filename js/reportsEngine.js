@@ -775,6 +775,13 @@ class MebReportsEngine {
                 wsGridRows.push(row);
             });
         });
+        // Özel Eğitim: dersi atanmış branş olmadığı için yukarıdaki döngüye
+        // hiç girmiyordu (ekrandaki kartla aynı boşluk, 14.09.2026). Şube
+        // sütunları bilerek boş: o saatler zaten ders satırlarında görünüyor.
+        this.ozelEgitimSatirlari(gridData).forEach(x => wsGridRows.push([
+            rowSeq++, "Özel Eğitim", `${x.sube} — şube normu (${x.dayanak})`,
+            ...gridData.subeler.map(() => ""), x.saat, x.norm
+        ]));
 
         // Toplam Satırı
         const gridSutunToplami = gridData.subeler.reduce((s, sec) => s + (gridData.sectionTotals[sec.id] || 0), 0);
@@ -902,6 +909,17 @@ class MebReportsEngine {
     }
 
     // --- CSV (EXCEL) ÇIKTI ÜRETİCİ (UTF-8 BOM İLE TÜRKÇE KARAKTER DESTEKLİ) ---
+    /**
+     * Master matrisin Özel Eğitim şube satırları (Excel ve CSV ortak kaynağı).
+     * Ekrandaki kartla aynı koşul: motor Özel Eğitim satırı üretmiş VE bu
+     * branşa ders atanmamış (atanmışsa normal döngü zaten basıyor).
+     */
+    ozelEgitimSatirlari(gridData) {
+        const oz = gridData && (gridData.branchReportMap || {})["Özel Eğitim"];
+        if (!oz || !oz.isSpecialEdu || (gridData.branchGroups || {})["Özel Eğitim"]) return [];
+        return oz.ozelEgitimDetay || [];
+    }
+
     exportToCSV(reportData) {
         if (!reportData) return "";
         let csvRows = [];
@@ -931,6 +949,10 @@ class MebReportsEngine {
                     csvRows.push(row);
                 });
             });
+            this.ozelEgitimSatirlari(reportData).forEach(x => csvRows.push([
+                `"Özel Eğitim"`, `"${x.sube} — şube normu (${x.dayanak})"`,
+                ...reportData.subeler.map(() => ""), x.saat, `"${x.norm}"`
+            ]));
 
             // Şube Toplam Satırı
             const csvSutunToplami = reportData.subeler.reduce((s, sec) => s + (reportData.sectionTotals[sec.id] || 0), 0);

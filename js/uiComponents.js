@@ -4108,11 +4108,41 @@ export class UIComponentManager {
         fileInput?.addEventListener("change", (e) => {
             const file = e.target.files[0];
             if (!file) return;
+            // LOGO KÜÇÜLTÜLEREK SAKLANIR (14.09.2026)
+            // Dosya eskiden OLDUĞU GİBİ metne çevrilip buluta yazılıyordu: bir
+            // telefon fotoğrafı 5-10 MB'lık bir alan demekti. Okul kaydı her
+            // açılışta indiriliyor, yerel kopya tarayıcının ~5 MB sınırını
+            // aşıyor ve sunucu kuralı artık logo alanını sınırlıyor — büyük logo
+            // okulun BÜTÜN kaydını reddettirirdi. Yazdırma başlığında logo
+            // ~60 px basıldığı için en uzun kenar LOGO_AZAMI_KENAR px yeterli.
+            const LOGO_AZAMI_KENAR = 320;
+            const LOGO_PNG_AZAMI = 200000;   // aşarsa JPEG'e geçilir
+            const LOGO_SON_SINIR = 500000;   // sunucu kuralı 600000; pay bırakıldı
             const reader = new FileReader();
             reader.onload = (event) => {
-                uploadedLogoBase64 = event.target.result;
-                const prevBox = document.getElementById("antet-logo-preview");
-                if (prevBox) prevBox.innerHTML = `<img src="${uploadedLogoBase64}" style="max-width:100%; max-height:100%; object-fit:contain;">`;
+                const img = new Image();
+                img.onload = () => {
+                    const oran = Math.min(1, LOGO_AZAMI_KENAR / Math.max(img.width || 1, img.height || 1));
+                    const tuval = document.createElement("canvas");
+                    tuval.width = Math.max(1, Math.round((img.width || LOGO_AZAMI_KENAR) * oran));
+                    tuval.height = Math.max(1, Math.round((img.height || LOGO_AZAMI_KENAR) * oran));
+                    const c2d = tuval.getContext("2d");
+                    // Beyaz zemin: JPEG saydamlık taşımaz, saydam alan siyah çıkardı.
+                    c2d.fillStyle = "#ffffff";
+                    c2d.fillRect(0, 0, tuval.width, tuval.height);
+                    c2d.drawImage(img, 0, 0, tuval.width, tuval.height);
+                    let veri = tuval.toDataURL("image/png");
+                    if (veri.length > LOGO_PNG_AZAMI) veri = tuval.toDataURL("image/jpeg", 0.9);
+                    if (veri.length > LOGO_SON_SINIR) {
+                        this.showToast("Logo küçültüldüğü hâlde çok büyük kaldı; lütfen daha sade bir resim seçin.", "error");
+                        return;
+                    }
+                    uploadedLogoBase64 = veri;
+                    const prevBox = document.getElementById("antet-logo-preview");
+                    if (prevBox) prevBox.innerHTML = `<img src="${uploadedLogoBase64}" style="max-width:100%; max-height:100%; object-fit:contain;">`;
+                };
+                img.onerror = () => this.showToast("Seçilen dosya resim olarak okunamadı.", "error");
+                img.src = event.target.result;
             };
             reader.readAsDataURL(file);
         });
@@ -4251,9 +4281,23 @@ export class UIComponentManager {
 
         /* --- branşları aciliyete göre sırala --- */
         const puan = (b) => (b.fark < 0 ? 0 : (b.fark > 0 ? 1 : 2));
+        const ozelKartVar = !!(((data.branchReportMap || {})["Özel Eğitim"] || {}).isSpecialEdu
+            && !data.branchGroups["Özel Eğitim"]);
         const branslar = (data.sortedBranchNames || []).map(ad => {
             const grp = data.branchGroups[ad];
             const rap = (data.branchReportMap || {})[ad] || {};
+            // Motor DIŞI kart (ör. "Rehberlik": motor yük listesinden düşürüyor,
+            // kart ızgara toplamını gösteriyor) özel eğitim şubelerinin saatini
+            // de sayıyordu. Özel Eğitim kartı o şubelerin BÜTÜN saatini zaten
+            // topladığı için aynı saat iki kartta görünürdü (ölçüldü 14.09.2026:
+            // kartlar 152, norma esas yük 150). Bu yüzden özel kart basılıyorsa
+            // motor dışı kartta da o saatler yükten ayrılır ve dipnotta yazılır.
+            const ozelSaat = (grp ? Object.values(grp.courses) : []).reduce((t, c) => {
+                const sh = c.sectionHours || {};
+                return t + Object.keys(sh).reduce((u, id) =>
+                    u + (ozelSubeIdleri.has(id) ? (parseInt(sh[id], 10) || 0) : 0), 0);
+            }, 0);
+            const motorDisiOzel = (rap.totalHours === undefined && ozelKartVar) ? ozelSaat : 0;
             return {
                 ad: ad,
                 meslek: !!(grp && grp.isVocational),
@@ -4265,7 +4309,7 @@ export class UIComponentManager {
                 // Tarih kartlarında "27 saat, 27 saat: aradaki +3 saat" gibi
                 // kendi içinde çelişen bir cümle çıkıyordu).
                 motordan: rap.totalHours !== undefined,
-                yuk: (rap.totalHours !== undefined) ? rap.totalHours : (grp ? grp.totalHours : 0),
+                yuk: (rap.totalHours !== undefined) ? rap.totalHours : ((grp ? grp.totalHours : 0) - motorDisiOzel),
                 norm: rap.calculatedNorm || 0,
                 mevcut: rap.currentTeachers || 0,
                 fark: rap.diff || 0,
@@ -4284,13 +4328,25 @@ export class UIComponentManager {
                 // Md. 17 gereği genel branş havuzuna alınmıyorlar. Oysa
                 // kullanıcının kartta gördüğü satır toplamı ızgaradan geliyor;
                 // farkı açıklayacak sayı da orada.
-                ozelEgitim: (rap.totalHours === undefined) ? 0 : (grp ? Object.values(grp.courses) : []).reduce((t, c) => {
-                    const sh = c.sectionHours || {};
-                    return t + Object.keys(sh).reduce((u, id) =>
-                        u + (ozelSubeIdleri.has(id) ? (parseInt(sh[id], 10) || 0) : 0), 0);
-                }, 0)
+                ozelEgitim: (rap.totalHours === undefined) ? motorDisiOzel : ozelSaat
             };
-        }).sort((a, b) =>
+        }).concat((() => {
+            // ÖZEL EĞİTİM KARTI (14.09.2026, kullanıcı kararı: özet kart)
+            // Kartlar yalnızca dersi atanmış branşlardan çiziliyordu; Özel
+            // Eğitim'e ders atanmadığı için motorun ürettiği satır (saat, norm,
+            // şube şube dayanak) raporda hiç görünmüyordu. Kartlar toplanınca
+            // üstteki norma esas yük tutmuyor, müdür "mutabakat yok" diyordu.
+            // Ders satırı yok: norm ders saatinden değil ŞUBE BAŞINA verilir
+            // (Md. 17/1). Diğer kartlardaki hiçbir sayı değişmez.
+            const oz = (data.branchReportMap || {})["Özel Eğitim"];
+            if (!oz || !oz.isSpecialEdu || data.branchGroups["Özel Eğitim"]) return [];
+            return [{
+                ad: "Özel Eğitim", ozelKart: true, meslek: false, dersler: [],
+                motordan: true, yuk: oz.totalHours || 0, norm: oz.calculatedNorm || 0,
+                mevcut: oz.currentTeachers || 0, fark: oz.diff || 0,
+                dusum: 0, koord: 0, ozelEgitim: 0, detay: oz.ozelEgitimDetay || []
+            }];
+        })()).sort((a, b) =>
             puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
 
         /* --- sütun başlıkları (kademe yazısı YOK, ayraç VAR) --- */
@@ -4311,6 +4367,38 @@ export class UIComponentManager {
                 ? { s: "acik", t: Math.abs(b.fark) + " öğretmen açık" }
                 : (b.fark > 0 ? { s: "fazla", t: "+" + b.fark + " fazla" }
                               : { s: "tam", t: "kadro tam" });
+
+            if (b.ozelKart) {
+                const ozelSatirlar = b.detay.map(x => `<tr>
+                            <td class="dd-ders">${x.sube}</td>
+                            <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — haftalık ${x.saat} saat">${x.saat}</span></td>
+                            <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
+                            <td class="dd-ozel-dayanak">${x.dayanak}</td>
+                            <td class="dd-toplam"></td>
+                        </tr>`).join("");
+                return `
+                <section class="dd-brans ozel">
+                    <div class="dd-kaydir">
+                        <table class="dd-tablo">
+                            <thead>
+                                <tr class="dd-bas">
+                                    <th class="dd-ders">
+                                        <span class="dd-ad">${b.ad}</span>
+                                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
+                                    </th>
+                                    <th class="dd-sube">Haftalık saat</th>
+                                    <th class="dd-sube">Şube normu</th>
+                                    <th class="dd-ozel-dayanak">Dayanak</th>
+                                    <th class="dd-toplam"><span class="dd-durum ${durum.s}">${durum.t}</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>${ozelSatirlar}</tbody>
+                        </table>
+                    </div>
+                    <div class="dd-dipnot">Bu kartın normu ders saatinden değil, <b>şube başına ve engel türüne göre</b> verilir (Md. 17/1). `
+                    + `Şubelerin dersleri diğer kartlarda şube sütunu olarak görünür, ama o branşların yüküne yazılmaz; saatleri burada toplanır.</div>
+                </section>`;
+            }
 
             const dersler = b.dersler
                 .slice()

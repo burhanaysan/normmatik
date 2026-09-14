@@ -1292,16 +1292,20 @@ export class NormEngine {
 
         if (specialEduSectionCount > 0) {
             allBranchesSet.delete("Özel Eğitim");
+            // Şube saati detayın İÇİNDE hesaplanır ve toplam ondan türetilir:
+            // Master matristeki Özel Eğitim kartı şube satırlarını bu detaydan
+            // basıyor. Saat kuralı iki yerde yazılsaydı kart satırları ile kart
+            // başlığı sessizce ayrışabilirdi (14.09.2026).
             const ozelDetay = specialEduSections.map(sec => {
                 const h = this.ozelEgitimSubeNormu(
                     sec.engelTuru || sec.specialEduType, sec.sinifSeviyesi);
-                return { sube: sec.subeAdi, norm: h.norm, dayanak: h.dayanak };
+                const dersSaati = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                    .reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
+                return { subeId: sec.id, sube: sec.subeAdi, saat: dersSaati > 0 ? dersSaati : 30,
+                         norm: h.norm, dayanak: h.dayanak };
             });
             const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
-            const specialEduHours = specialEduSections.reduce((sum, s) => {
-                const h = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
-                return sum + (h > 0 ? h : 30);
-            }, 0);
+            const specialEduHours = ozelDetay.reduce((a, x) => a + x.saat, 0);
             
             const currentTeachers = parseInt(existingTeachers["Özel Eğitim"] || 0, 10);
             const diff = currentTeachers - specialEduNorm;
