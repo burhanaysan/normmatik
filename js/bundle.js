@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.0",
-    yayinTarihi: "2026-09-13",
+    surum: "2.1.1",
+    yayinTarihi: "2026-09-14",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Koordinatörlük sekmesinde bütün meslekî branşlar listeleniyor; okulda aktif alanlar doğru öğretmen branşıyla işaretleniyor (ör. Bilişim Teknolojileri).",
         "Şifrenizi artık yalnızca siz biliyorsunuz; uygulama içinden dilediğiniz zaman değiştirebilirsiniz. Mevcut giriş bilgileriniz geçerliliğini korur.",
         "Müfredat verisi elle yazılmış listelerden çıkarılıp resmî MEB/TTKB çizelgelerinden üretiliyor (14 okul türü).",
         "Haftalık hedef ders saati çizelgenin kendi toplam satırından okunuyor; 9. sınıfta 44 yerine 45 saat.",
@@ -179084,6 +179085,21 @@ class MebCurriculumEngine {
         return this._bransSeti.has(this.normalizeName(name));
     }
 
+    /**
+     * Koordinatörlük sekmesinde listelenecek ÖĞRETMEN branşları (14.09.2026).
+     *
+     * Kullanıcı isteği: "koordinatörlük listesi de tam olsun". Meslek branş
+     * listesi tek başına eksik kalıyordu: Bilişim Teknolojileri ve Görsel
+     * Sanatlar ortaokulda da ders okuttukları için KÜLTÜR listesinde durur.
+     * Tam liste, bir okul alanının derslerini okutan her branştır
+     * (AREA_BRANCH_MAP). Uygulamanın tanımadığı hedefler (ör. "Mesleki
+     * Gelişim") listeye GİRMEZ — uydurma branş satırı açılmaz.
+     */
+    koordinatorlukBranslari() {
+        return [...new Set(Object.values(this.AREA_BRANCH_MAP || {}))]
+            .filter(b => this.isKnownBranch(b));
+    }
+
     getCanonicalCourseAndBranch(rawCourseName, rawBranchName = null, defaultArea = null, category = "ORTAK DERSLER") {
         if (!rawCourseName) return { courseName: "Ders", branchName: "— Branş Atanmadı —" };
         
@@ -189059,7 +189075,6 @@ class UIComponentManager {
         const currentTeachers = this.state.state.mevcutOgretmenler || {};
         const coordinatorMap = this.state.state.koordinatorlukYukleri || {};
         const subeler = this.state.state.subeler || [];
-        const vocAreas = this.db.getVocationalAreas();
         const schoolType = this.state.state.okulBilgisi.okulTuru || "";
         const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
         const adminOpts = this.state.state.okulBilgisi.adminOptions || {};
@@ -189122,17 +189137,42 @@ class UIComponentManager {
             `;
         }).join("");
 
-        const allVocBranches = isVocationalSchool ? vocBranches : [];
-        const activeVocBranchesSet = new Set();
+        // KOORDİNATÖRLÜK BRANŞLARI NORM MOTORUNDAN GELİR (14.09.2026)
+        // ----------------------------------------------------------------
+        // Kullanıcı bulgusu: "koordinatörlük sekmesinde meslekî branşların
+        // hepsi yoktu". Sebep: bu ekran okul ALANININ adından "Alanı" kelimesini
+        // atıp öğretmen BRANŞI arıyordu. İkisi çoğu zaman aynı ad değil:
+        //   Bilişim Teknolojileri Alanı  -> branş meslek listesinde değil
+        //                                   (kültür listesinde) -> satır YOK
+        //   Kimya Teknolojisi Alanı      -> branş "Kimya / Kimya Teknolojisi"
+        //   Otomotiv Teknolojileri Alanı -> branş "Motorlu Araçlar Teknolojisi"
+        //   Marmara Gastronomi ... Alanı -> branş "Yiyecek İçecek Hizmetleri"
+        // Alanın dersleri zaten doğru branşa atanıyor (curriculumEngine
+        // AREA_BRANCH_MAP) ve norm motoru koordinatörlüğü o branşa yazıyor.
+        // Ekran artık aynı cevabı motordan alır: bir satırın "aktif" sayılması
+        // ve varsayılan saati, motorun hesapladığı koordinatörlük yüküdür
+        // (MTAL'de 12. sınıf için 10 saat; MESEM'de Md. 22/2 grup hesabı).
+        // Uydurma branş adı eklemek gerekmez; eklenirse o saat asıl branşın
+        // normuna girmez, dersi olmayan ayrı bir satır olarak kalırdı.
+        const varsayilanKoordinatorluk = {};
         if (isVocationalSchool) {
-            subeler.forEach(s => {
-                if (s.alanId) {
-                    const areaObj = vocAreas.find(a => a.id === s.alanId);
-                    if (areaObj) activeVocBranchesSet.add(areaObj.name.replace(/\s*ALANI$/i, ''));
-                    else activeVocBranchesSet.add(s.alanId);
-                }
+            const onizleme = this.normEngine.calculateSchoolNorms(subeler, {}, schoolType, {});
+            (onizleme.branchReport || []).forEach(r => {
+                const saat = parseInt(r.coordinatorHours, 10) || 0;
+                if (saat > 0) varsayilanKoordinatorluk[r.branchName] = saat;
             });
         }
+        const activeVocBranchesSet = new Set(Object.keys(varsayilanKoordinatorluk));
+        // TAM LİSTE (kullanıcı isteği, 14.09.2026): meslek branşları + bir
+        // okul alanının derslerini okutan her tanınmış branş (Bilişim
+        // Teknolojileri, Görsel Sanatlar kültür listesinde durur) + okulda
+        // aktif olanlar. Kadro sekmesine dokunulmaz; orada branş TEK satırdır.
+        const alanBranslari = (this.curriculum && typeof this.curriculum.koordinatorlukBranslari === "function")
+            ? this.curriculum.koordinatorlukBranslari()
+            : [];
+        const allVocBranches = isVocationalSchool
+            ? [...new Set([...vocBranches, ...alanBranslari, ...activeVocBranchesSet])]
+            : [];
 
         const sortedVocBranches = isVocationalSchool ? [...allVocBranches].sort((a, b) => {
             const isActA = activeVocBranchesSet.has(a);
@@ -189143,7 +189183,7 @@ class UIComponentManager {
 
         const coordinatorRowsHtml = sortedVocBranches.map(bName => {
             const isActive = activeVocBranchesSet.has(bName);
-            const currentHours = (coordinatorMap[bName] !== undefined) ? coordinatorMap[bName] : (isActive ? 10 : 0);
+            const currentHours = (coordinatorMap[bName] !== undefined) ? coordinatorMap[bName] : (varsayilanKoordinatorluk[bName] || 0);
             return `
                 <div class="coordinator-area-item" data-search="${bName.toLowerCase()}" style="display: flex; align-items: center; justify-content: space-between; padding: 0.48rem 0.6rem; border-bottom: 1px solid var(--border-subtle); background: ${isActive ? 'rgba(147, 51, 234, 0.05)' : 'var(--bg-card-subtle)'}; border-left: 3px solid ${isActive ? '#9333ea' : 'transparent'}; border-radius: 6px; margin-bottom: 0.35rem;">
                     <div>

@@ -40,13 +40,14 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.0",
-    yayinTarihi: "2026-09-13",
+    surum: "2.1.1",
+    yayinTarihi: "2026-09-14",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Koordinatörlük sekmesinde bütün meslekî branşlar listeleniyor; okulda aktif alanlar doğru öğretmen branşıyla işaretleniyor (ör. Bilişim Teknolojileri).",
         "Şifrenizi artık yalnızca siz biliyorsunuz; uygulama içinden dilediğiniz zaman değiştirebilirsiniz. Mevcut giriş bilgileriniz geçerliliğini korur.",
         "Müfredat verisi elle yazılmış listelerden çıkarılıp resmî MEB/TTKB çizelgelerinden üretiliyor (14 okul türü).",
         "Haftalık hedef ders saati çizelgenin kendi toplam satırından okunuyor; 9. sınıfta 44 yerine 45 saat.",

@@ -1,8 +1,8 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.1.0",
-  "releaseDate": "2026-09-13",
+  "version": "2.1.1",
+  "releaseDate": "2026-09-14",
   "minEngineVersion": "2.0.0",
   "distribution": {
     "channel": "stable",
@@ -10,6 +10,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Koordinatörlük sekmesinde bütün meslekî branşlar listeleniyor; okulda aktif alanlar doğru öğretmen branşıyla işaretleniyor (ör. Bilişim Teknolojileri).",
     "Şifrenizi artık yalnızca siz biliyorsunuz; uygulama içinden dilediğiniz zaman değiştirebilirsiniz. Mevcut giriş bilgileriniz geçerliliğini korur.",
     "Müfredat verisi elle yazılmış listelerden çıkarılıp resmî MEB/TTKB çizelgelerinden üretiliyor (14 okul türü).",
     "Haftalık hedef ders saati çizelgenin kendi toplam satırından okunuyor; 9. sınıfta 44 yerine 45 saat.",

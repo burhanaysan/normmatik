@@ -8,9 +8,12 @@
    devam etti: "MEB NORM" yazılı kitap + kep resmi (18.08 tarihli
    icons/icon-192.png, icon-512.png, app_icon.ico).
 
-   Sonuç: tarayıcı sekmesinde yeni işaret, ama uygulamayı TELEFONUNUN ANA
-   EKRANINA ekleyen okul ESKİ işareti görüyordu. Kimse hata mesajı görmez;
-   iki ayrı kimlik yan yana yaşar.
+   DÜZELTME (14.09.2026): burada önce "uygulamayı ana ekrana ekleyen okul
+   ESKİ işareti görüyordu" yazmıştım. ÖLÇTÜM, YANLIŞ: hiçbir sayfa
+   manifest.json'u bağlamıyor (rel="manifest" 19.08.2026'da index.html'den
+   kalkmış) ve service worker hiçbir yerde kaydedilmiyor. Eski görseli kimse
+   görmedi. Bu test yine de manifest ile sw.js'in doğru dosyaları
+   göstermesini bağlar — ikisi yeniden devreye alınırsa hazır olsunlar.
 
    İKİNCİ HATA: yeni ikon "maskable" diye bildirilseydi Android onu kendi
    maskesiyle BİR KEZ DAHA kırpardı (ikonun zaten yuvarlak köşesi var).

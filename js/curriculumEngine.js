@@ -449,6 +449,21 @@ class MebCurriculumEngine {
         return this._bransSeti.has(this.normalizeName(name));
     }
 
+    /**
+     * Koordinatörlük sekmesinde listelenecek ÖĞRETMEN branşları (14.09.2026).
+     *
+     * Kullanıcı isteği: "koordinatörlük listesi de tam olsun". Meslek branş
+     * listesi tek başına eksik kalıyordu: Bilişim Teknolojileri ve Görsel
+     * Sanatlar ortaokulda da ders okuttukları için KÜLTÜR listesinde durur.
+     * Tam liste, bir okul alanının derslerini okutan her branştır
+     * (AREA_BRANCH_MAP). Uygulamanın tanımadığı hedefler (ör. "Mesleki
+     * Gelişim") listeye GİRMEZ — uydurma branş satırı açılmaz.
+     */
+    koordinatorlukBranslari() {
+        return [...new Set(Object.values(this.AREA_BRANCH_MAP || {}))]
+            .filter(b => this.isKnownBranch(b));
+    }
+
     getCanonicalCourseAndBranch(rawCourseName, rawBranchName = null, defaultArea = null, category = "ORTAK DERSLER") {
         if (!rawCourseName) return { courseName: "Ders", branchName: "— Branş Atanmadı —" };
         

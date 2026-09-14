@@ -20,7 +20,7 @@
 // Çözüm: eşleştirmede { ignoreSearch: true } ve app.html'in listeye
 // eklenmesi. Ayrıca çalışma anında indirilen dosyalar da önbelleğe alınıyor.
 // ===================================================================
-const CACHE_NAME = "meb-normmatik-20260913_0048";
+const CACHE_NAME = "meb-normmatik-20260914_2119";
 
 const ASSETS_TO_CACHE = [
     "./",
@@ -33,9 +33,13 @@ const ASSETS_TO_CACHE = [
     "./manifest.json",
     // Marka ikonu (mavi kare + beyaz N). Ureteci: tools/uret_favicon.py
     // KALDIRILDI (13.09.2026): icon-192/512.png ve app_icon.ico -- eski
-    // "MEB NORM" kitap+kep gorseli. Hicbir sayfa onlari kullanmiyordu;
-    // yalnizca manifest.json ve bu liste hala onbellege aliyordu, bu yuzden
-    // uygulamayi ana ekrana ekleyen okul ESKI ikonu goruyordu.
+    // "MEB NORM" kitap+kep gorseli; yalnizca manifest.json ve bu liste
+    // onlari gosteriyordu.
+    // DUZELTME (14.09.2026): burada once "ana ekrana ekleyen okul eski ikonu
+    // goruyordu" yazmistim; OLCTUM, YANLIS. Hicbir sayfa manifest.json'u
+    // baglamiyor (rel="manifest" 19.08.2026'da index.html'den kalkmis) ve
+    // bu service worker hicbir yerde KAYDEDILMIYOR. Ikisi de su an tarayiciya
+    // ulasmiyor; eski ikonu kimse gormedi.
     "./favicon.ico",
     "./icons/normmatik-96.png",
     "./icons/normmatik-192.png",
