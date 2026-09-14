@@ -208,6 +208,65 @@ denetle("sertifika dogrulamasi ACIK kaldi (kodda CERT_NONE yok)",
 
 
 # =====================================================================
+#  Tebliğler Dergisi (14.09.2026)
+# =====================================================================
+print()
+print("Tebligler Dergisi icindekiler ve suzgec")
+
+# Gerçek sayıların İÇİNDEKİLER metninden kısaltılmış örnekler (Eylül 2026).
+EYLUL = ("İ Ç İ N D E K İ L E R Sayfa No 1. Millî Eğitim Bakanlığı Merkezî Sistem Sınav "
+         "Yönergesi Değişikliği 884 2. Spor Lisesi Haftalık Ders Çizelgesi 887 3. Tematik "
+         "Program Uygulayan Spor Lisesi Haftalık Ders Çizelgesi 889 4. Özel Program Uygulayan "
+         "Hazırlık Sınıfı Bulunan Anadolu Lisesi Haftalık Ders Çizelgesi 891 5. Yurt Dışında "
+         "Bakanlığımıza Bağlı Olarak Eğitim Veren İlkokul, Ortaokul, Anadolu Lisesi Haftalık "
+         "Ders Çizelgeleri 894 6. Yaşayan Diller ve Lehçeler Dersi (Lazca) Öğretim Programı 928 "
+         "7. Okul Öncesi Eğitim Programı 932 8. Duyurular 933 İNTERNET ADRESİ "
+         "http://tebligler.meb.gov.tr Tebliğler Dergisi, elektronik ortamda yayımlandığından")
+m = bot.dergi_icindekiler(EYLUL)
+denetle("Eylul: 8 madde ayristi", len(m) == 8, str(len(m)))
+denetle("Eylul: numaralar ardisik", [int(n) for n, _ in m] == list(range(1, len(m) + 1)),
+        str([n for n, _ in m]))
+denetle("Eylul: kolofon son maddeye yapismiyor", len(m) > 0 and m[-1][1] == "Duyurular",
+        m[-1][1] if m else "")
+ilgili = [int(n) for n, b in m if bot.dergi_ilgili_mi(b)]
+denetle("Eylul: yalnizca 2, 3, 4 ilgili", ilgili == [2, 3, 4], str(ilgili))
+
+# İki sayfaya taşan içindekiler: araya alt bilgi (881) ve "2825-EK" üst bilgisi
+# giriyor. Ağustos-EK 2026'da 23. madde 24'ü yutuyordu.
+EK = ("İ Ç İ N D E K İ L E R Sayfa No 22. Hukuk ve Adalet Dersi Öğretim Programı 857 "
+      "23. Medya Okuryazarlığı Dersi Öğretim Programı 858 881 Millî Eğitim Bakanlığı "
+      "Tebliğler Dergisi Ağustos 2026 - 2825-EK 24. Mesleki ve Teknik Anadolu Lisesi Anadolu "
+      "Meslek ve Anadolu Teknik Programı Marmara Gastronomi ve Mutfak Sanatları Alanı Çerçeve "
+      "Öğretim Programı 859 25. Okuma Becerileri Dersi Öğretim Programı 861")
+m = bot.dergi_icindekiler(EK)
+denetle("EK: ust bilgi maddeyi yutmuyor (22-25)", [int(n) for n, _ in m] == [22, 23, 24, 25],
+        str([n for n, _ in m]))
+denetle("EK: 23. madde temiz",
+        len(m) > 1 and m[1][1] == "Medya Okuryazarlığı Dersi Öğretim Programı",
+        m[1][1] if len(m) > 1 else "")
+denetle("EK: yalnizca 24 ilgili (cerceve ogretim)",
+        [int(n) for n, b in m if bot.dergi_ilgili_mi(b)] == [24])
+
+for b in ["Hazırlık Sınıfı Bulunan Anadolu Meslek ve Anadolu Teknik Programları Haftalık Ders Çizelgesi",
+          "Mesleki ve Teknik Ortaöğretim Okul ve Kurumlarında Uygulanacak Seçmeli Dersler Tablosu",
+          "Mesleki ve Teknik Anadolu Lisesi Anadolu Meslek ve Anadolu Teknik Programı Çerçeve Öğretim Programları (52 adet)"]:
+    denetle("dergi ilgili: " + b[:55], bot.dergi_ilgili_mi(b))
+for b in ["Meslekî ve Teknik Eğitim Genel Müdürlüğü İç Hizmet Yönergesi",
+          "Seçmeli Müzik (Bağlama, Genel Müzik Eğitimi, Gitar, Keman, Piyano) Dersi (5, 6, 7 ve 8. Sınıflar) Öğretim Programı",
+          "MEB Ders Kitapları",
+          "Biyoloji Dersi (9, 10, 11 ve 12. Sınıflar) Öğretim Programında Değişiklik Yapılması",
+          "Yurt Dışında Bakanlığımıza Bağlı Olarak Eğitim Veren Anadolu Lisesi Haftalık Ders Çizelgeleri"]:
+    denetle("dergi ilgisiz: " + b[:55], not bot.dergi_ilgili_mi(b))
+
+k = [x for x in bot.KAYNAKLAR if x["anahtar"] == "tebligler"]
+denetle("Tebligler Dergisi kaynak listesinde (akis)", len(k) == 1 and k[0]["tur"] == "akis")
+_yml = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                         ".github", "workflows", "mevzuat_nobetci.yml"), encoding="utf-8").read()
+denetle("is akisinda PDF okuyucu SABIT surumle kuruluyor", '"PyMuPDF==' in _yml)
+denetle("PDF okuyucu kurulamazsa tarama durmuyor", "continue-on-error: true" in _yml)
+
+
+# =====================================================================
 print()
 print("=" * 62)
 if not hatalar:

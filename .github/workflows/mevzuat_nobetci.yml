@@ -47,6 +47,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      # Tebliğler Dergisi kaynağı PDF okur (14.09.2026). Sürüm SABİT: bir
+      # güncelleme metin çıkarmayı sessizce değiştirmesin. Kurulum düşerse
+      # tarama YİNE çalışır; yalnızca o kaynak "ulaşılamadı" sayılır ve
+      # 24 saat sürerse Telegram'a uyarı gelir.
+      - name: PDF okuyucu
+        continue-on-error: true
+        run: python -m pip install --disable-pip-version-check --no-input "PyMuPDF==1.27.2.2"
+
       - name: Hafızayı geri yükle
         uses: actions/cache/restore@v4
         with:

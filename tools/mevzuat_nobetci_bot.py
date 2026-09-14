@@ -400,6 +400,126 @@ def ikgm_duyurular():
     return sonuc
 
 
+# MEB TEBLİĞLER DERGİSİ (14.09.2026, kullanıcı isteği)
+# ---------------------------------------------------------------------------
+# Ayda bir çıkan resmî derginin İÇİNDEKİLER bölümü taranır; yalnızca NormMatik
+# verisini etkileyebilecek maddeler bildirilir. Çizelge kararlarını TTKB listesi
+# zaten daha ERKEN görüyor (ör. Sayı 104: TTKB 09.09, dergi 14.09); bu kaynağın
+# asıl işi TTKB listesine düşmeyen belgeleri yakalamak (seçmeli ders tablosu,
+# çerçeve programlar, yönetmelik değişiklikleri).
+#
+# ÖLÇÜLDÜ (14.09.2026, 2026'nın 5 gerçek sayısı):
+#   Eylül      -> Spor Lisesi, Tematik Spor Lisesi, Özel Program Hazırlık AL
+#   Ağustos    -> Hazırlık Sınıflı AMP/ATP çizelgesi, MTAL Seçmeli Dersler Tablosu
+#   Ağustos-EK -> MTAL çerçeve programları, Marmara / Doğu Anadolu Gastronomi
+#   Temmuz, Haziran -> hiçbiri (yönerge, ders kitabı, öğretim programı içerikleri)
+# "öğretim programı" BİLEREK süzgeçte yok: ders içeriğini değiştirir, saati değil.
+# "yurt dış" hariç: yurt dışındaki okulların çizelgeleri Türkiye normunu etkilemez.
+DERGI_LISTE = "https://dhgm.meb.gov.tr/www/tebligler-dergisi/kategori/78"
+DERGI_SON_SAYI = 2          # en yeni sayı + bir önceki (aynı ay çıkan EK kaçmasın)
+DERGI_ILGILI = ("haftalik ders", "cizelge", "norm kadro", "ogretmenlik alan",
+                "atama ve ders okutma", "cerceve ogretim", "ders saati", "secmeli ders",
+                "ortaogretim kurumlari yonetmeli",
+                "okul oncesi egitim ve ilkogretim kurumlari yonetmeli",
+                "isletmelerde meslek", "mesleki egitim merkez")
+DERGI_HARIC = ("yurt dis",)
+
+
+def dergi_ilgili_mi(baslik):
+    s = sade(baslik)
+    return any(k in s for k in DERGI_ILGILI) and not any(h in s for h in DERGI_HARIC)
+
+
+def dergi_icindekiler(metin):
+    """İçindekiler metninden [(no, başlık)] çıkarır. Saf işlev; ağ yok.
+
+    İÇİNDEKİLER iki sayfaya taşınca araya sayfa alt bilgisi ve üst bilgisi
+    girer: "... Programı 858 881 Millî Eğitim Bakanlığı Tebliğler Dergisi
+    Ağustos 2026 - 2825-EK 24. ...". Temizlenmezse 23. madde 24'ü yutar
+    (ölçüldü, Ağustos-EK 2026). 858 maddenin sayfası, 881 alt bilginin.
+    """
+    metin = " ".join((metin or "").split())
+    j = sade(metin).find("i c i n d e k i l e r")
+    if j < 0:
+        return []
+    g = metin[j:].split("İNTERNET ADRESİ")[0]
+    g = re.sub(r"(\s\d{2,4})\s\d{2,4}(\s+Mill[îi] Eğitim Bakanlığı Tebliğler Dergisi)",
+               r"\1\2", g)
+    g = re.sub(r"\s+Mill[îi] Eğitim Bakanlığı Tebliğler Dergisi\s+\S+\s+\d{4}\s*-\s*\d{3,5}"
+               r"(?:\s*-\s*[A-ZÇĞİÖŞÜ]+)?", " ", g)
+    g = re.sub(r"İ Ç İ N D E K İ L E R|Sayfa\s*No", " ", g)
+    g = " ".join(g.split())
+    return re.findall(r"(\d{1,3})\.\s+(.+?)\s+\d{2,4}(?=\s+\d{1,3}\.\s|\s*$)", g)
+
+
+def tebligler_dergisi():
+    """En yeni Tebliğler Dergisi sayılarının İÇİNDEKİLER'indeki ilgili maddeler.
+
+    Liste DataTables ajax ile gelir (TTKB ile aynı parametreler, kategori 78);
+    yıl sayfası aylık PDF bağlantılarını taşır. İçindekiler okunamazsa HATA
+    fırlatılır: sessizce "hiçbir şey yok" demek, yeni bir sayıyı kaçırmak olur.
+    """
+    try:
+        import fitz  # PyMuPDF — yalnızca bu kaynak kullanır
+    except ImportError:
+        raise RuntimeError("PDF okuyucu (PyMuPDF) kurulu değil")
+
+    p = {"draw": "1", "start": "0", "length": "10",
+         "search[value]": "", "search[regex]": "false",
+         "order[0][column]": "2", "order[0][dir]": "desc",
+         "kategori": "78", "dil": "tr"}
+    for i, ad in enumerate(("ISLEMSAAT", "BASLIK", "SIRAID")):
+        p["columns[%d][data]" % i] = ad
+
+    def _liste():
+        with istek("https://dhgm.meb.gov.tr/www/icerik_listele_ajax.php",
+                   veri=urllib.parse.urlencode(p).encode(),
+                   basliklar={"Referer": DERGI_LISTE, "Origin": "https://dhgm.meb.gov.tr",
+                              "X-Requested-With": "XMLHttpRequest",
+                              "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                              "Accept": "application/json, text/javascript, */*; q=0.01"}) as y:
+            return json.loads(y.read().decode("utf-8", "replace"))
+
+    bu_yil = datetime.datetime.now(TSI).year
+    yillar = []
+    for s in tekrarli(_liste).get("data", []):
+        b = temiz(s.get("BASLIK"))
+        if re.fullmatch(r"\d{4}", b) and int(b) >= bu_yil - 1 and s.get("LINK"):
+            yillar.append((int(b), mutlak(DERGI_LISTE, s["LINK"])))
+    if not yillar:
+        raise RuntimeError("Tebliğler Dergisi yıl sayfası bulunamadı")
+
+    sayilar = {}
+    for _, yil_url in sorted(yillar, reverse=True)[:2]:
+        sayilar.update(pdf_listesi(yil_url, al(yil_url)))
+    if not sayilar:
+        raise RuntimeError("Tebliğler Dergisi sayfasında sayı bulunamadı")
+
+    # Sıralama: klasör ayı (2026_09), sonra dosya adı. Dosya adının başındaki
+    # kimlik zamana dayalı; aynı ay çıkan EK asıl sayıdan SONRA sıralanır.
+    def _sira(u):
+        m = re.search(r"meb_iys_dosyalar/(\d{4}_\d{2})/", u)
+        return ((m.group(1) if m else ""), dosya_adi(u))
+
+    sonuc = {}
+    for u in sorted(sayilar, key=_sira, reverse=True)[:DERGI_SON_SAYI]:
+        def _pdf(adres=u):
+            with istek(adres) as y:
+                return y.read()
+        doc = fitz.open(stream=tekrarli(_pdf), filetype="pdf")
+        son = doc.page_count
+        metin = " ".join(doc[i].get_text() for i in range(max(0, son - 3), son))
+        maddeler = dergi_icindekiler(metin)
+        if not maddeler:
+            raise RuntimeError("içindekiler okunamadı: " + dosya_adi(u))
+        etiket = sayilar[u]["baslik"]
+        for no, baslik in maddeler:
+            if dergi_ilgili_mi(baslik):
+                sonuc["%s#madde-%s" % (u, no)] = {"baslik": "%s · %s" % (etiket, baslik),
+                                                  "tarih": yukleme_ayi(u)}
+    return sonuc
+
+
 def hata_kaydini_guncelle(onceki, simdi):
     """
     Bir kaynağa ulaşılamadığında hata kaydını günceller.
@@ -455,7 +575,9 @@ KAYNAKLAR = (
     + [_kaynak("resmi_gazete", "Resmî Gazete · MEB ile ilgili metinler", resmi_gazete, "akis"),
        _kaynak("ttkb_duyuru", "TTKB · Duyurular (çizelge / karar / norm)", ttkb_duyurular, "akis"),
        _kaynak("ikgm_duyuru", "İKGM · Personel duyuruları (yönetmelik / norm)",
-               ikgm_duyurular, "akis")]
+               ikgm_duyurular, "akis"),
+       _kaynak("tebligler", "MEB · Tebliğler Dergisi (içindekiler)",
+               tebligler_dergisi, "akis")]
 )
 
 
