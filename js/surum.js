@@ -40,13 +40,15 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.3",
+    surum: "2.1.4",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",
+        "Güvenlik: kaydedilen metinlerden < ve > karakterleri kayıt anında temizleniyor; bulut tarafında da aynı kural uygulanıyor.",
         "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",
         "Üç ve daha fazla şubenin birleştirildiği derslerde ders yükü artık bir kez sayılıyor; birleşik atölye dersinde sonuç şubelerin sırasına bağlı değil.",
         "“Branş Atanmadı” seçimi korunuyor ve hesaba doğru yansıyor; ders adıyla ayrı bir branş satırı açılmıyor.",

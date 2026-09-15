@@ -267,7 +267,16 @@ export class NormEngine {
         // Ad kalıbı atölye/lab'a uysa bile istisna listesindeyse genel bilgi sayılır.
         if ((cfg.courseNameExclusions || []).some(matches)) return false;
 
-        if ((cfg.courseNamePatterns || []).some(matches)) return true;
+        // AD KALIBI YALNIZCA MESLEKÎ KURUMDA GEÇERLİ (kullanıcı kararı, 15.09.2026;
+        // Denetim N-02 devamı). Özel program fen lisesinde "Fizik Laboratuvarı",
+        // güzel sanatlarda "İki Boyutlu Sanat Atölye", imam hatipte "Mesleki
+        // Gelişim Atölyesi" gibi dersler yalnızca ADLARI yüzünden atölye (Md. 19)
+        // sayılıyordu; bu okullarda genel ders (Md. 18) sayılır. Okul türü
+        // bilinmiyorsa (boş) eski davranış sürer. Çerçeve programın açık isAtolye
+        // işareti her türde geçerlidir.
+        const turBilinmiyor = !String(schoolType || "").trim();
+        if ((turBilinmiyor || this.isMeslekiKurum(schoolType, []))
+            && (cfg.courseNamePatterns || []).some(matches)) return true;
 
         // Veri setinden gelen açık işaret
         if (course.isAtolye === true) return true;

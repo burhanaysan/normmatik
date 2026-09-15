@@ -410,9 +410,25 @@ export class CloudDatabaseService {
         const key = this.getEffectiveKey(kurumKodu);
         if (!key || !state) return;
 
+        // KAYIT ANINDA TEMİZLİK (15.09.2026, Denetim G-01): bulut kuralı metin
+        // alanlarında < ve > karakterini reddediyor. Okul şube adına "<" yazarsa
+        // bütün kayıt reddedilmesin diye buluta giden KOPYA temizlenir; ekrandaki
+        // veri değişmez (bir sonraki yüklemede zaten temizlenir). okulAdi'ye
+        // dokunulmaz: okul_kayit ile birebir aynı olmak zorunda.
+        const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
+            : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
+        const kaynak = guvenlik
+            ? guvenlik.durumuTemizle(JSON.parse(JSON.stringify({
+                okulBilgisi: state.okulBilgisi || {},
+                subeler: state.subeler || [],
+                mevcutOgretmenler: state.mevcutOgretmenler || {},
+                koordinatorlukYukleri: state.koordinatorlukYukleri || {}
+            })))
+            : state;
+
         // adminOptions içindeki yoneticiDersYukleri de branş adıyla
         // anahtarlanıyor; o da kodlanmalı.
-        const adminSecenekleri = Object.assign({}, state.okulBilgisi?.adminOptions || {});
+        const adminSecenekleri = Object.assign({}, kaynak.okulBilgisi?.adminOptions || {});
         if (adminSecenekleri.yoneticiDersYukleri) {
             adminSecenekleri.yoneticiDersYukleri =
                 this._haritaKodla(adminSecenekleri.yoneticiDersYukleri);
@@ -421,17 +437,17 @@ export class CloudDatabaseService {
         const veri = {
             kurumKodu: key,   // kural bunun yolla aynı olmasını şart koşuyor
             okulAdi: state.okulBilgisi?.okulAdi || "MEB Okulu",
-            okulTuru: state.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
-            sezon: state.okulBilgisi?.sezon || "2026-2027",
-            il: state.okulBilgisi?.il || "",
-            ilce: state.okulBilgisi?.ilce || "",
-            subeler: state.subeler || [],
+            okulTuru: kaynak.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
+            sezon: kaynak.okulBilgisi?.sezon || "2026-2027",
+            il: kaynak.okulBilgisi?.il || "",
+            ilce: kaynak.okulBilgisi?.ilce || "",
+            subeler: kaynak.subeler || [],
             // Branş adları anahtar olarak kullanılıyor; Firebase'in yasak
             // karakterleri için kodlanır (bkz. _anahtarKodla).
-            mevcutOgretmenler: this._haritaKodla(state.mevcutOgretmenler || {}),
-            koordinatorlukYukleri: this._haritaKodla(state.koordinatorlukYukleri || {}),
+            mevcutOgretmenler: this._haritaKodla(kaynak.mevcutOgretmenler || {}),
+            koordinatorlukYukleri: this._haritaKodla(kaynak.koordinatorlukYukleri || {}),
             adminOptions: adminSecenekleri,
-            antet: state.okulBilgisi?.antet || {},
+            antet: kaynak.okulBilgisi?.antet || {},
             lastUpdated: new Date().toISOString(),
         };
 

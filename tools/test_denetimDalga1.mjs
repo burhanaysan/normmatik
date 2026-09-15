@@ -137,6 +137,43 @@ const iceAktarildi = st.importProjectJSON(JSON.stringify({
 kontrol("G01 proje dosyası içe aktarıldı", iceAktarildi === true);
 kontrol("G01 proje dosyasındaki şube adı temizlendi", iceAktarildi && !/[<>"]/.test(st.state.subeler[0].subeAdi), st.state.subeler[0] && st.state.subeler[0].subeAdi);
 
+// Buluta giden kayıt da temizlenir (kural < > reddediyor); ekrandaki veri ve okulAdi değişmez
+{
+    st.resetSchool(); st.setSchoolType("anadolu_lisesi");
+    st.state.okulBilgisi.okulAdi = 'DEMO "LİSESİ"';
+    st.state.okulBilgisi.antet = { resmiOkulAdi: "OKUL<b>", logoBase64: "data:image/png;base64,iVBORw0KGgo=" };
+    st.state.subeler = [{ id: "sube_7", subeAdi: YUK, sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: [{ ders: "Matematik", saat: 6, atananBrans: "Matematik" }], secmeliDersler: [] }];
+    st.state.mevcutOgretmenler = { [BRANS_YUKU]: 1 };
+    const bulut = w.cloudDbService || w.cloudDatabaseService;
+    kontrol("G01 bulut servisi pakette", !!(bulut && bulut.saveSchoolData));
+    if (bulut && bulut.saveSchoolData) {
+        let yuk = null;
+        const eski = bulut._istekTekrarli;
+        bulut._istekTekrarli = async (yol, yontem, govde) => { yuk = govde; return { ok: true, status: 200 }; };
+        const eskiAnahtar = bulut.getEffectiveKey;
+        bulut.getEffectiveKey = () => "424242";
+        try { await bulut.saveSchoolData("424242", st.state); } finally {
+            bulut._istekTekrarli = eski; bulut.getEffectiveKey = eskiAnahtar;
+        }
+        kontrol("G01 kayıt yükü yakalandı", !!yuk);
+        if (yuk) {
+            const yukMetin = [];
+            const yukTopla = (v) => {
+                if (typeof v === "string") yukMetin.push(v);
+                else if (Array.isArray(v)) v.forEach(yukTopla);
+                else if (v && typeof v === "object") for (const [k, x] of Object.entries(v)) { yukMetin.push(k); yukTopla(x); }
+            };
+            yukTopla(Object.assign({}, yuk, { okulAdi: "" }));
+            kontrol("G01 buluta giden kayıtta < > yok", !yukMetin.some(x => /[<>]/.test(x)),
+                JSON.stringify(yukMetin.filter(x => /[<>]/.test(x))));
+            kontrol("G01 buluta giden okulAdi aynen (kimlik kilidi)", yuk.okulAdi === 'DEMO "LİSESİ"', yuk.okulAdi);
+            kontrol("G01 geçerli logo buluta gidiyor", yuk.antet && yuk.antet.logoBase64 === "data:image/png;base64,iVBORw0KGgo=");
+        }
+        kontrol("G01 kayıt ekrandaki veriyi değiştirmedi", st.state.subeler[0].subeAdi === YUK, st.state.subeler[0].subeAdi);
+    }
+}
+
 // Okul açılır açılmaz çizilen ekranlar ikinci katman olarak kaçışlıyor
 const appKaynak = oku("js", "app.js");
 const uiKaynak = oku("js", "uiComponents.js");
@@ -199,6 +236,24 @@ kontrol("N02 meslekî 'Ofis Uygulamaları' çerçeve işaretiyle atölye kalır"
     ne.isWorkshopLabCourse({ ders: "Ofis Uygulamaları", kategori: "MESLEK DERSLERİ", isAtolye: true }, "mesleki_ve_teknik_anadolu_lisesi"));
 kontrol("N02 'Temel Elektrik Atölyesi' ad kalıbıyla atölye kalır",
     ne.isWorkshopLabCourse({ ders: "Temel Elektrik Atölyesi", kategori: "MESLEK DERSLERİ" }, "mesleki_ve_teknik_anadolu_lisesi"));
+// Kullanıcı kararı (15.09.2026): meslekî olmayan okulda ADI yüzünden atölye sayılan
+// dersler de genel ders sayılır.
+for (const [ad, tur] of [
+    ["Fizik Laboratuvarı", "ozel_program_fen_lisesi"], ["Kimya Laboratuvarı", "ozel_program_fen_lisesi"],
+    ["Biyoloji Laboratuvarı", "ozel_program_fen_lisesi"], ["İki Boyutlu Sanat Atölye", "guzel_sanatlar_gorsel"],
+    ["Üç Boyutlu Sanat Atölye", "guzel_sanatlar_gorsel"], ["Üç Boyutlu Sanat Atölye", "anadolu_imam_hatip_lisesi"],
+    ["Mesleki Gelişim Atölyesi", "anadolu_imam_hatip_lisesi"], ["Oyun ve Oyuncak Atölyesi", "hazirlik_imam_hatip_lisesi"],
+    ["Müzik ve Dramatik Etkinlikler Atölyesi", "anadolu_imam_hatip_lisesi"],
+    ["Erken Çocukluk ve Özel Eğitimde Program Atölyesi", "anadolu_imam_hatip_lisesi"]
+]) {
+    kontrol(`N02b ${ad} (${tur}) genel ders (Md.18)`, !ne.isWorkshopLabCourse({ ders: ad, kategori: "ORTAK DERSLER" }, tur));
+}
+kontrol("N02b meslek ortaokulunda ad kalıbı geçerli",
+    ne.isWorkshopLabCourse({ ders: "Ahşap Atölyesi", kategori: "MESLEK DERSLERİ" }, "meslek_ortaokulu"));
+kontrol("N02b MESEM'de işletmelerde mesleki eğitim atölye kovasında",
+    ne.isWorkshopLabCourse({ ders: "İşletmelerde Mesleki Eğitim", kategori: "İŞLETMELERDE MESLEKİ EĞİTİM" }, "mesleki_egitim_merkezi"));
+kontrol("N02b açık isAtolye işareti genel okulda da geçerli",
+    ne.isWorkshopLabCourse({ ders: "İş Eğitimi ve Meslek Ahlakı", isAtolye: true }, "ozel_egitim_uygulama_okulu"));
 {
     // Uçtan uca (hakemin örneği): 32 saat Matematik = 24 zorunlu + 8 Matematik Uygulamaları
     st.resetSchool(); st.setSchoolType("anadolu_lisesi");

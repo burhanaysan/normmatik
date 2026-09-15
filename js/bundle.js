@@ -349,13 +349,15 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.3",
+    surum: "2.1.4",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",
+        "Güvenlik: kaydedilen metinlerden < ve > karakterleri kayıt anında temizleniyor; bulut tarafında da aynı kural uygulanıyor.",
         "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",
         "Üç ve daha fazla şubenin birleştirildiği derslerde ders yükü artık bir kez sayılıyor; birleşik atölye dersinde sonuç şubelerin sırasına bağlı değil.",
         "“Branş Atanmadı” seçimi korunuyor ve hesaba doğru yansıyor; ders adıyla ayrı bir branş satırı açılmıyor.",
@@ -180380,7 +180382,16 @@ class NormEngine {
         // Ad kalıbı atölye/lab'a uysa bile istisna listesindeyse genel bilgi sayılır.
         if ((cfg.courseNameExclusions || []).some(matches)) return false;
 
-        if ((cfg.courseNamePatterns || []).some(matches)) return true;
+        // AD KALIBI YALNIZCA MESLEKÎ KURUMDA GEÇERLİ (kullanıcı kararı, 15.09.2026;
+        // Denetim N-02 devamı). Özel program fen lisesinde "Fizik Laboratuvarı",
+        // güzel sanatlarda "İki Boyutlu Sanat Atölye", imam hatipte "Mesleki
+        // Gelişim Atölyesi" gibi dersler yalnızca ADLARI yüzünden atölye (Md. 19)
+        // sayılıyordu; bu okullarda genel ders (Md. 18) sayılır. Okul türü
+        // bilinmiyorsa (boş) eski davranış sürer. Çerçeve programın açık isAtolye
+        // işareti her türde geçerlidir.
+        const turBilinmiyor = !String(schoolType || "").trim();
+        if ((turBilinmiyor || this.isMeslekiKurum(schoolType, []))
+            && (cfg.courseNamePatterns || []).some(matches)) return true;
 
         // Veri setinden gelen açık işaret
         if (course.isAtolye === true) return true;
@@ -184063,9 +184074,25 @@ class CloudDatabaseService {
         const key = this.getEffectiveKey(kurumKodu);
         if (!key || !state) return;
 
+        // KAYIT ANINDA TEMİZLİK (15.09.2026, Denetim G-01): bulut kuralı metin
+        // alanlarında < ve > karakterini reddediyor. Okul şube adına "<" yazarsa
+        // bütün kayıt reddedilmesin diye buluta giden KOPYA temizlenir; ekrandaki
+        // veri değişmez (bir sonraki yüklemede zaten temizlenir). okulAdi'ye
+        // dokunulmaz: okul_kayit ile birebir aynı olmak zorunda.
+        const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
+            : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
+        const kaynak = guvenlik
+            ? guvenlik.durumuTemizle(JSON.parse(JSON.stringify({
+                okulBilgisi: state.okulBilgisi || {},
+                subeler: state.subeler || [],
+                mevcutOgretmenler: state.mevcutOgretmenler || {},
+                koordinatorlukYukleri: state.koordinatorlukYukleri || {}
+            })))
+            : state;
+
         // adminOptions içindeki yoneticiDersYukleri de branş adıyla
         // anahtarlanıyor; o da kodlanmalı.
-        const adminSecenekleri = Object.assign({}, state.okulBilgisi?.adminOptions || {});
+        const adminSecenekleri = Object.assign({}, kaynak.okulBilgisi?.adminOptions || {});
         if (adminSecenekleri.yoneticiDersYukleri) {
             adminSecenekleri.yoneticiDersYukleri =
                 this._haritaKodla(adminSecenekleri.yoneticiDersYukleri);
@@ -184074,17 +184101,17 @@ class CloudDatabaseService {
         const veri = {
             kurumKodu: key,   // kural bunun yolla aynı olmasını şart koşuyor
             okulAdi: state.okulBilgisi?.okulAdi || "MEB Okulu",
-            okulTuru: state.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
-            sezon: state.okulBilgisi?.sezon || "2026-2027",
-            il: state.okulBilgisi?.il || "",
-            ilce: state.okulBilgisi?.ilce || "",
-            subeler: state.subeler || [],
+            okulTuru: kaynak.okulBilgisi?.okulTuru || "mesleki_ve_teknik_anadolu_lisesi",
+            sezon: kaynak.okulBilgisi?.sezon || "2026-2027",
+            il: kaynak.okulBilgisi?.il || "",
+            ilce: kaynak.okulBilgisi?.ilce || "",
+            subeler: kaynak.subeler || [],
             // Branş adları anahtar olarak kullanılıyor; Firebase'in yasak
             // karakterleri için kodlanır (bkz. _anahtarKodla).
-            mevcutOgretmenler: this._haritaKodla(state.mevcutOgretmenler || {}),
-            koordinatorlukYukleri: this._haritaKodla(state.koordinatorlukYukleri || {}),
+            mevcutOgretmenler: this._haritaKodla(kaynak.mevcutOgretmenler || {}),
+            koordinatorlukYukleri: this._haritaKodla(kaynak.koordinatorlukYukleri || {}),
             adminOptions: adminSecenekleri,
-            antet: state.okulBilgisi?.antet || {},
+            antet: kaynak.okulBilgisi?.antet || {},
             lastUpdated: new Date().toISOString(),
         };
 
