@@ -2,11 +2,15 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<!-- Güvenlik politikası (Denetim G-03, 15.09.2026): sayfa yalnızca kendi dosyalarını ve
+     Firebase uçlarını kullanabilir; veri başka bir adrese gönderilemez. Yeni bir dış
+     adres eklenirse buraya da yazılmalı, yoksa tarayıcı sessizce engeller. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>NormMatik™ — Yönetim Paneli</title>
 <link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="css/app.css?v=20260914_2314">
+<link rel="stylesheet" href="css/app.css?v=20260915_1927">
 <style>
 /*
    Yönetim paneli — yalnızca destek hesabı içindir.

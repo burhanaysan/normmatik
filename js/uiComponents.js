@@ -2878,13 +2878,6 @@ export class UIComponentManager {
                                     </div>
                                 </label>
 
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-tasima" ${adminOpts.isTasimaMerkezi ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🚌 Taşıma Merkezi Eğitim Kurumu</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 İlave Müdür Yardımcısı (Md. 14/1-e)</div>
-                                    </div>
-                                </label>
 
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-kampus" ${adminOpts.isKampusIcinde ? 'checked' : ''} style="margin-top: 0.15rem;">
@@ -3075,7 +3068,6 @@ export class UIComponentManager {
                     isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                     hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                     hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                    isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
                     isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                     isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                     isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
@@ -3201,7 +3193,6 @@ export class UIComponentManager {
             "chk-admin-tamgun",
             "chk-admin-stajyer100",
             "chk-admin-sigortali500",
-            "chk-admin-tasima",
             "chk-admin-kampus",
             "chk-admin-aynibina",
             "chk-admin-birlestirilmis",
@@ -3281,7 +3272,6 @@ export class UIComponentManager {
                 isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                 hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                 hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
                 isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                 isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                 isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
@@ -4047,7 +4037,7 @@ export class UIComponentManager {
                                 <div style="margin-top: 0.65rem; display: flex; align-items: center; justify-content: space-between;">
                                     <div style="display: flex; align-items: center; gap: 0.75rem;">
                                         <div id="antet-logo-preview" style="width: 44px; height: 44px; border: 1.5px dashed var(--border-main); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff;">
-                                            ${antet.logoBase64 ? `<img src="${antet.logoBase64}" style="max-width:100%; max-height:100%; object-fit:contain;">` : '<span style="font-size:1.25rem;">🇹🇷</span>'}
+                                            ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" style="max-width:100%; max-height:100%; object-fit:contain;">` : '<span style="font-size:1.25rem;">🇹🇷</span>'}
                                         </div>
                                         <div>
                                             <div style="font-size: 0.78rem; font-weight: 700;">Okul Logosu Yükle (İsteğe Bağlı)</div>
@@ -4487,7 +4477,7 @@ export class UIComponentManager {
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -4725,7 +4715,7 @@ export class UIComponentManager {
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -4940,7 +4930,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -5058,7 +5048,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -5145,7 +5135,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -5252,7 +5242,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -5482,7 +5472,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -6133,7 +6123,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <span class="badge" style="background: #e2e8f0; color: #1e293b; font-weight: 700;">${sec.grade}. Sınıf</span>
                         </td>
                         <td style="padding: 0.45rem;">
-                            <input type="text" class="form-control sec-name-input" data-idx="${idx}" value="${sec.subeAdi}" style="font-size: 0.8rem; padding: 0.25rem 0.4rem; font-weight: 600;">
+                            <input type="text" class="form-control sec-name-input" data-idx="${idx}" value="${NormGuvenlik.htmlKacis(sec.subeAdi)}" style="font-size: 0.8rem; padding: 0.25rem 0.4rem; font-weight: 600;">
                         </td>
                         <td style="padding: 0.45rem; text-align: center; font-weight: 600;">
                             <input type="number" class="form-control sec-count-input" data-idx="${idx}" value="${sec.studentCount}" min="1" max="60" style="width: 50px; display: inline-block; font-size: 0.8rem; padding: 0.2rem; text-align: center;">

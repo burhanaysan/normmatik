@@ -282,8 +282,10 @@ console.log("── 5. Branş olmayan değerler yine de düzeltilir");
 
     kontrol("boş branş -> çizelgedeki branş",
         c("Sağlık Bilgisi ve Trafik Kültürü", null), "Sağlık Hizmetleri");
-    kontrol('"— Branş Atanmadı —" -> çizelgedeki branş',
-        c("Sağlık Bilgisi ve Trafik Kültürü", "— Branş Atanmadı —"), "Sağlık Hizmetleri");
+    // Denetim N-10 (15.09.2026): "Branş Atanmadı" idarecinin BİLİNÇLİ seçimidir
+    // ve korunur. Eskiden varsayılan branşla eziliyordu; seçim hiç işlemiyordu.
+    kontrol('"— Branş Atanmadı —" (idarecinin seçimi) korunur',
+        c("Sağlık Bilgisi ve Trafik Kültürü", "— Branş Atanmadı —"), "— Branş Atanmadı —");
     kontrol("branş yerine ders adı yazılmışsa düzeltilir",
         c("Sağlık Bilgisi ve Trafik Kültürü", "Sağlık Bilgisi ve Trafik Kültürü"),
         "Sağlık Hizmetleri");

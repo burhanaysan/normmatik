@@ -43,7 +43,6 @@ export class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -246,7 +245,6 @@ export class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -479,7 +477,6 @@ export class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: true,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -1824,6 +1821,12 @@ export class AppStateService {
     }
 
     sanitizeExistingState() {
+        // GÜVENLİK (Denetim G-01, 15.09.2026): okul verisi uygulamaya hangi
+        // yoldan girerse girsin (bulut, yerel kopya, sürüm geçmişi, proje
+        // dosyası) ekrana basılmadan önce zararsızlaştırılır. Ayrıntı: js/guvenlik.js
+        const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
+            : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
+        if (guvenlik && this.state) guvenlik.durumuTemizle(this.state);
         if (!this.state || !Array.isArray(this.state.subeler)) return;
         this.state.subeler.forEach(sec => {
             this.sanitizeSection(sec);
@@ -1840,6 +1843,7 @@ export class AppStateService {
             if (parsed.okulBilgisi && parsed.subeler) {
                 this.pushHistory();
                 this.state = parsed;
+                this.sanitizeExistingState();   // G-01: dosyadan gelen veri de temizlenir
                 this.notify();
                 return true;
             }

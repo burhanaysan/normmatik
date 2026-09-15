@@ -1020,11 +1020,11 @@ class MebNormApplication {
                 : "";
 
             return `
-                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${s.id}">
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}">
                     <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
                     <div class="sec-card-top-row">
                         <div class="sec-identity-wrap">
-                            <span class="sec-card-name" title="${s.subeAdi}">${s.subeAdi}</span>${kilitHtml}
+                            <span class="sec-card-name" title="${NormGuvenlik.htmlKacis(s.subeAdi)}">${NormGuvenlik.htmlKacis(s.subeAdi)}</span>${kilitHtml}
                         </div>
                         
                         <div class="sec-top-right-wrap">
@@ -1468,7 +1468,7 @@ class MebNormApplication {
                         </div>
                         <div class="hero-identity-details">
                             <div class="hero-title-row">
-                                <h1 class="hero-section-title" title="${activeSec.subeAdi}">${activeSec.subeAdi}</h1>
+                                <h1 class="hero-section-title" title="${NormGuvenlik.htmlKacis(activeSec.subeAdi)}">${NormGuvenlik.htmlKacis(activeSec.subeAdi)}</h1>
                                 <span class="hero-student-pill" title="Şube Mevcudu: ${activeSec.ogrenciSayisi} Öğrenci">
                                     👥 <strong>${activeSec.ogrenciSayisi}</strong> Öğr
                                 </span>
@@ -1721,7 +1721,7 @@ class MebNormApplication {
         }).join("");
 
         const branchOptionsHtml = `
-            <option value="" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
+            <option value="— Branş Atanmadı —" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
             ${optionsList}
         `;
 
@@ -1952,9 +1952,9 @@ class MebNormApplication {
 
         const rowsHtml = normResult.branchReport.map(b => {
             return `
-                <tr class="norm-row" data-branch="${b.branchName}">
+                <tr class="norm-row" data-branch="${NormGuvenlik.htmlKacis(b.branchName)}">
                     <td>
-                        <span class="norm-branch-text">${b.branchName}</span>
+                        <span class="norm-branch-text">${NormGuvenlik.htmlKacis(b.branchName)}</span>
                     </td>
                     <td style="text-align: center;">
                         <span class="norm-chip-load">${b.totalHours}</span>

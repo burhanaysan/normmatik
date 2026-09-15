@@ -361,7 +361,11 @@ class MebCurriculumEngine {
             }
         }
 
-        return clean;
+        // BRANŞI BİLİNMEYEN DERS (Denetim N-10, 15.09.2026): eskiden burada dersin
+        // kendi adı döndürülüyordu ("Tasavvuf Kültürü" -> branş "Tasavvuf Kültürü").
+        // Böyle bir öğretmenlik alanı yok; o ada norm veriliyordu. Artık "Branş
+        // Atanmadı" döner, idareci ekranda gerçek branşı seçer.
+        return "— Branş Atanmadı —";
     }
 
     /**
@@ -469,6 +473,8 @@ class MebCurriculumEngine {
         
         const cleanCourse = String(rawCourseName).trim();
         const normKey = this.normalizeName(cleanCourse);
+        // İdarecinin bilinçli "Branş Atanmadı" seçimi (Denetim N-10)
+        const BRANS_ATANMADI = "— Branş Atanmadı —";
 
         const STANDARDS = {
             'turkdiliveedebiyati': { course: 'Türk Dili ve Edebiyatı', branch: 'Türk Dili ve Edebiyatı' },
@@ -589,14 +595,26 @@ class MebCurriculumEngine {
             // boş, "Branş Atanmadı", "Diğer", ya da kanonik branş listesinde
             // bulunmayan bir ad.
             const gercekBrans = canonicalBranch && this.isKnownBranch(canonicalBranch);
-            if (!canonicalBranch || branchNorm === 'bransatanmadi' || branchNorm === 'diger' || !gercekBrans) {
+            if (branchNorm === 'bransatanmadi') {
+                // İDARECİ BİLEREK "Branş Atanmadı" SEÇTİ (Denetim N-10, 15.09.2026).
+                // Eskiden bu seçim de varsayılan branşla eziliyordu: okul yeniden
+                // yüklenince ders eski branşına dönüyor, seçim hiç işlemiyordu.
+                // Artık korunur; ders hiçbir branşın normuna yazılmaz, saati okulun
+                // toplam yükünde kalır.
+                canonicalBranch = BRANS_ATANMADI;
+            } else if (!canonicalBranch || branchNorm === 'diger' || !gercekBrans) {
                 canonicalBranch = STANDARDS[normKey].branch;
             }
         } else {
             canonicalCourse = this.toTurkishTitleCase(cleanCourse);
-            if (canonicalBranch) {
+            if (canonicalBranch && this.normalizeName(canonicalBranch) === 'bransatanmadi') {
+                canonicalBranch = BRANS_ATANMADI;
+            } else if (canonicalBranch) {
                 const bNorm = this.normalizeName(canonicalBranch);
-                if (STANDARDS[bNorm]) {
+                if (bNorm === normKey && !this.isKnownBranch(canonicalBranch)) {
+                    // Eski sürümün ders adıyla yazdığı sahte branş (N-10).
+                    canonicalBranch = BRANS_ATANMADI;
+                } else if (STANDARDS[bNorm]) {
                     canonicalBranch = STANDARDS[bNorm].branch;
                 } else {
                     canonicalBranch = this.toTurkishTitleCase(canonicalBranch);
@@ -608,7 +626,11 @@ class MebCurriculumEngine {
 
         return {
             courseName: canonicalCourse,
-            branchName: canonicalBranch || canonicalCourse
+            // N-10: branşı çözülemeyen ders DERS ADIYLA uydurulmuş bir branşa
+            // yazılmaz ("Tasavvuf Kültürü" diye bir öğretmenlik alanı yok);
+            // "Branş Atanmadı" kalır, idareci ekranda seçer. Ölçüldü (15.09.2026):
+            // çizelgedeki hiçbir zorunlu ders, kayıtlı branşıyla bu yola düşmüyor.
+            branchName: canonicalBranch || BRANS_ATANMADI
         };
     }
 

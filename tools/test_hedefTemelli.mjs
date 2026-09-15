@@ -149,15 +149,23 @@ function kur() {
 function rapor() {
     const r = ne.calculateSchoolNorms(st.state.subeler, {}, "anadolu_lisesi", {});
     const m = Object.fromEntries((r.branchReport || []).map(b => [b.branchName, b.totalHours]));
-    return { m, toplam: (r.branchReport || []).reduce((a, b) => a + b.totalHours, 0) };
+    // genelToplam: okulun gerçek toplam yükü (branşsız saat dâhil). Denetim N-10'dan
+    // sonra dağıtılmamış hedef temelli saat branş satırında değil, bu toplamda durur.
+    return { m, toplam: (r.branchReport || []).reduce((a, b) => a + b.totalHours, 0), genelToplam: r.totalHours };
 }
 
 {
     const sec = kur();
     const once = rapor();
-    kontrol("dağıtımdan önce sahte branş raporda (ölçüm geçerli)",
-        !!once.m["Hedef Temelli Destek Eğitimi"],
+    // Denetim N-10 (15.09.2026): eskiden ders kendi adıyla sahte bir branş satırı
+    // açıyor ve o satır norm alıyordu (gerçek bir okulda 6 saat / 1 norm ölçüldü).
+    // Artık dağıtılmamış saat branşsız kalır, okul toplamında sayılır.
+    kontrol("dağıtımdan önce sahte branş YOK (N-10)",
+        !once.m["Hedef Temelli Destek Eğitimi"],
         JSON.stringify(Object.keys(once.m)));
+    kontrol("dağıtılmamış 3 saat okul toplamında (ölçüm geçerli)",
+        once.genelToplam - once.toplam >= 3,
+        once.genelToplam + " / " + once.toplam);
     kontrol("bu ad gerçek bir branş DEĞİL",
         !ce.isKnownBranch("Hedef Temelli Destek Eğitimi"));
 
@@ -171,8 +179,8 @@ function rapor() {
     kontrol("Fizik 1 saat aldı", sonra.m["Fizik"] === 1, String(sonra.m["Fizik"]));
     kontrol("Kimya 1 saat aldı", sonra.m["Kimya"] === 1, String(sonra.m["Kimya"]));
     kontrol("OKUL TOPLAMI DEĞİŞMİYOR (paylaştırma, çarpma değil)",
-        sonra.toplam === once.toplam,
-        once.toplam + " -> " + sonra.toplam);
+        sonra.genelToplam === once.genelToplam,
+        once.genelToplam + " -> " + sonra.genelToplam);
 }
 
 /* ---- 4b) EKSİK DAĞITIM: saat gerçekten kayboluyor -------------------- */
@@ -188,8 +196,9 @@ function rapor() {
         secmeliDersler: [{ ders: DERS, saat: 4, kategori: "SEÇMELİ DERSLER",
             atananBrans: DERS }] });
     const sec = st.state.subeler[0];
+    // Okulun gerçek toplam yükü (branşsız saat dâhil; bkz. N-10 notu yukarıda).
     const t = () => ne.calculateSchoolNorms(st.state.subeler, {}, "anadolu_lisesi", {})
-        .branchReport.reduce((a, b) => a + b.totalHours, 0);
+        .totalHours;
 
     const bastaki = t();
     kontrol("4 saatlik hak başta tam sayılıyor (ölçüm geçerli)", bastaki > 0);
@@ -228,8 +237,8 @@ function rapor() {
 
     // Dağıtımı kaldırınca eski hâle dönmeli.
     st.updateCourseBranchDistribution(st.state.subeler[0].id, DERS, {});
-    kontrol("dağıtım kaldırılınca sahte branş geri geliyor",
-        !!rapor().m["Hedef Temelli Destek Eğitimi"]);
+    kontrol("dağıtım kaldırılınca ders yine branşsız; sahte branş geri gelmiyor (N-10)",
+        !rapor().m["Hedef Temelli Destek Eğitimi"]);
 }
 
 /* ---- 6) Demo kilidi -------------------------------------------------- */

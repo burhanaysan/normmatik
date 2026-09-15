@@ -113,7 +113,10 @@ check("9. sınıf / 10 öğrenci -> 1 grup", grp(10, "9"), 1);
 check("9. sınıf / 20 öğrenci -> 1 grup", grp(20, "9"), 1);
 check("9. sınıf / 21 öğrenci -> 2 grup", grp(21, "9"), 2);
 check("9. sınıf / 30 öğrenci -> 2 grup", grp(30, "9"), 2);
-check("9. sınıf / 31 öğrenci -> 3 grup", grp(31, "9"), 3);
+// Denetim N-13 (15.09.2026): Md. 22/1-ç-1 "21-31 öğrenciye kadar 2, 31'DEN FAZLA
+// öğrenci için 3" diyor; 31 ikinci kademede kalır. Bu satır eskiden 3 bekliyordu.
+check("9. sınıf / 31 öğrenci -> 2 grup", grp(31, "9"), 2);
+check("9. sınıf / 32 öğrenci -> 3 grup", grp(32, "9"), 3);
 check("9. sınıf / 45 öğrenci -> 3 grup (9. sınıf TAVANI)", grp(45, "9"), 3);
 
 section("MADDE 22/1-ç — Grup bölünmesi (10/11/12. sınıf)");
@@ -240,14 +243,16 @@ engine.mudurBasyardimcisiUnvaniYururlukte = true;
 check("[bayrak AÇIK] Pansiyon -> 1 müdür başyardımcısı (Md. 6/1-a)",
       adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 1);
 check("Döner sermaye +1 (Md. 14/1-b)", adm(500, { hasDonerSermaye: true }).mudurYardimcisiTotal, 2);
-check("Taşıma merkezi +1 (Md. 14/1-e)", adm(500, { isTasimaMerkezi: true }).mudurYardimcisiTotal, 2);
+// Taşıma merkezi kutusu kaldırıldı (kullanıcı kararı, Denetim N-01): eski kayıtta
+// kalan alan hiçbir şey eklememeli.
+check("Taşıma merkezi alanı etkisiz (N-01)", adm(500, { isTasimaMerkezi: true }).mudurYardimcisiTotal, 1);
 
 const altiIlave = {
     isPansiyonlu: true, hasDonerSermaye: true, isTamGunTamYil: true,
-    hasStajyer100Plus: true, hasSigortali500Plus: true, isTasimaMerkezi: true
+    hasStajyer100Plus: true, hasSigortali500Plus: true
 };
-check("1000 öğrenci + 6 ilave -> tavan 6 (Md. 14/2)", adm(1000, altiIlave).mudurYardimcisiTotal, 6);
-check("1600 öğrenci + 6 ilave -> tavan 7 (Md. 14/2)", adm(1600, altiIlave).mudurYardimcisiTotal, 7);
+check("1000 öğrenci + 5 ilave -> tavan 6 (Md. 14/2)", adm(1000, altiIlave).mudurYardimcisiTotal, 6);
+check("1600 öğrenci + 5 ilave -> tavan 7 (Md. 14/2)", adm(1600, altiIlave).mudurYardimcisiTotal, 7);
 check("[bayrak AÇIK] 6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)",
       adm(1000, altiIlave).mudurBasyardimcisi, 1);
 engine.mudurBasyardimcisiUnvaniYururlukte = false;

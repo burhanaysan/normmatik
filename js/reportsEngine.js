@@ -144,7 +144,10 @@ class MebReportsEngine {
         // 1. Verileri Branş -> Ders -> Şube Saatleri Hiyerarşisinde Topla
         // branchData[branchName] = { isVocational: bool, areaCode: str, courses: { [courseName]: { sectionHours: { [secId]: hours }, totalHours: num } }, totalHours: num }
         const branchGroups = {};
-        const handledMergedPairs = new Set();
+        // Birleştirilmiş dersler norm motoruyla AYNI bileşen hesabından (Denetim N-03).
+        const birlesikBilgi = (this.normEngine && typeof this.normEngine.birlesikDersBilesenleri === "function")
+            ? this.normEngine.birlesikDersBilesenleri(subeler)
+            : new Map();
 
         subeler.forEach(sec => {
             // EĞİK ÇİZGİLİ / PAYLAŞTIRILMIŞ DERSLERİ MOTORLA AYNI ŞEKİLDE AÇ
@@ -217,25 +220,19 @@ class MebReportsEngine {
                 // Dersin bu şubedeki saati (şube çizelgesinde görünür)
                 branchGroups[brans].courses[cName].sectionHours[sec.id] = hours;
 
-                // Sınıf birleştirme kontrolü (aynı birleşik ders grubunu mükerrer öğretmen yükü olarak sayma)
+                // Sınıf birleştirme: norm motoruyla aynı bileşen hesabı (Denetim N-03).
+                // Birleşik sınıfın yükü temsilci şubede BİR kez sayılır; üç şubelik
+                // birleşme ya da şubelerin sırası sonucu değiştirmez.
                 const mergedWith = c.birlesikSubeler || [];
+                const birlesikPay = c._bolunmusBrans || c._dagitilmisBrans || "";
+                const birlesik = birlesikBilgi.get(sec.id + "##" + rawCName + (birlesikPay ? "::" + birlesikPay : ""));
                 let isMergedDuplicate = false;
-                if (mergedWith.length > 0) {
+                if (birlesik) {
+                    branchGroups[brans].courses[cName].mergedSections[sec.id] =
+                        birlesik.uyeler.filter(id => id !== sec.id);
+                    isMergedDuplicate = sec.id !== birlesik.temsilci;
+                } else if (mergedWith.length > 0) {
                     branchGroups[brans].courses[cName].mergedSections[sec.id] = mergedWith;
-                    // Bölünmüş dersin her branş payı AYRI bir kayıttır; anahtar
-                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
-                    // sessizce düşer. Payı anahtara katıyoruz.
-                    //
-                    // Bölünme YOKKEN anahtar aynen eskisi gibi kalır: birleşik
-                    // şubelerdeki normal dersler için davranış değişmez.
-                    const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
-                        + (pay ? "::" + pay : "");
-                    if (handledMergedPairs.has(groupKey)) {
-                        isMergedDuplicate = true;
-                    } else {
-                        handledMergedPairs.add(groupKey);
-                    }
                 }
 
                 if (!isMergedDuplicate) {

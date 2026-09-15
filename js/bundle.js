@@ -349,13 +349,20 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.2",
-    yayinTarihi: "2026-09-14",
+    surum: "2.1.3",
+    yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",
+        "Üç ve daha fazla şubenin birleştirildiği derslerde ders yükü artık bir kez sayılıyor; birleşik atölye dersinde sonuç şubelerin sırasına bağlı değil.",
+        "“Branş Atanmadı” seçimi korunuyor ve hesaba doğru yansıyor; ders adıyla ayrı bir branş satırı açılmıyor.",
+        "Adında “Uygulamaları” geçen genel dersler (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları vb.) atölye değil genel ders olarak hesaplanıyor.",
+        "Güzel sanatlar lisesinde Çalgı Eğitimi ders yükü yönetmeliğin üst sınırıyla hesaplanıyor (Md. 22/4-a).",
+        "9. sınıfta 31 öğrencili atölye şubesi 2 grup sayılıyor (Md. 22/1-ç).",
+        "Taşıma merkezi müdür yardımcısı seçeneği kaldırıldı.",
         "Ders dağılımı raporunda (ve Excel/CSV çıktısında) Özel Eğitim kartı görünüyor: şube şube haftalık saat, norm ve dayanağı. Kartların toplamı artık üstteki toplam ders yüküyle tutuyor.",
         "Antet logosu yüklenirken otomatik küçültülüyor; büyük bir fotoğraf seçmek kaydı yavaşlatmıyor ya da engellemiyor.",
         "Koordinatörlük sekmesinde bütün meslekî branşlar listeleniyor; okulda aktif alanlar doğru öğretmen branşıyla işaretleniyor (ör. Bilişim Teknolojileri).",
@@ -440,6 +447,176 @@ if (typeof window !== 'undefined') {
 }
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { NORMMATIK_ILETISIM, normmatikWhatsappBaglantisi };
+}
+
+// ==================== guvenlik.js ====================
+
+/**
+ * NORMMATİK — GÜVENLİ METİN (TEK KAYNAK)
+ * =============================================================================
+ * NEDEN VAR (Denetim Dalga 1, bulgu G-01 · Kritik · 15.09.2026):
+ *   Okulun kendi yazdığı metinler (şube adı, branş adı, ders adı, antet
+ *   alanları, logo) ekrana HTML olarak, süzülmeden basılıyordu. Bulut
+ *   kuralları bu alanlarda yalnızca uzunluğa bakıyor. Kötü niyetli bir okul
+ *   şube adına kod yazarsa, YÖNETİCİ o okulu açtığı anda kod yöneticinin
+ *   tarayıcısında çalışıyor ve yönetici oturumuyla bütün okulların verisi
+ *   okunup değiştirilebiliyordu. Hakem bunu deneme ortamında uçtan uca
+ *   kanıtladı.
+ *
+ * İKİ KATMAN:
+ *   1) durumuTemizle — okul verisi uygulamaya HANGİ YOLDAN girerse girsin
+ *      (bulut, bu tarayıcıdaki yerel kopya, sürüm geçmişi, proje dosyası)
+ *      state.sanitizeExistingState() üzerinden buradan geçer. Metinlerden
+ *      < ve > atılır, çift tırnak tipografik tırnağa (”) çevrilir, kimlikler
+ *      yalnızca harf/rakam/_/- bırakılır, logo gerçek bir resim değilse atılır.
+ *      Bu katman, çizicilerde tek tek unutulmuş bir yer kalsa bile korur.
+ *   2) htmlKacis — okul açılır açılmaz çizilen ekranlar (şube listesi, şube
+ *      başlığı, norm tablosu) ve logo/e-Okul önizlemesi, basmadan önce
+ *      ayrıca kaçışlar.
+ *
+ * TEMİZLİK YERİNDE YAPILIR: şube ve ders nesnelerinin yerine yenisi konmaz.
+ *   Arayüz ve testler şube nesnesine başvuru tutuyor; yeni nesne üretmek o
+ *   başvuruları sessizce eski kopyada bırakırdı (ilk sürümde test_bransSecimi
+ *   yakaladı, 15.09.2026).
+ *
+ * DOKUNULMAYAN ALAN: okulBilgisi.okulAdi. Bulut kuralı bu adın okul_kayit'taki
+ *   adla BİREBİR aynı olmasını şart koşuyor; değiştirilirse okulun bütün
+ *   kayıtları reddedilir. Bu ad yalnızca yöneticinin yazabildiği okul_kayit'tan
+ *   gelir, okulun saldırı yolu değildir.
+ */
+const NormGuvenlik = {
+    /** HTML'e (metin ya da çift/tek tırnaklı öznitelik) basılacak değeri kaçışlar. */
+    htmlKacis(deger) {
+        return String(deger == null ? "" : deger)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+    },
+
+    /**
+     * SAKLANAN metni zararsızlaştırır. Tek tırnağa DOKUNMAZ: "Kur'an-ı Kerim"
+     * gibi resmî ders adları onu taşıyor. Ekranda tek tırnaklı bağlama okul
+     * verisi basan şablon yok (15.09.2026'da tarandı); çift tırnak yeterli.
+     */
+    metin(deger) {
+        if (typeof deger !== "string") return deger;
+        return deger.replace(/[<>]/g, "").replace(/"/g, "”");
+    },
+
+    /**
+     * Şube kimliği gibi değerlerde yalnızca harf, rakam, _ ve - kalır.
+     * Türkçe harfler KORUNUR: demo şubelerinin kimliği şube adından türetiliyor
+     * ("sube_demo_9ç" olabilir); yalnız ASCII bırakmak iki şubeyi aynı kimliğe
+     * düşürürdü.
+     */
+    kimlik(deger) {
+        if (typeof deger !== "string") return deger;
+        return deger.replace(/[^\p{L}\p{N}_\-]/gu, "");
+    },
+
+    /**
+     * Logo yalnızca base64 kodlu gerçek bir resim olabilir. Başka her şey
+     * (dış adres, javascript:, tırnak içeren değer) null döner.
+     * SVG kabul edilir: <img> içinde SVG'nin betiği çalışmaz ve base64
+     * alfabesinde tırnak olmadığı için öznitelikten çıkamaz.
+     */
+    logo(deger) {
+        if (typeof deger !== "string") return null;
+        return /^data:image\/(png|jpe?g|webp|gif|bmp|svg\+xml);base64,[A-Za-z0-9+/=\s]+$/.test(deger)
+            ? deger : null;
+    },
+
+    /**
+     * Değeri YERİNDE temizler: dizi ve nesnelerde aynı nesne korunur, metin
+     * için temizlenmiş metin döner. Nesne anahtarları da temizlenir (branş
+     * adıyla anahtarlanan tablolar).
+     */
+    _derin(deger) {
+        if (typeof deger === "string") return this.metin(deger);
+        if (Array.isArray(deger)) {
+            for (let i = 0; i < deger.length; i++) deger[i] = this._derin(deger[i]);
+            return deger;
+        }
+        if (deger && typeof deger === "object") {
+            for (const k of Object.keys(deger)) {
+                const v = this._derin(deger[k]);
+                const temizAnahtar = this.metin(k);
+                if (temizAnahtar === k) {
+                    deger[k] = v;
+                    continue;
+                }
+                delete deger[k];
+                if (!(temizAnahtar in deger)) {
+                    deger[temizAnahtar] = v;
+                } else if (typeof deger[temizAnahtar] === "number" && typeof v === "number") {
+                    // Aynı temiz ada düşen iki sayı (ör. öğretmen sayısı) toplanır.
+                    deger[temizAnahtar] += v;
+                }
+            }
+            return deger;
+        }
+        return deger;
+    },
+
+    _subeyiTemizle(sube) {
+        if (!sube || typeof sube !== "object") return sube;
+        this._derin(sube);
+        if (typeof sube.id === "string") sube.id = this.kimlik(sube.id);
+        for (const liste of ["zorunluDersler", "secmeliDersler"]) {
+            if (!Array.isArray(sube[liste])) continue;
+            sube[liste].forEach(d => {
+                if (d && Array.isArray(d.birlesikSubeler)) {
+                    for (let i = 0; i < d.birlesikSubeler.length; i++) {
+                        if (typeof d.birlesikSubeler[i] === "string") {
+                            d.birlesikSubeler[i] = this.kimlik(d.birlesikSubeler[i]);
+                        }
+                    }
+                }
+            });
+        }
+        return sube;
+    },
+
+    /** Uygulama durumunu YERİNDE temizler ve aynı nesneyi döndürür. */
+    durumuTemizle(durum) {
+        if (!durum || typeof durum !== "object") return durum;
+
+        const ob = durum.okulBilgisi;
+        if (ob && typeof ob === "object") {
+            for (const k of Object.keys(ob)) {
+                if (k === "okulAdi") continue;                 // bkz. dosya başı
+                if (k === "antet" && ob.antet && typeof ob.antet === "object") {
+                    for (const ak of Object.keys(ob.antet)) {
+                        if (ak === "logoBase64") {
+                            if (ob.antet.logoBase64) ob.antet.logoBase64 = this.logo(ob.antet.logoBase64);
+                        } else {
+                            ob.antet[ak] = this._derin(ob.antet[ak]);
+                        }
+                    }
+                    continue;
+                }
+                ob[k] = this._derin(ob[k]);
+            }
+        }
+
+        if (Array.isArray(durum.subeler)) durum.subeler.forEach(s => this._subeyiTemizle(s));
+        for (const tablo of ["mevcutOgretmenler", "koordinatorlukYukleri"]) {
+            if (durum[tablo] && typeof durum[tablo] === "object") this._derin(durum[tablo]);
+        }
+        if (typeof durum.aktifSubeId === "string") {
+            durum.aktifSubeId = this.kimlik(durum.aktifSubeId);
+        }
+        return durum;
+    }
+};
+
+if (typeof window !== 'undefined') {
+    window.NormGuvenlik = NormGuvenlik;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { NormGuvenlik };
 }
 
 // ==================== normRulesConfig.js ====================
@@ -557,7 +734,12 @@ const NORM_RULES_CONFIG = {
             "ATÖLYE",
             "ATOLYE",
             "LABORATUVAR",
-            "UYGULAMALARI",
+            // "UYGULAMALARI" KALDIRILDI (Denetim N-02, 15.09.2026). Ad kalıbı genel
+            // seçmelileri (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları,
+            // Fen Bilimleri Uygulamaları...) atölye (Md. 19) sayıyor, branş normunu
+            // 1 eksik ya da fazla çıkarıyordu. Ölçüldü: adında "Uygulamaları" geçen
+            // 76 dersin 61 meslekî olanı çerçeve programın isAtolye işaretiyle zaten
+            // atölye sayılıyor; kalan 15'i genel lise/imam hatip/ortaokul dersi.
             "İŞLETMELERDE MESLEKİ EĞİTİM",
             "İŞLETMELERDE MESLEK EĞİTİMİ"
         ],
@@ -590,9 +772,14 @@ const NORM_RULES_CONFIG = {
             minStudentsToSplit: 10,        // 10 öğrencinin altında bölünme yok
             tiers: [
                 { untilBelow: 21, groups: 1 },  // 10-20 -> 1
-                { untilBelow: 31, groups: 2 }   // 21-30 -> 2
+                { untilBelow: 32, groups: 2 }   // 21-31 -> 2
             ],
-            groupsAboveTiers: 3            // 31+ -> 3 (9. sınıf tavanı)
+            groupsAboveTiers: 3            // 32+ -> 3 (9. sınıf tavanı)
+            // İSTİSNA (Denetim N-13, 15.09.2026): bu bent "21-31 öğrenciye kadar 2,
+            // 31'DEN FAZLA öğrenci için 3" diyor; 31 hiçbir kademe dışında kalamaz,
+            // ikinci kademede kalır. 10-12. sınıf bendi ise "33 VE DAHA FAZLA"
+            // dediği için orada 33 üst kademeye geçer. Md.18 (42'den fazla) ve
+            // Md.19 (201'den fazla) aynı biçimde okunuyor.
         },
         upperGrades: {                     // 10, 11 ve 12. sınıflar
             appliesToGrades: ["10", "11", "12"],
@@ -741,7 +928,10 @@ const NORM_RULES_CONFIG = {
     specialCourseRules: {
         bireyselCalgi: {
             legalRef: "Norm Kadro Yönetmeliği Madde 22/4-a",
-            studentsPerGroup: 1          // bire bir eğitim
+            studentsPerGroup: 1,         // bire bir eğitim
+            // "...haftalık ders saati sayısına her iki öğrenci için 6 saate kadar"
+            // ilave edilir. Yük tavanı: saat + 6 x (öğrenci / 2). (Denetim N-04)
+            ilaveSaatHerIkiOgrenci: 6
         },
         sesEgitimi: {
             legalRef: "Norm Kadro Yönetmeliği Madde 22/4",
@@ -178999,7 +179189,11 @@ class MebCurriculumEngine {
             }
         }
 
-        return clean;
+        // BRANŞI BİLİNMEYEN DERS (Denetim N-10, 15.09.2026): eskiden burada dersin
+        // kendi adı döndürülüyordu ("Tasavvuf Kültürü" -> branş "Tasavvuf Kültürü").
+        // Böyle bir öğretmenlik alanı yok; o ada norm veriliyordu. Artık "Branş
+        // Atanmadı" döner, idareci ekranda gerçek branşı seçer.
+        return "— Branş Atanmadı —";
     }
 
     /**
@@ -179107,6 +179301,8 @@ class MebCurriculumEngine {
         
         const cleanCourse = String(rawCourseName).trim();
         const normKey = this.normalizeName(cleanCourse);
+        // İdarecinin bilinçli "Branş Atanmadı" seçimi (Denetim N-10)
+        const BRANS_ATANMADI = "— Branş Atanmadı —";
 
         const STANDARDS = {
             'turkdiliveedebiyati': { course: 'Türk Dili ve Edebiyatı', branch: 'Türk Dili ve Edebiyatı' },
@@ -179227,14 +179423,26 @@ class MebCurriculumEngine {
             // boş, "Branş Atanmadı", "Diğer", ya da kanonik branş listesinde
             // bulunmayan bir ad.
             const gercekBrans = canonicalBranch && this.isKnownBranch(canonicalBranch);
-            if (!canonicalBranch || branchNorm === 'bransatanmadi' || branchNorm === 'diger' || !gercekBrans) {
+            if (branchNorm === 'bransatanmadi') {
+                // İDARECİ BİLEREK "Branş Atanmadı" SEÇTİ (Denetim N-10, 15.09.2026).
+                // Eskiden bu seçim de varsayılan branşla eziliyordu: okul yeniden
+                // yüklenince ders eski branşına dönüyor, seçim hiç işlemiyordu.
+                // Artık korunur; ders hiçbir branşın normuna yazılmaz, saati okulun
+                // toplam yükünde kalır.
+                canonicalBranch = BRANS_ATANMADI;
+            } else if (!canonicalBranch || branchNorm === 'diger' || !gercekBrans) {
                 canonicalBranch = STANDARDS[normKey].branch;
             }
         } else {
             canonicalCourse = this.toTurkishTitleCase(cleanCourse);
-            if (canonicalBranch) {
+            if (canonicalBranch && this.normalizeName(canonicalBranch) === 'bransatanmadi') {
+                canonicalBranch = BRANS_ATANMADI;
+            } else if (canonicalBranch) {
                 const bNorm = this.normalizeName(canonicalBranch);
-                if (STANDARDS[bNorm]) {
+                if (bNorm === normKey && !this.isKnownBranch(canonicalBranch)) {
+                    // Eski sürümün ders adıyla yazdığı sahte branş (N-10).
+                    canonicalBranch = BRANS_ATANMADI;
+                } else if (STANDARDS[bNorm]) {
                     canonicalBranch = STANDARDS[bNorm].branch;
                 } else {
                     canonicalBranch = this.toTurkishTitleCase(canonicalBranch);
@@ -179246,7 +179454,11 @@ class MebCurriculumEngine {
 
         return {
             courseName: canonicalCourse,
-            branchName: canonicalBranch || canonicalCourse
+            // N-10: branşı çözülemeyen ders DERS ADIYLA uydurulmuş bir branşa
+            // yazılmaz ("Tasavvuf Kültürü" diye bir öğretmenlik alanı yok);
+            // "Branş Atanmadı" kalır, idareci ekranda seçer. Ölçüldü (15.09.2026):
+            // çizelgedeki hiçbir zorunlu ders, kayıtlı branşıyla bu yola düşmüyor.
+            branchName: canonicalBranch || BRANS_ATANMADI
         };
     }
 
@@ -179944,6 +180156,18 @@ class NormEngine {
     // ======================================================================
 
     /**
+     * Md. 22/4-a: bire bir çalışma gerektiren dersin azami yükü.
+     * "haftalık ders saati sayısına her iki öğrenci için 6 saate kadar" ilave.
+     */
+    bireBirTavanYuku(haftalikSaat, ogrenciSayisi) {
+        const kural = (this.rules.specialCourseRules && this.rules.specialCourseRules.bireyselCalgi) || {};
+        const ilave = Number.isFinite(kural.ilaveSaatHerIkiOgrenci) ? kural.ilaveSaatHerIkiOgrenci : 6;
+        const saat = parseInt(haftalikSaat, 10) || 0;
+        const ogrenci = Math.max(0, parseInt(ogrenciSayisi, 10) || 0);
+        return saat + ilave * Math.floor(ogrenci / 2);
+    }
+
+    /**
      * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).
      */
     setRules(rules) {
@@ -180192,9 +180416,13 @@ class NormEngine {
         if (Number.isFinite(secim) && secim >= 1 && otomatik.groupCount > 1
             && secim < otomatik.groupCount) {
             const baseHours = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            // Bire bir derste okulun seçimi de Md. 22/4-a tavanını aşamaz (N-04).
+            const secimYuku = Number.isFinite(otomatik.tavanYuk)
+                ? Math.min(baseHours * secim, otomatik.tavanYuk)
+                : baseHours * secim;
             return {
                 groupCount: secim,
-                calculatedLoad: baseHours * secim,
+                calculatedLoad: secimYuku,
                 note: `Grup sayısı okul tarafından ${secim} olarak belirlendi `
                     + `(mevzuat baremi ${otomatik.groupCount}).`,
                 loadCategory: otomatik.loadCategory,
@@ -180428,14 +180656,26 @@ class NormEngine {
             };
         }
 
-        // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (1 Öğretmen / 1 Öğrenci - Madde 22/4-a)
+        // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (Madde 22/4-a)
+        //
+        // TAVAN (Denetim N-04, 15.09.2026): Md. 22/4-a bu derslerin yükünü
+        // "haftalık ders saati sayısına her iki öğrenci için 6 saate KADAR"
+        // ilave ederek bulur. Yani yük en çok  saat + 6 x (öğrenci / 2)  olabilir.
+        // Eski hesap öğrenci başına tam saat yazıyordu (saat x öğrenci); 4 saatlik
+        // 9. sınıf Çalgı Eğitimi'nde bu tavanı aşıyor ve Müzik normunu şişiriyordu
+        // (2 şube x 20 öğrenci: 160 saat; tavan 128). Tavan aşılmıyorsa hesap aynı.
         if (matchesCourse("BİREYSEL ÇALGI") || matchesCourse("BIREYSEL CALGI") || matchesCourse("ÇALGI EĞİTİMİ") || matchesCourse("CALGI EGITIMI")) {
             const count = Math.max(1, parseInt(studentCount, 10) || 1);
-            const load = baseHours * count;
+            const hamYuk = baseHours * count;
+            const tavanYuk = this.bireBirTavanYuku(baseHours, count);
+            const load = Math.min(hamYuk, tavanYuk);
             return {
                 groupCount: count,
                 calculatedLoad: load,
-                note: `Bireysel Çalgı (1'e 1 - Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`,
+                tavanYuk,
+                note: load < hamYuk
+                    ? `Bire bir ders (Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${hamYuk}s; yönetmelik tavanı ${baseHours} + 6 x ${Math.floor(count / 2)} = ${tavanYuk}s uygulandı`
+                    : `Bireysel Çalgı (Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`,
                 loadCategory
             };
         }
@@ -180489,6 +180729,100 @@ class NormEngine {
             note: "",
             loadCategory
         };
+    }
+
+    /**
+     * BİRLEŞİK DERS BİLEŞENLERİ (Denetim N-03, 15.09.2026)
+     *
+     * Bir ders birden çok şubede birleştirilerek tek sınıfta okutuluyorsa bu
+     * şubeler bir BİLEŞENDİR. Birleştirme penceresi bağları ikili kaydeder
+     * (11-A'dan 11-B ve 11-C işaretlenince A-B ve A-C oluşur, B-C oluşmaz);
+     * burada bağlar geçişli olarak toplanır ve üç şube tek sınıf sayılır.
+     *
+     * Yük bileşenin kimliği en küçük şubesinde BİR kez işlenir (sıradan
+     * bağımsız). Grup sayısı birleşik sınıfın TOPLAM mevcuduyla bulunur:
+     * Md. 22/1-ç grubu "bir şubedeki" öğrenciye göre verir ve birleşik sınıf
+     * fiilen tek şubedir. Norm motoru ve Ders Dağılımı raporu aynı hesabı
+     * kullanır; iki yerde ayrı yazılmaz.
+     *
+     * @returns {Map} "şubeKimliği##dersAdı[::pay]" ->
+     *                { kimlik, temsilci, uyeler, ogrenci, kaynastirma, sinif }
+     */
+    birlesikDersBilesenleri(subeler = []) {
+        const ozelMi = (sec) => sec.isSpecialEdu
+            || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
+            || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"));
+        const dersAnahtari = (c) => {
+            const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
+            return (c.ders || c.ders_adi) + (pay ? "::" + pay : "");
+        };
+        const kokBul = (ebeveyn, x) => {
+            while (ebeveyn.get(x) !== x) x = ebeveyn.get(x);
+            return x;
+        };
+        const birlestir = (ebeveyn, a, b) => {
+            if (!ebeveyn.has(a)) ebeveyn.set(a, a);
+            if (!ebeveyn.has(b)) ebeveyn.set(b, b);
+            const ka = kokBul(ebeveyn, a);
+            const kb = kokBul(ebeveyn, b);
+            if (ka === kb) return;
+            if (String(ka) < String(kb)) ebeveyn.set(kb, ka);
+            else ebeveyn.set(ka, kb);
+        };
+
+        const sahipler = {};    // dersAnahtari -> Map(subeKimligi -> şube)
+        const ebeveynler = {};  // dersAnahtari -> Map(subeKimligi -> ebeveyn)
+        (subeler || []).forEach(sec => {
+            if (!sec || ozelMi(sec)) return;
+            [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                .reduce((liste, c) => liste.concat(this.dersiGenislet(c)), [])
+                .forEach(c => {
+                    if (!c || !(c.ders || c.ders_adi)) return;
+                    const k = dersAnahtari(c);
+                    (sahipler[k] = sahipler[k] || new Map()).set(sec.id, sec);
+                    const bag = Array.isArray(c.birlesikSubeler) ? c.birlesikSubeler : [];
+                    if (!bag.length) return;
+                    const e = ebeveynler[k] = ebeveynler[k] || new Map();
+                    bag.forEach(hedef => {
+                        if (hedef != null && hedef !== sec.id) birlestir(e, sec.id, hedef);
+                    });
+                });
+        });
+
+        const sonuc = new Map();
+        for (const [k, e] of Object.entries(ebeveynler)) {
+            const gruplar = new Map();
+            for (const id of e.keys()) {
+                const kok = kokBul(e, id);
+                if (!gruplar.has(kok)) gruplar.set(kok, []);
+                gruplar.get(kok).push(id);
+            }
+            for (const hamUyeler of gruplar.values()) {
+                // Yalnızca dersi FİİLEN taşıyan şubeler sayılır (silinmiş bir
+                // şubeye kalan bağ birleşme yaratmaz).
+                const uyeler = hamUyeler.filter(id => sahipler[k].has(id))
+                    .sort((a, b) => (String(a) < String(b) ? -1 : String(a) > String(b) ? 1 : 0));
+                if (uyeler.length < 2) continue;
+                const subeListesi = uyeler.map(id => sahipler[k].get(id));
+                const ogrenci = subeListesi.reduce(
+                    (t, s) => t + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
+                const kaynastirma = subeListesi.reduce(
+                    (t, s) => t + (parseInt(s.kaynastirmaOgrenciSayisi ?? s.kaynastirmaSayisi ?? 0, 10) || 0), 0);
+                const siniflar = subeListesi.map(s => String(s.sinifSeviyesi));
+                // Farklı sınıflar birleşmişse 10-12. sınıf baremi esas alınır;
+                // 9. sınıf baremi yalnızca hepsi 9. sınıfsa uygulanır.
+                const sinif = siniflar.every(x => x === siniflar[0])
+                    ? siniflar[0]
+                    : (siniflar.find(x => x !== "9") || siniflar[0]);
+                const bilgi = {
+                    kimlik: k + "@@" + uyeler.join("___"),
+                    temsilci: uyeler[0],
+                    uyeler, ogrenci, kaynastirma, sinif
+                };
+                uyeler.forEach(id => sonuc.set(id + "##" + k, bilgi));
+            }
+        }
+        return sonuc;
     }
 
     normalizeText(str) {
@@ -180806,7 +181140,6 @@ class NormEngine {
         // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
         const branchLoadSplit = {};
         const branchCourseDetails = {};
-        const handledMergedPairs = new Set();
         const branchesWithGrade12Vocational = new Set();
 
         // Branşı atanmamış derslerin saati. Hiçbir branşın normuna yazılmaz
@@ -180863,6 +181196,9 @@ class NormEngine {
             }
         };
 
+        // Birleştirilmiş dersler (Denetim N-03): bkz. birlesikDersBilesenleri
+        const birlesikBilgi = this.birlesikDersBilesenleri(subeler);
+
         subeler.forEach(sec => {
             // ÖZEL EĞİTİM ŞUBELERİ BRANŞ YÜKÜNE YAZILMAZ.
             //
@@ -180902,7 +181238,32 @@ class NormEngine {
 
             allCourses.forEach(course => {
                 const cName = course.ders || course.ders_adi;
-                let assignedBranch = (course.atananBrans !== undefined && course.atananBrans !== null && course.atananBrans !== "") ? course.atananBrans : (course.varsayilanBrans || cName);
+                let assignedBranch = (course.atananBrans !== undefined && course.atananBrans !== null && course.atananBrans !== "") ? course.atananBrans : (course.varsayilanBrans || "");
+                // N-10: branşı olmayan ders DERS ADIYLA bir branşa yazılmaz; aşağıdaki
+                // "branşsız" kolu saatini okulun toplam yüküne ekler.
+
+                // SINIF BİRLEŞTİRME (Denetim N-03, 15.09.2026)
+                // Birleştirilmiş sınıfın yükü bileşenin temsilci şubesinde BİR kez
+                // yazılır; grup sayısı birleşik sınıfın toplam mevcuduyla bulunur.
+                // Eskiden her şube kendi listesinden ayrı anahtar kuruyordu: üç
+                // şubede yük üç kez sayılıyor, iki şubede sonuç şubelerin listedeki
+                // sırasına göre değişiyordu.
+                const birlesikPay = course._bolunmusBrans || course._dagitilmisBrans || "";
+                const birlesik = birlesikBilgi.get(sec.id + "##" + cName + (birlesikPay ? "::" + birlesikPay : ""));
+                let carpanOgrenci = studentCount;
+                let carpanSinif = gradeLevel;
+                let carpanKaynastirma = inclusionCount;
+                let birlesikNotu = "";
+                if (birlesik) {
+                    if (sec.id !== birlesik.temsilci) {
+                        birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+                        return;
+                    }
+                    carpanOgrenci = birlesik.ogrenci || studentCount;
+                    carpanSinif = birlesik.sinif;
+                    carpanKaynastirma = birlesik.kaynastirma;
+                    birlesikNotu = `Birleşik sınıf: ${birlesik.uyeler.length} şube, ${carpanOgrenci} öğrenci. `;
+                }
 
                 // Branş atanmamışsa hiçbir branşın normuna yazılmaz — ama ders
                 // çizelgede yer aldığı için OKULUN TOPLAM DERS YÜKÜNE dâhildir.
@@ -180918,7 +181279,7 @@ class NormEngine {
                 // olduğu için toplam okul norm yüküne eklensin."
                 if (!assignedBranch || assignedBranch.trim() === "" || assignedBranch === "— Branş Atanmadı —" || assignedBranch === "Diğer") {
                     const m = this.evaluateCourseMultiplier(
-                        course, studentCount, schoolType, gradeLevel, inclusionCount);
+                        course, carpanOgrenci, schoolType, carpanSinif, carpanKaynastirma);
                     branssizSaat += m.calculatedLoad || 0;
                     islenmisYuk += m.calculatedLoad || 0;
                     return;
@@ -180962,26 +181323,9 @@ class NormEngine {
                     branchesWithGrade12Vocational.add(assignedBranch);
                 }
 
-                // Sınıf Birleştirme Kontrolü
-                const mergedWith = course.birlesikSubeler || [];
-                if (mergedWith.length > 0) {
-                    // Bölünmüş dersin her branş payı ayrı bir kayıttır; anahtar
-                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
-                    // sessizce düşer ve o branşın yükü hiç oluşmaz. Bölünme
-                    // yokken anahtar eskisiyle aynı kalır — birleşik şubelerdeki
-                    // normal derslerin davranışı değişmez. (Ölçüldü 06.09.2026.)
-                    const pay = course._bolunmusBrans || course._dagitilmisBrans || "";
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
-                        + (pay ? "::" + pay : "");
-                    if (handledMergedPairs.has(groupKey)) {
-                        birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
-                        return;
-                    }
-                    handledMergedPairs.add(groupKey);
-                }
-
-                // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart)
-                const mult = this.evaluateCourseMultiplier(course, studentCount, schoolType, gradeLevel, inclusionCount);
+                // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart).
+                // Birleşik derste birleşik sınıfın mevcudu kullanılır (bkz. yukarıda).
+                const mult = this.evaluateCourseMultiplier(course, carpanOgrenci, schoolType, carpanSinif, carpanKaynastirma);
                 let load = mult.calculatedLoad;
                 let haricNotu = "";
 
@@ -181012,7 +181356,7 @@ class NormEngine {
                     courseName: cName,
                     baseHours: course.saat || course.ders_saati || 0,
                     calculatedLoad: load,
-                    note: haricNotu || mult.note,
+                    note: haricNotu || ((birlesikNotu + (mult.note || "")).trim()),
                     loadCategory: mult.loadCategory,
                     // Satır raporda GÖRÜNMEYE devam eder ama yükü 0'dır; okulun
                     // "bu saat nereye gitti?" sorusu cevapsız kalmasın.
@@ -181418,7 +181762,7 @@ class NormEngine {
      * Tüm Okul Türleri İçin Yönetici / İdareci Norm Kadro Hesabı
      * @param {string} schoolType - Okul türü
      * @param {number} totalStudents - Toplam öğrenci/çırak sayısı
-     * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isTasimaMerkezi, isBirlestirilmis }
+     * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isBirlestirilmis }
      * @returns {Object} Detaylı yönetici norm raporu
      */
     /**
@@ -181548,10 +181892,11 @@ class NormEngine {
             extraMdrYrd += 1;
             extraDetails.push("3308 Md. 25 Kapsamında 500+ Sigortalı Çırak (+1 Md. 14/1-d)");
         }
-        if (options.isTasimaMerkezi) {
-            extraMdrYrd += 1;
-            extraDetails.push("Taşıma Eğitim Merkezi (+1 Md. 14/1-e)");
-        }
+        // Md. 14/1-e (taşıma eğitim merkezi) UYGULANMIYOR — kullanıcı kararı,
+        // 15.09.2026 (Denetim N-01). Eski kutu, öğrenci sayısıyla zaten müdür
+        // yardımcısı alan okula da +1 ekliyordu; bent yalnızca öğrenci sayısına
+        // göre norm çıkmayan kuruma uygulanır. Kutu arayüzden kaldırıldı; eski
+        // kayıtlarda kalan isTasimaMerkezi alanı yok sayılır.
         if (isKampusIcinde) {
             extraMdrYrd += 1;
             extraDetails.push("Eğitim Kampüsü İçindeki Kurum (+1 Md. 14/1-f)");
@@ -181940,7 +182285,10 @@ class MebReportsEngine {
         // 1. Verileri Branş -> Ders -> Şube Saatleri Hiyerarşisinde Topla
         // branchData[branchName] = { isVocational: bool, areaCode: str, courses: { [courseName]: { sectionHours: { [secId]: hours }, totalHours: num } }, totalHours: num }
         const branchGroups = {};
-        const handledMergedPairs = new Set();
+        // Birleştirilmiş dersler norm motoruyla AYNI bileşen hesabından (Denetim N-03).
+        const birlesikBilgi = (this.normEngine && typeof this.normEngine.birlesikDersBilesenleri === "function")
+            ? this.normEngine.birlesikDersBilesenleri(subeler)
+            : new Map();
 
         subeler.forEach(sec => {
             // EĞİK ÇİZGİLİ / PAYLAŞTIRILMIŞ DERSLERİ MOTORLA AYNI ŞEKİLDE AÇ
@@ -182013,25 +182361,19 @@ class MebReportsEngine {
                 // Dersin bu şubedeki saati (şube çizelgesinde görünür)
                 branchGroups[brans].courses[cName].sectionHours[sec.id] = hours;
 
-                // Sınıf birleştirme kontrolü (aynı birleşik ders grubunu mükerrer öğretmen yükü olarak sayma)
+                // Sınıf birleştirme: norm motoruyla aynı bileşen hesabı (Denetim N-03).
+                // Birleşik sınıfın yükü temsilci şubede BİR kez sayılır; üç şubelik
+                // birleşme ya da şubelerin sırası sonucu değiştirmez.
                 const mergedWith = c.birlesikSubeler || [];
+                const birlesikPay = c._bolunmusBrans || c._dagitilmisBrans || "";
+                const birlesik = birlesikBilgi.get(sec.id + "##" + rawCName + (birlesikPay ? "::" + birlesikPay : ""));
                 let isMergedDuplicate = false;
-                if (mergedWith.length > 0) {
+                if (birlesik) {
+                    branchGroups[brans].courses[cName].mergedSections[sec.id] =
+                        birlesik.uyeler.filter(id => id !== sec.id);
+                    isMergedDuplicate = sec.id !== birlesik.temsilci;
+                } else if (mergedWith.length > 0) {
                     branchGroups[brans].courses[cName].mergedSections[sec.id] = mergedWith;
-                    // Bölünmüş dersin her branş payı AYRI bir kayıttır; anahtar
-                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
-                    // sessizce düşer. Payı anahtara katıyoruz.
-                    //
-                    // Bölünme YOKKEN anahtar aynen eskisi gibi kalır: birleşik
-                    // şubelerdeki normal dersler için davranış değişmez.
-                    const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
-                        + (pay ? "::" + pay : "");
-                    if (handledMergedPairs.has(groupKey)) {
-                        isMergedDuplicate = true;
-                    } else {
-                        handledMergedPairs.add(groupKey);
-                    }
                 }
 
                 if (!isMergedDuplicate) {
@@ -183912,7 +184254,6 @@ class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -184115,7 +184456,6 @@ class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: false,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -184348,7 +184688,6 @@ class AppStateService {
                     isTamGunTamYil: false,
                     hasStajyer100Plus: true,
                     hasSigortali500Plus: false,
-                    isTasimaMerkezi: false,
                     isBirlestirilmis: false,
                     isKampusIcinde: false,
                     isAyniBinadaKucuk: false,
@@ -185693,6 +186032,12 @@ class AppStateService {
     }
 
     sanitizeExistingState() {
+        // GÜVENLİK (Denetim G-01, 15.09.2026): okul verisi uygulamaya hangi
+        // yoldan girerse girsin (bulut, yerel kopya, sürüm geçmişi, proje
+        // dosyası) ekrana basılmadan önce zararsızlaştırılır. Ayrıntı: js/guvenlik.js
+        const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
+            : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
+        if (guvenlik && this.state) guvenlik.durumuTemizle(this.state);
         if (!this.state || !Array.isArray(this.state.subeler)) return;
         this.state.subeler.forEach(sec => {
             this.sanitizeSection(sec);
@@ -185709,6 +186054,7 @@ class AppStateService {
             if (parsed.okulBilgisi && parsed.subeler) {
                 this.pushHistory();
                 this.state = parsed;
+                this.sanitizeExistingState();   // G-01: dosyadan gelen veri de temizlenir
                 this.notify();
                 return true;
             }
@@ -189348,13 +189694,6 @@ class UIComponentManager {
                                     </div>
                                 </label>
 
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-tasima" ${adminOpts.isTasimaMerkezi ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🚌 Taşıma Merkezi Eğitim Kurumu</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 İlave Müdür Yardımcısı (Md. 14/1-e)</div>
-                                    </div>
-                                </label>
 
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-kampus" ${adminOpts.isKampusIcinde ? 'checked' : ''} style="margin-top: 0.15rem;">
@@ -189545,7 +189884,6 @@ class UIComponentManager {
                     isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                     hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                     hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                    isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
                     isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                     isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                     isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
@@ -189671,7 +190009,6 @@ class UIComponentManager {
             "chk-admin-tamgun",
             "chk-admin-stajyer100",
             "chk-admin-sigortali500",
-            "chk-admin-tasima",
             "chk-admin-kampus",
             "chk-admin-aynibina",
             "chk-admin-birlestirilmis",
@@ -189751,7 +190088,6 @@ class UIComponentManager {
                 isTamGunTamYil: !!document.getElementById("chk-admin-tamgun")?.checked,
                 hasStajyer100Plus: !!document.getElementById("chk-admin-stajyer100")?.checked,
                 hasSigortali500Plus: !!document.getElementById("chk-admin-sigortali500")?.checked,
-                isTasimaMerkezi: !!document.getElementById("chk-admin-tasima")?.checked,
                 isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                 isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                 isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
@@ -190517,7 +190853,7 @@ class UIComponentManager {
                                 <div style="margin-top: 0.65rem; display: flex; align-items: center; justify-content: space-between;">
                                     <div style="display: flex; align-items: center; gap: 0.75rem;">
                                         <div id="antet-logo-preview" style="width: 44px; height: 44px; border: 1.5px dashed var(--border-main); border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff;">
-                                            ${antet.logoBase64 ? `<img src="${antet.logoBase64}" style="max-width:100%; max-height:100%; object-fit:contain;">` : '<span style="font-size:1.25rem;">🇹🇷</span>'}
+                                            ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" style="max-width:100%; max-height:100%; object-fit:contain;">` : '<span style="font-size:1.25rem;">🇹🇷</span>'}
                                         </div>
                                         <div>
                                             <div style="font-size: 0.78rem; font-weight: 700;">Okul Logosu Yükle (İsteğe Bağlı)</div>
@@ -190957,7 +191293,7 @@ class UIComponentManager {
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191195,7 +191531,7 @@ class UIComponentManager {
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191410,7 +191746,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191528,7 +191864,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191615,7 +191951,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191722,7 +192058,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -191952,7 +192288,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             <div class="official-print-header only-print">
                 <div class="print-header-top">
                     <div class="print-logo-box">
-                        ${antet.logoBase64 ? `<img src="${antet.logoBase64}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
+                        ${antet.logoBase64 ? `<img src="${NormGuvenlik.htmlKacis(NormGuvenlik.logo(antet.logoBase64) || '')}" class="official-school-logo" alt="Okul Logosu">` : '<div class="meb-crest-fallback">🇹🇷</div>'}
                     </div>
                     <div class="print-text-center">
                         <div class="print-antet-line-1">T.C.</div>
@@ -192603,7 +192939,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <span class="badge" style="background: #e2e8f0; color: #1e293b; font-weight: 700;">${sec.grade}. Sınıf</span>
                         </td>
                         <td style="padding: 0.45rem;">
-                            <input type="text" class="form-control sec-name-input" data-idx="${idx}" value="${sec.subeAdi}" style="font-size: 0.8rem; padding: 0.25rem 0.4rem; font-weight: 600;">
+                            <input type="text" class="form-control sec-name-input" data-idx="${idx}" value="${NormGuvenlik.htmlKacis(sec.subeAdi)}" style="font-size: 0.8rem; padding: 0.25rem 0.4rem; font-weight: 600;">
                         </td>
                         <td style="padding: 0.45rem; text-align: center; font-weight: 600;">
                             <input type="number" class="form-control sec-count-input" data-idx="${idx}" value="${sec.studentCount}" min="1" max="60" style="width: 50px; display: inline-block; font-size: 0.8rem; padding: 0.2rem; text-align: center;">
@@ -194009,11 +194345,11 @@ class MebNormApplication {
                 : "";
 
             return `
-                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${s.id}">
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}">
                     <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
                     <div class="sec-card-top-row">
                         <div class="sec-identity-wrap">
-                            <span class="sec-card-name" title="${s.subeAdi}">${s.subeAdi}</span>${kilitHtml}
+                            <span class="sec-card-name" title="${NormGuvenlik.htmlKacis(s.subeAdi)}">${NormGuvenlik.htmlKacis(s.subeAdi)}</span>${kilitHtml}
                         </div>
                         
                         <div class="sec-top-right-wrap">
@@ -194457,7 +194793,7 @@ class MebNormApplication {
                         </div>
                         <div class="hero-identity-details">
                             <div class="hero-title-row">
-                                <h1 class="hero-section-title" title="${activeSec.subeAdi}">${activeSec.subeAdi}</h1>
+                                <h1 class="hero-section-title" title="${NormGuvenlik.htmlKacis(activeSec.subeAdi)}">${NormGuvenlik.htmlKacis(activeSec.subeAdi)}</h1>
                                 <span class="hero-student-pill" title="Şube Mevcudu: ${activeSec.ogrenciSayisi} Öğrenci">
                                     👥 <strong>${activeSec.ogrenciSayisi}</strong> Öğr
                                 </span>
@@ -194710,7 +195046,7 @@ class MebNormApplication {
         }).join("");
 
         const branchOptionsHtml = `
-            <option value="" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
+            <option value="— Branş Atanmadı —" ${(!hasSelectedOption || isUnassigned) ? 'selected' : ''}>— Branş Atanmadı —</option>
             ${optionsList}
         `;
 
@@ -194941,9 +195277,9 @@ class MebNormApplication {
 
         const rowsHtml = normResult.branchReport.map(b => {
             return `
-                <tr class="norm-row" data-branch="${b.branchName}">
+                <tr class="norm-row" data-branch="${NormGuvenlik.htmlKacis(b.branchName)}">
                     <td>
-                        <span class="norm-branch-text">${b.branchName}</span>
+                        <span class="norm-branch-text">${NormGuvenlik.htmlKacis(b.branchName)}</span>
                     </td>
                     <td style="text-align: center;">
                         <span class="norm-chip-load">${b.totalHours}</span>
@@ -195233,6 +195569,7 @@ if (typeof window !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();
     }
     if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
+    if (typeof NormGuvenlik !== 'undefined') window.NormGuvenlik = NormGuvenlik;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {

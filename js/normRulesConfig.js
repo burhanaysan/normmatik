@@ -111,7 +111,12 @@ export const NORM_RULES_CONFIG = {
             "ATÖLYE",
             "ATOLYE",
             "LABORATUVAR",
-            "UYGULAMALARI",
+            // "UYGULAMALARI" KALDIRILDI (Denetim N-02, 15.09.2026). Ad kalıbı genel
+            // seçmelileri (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları,
+            // Fen Bilimleri Uygulamaları...) atölye (Md. 19) sayıyor, branş normunu
+            // 1 eksik ya da fazla çıkarıyordu. Ölçüldü: adında "Uygulamaları" geçen
+            // 76 dersin 61 meslekî olanı çerçeve programın isAtolye işaretiyle zaten
+            // atölye sayılıyor; kalan 15'i genel lise/imam hatip/ortaokul dersi.
             "İŞLETMELERDE MESLEKİ EĞİTİM",
             "İŞLETMELERDE MESLEK EĞİTİMİ"
         ],
@@ -144,9 +149,14 @@ export const NORM_RULES_CONFIG = {
             minStudentsToSplit: 10,        // 10 öğrencinin altında bölünme yok
             tiers: [
                 { untilBelow: 21, groups: 1 },  // 10-20 -> 1
-                { untilBelow: 31, groups: 2 }   // 21-30 -> 2
+                { untilBelow: 32, groups: 2 }   // 21-31 -> 2
             ],
-            groupsAboveTiers: 3            // 31+ -> 3 (9. sınıf tavanı)
+            groupsAboveTiers: 3            // 32+ -> 3 (9. sınıf tavanı)
+            // İSTİSNA (Denetim N-13, 15.09.2026): bu bent "21-31 öğrenciye kadar 2,
+            // 31'DEN FAZLA öğrenci için 3" diyor; 31 hiçbir kademe dışında kalamaz,
+            // ikinci kademede kalır. 10-12. sınıf bendi ise "33 VE DAHA FAZLA"
+            // dediği için orada 33 üst kademeye geçer. Md.18 (42'den fazla) ve
+            // Md.19 (201'den fazla) aynı biçimde okunuyor.
         },
         upperGrades: {                     // 10, 11 ve 12. sınıflar
             appliesToGrades: ["10", "11", "12"],
@@ -295,7 +305,10 @@ export const NORM_RULES_CONFIG = {
     specialCourseRules: {
         bireyselCalgi: {
             legalRef: "Norm Kadro Yönetmeliği Madde 22/4-a",
-            studentsPerGroup: 1          // bire bir eğitim
+            studentsPerGroup: 1,         // bire bir eğitim
+            // "...haftalık ders saati sayısına her iki öğrenci için 6 saate kadar"
+            // ilave edilir. Yük tavanı: saat + 6 x (öğrenci / 2). (Denetim N-04)
+            ilaveSaatHerIkiOgrenci: 6
         },
         sesEgitimi: {
             legalRef: "Norm Kadro Yönetmeliği Madde 22/4",

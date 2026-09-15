@@ -40,13 +40,20 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.2",
-    yayinTarihi: "2026-09-14",
+    surum: "2.1.3",
+    yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",
+        "Üç ve daha fazla şubenin birleştirildiği derslerde ders yükü artık bir kez sayılıyor; birleşik atölye dersinde sonuç şubelerin sırasına bağlı değil.",
+        "“Branş Atanmadı” seçimi korunuyor ve hesaba doğru yansıyor; ders adıyla ayrı bir branş satırı açılmıyor.",
+        "Adında “Uygulamaları” geçen genel dersler (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları vb.) atölye değil genel ders olarak hesaplanıyor.",
+        "Güzel sanatlar lisesinde Çalgı Eğitimi ders yükü yönetmeliğin üst sınırıyla hesaplanıyor (Md. 22/4-a).",
+        "9. sınıfta 31 öğrencili atölye şubesi 2 grup sayılıyor (Md. 22/1-ç).",
+        "Taşıma merkezi müdür yardımcısı seçeneği kaldırıldı.",
         "Ders dağılımı raporunda (ve Excel/CSV çıktısında) Özel Eğitim kartı görünüyor: şube şube haftalık saat, norm ve dayanağı. Kartların toplamı artık üstteki toplam ders yüküyle tutuyor.",
         "Antet logosu yüklenirken otomatik küçültülüyor; büyük bir fotoğraf seçmek kaydı yavaşlatmıyor ya da engellemiyor.",
         "Koordinatörlük sekmesinde bütün meslekî branşlar listeleniyor; okulda aktif alanlar doğru öğretmen branşıyla işaretleniyor (ör. Bilişim Teknolojileri).",

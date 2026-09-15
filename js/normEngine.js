@@ -43,6 +43,18 @@ export class NormEngine {
     // ======================================================================
 
     /**
+     * Md. 22/4-a: bire bir çalışma gerektiren dersin azami yükü.
+     * "haftalık ders saati sayısına her iki öğrenci için 6 saate kadar" ilave.
+     */
+    bireBirTavanYuku(haftalikSaat, ogrenciSayisi) {
+        const kural = (this.rules.specialCourseRules && this.rules.specialCourseRules.bireyselCalgi) || {};
+        const ilave = Number.isFinite(kural.ilaveSaatHerIkiOgrenci) ? kural.ilaveSaatHerIkiOgrenci : 6;
+        const saat = parseInt(haftalikSaat, 10) || 0;
+        const ogrenci = Math.max(0, parseInt(ogrenciSayisi, 10) || 0);
+        return saat + ilave * Math.floor(ogrenci / 2);
+    }
+
+    /**
      * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).
      */
     setRules(rules) {
@@ -291,9 +303,13 @@ export class NormEngine {
         if (Number.isFinite(secim) && secim >= 1 && otomatik.groupCount > 1
             && secim < otomatik.groupCount) {
             const baseHours = parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+            // Bire bir derste okulun seçimi de Md. 22/4-a tavanını aşamaz (N-04).
+            const secimYuku = Number.isFinite(otomatik.tavanYuk)
+                ? Math.min(baseHours * secim, otomatik.tavanYuk)
+                : baseHours * secim;
             return {
                 groupCount: secim,
-                calculatedLoad: baseHours * secim,
+                calculatedLoad: secimYuku,
                 note: `Grup sayısı okul tarafından ${secim} olarak belirlendi `
                     + `(mevzuat baremi ${otomatik.groupCount}).`,
                 loadCategory: otomatik.loadCategory,
@@ -527,14 +543,26 @@ export class NormEngine {
             };
         }
 
-        // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (1 Öğretmen / 1 Öğrenci - Madde 22/4-a)
+        // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (Madde 22/4-a)
+        //
+        // TAVAN (Denetim N-04, 15.09.2026): Md. 22/4-a bu derslerin yükünü
+        // "haftalık ders saati sayısına her iki öğrenci için 6 saate KADAR"
+        // ilave ederek bulur. Yani yük en çok  saat + 6 x (öğrenci / 2)  olabilir.
+        // Eski hesap öğrenci başına tam saat yazıyordu (saat x öğrenci); 4 saatlik
+        // 9. sınıf Çalgı Eğitimi'nde bu tavanı aşıyor ve Müzik normunu şişiriyordu
+        // (2 şube x 20 öğrenci: 160 saat; tavan 128). Tavan aşılmıyorsa hesap aynı.
         if (matchesCourse("BİREYSEL ÇALGI") || matchesCourse("BIREYSEL CALGI") || matchesCourse("ÇALGI EĞİTİMİ") || matchesCourse("CALGI EGITIMI")) {
             const count = Math.max(1, parseInt(studentCount, 10) || 1);
-            const load = baseHours * count;
+            const hamYuk = baseHours * count;
+            const tavanYuk = this.bireBirTavanYuku(baseHours, count);
+            const load = Math.min(hamYuk, tavanYuk);
             return {
                 groupCount: count,
                 calculatedLoad: load,
-                note: `Bireysel Çalgı (1'e 1 - Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`,
+                tavanYuk,
+                note: load < hamYuk
+                    ? `Bire bir ders (Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${hamYuk}s; yönetmelik tavanı ${baseHours} + 6 x ${Math.floor(count / 2)} = ${tavanYuk}s uygulandı`
+                    : `Bireysel Çalgı (Md. 22/4-a): ${count} öğrenci x ${baseHours} saat = ${load}s yük`,
                 loadCategory
             };
         }
@@ -588,6 +616,100 @@ export class NormEngine {
             note: "",
             loadCategory
         };
+    }
+
+    /**
+     * BİRLEŞİK DERS BİLEŞENLERİ (Denetim N-03, 15.09.2026)
+     *
+     * Bir ders birden çok şubede birleştirilerek tek sınıfta okutuluyorsa bu
+     * şubeler bir BİLEŞENDİR. Birleştirme penceresi bağları ikili kaydeder
+     * (11-A'dan 11-B ve 11-C işaretlenince A-B ve A-C oluşur, B-C oluşmaz);
+     * burada bağlar geçişli olarak toplanır ve üç şube tek sınıf sayılır.
+     *
+     * Yük bileşenin kimliği en küçük şubesinde BİR kez işlenir (sıradan
+     * bağımsız). Grup sayısı birleşik sınıfın TOPLAM mevcuduyla bulunur:
+     * Md. 22/1-ç grubu "bir şubedeki" öğrenciye göre verir ve birleşik sınıf
+     * fiilen tek şubedir. Norm motoru ve Ders Dağılımı raporu aynı hesabı
+     * kullanır; iki yerde ayrı yazılmaz.
+     *
+     * @returns {Map} "şubeKimliği##dersAdı[::pay]" ->
+     *                { kimlik, temsilci, uyeler, ogrenci, kaynastirma, sinif }
+     */
+    birlesikDersBilesenleri(subeler = []) {
+        const ozelMi = (sec) => sec.isSpecialEdu
+            || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
+            || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"));
+        const dersAnahtari = (c) => {
+            const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
+            return (c.ders || c.ders_adi) + (pay ? "::" + pay : "");
+        };
+        const kokBul = (ebeveyn, x) => {
+            while (ebeveyn.get(x) !== x) x = ebeveyn.get(x);
+            return x;
+        };
+        const birlestir = (ebeveyn, a, b) => {
+            if (!ebeveyn.has(a)) ebeveyn.set(a, a);
+            if (!ebeveyn.has(b)) ebeveyn.set(b, b);
+            const ka = kokBul(ebeveyn, a);
+            const kb = kokBul(ebeveyn, b);
+            if (ka === kb) return;
+            if (String(ka) < String(kb)) ebeveyn.set(kb, ka);
+            else ebeveyn.set(ka, kb);
+        };
+
+        const sahipler = {};    // dersAnahtari -> Map(subeKimligi -> şube)
+        const ebeveynler = {};  // dersAnahtari -> Map(subeKimligi -> ebeveyn)
+        (subeler || []).forEach(sec => {
+            if (!sec || ozelMi(sec)) return;
+            [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                .reduce((liste, c) => liste.concat(this.dersiGenislet(c)), [])
+                .forEach(c => {
+                    if (!c || !(c.ders || c.ders_adi)) return;
+                    const k = dersAnahtari(c);
+                    (sahipler[k] = sahipler[k] || new Map()).set(sec.id, sec);
+                    const bag = Array.isArray(c.birlesikSubeler) ? c.birlesikSubeler : [];
+                    if (!bag.length) return;
+                    const e = ebeveynler[k] = ebeveynler[k] || new Map();
+                    bag.forEach(hedef => {
+                        if (hedef != null && hedef !== sec.id) birlestir(e, sec.id, hedef);
+                    });
+                });
+        });
+
+        const sonuc = new Map();
+        for (const [k, e] of Object.entries(ebeveynler)) {
+            const gruplar = new Map();
+            for (const id of e.keys()) {
+                const kok = kokBul(e, id);
+                if (!gruplar.has(kok)) gruplar.set(kok, []);
+                gruplar.get(kok).push(id);
+            }
+            for (const hamUyeler of gruplar.values()) {
+                // Yalnızca dersi FİİLEN taşıyan şubeler sayılır (silinmiş bir
+                // şubeye kalan bağ birleşme yaratmaz).
+                const uyeler = hamUyeler.filter(id => sahipler[k].has(id))
+                    .sort((a, b) => (String(a) < String(b) ? -1 : String(a) > String(b) ? 1 : 0));
+                if (uyeler.length < 2) continue;
+                const subeListesi = uyeler.map(id => sahipler[k].get(id));
+                const ogrenci = subeListesi.reduce(
+                    (t, s) => t + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
+                const kaynastirma = subeListesi.reduce(
+                    (t, s) => t + (parseInt(s.kaynastirmaOgrenciSayisi ?? s.kaynastirmaSayisi ?? 0, 10) || 0), 0);
+                const siniflar = subeListesi.map(s => String(s.sinifSeviyesi));
+                // Farklı sınıflar birleşmişse 10-12. sınıf baremi esas alınır;
+                // 9. sınıf baremi yalnızca hepsi 9. sınıfsa uygulanır.
+                const sinif = siniflar.every(x => x === siniflar[0])
+                    ? siniflar[0]
+                    : (siniflar.find(x => x !== "9") || siniflar[0]);
+                const bilgi = {
+                    kimlik: k + "@@" + uyeler.join("___"),
+                    temsilci: uyeler[0],
+                    uyeler, ogrenci, kaynastirma, sinif
+                };
+                uyeler.forEach(id => sonuc.set(id + "##" + k, bilgi));
+            }
+        }
+        return sonuc;
     }
 
     normalizeText(str) {
@@ -905,7 +1027,6 @@ export class NormEngine {
         // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
         const branchLoadSplit = {};
         const branchCourseDetails = {};
-        const handledMergedPairs = new Set();
         const branchesWithGrade12Vocational = new Set();
 
         // Branşı atanmamış derslerin saati. Hiçbir branşın normuna yazılmaz
@@ -962,6 +1083,9 @@ export class NormEngine {
             }
         };
 
+        // Birleştirilmiş dersler (Denetim N-03): bkz. birlesikDersBilesenleri
+        const birlesikBilgi = this.birlesikDersBilesenleri(subeler);
+
         subeler.forEach(sec => {
             // ÖZEL EĞİTİM ŞUBELERİ BRANŞ YÜKÜNE YAZILMAZ.
             //
@@ -1001,7 +1125,32 @@ export class NormEngine {
 
             allCourses.forEach(course => {
                 const cName = course.ders || course.ders_adi;
-                let assignedBranch = (course.atananBrans !== undefined && course.atananBrans !== null && course.atananBrans !== "") ? course.atananBrans : (course.varsayilanBrans || cName);
+                let assignedBranch = (course.atananBrans !== undefined && course.atananBrans !== null && course.atananBrans !== "") ? course.atananBrans : (course.varsayilanBrans || "");
+                // N-10: branşı olmayan ders DERS ADIYLA bir branşa yazılmaz; aşağıdaki
+                // "branşsız" kolu saatini okulun toplam yüküne ekler.
+
+                // SINIF BİRLEŞTİRME (Denetim N-03, 15.09.2026)
+                // Birleştirilmiş sınıfın yükü bileşenin temsilci şubesinde BİR kez
+                // yazılır; grup sayısı birleşik sınıfın toplam mevcuduyla bulunur.
+                // Eskiden her şube kendi listesinden ayrı anahtar kuruyordu: üç
+                // şubede yük üç kez sayılıyor, iki şubede sonuç şubelerin listedeki
+                // sırasına göre değişiyordu.
+                const birlesikPay = course._bolunmusBrans || course._dagitilmisBrans || "";
+                const birlesik = birlesikBilgi.get(sec.id + "##" + cName + (birlesikPay ? "::" + birlesikPay : ""));
+                let carpanOgrenci = studentCount;
+                let carpanSinif = gradeLevel;
+                let carpanKaynastirma = inclusionCount;
+                let birlesikNotu = "";
+                if (birlesik) {
+                    if (sec.id !== birlesik.temsilci) {
+                        birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
+                        return;
+                    }
+                    carpanOgrenci = birlesik.ogrenci || studentCount;
+                    carpanSinif = birlesik.sinif;
+                    carpanKaynastirma = birlesik.kaynastirma;
+                    birlesikNotu = `Birleşik sınıf: ${birlesik.uyeler.length} şube, ${carpanOgrenci} öğrenci. `;
+                }
 
                 // Branş atanmamışsa hiçbir branşın normuna yazılmaz — ama ders
                 // çizelgede yer aldığı için OKULUN TOPLAM DERS YÜKÜNE dâhildir.
@@ -1017,7 +1166,7 @@ export class NormEngine {
                 // olduğu için toplam okul norm yüküne eklensin."
                 if (!assignedBranch || assignedBranch.trim() === "" || assignedBranch === "— Branş Atanmadı —" || assignedBranch === "Diğer") {
                     const m = this.evaluateCourseMultiplier(
-                        course, studentCount, schoolType, gradeLevel, inclusionCount);
+                        course, carpanOgrenci, schoolType, carpanSinif, carpanKaynastirma);
                     branssizSaat += m.calculatedLoad || 0;
                     islenmisYuk += m.calculatedLoad || 0;
                     return;
@@ -1061,26 +1210,9 @@ export class NormEngine {
                     branchesWithGrade12Vocational.add(assignedBranch);
                 }
 
-                // Sınıf Birleştirme Kontrolü
-                const mergedWith = course.birlesikSubeler || [];
-                if (mergedWith.length > 0) {
-                    // Bölünmüş dersin her branş payı ayrı bir kayıttır; anahtar
-                    // yalnızca ders adına bakarsa ikinci pay "mükerrer" sanılıp
-                    // sessizce düşer ve o branşın yükü hiç oluşmaz. Bölünme
-                    // yokken anahtar eskisiyle aynı kalır — birleşik şubelerdeki
-                    // normal derslerin davranışı değişmez. (Ölçüldü 06.09.2026.)
-                    const pay = course._bolunmusBrans || course._dagitilmisBrans || "";
-                    const groupKey = [sec.id, ...mergedWith].sort().join("___") + "::" + cName
-                        + (pay ? "::" + pay : "");
-                    if (handledMergedPairs.has(groupKey)) {
-                        birlesikSubeDusumu += parseInt(course.saat || course.ders_saati || 0, 10) || 0;
-                        return;
-                    }
-                    handledMergedPairs.add(groupKey);
-                }
-
-                // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart)
-                const mult = this.evaluateCourseMultiplier(course, studentCount, schoolType, gradeLevel, inclusionCount);
+                // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart).
+                // Birleşik derste birleşik sınıfın mevcudu kullanılır (bkz. yukarıda).
+                const mult = this.evaluateCourseMultiplier(course, carpanOgrenci, schoolType, carpanSinif, carpanKaynastirma);
                 let load = mult.calculatedLoad;
                 let haricNotu = "";
 
@@ -1111,7 +1243,7 @@ export class NormEngine {
                     courseName: cName,
                     baseHours: course.saat || course.ders_saati || 0,
                     calculatedLoad: load,
-                    note: haricNotu || mult.note,
+                    note: haricNotu || ((birlesikNotu + (mult.note || "")).trim()),
                     loadCategory: mult.loadCategory,
                     // Satır raporda GÖRÜNMEYE devam eder ama yükü 0'dır; okulun
                     // "bu saat nereye gitti?" sorusu cevapsız kalmasın.
@@ -1517,7 +1649,7 @@ export class NormEngine {
      * Tüm Okul Türleri İçin Yönetici / İdareci Norm Kadro Hesabı
      * @param {string} schoolType - Okul türü
      * @param {number} totalStudents - Toplam öğrenci/çırak sayısı
-     * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isTasimaMerkezi, isBirlestirilmis }
+     * @param {Object} options - { isPansiyonlu, hasDonerSermaye, isTamGunTamYil, hasStajyer100Plus, hasSigortali500Plus, isBirlestirilmis }
      * @returns {Object} Detaylı yönetici norm raporu
      */
     /**
@@ -1647,10 +1779,11 @@ export class NormEngine {
             extraMdrYrd += 1;
             extraDetails.push("3308 Md. 25 Kapsamında 500+ Sigortalı Çırak (+1 Md. 14/1-d)");
         }
-        if (options.isTasimaMerkezi) {
-            extraMdrYrd += 1;
-            extraDetails.push("Taşıma Eğitim Merkezi (+1 Md. 14/1-e)");
-        }
+        // Md. 14/1-e (taşıma eğitim merkezi) UYGULANMIYOR — kullanıcı kararı,
+        // 15.09.2026 (Denetim N-01). Eski kutu, öğrenci sayısıyla zaten müdür
+        // yardımcısı alan okula da +1 ekliyordu; bent yalnızca öğrenci sayısına
+        // göre norm çıkmayan kuruma uygulanır. Kutu arayüzden kaldırıldı; eski
+        // kayıtlarda kalan isTasimaMerkezi alanı yok sayılır.
         if (isKampusIcinde) {
             extraMdrYrd += 1;
             extraDetails.push("Eğitim Kampüsü İçindeki Kurum (+1 Md. 14/1-f)");

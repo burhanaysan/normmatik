@@ -40,6 +40,7 @@ BUNDLE_FILES = [
     "fiyat.js",                  # uiComponents.js'ten ÖNCE (lisans fiyatı tek kaynak)
     "surum.js",                  # app.js/uiComponents.js'ten ONCE (surum numarasi tek kaynak)
     "iletisim.js",               # uiComponents.js'ten ONCE (whatsapp mesaji tek kaynak)
+    "guvenlik.js",               # state.js/app.js/uiComponents.js'ten ONCE (guvenli metin, Denetim G-01)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
@@ -72,6 +73,7 @@ if (typeof window !== 'undefined') {
         window.licenseManager = new MebLicenseClientManager();
     }
     if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
+    if (typeof NormGuvenlik !== 'undefined') window.NormGuvenlik = NormGuvenlik;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
