@@ -39,8 +39,10 @@ class MebReportsEngine {
             "-" + m.birlesikSubeDusumu, "Birleştirilen şubede ders tek öğretmene yazılır"));
         if (m.yoneticiDersDusumu) rows.push(satir("Yönetici ders saati (Md. 22/6)",
             "-" + m.yoneticiDersDusumu, "Yöneticilerin okuttugu saatler brans yükünden düsülür"));
-        if (m.koordinatorlukEki) rows.push(satir("Isletmelerde mesleki egitim koordinatörlügü",
-            "+" + m.koordinatorlukEki, "Koordinatörlük yükü brans ders yüküne eklenir (Md. 19/1)"));
+        if (m.koordinatorlukEki) rows.push(satir("Isletmelerde meslek egitimi yükü (MESEM)",
+            "+" + m.koordinatorlukEki, "Md. 22/2 baremiyle bulunan isletme yükü brans ders yüküne eklenir"));
+        if (m.seflikEki) rows.push(satir("Alan / atölye seflikleri",
+            "+" + m.seflikEki, "Seflerin Planlama ve Bakim-Onarim Görevi saati atölye yüküne eklenir (Md. 22/1-c-2)"));
         rows.push(satir("NORMA ESAS ÖGRETMEN DERS YÜKÜ", m.normaEsasYuk,
             "Ögretmen normu bu sayi üzerinden hesaplanir"));
         return rows;
@@ -856,21 +858,36 @@ class MebReportsEngine {
             ]);
         });
 
-        // 12. Sınıf Koordinatörlük Cetveli
+        // Alan / atölye şeflikleri (15.09.2026) — saat motorun tek hesabından
+        const sefler = (this.normEngine && typeof this.normEngine.seflikSaatleri === "function")
+            ? this.normEngine.seflikSaatleri((state.okulBilgisi || {}).adminOptions || {}, (state.okulBilgisi || {}).okulTuru || "")
+            : {};
+        const sefSatirlari = Object.entries(sefler);
+        if (sefSatirlari.length > 0) {
+            wsLabRows.push([]);
+            wsLabRows.push(["--- ALAN / ATÖLYE VE LABORATUVAR ŞEFLİKLERİ (PLANLAMA VE BAKIM-ONARIM GÖREVİ) ---"]);
+            wsLabRows.push(["Branş Adı", "Alan Şefi", "Atölye / Laboratuvar Şefi", "Haftalık Saat", "Yasal Dayanak"]);
+            sefSatirlari.forEach(([br, s]) => {
+                wsLabRows.push([br, s.alanSefi ? `Var (${s.alanSaat} saat)` : "-",
+                    s.atolyeSefi ? `${s.atolyeSefi} (${s.atolyeSaat} saat)` : "-", `${s.saat} Saat`,
+                    "Norm Kadro Yön. Md. 20 ve 22/1-c-2; Ek Ders Kararı Md. 6/4; OÖKY Md. 84"]);
+            });
+        }
+        // MESEM: işletmelerde meslek eğitimi yükü düzeltmesi
         const coordMap = state.koordinatorlukYukleri || {};
         const coordEntries = Object.entries(coordMap).filter(([k, v]) => parseInt(v, 10) > 0);
         if (coordEntries.length > 0) {
             wsLabRows.push([]);
-            wsLabRows.push(["--- 12. SINIF İŞLETMELERDE MESLEK EĞİTİMİ (STAJ) KOORDİNATÖRLÜK YÜKLERİ (OÖKY MD. 88) ---"]);
-            wsLabRows.push(["Branş Adı", "Haftalık Ek Koordinatörlük Saati", "Yasal Dayanak"]);
+            wsLabRows.push(["--- İŞLETMELERDE MESLEK EĞİTİMİ YÜKÜ (MESEM, MD. 22/2) ---"]);
+            wsLabRows.push(["Branş Adı", "Haftalık Saat", "Yasal Dayanak"]);
             coordEntries.forEach(([br, val]) => {
-                wsLabRows.push([br, `${val} Saat`, "MEB Ortaöğretim Kurumları Yönetmeliği Madde 88"]);
+                wsLabRows.push([br, `${val} Saat`, "Norm Kadro Yönetmeliği Md. 22/2"]);
             });
         }
 
         const wsLab = xlsxLib.utils.aoa_to_sheet(wsLabRows);
         wsLab['!cols'] = [{ wch: 6 }, { wch: 16 }, { wch: 10 }, { wch: 16 }, { wch: 34 }, { wch: 28 }, { wch: 14 }, { wch: 12 }, { wch: 16 }, { wch: 12 }, { wch: 36 }];
-        xlsxLib.utils.book_append_sheet(wb, wsLab, "Atölye & Koordinatörlük");
+        xlsxLib.utils.book_append_sheet(wb, wsLab, "Atölye & Şeflik");
 
 
         // SEKME 5: NORM KADRO EYLEM VE İHTİYAÇ/FAZLALIK PLANI

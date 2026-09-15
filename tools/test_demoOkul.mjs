@@ -150,7 +150,7 @@ kontrol("9. sınıf ortak ders toplamı 32 (çizelgeyle aynı)",
 /* ====== 6) MESLEK LİSESİ DEMOSU ======================================
    08.09.2026'da eklendi. Tek demo vardı ve anadolu lisesi olarak kilitliydi;
    ürünün en ayırt edici tarafı — atölye normu (Md. 19), sınıf seviyesine
-   duyarlı grup bölünmesi (Md. 22/1-ç), işletme koordinatörlüğü — demoya
+   duyarlı grup bölünmesi (Md. 22/1-ç), alan şeflikleri (Md. 22/1-c-2) — demoya
    giren hiç kimseye görünmüyordu.
 
    Bu bölüm o demonun VİTRİN OLARAK çalıştığını denetler. Sessizce bozulması
@@ -193,10 +193,12 @@ enAz("grup bölünmesi uygulanmış ders var", grupNotlari.length, 5);
 kontrol("28 öğrencili 10. sınıf 3 gruba bölünüyor",
     grupNotlari.some(c => /10\. sınıf, 28 öğrenci .{0,3} 3 grup/.test(c.note)), true);
 
-// İşletme koordinatörlüğü: Norm Kadro Yönetmeliği DIŞINDAN gelen tek kalem
-// (OÖKY Md. 88 / Ek Ders Kararı) ve Madde 19 yüküne eklenir.
-enAz("12. sınıf işletme koordinatörlüğü yüke giriyor",
-    mNorm.branchReport.flatMap(x => x.courses || []).filter(c => c.isCoordinator).length, 2);
+// Alan şeflikleri (15.09.2026): idarecinin girdiği şeflik saati atölye
+// yüküne eklenir (Md. 22/1-c-2). Eski otomatik "12. sınıf +10" kalemi yok.
+enAz("demodaki iki alan şefliği yüke giriyor",
+    mNorm.branchReport.flatMap(x => x.courses || []).filter(c => c.isSeflik).length, 2);
+kontrol("otomatik 12. sınıf koordinatörlüğü yok",
+    mNorm.branchReport.flatMap(x => x.courses || []).filter(c => c.isCoordinator).length, 0);
 
 // Md. 14: döner sermaye + 100 stajyer = 2 ilave müdür yardımcısı normu.
 kontrol("ilave müdür yardımcısı normu 2 (Md. 14)",

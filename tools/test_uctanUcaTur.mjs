@@ -217,6 +217,8 @@ function okulDoldur(S, ce) {
         isPansiyonluMdrYrd: true,
         isPansiyonluBasyrd: true,
         yoneticiDersYukleri: { "Kimya / Kimya Teknolojisi": 6, "Matematik": 4 },
+        alanSefleri: { "Elektrik-Elektronik Teknolojisi": 1 },
+        atolyeSefleri: { "Elektrik-Elektronik Teknolojisi": 2, "Kimya / Kimya Teknolojisi": 1 },
         mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 1, mudurYardimcisi: 2 }
     };
     return S.state;
@@ -274,9 +276,20 @@ function okulDoldur(S, ce) {
         kontrol("T1 BÖLÜ İŞARETLİ branş adı bozulmadan döndü",
             S2.state.mevcutOgretmenler["Kimya / Kimya Teknolojisi"] === 1,
             "4ca5758 bu satırda yakalanırdı");
-        kontrol("T1 koordinatörlük yükleri birebir aynı",
-            JSON.stringify(S2.state.koordinatorlukYukleri)
-            === JSON.stringify(gonderilen.koordinatorlukYukleri));
+        // 15.09.2026: meslek dışı / meslek lisesi kaydındaki eski koordinatörlük
+        // saati açılışta şefliğe çevrilir ve tablo boşaltılır. Kimya'nın atölye
+        // şefi zaten girilmiş olduğu için ÜZERİNE yazılmaz.
+        kontrol("T1 eski koordinatörlük tablosu açılışta boşaltıldı",
+            JSON.stringify(S2.state.koordinatorlukYukleri) === "{}",
+            JSON.stringify(S2.state.koordinatorlukYukleri));
+        kontrol("T1 alan şefleri (bölü işaretli anahtar dahil) döndü",
+            JSON.stringify(S2.state.okulBilgisi.adminOptions.alanSefleri)
+            === JSON.stringify({ "Elektrik-Elektronik Teknolojisi": 1 }),
+            JSON.stringify(S2.state.okulBilgisi.adminOptions.alanSefleri));
+        kontrol("T1 atölye şefleri bölü işaretli anahtarla birebir döndü",
+            JSON.stringify(S2.state.okulBilgisi.adminOptions.atolyeSefleri)
+            === JSON.stringify({ "Elektrik-Elektronik Teknolojisi": 2, "Kimya / Kimya Teknolojisi": 1 }),
+            JSON.stringify(S2.state.okulBilgisi.adminOptions.atolyeSefleri));
         kontrol("T1 yönetici ders yükleri (bölü işaretli anahtar) korundu",
             S2.state.okulBilgisi.adminOptions.yoneticiDersYukleri["Kimya / Kimya Teknolojisi"] === 6);
         kontrol("T1 idareci seçenekleri korundu",

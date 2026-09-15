@@ -27,6 +27,11 @@
      3. Ekran aktif branşları motordan alır, adı kırparak tahmin etmez.
      4. Meslek branş listesi resmî adları korur, okul alanı adı içermez.
 
+   15.09.2026: 12. sınıfa kendiliğinden yazılan +10 "koordinatörlük" kaldırıldı
+   (Denetim N-11); yerini idarecinin girdiği ALAN / ATÖLYE ŞEFLİKLERİ aldı
+   (Norm Kadro Yön. Md. 22/1-c-2, Ek Ders Kararı Md. 6/4). Branş eşlemesi
+   kuralı aynen geçerli: şeflik saati alanın GERÇEK branşına yazılır.
+
    ÇALIŞTIRMA: node tools/test_koordinatorlukBranslari.mjs
    ======================================================================== */
 import fs from "fs";
@@ -98,13 +103,25 @@ for (const [alanId, brans] of Object.entries(BEKLENEN)) {
     kontrol(`${alanId}: 12. sınıf dersleri üretildi`, sube.zorunluDersler.length > 0,
         String(sube.zorunluDersler.length));
 
-    const r = ne.calculateSchoolNorms([sube], {}, TUR, {});
-    const koord = (r.branchReport || [])
-        .filter(x => (parseInt(x.coordinatorHours, 10) || 0) > 0)
+    const r0 = ne.calculateSchoolNorms([sube], {}, TUR, {});
+    const otomatik = (r0.branchReport || [])
+        .filter(x => (parseInt(x.coordinatorHours, 10) || 0) > 0 || (parseInt(x.seflikHours, 10) || 0) > 0)
         .map(x => x.branchName);
+    kontrol(`${alanId}: şeflik girilmeden hiçbir branşa ek saat yazılmıyor`,
+        otomatik.length === 0, otomatik.join(", "));
 
-    kontrol(`${alanId}: koordinatörlük "${brans}" branşına yazılıyor`,
-        koord.includes(brans), koord.join(", ") || "(koordinatörlük yok)");
+    // Müfredatın atadığı branş, ekranda işaretlenecek branşla aynı olmalı.
+    const r = ne.calculateSchoolNorms([sube], {}, TUR,
+        { adminOptions: { alanSefleri: { [brans]: 1 } } });
+    const koord = (r.branchReport || [])
+        .filter(x => (parseInt(x.seflikHours, 10) || 0) > 0)
+        .map(x => x.branchName);
+    const hedef = (r.branchReport || []).find(x => x.branchName === brans);
+
+    kontrol(`${alanId}: alan şefliği "${brans}" branşına yazılıyor`,
+        koord.includes(brans), koord.join(", ") || "(şeflik yok)");
+    kontrol(`${alanId}: "${brans}" branşının 12. sınıf dersleri de var (ayrı satır açılmıyor)`,
+        !!hedef && (hedef.courses || []).some(c => !c.isSeflik), hedef ? String((hedef.courses || []).length) : "-");
     kontrol(`${alanId}: "${brans}" uygulamanın tanıdığı bir branş`,
         ce.isKnownBranch(brans) === true);
     if (ALAN_ADI_TUZAKLARI[alanId]) {
@@ -123,8 +140,10 @@ for (const [alanId, brans] of Object.entries(BEKLENEN)) {
         /calculateSchoolNorms\(subeler, \{\}, schoolType, \{\}\)/.test(govde));
     kontrol("alan adından 'Alanı' kırpılarak branş tahmin EDİLMİYOR",
         !/replace\(\/\\s\*ALANI\$\/i/.test(govde));
-    kontrol("liste = meslek branşları + alan branşları + aktif branşlar",
-        /new Set\(\[\.\.\.vocBranches, \.\.\.alanBranslari, \.\.\.activeVocBranchesSet\]\)/.test(govde));
+    kontrol("liste = meslek branşları + alan branşları + aktif branşlar (+ girilmiş şeflikler)",
+        /new Set\(\[\.\.\.vocBranches, \.\.\.alanBranslari, \.\.\.activeVocBranchesSet,/.test(govde));
+    kontrol("şeflik saatleri ekranda motorun tek hesabından",
+        /this\.normEngine\.seflikSaatleri\(/.test(govde));
     kontrol("alan branşları müfredat motorundan geliyor (elle yazılmıyor)",
         /this\.curriculum\.koordinatorlukBranslari\(\)/.test(govde));
     kontrol("varsayılan saat sabit 10 değil, motorun hesabı",

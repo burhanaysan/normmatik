@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "releaseDate": "2026-09-15",
   "minEngineVersion": "2.0.0",
   "distribution": {
@@ -10,6 +10,8 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Meslek liselerinde 12. sınıfı olan her alana kendiliğinden eklenen 10 saat “koordinatörlük” kaldırıldı. Yerine alan ve atölye/laboratuvar şeflikleri Kadro & Şeflikler penceresinden işaretleniyor: alan şefi haftada 10, her atölye/laboratuvar şefi 6 saat, branşın atölye yüküne eklenir (Norm Kadro Yön. Md. 22/1-c-2, Ek Ders Kararı Md. 6/4). Daha önce girilmiş koordinatörlük saati alan şefi olarak aktarıldı.",
+    "Atölye raporundaki grup baremi açıklaması yönetmeliğin metniyle (Md. 22/1-ç) düzeltildi.",
     "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",
     "Güvenlik: kaydedilen metinlerden < ve > karakterleri kayıt anında temizleniyor; bulut tarafında da aynı kural uygulanıyor.",
     "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",

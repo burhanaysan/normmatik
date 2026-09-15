@@ -18,6 +18,10 @@
      N-04  Güzel sanatlar Çalgı Eğitimi Md.22/4-a tavanını aşıyordu.
      N-10  "Branş Atanmadı" seçimi hesapta çalışmıyor, ders adıyla sahte branş
            satırı açılıyordu.
+     N-11  Meslek lisesinde 12. sınıfı olan her meslek branşına dayanaksız
+           +10 saat ekleniyordu (kullanıcı kararı: yerine idarecinin girdiği
+           alan şefi +10 / atölye-laboratuvar şefi x6; Md. 22/1-c-2,
+           Ek Ders Kararı Md. 6/4, OÖKY Md. 84).
      N-13  9. sınıfta 31 öğrencili atölye şubesi 3 grup sayılıyordu
            ("31'den fazla 3" -> 31 ikinci kademede).
 
@@ -380,6 +384,88 @@ for (const [n, g] of [[9, 1], [10, 1], [20, 1], [21, 2], [30, 2], [31, 2], [32, 
 }
 for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     kontrol(`N13 10. sınıf ${n} öğrenci -> ${g} grup (değişmedi)`, ne.calculateWorkshopGroups(n, "10") === g, ne.calculateWorkshopGroups(n, "10"));
+}
+
+/* ======================================================================= */
+/* N-11 — alan / atölye şeflikleri                                         */
+/* ======================================================================= */
+{
+    const MTAL = "mesleki_ve_teknik_anadolu_lisesi";
+    const BT = "Bilişim Teknolojileri";
+    const sube = { id: "s12", subeAdi: "12-A", sinifSeviyesi: "12", ogrenciSayisi: 18, alanId: "bilisim",
+        zorunluDersler: ce.getMandatoryCourses(MTAL, "12", "bilisim", null) || [], secmeliDersler: [] };
+    kontrol("N11 ölçüm geçerli: 12. sınıf bilişim dersleri üretildi", sube.zorunluDersler.length > 0);
+    const sade = ne.calculateSchoolNorms([sube], {}, MTAL, {});
+    kontrol("N11 şeflik girilmeden 12. sınıfa ek saat YAZILMIYOR",
+        sade.branchReport.every(b => !b.coordinatorHours && !b.seflikHours),
+        sade.branchReport.filter(b => b.coordinatorHours || b.seflikHours).map(b => b.branchName).join(", "));
+    kontrol("N11 motorda otomatik 12. sınıf kalemi kaldırıldı",
+        !/branchesWithGrade12Vocational/.test(oku("js", "normEngine.js")));
+
+    const sefli = ne.calculateSchoolNorms([sube], {}, MTAL,
+        { adminOptions: { alanSefleri: { [BT]: 1 }, atolyeSefleri: { [BT]: 2 } } });
+    const b0 = brans(sade, BT), b1 = brans(sefli, BT);
+    kontrol("N11 alan şefi 10 + 2 atölye şefi x 6 = 22 saat", b1 && b1.seflikHours === 22, b1 && b1.seflikHours);
+    kontrol("N11 şeflik saati branş yüküne ekleniyor", b0 && b1 && b1.totalHours === b0.totalHours + 22,
+        b0 && b1 && (b0.totalHours + " -> " + b1.totalHours));
+    kontrol("N11 şeflik ATÖLYE kovasına (Md. 19) giriyor", b0 && b1 && b1.workshopHours === b0.workshopHours + 22
+        && b1.generalHours === b0.generalHours, b0 && b1 && (b0.workshopHours + " -> " + b1.workshopHours));
+    const satir = b1 && (b1.courses || []).find(c => c.isSeflik);
+    kontrol("N11 raporda 'Planlama ve Bakım-Onarım Görevi' satırı dayanağıyla",
+        !!satir && satir.courseName === "Planlama ve Bakım-Onarım Görevi" && /22\/1-c-2/.test(satir.note) && /6\/4/.test(satir.note),
+        satir && satir.note);
+    kontrol("N11 mutabakat tutarlı ve şeflik eki 22", sefli.yukMutabakati.tutarli === true && sefli.yukMutabakati.seflikEki === 22,
+        JSON.stringify(sefli.yukMutabakati));
+    kontrol("N11 okul toplamı +22", sefli.totalHours === sade.totalHours + 22, sade.totalHours + " -> " + sefli.totalHours);
+
+    const cift = ne.seflikSaatleri({ alanSefleri: { [BT]: 3 } }, MTAL);
+    kontrol("N11 bir alanda en çok 1 alan şefi (OÖKY Md. 84/2)", cift[BT] && cift[BT].saat === 10, JSON.stringify(cift));
+    const mesem = ne.seflikSaatleri({ alanSefleri: { [BT]: 1 }, atolyeSefleri: { [BT]: 1 } }, "mesleki_egitim_merkezi");
+    kontrol("N11 MESEM'de alan şefi sayılmaz, atölye şefi sayılır",
+        mesem[BT] && mesem[BT].alanSefi === 0 && mesem[BT].saat === 6, JSON.stringify(mesem));
+    const eksi = ne.seflikSaatleri({ atolyeSefleri: { [BT]: -4, "X": "abc" } }, MTAL);
+    kontrol("N11 bozuk/eksi şeflik sayısı saat doğurmaz", Object.keys(eksi).length === 0, JSON.stringify(eksi));
+
+    const genel = [{ id: "g", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: [{ ders: "Matematik", saat: 6, atananBrans: "Matematik" }], secmeliDersler: [] }];
+    const g0 = ne.calculateSchoolNorms(genel, {}, "anadolu_lisesi", {});
+    const g1 = ne.calculateSchoolNorms(genel, {}, "anadolu_lisesi", { adminOptions: { alanSefleri: { Matematik: 1 }, atolyeSefleri: { Matematik: 2 } } });
+    kontrol("N11 meslekî olmayan okulda şeflik yük doğurmaz", g1.totalHours === g0.totalHours, g0.totalHours + " / " + g1.totalHours);
+}
+// Eski kayıtlardaki koordinatörlük saati açılışta şefliğe çevrilir
+{
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "mesleki_ve_teknik_anadolu_lisesi";
+    st.state.okulBilgisi.adminOptions = { atolyeSefleri: { "Hazır": 3 } };
+    st.state.koordinatorlukYukleri = { "On": 10, "YirmiIki": 22, "Alti": 6, "Sifir": 0, "Hazır": 10 };
+    st.sanitizeExistingState();
+    const ao = st.state.okulBilgisi.adminOptions;
+    kontrol("N11 göç: 10 saat -> alan şefi", ao.alanSefleri.On === 1 && !ao.atolyeSefleri.On, JSON.stringify(ao));
+    kontrol("N11 göç: 22 saat -> alan şefi + 2 atölye şefi", ao.alanSefleri.YirmiIki === 1 && ao.atolyeSefleri.YirmiIki === 2, JSON.stringify(ao));
+    kontrol("N11 göç: 6 saat -> 1 atölye şefi", !ao.alanSefleri.Alti && ao.atolyeSefleri.Alti === 1, JSON.stringify(ao));
+    kontrol("N11 göç: 0 saat şeflik açmaz", !("Sifir" in ao.alanSefleri) && !("Sifir" in ao.atolyeSefleri), JSON.stringify(ao));
+    kontrol("N11 göç: elle girilmiş şefliğin üzerine yazılmaz", ao.atolyeSefleri["Hazır"] === 3 && !ao.alanSefleri["Hazır"], JSON.stringify(ao));
+    kontrol("N11 göç: eski tablo boşaltıldı", JSON.stringify(st.state.koordinatorlukYukleri) === "{}");
+    const once = JSON.stringify(ao);
+    st.sanitizeExistingState();
+    kontrol("N11 göç ikinci açılışta bir şey değiştirmez", JSON.stringify(st.state.okulBilgisi.adminOptions) === once);
+
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = "mesleki_egitim_merkezi";
+    st.state.koordinatorlukYukleri = { "Bilişim Teknolojileri": 40 };
+    st.sanitizeExistingState();
+    kontrol("N11 göç: MESEM işletme yükü (Md. 22/2) olduğu gibi kalır",
+        st.state.koordinatorlukYukleri["Bilişim Teknolojileri"] === 40, JSON.stringify(st.state.koordinatorlukYukleri));
+}
+{
+    const ui = oku("js", "uiComponents.js");
+    kontrol("N11 ekranda alan şefi kutusu ve atölye şefi sayısı var",
+        /seflik-alan-input/.test(ui) && /seflik-atolye-input/.test(ui));
+    kontrol("N11 kaydet düğmesi şeflikleri adminOptions'a yazıyor",
+        /alanSefleri/.test(ui) && /atolyeSefleri/.test(ui) && /adminOptsToSave/.test(ui));
+    const bulut = oku("js", "cloudDatabaseService.js");
+    kontrol("N11 bulut şeflik tablolarının branş anahtarlarını kodluyor",
+        (bulut.match(/alanSefleri/g) || []).length >= 2 && (bulut.match(/atolyeSefleri/g) || []).length >= 2);
 }
 
 /* ======================================================================= */

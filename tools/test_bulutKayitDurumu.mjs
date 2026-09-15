@@ -243,7 +243,9 @@ for (const [kod, etiket] of [
     await cloud3.saveSchoolData("318742", {
         okulBilgisi: {
             okulAdi: "X", okulTuru: "anadolu_lisesi",
-            adminOptions: { yoneticiDersYukleri: { "Kimya / Kimya Teknolojisi": 6 } },
+            adminOptions: { yoneticiDersYukleri: { "Kimya / Kimya Teknolojisi": 6 },
+                alanSefleri: { "Kimya / Kimya Teknolojisi": 1 },
+                atolyeSefleri: { "Kimya / Kimya Teknolojisi": 3 } },
         },
         subeler: [{ subeAdi: "9-A" }],
         mevcutOgretmenler: asil,
@@ -263,6 +265,12 @@ for (const [kod, etiket] of [
         Object.keys(geri.koordinatorlukYukleri)[0] === "Kimya / Kimya Teknolojisi");
     kontrol("yönetici ders yükü adları geri açıldı",
         Object.keys(geri.adminOptions.yoneticiDersYukleri)[0] === "Kimya / Kimya Teknolojisi");
+    kontrol("alan şefi adları geri açıldı",
+        !!geri.adminOptions.alanSefleri && geri.adminOptions.alanSefleri["Kimya / Kimya Teknolojisi"] === 1,
+        JSON.stringify(geri.adminOptions.alanSefleri));
+    kontrol("atölye şefi adları geri açıldı",
+        !!geri.adminOptions.atolyeSefleri && geri.adminOptions.atolyeSefleri["Kimya / Kimya Teknolojisi"] === 3,
+        JSON.stringify(geri.adminOptions.atolyeSefleri));
 
     // (d) ESKİ KAYITLAR BOZULMAMALI — kodlanmamış anahtarlar olduğu gibi kalır.
     depo = { okulAdi: "X", subeler: [], mevcutOgretmenler: { "Matematik": 4 } };

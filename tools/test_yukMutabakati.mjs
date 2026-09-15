@@ -114,7 +114,9 @@ const SENARYOLAR = [
     ["branşı atanmamış ders", "anadolu_lisesi", { branssiz: true }, {}],
     ["hepsi bir arada", "anadolu_lisesi", { bol: true, birlesik: true, branssiz: true },
         { adminOptions: { yoneticiDersYukleri: { "Türk Dili ve Edebiyatı": 6, "Matematik": 4 } } }],
-    ["mesleki lise (koordinatörlük)", "mesleki_ve_teknik_anadolu_lisesi", {},
+    ["mesleki lise (şeflik)", "mesleki_ve_teknik_anadolu_lisesi", {},
+        { adminOptions: { alanSefleri: { "Makine Teknolojisi": 1 }, atolyeSefleri: { "Makine Teknolojisi": 2 } } }],
+    ["mesleki lise (eski koordinatörlük tablosu artık yük değil)", "mesleki_ve_teknik_anadolu_lisesi", {},
         { "Makine Teknolojisi": 20 }],
     ["yönetici saati branş yükünden büyük", "anadolu_lisesi", {},
         { adminOptions: { yoneticiDersYukleri: { "Felsefe": 500 } } }]
@@ -129,10 +131,10 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     kontrol(ad + ": mutabakat üretiliyor", true);
 
     const hesap = m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu
-                - m.yoneticiDersDusumu + m.koordinatorlukEki;
+                - m.yoneticiDersDusumu + m.koordinatorlukEki + m.seflikEki;
     kontrol(ad + ": DEĞİŞMEZ tutuyor", hesap === r.totalHours,
         m.hamCizelgeSaati + " + " + m.carpanArtisi + " - " + m.birlesikSubeDusumu
-        + " - " + m.yoneticiDersDusumu + " + " + m.koordinatorlukEki
+        + " - " + m.yoneticiDersDusumu + " + " + m.koordinatorlukEki + " + şeflik " + m.seflikEki
         + " = " + hesap + ", motor " + r.totalHours);
     kontrol(ad + ": tutarlı bayrağı doğru", m.tutarli === true, String(m.tutarli));
     kontrol(ad + ": sonuç motor toplamıyla aynı",
@@ -157,7 +159,7 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     const sade = ne.calculateSchoolNorms(okulKur({}), {}, "anadolu_lisesi", {}).yukMutabakati;
     kontrol("sade okulda hiçbir kalem oluşmuyor",
         sade.carpanArtisi === 0 && sade.birlesikSubeDusumu === 0
-        && sade.yoneticiDersDusumu === 0 && sade.koordinatorlukEki === 0,
+        && sade.yoneticiDersDusumu === 0 && sade.koordinatorlukEki === 0 && sade.seflikEki === 0,
         JSON.stringify(sade));
 
     const bolund = ne.calculateSchoolNorms(okulKur({ bol: true }), {}, "anadolu_lisesi", {}).yukMutabakati;
@@ -183,10 +185,20 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
         && brl.normaEsasYuk === sade.normaEsasYuk + 2,
         "ham " + brl.hamCizelgeSaati + ", yük " + brl.normaEsasYuk);
 
+    // Şeflik: alan şefi 10 + 2 atölye şefi x 6 = +22 (Md. 22/1-c-2, Ek Ders Kararı Md. 6/4)
     const mtal = ne.calculateSchoolNorms(okulKur({}), {}, "mesleki_ve_teknik_anadolu_lisesi",
+        { adminOptions: { alanSefleri: { "Makine Teknolojisi": 1 }, atolyeSefleri: { "Makine Teknolojisi": 2 } } }).yukMutabakati;
+    kontrol("şeflik eki ölçülüyor (+22)",
+        mtal.seflikEki === 22, String(mtal.seflikEki));
+    const mtalSade = ne.calculateSchoolNorms(okulKur({}), {}, "mesleki_ve_teknik_anadolu_lisesi", {}).yukMutabakati;
+    kontrol("şeflik toplamı gerçekten artırıyor",
+        mtal.normaEsasYuk === mtalSade.normaEsasYuk + 22, mtal.normaEsasYuk + " / " + mtalSade.normaEsasYuk);
+    // Eski otomatik koordinatörlük: meslek lisesinde artık yük doğurmaz (Denetim N-11)
+    const eskiTablo = ne.calculateSchoolNorms(okulKur({}), {}, "mesleki_ve_teknik_anadolu_lisesi",
         { "Makine Teknolojisi": 20 }).yukMutabakati;
-    kontrol("koordinatörlük eki ölçülüyor (+20)",
-        mtal.koordinatorlukEki === 20, String(mtal.koordinatorlukEki));
+    kontrol("meslek lisesinde koordinatörlük tablosu yük doğurmuyor",
+        eskiTablo.koordinatorlukEki === 0 && eskiTablo.normaEsasYuk === mtalSade.normaEsasYuk,
+        eskiTablo.koordinatorlukEki + " / " + eskiTablo.normaEsasYuk);
 }
 
 /* ---- 3) Rapor katmanı: mutabakat gerçekten taşınıyor mu? --------------- */
@@ -218,8 +230,8 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
     // (yönetici düşümü, koordinatörlük, grup bölünmesi). Sebebi YAZILMALI.
     kontrol("branş içi ayrışma kartın dipnotunda açıklanıyor",
         /kalanFark/.test(UI) && /Ders satırları toplamı/.test(UI));
-    kontrol("yönetici düşümü ve koordinatörlük ayrıca yazılıyor",
-        /Md\. 22\/6/.test(UI) && /Md\. 19\/1/.test(UI));
+    kontrol("yönetici düşümü ve şeflik ayrıca yazılıyor",
+        /Md\. 22\/6/.test(UI) && /Md\. 22\/1-c-2/.test(UI));
 
     // Tutarsız mutabakat HİÇ basılmamalı. Tek kapı: mutabakatKalemleri().
     kontrol("tutarsız mutabakat basılmıyor",
@@ -352,14 +364,14 @@ for (const [ad, tur, opt, coord] of SENARYOLAR) {
 
         kontrol(`mutabakat tutarlı — ${ad}`, m.tutarli === true,
             `ham ${m.hamCizelgeSaati} + çarpan ${m.carpanArtisi} − birleşik ${m.birlesikSubeDusumu}`
-            + ` − yönetici ${m.yoneticiDersDusumu} + koordinatörlük ${m.koordinatorlukEki}`
-            + ` = ${m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu - m.yoneticiDersDusumu + m.koordinatorlukEki}`
+            + ` − yönetici ${m.yoneticiDersDusumu} + koordinatörlük ${m.koordinatorlukEki} + şeflik ${m.seflikEki}`
+            + ` = ${m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu - m.yoneticiDersDusumu + m.koordinatorlukEki + m.seflikEki}`
             + `, norma esas ${m.normaEsasYuk}`);
 
         // Değişmez, açıkça yeniden kurulur.
         kontrol(`denklem sağlanıyor — ${ad}`,
             m.hamCizelgeSaati + m.carpanArtisi - m.birlesikSubeDusumu
-            - m.yoneticiDersDusumu + m.koordinatorlukEki === m.normaEsasYuk, true);
+            - m.yoneticiDersDusumu + m.koordinatorlukEki + m.seflikEki === m.normaEsasYuk, true);
 
         // Çarpan artışı bir ARTIŞ kalemidir; eksiye düşüyorsa taban yanlış
         // kurulmuş demektir (regresyonun imzası tam olarak buydu).

@@ -349,13 +349,15 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.4",
+    surum: "2.1.5",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Meslek liselerinde 12. sınıfı olan her alana kendiliğinden eklenen 10 saat “koordinatörlük” kaldırıldı. Yerine alan ve atölye/laboratuvar şeflikleri Kadro & Şeflikler penceresinden işaretleniyor: alan şefi haftada 10, her atölye/laboratuvar şefi 6 saat, branşın atölye yüküne eklenir (Norm Kadro Yön. Md. 22/1-c-2, Ek Ders Kararı Md. 6/4). Daha önce girilmiş koordinatörlük saati alan şefi olarak aktarıldı.",
+        "Atölye raporundaki grup baremi açıklaması yönetmeliğin metniyle (Md. 22/1-ç) düzeltildi.",
         "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",
         "Güvenlik: kaydedilen metinlerden < ve > karakterleri kayıt anında temizleniyor; bulut tarafında da aynı kural uygulanıyor.",
         "Güvenlik: okulun yazdığı metinler (şube adı, branş adı, antet, logo) ekrana güvenli biçimde basılıyor; sayfalara tarayıcı güvenlik politikası eklendi.",
@@ -944,6 +946,28 @@ const NORM_RULES_CONFIG = {
             splitAboveStudents: 25,      // 25'ten fazla mevcutta 2 gruba bölünür
             groupsWhenSplit: 2
         }
+    },
+
+    /* =====================================================================
+     * 7a. ALAN / ATÖLYE VE LABORATUVAR ŞEFLİKLERİ (15.09.2026)
+     * ---------------------------------------------------------------------
+     * Norm Kadro Yön. Md. 22/1-c-2: "Alan itibarıyla ders yükünün
+     *  hesaplanmasında; ... Alan/bölüm, atölye ve laboratuvar şeflerinin,
+     *  atölyelerdeki makine ve teçhizatın bakımı, onarımı ve öğretime hazır
+     *  halde bulundurulması kapsamında yaptıkları göreve ilişkin ders saatleri
+     *  de dikkate alınır."  Md. 20: şef norm kadrosu alanın öğretmen normu
+     *  içinde değerlendirilir.
+     * Saat miktarı — Ek Ders Kararı Md. 6/4: "...bölüm şefleri için haftada 10,
+     *  atölye ve laboratuvar şefleri için ise haftada 6 saati ek ders görevi
+     *  sayılır. Bu dersler ders dağıtım çizelgesinde 'Planlama ve Bakım-Onarım
+     *  Görevi' adıyla gösterilir."
+     * Şeflik kurulması: OÖKY Md. 84 (her alan için bir alan şefliği; donanımlı
+     *  atölye/laboratuvar için komisyon tespiti; MESEM'de alan şefliği yok).
+     * ===================================================================== */
+    seflikRules: {
+        legalRef: "Norm Kadro Yönetmeliği Md. 20 ve 22/1-c-2; Ek Ders Kararı Md. 6/4; OÖKY Md. 84",
+        alanSefiSaat: 10,
+        atolyeLabSefiSaat: 6
     },
 
     /* =====================================================================
@@ -180158,6 +180182,44 @@ class NormEngine {
     // ======================================================================
 
     /**
+     * ALAN / ATÖLYE ŞEFLİKLERİNİN NORM YÜKÜNE EKLENEN SAATİ (15.09.2026)
+     *
+     * adminOptions.alanSefleri   = { "Branş": 1 }   (alan/bölüm şefi var)
+     * adminOptions.atolyeSefleri = { "Branş": n }   (atölye/laboratuvar şefi sayısı)
+     *
+     * Dayanak ve saatler normRulesConfig.seflikRules'ta. Aynı alan için ikinci
+     * alan şefi görevlendirilmez (OÖKY Md. 84/2) -> en çok 1. MESEM'de alan
+     * şefliği oluşturulmaz (OÖKY Md. 84/1) -> yalnızca atölye/laboratuvar şefi.
+     * Ekran, rapor ve Excel bu tek hesabı kullanır; 10 ve 6 başka yerde yazılmaz.
+     *
+     * @returns {Object} { "Branş": { alanSefi, atolyeSefi, alanSaat, atolyeSaat, saat } }
+     */
+    seflikSaatleri(adminOptions = {}, schoolType = "") {
+        const kural = (this.rules && this.rules.seflikRules) || {};
+        const alanBirim = Number.isFinite(kural.alanSefiSaat) ? kural.alanSefiSaat : 10;
+        const atolyeBirim = Number.isFinite(kural.atolyeLabSefiSaat) ? kural.atolyeLabSefiSaat : 6;
+        const tur = String(schoolType || "");
+        const mesem = tur.includes("mesleki_egitim_merkezi") || tur.includes("mesem");
+        const alanlar = (adminOptions && adminOptions.alanSefleri) || {};
+        const atolyeler = (adminOptions && adminOptions.atolyeSefleri) || {};
+        const sonuc = {};
+        for (const brans of new Set([...Object.keys(alanlar), ...Object.keys(atolyeler)])) {
+            const alanSefi = (!mesem && (parseInt(alanlar[brans], 10) || 0) > 0) ? 1 : 0;
+            const atolyeSefi = Math.max(0, parseInt(atolyeler[brans], 10) || 0);
+            const saat = alanSefi * alanBirim + atolyeSefi * atolyeBirim;
+            if (saat > 0) {
+                sonuc[brans] = {
+                    alanSefi, atolyeSefi,
+                    alanSaat: alanSefi * alanBirim,
+                    atolyeSaat: atolyeSefi * atolyeBirim,
+                    atolyeBirim, saat
+                };
+            }
+        }
+        return sonuc;
+    }
+
+    /**
      * Md. 22/4-a: bire bir çalışma gerektiren dersin azami yükü.
      * "haftalık ders saati sayısına her iki öğrenci için 6 saate kadar" ilave.
      */
@@ -181151,7 +181213,6 @@ class NormEngine {
         // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
         const branchLoadSplit = {};
         const branchCourseDetails = {};
-        const branchesWithGrade12Vocational = new Set();
 
         // Branşı atanmamış derslerin saati. Hiçbir branşın normuna yazılmaz
         // ama okulun toplam ders yüküne dâhildir (aşağıda eklenir).
@@ -181330,9 +181391,6 @@ class NormEngine {
                     assignedBranch = "Rehberlik";
                 }
 
-                if (isGrade12 && (course.isAtolye || course.isElectiveVocational || String(course.kategori || '').includes('MESLEK') || String(cName).includes('İŞLETME') || String(cName).includes('STAJ'))) {
-                    branchesWithGrade12Vocational.add(assignedBranch);
-                }
 
                 // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart).
                 // Birleşik derste birleşik sınıfın mevcudu kullanılır (bkz. yukarıda).
@@ -181429,10 +181487,14 @@ class NormEngine {
             mesemBranchIsletmeHours[k.brans] = (mesemBranchIsletmeHours[k.brans] || 0) + grup * saat;
         });
 
-        const allVocationalOrCustomCoordinatorBranches = isVocationalSchool ? new Set([
-            ...branchesWithGrade12Vocational,
+        // İŞLETMELERDE MESLEK EĞİTİMİ YÜKÜ yalnızca MESEM'de bu yoldan eklenir
+        // (Md. 22/2 baremi; idareci gerekirse branş bazında düzeltir). Meslek
+        // lisesinde elle girilen "koordinatörlük" saatinin norm hesabında
+        // dayanağı yok; eski kayıtlar yüklemede şefliğe çevrilir (bkz. aşağıda
+        // şeflik bloğu ve state._koordinatorluguSeflikeCevir).
+        const allVocationalOrCustomCoordinatorBranches = (isVocationalSchool && isMesem) ? new Set([
             ...Object.keys(mesemBranchStudentCounts),
-            ...Object.keys(coordinatorHoursMap || {})
+            ...Object.keys(coordinatorHoursMap || {}).filter(k => k !== "adminOptions")
         ]) : new Set();
 
         const branchCoordinatorMap = {};
@@ -181458,10 +181520,6 @@ class NormEngine {
                     });
                 coordNote = `MEB Norm Kadro Yön. Md. 22/2 (alan bazında): `
                           + alanlar.join("  +  ") + ` = ${coordHours}s İşletmelerde Mesleki Eğitim Yükü`;
-            } else if (branchesWithGrade12Vocational.has(branchName)) {
-                // Varsayılan MEB MTAL önerisi: 10 Saat
-                coordHours = 10;
-                coordNote = "MEB OÖKY Md. 88 / Ek Ders Kararı Md. 15 (12. Sınıf İşletme Koordinatörlüğü)";
             }
 
             if (coordHours > 0) {
@@ -181483,6 +181541,40 @@ class NormEngine {
                 });
             }
         });
+
+        // ALAN / ATÖLYE ŞEFLİKLERİ (kullanıcı kararı, 15.09.2026)
+        //
+        // Norm Kadro Yön. Md. 22/1-c-2: alan ders yükü hesaplanırken şeflerin
+        // "göreve ilişkin ders saatleri de dikkate alınır"; saat Ek Ders Kararı
+        // Md. 6/4'ten (alan şefi 10, atölye/laboratuvar şefi 6). Şeflik okulda
+        // valilik oluruyla kurulur (OÖKY Md. 84); sayısını uygulama TAHMİN ETMEZ,
+        // idareci girer. Eskiden burada 12. sınıfı olan her meslek branşına
+        // kendiliğinden 10 saat "koordinatörlük" ekleniyordu: şeflik açılmış mı
+        // bakılmıyor, dayanak olarak ek ders mevzuatı gösteriliyordu (Denetim N-11).
+        // Yük ATÖLYE kovasına yazılır: şef ancak atölye ve laboratuvar öğretmeni
+        // olabilir (OÖKY Md. 84/A).
+        const branchSeflikMap = {};
+        if (isVocationalSchool) {
+            const sefler = this.seflikSaatleri(coordinatorHoursMap && coordinatorHoursMap.adminOptions, schoolType);
+            Object.entries(sefler).forEach(([branchName, s]) => {
+                ensureBranch(branchName);
+                branchLoadMap[branchName] += s.saat;
+                branchLoadSplit[branchName].atolye += s.saat;
+                branchSeflikMap[branchName] = s.saat;
+                const parca = [];
+                if (s.alanSefi) parca.push(`alan şefi ${s.alanSaat}s`);
+                if (s.atolyeSefi) parca.push(`${s.atolyeSefi} atölye/laboratuvar şefi x ${s.atolyeBirim}s = ${s.atolyeSaat}s`);
+                branchCourseDetails[branchName].push({
+                    sectionName: "Şeflik görevi",
+                    courseName: "Planlama ve Bakım-Onarım Görevi",
+                    baseHours: s.saat,
+                    calculatedLoad: s.saat,
+                    note: `Norm Kadro Yön. Md. 22/1-c-2 · Ek Ders Kararı Md. 6/4: ${parca.join(" + ")}`,
+                    isSeflik: true,
+                    loadCategory: "ATOLYE"
+                });
+            });
+        }
 
         // Madde 22/6: "Alanlara gore ogretmen norm kadrolari, YONETICILERIN GIRMIS
         // OLDUGU DERS SAATLERI ilgili alanin ders yukunden DUSULEREK belirlenir."
@@ -181660,6 +181752,7 @@ class NormEngine {
                 calculatedNorm,
                 currentTeachers,
                 coordinatorHours: branchCoordinatorMap[branchName] || 0,
+                seflikHours: branchSeflikMap[branchName] || 0,
                 adminDeductedHours: branchAdminDeduction[branchName] || 0,
                 diff,
                 statusText,
@@ -181720,6 +181813,8 @@ class NormEngine {
             .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
         const koordinatorlukEki = Object.values(branchCoordinatorMap)
             .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
+        const seflikEki = Object.values(branchSeflikMap)
+            .reduce((t, v) => t + (parseInt(v, 10) || 0), 0);
         // Çarpan artışı YALNIZCA genel branş havuzu için anlamlıdır; özel
         // eğitim saatleri o havuza hiç girmediği için taban toplamdan düşülür.
         const carpanArtisi = islenmisYuk
@@ -181733,6 +181828,7 @@ class NormEngine {
             birlesikSubeDusumu,
             yoneticiDersDusumu,
             koordinatorlukEki,
+            seflikEki,
             normaEsasYuk: grandTotalHours,
             // Değişmez tutmuyorsa rapor sayı uydurmasın: bunu gören arayüz
             // mutabakat bloğunu basmaz, sessizce gizler.
@@ -181741,7 +181837,7 @@ class NormEngine {
             // Md. 22/2 ile elenen saatler yüke HİÇ girmez — denklemde ayrı
             // durmaları bu yüzden.
             tutarli: (hamCizelgeSaati + carpanArtisi - birlesikSubeDusumu
-                      - yoneticiDersDusumu + koordinatorlukEki
+                      - yoneticiDersDusumu + koordinatorlukEki + seflikEki
                       - mesemHaricSaati) === grandTotalHours
         };
         let totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
@@ -182191,8 +182287,10 @@ class MebReportsEngine {
             "-" + m.birlesikSubeDusumu, "Birleştirilen şubede ders tek öğretmene yazılır"));
         if (m.yoneticiDersDusumu) rows.push(satir("Yönetici ders saati (Md. 22/6)",
             "-" + m.yoneticiDersDusumu, "Yöneticilerin okuttugu saatler brans yükünden düsülür"));
-        if (m.koordinatorlukEki) rows.push(satir("Isletmelerde mesleki egitim koordinatörlügü",
-            "+" + m.koordinatorlukEki, "Koordinatörlük yükü brans ders yüküne eklenir (Md. 19/1)"));
+        if (m.koordinatorlukEki) rows.push(satir("Isletmelerde meslek egitimi yükü (MESEM)",
+            "+" + m.koordinatorlukEki, "Md. 22/2 baremiyle bulunan isletme yükü brans ders yüküne eklenir"));
+        if (m.seflikEki) rows.push(satir("Alan / atölye seflikleri",
+            "+" + m.seflikEki, "Seflerin Planlama ve Bakim-Onarim Görevi saati atölye yüküne eklenir (Md. 22/1-c-2)"));
         rows.push(satir("NORMA ESAS ÖGRETMEN DERS YÜKÜ", m.normaEsasYuk,
             "Ögretmen normu bu sayi üzerinden hesaplanir"));
         return rows;
@@ -183008,21 +183106,36 @@ class MebReportsEngine {
             ]);
         });
 
-        // 12. Sınıf Koordinatörlük Cetveli
+        // Alan / atölye şeflikleri (15.09.2026) — saat motorun tek hesabından
+        const sefler = (this.normEngine && typeof this.normEngine.seflikSaatleri === "function")
+            ? this.normEngine.seflikSaatleri((state.okulBilgisi || {}).adminOptions || {}, (state.okulBilgisi || {}).okulTuru || "")
+            : {};
+        const sefSatirlari = Object.entries(sefler);
+        if (sefSatirlari.length > 0) {
+            wsLabRows.push([]);
+            wsLabRows.push(["--- ALAN / ATÖLYE VE LABORATUVAR ŞEFLİKLERİ (PLANLAMA VE BAKIM-ONARIM GÖREVİ) ---"]);
+            wsLabRows.push(["Branş Adı", "Alan Şefi", "Atölye / Laboratuvar Şefi", "Haftalık Saat", "Yasal Dayanak"]);
+            sefSatirlari.forEach(([br, s]) => {
+                wsLabRows.push([br, s.alanSefi ? `Var (${s.alanSaat} saat)` : "-",
+                    s.atolyeSefi ? `${s.atolyeSefi} (${s.atolyeSaat} saat)` : "-", `${s.saat} Saat`,
+                    "Norm Kadro Yön. Md. 20 ve 22/1-c-2; Ek Ders Kararı Md. 6/4; OÖKY Md. 84"]);
+            });
+        }
+        // MESEM: işletmelerde meslek eğitimi yükü düzeltmesi
         const coordMap = state.koordinatorlukYukleri || {};
         const coordEntries = Object.entries(coordMap).filter(([k, v]) => parseInt(v, 10) > 0);
         if (coordEntries.length > 0) {
             wsLabRows.push([]);
-            wsLabRows.push(["--- 12. SINIF İŞLETMELERDE MESLEK EĞİTİMİ (STAJ) KOORDİNATÖRLÜK YÜKLERİ (OÖKY MD. 88) ---"]);
-            wsLabRows.push(["Branş Adı", "Haftalık Ek Koordinatörlük Saati", "Yasal Dayanak"]);
+            wsLabRows.push(["--- İŞLETMELERDE MESLEK EĞİTİMİ YÜKÜ (MESEM, MD. 22/2) ---"]);
+            wsLabRows.push(["Branş Adı", "Haftalık Saat", "Yasal Dayanak"]);
             coordEntries.forEach(([br, val]) => {
-                wsLabRows.push([br, `${val} Saat`, "MEB Ortaöğretim Kurumları Yönetmeliği Madde 88"]);
+                wsLabRows.push([br, `${val} Saat`, "Norm Kadro Yönetmeliği Md. 22/2"]);
             });
         }
 
         const wsLab = xlsxLib.utils.aoa_to_sheet(wsLabRows);
         wsLab['!cols'] = [{ wch: 6 }, { wch: 16 }, { wch: 10 }, { wch: 16 }, { wch: 34 }, { wch: 28 }, { wch: 14 }, { wch: 12 }, { wch: 16 }, { wch: 12 }, { wch: 36 }];
-        xlsxLib.utils.book_append_sheet(wb, wsLab, "Atölye & Koordinatörlük");
+        xlsxLib.utils.book_append_sheet(wb, wsLab, "Atölye & Şeflik");
 
 
         // SEKME 5: NORM KADRO EYLEM VE İHTİYAÇ/FAZLALIK PLANI
@@ -183927,6 +184040,10 @@ class CloudDatabaseService {
             if (data.adminOptions && data.adminOptions.yoneticiDersYukleri)
                 data.adminOptions.yoneticiDersYukleri =
                     this._haritaCoz(data.adminOptions.yoneticiDersYukleri);
+            for (const tablo of ["alanSefleri", "atolyeSefleri"]) {
+                if (data.adminOptions && data.adminOptions[tablo])
+                    data.adminOptions[tablo] = this._haritaCoz(data.adminOptions[tablo]);
+            }
         }
         if (data && (Array.isArray(data.subeler) || data.okulAdi)) {
             this.lastSyncTime = new Date();
@@ -184096,6 +184213,10 @@ class CloudDatabaseService {
         if (adminSecenekleri.yoneticiDersYukleri) {
             adminSecenekleri.yoneticiDersYukleri =
                 this._haritaKodla(adminSecenekleri.yoneticiDersYukleri);
+        }
+        // Şeflik tabloları da branş adıyla anahtarlanıyor ("Kimya / Kimya Teknolojisi").
+        for (const tablo of ["alanSefleri", "atolyeSefleri"]) {
+            if (adminSecenekleri[tablo]) adminSecenekleri[tablo] = this._haritaKodla(adminSecenekleri[tablo]);
         }
 
         const veri = {
@@ -184722,7 +184843,11 @@ class AppStateService {
                     isIlceEnKalabalikKurum: false,
                     mevcutRehberOgretmeni: 1,
                     mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
-                    yoneticiDersYukleri: {}
+                    yoneticiDersYukleri: {},
+                    // Şeflikler valilik oluruyla kurulur (OÖKY Md. 84); demoda iki alanın
+                    // alan şefi var: her biri +10 saat atölye yükü (Md. 22/1-c-2).
+                    alanSefleri: { "Bilişim Teknolojileri": 1, "Elektrik-Elektronik Teknolojisi": 1 },
+                    atolyeSefleri: {}
                 }
             },
             // 9. sinif meslek lisesinde ALANSIZDIR (ortak program); alan
@@ -184736,8 +184861,8 @@ class AppStateService {
                 yap("10-B", 10, 22, ELK[0], ELK[1]),   // 22 ogr -> 2 grup
                 yap("11-A", 11, 20, BIL[0], BIL[1]),   // 20 ogr -> 2 grup
                 yap("11-B", 11, 18, ELK[0], ELK[1]),   // 18 ogr -> 2 grup
-                yap("12-A", 12, 15, BIL[0], BIL[1]),   // 15 ogr -> 1 grup + koordinatorluk
-                yap("12-B", 12, 14, ELK[0], ELK[1])    // 14 ogr -> 1 grup + koordinatorluk
+                yap("12-A", 12, 15, BIL[0], BIL[1]),   // 15 ogr -> 1 grup
+                yap("12-B", 12, 14, ELK[0], ELK[1])    // 14 ogr -> 1 grup
             ],
             aktifSubeId: "sube_mdemo_10a",
             mevcutOgretmenler: {
@@ -186058,6 +186183,39 @@ class AppStateService {
         return false;
     }
 
+    /**
+     * ESKİ KOORDİNATÖRLÜK SAATİ -> ŞEFLİK (kullanıcı kararı, 15.09.2026)
+     *
+     * Meslek liselerinde "koordinatörlük" sekmesine yazılan saat, müdürlerin
+     * anlattığı uygulamada alan şefliğinin 10 saatiydi; norm hesabında dayanağı
+     * olan kalem şefliktir (Md. 22/1-c-2). Yüklemede bir kez çevrilir:
+     * 10 ve üzeri -> alan şefi var, kalan her 6 saat -> bir atölye/lab şefi.
+     * Sonra koordinatörlük tablosu boşaltılır, yoksa aynı saat iki kez sayılırdı.
+     * MESEM'e dokunulmaz: orada bu tablo Md. 22/2 işletme yükü düzeltmesidir.
+     * Branş için zaten şeflik girilmişse eski değer ÜZERİNE YAZILMAZ.
+     */
+    _koordinatorluguSeflikeCevir() {
+        const ob = this.state && this.state.okulBilgisi;
+        const eski = this.state && this.state.koordinatorlukYukleri;
+        if (!ob || !eski || typeof eski !== "object" || !Object.keys(eski).length) return;
+        const tur = String(ob.okulTuru || "");
+        if (tur.includes("mesleki_egitim_merkezi") || tur.includes("mesem")) return;
+        const ao = ob.adminOptions = ob.adminOptions || {};
+        const alan = Object.assign({}, ao.alanSefleri || {});
+        const atolye = Object.assign({}, ao.atolyeSefleri || {});
+        for (const [brans, deger] of Object.entries(eski)) {
+            const saat = parseInt(deger, 10) || 0;
+            if (saat <= 0 || brans in alan || brans in atolye) continue;
+            const alanSefi = saat >= 10 ? 1 : 0;
+            const atolyeSefi = Math.floor((saat - 10 * alanSefi) / 6);
+            if (alanSefi) alan[brans] = 1;
+            if (atolyeSefi > 0) atolye[brans] = atolyeSefi;
+        }
+        ao.alanSefleri = alan;
+        ao.atolyeSefleri = atolye;
+        this.state.koordinatorlukYukleri = {};
+    }
+
     sanitizeExistingState() {
         // GÜVENLİK (Denetim G-01, 15.09.2026): okul verisi uygulamaya hangi
         // yoldan girerse girsin (bulut, yerel kopya, sürüm geçmişi, proje
@@ -186065,6 +186223,7 @@ class AppStateService {
         const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
             : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
         if (guvenlik && this.state) guvenlik.durumuTemizle(this.state);
+        this._koordinatorluguSeflikeCevir();
         if (!this.state || !Array.isArray(this.state.subeler)) return;
         this.state.subeler.forEach(sec => {
             this.sanitizeSection(sec);
@@ -189538,41 +189697,38 @@ class UIComponentManager {
             `;
         }).join("");
 
-        // KOORDİNATÖRLÜK BRANŞLARI NORM MOTORUNDAN GELİR (14.09.2026)
+        // ŞEFLİKLER (kullanıcı kararı, 15.09.2026)
         // ----------------------------------------------------------------
-        // Kullanıcı bulgusu: "koordinatörlük sekmesinde meslekî branşların
-        // hepsi yoktu". Sebep: bu ekran okul ALANININ adından "Alanı" kelimesini
-        // atıp öğretmen BRANŞI arıyordu. İkisi çoğu zaman aynı ad değil:
-        //   Bilişim Teknolojileri Alanı  -> branş meslek listesinde değil
-        //                                   (kültür listesinde) -> satır YOK
-        //   Kimya Teknolojisi Alanı      -> branş "Kimya / Kimya Teknolojisi"
-        //   Otomotiv Teknolojileri Alanı -> branş "Motorlu Araçlar Teknolojisi"
-        //   Marmara Gastronomi ... Alanı -> branş "Yiyecek İçecek Hizmetleri"
-        // Alanın dersleri zaten doğru branşa atanıyor (curriculumEngine
-        // AREA_BRANCH_MAP) ve norm motoru koordinatörlüğü o branşa yazıyor.
-        // Ekran artık aynı cevabı motordan alır: bir satırın "aktif" sayılması
-        // ve varsayılan saati, motorun hesapladığı koordinatörlük yüküdür
-        // (MTAL'de 12. sınıf için 10 saat; MESEM'de Md. 22/2 grup hesabı).
-        // Uydurma branş adı eklemek gerekmez; eklenirse o saat asıl branşın
-        // normuna girmez, dersi olmayan ayrı bir satır olarak kalırdı.
-        const varsayilanKoordinatorluk = {};
+        // Bu sekme eskiden "12. sınıf koordinatörlüğü" saatini soruyordu ve
+        // motor 12. sınıfı olan her meslek branşına kendiliğinden 10 saat
+        // ekliyordu. Müdürlerin anlattığı uygulamada o 10 saat ALAN ŞEFLİĞİNİN
+        // saatidir; norm hesabındaki dayanağı da şefliktir (Norm Kadro Yön.
+        // Md. 22/1-c-2; saatler Ek Ders Kararı Md. 6/4). Şeflik valilik oluruyla
+        // kurulur; uygulama sayısını tahmin etmez, idareci işaretler.
+        // Branş listesi yine motordan ve müfredat motorundan gelir (14.09.2026
+        // düzeltmesi korunur): meslek branşları + alan branşları + okulda
+        // aktif olanlar + zaten şeflik girilmiş olanlar.
+        const isMesemOkul = schoolType.includes("mesleki_egitim_merkezi") || schoolType.includes("mesem");
+        const alanSefleri = adminOpts.alanSefleri || {};
+        const atolyeSefleri = adminOpts.atolyeSefleri || {};
+        const aktifBranslar = new Set();
+        const varsayilanKoordinatorluk = {};   // yalnız MESEM: Md. 22/2 işletme yükü
         if (isVocationalSchool) {
             const onizleme = this.normEngine.calculateSchoolNorms(subeler, {}, schoolType, {});
             (onizleme.branchReport || []).forEach(r => {
+                if ((parseInt(r.totalHours, 10) || 0) > 0) aktifBranslar.add(r.branchName);
                 const saat = parseInt(r.coordinatorHours, 10) || 0;
                 if (saat > 0) varsayilanKoordinatorluk[r.branchName] = saat;
             });
         }
-        const activeVocBranchesSet = new Set(Object.keys(varsayilanKoordinatorluk));
-        // TAM LİSTE (kullanıcı isteği, 14.09.2026): meslek branşları + bir
-        // okul alanının derslerini okutan her tanınmış branş (Bilişim
-        // Teknolojileri, Görsel Sanatlar kültür listesinde durur) + okulda
-        // aktif olanlar. Kadro sekmesine dokunulmaz; orada branş TEK satırdır.
         const alanBranslari = (this.curriculum && typeof this.curriculum.koordinatorlukBranslari === "function")
             ? this.curriculum.koordinatorlukBranslari()
             : [];
+        const meslekiBransKumesi = new Set([...vocBranches, ...alanBranslari]);
+        const activeVocBranchesSet = new Set([...aktifBranslar].filter(b => meslekiBransKumesi.has(b)));
         const allVocBranches = isVocationalSchool
-            ? [...new Set([...vocBranches, ...alanBranslari, ...activeVocBranchesSet])]
+            ? [...new Set([...vocBranches, ...alanBranslari, ...activeVocBranchesSet,
+                ...Object.keys(alanSefleri), ...Object.keys(atolyeSefleri)])]
             : [];
 
         const sortedVocBranches = isVocationalSchool ? [...allVocBranches].sort((a, b) => {
@@ -189582,25 +189738,54 @@ class UIComponentManager {
             return a.localeCompare(b, 'tr');
         }) : [];
 
-        const coordinatorRowsHtml = sortedVocBranches.map(bName => {
+        const sefHesabi = isVocationalSchool
+            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType)
+            : {};
+        const seflikRowsHtml = sortedVocBranches.map(bName => {
             const isActive = activeVocBranchesSet.has(bName);
-            const currentHours = (coordinatorMap[bName] !== undefined) ? coordinatorMap[bName] : (varsayilanKoordinatorluk[bName] || 0);
+            const alanVar = (parseInt(alanSefleri[bName], 10) || 0) > 0;
+            const atolyeSayi = Math.max(0, parseInt(atolyeSefleri[bName], 10) || 0);
+            const saat = (sefHesabi[bName] || {}).saat || 0;
+            const ad = NormGuvenlik.htmlKacis(bName);
             return `
-                <div class="coordinator-area-item" data-search="${bName.toLowerCase()}" style="display: flex; align-items: center; justify-content: space-between; padding: 0.48rem 0.6rem; border-bottom: 1px solid var(--border-subtle); background: ${isActive ? 'rgba(147, 51, 234, 0.05)' : 'var(--bg-card-subtle)'}; border-left: 3px solid ${isActive ? '#9333ea' : 'transparent'}; border-radius: 6px; margin-bottom: 0.35rem;">
+                <div class="coordinator-area-item" data-search="${ad.toLowerCase()}" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.48rem 0.6rem; border-bottom: 1px solid var(--border-subtle); background: ${isActive ? 'rgba(147, 51, 234, 0.05)' : 'var(--bg-card-subtle)'}; border-left: 3px solid ${saat > 0 ? '#9333ea' : 'transparent'}; border-radius: 6px; margin-bottom: 0.35rem;">
                     <div>
                         <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 0.35rem;">
-                            <span>${isActive ? '⚡' : '🟣'} ${bName}</span>
+                            <span>${isActive ? '⚡' : '🟣'} ${ad}</span>
                             ${isActive ? '<span style="font-size: 0.65rem; background: rgba(147, 51, 234, 0.15); color: #7e22ce; font-weight: 800; padding: 0.08rem 0.4rem; border-radius: 4px;">Okulda Aktif Alan</span>' : ''}
                         </div>
-                        <div style="font-size: 0.68rem; color: var(--text-muted);">12. Sınıf İşletmelerde Mesleki Eğitim Staj Denetim Yükü</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted);">Planlama ve Bakım-Onarım Görevi: <b>${saat}</b> saat</div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 0.35rem;">
-                        <input type="number" class="form-control coordinator-hours-input" data-branch="${bName}" value="${currentHours}" min="0" max="60" style="width: 68px; padding: 0.2rem 0.35rem; text-align: center; font-weight: 800; color: #7e22ce;">
-                        <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">Saat</span>
+                    <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: nowrap; justify-content: flex-end; flex-shrink: 0;">
+                        <label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : 'Alan / bölüm şefi: haftada 10 saat'}">
+                            <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
+                            Alan şefi
+                        </label>
+                        <input type="number" class="seflik-atolye-input" data-branch="${ad}" value="${atolyeSayi}" min="0" max="20" style="width: 58px; padding: 0.2rem 0.3rem; text-align: center; font-size: 0.82rem; font-weight: 800; color: #7e22ce; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: var(--radius-md); outline: none;" title="Atölye / laboratuvar şefi sayısı: her biri haftada 6 saat">
+                        <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">atölye/lab. şefi</span>
                     </div>
                 </div>
             `;
         }).join("");
+
+        // MESEM: Md. 22/2 işletme yükü (idareci gerekirse branş bazında düzeltir)
+        const coordinatorRowsHtml = isMesemOkul ? sortedVocBranches
+            .filter(bName => varsayilanKoordinatorluk[bName] !== undefined || coordinatorMap[bName] !== undefined)
+            .map(bName => {
+                const currentHours = (coordinatorMap[bName] !== undefined) ? coordinatorMap[bName] : (varsayilanKoordinatorluk[bName] || 0);
+                const ad = NormGuvenlik.htmlKacis(bName);
+                return `
+                <div class="coordinator-area-item" data-search="${ad.toLowerCase()}" style="display: flex; align-items: center; justify-content: space-between; padding: 0.48rem 0.6rem; border-bottom: 1px solid var(--border-subtle); background: var(--bg-card-subtle); border-left: 3px solid #9333ea; border-radius: 6px; margin-bottom: 0.35rem;">
+                    <div>
+                        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main);">🏭 ${ad}</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted);">İşletmelerde meslek eğitimi yükü (Md. 22/2 baremi)</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                        <input type="number" class="form-control coordinator-hours-input" data-branch="${ad}" value="${currentHours}" min="0" max="400" style="width: 68px; padding: 0.2rem 0.35rem; text-align: center; font-weight: 800; color: #7e22ce;">
+                        <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">Saat</span>
+                    </div>
+                </div>`;
+            }).join("") : "";
 
         const modalHtml = `
             <div class="modal-overlay active" id="staff-modal">
@@ -189620,7 +189805,7 @@ class UIComponentManager {
                             </button>
                             ${isVocationalSchool ? `
                                 <button class="btn btn-sm btn-outline staff-tab-btn" data-target="staff-coordinator-tab" style="color: #7e22ce; border-color: #d8b4fe;">
-                                    🏢 Koordinatörlük
+                                    🛠️ Şeflikler
                                 </button>
                             ` : ''}
                         </div>
@@ -189837,10 +190022,14 @@ class UIComponentManager {
                             <div id="staff-coordinator-tab" class="staff-tab-content" style="display: none;">
                                 <div style="background: rgba(147, 51, 234, 0.08); border: 1px solid rgba(147, 51, 234, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.75rem;">
                                     <div style="font-size: 0.8rem; font-weight: 800; color: #7e22ce; margin-bottom: 0.2rem;">
-                                        📌 12. Sınıf İşletmelerde Mesleki Eğitim Koordinatörlük Yükü (Norm Kadro Yön. Md. 15):
+                                        🛠️ Alan / Bölüm, Atölye ve Laboratuvar Şeflikleri
                                     </div>
-                                    <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.4;">
-                                        MEB Norm Kadro Yönetmeliği uyarınca işletmelere staja giden 12. sınıf öğrencileri için alan öğretmenlerine haftalık koordinatörlük ek ders yükü verilir.
+                                    <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.45;">
+                                        Görevlendirilmiş şefleri işaretleyin. Şefliğin <b>Planlama ve Bakım-Onarım Görevi</b> saati
+                                        (alan şefi haftada <b>10</b>, her atölye/laboratuvar şefi <b>6</b> saat; Ek Ders Kararı Md. 6/4)
+                                        branşın atölye ve laboratuvar ders yüküne eklenir (Norm Kadro Yön. Md. 20 ve 22/1-c-2; şeflikler OÖKY Md. 84).
+                                        ${isMesemOkul ? '<br><b>MESEM:</b> alan şefliği oluşturulmaz; yalnızca atölye ve laboratuvar şefliği (OÖKY Md. 84/1).' : ''}
+                                        <br>Uygulama şeflik sayısını kendisi tahmin etmez; işaretlenmeyen branşa saat eklenmez.
                                     </div>
                                 </div>
 
@@ -189849,7 +190038,8 @@ class UIComponentManager {
                                 </div>
 
                                 <div id="coordinator-items-container" style="max-height: 40vh; overflow-y: auto; padding-right: 0.25rem;">
-                                    ${coordinatorRowsHtml}
+                                    ${seflikRowsHtml}
+                                    ${coordinatorRowsHtml ? '<div style="font-size: 0.78rem; font-weight: 800; color: #7e22ce; margin: 0.8rem 0 0.4rem;">🏭 İşletmelerde Meslek Eğitimi Yükü (Md. 22/2)</div>' + coordinatorRowsHtml : ''}
                                 </div>
                             </div>
                         ` : ''}
@@ -190108,6 +190298,17 @@ class UIComponentManager {
                 if (saat > 0) yoneticiDersYukleri[input.dataset.branch] = saat;
             });
 
+            // ŞEFLİKLER (15.09.2026): alan şefi (0/1) ve atölye/laboratuvar şefi sayısı
+            const alanSefleri = {};
+            document.querySelectorAll(".seflik-alan-input").forEach(input => {
+                if (input.checked && !input.disabled) alanSefleri[input.dataset.branch] = 1;
+            });
+            const atolyeSefleri = {};
+            document.querySelectorAll(".seflik-atolye-input").forEach(input => {
+                const n = Math.max(0, Math.min(20, parseInt(input.value, 10) || 0));
+                if (n > 0) atolyeSefleri[input.dataset.branch] = n;
+            });
+
             const adminOptsToSave = {
                 isPansiyonluMdrYrd: !!document.getElementById("chk-admin-pansiyon")?.checked,
                 isPansiyonluBasyrd: !!document.getElementById("chk-admin-pansiyon-basyrd")?.checked,
@@ -190127,7 +190328,9 @@ class UIComponentManager {
                     mudurYardimcisi: parseInt(document.getElementById("inp-mevcut-mdryrd")?.value, 10) || 0,
                     rehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0
                 },
-                yoneticiDersYukleri: yoneticiDersYukleri
+                yoneticiDersYukleri: yoneticiDersYukleri,
+                alanSefleri: alanSefleri,
+                atolyeSefleri: atolyeSefleri
             };
             this.state.setAdminOptions(adminOptsToSave);
 
@@ -191148,6 +191351,7 @@ class UIComponentManager {
                 fark: rap.diff || 0,
                 dusum: rap.adminDeductedHours || 0,
                 koord: rap.coordinatorHours || 0,
+                seflik: rap.seflikHours || 0,
                 // Bu branşın ders satırlarında görünen ama yüküne YAZILMAYAN
                 // saatler: özel eğitim şubelerinden gelenler. Md. 17'ye göre
                 // o şubelerin normu ayrı verilir; saatleri Md. 18 yüküne
@@ -191177,7 +191381,7 @@ class UIComponentManager {
                 ad: "Özel Eğitim", ozelKart: true, meslek: false, dersler: [],
                 motordan: true, yuk: oz.totalHours || 0, norm: oz.calculatedNorm || 0,
                 mevcut: oz.currentTeachers || 0, fark: oz.diff || 0,
-                dusum: 0, koord: 0, ozelEgitim: 0, detay: oz.ozelEgitimDetay || []
+                dusum: 0, koord: 0, seflik: 0, ozelEgitim: 0, detay: oz.ozelEgitimDetay || []
             }];
         })()).sort((a, b) =>
             puan(a) - puan(b) || Math.abs(b.fark) - Math.abs(a.fark) || b.yuk - a.yuk);
@@ -191274,11 +191478,12 @@ class UIComponentManager {
             // (Türk Dili başlığı 74 derken satırları 80 topluyordu.)
             const satirToplami = dersler.reduce((t, c) => t + (c.totalHours || 0), 0);
             const bransFarki = b.yuk - satirToplami;
-            const kalanFark = bransFarki + b.dusum - b.koord + b.ozelEgitim;
+            const kalanFark = bransFarki + b.dusum - b.koord - b.seflik + b.ozelEgitim;
 
             const dipnot = [];
             if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
-            if (b.koord) dipnot.push(`İşletmelerde mesleki eğitim koordinatörlüğü <b>+${b.koord}</b> saat eklendi (Md. 19/1).`);
+            if (b.koord) dipnot.push(`İşletmelerde meslek eğitimi yükü <b>+${b.koord}</b> saat eklendi (Md. 22/2).`);
+            if (b.seflik) dipnot.push(`Alan / atölye şefliği (Planlama ve Bakım-Onarım Görevi) <b>+${b.seflik}</b> saat eklendi (Md. 22/1-c-2).`);
             if (b.ozelEgitim) dipnot.push(`Özel eğitim şubelerinin <b>${b.ozelEgitim}</b> saati bu branşın yüküne yazılmadı: `
                 + `o şubelerin normu şube başına ayrıca veriliyor (Md. 17/1) ve dersleri özel eğitim öğretmeni okutuyor.`);
             if (kalanFark !== 0) {
@@ -191443,8 +191648,10 @@ class UIComponentManager {
               not: "Birleştirilen şubelerde ders tek öğretmen tarafından okutulduğu için yüke bir kez yazılır." },
             { ad: "Yönetici ders saati (Md. 22/6)", kisa: "yönetici", deger: -m.yoneticiDersDusumu, isaret: "−",
               not: "Yöneticilerin okuttuğu saatler branşın ders yükünden düşülür." },
-            { ad: "İşletmelerde mesleki eğitim koordinatörlüğü", kisa: "koordinatörlük", deger: m.koordinatorlukEki, isaret: "+",
-              not: "Koordinatörlük görevi branşın ders yüküne eklenir (Md. 19/1)." }
+            { ad: "İşletmelerde meslek eğitimi yükü (MESEM)", kisa: "işletme", deger: m.koordinatorlukEki, isaret: "+",
+              not: "Md. 22/2 baremiyle bulunan işletme yükü branşın ders yüküne eklenir." },
+            { ad: "Alan / atölye şeflikleri", kisa: "şeflik", deger: m.seflikEki || 0, isaret: "+",
+              not: "Şeflerin Planlama ve Bakım-Onarım Görevi saati atölye yüküne eklenir (Md. 22/1-c-2)." }
         ].filter(r => r.deger !== 0);
         // Özel eğitim saatleri denklemin İKİ TARAFINDA da var (ham çizelgede
         // ve norma esas yükte), o yüzden bir GEÇİŞ KALEMİ değil. Ama branş
@@ -191539,7 +191746,8 @@ class UIComponentManager {
         if (m.carpanArtisi) kalemler.push(`bölünme ${m.carpanArtisi > 0 ? "+" : "−"}${Math.abs(m.carpanArtisi)}`);
         if (m.birlesikSubeDusumu) kalemler.push(`birleştirme −${m.birlesikSubeDusumu}`);
         if (m.yoneticiDersDusumu) kalemler.push(`yönetici −${m.yoneticiDersDusumu}`);
-        if (m.koordinatorlukEki) kalemler.push(`koordinatörlük +${m.koordinatorlukEki}`);
+        if (m.koordinatorlukEki) kalemler.push(`işletme +${m.koordinatorlukEki}`);
+        if (m.seflikEki) kalemler.push(`şeflik +${m.seflikEki}`);
         return `
             <div class="exec-stat-mutabakat" title="Şube çizelgesi toplamı ile norma esas öğretmen ders yükü arasındaki fark. Ayrıntılı döküm, Master Ders Dağıtım Matrisi raporunun altındadır.">
                 çizelge ${m.hamCizelgeSaati} · ${kalemler.join(" · ")}
@@ -192076,7 +192284,10 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
         const stateData = this.state.state;
         const antet = stateData.okulBilgisi.antet || {};
 
-        // 12. Sınıf Koordinatörlük Cetveli
+        // Alan / atölye şeflikleri — saat motorun tek hesabından (15.09.2026)
+        const sefSatirlari = Object.entries(this.normEngine.seflikSaatleri(
+            stateData.okulBilgisi.adminOptions || {}, stateData.okulBilgisi.okulTuru || ""));
+        // MESEM: işletmelerde meslek eğitimi yükü düzeltmesi
         const coordMap = stateData.koordinatorlukYukleri || {};
         const coordEntries = Object.entries(coordMap).filter(([k, v]) => parseInt(v, 10) > 0);
 
@@ -192092,7 +192303,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
-                        <div class="print-doc-title">MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ VE KOORDİNATÖRLÜK RAPORU</div>
+                        <div class="print-doc-title">MESLEKİ VE TEKNİK ATÖLYE / GRUP BÖLÜNMELERİ VE ŞEFLİK RAPORU</div>
                     </div>
                     <div class="print-meta-right">
                         <div><strong>Eğt. Sezonu:</strong> ${stateData.okulBilgisi.sezon || '2026-2027'}</div>
@@ -192104,7 +192315,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             <div class="report-page-header no-print">
                 <div class="report-page-title">${data.title}</div>
-                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • MEB Ortaöğretim Kurumları Yönetmeliği Madde 134 ve Madde 88 Barem Denetimi</div>
+                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Norm Kadro Yönetmeliği Md. 19, 22/1-ç ve 22/1-c-2 Denetimi</div>
             </div>
 
             <!-- KPI Kartları -->
@@ -192128,7 +192339,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             <!-- Bilgilendirme Kutusu (Mevzuat Baremi) -->
             <div class="meb-regulation-notice-box" style="background: rgba(2, 132, 199, 0.06); border: 1.5px solid rgba(2, 132, 199, 0.25); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.76rem; color: #0369a1;">
-                <strong>📜 MEB Mevzuat Baremi (OÖKY Md. 134):</strong> 10-20 Öğrenci ➔ <strong>1 Grup</strong> | 21-30 Öğrenci ➔ <strong>2 Grup</strong> | 31-40 Öğrenci ➔ <strong>3 Grup</strong> | 41+ Öğrenci ➔ <strong>4 Grup</strong> olarak hesaplanır.
+                <strong>📜 Grup baremi (Norm Kadro Yön. Md. 22/1-ç):</strong> 9. sınıf: 10-21 öğrenci ➔ <strong>1</strong>, 21-31 ➔ <strong>2</strong>, 31’den fazla ➔ <strong>3 grup</strong> · 10-12. sınıf: 8-17 ➔ <strong>1</strong>, 17-25 ➔ <strong>2</strong>, 25-33 ➔ <strong>3</strong>, 33 ve fazlası ➔ <strong>4 grup</strong>. Bir şube en çok 4 gruba bölünür (kaynaştırma öğrencisiyle en çok 5). Grup oluşturma sayısının altındaki şube bölünmez.
             </div>
 
             <div class="table-responsive-container">
@@ -192164,31 +192375,50 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                 </table>
             </div>
 
-            <!-- 12. Sınıf Koordinatörlük Bölümü -->
-            ${coordEntries.length > 0 ? `
+            <!-- Alan / atölye şeflikleri ve MESEM işletme yükü (15.09.2026) -->
+            ${(sefSatirlari.length + coordEntries.length) > 0 ? `
                 <div style="margin-top: 2rem; background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 10px; padding: 1rem 1.25rem;">
+                    ${sefSatirlari.length > 0 ? `
                     <div style="font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.65rem; display: flex; align-items: center; justify-content: space-between;">
-                        <span>🏢 12. SINIF İŞLETMELERDE MESLEK EĞİTİMİ (STAJ) KOORDİNATÖRLÜK YÜKLERİ</span>
-                        <span style="font-size: 0.72rem; color: #7c3aed; background: rgba(124, 58, 237, 0.1); padding: 0.15rem 0.55rem; border-radius: 6px;">OÖKY Madde 88 Hükmü</span>
+                        <span>🛠️ ALAN / ATÖLYE VE LABORATUVAR ŞEFLİKLERİ (PLANLAMA VE BAKIM-ONARIM GÖREVİ)</span>
+                        <span style="font-size: 0.72rem; color: #7c3aed; background: rgba(124, 58, 237, 0.1); padding: 0.15rem 0.55rem; border-radius: 6px;">Norm Kadro Yön. Md. 22/1-c-2</span>
                     </div>
                     <table class="report-data-table">
                         <thead>
                             <tr>
-                                <th>MESLEK ALANI / BRANŞ</th>
-                                <th>HAFTALIK KOORDİNATÖRLÜK YÜKÜ</th>
+                                <th>BRANŞ</th>
+                                <th>ALAN ŞEFİ</th>
+                                <th>ATÖLYE / LAB. ŞEFİ</th>
+                                <th>HAFTALIK SAAT</th>
                                 <th>YASAL DAYANAK</th>
                             </tr>
                         </thead>
                         <tbody>
-                            ${coordEntries.map(([br, val]) => `
+                            ${sefSatirlari.map(([br, s]) => `
                                 <tr>
-                                    <td class="font-medium">🟣 ${br}</td>
-                                    <td><strong style="color: #7c3aed;">+${val} Saat</strong></td>
-                                    <td class="text-muted text-sm">MEB Ortaöğretim Kurumları Yönetmeliği Madde 88 (Öğretmen Başına Koordinatörlük)</td>
+                                    <td class="font-medium">🟣 ${NormGuvenlik.htmlKacis(br)}</td>
+                                    <td>${s.alanSefi ? 'Var (' + s.alanSaat + ' s)' : '—'}</td>
+                                    <td>${s.atolyeSefi ? s.atolyeSefi + ' (' + s.atolyeSaat + ' s)' : '—'}</td>
+                                    <td><strong style="color: #7c3aed;">+${s.saat} Saat</strong></td>
+                                    <td class="text-muted text-sm">Norm Kadro Yön. Md. 20 ve 22/1-c-2 · Ek Ders Kararı Md. 6/4 · OÖKY Md. 84</td>
                                 </tr>
                             `).join('')}
                         </tbody>
-                    </table>
+                    </table>` : ''}
+                    ${coordEntries.length > 0 ? `
+                    <div style="font-size: 0.9rem; font-weight: 800; color: var(--text-main); margin: 1rem 0 0.65rem;">🏭 İŞLETMELERDE MESLEK EĞİTİMİ YÜKÜ (MESEM, MD. 22/2)</div>
+                    <table class="report-data-table">
+                        <thead><tr><th>BRANŞ</th><th>HAFTALIK SAAT</th><th>YASAL DAYANAK</th></tr></thead>
+                        <tbody>
+                            ${coordEntries.map(([br, val]) => `
+                                <tr>
+                                    <td class="font-medium">🏭 ${NormGuvenlik.htmlKacis(br)}</td>
+                                    <td><strong style="color: #7c3aed;">+${val} Saat</strong></td>
+                                    <td class="text-muted text-sm">Norm Kadro Yönetmeliği Md. 22/2</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>` : ''}
                 </div>
             ` : ''}
         `;
@@ -193952,9 +194182,9 @@ class MebNormApplication {
 
         const schoolType = info.okulTuru || "";
         const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, appState.state.subeler);
-        const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
+        const headerStaffText = isVocationalSchool ? "🏢 Kadro & Şeflikler" : "👨‍🏫 Kadro Yönetimi";
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
-        const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
+        const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve Alan / Atölye Şeflikleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
         /* SÜRÜM NUMARASI (13.09.2026)
            Tek kaynak js/surum.js. Burada logonun altında küçük bir etiket
@@ -195326,7 +195556,7 @@ class MebNormApplication {
         }).join("");
 
         const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
-        const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve 12. Sınıf Koordinatörlük Yüklerini Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
+        const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve Şeflikleri Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
 
         panelEl.innerHTML = `
             <div class="norm-panel-header">
@@ -195457,7 +195687,8 @@ class MebNormApplication {
                     </div>
                     <div class="bubble-footer">
                         <div>📊 Toplam Ders Yükü: <strong class="bubble-total-val">${bData.totalHours} Saat</strong></div>
-                        ${bData.coordinatorHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🏢 12. Sınıf İşletme Koordinatörlüğü: +${bData.coordinatorHours}s (OÖKY Md.88)</div>` : ''}
+                        ${bData.coordinatorHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🏭 İşletmelerde Meslek Eğitimi: +${bData.coordinatorHours}s (Md. 22/2)</div>` : ''}
+                        ${bData.seflikHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🛠️ Alan / Atölye Şefliği: +${bData.seflikHours}s (Md. 22/1-c-2)</div>` : ''}
                         <div>📜 <strong>${bData.formulaExplanation}</strong></div>
                     </div>
                 </div>

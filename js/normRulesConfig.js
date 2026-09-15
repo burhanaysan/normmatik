@@ -322,6 +322,28 @@ export const NORM_RULES_CONFIG = {
     },
 
     /* =====================================================================
+     * 7a. ALAN / ATÖLYE VE LABORATUVAR ŞEFLİKLERİ (15.09.2026)
+     * ---------------------------------------------------------------------
+     * Norm Kadro Yön. Md. 22/1-c-2: "Alan itibarıyla ders yükünün
+     *  hesaplanmasında; ... Alan/bölüm, atölye ve laboratuvar şeflerinin,
+     *  atölyelerdeki makine ve teçhizatın bakımı, onarımı ve öğretime hazır
+     *  halde bulundurulması kapsamında yaptıkları göreve ilişkin ders saatleri
+     *  de dikkate alınır."  Md. 20: şef norm kadrosu alanın öğretmen normu
+     *  içinde değerlendirilir.
+     * Saat miktarı — Ek Ders Kararı Md. 6/4: "...bölüm şefleri için haftada 10,
+     *  atölye ve laboratuvar şefleri için ise haftada 6 saati ek ders görevi
+     *  sayılır. Bu dersler ders dağıtım çizelgesinde 'Planlama ve Bakım-Onarım
+     *  Görevi' adıyla gösterilir."
+     * Şeflik kurulması: OÖKY Md. 84 (her alan için bir alan şefliği; donanımlı
+     *  atölye/laboratuvar için komisyon tespiti; MESEM'de alan şefliği yok).
+     * ===================================================================== */
+    seflikRules: {
+        legalRef: "Norm Kadro Yönetmeliği Md. 20 ve 22/1-c-2; Ek Ders Kararı Md. 6/4; OÖKY Md. 84",
+        alanSefiSaat: 10,
+        atolyeLabSefiSaat: 6
+    },
+
+    /* =====================================================================
      * 7b. ŞUBE ÖĞRENCİ SAYISI (şube bölme sihirbazının dayanağı)
      * ---------------------------------------------------------------------
      * KAYNAK: MEB Ortaöğretim Kurumları Yönetmeliği, kontenjan belirleme

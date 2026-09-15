@@ -600,9 +600,9 @@ class MebNormApplication {
 
         const schoolType = info.okulTuru || "";
         const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, appState.state.subeler);
-        const headerStaffText = isVocationalSchool ? "🏢 Kadro & Koordinatörlük" : "👨‍🏫 Kadro Yönetimi";
+        const headerStaffText = isVocationalSchool ? "🏢 Kadro & Şeflikler" : "👨‍🏫 Kadro Yönetimi";
         const headerStaffClass = isVocationalSchool ? "btn-staff-vocational" : "btn-staff-academic";
-        const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve 12. Sınıf İşletme Koordinatörlük Yükleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
+        const headerStaffTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayıları ve Alan / Atölye Şeflikleri" : "Okul Kadrolu Öğretmen Sayıları ve Branş Dağılımı Yönetimi";
 
         /* SÜRÜM NUMARASI (13.09.2026)
            Tek kaynak js/surum.js. Burada logonun altında küçük bir etiket
@@ -1974,7 +1974,7 @@ class MebNormApplication {
         }).join("");
 
         const isVocationalSchool = normEngine.isMeslekiKurum(schoolType, subeler);
-        const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve 12. Sınıf Koordinatörlük Yüklerini Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
+        const staffBtnTitle = isVocationalSchool ? "Kadrolu Öğretmen Sayılarını ve Şeflikleri Düzenle" : "Kadrolu Öğretmen Sayılarını Düzenle";
 
         panelEl.innerHTML = `
             <div class="norm-panel-header">
@@ -2105,7 +2105,8 @@ class MebNormApplication {
                     </div>
                     <div class="bubble-footer">
                         <div>📊 Toplam Ders Yükü: <strong class="bubble-total-val">${bData.totalHours} Saat</strong></div>
-                        ${bData.coordinatorHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🏢 12. Sınıf İşletme Koordinatörlüğü: +${bData.coordinatorHours}s (OÖKY Md.88)</div>` : ''}
+                        ${bData.coordinatorHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🏭 İşletmelerde Meslek Eğitimi: +${bData.coordinatorHours}s (Md. 22/2)</div>` : ''}
+                        ${bData.seflikHours > 0 ? `<div style="font-size:0.72rem; color:#c084fc; font-weight:700;">🛠️ Alan / Atölye Şefliği: +${bData.seflikHours}s (Md. 22/1-c-2)</div>` : ''}
                         <div>📜 <strong>${bData.formulaExplanation}</strong></div>
                     </div>
                 </div>

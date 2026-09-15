@@ -484,7 +484,11 @@ export class AppStateService {
                     isIlceEnKalabalikKurum: false,
                     mevcutRehberOgretmeni: 1,
                     mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
-                    yoneticiDersYukleri: {}
+                    yoneticiDersYukleri: {},
+                    // Şeflikler valilik oluruyla kurulur (OÖKY Md. 84); demoda iki alanın
+                    // alan şefi var: her biri +10 saat atölye yükü (Md. 22/1-c-2).
+                    alanSefleri: { "Bilişim Teknolojileri": 1, "Elektrik-Elektronik Teknolojisi": 1 },
+                    atolyeSefleri: {}
                 }
             },
             // 9. sinif meslek lisesinde ALANSIZDIR (ortak program); alan
@@ -498,8 +502,8 @@ export class AppStateService {
                 yap("10-B", 10, 22, ELK[0], ELK[1]),   // 22 ogr -> 2 grup
                 yap("11-A", 11, 20, BIL[0], BIL[1]),   // 20 ogr -> 2 grup
                 yap("11-B", 11, 18, ELK[0], ELK[1]),   // 18 ogr -> 2 grup
-                yap("12-A", 12, 15, BIL[0], BIL[1]),   // 15 ogr -> 1 grup + koordinatorluk
-                yap("12-B", 12, 14, ELK[0], ELK[1])    // 14 ogr -> 1 grup + koordinatorluk
+                yap("12-A", 12, 15, BIL[0], BIL[1]),   // 15 ogr -> 1 grup
+                yap("12-B", 12, 14, ELK[0], ELK[1])    // 14 ogr -> 1 grup
             ],
             aktifSubeId: "sube_mdemo_10a",
             mevcutOgretmenler: {
@@ -1820,6 +1824,39 @@ export class AppStateService {
         return false;
     }
 
+    /**
+     * ESKİ KOORDİNATÖRLÜK SAATİ -> ŞEFLİK (kullanıcı kararı, 15.09.2026)
+     *
+     * Meslek liselerinde "koordinatörlük" sekmesine yazılan saat, müdürlerin
+     * anlattığı uygulamada alan şefliğinin 10 saatiydi; norm hesabında dayanağı
+     * olan kalem şefliktir (Md. 22/1-c-2). Yüklemede bir kez çevrilir:
+     * 10 ve üzeri -> alan şefi var, kalan her 6 saat -> bir atölye/lab şefi.
+     * Sonra koordinatörlük tablosu boşaltılır, yoksa aynı saat iki kez sayılırdı.
+     * MESEM'e dokunulmaz: orada bu tablo Md. 22/2 işletme yükü düzeltmesidir.
+     * Branş için zaten şeflik girilmişse eski değer ÜZERİNE YAZILMAZ.
+     */
+    _koordinatorluguSeflikeCevir() {
+        const ob = this.state && this.state.okulBilgisi;
+        const eski = this.state && this.state.koordinatorlukYukleri;
+        if (!ob || !eski || typeof eski !== "object" || !Object.keys(eski).length) return;
+        const tur = String(ob.okulTuru || "");
+        if (tur.includes("mesleki_egitim_merkezi") || tur.includes("mesem")) return;
+        const ao = ob.adminOptions = ob.adminOptions || {};
+        const alan = Object.assign({}, ao.alanSefleri || {});
+        const atolye = Object.assign({}, ao.atolyeSefleri || {});
+        for (const [brans, deger] of Object.entries(eski)) {
+            const saat = parseInt(deger, 10) || 0;
+            if (saat <= 0 || brans in alan || brans in atolye) continue;
+            const alanSefi = saat >= 10 ? 1 : 0;
+            const atolyeSefi = Math.floor((saat - 10 * alanSefi) / 6);
+            if (alanSefi) alan[brans] = 1;
+            if (atolyeSefi > 0) atolye[brans] = atolyeSefi;
+        }
+        ao.alanSefleri = alan;
+        ao.atolyeSefleri = atolye;
+        this.state.koordinatorlukYukleri = {};
+    }
+
     sanitizeExistingState() {
         // GÜVENLİK (Denetim G-01, 15.09.2026): okul verisi uygulamaya hangi
         // yoldan girerse girsin (bulut, yerel kopya, sürüm geçmişi, proje
@@ -1827,6 +1864,7 @@ export class AppStateService {
         const guvenlik = (typeof NormGuvenlik !== 'undefined') ? NormGuvenlik
             : ((typeof window !== 'undefined' && window.NormGuvenlik) ? window.NormGuvenlik : null);
         if (guvenlik && this.state) guvenlik.durumuTemizle(this.state);
+        this._koordinatorluguSeflikeCevir();
         if (!this.state || !Array.isArray(this.state.subeler)) return;
         this.state.subeler.forEach(sec => {
             this.sanitizeSection(sec);

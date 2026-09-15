@@ -263,6 +263,10 @@ export class CloudDatabaseService {
             if (data.adminOptions && data.adminOptions.yoneticiDersYukleri)
                 data.adminOptions.yoneticiDersYukleri =
                     this._haritaCoz(data.adminOptions.yoneticiDersYukleri);
+            for (const tablo of ["alanSefleri", "atolyeSefleri"]) {
+                if (data.adminOptions && data.adminOptions[tablo])
+                    data.adminOptions[tablo] = this._haritaCoz(data.adminOptions[tablo]);
+            }
         }
         if (data && (Array.isArray(data.subeler) || data.okulAdi)) {
             this.lastSyncTime = new Date();
@@ -432,6 +436,10 @@ export class CloudDatabaseService {
         if (adminSecenekleri.yoneticiDersYukleri) {
             adminSecenekleri.yoneticiDersYukleri =
                 this._haritaKodla(adminSecenekleri.yoneticiDersYukleri);
+        }
+        // Şeflik tabloları da branş adıyla anahtarlanıyor ("Kimya / Kimya Teknolojisi").
+        for (const tablo of ["alanSefleri", "atolyeSefleri"]) {
+            if (adminSecenekleri[tablo]) adminSecenekleri[tablo] = this._haritaKodla(adminSecenekleri[tablo]);
         }
 
         const veri = {
