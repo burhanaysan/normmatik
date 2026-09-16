@@ -463,6 +463,22 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
         mesBrans("plastiksanatlar") === "Sanat ve Tasarım / Plastik Sanatlar", mesBrans("plastiksanatlar"));
     kontrol("ESASLAR sıra 52: Metal alanı değişmedi", mesBrans("metal") === "Metal Teknolojisi", mesBrans("metal"));
     kontrol("ESASLAR: Sanat ve Tasarım / Plastik Sanatlar bilinen branş", ce.isKnownBranch("Sanat ve Tasarım / Plastik Sanatlar"));
+    // Kullanıcı onayı 16.09.2026 (esaslar + okul sayfaları): Mikromekanik -> Makine (sıra 49),
+    // Basım Teknolojileri alanı -> Matbaa Teknolojisi (sıra 50), Yapay Zekâ -> Bilişim Teknolojileri.
+    kontrol("ESASLAR sıra 49: Mikromekanik alanı -> Makine ve Tasarım Teknolojisi", mesBrans("mikromekanik") === "Makine ve Tasarım Teknolojisi", mesBrans("mikromekanik"));
+    kontrol("ESASLAR sıra 50: Basım Teknolojileri alanı -> Matbaa Teknolojisi", mesBrans("basim") === "Matbaa Teknolojisi", mesBrans("basim"));
+    kontrol("KARAR: Yapay Zekâ alanı -> Bilişim Teknolojileri", mesBrans("yapayzeka") === "Bilişim Teknolojileri", mesBrans("yapayzeka"));
+    const meslekListesi = w.dbService.getVocationalBranchesList();
+    kontrol("ESASLAR: öğretmenlik alanı olmayan adlar meslek branş listesinde yok (Basım Teknolojileri, Mikromekanik, Siber Güvenlik, Yapay Zekâ)",
+        ["Basım Teknolojileri", "Mikromekanik", "Siber Güvenlik", "Yapay Zekâ"].every(b => !meslekListesi.includes(b)) && meslekListesi.includes("Matbaa Teknolojisi"),
+        meslekListesi.filter(b => ["Basım Teknolojileri", "Mikromekanik", "Siber Güvenlik", "Yapay Zekâ"].includes(b)).join(", "));
+    {
+        const mk = ["makine", "mikromekanik"].map((a, i) => subeYap("mk" + i, "10", a));
+        const makSef = brans(ne.calculateSchoolNorms(mk, {}, MTAL, {}), "Makine ve Tasarım Teknolojisi");
+        kontrol("ALANŞEF Makine + Mikromekanik açık: Makine ve Tasarım Teknolojisi'ne 2 alan şefi (20 saat)", !!makSef && makSef.seflikHours === 20, makSef && makSef.seflikHours);
+    }
+    kontrol("MESEM Matbaa Teknolojisi alanının branşı Matbaa Teknolojisi", /"brans": "Matbaa Teknolojisi"/.test(oku("js", "mesem_curriculum_db.js")) && !/"brans": "Basım Teknolojileri"/.test(oku("js", "mesem_curriculum_db.js")));
+    kontrol("SEÇMELİ meslek dersi branşı merkezi alan-branş tablosundan", /merkeziHarita\[areaKey\] \|\| AREA_BRANCHES\[areaKey\]/.test(oku("js", "uiComponents.js")));
 
     // HER ALANA BİR ŞEF (kullanıcı kararı 16.09.2026, OÖKY Md. 84/1)
     const iki = [subeYap("b10", "10", "bilisim"), subeYap("c10", "10", "siber")];
@@ -642,9 +658,13 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     const r1 = okul(false), r2 = okul(true);
     const oe1 = brans(r1, "Özel Eğitim"), oe2 = brans(r2, "Özel Eğitim");
     kontrol("N08 ölçüm geçerli: normal şubelerden Özel Eğitim'e saat verildi", !!oe1 && oe1.totalHours > 0, oe1 && oe1.totalHours);
-    kontrol("N08 özel şube eklenince okul toplamı = önceki + özel şube saati",
-        r2.totalHours === r1.totalHours + r2.yukMutabakati.ozelEgitimSaati,
-        r1.totalHours + " + " + r2.yukMutabakati.ozelEgitimSaati + " / " + r2.totalHours);
+    // Özel eğitim 2. dalga (16.09.2026): özel şubenin alan öğretmeninin okuttuğu dersleri
+    // (DKAB, görsel sanatlar, müzik, beden eğitimi) ilgili branşa yazılır; ozelEgitimSaati
+    // yalnız özel eğitim öğretmeninin saatidir.
+    const alanaYazilan = r2.branchReport.reduce((t, b) => t + (b.ozelEgitimSinifiSaati || 0), 0);
+    kontrol("N08 özel şube eklenince okul toplamı = önceki + özel şube saati (özel eğitim + alan dersleri)",
+        r2.totalHours === r1.totalHours + r2.yukMutabakati.ozelEgitimSaati + alanaYazilan && alanaYazilan === 8,
+        r1.totalHours + " + " + r2.yukMutabakati.ozelEgitimSaati + " + " + alanaYazilan + " / " + r2.totalHours);
     kontrol("N08 mutabakat tutarlı (rapor paneli gizlenmez)", r2.yukMutabakati.tutarli === true);
     kontrol("N08 normal şube saati Özel Eğitim satırında ayrıca yazılı",
         !!oe2 && oe2.normalSubeSaati === oe1.totalHours && /Normal şubelerden/.test(oe2.formulaExplanation),

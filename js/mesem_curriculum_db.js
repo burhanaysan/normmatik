@@ -16938,7 +16938,7 @@ export const MESEM_CURRICULUM_DB = {
  "matbaa_teknolojisi": {
   "alan_adi": "MATBAA TEKNOLOJİSİ ALANI",
   "gorunen_ad": "Matbaa Teknolojisi Alanı",
-  "brans": "Basım Teknolojileri",
+  "brans": "Matbaa Teknolojisi",
   "protokol": false,
   "kaynak": [
    "2021_matbaa_mem_cop.pdf"

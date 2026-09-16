@@ -148,7 +148,11 @@ class MebCurriculumEngine {
             'aile': 'Aile ve Tüketici Hizmetleri',
             'ayakkabi': 'Ayakkabı ve Saraciye Teknolojisi',
             'ayakkabipro': 'Ayakkabı ve Saraciye Teknolojisi',
-            'basim': 'Basım Teknolojileri',
+            // ESASLAR (TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları, 19.12.2025-129) — kullanıcı onayı 16.09.2026:
+            // sıra 50 "Matbaa/Matbaa Teknolojisi": Basım Teknolojileri alanının dalları (Baskı Öncesi, Ofset, Dijital Baskı ...)
+            // esaslarda "Matbaa Teknolojisi Alanı" adıyla geçer; "Basım Teknolojileri" diye öğretmenlik alanı yoktur.
+            'basim': 'Matbaa Teknolojisi',
+            'matbaa': 'Matbaa Teknolojisi',
             'bilisim': 'Bilişim Teknolojileri',
             'biyomedikal': 'Biyomedikal Cihaz Teknolojileri',
             'buro': 'Büro Yönetimi ve Yönetici Asistanlığı',
@@ -186,7 +190,9 @@ class MebCurriculumEngine {
             'meslekigelisim': 'Mesleki Gelişim',
             'metal': 'Metal Teknolojisi',
             'metalurji': 'Metalürji Teknolojisi',
-            'mikromekanik': 'Mikromekanik',
+            // sıra 49 Makine Teknolojisi / Makine ve Tasarım Teknolojisi: "Mikromekanik alanının; Mikromekanik ve
+            // Saatçilik dalının alan/dal dersleri". "Mikromekanik" diye öğretmenlik alanı yoktur.
+            'mikromekanik': 'Makine ve Tasarım Teknolojisi',
             'mobilya': 'Mobilya ve İç Mekân Tasarımı',
             'moda': 'Moda Tasarım Teknolojileri',
             'motorluarac': 'Motorlu Araçlar Teknolojisi',
@@ -212,7 +218,10 @@ class MebCurriculumEngine {
             'tesisat': 'Tesisat Teknolojisi ve İklimlendirme',
             'ucak': 'Uçak Bakım',
             'ulastirma': 'Ulaştırma Hizmetleri',
-            'yapayzeka': 'Yapay Zekâ',
+            // Yapay Zekâ alanı esaslarda henüz yok ve "Yapay Zekâ" diye öğretmenlik alanı yoktur. Dersleri (Algoritma ve
+            // Programlama, Makine Öğrenmesi, Veri Bilimi) Bilişim Teknolojileri öğretmeni okutur (kullanıcı kararı 16.09.2026;
+            // Siber Güvenlik alanı da esaslar sıra 8'de Bilişim Teknolojileri'ne verilmiştir).
+            'yapayzeka': 'Bilişim Teknolojileri',
             'yenilenebilir': 'Yenilenebilir Enerji Teknolojileri',
             'yiyecek': 'Yiyecek İçecek Hizmetleri',
             'yiyecekpro': 'Yiyecek İçecek Hizmetleri'
@@ -717,7 +726,39 @@ class MebCurriculumEngine {
         return (secilen && secilen.chartTotals) ? secilen.chartTotals : null;
     }
 
-    getMandatoryCourses(schoolType, grade, areaId = null, dalName = null) {
+    /**
+     * ÖZEL EĞİTİM ŞUBESİNE HANGİ RESMÎ ÇİZELGE? (özel eğitim 2. dalga, 16.09.2026)
+     *
+     * Eskiden sınıfa bakılıp yalnız iki çizelge seçiliyordu: 1-8 hafif zihinsel (ORGM-05),
+     * 9-12 hafif zihinsel meslek okulu (ORGM-07). Orta/ağır zihinsel ve otizm sınıfları,
+     * uygulama okulu, görme/işitme/bedensel sınıfları hafif düzeyin çizelgesini alıyordu;
+     * ör. uygulama okulunda Görsel Sanatlar, Müzik, Beden Eğitimi 3'er saat iken 2'şer
+     * geliyordu. Seçim artık engel türüne göre (ÖEHY 27, 28/1-ç, 31, 32):
+     *   1-8 : gorme -> ORGM-03, isitme -> ORGM-04, bedensel -> ORGM-02,
+     *         orta/ağır zihinsel veya otizm (ve türsüz uygulama okulu şubesi) -> ORGM-01,
+     *         diğer -> ORGM-05
+     *   9-12: gorme -> ORGM-08, orta/ağır (ve türsüz uygulama okulu) -> ORGM-06, diğer -> ORGM-07
+     * Resmî çizelgesi arşivde olmayanlar eski tabloyu alır: işitme meslek okulu (E-01),
+     * birden fazla yetersizlik (E-05), eski "görme veya işitme" kaydı.
+     */
+    ozelEgitimCizelgeAdi(schoolType, grade, engelTuru = null) {
+        const g = parseInt(grade, 10);
+        const tur = String(engelTuru || "");
+        const uygulamaOkulu = String(schoolType || "").includes("ozel_egitim_uygulama");
+        const ortaAgir = ["orta_agir_zihinsel", "otizm_orta_agir", "orta_agir_otizm"].includes(tur) || (!tur && uygulamaOkulu);
+        if (g >= 1 && g <= 8) {
+            if (tur === "gorme") return "gorme_ilk_orta";
+            if (tur === "isitme") return "isitme_ilk_orta";
+            if (tur === "bedensel") return "bedensel_ilk_orta";
+            if (ortaAgir) return "uygulama_I_II";
+            return "ilkokul_ortaokul";
+        }
+        if (tur === "gorme") return "meslek_okulu_gorme";
+        if (ortaAgir) return "uygulama_III";
+        return "meslek_okulu";
+    }
+
+    getMandatoryCourses(schoolType, grade, areaId = null, dalName = null, engelTuru = null) {
         const gStr = String(grade);
         const result = [];
         const seenNorms = new Set();
@@ -803,9 +844,10 @@ class MebCurriculumEngine {
                 : (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined' ? OZEL_EGITIM_CIZELGELERI : null);
 
             if (oeTablo) {
-                const cizelgeAdi = ["1", "2", "3", "4", "5", "6", "7", "8"].includes(gStr)
+                const cizelgeAdi = this.ozelEgitimCizelgeAdi(schoolTypeStr, gStr, engelTuru);
+                const varsayilan = ["1", "2", "3", "4", "5", "6", "7", "8"].includes(gStr)
                     ? "ilkokul_ortaokul" : "meslek_okulu";
-                const liste = (oeTablo[cizelgeAdi] || {})[gStr];
+                const liste = (oeTablo[cizelgeAdi] || {})[gStr] || (oeTablo[varsayilan] || {})[gStr];
                 if (liste && liste.length) return liste.map(d => ({ ...d }));
             }
 

@@ -1345,12 +1345,15 @@ export class UIComponentManager {
                         sectionToEdit.alanId !== (isSpecialEdu ? "ozel_egitim" : areaId) || 
                         sectionToEdit.dalAdi !== (isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName) ||
                         sectionToEdit.sinifSeviyesi !== grade || 
-                        sectionToEdit.isSpecialEdu !== isSpecialEdu) {
+                        sectionToEdit.isSpecialEdu !== isSpecialEdu ||
+                        (isSpecialEdu && (sectionToEdit.engelTuru || null) !== engelTuru)) {
+                        // Engel türü değişince çizelge de değişir (ORGM-01/02/03/04/05/06/07/08).
                         const tazeDersler = this.curriculum.getMandatoryCourses(
                             schoolType, 
                             grade, 
                             isSpecialEdu ? "ozel_egitim" : areaId, 
-                            isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName
+                            isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
+                            engelTuru
                         );
                         // Kullanicinin kendi ayarlarini TASI: brans atamalari,
                         // grup/brans bolunmeleri, sube birlestirmeleri ve hedef
@@ -1378,7 +1381,8 @@ export class UIComponentManager {
                         schoolType, 
                         grade, 
                         isSpecialEdu ? "ozel_egitim" : areaId, 
-                        isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName
+                        isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
+                        engelTuru
                     );
                     this.state.addSection({
                         sinifSeviyesi: grade,
@@ -2662,6 +2666,45 @@ export class UIComponentManager {
         const adminOpts = this.state.state.okulBilgisi.adminOptions || {};
         const totalStudents = subeler.reduce((sum, s) => sum + (parseInt(s.ogrenciSayisi, 10) || 0), 0);
 
+        // ÖZEL EĞİTİM BİRLEŞTİRİLMİŞ SINIF (16.09.2026): aynı tür + kademe şube grupları
+        const oeGruplar = (this.normEngine && typeof this.normEngine.ozelEgitimSinifGruplari === "function")
+            ? this.normEngine.ozelEgitimSinifGruplari(subeler, schoolType) : [];
+        const oeBirlesik = !!adminOpts.ozelEgitimBirlestirilmisSinif;
+        const oeSayilar = adminOpts.ozelEgitimSinifSayilari || {};
+        const OE_KADEME = { okuloncesi: "Okul öncesi", ilkokul: "İlkokul", ortaokul: "Ortaokul", lise: "Lise", diger: "" };
+        const oeSatirlari = oeGruplar.map(g => {
+            const kayit = parseInt(oeSayilar[g.anahtar], 10);
+            const deger = Number.isFinite(kayit) && kayit >= 1 ? kayit : g.subeler.length;
+            const enCok = Math.max(g.subeler.length, g.enAzSinif);
+            return `
+                <div class="oe-grup-satir" style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+                    <div style="min-width: 0;">
+                        <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-main);">${NormGuvenlik.htmlKacis(g.turAd)} · ${OE_KADEME[g.kademe] || ""}</div>
+                        <div style="font-size: 0.66rem; color: var(--text-muted);">${g.subeler.length} şube (${NormGuvenlik.htmlKacis(g.subeAdlari.join(", "))}) · ${g.ogrenci} öğrenci${g.enFazla ? ` · sınıf başına en fazla ${g.enFazla}` : ""}</div>
+                        <div class="oe-grup-sonuc" style="font-size: 0.68rem; font-weight: 700; margin-top: 0.1rem;"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.3rem; flex-shrink: 0;">
+                        <input type="number" class="oe-sinif-sayisi form-control" data-grup="${NormGuvenlik.htmlKacis(g.anahtar)}" data-norm-sinif="${g.normSinif}" data-en-fazla="${g.enFazla || ''}" data-ogrenci="${g.ogrenci}" data-en-az="${g.enAzSinif}" data-sube="${g.subeler.length}" value="${deger}" min="1" max="${enCok}" style="width: 58px; padding: 0.2rem 0.3rem; text-align: center; font-weight: 800; color: #0f766e;">
+                        <span style="font-size: 0.68rem; color: var(--text-muted);">sınıf</span>
+                    </div>
+                </div>`;
+        }).join("");
+        const oeBolumu = oeGruplar.length ? `
+                            <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
+                                <div style="font-size: 0.78rem; font-weight: 800; color: #0f766e; margin-bottom: 0.15rem;">🧩 Özel Eğitim Sınıfları — Birleştirilmiş Sınıf</div>
+                                <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
+                                    e-Okul özel eğitim öğrencilerini sınıf seviyesine göre ayrı şubelerde gösterir. Aynı türdeki öğrenciler tek sınıfta okuyorsa (birleştirilmiş sınıf, ÖEHY 27/3-a, 28/1-a) özel eğitim öğretmeni normu oluşturulan sınıf başına verilir (Norm Kadro Yön. Md. 17/1). Uygulamıyorsanız işaretlemeyin; her şube ayrı sınıf sayılır.
+                                </div>
+                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; margin-bottom: 0.35rem;">
+                                    <input type="checkbox" id="chk-oe-birlesik" ${oeBirlesik ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <strong>Özel eğitim öğrencilerimiz birleştirilmiş sınıflarda eğitim görüyor</strong>
+                                </label>
+                                <div id="oe-birlesik-tablo" style="display: ${oeBirlesik ? 'block' : 'none'}; border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-card);">
+                                    <div style="font-size: 0.68rem; color: var(--text-muted); padding: 0.35rem 0.5rem;">Her tür ve kademe için oluşturduğunuz sınıf sayısını yazın.</div>
+                                    ${oeSatirlari}
+                                </div>
+                            </div>` : "";
+
         const cultureBranches = this.db.getGeneralCultureBranchesList();
         const vocBranches = this.db.getVocationalBranchesList();
 
@@ -2976,6 +3019,8 @@ export class UIComponentManager {
                                 </label>
                             </div>
 
+                            ${oeBolumu}
+
                             <div style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.6rem 0.75rem; margin-bottom: 0.75rem;">
                                 <div style="font-size: 0.78rem; font-weight: 800; color: #0284c7; margin-bottom: 0.15rem;">👥 Norma Esas Ek Öğrenci Sayısı (Md. 22/1-b)</div>
                                 <div style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 0.45rem;">
@@ -3287,6 +3332,29 @@ export class UIComponentManager {
             document.getElementById(id)?.addEventListener("input", updateAdminPreview);
         });
 
+        // Özel eğitim birleştirilmiş sınıf: tablo görünürlüğü ve satır başına canlı norm
+        const oeChk = document.getElementById("chk-oe-birlesik");
+        const oeTablo = document.getElementById("oe-birlesik-tablo");
+        oeChk?.addEventListener("change", () => { if (oeTablo) oeTablo.style.display = oeChk.checked ? "block" : "none"; });
+        const oeSonucYaz = (inp) => {
+            const satir = inp.closest(".oe-grup-satir");
+            const hedef = satir && satir.querySelector(".oe-grup-sonuc");
+            if (!hedef) return;
+            const n = Math.max(1, parseInt(inp.value, 10) || 1);
+            const normSinif = parseInt(inp.dataset.normSinif, 10) || 0;
+            const enFazla = parseInt(inp.dataset.enFazla, 10) || 0;
+            const ogrenci = parseInt(inp.dataset.ogrenci, 10) || 0;
+            const enAz = parseInt(inp.dataset.enAz, 10) || 1;
+            const asim = enFazla && ogrenci > n * enFazla;
+            hedef.style.color = asim ? "#b45309" : "#0f766e";
+            hedef.textContent = `${n} sınıf × ${normSinif} = ${n * normSinif} özel eğitim öğretmeni normu`
+                + (asim ? ` · ${ogrenci} öğrenci için en az ${enAz} sınıf gerekir` : "");
+        };
+        document.querySelectorAll(".oe-sinif-sayisi").forEach(inp => {
+            oeSonucYaz(inp);
+            inp.addEventListener("input", () => oeSonucYaz(inp));
+        });
+
         document.getElementById("admin-teaching-search")?.addEventListener("input", (e) => {
             const query = (e.currentTarget.value || "").toLowerCase().trim();
             document.querySelectorAll("#admin-teaching-container .admin-teaching-item").forEach(item => {
@@ -3380,6 +3448,15 @@ export class UIComponentManager {
                     rehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0
                 },
                 yoneticiDersYukleri: yoneticiDersYukleri,
+                ...(document.getElementById("chk-oe-birlesik") ? {
+                    ozelEgitimBirlestirilmisSinif: !!document.getElementById("chk-oe-birlesik").checked,
+                    ozelEgitimSinifSayilari: [...document.querySelectorAll(".oe-sinif-sayisi")].reduce((o, inp) => {
+                        const n = parseInt(inp.value, 10);
+                        const enCok = parseInt(inp.max, 10) || n;
+                        if (Number.isFinite(n) && n >= 1) o[inp.dataset.grup] = Math.min(n, enCok);
+                        return o;
+                    }, {})
+                } : {}),
                 alanSefleri: alanSefleri,
                 alanSefiAlanlari: alanSefiAlanlari,
                 atolyeSefleri: atolyeSefleri
@@ -3563,7 +3640,11 @@ export class UIComponentManager {
         }
 
         if (matchedAreaCourses && matchedAreaCourses.length > 0) {
-            const vocBranchName = AREA_BRANCHES[areaKey] || (areaKey || "Meslek").replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            // Alan -> öğretmen branşı TEK KAYNAKTAN (curriculumEngine.AREA_BRANCH_MAP, TTKB esaslarıyla karşılaştırıldı
+            // 16.09.2026). Buradaki yerel tablo yalnız yedek: 'saglik' -> "Sağlık Bilgisi ve Trafik Kültürü",
+            // 'plastiksanatlar' -> "Plastik Sanatlar" gibi branş OLMAYAN adlar içeriyordu.
+            const merkeziHarita = (this.curriculum && this.curriculum.AREA_BRANCH_MAP) || {};
+            const vocBranchName = merkeziHarita[areaKey] || AREA_BRANCHES[areaKey] || (areaKey || "Meslek").replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
             for (let sm of matchedAreaCourses) {
                 const courseName = sm.ders;
                 if (!courseName) continue;
@@ -4423,7 +4504,11 @@ export class UIComponentManager {
                 // Md. 17 gereği genel branş havuzuna alınmıyorlar. Oysa
                 // kullanıcının kartta gördüğü satır toplamı ızgaradan geliyor;
                 // farkı açıklayacak sayı da orada.
-                ozelEgitim: (rap.totalHours === undefined) ? motorDisiOzel : ozelSaat
+                // Özel eğitim sınıfında ALAN öğretmeninin okuttuğu dersler (ÖEHY 27/3-e, 28/1-ğ) motor
+                // tarafından bu branşın yüküne yazılır; yalnız kalan saat "yazılmadı" sayılır.
+                ozelEgitim: (rap.totalHours === undefined) ? motorDisiOzel : Math.max(0, ozelSaat - (rap.ozelEgitimSinifiHam || 0)),
+                ozelAlanSaati: rap.ozelEgitimSinifiSaati || 0,
+                ozelAlanDusum: (rap.ozelEgitimSinifiHam || 0) - (rap.ozelEgitimSinifiSaati || 0)
             };
         }).concat((() => {
             // ÖZEL EĞİTİM KARTI (14.09.2026, kullanıcı kararı: özet kart)
@@ -4470,7 +4555,7 @@ export class UIComponentManager {
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
                             <td class="dd-ozel-dayanak">${x.dayanak}${x.sinirAsildi
                                 ? `<br><b style="color:#b91c1c;">⚠️ ${x.mesaj}</b>`
-                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}</td>
+                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}${x.ortamUyarisi ? `<br><span style="color:#b91c1c;">⚠️ ${x.ortamUyarisi}</span>` : ""}</td>
                             <td class="dd-toplam"></td>
                         </tr>`).join("");
                 return `
@@ -4493,7 +4578,7 @@ export class UIComponentManager {
                         </table>
                     </div>
                     <div class="dd-dipnot">Bu kartın normu ders saatinden değil, <b>şube başına ve engel türüne göre</b> verilir (Md. 17/1). `
-                    + `Şubelerin dersleri diğer kartlarda şube sütunu olarak görünür, ama o branşların yüküne yazılmaz; saatleri burada toplanır.</div>
+                    + `Burada özel eğitim öğretmeninin okuttuğu derslerin saati toplanır. Din kültürü ve ahlak bilgisi, görsel sanatlar, müzik, beden eğitimi (ilkokulda yalnız din kültürü) ve meslek derslerini alan öğretmeni okutur; bu saatler ilgili branşın yüküne yazılır (ÖEHY 27/3-e, 28/1-ğ).</div>
                 </section>`;
             }
 
@@ -4539,12 +4624,14 @@ export class UIComponentManager {
             // (Türk Dili başlığı 74 derken satırları 80 topluyordu.)
             const satirToplami = dersler.reduce((t, c) => t + (c.totalHours || 0), 0);
             const bransFarki = b.yuk - satirToplami;
-            const kalanFark = bransFarki + b.dusum - b.koord - b.seflik + b.ozelEgitim;
+            const kalanFark = bransFarki + b.dusum - b.koord - b.seflik + b.ozelEgitim + (b.ozelAlanDusum || 0);
 
             const dipnot = [];
             if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
             if (b.koord) dipnot.push(`İşletmelerde meslek eğitimi yükü <b>+${b.koord}</b> saat eklendi (Md. 22/2).`);
             if (b.seflik) dipnot.push(`Alan / atölye şefliği (Planlama ve Bakım-Onarım Görevi) <b>+${b.seflik}</b> saat eklendi (Md. 22/1-c-2).`);
+            if (b.ozelAlanSaati) dipnot.push(`Özel eğitim sınıflarındaki derslerin <b>${b.ozelAlanSaati}</b> saati bu branşın yüküne yazıldı: bu dersleri alan öğretmeni okutur (ÖEHY 27/3-e, 28/1-ğ).`
+                + (b.ozelAlanDusum ? ` Birleştirilmiş sınıfta ders sınıf başına bir kez sayıldı: <b>−${b.ozelAlanDusum}</b> saat (ÖEHY 27/3-a).` : ""));
             if (b.ozelEgitim) dipnot.push(`Özel eğitim şubelerinin <b>${b.ozelEgitim}</b> saati bu branşın yüküne yazılmadı: `
                 + `o şubelerin normu şube başına ayrıca veriliyor (Md. 17/1) ve dersleri özel eğitim öğretmeni okutuyor.`);
             if (kalanFark !== 0) {

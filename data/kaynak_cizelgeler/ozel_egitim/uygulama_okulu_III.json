@@ -1,7 +1,7 @@
 {
- "belge_adi": "Özel Eğitim Meslek Okulu Haftalık Ders Çizelgesi (Hafif Düzeyde Zihinsel Yetersizliği/Otizmi Olan Öğrenciler İçin)",
+ "belge_adi": "Özel Eğitim Uygulama Okulu III. Kademe Haftalık Ders Çizelgesi (TTKK 18/08/2025-67)",
  "kaynak": "https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106",
- "kaynak_pdf": "07_ortaogretim__6a9056c853fce981831446_Özel_Eğitim_Meslek_Okulu_Haftalık_Ders_Çizelgesi_Hafif_Düzeyde_Zihinsel_Yetersizliği_veya_Otizmi_Olan_öğrenciler.pdf",
+ "kaynak_pdf": "06_ortaogretim__23114238_iii.kademe.pdf",
  "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_egitim.py üretir.",
  "sinif_seviyeleri": [
   "9",
@@ -9,29 +9,8 @@
   "11",
   "12"
  ],
- "atilan_egik_satir": 0,
+ "atilan_egik_satir": 1,
  "dersler": [
-  {
-   "ders_adi": "Türkçe",
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 3
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 3
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 3
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 3
-    }
-   }
-  },
   {
    "ders_adi": "Matematik",
    "saatler": {
@@ -54,7 +33,7 @@
    }
   },
   {
-   "ders_adi": "Sosyal Hayat",
+   "ders_adi": "Türkçe",
    "saatler": {
     "9": {
      "tip": "sabit",
@@ -75,7 +54,91 @@
    }
   },
   {
-   "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
+   "ders_adi": "Bağımsız Yaşam Becerileri",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "Sosyal Beceriler",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 3
+    }
+   }
+  },
+  {
+   "ders_adi": "Din Kültürü ve Ahlâk Bilgisi",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 1
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 1
+    }
+   }
+  },
+  {
+   "ders_adi": "Sağlıklı Yaşam ve Güvenlik Becerileri",
+   "saatler": {
+    "9": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "10": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "11": {
+     "tip": "sabit",
+     "saat": 5
+    },
+    "12": {
+     "tip": "sabit",
+     "saat": 5
+    }
+   }
+  },
+  {
+   "ders_adi": "Görsel Sanatlar",
    "saatler": {
     "9": {
      "tip": "sabit",
@@ -108,82 +171,46 @@
     },
     "11": {
      "tip": "sabit",
-     "saat": 1
+     "saat": 2
     },
     "12": {
      "tip": "sabit",
-     "saat": 1
+     "saat": 2
     }
    }
   },
   {
-   "ders_adi": "Görsel Sanatlar",
+   "ders_adi": "İş ve Beceri Uygulamaları",
    "saatler": {
     "9": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 8
     },
     "10": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 8
     },
     "11": {
      "tip": "sabit",
-     "saat": 1
+     "saat": 8
     },
     "12": {
      "tip": "sabit",
-     "saat": 1
+     "saat": 8
     }
    }
   },
   {
-   "ders_adi": "Beden Eğitimi",
+   "ders_adi": "Beden Eğitimi, Oyun ve Spor",
    "saatler": {
     "9": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 3
     },
     "10": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 3
     },
-    "11": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 1
-    }
-   }
-  },
-  {
-   "ders_adi": "Rehberlik",
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 1
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 1
-    }
-   }
-  },
-  {
-   "ders_adi": "Sosyal, Kültürel ve Sportif Faaliyetler",
-   "saatler": {
-    "9": null,
-    "10": null,
     "11": {
      "tip": "sabit",
      "saat": 3
@@ -191,27 +218,6 @@
     "12": {
      "tip": "sabit",
      "saat": 3
-    }
-   }
-  },
-  {
-   "ders_adi": "İş Eğitimi ve Meslek Ahlakı",
-   "saatler": {
-    "9": {
-     "tip": "sabit",
-     "saat": 15
-    },
-    "10": {
-     "tip": "sabit",
-     "saat": 15
-    },
-    "11": {
-     "tip": "sabit",
-     "saat": 15
-    },
-    "12": {
-     "tip": "sabit",
-     "saat": 15
     }
    }
   }

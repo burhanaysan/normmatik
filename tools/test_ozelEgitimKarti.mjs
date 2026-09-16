@@ -110,13 +110,13 @@ denetle("K1c şube saatleri toplamı = kart başlığındaki saat (tek kural)",
         detay.reduce((t, x) => t + x.saat, 0) + " / " + oz.totalHours);
 denetle("K1d şube normları toplamı = Özel Eğitim normu",
         detay.reduce((t, x) => t + x.norm, 0) === oz.calculatedNorm);
-denetle("K1e her şubenin saati kendi derslerinin toplamı",
+denetle("K1e her şubenin saati kendi derslerinin toplamı (özel eğitim öğretmeni + alana yazılan)",
         detay.every(x => {
             const s = ozelSubeler.find(y => y.id === x.subeId);
             if (!s) return false;
             const h = [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])]
                 .reduce((t, d) => t + (parseInt(d.saat, 10) || 0), 0);
-            return x.saat === (h > 0 ? h : 30);
+            return x.saat + (x.alanSaat || 0) === (h > 0 ? h : 30);
         }));
 
 console.log("\nEkrandaki kart");

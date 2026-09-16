@@ -249,10 +249,17 @@ if (karsilastirma < 60)
         return x ? x.totalHours : 0;
     };
 
-    // Özel eğitim şubeleri eklenince GENEL branşların yükü DEĞİŞMEMELİ.
-    for (const ad of ["Türkçe", "Matematik", "Fen Bilimleri", "Görsel Sanatlar"]) {
+    // Özel eğitim şubeleri eklenince özel eğitim öğretmeninin okuttuğu derslerin branş yükü DEĞİŞMEMELİ.
+    for (const ad of ["Türkçe", "Matematik", "Fen Bilimleri"]) {
         kontrol(`özel eğitim şubesi "${ad}" branş yüküne eklenmiyor`,
             brans(a, ad) === brans(b, ad),
+            `${ad}: normal ${brans(a, ad)}s -> özel eğitim eklenince ${brans(b, ad)}s`);
+    }
+    // Özel eğitim 2. dalga (16.09.2026): ortaokulda din kültürü, görsel sanatlar, müzik, beden eğitimi
+    // alan öğretmenince okutulur (ÖEHY 27/3-e) -> 3 şube x 2 saat = +6 saat.
+    for (const ad of ["Görsel Sanatlar", "Müzik", "Beden Eğitimi", "Din Kültürü ve Ahlak Bilgisi"]) {
+        kontrol(`özel eğitim şubesinin "${ad}" dersi alan öğretmeninin yüküne ekleniyor (ÖEHY 27/3-e)`,
+            brans(b, ad) === brans(a, ad) + 6,
             `${ad}: normal ${brans(a, ad)}s -> özel eğitim eklenince ${brans(b, ad)}s`);
     }
 

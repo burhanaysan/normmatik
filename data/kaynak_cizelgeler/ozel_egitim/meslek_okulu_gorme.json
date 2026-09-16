@@ -1,7 +1,7 @@
 {
- "belge_adi": "Özel Eğitim Meslek Okulu Haftalık Ders Çizelgesi (Hafif Düzeyde Zihinsel Yetersizliği/Otizmi Olan Öğrenciler İçin)",
+ "belge_adi": "Özel Eğitim Meslek Okulu Haftalık Ders Çizelgesi (Görme Engelli Öğrenciler İçin)",
  "kaynak": "https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106",
- "kaynak_pdf": "07_ortaogretim__6a9056c853fce981831446_Özel_Eğitim_Meslek_Okulu_Haftalık_Ders_Çizelgesi_Hafif_Düzeyde_Zihinsel_Yetersizliği_veya_Otizmi_Olan_öğrenciler.pdf",
+ "kaynak_pdf": "08_ortaogretim__04155823_08150756_ozel_eyitim_meslek_okulu_haftalyk_ders_cizelgesigorme_engelli_oyrenciler_icin.pdf",
  "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_egitim.py üretir.",
  "sinif_seviyeleri": [
   "9",
@@ -117,7 +117,7 @@
    }
   },
   {
-   "ders_adi": "Görsel Sanatlar",
+   "ders_adi": "Görsel Sanatlar ve Modelaj İş",
    "saatler": {
     "9": {
      "tip": "sabit",
@@ -138,7 +138,7 @@
    }
   },
   {
-   "ders_adi": "Beden Eğitimi",
+   "ders_adi": "Beden Eğitimi, Spor ve Bağımsız Hareket",
    "saatler": {
     "9": {
      "tip": "sabit",

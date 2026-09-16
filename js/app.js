@@ -487,7 +487,8 @@ class MebNormApplication {
                 schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
-                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
+                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,
+                sec.engelTuru || null
             );
             if (canonicalCourses && canonicalCourses.length > 0) {
                 // Mevcut atanan branşları ve GRUP SAYISI seçimlerini koruyarak
@@ -996,9 +997,11 @@ class MebNormApplication {
                 // ÖEHY sınıf mevcudu sınırı aşıldıysa kartta görünür (16.09.2026).
                 const ih = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSinifIhtiyaci)
                     ? normEngine.ozelEgitimSinifIhtiyaci(s, appState.state.okulBilgisi.okulTuru) : null;
+                const ortam = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimOrtamUyarisi)
+                    ? normEngine.ozelEgitimOrtamUyarisi(s, appState.state.okulBilgisi.okulTuru, appState.state.subeler || []) : null;
                 dalText = (ih && ih.sinirAsildi)
                     ? `🟣 Özel Eğitim · ⚠️ en fazla ${ih.enFazla} öğrenci — ${ih.gerekenSinif} sınıf gerekir`
-                    : "🟣 Özel Eğitim Sınıfı";
+                    : (ortam ? `🟣 Özel Eğitim · ⚠️ ${ortam.split(":")[0]} uyarısı` : "🟣 Özel Eğitim Sınıfı");
             } else {
                 const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
                 const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";

@@ -40,13 +40,19 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.2.0",
-    yayinTarihi: "2026-09-15",
+    surum: "2.3.0",
+    yayinTarihi: "2026-09-16",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Öğretmen branşları TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları'na göre düzeltildi: Mikromekanik alanının dersleri Makine ve Tasarım Teknolojisi, Basım Teknolojileri alanınınkiler Matbaa Teknolojisi, Yapay Zekâ alanınınkiler Bilişim Teknolojileri branşına yazılıyor. Esaslarda bulunmayan 'Basım Teknolojileri', 'Mikromekanik', 'Siber Güvenlik' ve 'Yapay Zekâ' branş satırları listeden kaldırıldı.",
+        "Özel eğitim sınıflarında Din Kültürü ve Ahlak Bilgisi, Görsel Sanatlar, Müzik ve Beden Eğitimi derslerini (ilkokulda yalnız Din Kültürü) alan öğretmeni okutur; bu saatler artık ilgili branşın ders yüküne yazılıyor (ÖEHY 27/3-e, 28/1-ğ). Birleştirilmiş sınıfta ders sınıf başına bir kez sayılır.",
+        "Özel eğitim sınıflarının meslek dersleri (İş Eğitimi ve Meslek Ahlakı, İş ve Beceri Uygulamaları) seçtiğiniz meslek branşına yazılıyor; 9. sınıfta İş Eğitimi ve Meslek Ahlakı okuldaki alanlara eşit dağıtılıyor (resmî çizelge açıklaması).",
+        "Özel eğitim şubesinin dersleri engel türüne göre doğru resmî çizelgeden geliyor: uygulama okulu ve orta/ağır düzey sınıflar (I-II ve III. kademe), görme, işitme ve bedensel yetersizlik ilkokul/ortaokul çizelgeleri, görme engelliler meslek okulu. Engel türünü değiştirdiğinizde dersler yenilenir.",
+        "Mevzuatın öngörmediği özel eğitim sınıfları için uyarı: İmam Hatip Ortaokulunda hafif düzey sınıf, normal ortaokulda görme/işitme sınıfı, genel lisede özel eğitim sınıfı, alanı olmayan meslek lisesinde hafif düzey sınıf.",
+        "Özel eğitim: birleştirilmiş sınıf. e-Okul'da ayrı şubelerde görünen aynı türdeki özel eğitim öğrencileri tek sınıfta okuyorsa, Kadro penceresinin İdareci sekmesinden işaretleyip her tür ve kademe için oluşturduğunuz sınıf sayısını yazın; özel eğitim öğretmeni normu sınıf başına verilir (ÖEHY 27/3-a, 28/1-a; Norm Kadro Yön. Md. 17/1). Sınıf mevcudu sınırı aşılırsa kaç sınıf gerektiği gösterilir. İşaretlemezseniz her şube ayrı sınıf sayılır.",
         "Her açık alana bir alan şefi: aynı branşın okuttuğu iki alan açıksa (ör. Bilişim Teknolojileri ve Siber Güvenlik) Şeflikler listesinde her alan için ayrı kutu çıkıyor ve branşa her alan şefi için 10 saat ekleniyor (OÖKY Md. 84/1).",
         "Metalürji Teknolojisi alanının meslek dersleri yanlışlıkla Metal Teknolojisi branşına, Plastik Sanatlar alanınınkiler El Sanatları Teknolojisi branşına yazılıyordu. Artık TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları'na göre Metalürji Teknolojisi ve Sanat ve Tasarım / Plastik Sanatlar branşlarına yazılıyor.",
         "Meslek liselerinde Şeflikler listesindeki 'Okulda Aktif Alan' işareti artık şubelerde seçilmiş alana göre konuyor. Alanı henüz seçilmemiş 9. sınıfın Görsel Sanatlar dersi ya da her alanda okutulan Sağlık Bilgisi ve Trafik Kültürü dersi alan şefliği açmıyor; varsayılan alan şefliği o alanın atölye derslerini okutan branşa yazılıyor.",

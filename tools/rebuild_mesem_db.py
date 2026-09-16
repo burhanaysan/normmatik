@@ -117,9 +117,9 @@ ALAN_BRANSI = {
     "KUYUMCULUK TEKNOLOJİSİ": "Kuyumculuk Teknolojisi",
     "KİMYA TEKNOLOJİSİ": "Kimya / Kimya Teknolojisi",
     "MAKİNE TEKNOLOJİSİ": "Makine ve Tasarım Teknolojisi",
-    # TTKB: "Matbaa/Matbaa Teknolojisi". Uygulama MTEGM tarafinda ayni brans
-    # icin "Basim Teknolojileri" yazilisini kullaniyor; birlik icin o secildi.
-    "MATBAA TEKNOLOJİSİ": "Basım Teknolojileri",
+    # TTKB esaslari sira 50: "Matbaa/Matbaa Teknolojisi". 16.09.2026: MTEGM tarafi da
+    # bu ada gecti ("Basim Teknolojileri" diye ogretmenlik alani yoktur).
+    "MATBAA TEKNOLOJİSİ": "Matbaa Teknolojisi",
     "METAL TEKNOLOJİSİ": "Metal Teknolojisi",
     "METALÜRJİ TEKNOLOJİSİ": "Metalürji Teknolojisi",
     "MOBİLYA VE İÇ MEKÂN TASARIMI": "Mobilya ve İç Mekân Tasarımı",

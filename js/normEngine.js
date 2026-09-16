@@ -231,13 +231,13 @@ export class NormEngine {
         const sinif = sec && sec.sinifSeviyesi;
         const alanId = (sec && sec.alanId) || null;
         const dal = (sec && sec.dalAdi) || null;
-        const anahtar = [schoolType, sinif, alanId, dal].join("|");
+        const anahtar = [schoolType, sinif, alanId, dal, (sec && sec.engelTuru) || ""].join("|");
         this._cizelgeBransBellegi = this._cizelgeBransBellegi || new Map();
         let harita = this._cizelgeBransBellegi.get(anahtar);
         if (!harita) {
             harita = new Map();
             try {
-                (ce.getMandatoryCourses(schoolType, sinif, alanId, dal) || []).forEach(d => {
+                (ce.getMandatoryCourses(schoolType, sinif, alanId, dal, (sec && sec.engelTuru) || null) || []).forEach(d => {
                     const ad = this.normalizeText(d.ders || d.ders_adi || "");
                     const brans = String(d.atananBrans || "").trim();
                     if (ad && brans) harita.set(ad, brans);
@@ -1257,6 +1257,155 @@ export class NormEngine {
      * Norm, AÇILMIŞ sınıfa verilir (Md. 17/1 "açılan her sınıf veya şube için"); bu yüzden hesap
      * mevcut normu DEĞİŞTİRMEZ, yalnız uyarır.
      */
+    /**
+     * ÖZEL EĞİTİM SINIFINDA BU DERSİ HANGİ ALAN ÖĞRETMENİ OKUTUR? (özel eğitim 2. dalga, 16.09.2026)
+     *
+     * Mevzuat (05_dokumantasyon/ozel_egitim_guncellemesi/KURAL_SETI_OZEL_EGITIM.md, bölüm 5):
+     *   İlkokul: din kültürü ve ahlak bilgisi alan öğretmeni; görme/işitme sınıfında ayrıca
+     *     yabancı dil (ÖEHY 27/3-d, 27/3-e, 28/1-ğ, 31/1-e, 31/2-ç, 13/1-ç).
+     *   Ortaokul ve ortaöğretim: "din kültürü ve ahlak bilgisi, görsel sanatlar, müzik ve beden
+     *     eğitimi alanlarına ilişkin dersler ile meslek dersleri" alan öğretmenlerince okutulur
+     *     (ÖEHY 27/3-e, 28/1-ğ, 13/1-ç, 31/2-ç, 32/3-c, 32/4-ç).
+     *   Diğer dersleri özel eğitim öğretmeni okutur; onun normu şube başınadır (Md. 17/1).
+     * Alan öğretmeninin okuttuğu saat o alanın ders yüküne girer (Norm Kadro Md. 4/1-d, 22/1-c-1).
+     * Meslek dersi (İş Eğitimi ve Meslek Ahlakı, İş ve Beceri Uygulamaları): idarecinin seçtiği meslek
+     * branşına; seçilmemişse 9. sınıfta İş Eğitimi ve Meslek Ahlakı okuldaki alanlara eşit dağıtılır
+     * (ORGM-07/08 açıklama 5), aksi hâlde özel eğitim satırında kalır. Bedensel yetersizlikte ÖEHY
+     * dersleri kimin okutacağını söylemez (belirsizlik B-04): dokunulmaz.
+     *
+     * @returns {null | { paylar:[{brans, saat}], atolye:boolean, dayanak:string }}
+     */
+    ozelEgitimDersOkutani(course, turKod, kademe, acikAlanBranslari = []) {
+        const ad = this.normalizeText(course && (course.ders || course.ders_adi) || "");
+        const saat = parseInt(course && (course.saat || course.ders_saati) || 0, 10) || 0;
+        if (!ad || saat <= 0) return null;
+        const T = this.ozelEgitimTuru(turKod);
+        if (T.tur === "bedensel") return null;
+        const tek = (brans, dayanak, atolye = false) => ({ paylar: [{ brans, saat }], atolye, dayanak });
+        const secilen = course && course.atananBrans;
+        const gercekBrans = (b) => !!b && b !== "Özel Eğitim" && b !== "— Branş Atanmadı —" && !String(b).includes("Rehberlik");
+
+        if (ad.includes("din kultur")) {
+            return tek("Din Kültürü ve Ahlak Bilgisi", kademe === "ilkokul" ? "ÖEHY 27/3-d-e, 31/2-ç: ilkokulda din kültürü ve ahlak bilgisi alan öğretmeni okutur" : "ÖEHY 27/3-e, 28/1-ğ: alan öğretmeni okutur");
+        }
+        if (kademe === "ilkokul") {
+            const gormeIsitme = ["gorme", "isitme", "gorme_isitme"].includes(T.tur);
+            if (gormeIsitme && (ad.includes("yabanci dil") || ad.includes("ingilizce"))) {
+                return tek(gercekBrans(secilen) && secilen !== "Sınıf Öğretmenliği" ? secilen : "İngilizce", "ÖEHY 27/3-d, 31/1-e: görme/işitme ilkokul sınıfında yabancı dil alan öğretmeni okutur");
+            }
+            return null;
+        }
+        if (kademe === "okuloncesi" || kademe === "diger") return null;
+        if (ad.includes("gorsel sanat")) return tek("Görsel Sanatlar", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: görsel sanatlar alan öğretmeni okutur");
+        if (ad.includes("muzik")) return tek("Müzik", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: müzik alan öğretmeni okutur");
+        if (ad.includes("beden egitimi")) return tek("Beden Eğitimi", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: beden eğitimi alan öğretmeni okutur");
+
+        const meslek = ad.includes("is egitimi ve meslek ahlak") || ad.includes("is ve beceri uygulama");
+        if (meslek && kademe === "lise") {
+            const atolye = course.isAtolye !== false;
+            if (gercekBrans(secilen)) {
+                return tek(secilen, "ÖEHY 28/1-ğ, 32/3-c, 32/4-ç: meslek dersini ilgili alan öğretmeni okutur", atolye);
+            }
+            const sinif = parseInt(course._sinif, 10);
+            const alanlar = [...new Set(acikAlanBranslari || [])].sort((a, b) => a.localeCompare(b, 'tr'));
+            if (ad.includes("is egitimi ve meslek ahlak") && sinif === 9 && alanlar.length) {
+                const taban = Math.floor(saat / alanlar.length);
+                let artan = saat - taban * alanlar.length;
+                const paylar = alanlar.map(b => ({ brans: b, saat: taban + (artan-- > 0 ? 1 : 0) })).filter(p => p.saat > 0);
+                return { paylar, atolye, dayanak: `ORGM-07/08 açıklama 5: 9. sınıfta ders saati okuldaki ${alanlar.length} alana eşit dağıtılır` };
+            }
+        }
+        return null;
+    }
+
+    /**
+     * MEVZUATIN ÖNGÖRMEDİĞİ ÖZEL EĞİTİM SINIFI (özel eğitim 2. dalga, 16.09.2026) — yalnız UYARI.
+     * Sınıf Valilik Oluru ile açılmış olabilir; uygulama norm hesabını değiştirmez, idareciye söyler.
+     * Kaynak: KURAL_SETI_OZEL_EGITIM.md bölüm 1 "Yazılım için" (hepsi [AÇIK]).
+     */
+    ozelEgitimOrtamUyarisi(sec, schoolType = "", subeler = []) {
+        const tipi = String(schoolType || "");
+        if (!sec || tipi.includes("ozel_egitim")) return null;
+        const T = this.ozelEgitimTuru(this.ozelEgitimKayitTuru(sec, tipi));
+        const kademe = this.ozelEgitimKademesi(sec.sinifSeviyesi);
+        const gormeIsitme = ["gorme", "isitme", "gorme_isitme"].includes(T.tur);
+        const GENEL_LISE = /^(hazirlik_)?(anadolu_lisesi|fen_lisesi)$|sosyal_bilimler|^ozel_program_|^guzel_sanatlar|^spor_lisesi/;
+        if (tipi === "imam_hatip_ortaokulu" && T.duzey === "hafif") {
+            return "ÖEHY 27/2: hafif düzeyde zihinsel yetersizlik ve hafif otizm için ilköğretim programı uygulayan özel eğitim sınıfı İmam Hatip Ortaokullarında açılmaz.";
+        }
+        if (gormeIsitme && kademe === "ortaokul") {
+            return "ÖEHY 27/1: normal ortaokulda görme/işitme özel eğitim sınıfı öngörülmemiştir; bu öğrenciler 5. sınıftan itibaren tam zamanlı kaynaştırma ile eğitim alır.";
+        }
+        if (kademe === "lise" && GENEL_LISE.test(tipi)) {
+            return "ÖEHY 28/1: ortaöğretimde özel eğitim sınıfı yalnız mesleki eğitim veren ortaöğretim kurumlarında açılır.";
+        }
+        if (kademe === "lise" && T.duzey === "hafif" && this.isMeslekiKurum(tipi, subeler)
+            && !tipi.includes("mesleki_egitim_merkezi") && this.acikAlanlar(subeler, tipi).length === 0) {
+            return "ÖEHY 28/1-e: hafif düzeyde zihinsel yetersizlik / otizm sınıfı için okulda iş eğitimi kapsamında uygulanacak bir alan/dal bulunmalıdır; şubelerde açık alan görünmüyor.";
+        }
+        return null;
+    }
+
+    /** Özel eğitim sınıfının kademesi: okuloncesi | ilkokul | ortaokul | lise | diger */
+    ozelEgitimKademesi(sinifSeviyesi) {
+        const ham = String(sinifSeviyesi == null ? "" : sinifSeviyesi).toLowerCase();
+        if (ham.includes("ana") || ham.includes("okuloncesi") || ham.includes("okul oncesi")) return "okuloncesi";
+        const s = parseInt(ham, 10);
+        if (s >= 1 && s <= 4) return "ilkokul";
+        if (s >= 5 && s <= 8) return "ortaokul";
+        if (s >= 9 && s <= 12) return "lise";
+        return "diger";
+    }
+
+    /**
+     * BİRLEŞTİRİLMİŞ SINIF GRUPLARI (kullanıcı kararı 16.09.2026)
+     *
+     * e-Okul özel eğitim öğrencilerini sınıf seviyesine göre ayrı şubelerde gösterir
+     * (6-A Özel Eğt, 7-A Özel Eğt ...). Oysa "Aynı tür yetersizliği olan öğrencilere
+     * birleştirilmiş sınıf uygulaması ile eğitim yapılır" (ÖEHY 27/3-a, 28/1-a) ve norm
+     * "açılan her sınıf veya şube için" verilir (Norm Kadro Yön. Md. 17/1). Aynı TÜR ve
+     * aynı KADEME şubeleri bir grup olur; okul birleştirilmiş sınıf uyguladığını
+     * işaretleyip grubun kaç sınıf olduğunu girerse norm sınıf sayısı × sınıf normu olur.
+     * İşaretlenmezse ya da grup için sayı girilmezse her şube ayrı sınıf sayılır.
+     * Farklı türler birleştirilmez (ÖEHY 27/3-a, 31/1-ç, 31/2-b, 32/3-b, 32/4-c).
+     */
+    ozelEgitimSinifGruplari(subeler = [], schoolType = "") {
+        const KADEME_SIRA = { okuloncesi: 0, ilkokul: 1, ortaokul: 2, lise: 3, diger: 4 };
+        const gruplar = {};
+        (subeler || []).filter(s => this.ozelEgitimSubesiMi(s, schoolType)).forEach(s => {
+            const tur = this.ozelEgitimTuru(this.ozelEgitimKayitTuru(s, schoolType));
+            const kademe = this.ozelEgitimKademesi(s.sinifSeviyesi);
+            const anahtar = `${tur.kod}|${kademe}`;
+            const g = gruplar[anahtar] || (gruplar[anahtar] = { anahtar, turKod: tur.kod, turAd: tur.ad, kademe, subeler: [], ogrenci: 0 });
+            g.subeler.push(s);
+            g.ogrenci += Math.max(0, parseInt(s.ogrenciSayisi, 10) || 0);
+        });
+        return Object.values(gruplar).map(g => {
+            g.subeler.sort((a, b) => (parseInt(a.sinifSeviyesi, 10) || 0) - (parseInt(b.sinifSeviyesi, 10) || 0)
+                || String(a.subeAdi || "").localeCompare(String(b.subeAdi || ""), 'tr'));
+            const ilk = g.subeler[0];
+            const sinir = this.ozelEgitimSinifSiniri(ilk, schoolType);
+            const n = this.ozelEgitimSubeNormu(this.ozelEgitimKayitTuru(ilk, schoolType), ilk.sinifSeviyesi);
+            return Object.assign(g, {
+                subeAdlari: g.subeler.map(s => s.subeAdi || s.id),
+                enFazla: sinir.enFazla || null,
+                sinirDayanak: sinir.dayanak,
+                enAzSinif: sinir.enFazla ? Math.max(1, Math.ceil(g.ogrenci / sinir.enFazla)) : 1,
+                normSinif: n.norm,
+                normDayanak: n.dayanak
+            });
+        }).sort((a, b) => (KADEME_SIRA[a.kademe] - KADEME_SIRA[b.kademe]) || a.turAd.localeCompare(b.turAd, 'tr'));
+    }
+
+    /** Grup için okulun girdiği sınıf sayısı; birleştirilmiş sınıf uygulanmıyorsa null. */
+    ozelEgitimBirlesikSinifSayisi(grup, adminOptions = {}) {
+        if (!grup || !adminOptions || !adminOptions.ozelEgitimBirlestirilmisSinif) return null;
+        const n = parseInt((adminOptions.ozelEgitimSinifSayilari || {})[grup.anahtar], 10);
+        if (!Number.isFinite(n) || n < 1) return null;
+        // Şube sayısından fazla sınıf ancak mevcut sınırı gerektiriyorsa anlamlıdır.
+        return Math.min(n, Math.max(grup.subeler.length, grup.enAzSinif));
+    }
+
     ozelEgitimSinifIhtiyaci(sec, schoolType = "") {
         const s = this.ozelEgitimSinifSiniri(sec, schoolType);
         const ogrenci = Math.max(0, parseInt(sec && sec.ogrenciSayisi, 10) || 0);
@@ -1688,6 +1837,57 @@ export class NormEngine {
             });
         });
 
+        // ÖZEL EĞİTİM SINIFLARINDA ALAN ÖĞRETMENİNİN OKUTTUĞU DERSLER (özel eğitim 2. dalga, 16.09.2026)
+        // Kural: ozelEgitimDersOkutani. Yük, yönetici düşümü ve şefliklerden ÖNCE yazılır.
+        // Birleştirilmiş sınıfta (ÖEHY 27/3-a) aynı ders sınıf başına bir kez okutulur:
+        // yük = sınıf sayısı x gruptaki en yüksek haftalık saat; fark mutabakatta "birleşik düşüm".
+        const ozelAlanSaati = {};        // şube id -> özel eğitim satırından çıkan (ham) saat
+        const ozelAlanBrans = {};        // branş -> { ham, yuk }
+        if (!isMesemKurum) {
+            const oeSecenekAlan = (coordinatorHoursMap && coordinatorHoursMap.adminOptions) || {};
+            const acikAlanBranslariOE = this.acikAlanlar(subeler, schoolType).map(a => a.brans);
+            this.ozelEgitimSinifGruplari(subeler, schoolType).forEach(g => {
+                const N = this.ozelEgitimBirlesikSinifSayisi(g, oeSecenekAlan);
+                const kalemler = {};
+                g.subeler.forEach(sec => {
+                    [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])].forEach(c => {
+                        const ok = this.ozelEgitimDersOkutani(Object.assign({}, c, { _sinif: sec.sinifSeviyesi }), g.turKod, g.kademe, acikAlanBranslariOE);
+                        if (!ok) return;
+                        const cName = c.ders || c.ders_adi;
+                        ok.paylar.forEach(p => {
+                            ozelAlanSaati[sec.id] = (ozelAlanSaati[sec.id] || 0) + p.saat;
+                            const anahtar = N === null ? `${sec.id}##${p.brans}##${cName}` : `${p.brans}##${this.normalizeText(cName)}`;
+                            const k = kalemler[anahtar] || (kalemler[anahtar] = { brans: p.brans, ders: cName, atolye: ok.atolye, dayanak: ok.dayanak, saatler: [], subeler: [] });
+                            k.saatler.push(p.saat);
+                            k.subeler.push(sec.subeAdi || sec.id);
+                        });
+                    });
+                });
+                Object.values(kalemler).forEach(k => {
+                    const ham = k.saatler.reduce((a, b) => a + b, 0);
+                    const yuk = N === null ? ham : Math.min(ham, N * Math.max(...k.saatler));
+                    birlesikSubeDusumu += ham - yuk;
+                    ensureBranch(k.brans);
+                    branchLoadMap[k.brans] += yuk;
+                    islenmisYuk += yuk;
+                    if (k.atolye) branchLoadSplit[k.brans].atolye += yuk; else branchLoadSplit[k.brans].genel += yuk;
+                    const ob = ozelAlanBrans[k.brans] || (ozelAlanBrans[k.brans] = { ham: 0, yuk: 0 });
+                    ob.ham += ham; ob.yuk += yuk;
+                    branchCourseDetails[k.brans].push({
+                        sectionName: N === null ? k.subeler[0] : `${k.subeler.join(", ")} (birleştirilmiş ${N} sınıf)`,
+                        courseName: k.ders,
+                        baseHours: N === null ? ham : Math.max(...k.saatler),
+                        calculatedLoad: yuk,
+                        note: `Özel eğitim sınıfı — ${k.dayanak}` + (N !== null && ham !== yuk ? ` · birleştirilmiş sınıfta sınıf başına bir kez (ÖEHY 27/3-a): ${ham} → ${yuk} saat` : ""),
+                        loadCategory: k.atolye ? "ATOLYE" : "GENEL",
+                        ozelEgitimSinifi: true
+                    });
+                });
+            });
+            // Bu saatler artık genel branş havuzundan geçiyor: özel eğitim sayacından çıkar.
+            ozelEgitimSaati -= Object.values(ozelAlanSaati).reduce((a, b) => a + b, 0);
+        }
+
         // İşletmelerde Mesleki Eğitim / Koordinatörlük Yüklerinin İlavesi
         // Dayanak: MEB Norm Kadro Yönetmeliği Madde 22/2-3 (MESEM) ve OÖKY Md. 88 / Ek Ders Kararı Md. 15 (MTAL)
         const isVocationalSchool = this.isMeslekiKurum(schoolType, subeler);
@@ -1922,6 +2122,7 @@ export class NormEngine {
         const specialEduSections = subeler.filter(s => this.ozelEgitimSubesiMi(s, schoolType));
         // Sınıf mevcudu sınırı aşılan özel eğitim şubeleri (ÖEHY) — norm DEĞİŞMEZ, uyarılır.
         let ozelEgitimUyarilari = [];
+        let ozelEgitimBirlesikSiniflar = [];
         const specialEduSectionCount = specialEduSections.length;
 
         if (specialEduSectionCount > 0) {
@@ -1941,17 +2142,58 @@ export class NormEngine {
                 const h = this.ozelEgitimSubeNormu(
                     this.ozelEgitimKayitTuru(sec, schoolType), sec.sinifSeviyesi);
                 const ih = this.ozelEgitimSinifIhtiyaci(sec, schoolType);
-                const dersSaati = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
+                const tumDersler = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
+                const dersSaati = tumDersler
                     .reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
-                return { subeId: sec.id, sube: sec.subeAdi, saat: dersSaati > 0 ? dersSaati : 30,
+                // Alan öğretmeninin okuttuğu saat (ozelAlanSaati) ilgili branşa yazıldı; burada kalmaz.
+                const alanSaat = ozelAlanSaati[sec.id] || 0;
+                return { subeId: sec.id, sube: sec.subeAdi, saat: dersSaati > 0 ? dersSaati - alanSaat : (tumDersler.length ? 0 : 30), alanSaat,
                          norm: h.norm, dayanak: h.dayanak,
                          engelTuru: this.ozelEgitimTuru(this.ozelEgitimKayitTuru(sec, schoolType)).ad,
                          ogrenci: ih.ogrenci, enFazla: ih.enFazla, sinirDayanak: ih.dayanak,
                          gerekenSinif: ih.gerekenSinif, sinirAsildi: ih.sinirAsildi,
-                         olasiNorm: ih.olasiNorm, mesaj: ih.mesaj, sinirNotu: ih.not };
+                         olasiNorm: ih.olasiNorm, mesaj: ih.mesaj, sinirNotu: ih.not,
+                         ortamUyarisi: this.ozelEgitimOrtamUyarisi(sec, schoolType, subeler) };
             });
-            ozelEgitimUyarilari = ozelDetay.filter(x => x.sinirAsildi || (!x.enFazla && x.sinirNotu))
-                .map(x => ({ subeId: x.subeId, sube: x.sube, mesaj: x.mesaj || x.sinirNotu,
+            // BİRLEŞTİRİLMİŞ SINIF: aynı tür + kademe şubeleri okulun girdiği sınıf sayısına iner.
+            const oeSecenek = (coordinatorHoursMap && coordinatorHoursMap.adminOptions) || {};
+            const KADEME_AD = { okuloncesi: "okul öncesi", ilkokul: "ilkokul", ortaokul: "ortaokul", lise: "lise", diger: "" };
+            this.ozelEgitimSinifGruplari(specialEduSections, schoolType).forEach(g => {
+                const N = this.ozelEgitimBirlesikSinifSayisi(g, oeSecenek);
+                if (N === null) return;
+                const satirlar = g.subeler.map(s => ozelDetay[specialEduSections.indexOf(s)]).filter(Boolean);
+                if (!satirlar.length) return;
+                const kapasite = g.enFazla ? N * g.enFazla : null;
+                const sinirAsildi = kapasite !== null && g.ogrenci > kapasite;
+                const etiket = `${g.subeAdlari.join(", ")} birleştirilmiş sınıf: ${N} sınıf`;
+                const mesaj = g.enFazla
+                    ? (sinirAsildi
+                        ? `${etiket}, ${g.ogrenci} öğrenci; sınıf mevcudu en fazla ${g.enFazla} (${g.sinirDayanak}) → en az ${g.enAzSinif} sınıf gerekir. Sınıflar Valilik Oluru ile açılırsa norm ${g.enAzSinif * g.normSinif} olur.`
+                        : `${etiket}, ${g.ogrenci} öğrenci; sınıf başına en fazla ${g.enFazla} (${g.sinirDayanak}) — uygun.`)
+                    : `${etiket}, ${g.ogrenci} öğrenci.`;
+                satirlar.forEach((x, i) => {
+                    x.norm = i < N ? g.normSinif : 0;
+                    x.birlesikSinif = g.anahtar;
+                    x.dayanak = i < N
+                        ? `${g.normDayanak} · birleştirilmiş sınıf (ÖEHY 27/3-a)`
+                        : `birleştirilmiş sınıfa dâhil (${satirlar[0].sube}) — ayrıca norm yok`;
+                    x.enFazla = null; x.gerekenSinif = null; x.olasiNorm = null;
+                    x.sinirAsildi = sinirAsildi && i === 0;
+                    x.mesaj = i === 0 ? mesaj : null;
+                    x.sinirNotu = i === 0 ? mesaj : null;
+                });
+                if (N > satirlar.length) satirlar[satirlar.length - 1].norm += (N - satirlar.length) * g.normSinif;
+                ozelEgitimBirlesikSiniflar.push({
+                    anahtar: g.anahtar, engelTuru: g.turAd, kademe: KADEME_AD[g.kademe] || g.kademe,
+                    subeler: g.subeAdlari, ogrenci: g.ogrenci, sinifSayisi: N, normSinif: g.normSinif,
+                    norm: N * g.normSinif, enFazla: g.enFazla, sinirDayanak: g.sinirDayanak,
+                    enAzSinif: g.enAzSinif, sinirAsildi, mesaj, normDayanak: g.normDayanak
+                });
+            });
+
+            ozelEgitimUyarilari = ozelDetay.filter(x => x.sinirAsildi || x.ortamUyarisi || (!x.birlesikSinif && !x.enFazla && x.sinirNotu))
+                .map(x => ({ subeId: x.subeId, sube: x.sube, ortamUyarisi: x.ortamUyarisi || undefined,
+                             mesaj: [x.ortamUyarisi, (x.sinirAsildi || !x.enFazla) ? (x.mesaj || x.sinirNotu) : null].filter(Boolean).join(" ") || x.mesaj,
                              gerekenSinif: x.gerekenSinif, olasiNorm: x.olasiNorm, sinirAsildi: x.sinirAsildi }));
             const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
             const specialEduHours = ozelDetay.reduce((a, x) => a + x.saat, 0);
@@ -1987,13 +2229,15 @@ export class NormEngine {
                 statusText: statusText,
                 statusType: statusType,
                 statusBadge: statusBadge,
-                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1 — şube başına, engel türüne göre: `
+                formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1 — açılan sınıf/şube başına, engel türüne göre: `
                     + ozelDetay.map(x => `${x.sube} = ${x.norm} (${x.dayanak})`).join(" · ")
+                    + ozelEgitimBirlesikSiniflar.map(b => ` · Birleştirilmiş sınıf (ÖEHY 27/3-a): ${b.subeler.join(", ")} → ${b.sinifSayisi} sınıf × ${b.normSinif} = ${b.norm}`).join("")
                     + ` ➔ Toplam ${specialEduNorm} Norm`
                     + (normalSubeOzelSaat
                         ? ` · Normal şubelerden Özel Eğitim branşına verilen ${normalSubeOzelSaat} saat yükte gösterildi (bu saat için ayrıca norm hesaplanmadı)`
                         : ""),
                 ozelEgitimDetay: ozelDetay,
+                ozelEgitimBirlesikSiniflar: ozelEgitimBirlesikSiniflar,
                 courses: branchCourseDetails["Özel Eğitim"] || [],
                 isSpecialEdu: true
             });
@@ -2001,6 +2245,7 @@ export class NormEngine {
 
         allBranchesSet.forEach(branchName => {
             const totalHours = branchLoadMap[branchName] || 0;
+            const ozelAlan = ozelAlanBrans[branchName] || null;
             const currentTeachers = parseInt(existingTeachers[branchName] || 0, 10);
 
             // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin.
@@ -2069,6 +2314,9 @@ export class NormEngine {
                 workshopHours: normCalc.workshopHours,
                 generalNorm: normCalc.generalNorm,
                 workshopNorm: normCalc.workshopNorm,
+                // Özel eğitim sınıflarından gelen alan dersi saati (ham çizelge / yüke yazılan)
+                ozelEgitimSinifiHam: ozelAlan ? ozelAlan.ham : 0,
+                ozelEgitimSinifiSaati: ozelAlan ? ozelAlan.yuk : 0,
                 courses: branchCourseDetails[branchName] || []
             });
         });
@@ -2159,6 +2407,7 @@ export class NormEngine {
             branchReport,
             totalHours: grandTotalHours,
             ozelEgitimUyarilari,
+            ozelEgitimBirlesikSiniflar,
             yukMutabakati,
             totalCalculatedNorm,
             totalCurrentTeachers,

@@ -1,7 +1,7 @@
 {
- "belge_adi": "Özel Eğitim İlkokulları ve Ortaokulları Haftalık Ders Çizelgesi (Hafif Düzeyde Zihinsel Yetersizliği/Otizm Spektrum Bozukluğu Olan Öğrenciler İçin)",
+ "belge_adi": "Özel Eğitim İlkokulları ve Ortaokulları (Bedensel Engelli Öğrenciler İçin) (TTKK 18/08/2025-66)",
  "kaynak": "https://orgm.meb.gov.tr/www/haftalik-ders-cizelgeleri/icerik/3106",
- "kaynak_pdf": "05_ilkogretim__23114354_hafifduzeyzyosbolanogrencilericinozelegitimilkokullariveortaokullari.pdf",
+ "kaynak_pdf": "02_ilkogretim__23114354_bedenselengellilerilkokulllariveortaokullari13.08.2025.pdf",
  "uretim_notu": "ELLE DÜZENLEMEYİN. tools/uret_ozel_egitim.py üretir.",
  "sinif_seviyeleri": [
   "1",
@@ -36,19 +36,19 @@
     },
     "5": {
      "tip": "sabit",
-     "saat": 7
+     "saat": 6
     },
     "6": {
      "tip": "sabit",
-     "saat": 7
+     "saat": 6
     },
     "7": {
      "tip": "sabit",
-     "saat": 7
+     "saat": 5
     },
     "8": {
      "tip": "sabit",
-     "saat": 7
+     "saat": 5
     }
    }
   },
@@ -166,6 +166,39 @@
    }
   },
   {
+   "ders_adi": "Yabancı Dil",
+   "saatler": {
+    "2": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "3": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "4": {
+     "tip": "sabit",
+     "saat": 2
+    },
+    "5": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "6": {
+     "tip": "sabit",
+     "saat": 3
+    },
+    "7": {
+     "tip": "sabit",
+     "saat": 4
+    },
+    "8": {
+     "tip": "sabit",
+     "saat": 4
+    }
+   }
+  },
+  {
    "ders_adi": "Din Kültürü ve Ahlak Bilgisi",
    "saatler": {
     "4": {
@@ -211,19 +244,19 @@
     },
     "5": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "6": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "7": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "8": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     }
    }
   },
@@ -248,19 +281,19 @@
     },
     "5": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "6": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "7": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     },
     "8": {
      "tip": "sabit",
-     "saat": 2
+     "saat": 1
     }
    }
   },
@@ -410,18 +443,6 @@
   {
    "ders_adi": "Okuma Becerileri (4)",
    "saatler": {
-    "2": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "3": {
-     "tip": "sabit",
-     "saat": 2
-    },
-    "4": {
-     "tip": "sabit",
-     "saat": 2
-    },
     "5": {
      "tip": "sabit",
      "saat": 2
@@ -484,7 +505,7 @@
    }
   },
   {
-   "ders_adi": "Yabancı Dil (Bakanlar Kurulu Kararı ile",
+   "ders_adi": "Yabancı Dil (Bakanlar Kurulu Kararı ile Kabul",
    "saatler": {
     "5": {
      "tip": "sabit",
@@ -552,7 +573,7 @@
    }
   },
   {
-   "ders_adi": "Hukuk ve Adalet (1)",
+   "ders_adi": "İnsan, Hukuk ve Adalet (1)",
    "saatler": {
     "6": {
      "tip": "sabit",
@@ -569,7 +590,7 @@
    }
   },
   {
-   "ders_adi": "İnsan, Düşünme Eğitimi (2)",
+   "ders_adi": "Toplum Düşünme Eğitimi (2)",
    "saatler": {
     "7": {
      "tip": "secenekli",
@@ -585,7 +606,7 @@
    }
   },
   {
-   "ders_adi": "ve Bilim Robotik Kodlama (2)",
+   "ders_adi": "Robotik Kodlama (2)",
    "saatler": {
     "5": {
      "tip": "sabit",
@@ -637,7 +658,7 @@
    }
   },
   {
-   "ders_adi": "Okul Temelli Sosyal Sorumluluk",
+   "ders_adi": "Okul Temelli Sosyal Sorumluluk Çalışmaları (3)",
    "saatler": {
     "6": {
      "tip": "sabit",
@@ -746,9 +767,9 @@
  ],
  "cizelge_toplami": {
   "1": 26,
-  "2": 26,
-  "3": 26,
-  "4": 28,
+  "2": 28,
+  "3": 28,
+  "4": 30,
   "5": 30,
   "6": 30,
   "7": 30,

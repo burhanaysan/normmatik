@@ -650,7 +650,8 @@ export class EOkulImporter {
                         effectiveSchoolType,
                         sec.grade,
                         areaId,
-                        dalAdi
+                        dalAdi,
+                        isSpecialEdu ? (sec.engelTuru || null) : null
                     ) || [];
                 } catch (e) {
                     // SESSİZ KALMA: bu şube DERSSİZ kalır, haftalık yükü 0

@@ -605,7 +605,7 @@ export class AppStateService {
             // Yeni Sınıfın Resmi Zorunlu Ders Çizelgesini Otomatik Çöz
             let newCourses = sec.zorunluDersler || [];
             if (curEngine && typeof curEngine.getMandatoryCourses === 'function') {
-                newCourses = curEngine.getMandatoryCourses(schoolType, nextGrade, sec.alanId, sec.dalAdi);
+                newCourses = curEngine.getMandatoryCourses(schoolType, nextGrade, sec.alanId, sec.dalAdi, sec.engelTuru || null);
             }
 
             promotedSections.push({
@@ -1062,7 +1062,7 @@ export class AppStateService {
                 ? this.state.okulBilgisi.okulTuru : null;
             if (motor && okulTuru && typeof motor.getMandatoryCourses === 'function') {
                 const referans = motor.getMandatoryCourses(
-                    okulTuru, sec.sinifSeviyesi, sec.alanId, sec.dalAdi) || [];
+                    okulTuru, sec.sinifSeviyesi, sec.alanId, sec.dalAdi, sec.engelTuru || null) || [];
                 if (referans.length) {
                     const r = referans.find(
                         x => normalizeName(x.ders || "").includes("rehberlik"));
@@ -1907,7 +1907,8 @@ export class AppStateService {
                 schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
-                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi
+                sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,
+                sec.engelTuru || null
             );
             if (newCourses && newCourses.length > 0) {
                 sec.zorunluDersler = newCourses;
