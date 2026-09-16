@@ -47,6 +47,9 @@ const NORMMATIK_SURUM = {
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Her açık alana bir alan şefi: aynı branşın okuttuğu iki alan açıksa (ör. Bilişim Teknolojileri ve Siber Güvenlik) Şeflikler listesinde her alan için ayrı kutu çıkıyor ve branşa her alan şefi için 10 saat ekleniyor (OÖKY Md. 84/1).",
+        "Metalürji Teknolojisi alanının meslek dersleri yanlışlıkla Metal Teknolojisi branşına, Plastik Sanatlar alanınınkiler El Sanatları Teknolojisi branşına yazılıyordu. Artık TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları'na göre Metalürji Teknolojisi ve Sanat ve Tasarım / Plastik Sanatlar branşlarına yazılıyor.",
+        "Meslek liselerinde Şeflikler listesindeki 'Okulda Aktif Alan' işareti artık şubelerde seçilmiş alana göre konuyor. Alanı henüz seçilmemiş 9. sınıfın Görsel Sanatlar dersi ya da her alanda okutulan Sağlık Bilgisi ve Trafik Kültürü dersi alan şefliği açmıyor; varsayılan alan şefliği o alanın atölye derslerini okutan branşa yazılıyor.",
         "Özel eğitim: otizm ayrı engel türü oldu; otizmli öğrencilerin sınıfı her kademede 2 özel eğitim öğretmeni normu alıyor (Norm Kadro Yön. Md. 17/1-ç).",
         "Özel eğitim sınıflarında Özel Eğitim Hizmetleri Yönetmeliği'nin sınıf mevcudu sınırları uygulanıyor (ör. otizmde en fazla 4, hafif zihinselde 10); sınır aşılınca kaç sınıf gerektiği ve sınıflar açılırsa normun kaç olacağı gösteriliyor.",
         "Özel eğitim meslek okulu ve uygulama okulunda her şube özel eğitim şubesi sayılıyor; norm şube başına hesaplanıyor.",

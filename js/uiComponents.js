@@ -2748,7 +2748,11 @@ export class UIComponentManager {
             ? this.curriculum.koordinatorlukBranslari()
             : [];
         const meslekiBransKumesi = new Set([...vocBranches, ...alanBranslari]);
-        const activeVocBranchesSet = new Set([...aktifBranslar].filter(b => meslekiBransKumesi.has(b)));
+        // "Okulda Aktif Alan" = şubelerde seçilmiş alan; motorla aynı ölçüt (acikAlanBranslari).
+        // Ders saati ölçüt değildir: alanı seçilmemiş 9. sınıfın Görsel Sanatlar dersi alan açmaz.
+        const acikAlanlar = isVocationalSchool ? this.normEngine.acikAlanlar(subeler, schoolType) : [];
+        const alanSefiAlanlari = adminOpts.alanSefiAlanlari || {};
+        const activeVocBranchesSet = new Set(acikAlanlar.map(a => a.brans));
         const allVocBranches = isVocationalSchool
             ? [...new Set([...vocBranches, ...alanBranslari, ...activeVocBranchesSet,
                 ...Object.keys(alanSefleri), ...Object.keys(atolyeSefleri)])]
@@ -2764,13 +2768,26 @@ export class UIComponentManager {
         // Önizleme motorun hesabıyla aynı olmalı: aktif alanlarda alan şefliği
         // varsayılan olarak VARDIR (OÖKY Md. 84/1; kullanıcı kararı 16.09.2026).
         const sefHesabi = isVocationalSchool
-            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType, [...activeVocBranchesSet])
+            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri, alanSefiAlanlari }, schoolType, acikAlanlar)
             : {};
         const seflikRowsHtml = sortedVocBranches.map(bName => {
             const isActive = activeVocBranchesSet.has(bName);
             const alanKayit = alanSefleri[bName];
             const alanSecilmemis = (alanKayit === undefined || alanKayit === null || alanKayit === "");
             const alanVar = alanSecilmemis ? isActive : (parseInt(alanKayit, 10) || 0) > 0;
+            // HER ALANA BİR ŞEF: branşın okuttuğu her açık alan için ayrı kutu (OÖKY Md. 84/1).
+            const bransAlanlari = acikAlanlar.filter(a => a.brans === bName);
+            const alanKutulari = bransAlanlari.length
+                ? bransAlanlari.map(a => {
+                    const k = alanSefiAlanlari[a.anahtar];
+                    const isaretli = (k === undefined || k === null || k === "") ? alanVar : (parseInt(k, 10) || 0) > 0;
+                    const alanAd = NormGuvenlik.htmlKacis(a.ad);
+                    return `<label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : alanAd + ' için alan şefi: haftada 10 saat'}">
+                            <input type="checkbox" class="seflik-alan-input" data-branch="${NormGuvenlik.htmlKacis(bName)}" data-alan="${NormGuvenlik.htmlKacis(a.anahtar)}" data-aktif="1" ${isaretli && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
+                            Alan şefi${bransAlanlari.length > 1 ? ' · ' + alanAd : ''}
+                        </label>`;
+                }).join("")
+                : null;
             const atolyeSayi = Math.max(0, parseInt(atolyeSefleri[bName], 10) || 0);
             const saat = (sefHesabi[bName] || {}).saat || 0;
             const ad = NormGuvenlik.htmlKacis(bName);
@@ -2784,10 +2801,10 @@ export class UIComponentManager {
                         <div style="font-size: 0.68rem; color: var(--text-muted);">Planlama ve Bakım-Onarım Görevi: <b>${saat}</b> saat</div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: nowrap; justify-content: flex-end; flex-shrink: 0;">
-                        <label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : 'Alan / bölüm şefi: haftada 10 saat'}">
+                        ${alanKutulari ? `<div style="display: flex; flex-direction: column; gap: 0.15rem;">${alanKutulari}</div>` : `<label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : 'Alan / bölüm şefi: haftada 10 saat'}">
                             <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" data-aktif="${isActive ? '1' : ''}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
                             Alan şefi
-                        </label>
+                        </label>`}
                         <input type="number" class="seflik-atolye-input" data-branch="${ad}" value="${atolyeSayi}" min="0" max="20" style="width: 58px; padding: 0.2rem 0.3rem; text-align: center; font-size: 0.82rem; font-weight: 800; color: #7e22ce; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: var(--radius-md); outline: none;" title="Atölye / laboratuvar şefi sayısı: her biri haftada 6 saat">
                         <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">atölye/lab. şefi</span>
                     </div>
@@ -3327,8 +3344,11 @@ export class UIComponentManager {
 
             // ŞEFLİKLER (15.09.2026): alan şefi (0/1) ve atölye/laboratuvar şefi sayısı
             const alanSefleri = {};
+            const alanSefiAlanlari = {};
             document.querySelectorAll(".seflik-alan-input").forEach(input => {
                 if (input.disabled) return;
+                // Açık alanın kutusu: alan başına 0/1 AÇIKÇA yazılır (her alana bir şef).
+                if (input.dataset.alan) { alanSefiAlanlari[input.dataset.alan] = input.checked ? 1 : 0; return; }
                 if (input.checked) alanSefleri[input.dataset.branch] = 1;
                 // AKTİF alanda işaret kaldırıldıysa 0 AÇIKÇA yazılır: kayıtta değer
                 // yoksa motor varsayılanı (şeflik var) uygular ve seçim geri gelirdi.
@@ -3361,6 +3381,7 @@ export class UIComponentManager {
                 },
                 yoneticiDersYukleri: yoneticiDersYukleri,
                 alanSefleri: alanSefleri,
+                alanSefiAlanlari: alanSefiAlanlari,
                 atolyeSefleri: atolyeSefleri
             };
             this.state.setAdminOptions(adminOptsToSave);

@@ -426,6 +426,76 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     kontrol("N11 motorda otomatik 12. sınıf kalemi kaldırıldı",
         !/branchesWithGrade12Vocational/.test(oku("js", "normEngine.js")));
 
+    // "OKULDA AKTİF ALAN" = şubede seçilmiş alan (canlı okul bildirimi, 16.09.2026):
+    // alanı seçilmemiş 9. sınıfın Görsel Sanatlar kültür dersi şeflik açmaz.
+    const subeYap = (id, g, alan) => ({ id, subeAdi: g + "-" + id, sinifSeviyesi: g, ogrenciSayisi: 24, alanId: alan,
+        zorunluDersler: ce.getMandatoryCourses(MTAL, g, alan, null) || [], secmeliDersler: [] });
+    const karma = [subeYap("g9", "9", null), subeYap("s10", "10", "saglik"), subeYap("s11", "11", "saglik")];
+    kontrol("N11 ölçüm geçerli: alansız 9. sınıfta Görsel Sanatlar dersi var",
+        karma[0].zorunluDersler.some(d => d.atananBrans === "Görsel Sanatlar"));
+    const aktif = ne.acikAlanBranslari(karma, MTAL);
+    kontrol("N11 açık alan yalnız şubede seçilmiş alan (Sağlık Hizmetleri)",
+        aktif.length === 1 && aktif[0] === "Sağlık Hizmetleri", aktif.join(", "));
+    const rKarma = ne.calculateSchoolNorms(karma, {}, MTAL, {});
+    kontrol("N11 Görsel Sanatlar ve Sağlık Bilgisi dersi şeflik saati doğurmuyor",
+        rKarma.branchReport.filter(b => b.seflikHours > 0).map(b => b.branchName).join(",") === "Sağlık Hizmetleri",
+        rKarma.branchReport.filter(b => b.seflikHours > 0).map(b => b.branchName + " " + b.seflikHours).join(", "));
+    kontrol("N11 yalnız alansız 9. sınıflar: hiçbir branşa şeflik yok",
+        ne.calculateSchoolNorms([subeYap("g9", "9", null)], {}, MTAL, {}).branchReport.every(b => !b.seflikHours));
+    const sefBranslari = (alan) => ne.calculateSchoolNorms(["9", "10", "11", "12"].map(g => subeYap(alan + g, g, alan)), {}, MTAL, {})
+        .branchReport.filter(b => b.seflikHours > 0).map(b => b.branchName).join(",");
+    kontrol("N11 Geleneksel Türk Sanatları okulunda Türk Dili ve Edebiyatı'na şeflik yazılmıyor (Osmanlı Türkçesi)",
+        !/Türk Dili ve Edebiyatı/.test(sefBranslari("geleneksel")), sefBranslari("geleneksel"));
+    kontrol("N11 Radyo-TV okulunda İHL Meslek Dersleri'ne şeflik yazılmıyor",
+        sefBranslari("radyotv") === "Radyo-Televizyon", sefBranslari("radyotv"));
+    // Metalürji alanının dersleri Türkçe harf silen arama yüzünden Metal Teknolojisi'ne
+    // gidiyordu (düzeltildi 16.09.2026). Esaslar sıra 53: Metalürji Teknolojisi.
+    kontrol("N11 Metalürji alanında şef ve dersler Metalürji Teknolojisi'nde",
+        sefBranslari("metalurji") === "Metalürji Teknolojisi", sefBranslari("metalurji"));
+    kontrol("N11 ekran 'Okulda Aktif Alan' ölçütünü motordan alıyor",
+        /this\.normEngine\.acikAlanlar\(subeler, schoolType\)/.test(oku("js", "uiComponents.js")));
+
+    // ALAN -> BRANŞ (TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları, 19.12.2025-129)
+    const mesBrans = (alan) => [...new Set(["9", "10", "11", "12"].flatMap(g =>
+        (ce.getMandatoryCourses(MTAL, g, alan, null) || []).filter(d => d.isAtolye).map(d => d.atananBrans)))].join(",");
+    kontrol("ESASLAR sıra 53: Metalürji alanı meslek dersleri Metalürji Teknolojisi", mesBrans("metalurji") === "Metalürji Teknolojisi", mesBrans("metalurji"));
+    kontrol("ESASLAR sıra 73: Plastik Sanatlar alanı -> Sanat ve Tasarım / Plastik Sanatlar",
+        mesBrans("plastiksanatlar") === "Sanat ve Tasarım / Plastik Sanatlar", mesBrans("plastiksanatlar"));
+    kontrol("ESASLAR sıra 52: Metal alanı değişmedi", mesBrans("metal") === "Metal Teknolojisi", mesBrans("metal"));
+    kontrol("ESASLAR: Sanat ve Tasarım / Plastik Sanatlar bilinen branş", ce.isKnownBranch("Sanat ve Tasarım / Plastik Sanatlar"));
+
+    // HER ALANA BİR ŞEF (kullanıcı kararı 16.09.2026, OÖKY Md. 84/1)
+    const iki = [subeYap("b10", "10", "bilisim"), subeYap("c10", "10", "siber")];
+    const alanlarIki = ne.acikAlanlar(iki, MTAL);
+    kontrol("ALANŞEF Bilişim + Siber Güvenlik: iki ayrı alan, ikisi de Bilişim Teknolojileri",
+        alanlarIki.length === 2 && alanlarIki.every(a => a.brans === BT), JSON.stringify(alanlarIki));
+    const rIki = ne.calculateSchoolNorms(iki, {}, MTAL, {});
+    kontrol("ALANŞEF iki alan -> Bilişim Teknolojileri'ne 2 alan şefi, 20 saat",
+        brans(rIki, BT) && brans(rIki, BT).seflikHours === 20, brans(rIki, BT) && brans(rIki, BT).seflikHours);
+    const siberAnahtar = (alanlarIki.find(a => /Siber/.test(a.ad)) || {}).anahtar;
+    const rBir = ne.calculateSchoolNorms(iki, {}, MTAL, { adminOptions: { alanSefiAlanlari: { [siberAnahtar]: 0 } } });
+    kontrol("ALANŞEF bir alanın kutusu kaldırılınca 10 saat",
+        brans(rBir, BT) && brans(rBir, BT).seflikHours === 10, brans(rBir, BT) && brans(rBir, BT).seflikHours);
+    const rEski = ne.calculateSchoolNorms(iki, {}, MTAL, { adminOptions: { alanSefleri: { [BT]: 0 } } });
+    kontrol("ALANŞEF eski branş kaydı 0 -> o branşın bütün alanlarında şef yok",
+        !brans(rEski, BT) || !brans(rEski, BT).seflikHours, brans(rEski, BT) && brans(rEski, BT).seflikHours);
+    const notSatiri = (brans(rIki, BT).courses || []).find(c => c.isSeflik);
+    kontrol("ALANŞEF rapor notunda alan adları ve 2 x 10s",
+        notSatiri && /2 alan şefi \(.*Siber Güvenlik.*\) x 10s = 20s/.test(notSatiri.note), notSatiri && notSatiri.note);
+    const pro = [subeYap("d10", "10", "denizcilik"), subeYap("p10", "10", "denizcilikpro")];
+    kontrol("ALANŞEF aynı alanın protokollü programı ayrı alan sayılmaz (Denizcilik: 1 şef)",
+        ne.acikAlanlar(pro, MTAL).length === 1
+        && brans(ne.calculateSchoolNorms(pro, {}, MTAL, {}), "Denizcilik").seflikHours === 10,
+        JSON.stringify(ne.acikAlanlar(pro, MTAL)));
+    const mesemAlan = ne.seflikSaatleri({}, "mesleki_egitim_merkezi", alanlarIki);
+    kontrol("ALANŞEF MESEM'de alan şefi yok", !mesemAlan[BT], JSON.stringify(mesemAlan));
+    kontrol("ALANŞEF alan adı çizelge başlığından", ce.alanAdi("siber") === "Siber Güvenlik Alanı", ce.alanAdi("siber"));
+    const ui2 = oku("js", "uiComponents.js");
+    kontrol("ALANŞEF ekran alan başına kutu yazıp alanSefiAlanlari olarak kaydediyor",
+        /data-alan=/.test(ui2) && /alanSefiAlanlari\[input\.dataset\.alan\]/.test(ui2) && /alanSefiAlanlari: alanSefiAlanlari/.test(ui2));
+    kontrol("ALANŞEF bulut kaydı alanSefiAlanlari tablosunu kodluyor",
+        (oku("js", "cloudDatabaseService.js").match(/"alanSefleri", "alanSefiAlanlari", "atolyeSefleri"/g) || []).length === 2);
+
     const sefli = ne.calculateSchoolNorms([sube], {}, MTAL,
         { adminOptions: { alanSefleri: { [BT]: 1 }, atolyeSefleri: { [BT]: 2 } } });
     const b0 = brans(sade, BT), b1 = brans(sefli, BT);

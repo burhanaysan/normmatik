@@ -59,11 +59,17 @@ export class NormEngine {
     /**
      * ALAN / ATÖLYE ŞEFLİKLERİNİN NORM YÜKÜNE EKLENEN SAATİ (15.09.2026)
      *
-     * adminOptions.alanSefleri   = { "Branş": 1 }   (alan/bölüm şefi var)
+     * adminOptions.alanSefiAlanlari = { "alanAnahtari": 0|1 } (okulda AÇIK alanın şefi; 16.09.2026)
+     * adminOptions.alanSefleri   = { "Branş": 0|1 }   (açık alanı olmayan branşta elle şef; eski kayıt)
      * adminOptions.atolyeSefleri = { "Branş": n }   (atölye/laboratuvar şefi sayısı)
      *
-     * Dayanak ve saatler normRulesConfig.seflikRules'ta. Aynı alan için ikinci
-     * alan şefi görevlendirilmez (OÖKY Md. 84/2) -> en çok 1. MESEM'de alan
+     * HER ALANA BİR ŞEF (kullanıcı kararı 16.09.2026, OÖKY Md. 84/1 "açılan her alan"):
+     * aynı branşın okuttuğu iki alan açıksa (Bilişim + Siber Güvenlik) branşa 2 alan
+     * şefi, 20 saat yazılır. Aynı alan için ikinci alan şefi görevlendirilmez (Md. 84/2)
+     * -> alan başına en çok 1. Aynı alanın protokollü ("pro") programı ayrı alan sayılmaz.
+     * Alan kaydı yoksa eski branş kaydı (alanSefleri) o branşın bütün alanlarına uygulanır.
+     *
+     * Dayanak ve saatler normRulesConfig.seflikRules'ta. MESEM'de alan
      * şefliği oluşturulmaz (OÖKY Md. 84/1) -> yalnızca atölye/laboratuvar şefi.
      * Ekran, rapor ve Excel bu tek hesabı kullanır; 10 ve 6 başka yerde yazılmaz.
      *
@@ -81,18 +87,35 @@ export class NormEngine {
         // 16.09.2026). Dayanak OÖKY Md. 84/1: "açılan her alan/bölüm için bir alan/bölüm
         // şefliği ... oluşturulur" — şeflik okulun tercihi değil, yönetmelik gereği.
         // İdareci kutunun işaretini kaldırırsa kayda 0 yazılır ve saat eklenmez.
-        const aktifler = (aktifAlanBranslari || []).filter(Boolean);
+        const alanKayitlari = (adminOptions && adminOptions.alanSefiAlanlari) || {};
+        const bos = (v) => v === undefined || v === null || v === "";
+        // Eski çağrılar branş adı listesi verir (branş başına tek alan sayılır).
+        const aktifler = (aktifAlanBranslari || []).filter(Boolean)
+            .map(a => typeof a === "string" ? { anahtar: null, ad: null, brans: a } : a)
+            .filter(a => a.brans);
         const sonuc = {};
-        for (const brans of new Set([...Object.keys(alanlar), ...Object.keys(atolyeler), ...aktifler])) {
+        for (const brans of new Set([...Object.keys(alanlar), ...Object.keys(atolyeler), ...aktifler.map(a => a.brans)])) {
             const kayit = alanlar[brans];
-            const secilmemis = (kayit === undefined || kayit === null || kayit === "");
-            const alanVar = secilmemis ? aktifler.includes(brans) : (parseInt(kayit, 10) || 0) > 0;
-            const alanSefi = (!mesem && alanVar) ? 1 : 0;
+            const bransKaydiVar = !bos(kayit);
+            const bransAlanlari = aktifler.filter(a => a.brans === brans);
+            const sefliAlanlar = [];
+            let alanSefi = 0;
+            if (bransAlanlari.length) {
+                bransAlanlari.forEach(a => {
+                    const ak = a.anahtar ? alanKayitlari[a.anahtar] : undefined;
+                    const var_ = !bos(ak) ? (parseInt(ak, 10) || 0) > 0
+                        : (bransKaydiVar ? (parseInt(kayit, 10) || 0) > 0 : true);
+                    if (var_) { alanSefi++; if (a.ad) sefliAlanlar.push(a.ad); }
+                });
+            } else if (bransKaydiVar && (parseInt(kayit, 10) || 0) > 0) {
+                alanSefi = 1;
+            }
+            if (mesem) { alanSefi = 0; sefliAlanlar.length = 0; }
             const atolyeSefi = Math.max(0, parseInt(atolyeler[brans], 10) || 0);
             const saat = alanSefi * alanBirim + atolyeSefi * atolyeBirim;
             if (saat > 0) {
                 sonuc[brans] = {
-                    alanSefi, atolyeSefi,
+                    alanSefi, atolyeSefi, alanBirim, sefliAlanlar,
                     alanSaat: alanSefi * alanBirim,
                     atolyeSaat: atolyeSefi * atolyeBirim,
                     atolyeBirim, saat
@@ -100,6 +123,82 @@ export class NormEngine {
             }
         }
         return sonuc;
+    }
+
+    /**
+     * OKULDA AÇIK ALANLARIN ŞEFLİK BRANŞLARI (16.09.2026)
+     *
+     * "Açılan her alan" (OÖKY Md. 84/1) şubelerde seçilmiş ALANDIR; ders saati değil.
+     * Eskiden iki ayrı ölçüt vardı ve ikisi de yanılıyordu:
+     *   - ekran: bir meslek branşına herhangi bir ders saati düşmesi -> alanı seçilmemiş
+     *     9. sınıfın Görsel Sanatlar kültür dersi "Okulda Aktif Alan" görünüyordu
+     *     (canlı okul bildirimi); Sağlık Bilgisi ve Trafik Kültürü de her alanda
+     *     Sağlık Hizmetleri'ni aktif gösteriyordu.
+     *   - motor: bir branşa atölye kovasında saat düşmesi -> Geleneksel Türk Sanatları
+     *     okulunda Türk Dili ve Edebiyatı'na (Osmanlı Türkçesi), Radyo-TV okulunda İHL
+     *     Meslek Dersleri'ne varsayılan 10 saat alan şefliği yazılıyordu.
+     * Ekran ve motor bu tek ölçütü kullanır. Alanı seçilmemiş şube alan açmaz.
+     *
+     * Şef hangi branşa yazılır: alanın ATÖLYE derslerinde en çok saati okutan branşa
+     * (şef o alanın atölye ve laboratuvar öğretmenlerinden olur, OÖKY Md. 84/A).
+     * Alan -> branş tablosuna (AREA_BRANCH_MAP) yalnızca alanın atölye dersi yoksa
+     * bakılır. Ölçüm (16.09.2026): Metalürji alanının atölye dersleri Metal
+     * Teknolojisi'ne, Plastik Sanatlar alanınınkiler El Sanatları Teknolojisi'ne
+     * yazılıyor, tablo ise şefi yüksüz Metalürji / Görsel Sanatlar satırına veriyordu.
+     */
+    acikAlanBranslari(subeler = [], schoolType = "") {
+        return [...new Set(this.acikAlanlar(subeler, schoolType).map(a => a.brans))];
+    }
+
+    /**
+     * Okulda açık ALANLAR: [{ anahtar, ad, brans, alanIdleri }]. Aynı alanın protokollü
+     * programı ("denizcilik" / "denizcilikpro") çizelge başlığındaki alan adı aynı olduğu
+     * için tek alan sayılır. Şeflik "her alana bir şef" kuralı bu listeyle çalışır.
+     */
+    acikAlanlar(subeler = [], schoolType = "") {
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        const harita = (ce && ce.AREA_BRANCH_MAP) || {};
+        const gecerli = (b) => !!b && b !== "Mesleki Gelişim" && b !== "— Branş Atanmadı —"
+            && !(ce && typeof ce.isKnownBranch === "function" && !ce.isKnownBranch(b));
+        const adBul = (alanId) => (ce && typeof ce.alanAdi === "function") ? ce.alanAdi(alanId) : String(alanId);
+        const anahtarYap = (ad) => {
+            const n = (ce && typeof ce.normalizeName === "function") ? ce.normalizeName(ad) : String(ad).toLowerCase();
+            return n.replace(/[^a-z0-9]/g, "").replace(/alani$/, "") || "alan";
+        };
+        const alanlar = {};   // anahtar -> { ad, alanIdleri:Set, saatler:{ branş: atölye saati } }
+        (subeler || []).forEach(s => {
+            const alanId = s && s.alanId;
+            if (!alanId || NormEngine.SAHTE_ALAN_KIMLIKLERI.has(alanId)) return;
+            if (this.ozelEgitimSubesiMi(s, schoolType)) return;
+            if (harita[alanId] === "Mesleki Gelişim") return;
+            const ad = adBul(alanId);
+            const anahtar = anahtarYap(ad);
+            const kayit = alanlar[anahtar] || (alanlar[anahtar] = { ad, alanIdleri: new Set(), saatler: {} });
+            kayit.alanIdleri.add(alanId);
+            [...(s.zorunluDersler || []), ...(s.secmeliDersler || [])].forEach(d => {
+                if (!d || !d.isAtolye) return;
+                const b = d.atananBrans || d.brans;
+                if (!gecerli(b)) return;
+                kayit.saatler[b] = (kayit.saatler[b] || 0) + (parseFloat(d.saat) || 0);
+            });
+        });
+        const sonuc = [];
+        Object.entries(alanlar).forEach(([anahtar, k]) => {
+            const tablo = [...k.alanIdleri].map(id => harita[id]).find(Boolean);
+            const enCok = Math.max(0, ...Object.values(k.saatler));
+            let brans = null;
+            if (enCok > 0) {
+                const adaylar = Object.keys(k.saatler).filter(b => k.saatler[b] === enCok)
+                    .sort((a, b) => a.localeCompare(b, 'tr'));
+                brans = adaylar.includes(tablo) ? tablo : adaylar[0];
+            } else {
+                brans = tablo;
+            }
+            if (gecerli(brans)) sonuc.push({ anahtar, ad: k.ad, brans, alanIdleri: [...k.alanIdleri] });
+        });
+        return sonuc.sort((a, b) => a.ad.localeCompare(b.ad, 'tr'));
     }
 
     /**
@@ -1736,9 +1835,8 @@ export class NormEngine {
         // olabilir (OÖKY Md. 84/A).
         const branchSeflikMap = {};
         if (isVocationalSchool) {
-            // Aktif alan branşı = okulda atölye/laboratuvar ders yükü olan meslek branşı.
-            const aktifAlanBranslari = Object.keys(branchLoadSplit)
-                .filter(b => ((branchLoadSplit[b] || {}).atolye || 0) > 0);
+            // Aktif alanlar = şubelerde seçilmiş alanlar; her alana bir şef (acikAlanlar).
+            const aktifAlanBranslari = this.acikAlanlar(subeler, schoolType);
             const sefler = this.seflikSaatleri(
                 coordinatorHoursMap && coordinatorHoursMap.adminOptions, schoolType, aktifAlanBranslari);
             Object.entries(sefler).forEach(([branchName, s]) => {
@@ -1747,7 +1845,8 @@ export class NormEngine {
                 branchLoadSplit[branchName].atolye += s.saat;
                 branchSeflikMap[branchName] = s.saat;
                 const parca = [];
-                if (s.alanSefi) parca.push(`alan şefi ${s.alanSaat}s`);
+                if (s.alanSefi > 1) parca.push(`${s.alanSefi} alan şefi (${(s.sefliAlanlar || []).join(", ")}) x ${s.alanBirim}s = ${s.alanSaat}s`);
+                else if (s.alanSefi) parca.push(`alan şefi ${s.alanSaat}s`);
                 if (s.atolyeSefi) parca.push(`${s.atolyeSefi} atölye/laboratuvar şefi x ${s.atolyeBirim}s = ${s.atolyeSaat}s`);
                 branchCourseDetails[branchName].push({
                     sectionName: "Şeflik görevi",

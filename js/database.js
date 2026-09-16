@@ -479,6 +479,7 @@ export class MebDatabaseService {
             "Radyo-Televizyon",
             "Raylı Sistemler Teknolojisi",
             "Sağlık Hizmetleri",
+            "Sanat ve Tasarım / Plastik Sanatlar",
             "Seramik ve Cam Teknolojisi",
             "Siber Güvenlik",
             "Tarım",

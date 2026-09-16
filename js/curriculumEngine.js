@@ -194,7 +194,11 @@ class MebCurriculumEngine {
             'muhasebepro': 'Muhasebe ve Finansman',
             'otomotiv': 'Motorlu Araçlar Teknolojisi',
             'pazarlama': 'Pazarlama ve Perakende',
-            'plastiksanatlar': 'Görsel Sanatlar',
+            // TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları (19.12.2025-129) sıra 73:
+            // "Plastik Sanatlar Alanının; Plastik Sanatlar dalının alan/dal dersleri" -> Sanat ve
+            // Tasarım / Plastik Sanatlar. Eskiden Görsel Sanatlar (sıra 29) yazılıydı; o satırda bu
+            // alan geçmiyor. (16.09.2026)
+            'plastiksanatlar': 'Sanat ve Tasarım / Plastik Sanatlar',
             'plastiktek': 'Plastik Teknolojisi',
             'radyotv': 'Radyo-Televizyon',
             'radyotvpro': 'Radyo-Televizyon',
@@ -351,6 +355,16 @@ class MebCurriculumEngine {
         // MTEGM Meslek / Atölye Heuristics
         if (category.includes("ALAN") || category.includes("MESLEK") || category.includes("DAL")) {
             if (defaultArea) {
+                // DÜZELTME (16.09.2026): defaultArea çoğu çağrıda ZATEN branş adıdır
+                // (AREA_BRANCH_MAP değeri). Eskiden doğrudan aşağıdaki "içeriyor mu"
+                // aramasına giriyordu; Türkçe harfler silindiği için "Metalürji
+                // Teknolojisi" -> "metalrji..." içinde "metal" bulunup Metal Teknolojisi,
+                // "Görsel Sanatlar" -> "grselsanatlar" içinde "elsanat" bulunup El Sanatları
+                // Teknolojisi dönüyordu. Metalürji ve Plastik Sanatlar alanlarının bütün
+                // meslek dersleri yanlış branşa yazılıyordu.
+                const bransAdlari = Object.values(this.AREA_BRANCH_MAP);
+                if (bransAdlari.includes(defaultArea)) return defaultArea;
+                if (this.AREA_BRANCH_MAP[defaultArea]) return this.AREA_BRANCH_MAP[defaultArea];
                 const areaKey = String(defaultArea).toLowerCase().replace(/[^a-z0-9]/g, '');
                 for (let k in this.AREA_BRANCH_MAP) {
                     if (this.normalizeName(k) === areaKey || areaKey.includes(this.normalizeName(k))) {
@@ -463,6 +477,24 @@ class MebCurriculumEngine {
      * (AREA_BRANCH_MAP). Uygulamanın tanımadığı hedefler (ör. "Mesleki
      * Gelişim") listeye GİRMEZ — uydurma branş satırı açılmaz.
      */
+    alanAdi(alanId) {
+        if (!alanId) return "";
+        this._alanAdlari = this._alanAdlari || {};
+        if (this._alanAdlari[alanId] !== undefined) return this._alanAdlari[alanId];
+        const db = (typeof STRICT_PDF_CURRICULUM_DB !== "undefined") ? STRICT_PDF_CURRICULUM_DB : null;
+        const sayac = {};
+        Object.values((db && db[alanId]) || {}).forEach(liste => (liste || []).forEach(k => {
+            const m = /(?:PROGRAMI\s+)?([A-ZÇĞİÖŞÜÂÎÛ][A-ZÇĞİÖŞÜÂÎÛ\s\-]+?)\s+ALANI\b/.exec(String((k && k.title) || ""));
+            if (!m) return;
+            const ad = m[1].replace(/^(ANADOLU MESLEK PROGRAMI|ANADOLU TEKNİK PROGRAMI)\s+/, "").trim();
+            sayac[ad] = (sayac[ad] || 0) + 1;
+        }));
+        const enCok = Object.entries(sayac).sort((a, b) => b[1] - a[1])[0];
+        const ad = enCok ? this.toTurkishTitleCase(enCok[0]) + " Alanı" : String(alanId);
+        this._alanAdlari[alanId] = ad;
+        return ad;
+    }
+
     koordinatorlukBranslari() {
         return [...new Set(Object.values(this.AREA_BRANCH_MAP || {}))]
             .filter(b => this.isKnownBranch(b));
