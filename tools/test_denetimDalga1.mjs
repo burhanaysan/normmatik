@@ -518,6 +518,16 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     kontrol("N07 AİHL musiki Çalgı Eğitimi bire bir kalır (çizelge dayanağı)", g("anadolu_imam_hatip_lisesi", "Çalgı Eğitimi", 30, "11") > 1);
     kontrol("N07 GSL müzik Bireysel Ses Eğitimi 2'şerli kalır", g("guzel_sanatlar_muzik", "Bireysel Ses Eğitimi", 20, "9") === 10,
         g("guzel_sanatlar_muzik", "Bireysel Ses Eğitimi", 20, "9"));
+    // 16.09.2026 taraması: bu iki ders seçmeli havuzunda GERÇEKTEN var ve eski
+    // motorda bölünüyordu (AİHL "Kur'an'ın Ana Konuları" 2 grup, İHO "Bireysel
+    // Ses Eğitimi" 15 grup). Çizelge hükmü yalnız "Kur'an-ı Kerim" dersi için;
+    // İHO'da bire bir ders tanımı yok.
+    kontrol("N07 AİHL 'Kur'an'ın Ana Konuları' bölünmez", g("anadolu_imam_hatip_lisesi", "Kur’an’ın Ana Konuları", 30, "9") === 1,
+        g("anadolu_imam_hatip_lisesi", "Kur’an’ın Ana Konuları", 30, "9"));
+    kontrol("N07 İHO 'Bireysel Ses Eğitimi' bölünmez", g("imam_hatip_ortaokulu", "Bireysel Ses Eğitimi", 30, "5") === 1,
+        g("imam_hatip_ortaokulu", "Bireysel Ses Eğitimi", 30, "5"));
+    kontrol("N07 hazırlıklı AİHL'de Kur'an-ı Kerim kuralı sürüyor", g("hazirlik_imam_hatip_lisesi", "KUR’AN-I KERİM", 30, "9") === 2,
+        g("hazirlik_imam_hatip_lisesi", "KUR’AN-I KERİM", 30, "9"));
 }
 
 /* ======================================================================= */
