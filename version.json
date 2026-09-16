@@ -1,7 +1,7 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "releaseDate": "2026-09-15",
   "minEngineVersion": "2.0.0",
   "distribution": {
@@ -10,6 +10,12 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Kur'an-ı Kerim dersinin 25'ten fazla öğrencide iki gruba bölünmesi yalnızca imam hatip okullarında uygulanıyor; spor ve güzel sanatlar liselerinde seçmeli Kur'an-ı Kerim bölünmüyor.",
+    "İmam hatip ortaokulunda Bireysel Çalgı Eğitimi öğrenci başına çoğaltılmıyor; Toplu Ses Eğitimi grup dersi olarak sayılıyor.",
+    "Öğrenci sayısı 0 yapılan şube, grup hesabında artık 30 öğrencili sayılmıyor.",
+    "MESEM'de aynı alanın şubelerinde işletme dersine farklı branş seçilmişse yük, en çok çırağı olan branşa yazılıyor; sonuç şubelerin eklenme sırasına bağlı değil.",
+    "Özel eğitim sınıfı olan okulda, normal şubelerden Özel Eğitim branşına verilen ders saati toplam yükte görünüyor.",
+    "Kaynaştırma öğrencisiyle grup bölünmesi yönetmeliğin 'gruplara eşit dağıtım' şartına göre hesaplanıyor.",
     "Meslek liselerinde 12. sınıfı olan her alana kendiliğinden eklenen 10 saat “koordinatörlük” kaldırıldı. Yerine alan ve atölye/laboratuvar şeflikleri Kadro & Şeflikler penceresinden işaretleniyor: alan şefi haftada 10, her atölye/laboratuvar şefi 6 saat, branşın atölye yüküne eklenir (Norm Kadro Yön. Md. 22/1-c-2, Ek Ders Kararı Md. 6/4). Daha önce girilmiş koordinatörlük saati alan şefi olarak aktarıldı.",
     "Atölye raporundaki grup baremi açıklaması yönetmeliğin metniyle (Md. 22/1-ç) düzeltildi.",
     "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",

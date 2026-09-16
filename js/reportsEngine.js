@@ -392,7 +392,7 @@ class MebReportsEngine {
                 id: s.id,
                 subeAdi: s.subeAdi,
                 sinifSeviyesi: s.sinifSeviyesi,
-                ogrenciSayisi: s.ogrenciSayisi || 30,
+                ogrenciSayisi: this.normEngine.subeOgrenciSayisi(s),
                 alanId: s.alanId,
                 dalAdi: s.dalAdi,
                 commonCourses: commonCourses,
@@ -479,7 +479,7 @@ class MebReportsEngine {
 
         subeler.forEach(sec => {
             const allC = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
-            const stdCount = parseInt(sec.ogrenciSayisi, 10) || 30;
+            const stdCount = this.normEngine.subeOgrenciSayisi(sec);
 
             allC.forEach(c => {
                 const isVoc = (c.kategori || "").includes("MESLEK") || (c.kategori || "").includes("ALAN") || (c.kategori || "").includes("DAL") || !!c.isAtolye || !!c.isVocational;

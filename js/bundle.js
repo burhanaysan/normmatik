@@ -349,13 +349,19 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.5",
+    surum: "2.1.6",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Kur'an-ı Kerim dersinin 25'ten fazla öğrencide iki gruba bölünmesi yalnızca imam hatip okullarında uygulanıyor; spor ve güzel sanatlar liselerinde seçmeli Kur'an-ı Kerim bölünmüyor.",
+        "İmam hatip ortaokulunda Bireysel Çalgı Eğitimi öğrenci başına çoğaltılmıyor; Toplu Ses Eğitimi grup dersi olarak sayılıyor.",
+        "Öğrenci sayısı 0 yapılan şube, grup hesabında artık 30 öğrencili sayılmıyor.",
+        "MESEM'de aynı alanın şubelerinde işletme dersine farklı branş seçilmişse yük, en çok çırağı olan branşa yazılıyor; sonuç şubelerin eklenme sırasına bağlı değil.",
+        "Özel eğitim sınıfı olan okulda, normal şubelerden Özel Eğitim branşına verilen ders saati toplam yükte görünüyor.",
+        "Kaynaştırma öğrencisiyle grup bölünmesi yönetmeliğin 'gruplara eşit dağıtım' şartına göre hesaplanıyor.",
         "Meslek liselerinde 12. sınıfı olan her alana kendiliğinden eklenen 10 saat “koordinatörlük” kaldırıldı. Yerine alan ve atölye/laboratuvar şeflikleri Kadro & Şeflikler penceresinden işaretleniyor: alan şefi haftada 10, her atölye/laboratuvar şefi 6 saat, branşın atölye yüküne eklenir (Norm Kadro Yön. Md. 22/1-c-2, Ek Ders Kararı Md. 6/4). Daha önce girilmiş koordinatörlük saati alan şefi olarak aktarıldı.",
         "Atölye raporundaki grup baremi açıklaması yönetmeliğin metniyle (Md. 22/1-ç) düzeltildi.",
         "Özel program fen lisesinde laboratuvar dersleri, güzel sanatlar lisesinde sanat atölye dersleri ve imam hatipteki atölye adlı seçmeliler genel ders olarak hesaplanıyor; ad kalıbıyla atölye sayma yalnızca meslekî okullarda.",
@@ -796,10 +802,10 @@ const NORM_RULES_CONFIG = {
             groupsAboveTiers: 4            // 33+ -> 4
         },
         /**
-         * Kaynaştırma hükmü. Mevzuat "en az 2 kaynaştırma öğrencisi bulunan
-         * gruplar ikiye bölünür" diyor. Motor, kaynaştırma öğrencilerinin
-         * gruplara eşit dağıldığı varsayımıyla bölünecek grup sayısını
-         * floor(kaynastirmaOgrenci / minStudentsPerSplit) olarak hesaplar.
+         * Kaynaştırma hükmü. Mevzuat "öğrencilerin gruplara eşit sayıda
+         * dağıtılması kaydıyla ... en az 2 öğrencinin bulunduğu gruplar ikiye
+         * bölünür" diyor. Motor öğrencileri gruplara en dengeli dağıtır ve en az
+         * minStudentsPerSplit öğrencisi düşen grupları sayar (Denetim N-14).
          */
         inclusion: {
             minStudentsPerSplit: 2,        // bir grupta >=2 kaynaştırma öğrencisi
@@ -942,7 +948,7 @@ const NORM_RULES_CONFIG = {
             studentsPerGroup: 2
         },
         kuraniKerim: {
-            legalRef: "Anadolu İmam Hatip Lisesi uygulaması",
+            legalRef: "AİHL ve İHO haftalık ders çizelgesi açıklaması (yalnız Kur'an-ı Kerim dersi)",
             splitAboveStudents: 25,      // 25'ten fazla mevcutta 2 gruba bölünür
             groupsWhenSplit: 2
         }
@@ -180232,6 +180238,18 @@ class NormEngine {
     }
 
     /**
+     * Şubenin öğrenci sayısı (Denetim N-06, 16.09.2026). 0 geçerli bir sayıdır;
+     * yalnızca alan hiç girilmemişse eski varsayılan 30 kullanılır. Eskiden
+     * "|| 30" 0'ı da 30 sayıyordu: öğrencisi 0'a düşürülen GSL müzik şubesinde
+     * Çalgı Eğitimi 30 öğrenciye göre hesaplanıyor, branşa +90 saat yazılıyordu.
+     * Motor, ekrandaki ders satırı ve atölye raporu bu tek kuralı kullanır.
+     */
+    subeOgrenciSayisi(sube) {
+        const n = parseInt(sube && sube.ogrenciSayisi, 10);
+        return Number.isFinite(n) ? Math.max(0, n) : 30;
+    }
+
+    /**
      * Kural tablosunu dışarıdan değiştirmeye izin verir (test ve simülasyon için).
      */
     setRules(rules) {
@@ -180332,11 +180350,18 @@ class NormEngine {
         // Madde 22/1-ç kapanış hükmü: en az 2 kaynaştırma öğrencisi bulunan
         // gruplar ikiye bölünür; grup sayısı hiçbir şekilde 5'i geçemez.
         const inclusion = parseInt(inclusionStudentCount, 10) || 0;
+        //
+        // EŞİT DAĞITIM (Denetim N-14, 16.09.2026): hüküm "öğrencilerin gruplara
+        // EŞİT SAYIDA dağıtılması kaydıyla" bölünme veriyor. k öğrenci g gruba en
+        // dengeli dağıtılınca her gruba floor(k/g), kalan (k mod g) gruba bir
+        // fazlası düşer; en az m öğrencisi olan grup sayısı buradan bulunur.
+        // Eski formül floor(k/2) öğrencileri ikişer ikişer aynı gruba topluyordu:
+        // 24 öğrenci, 2 grup, 2 kaynaştırma -> 3 grup (doğrusu 2).
         if (cfg.inclusion.enabled && inclusion >= cfg.inclusion.minStudentsPerSplit) {
-            const splittableGroups = Math.min(
-                groups,
-                Math.floor(inclusion / cfg.inclusion.minStudentsPerSplit)
-            );
+            const m = cfg.inclusion.minStudentsPerSplit;
+            const taban = Math.floor(inclusion / groups);
+            const kalan = inclusion % groups;
+            const splittableGroups = taban >= m ? groups : (taban + 1 >= m ? kalan : 0);
             groups = groups + splittableGroups;
         }
 
@@ -180729,6 +180754,14 @@ class NormEngine {
             };
         }
 
+        // BİRE BİR / SES EĞİTİMİ KAPISI (Denetim N-07, 16.09.2026)
+        // Md. 22/4 spor ve güzel sanatlar liselerinin ALAN derslerini kapsar;
+        // AİHL musiki programı çizelgesi (açıklama 23-24) aynı ilaveyi tanır.
+        // İmam hatip ORTAOKULU ve spor lisesi çizelgelerinde bire bir ders tanımı
+        // yok: İHO'da seçmeli "Bireysel Çalgı Eğitimi" 30 öğrencide 30 grup
+        // sayılıyordu. Kapı yalnız bu iki kuralı sınırlar; atölye kuralı aynen.
+        const bireBirTurMu = sType.includes("guzel_sanatlar") || sType.includes("imam_hatip_lisesi");
+
         // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (Madde 22/4-a)
         //
         // TAVAN (Denetim N-04, 15.09.2026): Md. 22/4-a bu derslerin yükünü
@@ -180737,7 +180770,7 @@ class NormEngine {
         // Eski hesap öğrenci başına tam saat yazıyordu (saat x öğrenci); 4 saatlik
         // 9. sınıf Çalgı Eğitimi'nde bu tavanı aşıyor ve Müzik normunu şişiriyordu
         // (2 şube x 20 öğrenci: 160 saat; tavan 128). Tavan aşılmıyorsa hesap aynı.
-        if (matchesCourse("BİREYSEL ÇALGI") || matchesCourse("BIREYSEL CALGI") || matchesCourse("ÇALGI EĞİTİMİ") || matchesCourse("CALGI EGITIMI")) {
+        if (bireBirTurMu && (matchesCourse("BİREYSEL ÇALGI") || matchesCourse("BIREYSEL CALGI") || matchesCourse("ÇALGI EĞİTİMİ") || matchesCourse("CALGI EGITIMI"))) {
             const count = Math.max(1, parseInt(studentCount, 10) || 1);
             const hamYuk = baseHours * count;
             const tavanYuk = this.bireBirTavanYuku(baseHours, count);
@@ -180754,7 +180787,12 @@ class NormEngine {
         }
 
         // 2. Güzel Sanatlar Ses Eğitimi (2'şer Kişilik Grup)
-        if (matchesCourse("SES EĞİTİMİ") || matchesCourse("SES EGITIMI")) {
+        //
+        // "Toplu Ses Eğitimi" bir GRUP dersidir (çizelge: şube en çok 3 gruba
+        // ayrılır, grup en az 8 öğrenci). Alt dize eşleşmesi onu 2'şerli bire bir
+        // derse çeviriyordu (30 öğrenci -> 15 grup). Grup dersine ilave okulun
+        // kararıdır (Md. 22/4-b); karar girilebilene kadar tek grup sayılır.
+        if (bireBirTurMu && (matchesCourse("SES EĞİTİMİ") || matchesCourse("SES EGITIMI")) && !matchesCourse("TOPLU")) {
             const groups = Math.max(1, Math.ceil(studentCount / 2));
             return {
                 groupCount: groups,
@@ -180764,9 +180802,17 @@ class NormEngine {
             };
         }
 
-        // 3. Anadolu İmam Hatip Lisesi Kur'an-ı Kerim 25+ Kuralı
-        if ((matchesCourse("KUR'AN") || matchesCourse("KURAN")) && !matchesCourse("ANLAM")) {
-            if (studentCount > 25) {
+        // 3. İmam Hatip Kur'an-ı Kerim 25+ Kuralı
+        //
+        // DAYANAK YALNIZ DÖGM ÇİZELGELERİNDE (Denetim N-07, 16.09.2026): AİHL ve
+        // İHO çizelgeleri "Kur'an-ı Kerim dersinin ... mevcudu 25'i geçen sınıflar
+        // iki gruba ayrılabilir" diyor. Spor ve güzel sanatlar liselerinin
+        // çizelgelerinde böyle bir hüküm yok; "KUR'AN" alt dizesi de "Kur'an
+        // Okuma Teknikleri" gibi başka dersleri yakalıyordu. Kural artık yalnız
+        // imam hatip türlerinde ve yalnız "Kur'an-ı Kerim" dersinde.
+        const kuranIKerim = /^kur'?an i kerim\b/.test(cName);
+        if (kuranIKerim && sType.includes("imam_hatip") && !matchesCourse("ANLAM")) {
+            if ((parseInt(studentCount, 10) || 0) > 25) {
                 return {
                     groupCount: 2,
                     calculatedLoad: baseHours * 2,
@@ -181306,7 +181352,7 @@ class NormEngine {
             // aynen kalır; bugünkü davranış değişmez.
             const allCourses = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
                 .reduce((liste, c) => liste.concat(this.dersiGenislet(c)), []);
-            const studentCount = sec.ogrenciSayisi || 30;
+            const studentCount = this.subeOgrenciSayisi(sec);   // N-06: 0 öğrenci 30 sayılmaz
 
             allCourses.forEach(course => {
                 const cName = course.ders || course.ders_adi;
@@ -181460,9 +181506,11 @@ class NormEngine {
                 const alanId = sec.alanId;
                 if (!alanId) return;
                 const kayit = mesemAlanBilgi[alanId] || (mesemAlanBilgi[alanId] = {
-                    cirak: 0, isletmeSaati: 0, brans: null
+                    cirak: 0, isletmeSaati: 0, brans: null, bransCirak: {}, celisenBranslar: null
                 });
-                kayit.cirak += parseInt(sec.ogrenciSayisi, 10) || 0;
+                const subeCirak = parseInt(sec.ogrenciSayisi, 10) || 0;
+                kayit.cirak += subeCirak;
+                const subeBranslari = new Set();
 
                 [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])].forEach(c => {
                     if (!this.mesemIsletmeDersiMi(c)) return;
@@ -181470,8 +181518,23 @@ class NormEngine {
                     // Sınıf seviyeleri arasında saat farklıysa en yükseği esas
                     // alınır; barem alanın tamamı için TEK grup sayısı üretir.
                     if (saat > kayit.isletmeSaati) kayit.isletmeSaati = saat;
-                    if (!kayit.brans && c.atananBrans) kayit.brans = c.atananBrans;
+                    const b = String(c.atananBrans || "").trim();
+                    if (b && b !== "— Branş Atanmadı —" && b !== "Diğer") subeBranslari.add(b);
                 });
+                subeBranslari.forEach(b => {
+                    kayit.bransCirak[b] = (kayit.bransCirak[b] || 0) + subeCirak;
+                });
+            });
+            // ŞUBE SIRASINDAN BAĞIMSIZ (Denetim N-09, 16.09.2026): yük, alanda
+            // işletme dersini en çok çırağa okutan branşa yazılır; eşitlikte ada
+            // göre. Eskiden ilk eklenen şubenin branşı alınıyordu; aynı okulda
+            // yalnız şube ekleme sırası değişince normun yazıldığı branş değişiyordu.
+            // Aynı alanda farklı branş seçilmişse not satırında gösterilir.
+            Object.values(mesemAlanBilgi).forEach(k => {
+                const adaylar = Object.entries(k.bransCirak)
+                    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "tr"));
+                k.brans = adaylar.length ? adaylar[0][0] : null;
+                k.celisenBranslar = adaylar.length > 1 ? adaylar : null;
             });
         }
 
@@ -181516,7 +181579,10 @@ class NormEngine {
                         const g = this.calculateMesemApprenticeGroups(k.cirak);
                         const st = k.isletmeSaati
                             || this.rules.mesemApprenticeRules.weeklyHoursPerGroupFallback;
-                        return `${k.cirak} çırak ➔ ${g} grup x ${st}s`;
+                        const celiski = k.celisenBranslar
+                            ? ` (aynı alanda farklı branş seçilmiş: ${k.celisenBranslar.map(([b, n]) => `${b} ${n} çırak`).join(", ")}; yük en çok çırağı olan branşa yazıldı)`
+                            : "";
+                        return `${k.cirak} çırak ➔ ${g} grup x ${st}s${celiski}`;
                     });
                 coordNote = `MEB Norm Kadro Yön. Md. 22/2 (alan bazında): `
                           + alanlar.join("  +  ") + ` = ${coordHours}s İşletmelerde Mesleki Eğitim Yükü`;
@@ -181547,7 +181613,9 @@ class NormEngine {
         // Norm Kadro Yön. Md. 22/1-c-2: alan ders yükü hesaplanırken şeflerin
         // "göreve ilişkin ders saatleri de dikkate alınır"; saat Ek Ders Kararı
         // Md. 6/4'ten (alan şefi 10, atölye/laboratuvar şefi 6). Şeflik okulda
-        // valilik oluruyla kurulur (OÖKY Md. 84); sayısını uygulama TAHMİN ETMEZ,
+        // her açılan alan için oluşturulur, atölye şefliği komisyon tespitiyle (OÖKY
+        // Md. 84/1, 84/5); şef valinin onayıyla 4 yıl görevlendirilir (84/B). Görevli
+        // şef olup olmadığını uygulama bilemez; sayısını TAHMİN ETMEZ,
         // idareci girer. Eskiden burada 12. sınıfı olan her meslek branşına
         // kendiliğinden 10 saat "koordinatörlük" ekleniyordu: şeflik açılmış mı
         // bakılmıyor, dayanak olarak ek ders mevzuatı gösteriliyordu (Denetim N-11).
@@ -181639,6 +181707,13 @@ class NormEngine {
         const specialEduSectionCount = specialEduSections.length;
 
         if (specialEduSectionCount > 0) {
+            // NORMAL ŞUBE SAATİ KAYBOLMAZ (Denetim N-08, 16.09.2026): normal
+            // şubelerde "Özel Eğitim" branşına verilen derslerin yükü de bu satırda
+            // durur. Eskiden satır silinip yerine yalnız özel şubelerden türetilen
+            // Md. 17 satırı konuyordu; o saat hiçbir yerde görünmüyor, okul toplamı
+            // eksik çıkıyor ve mutabakat bozulduğu için rapor paneli gizleniyordu.
+            // Bu saat için ayrıca Md. 18 normu HESAPLANMAZ (kullanıcı kararı bekliyor).
+            const normalSubeOzelSaat = branchLoadMap["Özel Eğitim"] || 0;
             allBranchesSet.delete("Özel Eğitim");
             // Şube saati detayın İÇİNDE hesaplanır ve toplam ondan türetilir:
             // Master matristeki Özel Eğitim kartı şube satırlarını bu detaydan
@@ -181677,7 +181752,8 @@ class NormEngine {
 
             branchReport.push({
                 branchName: "Özel Eğitim",
-                totalHours: specialEduHours,
+                totalHours: specialEduHours + normalSubeOzelSaat,
+                normalSubeSaati: normalSubeOzelSaat,
                 calculatedNorm: specialEduNorm,
                 currentTeachers: currentTeachers,
                 coordinatorHours: 0,
@@ -181687,7 +181763,10 @@ class NormEngine {
                 statusBadge: statusBadge,
                 formulaExplanation: `MEB Norm Kadro Yön. Md. 17/1 — şube başına, engel türüne göre: `
                     + ozelDetay.map(x => `${x.sube} = ${x.norm} (${x.dayanak})`).join(" · ")
-                    + ` ➔ Toplam ${specialEduNorm} Norm`,
+                    + ` ➔ Toplam ${specialEduNorm} Norm`
+                    + (normalSubeOzelSaat
+                        ? ` · Normal şubelerden Özel Eğitim branşına verilen ${normalSubeOzelSaat} saat yükte gösterildi (bu saat için ayrıca norm hesaplanmadı)`
+                        : ""),
                 ozelEgitimDetay: ozelDetay,
                 courses: branchCourseDetails["Özel Eğitim"] || [],
                 isSpecialEdu: true
@@ -182640,7 +182719,7 @@ class MebReportsEngine {
                 id: s.id,
                 subeAdi: s.subeAdi,
                 sinifSeviyesi: s.sinifSeviyesi,
-                ogrenciSayisi: s.ogrenciSayisi || 30,
+                ogrenciSayisi: this.normEngine.subeOgrenciSayisi(s),
                 alanId: s.alanId,
                 dalAdi: s.dalAdi,
                 commonCourses: commonCourses,
@@ -182727,7 +182806,7 @@ class MebReportsEngine {
 
         subeler.forEach(sec => {
             const allC = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])];
-            const stdCount = parseInt(sec.ogrenciSayisi, 10) || 30;
+            const stdCount = this.normEngine.subeOgrenciSayisi(sec);
 
             allC.forEach(c => {
                 const isVoc = (c.kategori || "").includes("MESLEK") || (c.kategori || "").includes("ALAN") || (c.kategori || "").includes("DAL") || !!c.isAtolye || !!c.isVocational;
@@ -184844,7 +184923,7 @@ class AppStateService {
                     mevcutRehberOgretmeni: 1,
                     mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
                     yoneticiDersYukleri: {},
-                    // Şeflikler valilik oluruyla kurulur (OÖKY Md. 84); demoda iki alanın
+                    // Şef valinin onayıyla görevlendirilir (OÖKY Md. 84/B); demoda iki alanın
                     // alan şefi var: her biri +10 saat atölye yükü (Md. 22/1-c-2).
                     alanSefleri: { "Bilişim Teknolojileri": 1, "Elektrik-Elektronik Teknolojisi": 1 },
                     atolyeSefleri: {}
@@ -189703,8 +189782,9 @@ class UIComponentManager {
         // motor 12. sınıfı olan her meslek branşına kendiliğinden 10 saat
         // ekliyordu. Müdürlerin anlattığı uygulamada o 10 saat ALAN ŞEFLİĞİNİN
         // saatidir; norm hesabındaki dayanağı da şefliktir (Norm Kadro Yön.
-        // Md. 22/1-c-2; saatler Ek Ders Kararı Md. 6/4). Şeflik valilik oluruyla
-        // kurulur; uygulama sayısını tahmin etmez, idareci işaretler.
+        // Md. 22/1-c-2; saatler Ek Ders Kararı Md. 6/4). Şeflik her açılan alan için
+        // oluşturulur (OÖKY Md. 84/1), şef valinin onayıyla görevlendirilir (84/B);
+        // görevli şef olup olmadığını uygulama bilemez, idareci işaretler.
         // Branş listesi yine motordan ve müfredat motorundan gelir (14.09.2026
         // düzeltmesi korunur): meslek branşları + alan branşları + okulda
         // aktif olanlar + zaten şeflik girilmiş olanlar.
@@ -195315,7 +195395,7 @@ class MebNormApplication {
         // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
         // geçilmezse ekranda görünen yük, norm hesabındaki yükten farklı çıkar.
         const sectionInclusionCount = parseInt(section.kaynastirmaOgrenciSayisi ?? section.kaynastirmaSayisi ?? 0, 10) || 0;
-        const mult = normEngine.evaluateCourseMultiplier(course, section.ogrenciSayisi || 30, schoolType, section.sinifSeviyesi, sectionInclusionCount);
+        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section), schoolType, section.sinifSeviyesi, sectionInclusionCount);
         
         let loadInfoHtml = "";
         let badgeHtml = "";

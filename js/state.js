@@ -485,7 +485,7 @@ export class AppStateService {
                     mevcutRehberOgretmeni: 1,
                     mevcutIdareciler: { mudur: 1, mudurBasyardimcisi: 0, mudurYardimcisi: 2, rehberOgretmeni: 1 },
                     yoneticiDersYukleri: {},
-                    // Şeflikler valilik oluruyla kurulur (OÖKY Md. 84); demoda iki alanın
+                    // Şef valinin onayıyla görevlendirilir (OÖKY Md. 84/B); demoda iki alanın
                     // alan şefi var: her biri +10 saat atölye yükü (Md. 22/1-c-2).
                     alanSefleri: { "Bilişim Teknolojileri": 1, "Elektrik-Elektronik Teknolojisi": 1 },
                     atolyeSefleri: {}

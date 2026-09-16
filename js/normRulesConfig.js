@@ -169,10 +169,10 @@ export const NORM_RULES_CONFIG = {
             groupsAboveTiers: 4            // 33+ -> 4
         },
         /**
-         * Kaynaştırma hükmü. Mevzuat "en az 2 kaynaştırma öğrencisi bulunan
-         * gruplar ikiye bölünür" diyor. Motor, kaynaştırma öğrencilerinin
-         * gruplara eşit dağıldığı varsayımıyla bölünecek grup sayısını
-         * floor(kaynastirmaOgrenci / minStudentsPerSplit) olarak hesaplar.
+         * Kaynaştırma hükmü. Mevzuat "öğrencilerin gruplara eşit sayıda
+         * dağıtılması kaydıyla ... en az 2 öğrencinin bulunduğu gruplar ikiye
+         * bölünür" diyor. Motor öğrencileri gruplara en dengeli dağıtır ve en az
+         * minStudentsPerSplit öğrencisi düşen grupları sayar (Denetim N-14).
          */
         inclusion: {
             minStudentsPerSplit: 2,        // bir grupta >=2 kaynaştırma öğrencisi
@@ -315,7 +315,7 @@ export const NORM_RULES_CONFIG = {
             studentsPerGroup: 2
         },
         kuraniKerim: {
-            legalRef: "Anadolu İmam Hatip Lisesi uygulaması",
+            legalRef: "AİHL ve İHO haftalık ders çizelgesi açıklaması (yalnız Kur'an-ı Kerim dersi)",
             splitAboveStudents: 25,      // 25'ten fazla mevcutta 2 gruba bölünür
             groupsWhenSplit: 2
         }

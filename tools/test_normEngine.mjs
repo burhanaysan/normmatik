@@ -137,7 +137,12 @@ check("12. sınıf / 60 öğrenci -> 4 grup (kaynaştırmasız TAVAN)", grp(60, 
 section("MADDE 22/1-ç kapanış — Kaynaştırma hükmü");
 
 check("10. sınıf / 20 öğr. / 1 kaynaştırma -> 2 grup (2 altı, bölünme yok)", grp(20, "10", 1), 2);
-check("10. sınıf / 20 öğr. / 2 kaynaştırma -> 3 grup (1 grup ikiye bölünür)", grp(20, "10", 2), 3);
+// Denetim N-14 (16.09.2026): hüküm "gruplara EŞİT SAYIDA dağıtılması kaydıyla"
+// bölünme veriyor. 2 öğrenci 2 gruba eşit dağıtılınca her gruba 1 düşer; en az 2
+// kaynaştırma öğrencisi olan grup yoktur. Eski beklenti (3) ikisini aynı gruba
+// toplamayı sayıyordu.
+check("10. sınıf / 20 öğr. / 2 kaynaştırma -> 2 grup (eşit dağıtımda gruba 1 düşer, bölünme yok)", grp(20, "10", 2), 2);
+check("10. sınıf / 20 öğr. / 3 kaynaştırma -> 3 grup (2+1 dağılır, 1 grup bölünür)", grp(20, "10", 3), 3);
 check("10. sınıf / 20 öğr. / 4 kaynaştırma -> 4 grup (2 grup bölünür)", grp(20, "10", 4), 4);
 check("12. sınıf / 40 öğr. / 8 kaynaştırma -> 5 grup (MUTLAK TAVAN 5)", grp(40, "12", 8), 5);
 check("9. sınıf  / 45 öğr. / 6 kaynaştırma -> 5 grup (MUTLAK TAVAN 5)", grp(45, "9", 6), 5);

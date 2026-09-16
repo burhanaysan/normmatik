@@ -1733,7 +1733,7 @@ class MebNormApplication {
         // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
         // geçilmezse ekranda görünen yük, norm hesabındaki yükten farklı çıkar.
         const sectionInclusionCount = parseInt(section.kaynastirmaOgrenciSayisi ?? section.kaynastirmaSayisi ?? 0, 10) || 0;
-        const mult = normEngine.evaluateCourseMultiplier(course, section.ogrenciSayisi || 30, schoolType, section.sinifSeviyesi, sectionInclusionCount);
+        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section), schoolType, section.sinifSeviyesi, sectionInclusionCount);
         
         let loadInfoHtml = "";
         let badgeHtml = "";

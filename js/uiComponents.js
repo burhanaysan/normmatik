@@ -2701,8 +2701,9 @@ export class UIComponentManager {
         // motor 12. sınıfı olan her meslek branşına kendiliğinden 10 saat
         // ekliyordu. Müdürlerin anlattığı uygulamada o 10 saat ALAN ŞEFLİĞİNİN
         // saatidir; norm hesabındaki dayanağı da şefliktir (Norm Kadro Yön.
-        // Md. 22/1-c-2; saatler Ek Ders Kararı Md. 6/4). Şeflik valilik oluruyla
-        // kurulur; uygulama sayısını tahmin etmez, idareci işaretler.
+        // Md. 22/1-c-2; saatler Ek Ders Kararı Md. 6/4). Şeflik her açılan alan için
+        // oluşturulur (OÖKY Md. 84/1), şef valinin onayıyla görevlendirilir (84/B);
+        // görevli şef olup olmadığını uygulama bilemez, idareci işaretler.
         // Branş listesi yine motordan ve müfredat motorundan gelir (14.09.2026
         // düzeltmesi korunur): meslek branşları + alan branşları + okulda
         // aktif olanlar + zaten şeflik girilmiş olanlar.

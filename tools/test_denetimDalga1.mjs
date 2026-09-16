@@ -16,6 +16,12 @@
      N-03  3+ şube birleştirilince ders her şubede ayrı sayılıyor, iki şubede
            sonuç şubelerin sırasına bağlı oluyordu.
      N-04  Güzel sanatlar Çalgı Eğitimi Md.22/4-a tavanını aşıyordu.
+     N-06  Öğrenci sayısı 0 yapılan şube grup hesabında 30 sayılıyordu.
+     N-07  Kur'an 25+, bire bir çalgı ve ses eğitimi kuralları dayanağı olmayan
+           türlere ve derslere taşıyordu (spor/GSL Kur'an, İHO çalgı, Toplu Ses).
+     N-08  Özel eğitim sınıfı olan okulda normal şubelerden Özel Eğitim
+           branşına verilen saat kayboluyor, mutabakat bozuluyordu.
+     N-09  MESEM işletme yükünün yazıldığı branş şube ekleme sırasına bağlıydı.
      N-10  "Branş Atanmadı" seçimi hesapta çalışmıyor, ders adıyla sahte branş
            satırı açılıyordu.
      N-11  Meslek lisesinde 12. sınıfı olan her meslek branşına dayanaksız
@@ -24,6 +30,7 @@
            Ek Ders Kararı Md. 6/4, OÖKY Md. 84).
      N-13  9. sınıfta 31 öğrencili atölye şubesi 3 grup sayılıyordu
            ("31'den fazla 3" -> 31 ikinci kademede).
+     N-14  Kaynaştırma bölünmesi "gruplara eşit dağıtım" şartını uygulamıyordu.
 
    Testler YAYIMLANAN paketi (js/bundle.js) çalıştırır; kaynak düzenlendikten
    sonra `python -X utf8 tools/build_bundle.py` çalışmadan sonuç yanıltıcıdır.
@@ -466,6 +473,121 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     const bulut = oku("js", "cloudDatabaseService.js");
     kontrol("N11 bulut şeflik tablolarının branş anahtarlarını kodluyor",
         (bulut.match(/alanSefleri/g) || []).length >= 2 && (bulut.match(/atolyeSefleri/g) || []).length >= 2);
+}
+
+/* ======================================================================= */
+/* N-06 — öğrenci sayısı 0                                                  */
+/* ======================================================================= */
+{
+    const TUR = "guzel_sanatlar_muzik";
+    st.resetSchool(); st.setSchoolType(TUR);
+    const s = st.addSection({ sinifSeviyesi: "9", subeAdi: "9-A", ogrenciSayisi: 20,
+        zorunluDersler: JSON.parse(JSON.stringify(ce.getMandatoryCourses(TUR, "9", null, null) || [])), secmeliDersler: [] });
+    kontrol("N06 ölçüm geçerli: GSL müzik 9. sınıfta Çalgı Eğitimi var", (s.zorunluDersler || []).some(d => /Çalgı/i.test(d.ders)));
+    st.updateSection(s.id, { ogrenciSayisi: 1 });
+    const bir = brans(hesapla(), "Müzik");
+    st.updateSection(s.id, { ogrenciSayisi: 0 });
+    kontrol("N06 ölçüm geçerli: kayıtta 0 öğrenci", st.state.subeler[0].ogrenciSayisi === 0, st.state.subeler[0].ogrenciSayisi);
+    const sifir = brans(hesapla(), "Müzik");
+    kontrol("N06 0 öğrencili şube 1 öğrencili şubeden fazla yük doğurmaz",
+        !!bir && !!sifir && sifir.totalHours <= bir.totalHours, bir && sifir && (bir.totalHours + " / " + sifir.totalHours));
+    kontrol("N06 tek kural: 0 -> 0, '12' -> 12, alan yoksa 30",
+        ne.subeOgrenciSayisi({ ogrenciSayisi: 0 }) === 0 && ne.subeOgrenciSayisi({ ogrenciSayisi: "12" }) === 12
+        && ne.subeOgrenciSayisi({}) === 30);
+    kontrol("N06 ekran ve rapor aynı kuralı kullanıyor",
+        !/ogrenciSayisi \|\| 30, schoolType/.test(oku("js", "app.js"))
+        && !/parseInt\(sec\.ogrenciSayisi, 10\) \|\| 30/.test(oku("js", "reportsEngine.js")));
+}
+
+/* ======================================================================= */
+/* N-07 — grup kuralları yalnız dayanağı olan tür ve derste                 */
+/* ======================================================================= */
+{
+    const g = (tur, ders, ogr, sinif) => ne.evaluateCourseMultiplier({ ders, saat: 2 }, ogr, tur, sinif, 0).groupCount;
+    kontrol("N07 spor lisesinde seçmeli Kur'an-ı Kerim bölünmez", g("spor_lisesi", "KUR’AN-I KERİM", 30, "10") === 1, g("spor_lisesi", "KUR’AN-I KERİM", 30, "10"));
+    kontrol("N07 GSL'de seçmeli Kur'an-ı Kerim bölünmez", g("guzel_sanatlar_gorsel", "KUR’AN-I KERİM", 30, "11") === 1);
+    kontrol("N07 AİHL'de Kur'an-ı Kerim 26+ öğrencide 2 grup (dayanak korunur)", g("anadolu_imam_hatip_lisesi", "Kur'an-ı Kerim", 30, "9") === 2);
+    kontrol("N07 İHO'da Kur'an-ı Kerim 26+ öğrencide 2 grup (dayanak korunur)", g("imam_hatip_ortaokulu", "KUR’AN-I KERİM", 30, "6") === 2);
+    kontrol("N07 AİHL'de 25 öğrencide bölünmez", g("anadolu_imam_hatip_lisesi", "Kur'an-ı Kerim", 25, "9") === 1);
+    kontrol("N07 'Kur'an Okuma Teknikleri' Kur'an-ı Kerim kuralına girmez", g("anadolu_imam_hatip_lisesi", "Kur'an Okuma Teknikleri", 30, "10") === 1);
+    kontrol("N07 İHO'da Bireysel Çalgı Eğitimi öğrenci başına çoğaltılmaz", g("imam_hatip_ortaokulu", "Bireysel Çalgı Eğitimi", 30, "6") === 1,
+        g("imam_hatip_ortaokulu", "Bireysel Çalgı Eğitimi", 30, "6"));
+    kontrol("N07 AİHL Toplu Ses Eğitimi en çok 3 grup", g("anadolu_imam_hatip_lisesi", "Toplu Ses Eğitimi", 30, "9") <= 3,
+        g("anadolu_imam_hatip_lisesi", "Toplu Ses Eğitimi", 30, "9"));
+    kontrol("N07 GSL müzik TOPLU SES EĞİTİMİ en çok 3 grup", g("guzel_sanatlar_muzik", "TOPLU SES EĞİTİMİ", 30, "9") <= 3);
+    kontrol("N07 AİHL musiki Çalgı Eğitimi bire bir kalır (çizelge dayanağı)", g("anadolu_imam_hatip_lisesi", "Çalgı Eğitimi", 30, "11") > 1);
+    kontrol("N07 GSL müzik Bireysel Ses Eğitimi 2'şerli kalır", g("guzel_sanatlar_muzik", "Bireysel Ses Eğitimi", 20, "9") === 10,
+        g("guzel_sanatlar_muzik", "Bireysel Ses Eğitimi", 20, "9"));
+}
+
+/* ======================================================================= */
+/* N-08 — normal şubeden Özel Eğitim'e verilen saat                         */
+/* ======================================================================= */
+{
+    const TUR = "ortaokul_temel_egitim";
+    const okul = (ozelSubeVar) => {
+        st.resetSchool(); st.setSchoolType(TUR);
+        const n = [0, 1, 2].map(i => st.addSection({ sinifSeviyesi: "6", subeAdi: "6-" + "ABC"[i], ogrenciSayisi: 28,
+            zorunluDersler: JSON.parse(JSON.stringify(ce.getMandatoryCourses(TUR, "6", null, null) || [])), secmeliDersler: [] }));
+        for (const s of n) st.updateCourseBranch(s.id, "Matematik", "Özel Eğitim");
+        if (ozelSubeVar) st.addSection({ sinifSeviyesi: "6", subeAdi: "6-Özel", ogrenciSayisi: 8, alanId: "ozel_egitim",
+            dalAdi: "Özel Eğitim Sınıfı", isSpecialEdu: true, specialEduType: "hafif_zihinsel", engelTuru: "hafif_zihinsel",
+            zorunluDersler: JSON.parse(JSON.stringify(ce.getMandatoryCourses(TUR, "6", "ozel_egitim", "Özel Eğitim Sınıfı") || [])), secmeliDersler: [] });
+        return hesapla();
+    };
+    const r1 = okul(false), r2 = okul(true);
+    const oe1 = brans(r1, "Özel Eğitim"), oe2 = brans(r2, "Özel Eğitim");
+    kontrol("N08 ölçüm geçerli: normal şubelerden Özel Eğitim'e saat verildi", !!oe1 && oe1.totalHours > 0, oe1 && oe1.totalHours);
+    kontrol("N08 özel şube eklenince okul toplamı = önceki + özel şube saati",
+        r2.totalHours === r1.totalHours + r2.yukMutabakati.ozelEgitimSaati,
+        r1.totalHours + " + " + r2.yukMutabakati.ozelEgitimSaati + " / " + r2.totalHours);
+    kontrol("N08 mutabakat tutarlı (rapor paneli gizlenmez)", r2.yukMutabakati.tutarli === true);
+    kontrol("N08 normal şube saati Özel Eğitim satırında ayrıca yazılı",
+        !!oe2 && oe2.normalSubeSaati === oe1.totalHours && /Normal şubelerden/.test(oe2.formulaExplanation),
+        oe2 && oe2.normalSubeSaati);
+    kontrol("N08 Özel Eğitim normu yine şube başına (Md. 17/1)",
+        !!oe2 && oe2.calculatedNorm === (oe2.ozelEgitimDetay || []).reduce((t, x) => t + x.norm, 0));
+}
+
+/* ======================================================================= */
+/* N-09 — MESEM işletme yükünün branşı şube sırasına bağlı değil            */
+/* ======================================================================= */
+{
+    const TUR = "mesleki_egitim_merkezi", ALAN = "elektrik_elektronik_teknolojisi";
+    const IKINCI = "Endüstriyel Otomasyon Teknolojileri";
+    const okul = (sira, mevcut) => {
+        st.resetSchool(); st.setSchoolType(TUR);
+        const s = {};
+        for (const k of sira) s[k] = st.addSection({ sinifSeviyesi: "10", subeAdi: "10-" + k, ogrenciSayisi: mevcut[k], alanId: ALAN,
+            zorunluDersler: JSON.parse(JSON.stringify(ce.getMandatoryCourses(TUR, "10", ALAN, null) || [])), secmeliDersler: [] });
+        const isl = (s.B.zorunluDersler || []).find(d => ne.mesemIsletmeDersiMi(d));
+        if (!isl) return null;
+        st.updateCourseBranch(s.B.id, isl.ders, IKINCI);
+        const r = hesapla();
+        return r.branchReport.filter(b => b.coordinatorHours > 0)
+            .map(b => ({ ad: b.branchName, saat: b.coordinatorHours, not: ((b.courses || []).find(c => c.isCoordinator) || {}).note || "" }));
+    };
+    const esitAB = okul(["A", "B"], { A: 30, B: 30 }), esitBA = okul(["B", "A"], { A: 30, B: 30 });
+    kontrol("N09 ölçüm geçerli: MESEM çizelgesinde işletme dersi var", !!esitAB && esitAB.length === 1, JSON.stringify(esitAB));
+    if (esitAB && esitBA) {
+        kontrol("N09 eşit çırakta sonuç şube sırasına bağlı değil",
+            JSON.stringify(esitAB.map(x => [x.ad, x.saat])) === JSON.stringify(esitBA.map(x => [x.ad, x.saat])),
+            JSON.stringify(esitAB) + " / " + JSON.stringify(esitBA));
+        kontrol("N09 çelişen branş seçimi not satırında gösteriliyor", /farklı branş seçilmiş/.test(esitAB[0].not), esitAB[0].not);
+    }
+    const cokAB = okul(["A", "B"], { A: 10, B: 40 }), cokBA = okul(["B", "A"], { A: 10, B: 40 });
+    kontrol("N09 yük en çok çırağı olan branşa yazılır (her iki sırada)",
+        !!cokAB && !!cokBA && cokAB.length === 1 && cokAB[0].ad === IKINCI && cokBA[0].ad === IKINCI,
+        JSON.stringify(cokAB) + " / " + JSON.stringify(cokBA));
+}
+
+/* ======================================================================= */
+/* N-14 — kaynaştırma: gruplara eşit dağıtım                                */
+/* ======================================================================= */
+for (const [ogr, sinif, k, beklenen] of [[24, "10", 2, 2], [34, "11", 3, 4], [20, "12", 4, 4], [30, "10", 3, 3],
+        [20, "11", 2, 2], [20, "11", 3, 3], [40, "10", 8, 5], [31, "9", 1, 2], [31, "9", 5, 4]]) {
+    const gm = ne.calculateWorkshopGroups(ogr, sinif, k);
+    kontrol(`N14 ${sinif}. sınıf ${ogr} öğrenci, ${k} kaynaştırma -> ${beklenen} grup`, gm === beklenen, gm);
 }
 
 /* ======================================================================= */
