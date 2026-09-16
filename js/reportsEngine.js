@@ -194,9 +194,13 @@ class MebReportsEngine {
                 // birbiriyle çelişir. İstisnalar motordakiyle birebir aynı: idareci
                 // "Özel Eğitim" seçtiyse (N-08 kararı) ve bilinçli bölme/paylaştırma.
                 let fiiliBrans = "";
+                // Rehberlik ve Yönlendirme dersi Y7'den muaftır (kullanıcı kararı 16.09.2026):
+                // her branş girebilir, yük giren branşa yazılır. Motorla aynı istisna.
+                const rehberlikDersi = /rehberlik/i.test(String(cName || ""));
                 if (this.normEngine && this.normEngine.normDersinResmiAlaninaYazilir
                     && typeof this.normEngine._resmiDersAlani === "function"
                     && brans && brans !== "— Branş Atanmadı —" && brans !== "Özel Eğitim"
+                    && !rehberlikDersi
                     && !c._bolunmusBrans && !c._dagitilmisBrans) {
                     const resmiAlan = this.normEngine._resmiDersAlani(cName, sec, schoolType, c.kategori);
                     if (resmiAlan && resmiAlan !== brans) {

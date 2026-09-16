@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.7",
+    surum: "2.1.8",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
         "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
         "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
         "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",
@@ -181509,6 +181510,13 @@ class NormEngine {
                 // görünür. Eğik çizgili ders parçaları (_bolunmusBrans) ve hedef
                 // temelli paylaştırma (_dagitilmisBrans) BİLİNÇLİ dağıtımlardır,
                 // dokunulmaz. "Branş Atanmadı" seçimi yukarıda zaten ayrılmıştır.
+                // İSTİSNA — REHBERLİK VE YÖNLENDİRME DERSİ (kullanıcı kararı 16.09.2026):
+                // "Bu ders okul rehber öğretmeninin dışında, her sınıfa verilen bir derstir;
+                // bütün branşlar girebilir ve o branşın normuna ilave edilir." Dersin tek bir
+                // resmî alanı olmadığı için Y7 kuralı bu derse uygulanmaz: idareci hangi
+                // branşa verdiyse yük oraya yazılır. (Rehber öğretmen normu bundan bağımsızdır;
+                // Md. 21 öğrenci sayısına göre hesaplanır.)
+                //
                 // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08; kullanıcı kararı
                 // 16.09.2026: "norm doğurmasın şimdilik, araştıralım"). Normal şubedeki
                 // bir dersi özel eğitim öğretmenine yazan idarecinin seçimi korunur;
@@ -181518,6 +181526,7 @@ class NormEngine {
                 let fiiliBrans = "";
                 if (this.normDersinResmiAlaninaYazilir
                     && assignedBranch !== "Özel Eğitim"
+                    && !this.normalizeText(cName).includes("rehberlik")
                     && !course._bolunmusBrans && !course._dagitilmisBrans) {
                     const resmiAlan = this._resmiDersAlani(cName, sec, schoolType, course.kategori);
                     if (resmiAlan && resmiAlan !== assignedBranch) {
@@ -182619,9 +182628,13 @@ class MebReportsEngine {
                 // birbiriyle çelişir. İstisnalar motordakiyle birebir aynı: idareci
                 // "Özel Eğitim" seçtiyse (N-08 kararı) ve bilinçli bölme/paylaştırma.
                 let fiiliBrans = "";
+                // Rehberlik ve Yönlendirme dersi Y7'den muaftır (kullanıcı kararı 16.09.2026):
+                // her branş girebilir, yük giren branşa yazılır. Motorla aynı istisna.
+                const rehberlikDersi = /rehberlik/i.test(String(cName || ""));
                 if (this.normEngine && this.normEngine.normDersinResmiAlaninaYazilir
                     && typeof this.normEngine._resmiDersAlani === "function"
                     && brans && brans !== "— Branş Atanmadı —" && brans !== "Özel Eğitim"
+                    && !rehberlikDersi
                     && !c._bolunmusBrans && !c._dagitilmisBrans) {
                     const resmiAlan = this.normEngine._resmiDersAlani(cName, sec, schoolType, c.kategori);
                     if (resmiAlan && resmiAlan !== brans) {

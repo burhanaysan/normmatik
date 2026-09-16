@@ -243,13 +243,11 @@ console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıc�
     st.sanitizeExistingState();
     kontrol("temizlikten sonra da Biyoloji (asıl hata buydu)",
         reh()?.atananBrans, "Biyoloji");
-    // Y7 (kullanıcı kararı 16.09.2026): SEÇİM korunur ama NORM dersin resmî alanına
-    // yazılır. "Rehberlik ve Yönlendirme" dersinin alanı Rehberlik olduğu için saat
-    // Biyoloji'nin yüküne EKLENMEZ; rehberlik saatleri branş normu doğurmaz, okulun
-    // toplam ders yükünde durur (rehber öğretmen normu Md. 21'de öğrenci sayısından).
-    // NOT: bu, 27.08.2026'da "yük Biyoloji'ye eklensin" denen davranışı norm tarafında
-    // değiştirir; kullanıcıya bildirildi, istenirse Özel Eğitim gibi istisna eklenir.
-    kontrol("Y7: saat Biyoloji'ye EKLENMİYOR (dersin alanı Rehberlik)", bioYuk(), 2);
+    // KULLANICI KARARI 16.09.2026 (Y7 istisnası): "Rehberlik ve Yönlendirme dersi, okul
+    // rehber öğretmeninin dışında her sınıfa verilen bir derstir; bütün branşlar girebilir
+    // ve o branşın normuna ilave edilir." Dersin tek bir resmî alanı olmadığı için Y7
+    // kuralı buna uygulanmaz; 27.08.2026 davranışı aynen sürer.
+    kontrol("saat Biyoloji'ye eklendi: 2 -> 3 (Y7 istisnası)", bioYuk(), 3);
 
     // Düzeltmenin diğer kuralları bozmadığı doğrulanır
     kontrol("ders adı hâlâ sabitleniyor", reh()?.ders, "Rehberlik ve Yönlendirme");

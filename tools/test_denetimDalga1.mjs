@@ -674,6 +674,30 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
         r2.branchReport.map(b => b.branchName).join(", "));
     kontrol("Y7 atanmamış dersin saati okul toplamında kalır", r2.totalHours === 6, r2.totalHours);
 
+    // İSTİSNA: Rehberlik ve Yönlendirme dersi (kullanıcı kararı 16.09.2026) — her branş
+    // girebilir, yük GİREN branşa yazılır; Y7 bu derse uygulanmaz.
+    {
+        st.resetSchool(); st.setSchoolType("anadolu_lisesi");
+        const dr = JSON.parse(JSON.stringify(ce.getMandatoryCourses("anadolu_lisesi", "9", null, null) || []));
+        const sr = st.addSection({ sinifSeviyesi: "9", subeAdi: "9-R", ogrenciSayisi: 30, zorunluDersler: dr, secmeliDersler: [] });
+        const reh = (sr.zorunluDersler || []).find(x => /Rehberlik/i.test(x.ders || ""));
+        kontrol("Y7 istisna ölçümü geçerli: rehberlik dersi var", !!reh, reh && reh.atananBrans);
+        if (reh) {
+            const oncekiBio = brans(hesapla(), "Biyoloji");
+            st.updateCourseBranch(sr.id, reh.ders, "Biyoloji");
+            const sonrakiBio = brans(hesapla(), "Biyoloji");
+            kontrol("Y7 istisnası: rehberlik saati giren branşın yüküne ekleniyor",
+                !!sonrakiBio && !!oncekiBio && sonrakiBio.totalHours === oncekiBio.totalHours + (parseInt(reh.saat, 10) || 1),
+                (oncekiBio && oncekiBio.totalHours) + " -> " + (sonrakiBio && sonrakiBio.totalHours));
+            const RE2 = new w.MebReportsEngine(w.dbService, w.normEngine, w.curriculumEngine);
+            const grid2 = RE2.generateMasterLoadGrid(st.state, "ALL");
+            const bioGrup2 = (grid2.branchGroups || {})["Biyoloji"];
+            kontrol("Y7 istisnası raporda da geçerli (ders Biyoloji kartında)",
+                !!bioGrup2 && Object.values(bioGrup2.courses || {}).some(c => /Rehberlik/i.test(c.courseName || "")),
+                Object.keys(grid2.branchGroups || {}).join(", "));
+        }
+    }
+
     // RAPOR TARAFI: matris de aynı kuralı kullanmalı; yoksa kart başlığı (motordan)
     // ile ders satırları (rapordan) ayrışır ve iki rapor çelişir.
     {
