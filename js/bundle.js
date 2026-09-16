@@ -349,14 +349,16 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.8",
+    surum: "2.1.9",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
         "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
+        "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",
         "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
         "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
         "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",
@@ -177239,6 +177241,13259 @@ const SECMELI_HAVUZU = {
     }
 };
 
+// ==================== ogm_secmeli_eski_kaynak.js ====================
+
+/* ===========================================================================
+   OGM SEÇMELİ DERS KAYNAĞI (ESKİ) — 16.09.2026
+
+   Kaynak: data/meb_master_db.json -> okul_turleri_ve_cizelgeler
+           .ortaogretim_genel_mudurlugu_ogm.dosyalar (yalnız seçmeli gruplar).
+   Asıl dosya bozuk ve bayat olduğu için kaldırıldı (Denetim Dalga 2 V-02/V-03/V-04);
+   arşivi: _ARSIV/eski_veritabani_yedekleri/meb_master_db_KALDIRILDI_20260916.json
+
+   NEDEN HÂLÂ VAR: uiComponents.getAvailableElectivesForSection 4. adımı, kendi
+   seçmeli havuzu OLMAYAN okul türlerine (meslek lisesi, Anadolu teknik programı,
+   MESEM, meslek ortaokulu, özel eğitim) kültür seçmelilerini buradan sunuyor.
+   Dosya kaldırılınca bu listeler sessizce küçülüyordu (ör. MTAL 11 güzellik 121 -> 19).
+   Davranışı DEĞİŞTİRMEMEK için yapı aynı sırayla buraya çıkarıldı.
+
+   ⚠️ DOĞRULUĞU AYRICA KARAR BEKLİYOR: içinde mülga 2018 OGM çizelgesinden gelen
+   dersler var ve özel eğitim uygulama okulunun ortaokul sınıflarına lise seçmelileri
+   sunuluyor. Bu dosya bir düzeltme değil, davranış koruyan bir taşımadır.
+   Üreteç: scratchpad yama_27 (tek seferlik çıkarım).
+   ======================================================================== */
+const OGM_SECMELI_ESKI_KAYNAK = {
+ "Anadolu_Lisesi_Haftalık_Ders_Çizelgesi_Fen_Lisesi_Haftalık_D.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(10)(12)",
+         "12": "(2)(10)(12)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)(3)",
+         "10": "(2)(3)",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)(3)(4)",
+         "10": "(2)(3)(4)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(4)",
+         "10": "(1)(2)(4)",
+         "11": "(1)(2)(4)",
+         "12": "(1)(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(10)(12)",
+         "12": "(2)(10)(12)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(3)",
+         "10": "(2)(3)",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(3)(4)",
+         "10": "(2)(3)(4)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(4)",
+         "10": "(1)(2)(4)",
+         "11": "(1)(2)(4)",
+         "12": "(1)(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Genetik Bilimine Giriş",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Tıp Bilimine Giriş",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)(3)",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)(3)",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Genetik Bilimine Giriş",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Tıp Bilimine Giriş",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(3)",
+         "10": "(2)(3)",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(3)(4)",
+         "10": "(2)(3)(4)",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(4)",
+         "10": "(1)(2)(4)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)(3)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Edebiyat Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(1)(2)",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)(3)(4)",
+         "10": "2",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(4)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Edebiyat Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "(1)(2)",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1",
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(2)(3)",
+         "9": "(2)(3)(4)",
+         "10": "2",
+         "11": "(1)(2)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)(3)",
+         "9": "(2)(3)(4)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "hazirlik": "2",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)(3)",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "(1)(2)(3)",
+         "9": "(1)(2)(3)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Liseleri_Haftalık_Ders_Çizelgeleri039nde_Deği.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "3",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİREYSEL SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "3",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "TEMEL DESEN",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Liseleri_Haftalık_Ders_Çizelgeleri_2023-2024_.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "3",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİREYSEL SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "3",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "TEMEL DESEN",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Liseleri_quotMüzik_HDÇquot_quotTürk_Müziği_HD.pdf": {
+  "haftalik_ders_cizelgeleri": []
+ },
+ "Güzel_Sanatlar_Liseleri_quotMüzik_Haftalık_Ders_Çizelgesiquo.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİLİŞİM DESTEKLİ MÜZİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ BATI MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ PİYANO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "TOPLU SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK MÜZİĞİ TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ÇALGI BAKIM VE ONARIMI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "MÜZİK KÜLTÜRÜ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "HALK DANSLARI VE MÜZİKLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ BATI MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "BİLİŞİM DESTEKLİ MÜZİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "TOPLU SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK VE BATI MÜZİĞİ TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ÇALGI BAKIM VE ONARIMI",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "MÜZİK KÜLTÜRÜ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "HALK DANSLARI VE MÜZİKLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "TEMEL DESEN",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "DESEN ÇALIŞMALARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Dijital Grafik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "ENDÜSTRİYEL TASARIM",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "FOTOĞRAF",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "MÜZE EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİREYSEL SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Lisesi_Görsel_Sanatlar_Haftalık_Ders_Çizelges.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "3",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "TEMEL DESEN",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "DESEN ÇALIŞMALARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Dijital Grafik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "ENDÜSTRİYEL TASARIM",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "FOTOĞRAF",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "MÜZE EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(2)(3)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİREYSEL SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "GELENEKSEL TÜRK SANATLARI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Lisesi_Görsel_Sanatlar_ile_Tiyatro_Bölümleri_.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "1",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "(1)",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "1",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "(1)",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "(1)",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "1",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Lisesi_Müzik_Haftalık_Ders_Çizelgesi_ve_Güzel.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "BİLİŞİM DESTEKLİ MÜZİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ BATI MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ PİYANO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "TOPLU SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK MÜZİĞİ TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ÇALGI BAKIM VE ONARIMI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "MÜZİK KÜLTÜRÜ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "HALK DANSLARI VE MÜZİKLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ BATI MÜZİĞİ TEORİ VE UYGULAMASI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK HALK MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "SEÇMELİ TÜRK SANAT MÜZİĞİ KORO",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "BİLİŞİM DESTEKLİ MÜZİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "TOPLU SES EĞİTİMİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK VE BATI MÜZİĞİ TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "ÇALGI BAKIM VE ONARIMI",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "MÜZİK KÜLTÜRÜ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "HALK DANSLARI VE MÜZİKLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Matematik Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Güzel_Sanatlar_Lisesi_Müzik_Türk_Halk_Müziği_ve_Türk_Sanat_M.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "2",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "2",
+         "12": "-"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "1",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "(1)",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "1",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "(1)",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Ortaöğretim_Kurumları_Haftalık_Ders_Çizelgeleri-2018.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "3",
+         "11": "3",
+         "12": "3"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(2)(4)",
+         "10": "(2)(4)",
+         "11": "(2)(10)",
+         "12": "(2)(10)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(2)(4)",
+         "10": "(2)(4)",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Yabancı Diller Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Bilgisayar Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "3",
+         "11": "3",
+         "12": "3"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(4)",
+         "10": "(2)(4)",
+         "11": "(2)(10)",
+         "12": "(2)(10)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(4)",
+         "10": "(2)(4)",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Yabancı Diller Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "3",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(4)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(2)(4)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Yabancı Diller Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "-",
+         "11": "-",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Yabancı Diller Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Dijital Grafik",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "FOTOĞRAF",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Bilgisayar Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "-",
+         "11": "-",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Yabancı Diller Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "9": "",
+         "10": "",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Bilgisayar Bilimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Fıkıh Okumaları",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Tefsir Okumaları",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "-",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Hadis Metinleri",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "İslam Ahlakı",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Kur'an Okuma Teknikleri",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Arapça (Metin-Mükâleme)",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Mesleki Uygulama",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "-",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "İslam Tarihi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Ahlak ve Tasavvuf Kültürü",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "DİNÎ MUSİKİ",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "HÜSN-İ HAT",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "EBRU",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "TEZHİP",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "\u0015 \u0003(3) (4) (5",
+         "12": "\u0015 (3) (4) (5)"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "10": "(1) (2)",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Temel Matematik",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(3)(4)(5)(6)",
+         "12": "(3)(4)(5)(6)"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(3) (4)",
+         "12": "(3) (4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(3) (4)",
+         "12": "(3) (4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "10": "(1) (2)",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "10": "(2)",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "10": "(2)",
+         "11": "(2) (3)",
+         "12": "(2) (3)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "10": "(1) (2)",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "10": "(2)",
+         "11": "(2) (8) (10)",
+         "12": "(2) (8) (10)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "10": "(2)",
+         "11": "(2) (4) (6)",
+         "12": "(2) (4) (6)"
+        }
+       },
+       {
+        "ders": "YABANCI DİL EDEBİYATLARI",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "FARSÇA",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "10": "",
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "10": "(1) (2)",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "10": "(1) (2)",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "10": "(1)",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Bilgisayar Bilimi",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "10": "-",
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Fıkıh Okumaları",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Tefsir Okumaları",
+        "sinif_ders_saatleri": {
+         "11": "-",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Hadis Metinleri",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "İİİSLAM AHL$KI",
+        "sinif_ders_saatleri": {
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Kur'an Okuma Teknikleri",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Arapça (Metin-Mükâleme)",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Mesleki Uygulama",
+        "sinif_ders_saatleri": {
+         "11": "-",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "İslam Tarihi",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Ahlak ve Tasavvuf Kültürü",
+        "sinif_ders_saatleri": {
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "DİNÎ MUSİKİ",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "HÜSN-İ HAT",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "EBRU",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "TEZHİP",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "11": "\u0015 \u0003(3) (4) (5)",
+         "12": "\u0015 \u0003(3) (4) (5)"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Temel Matematik",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "11": "(3)(4)(5)(6)",
+         "12": "(3)(4)(5)(6)"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "11": "(3) (4)",
+         "12": "(3) (4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "11": "(3) (4)",
+         "12": "(3) (4)"
+        }
+       },
+       {
+        "ders": "VE",
+        "sinif_ders_saatleri": {
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "11": "(2) (3)",
+         "12": "(2) (3)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "11": "(2) (3) (4)",
+         "12": "(2) (3) (4)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Bilgi Kuramı",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "İŞLEĞİTİME",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Ekonomi",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "11": "(1)",
+         "12": "(1)"
+        }
+       },
+       {
+        "ders": "Yönetim Bilimi",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Uluslararası İlişkiler",
+        "sinif_ders_saatleri": {
+         "11": "(2)",
+         "12": "(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "11": "(2) (8) (10)",
+         "12": "(2) (8) (10)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "11": "(2) (4) (6)",
+         "12": "(2) (4) (6)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "YABANCI DİL EDEBİYATLARI",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Beden Eğitimi ve Spor",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Sosyal Etkinlik",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Görsel Sanatlar",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Müzik",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Sanat Tarihi",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Drama",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Bilgisayar Bilimi",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "11": "",
+         "12": ""
+        }
+       },
+       {
+        "ders": "Proje Hazırlama",
+        "sinif_ders_saatleri": {
+         "11": "(1) (2)",
+         "12": "(1) (2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Spor_Liseleri_Haftalık_Ders_Çizelgeleri039nde_Değişiklik_Yap.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Spor_Liseleri_Haftalık_Ders_Çizelgesi_2023-2024_Eğitim_Öğret.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "6",
+         "12": "6"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "4",
+         "12": "4"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(5)",
+         "12": "(3)(5)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Spor_Lisesi_Haftalık_Ders_Çizelgesi.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "ARTİSTİK JİMNASTİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "SEÇMELİ MÜSABAKA ANALİZİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "İNSAN, TOPLUM VE BİLİM",
+      "dersler": [
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Spor_Lisesi_Haftalık_Ders_Çizelgesi039nde_Değişiklik_Yapılma.pdf": {
+  "haftalik_ders_cizelgeleri": []
+ },
+ "Spor_Lisesi_Haftalık_Ders_Çizelgesi_2020-2021_Eğitim_Öğretim.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Spor_Lisesi_Haftalık_Ders_Çizelgesi_2024-2025_Eğitim_Öğretim.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "ARTİSTİK JİMNASTİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "SEÇMELİ MÜSABAKA ANALİZİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "İNSAN, TOPLUM VE BİLİM",
+      "dersler": [
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "(2)",
+         "10": "(2)",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "(1)(2)",
+         "10": "(1)(2)",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Tematik_Program_Uygulayan_Spor_Lisesi_Haftalık_Ders_Çizelges.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "AKADEMİK ÇALIŞMALAR",
+      "dersler": [
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Temel Matematik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(3)(4)",
+         "12": "(3)(4)"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Mantık",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli Birinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "ARTİSTİK JİMNASTİK",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "SEÇMELİ MÜSABAKA ANALİZİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Hedef Temelli Destek Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "(3)(4)(5)(6)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Fen Bilimleri Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(2)(3)",
+         "12": "(2)(3)"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sosyal Bilim Çalışmaları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Bilişim Teknolojileri ve Yazılım",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(3)(4)",
+         "12": "(2)(3)(4)"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "-",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Demokrasi ve İnsan Hakları",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Sürdürülebilir Tarım ve Gıda Güvenliği",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "İNSAN, TOPLUM VE BİLİM",
+      "dersler": [
+       {
+        "ders": "İklim, Çevre ve Yenilikçi Çözümler",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Hukuk Bilgisi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Girişimcilik",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Metin Tahlilleri",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Seçmeli İkinci Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(2)(4)",
+         "12": "(2)(4)"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Türk Dünyası Coğrafyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK EDEBİYATI",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "ORTAK TÜRK TARİHİ",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "-"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim'in Anlam Dünyası",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Türk Düşünce Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "KLASİK AHLAK METİNLERİ",
+        "sinif_ders_saatleri": {
+         "9": "1",
+         "10": "1",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Adabımuaşeret",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "1",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "TÜRK SOSYAL HAYATINDA AİLE",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "KÜLTÜR, SANAT VE SPOR",
+      "dersler": [
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)",
+         "12": "(1)(2)"
+        }
+       },
+       {
+        "ders": "Spor Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       },
+       {
+        "ders": "Sanat Eğitimi",
+        "sinif_ders_saatleri": {
+         "9": "-",
+         "10": "-",
+         "11": "(1)(2)(3)",
+         "12": "(1)(2)(3)"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Uluslararası_Bakalorya_Programı_I_ve_II_Haftalık_Ders_Çizelg.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "2-4",
+         "9": "1-2",
+         "10": "1-5",
+         "11": "1-5",
+         "12": "1-5"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Seçmeli Temel Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "1-2",
+         "11": "1-2",
+         "12": "-"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-8",
+         "11": "4-8",
+         "12": "4-8"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "2-7**",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "2-7**",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "2-7**",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "ÇEVRE SİSTEMLERİ VE TOPLUM",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-6",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "SPOR VE SAĞLIK BİLİMİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-6",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1-2",
+         "10": "1-2",
+         "11": "1-2",
+         "12": "1-2"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "3",
+         "11": "3",
+         "12": "3"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "1-4",
+         "11": "1-4",
+         "12": "1-4"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2-4",
+         "11": "2-4",
+         "12": "2-4"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "20. YÜZYILDA TÜRKİYE",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-6",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2-4",
+         "12": "2-4"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "1-4",
+         "11": "1-4",
+         "12": "1-4"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-6",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "4-6",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "2-4",
+        "sinif_ders_saatleri": {
+         "2": "1-10**"
+        }
+       },
+       {
+        "ders": "1-4",
+        "sinif_ders_saatleri": {
+         "2": "2-4**"
+        }
+       },
+       {
+        "ders": "2-4",
+        "sinif_ders_saatleri": {
+         "2": "2-4**"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       },
+       {
+        "ders": "2-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "2-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "1"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "-"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Seçmeli Türk Dili ve Edebiyatı",
+        "sinif_ders_saatleri": {
+         "hazirlik": "2-4",
+         "9": "1-2",
+         "10": "1-2",
+         "11": "1-5",
+         "12": "1-5"
+        }
+       },
+       {
+        "ders": "Diksiyon ve Hitabet",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1",
+         "10": "1",
+         "11": "1",
+         "12": "1"
+        }
+       },
+       {
+        "ders": "Osmanlı Türkçesi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "FEN BİLİMLERİ",
+      "dersler": [
+       {
+        "ders": "Seçmeli Temel Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1-2",
+         "12": "1-2"
+        }
+       },
+       {
+        "ders": "Seçmeli Matematik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-8",
+         "12": "4-8"
+        }
+       },
+       {
+        "ders": "Seçmeli Fizik",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "1-3*",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "Seçmeli Kimya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "1-3*",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "Seçmeli Biyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "1-2*",
+         "9": "1-3*",
+         "10": "1-3*",
+         "11": "2-7**",
+         "12": "2-7**"
+        }
+       },
+       {
+        "ders": "ÇEVRE SİSTEMLERİ VE TOPLUM",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "SPOR VE SAĞLIK BİLİMİ",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Astronomi ve Uzay Bilimleri",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "1-2",
+         "10": "1-2",
+         "11": "1-2",
+         "12": "1-2"
+        }
+       },
+       {
+        "ders": "Matematik Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "Fen Bilimleri Tarihi ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "3",
+         "11": "3",
+         "12": "3"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "SOSYAL BİLİMLER",
+      "dersler": [
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1-4",
+         "12": "1-4"
+        }
+       },
+       {
+        "ders": "Türk Kültür ve Medeniyet Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "2-4",
+         "12": "2-4"
+        }
+       },
+       {
+        "ders": "İslam Kültür ve Medeniyeti",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "2",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "İslam Bilim Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "2",
+         "12": "2"
+        }
+       },
+       {
+        "ders": "20. YÜZYILDA TÜRKİYE",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Çağdaş Türk ve Dünya Tarihi",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "-",
+         "12": "2-4"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1-4",
+         "12": "1-4"
+        }
+       },
+       {
+        "ders": "Seçmeli Tarih",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Seçmeli Coğrafya",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Psikoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "2",
+         "11": "4-6",
+         "12": "4-6"
+        }
+       },
+       {
+        "ders": "Sosyoloji",
+        "sinif_ders_saatleri": {
+         "hazirlik": "-",
+         "9": "-",
+         "10": "-",
+         "11": "1-2",
+         "12": "2"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "DİN, AHLAK VE DEĞER",
+      "dersler": [
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       }
+      ]
+     },
+     {
+      "grup_adi": "YABANCI DİLLER",
+      "dersler": [
+       {
+        "ders": "2-4",
+        "sinif_ders_saatleri": {
+         "2": "1-10**"
+        }
+       },
+       {
+        "ders": "1-4",
+        "sinif_ders_saatleri": {
+         "2": "2-4**"
+        }
+       },
+       {
+        "ders": "2-4",
+        "sinif_ders_saatleri": {
+         "2": "2-4**"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       },
+       {
+        "ders": "2-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "2-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "2",
+        "sinif_ders_saatleri": {
+         "2": "2"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "1"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "-"
+        }
+       },
+       {
+        "ders": "1-3",
+        "sinif_ders_saatleri": {
+         "2": "4-6**"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "-",
+        "sinif_ders_saatleri": {
+         "2": "4-6"
+        }
+       },
+       {
+        "ders": "1-2",
+        "sinif_ders_saatleri": {
+         "2": "1-2"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "Özel_Program_Uygulayan_Fen_Lisesi_Haftalık_Ders_Çizelgesi.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "Özel_Program_Uygulayan_Sosyal_Bilimler_Lisesi_Haftalık_Ders_.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": []
+   }
+  ]
+ },
+ "İlköğretim_Kurumları_İlkokul_ve_Ortaokul_Haftalık_Ders_Çizel.pdf": {
+  "haftalik_ders_cizelgeleri": [
+   {
+    "secmeli_ders_gruplari": [
+     {
+      "grup_adi": "GENEL",
+      "dersler": [
+       {
+        "ders": "Matematik ve Bilim Uygulamaları",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "2",
+         "8": ""
+        }
+       },
+       {
+        "ders": "8 Okuma Becerileri",
+        "sinif_ders_saatleri": {
+         "1": "",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": ""
+        }
+       },
+       {
+        "ders": "Yazarlık ve Yazma Becerileri",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "1 Yaşayan Diller ve Lehçeler",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "2 Yabancı Dil",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Çevre Eğitimi ve İklim Değişikliği",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "- “Şehrimiz ...”",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Hukuk ve Adalet",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Düşünme Eğitimi",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Robotik Kodlama",
+        "sinif_ders_saatleri": {
+         "1": "",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": ""
+        }
+       },
+       {
+        "ders": "3 Yapay Zeka Uygulamaları",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Proje Tasarımı ve Uygulamaları",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": ""
+        }
+       },
+       {
+        "ders": "5 Medya Okuryazarlığı",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Afet Bilinci",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": ""
+        }
+       },
+       {
+        "ders": "7 Temel Yaşam Becerileri",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "4 Türk Sosyal Hayatında Aile",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Kur'an-ı Kerim",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Peygamberimizin Hayatı",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Temel Dini Bilgiler",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Kültür ve Medeniyetimize Yön Verenler",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Ahlak ve Vatandaşlık Eğitimi",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Görgü Kuralları ve Nezaket",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Müzik",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Spor ve Fizikî Etkinlikler",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Oyun ve Oyun Etkinlikleri",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": ""
+        }
+       },
+       {
+        "ders": "Dijital Sanatlar",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "(1)(2)",
+         "8": ""
+        }
+       },
+       {
+        "ders": "Masal ve Destanlarımız",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "(1)(2)",
+         "6": "(1)(2)",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "Geleneksel Sanatlar",
+        "sinif_ders_saatleri": {
+         "1": "(1)(2)",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
+         "6": "(1)(2)",
+         "8": ""
+        }
+       },
+       {
+        "ders": "Halk Oyunları",
+        "sinif_ders_saatleri": {
+         "1": "2",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "2",
+         "6": "2",
+         "8": "2"
+        }
+       },
+       {
+        "ders": "8 SEÇMELİ DERS SAATİ TOPLAMI",
+        "sinif_ders_saatleri": {
+         "1": "5",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "5",
+         "6": "5",
+         "8": "6"
+        }
+       },
+       {
+        "ders": "SERBEST ETKİNLİKLER DERS SAATİ",
+        "sinif_ders_saatleri": {
+         "1": "",
+         "2": "2",
+         "3": "2",
+         "4": "",
+         "5": "",
+         "6": "",
+         "8": ""
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+};
+
 // ==================== ozel_egitim_cizelgeleri.js ====================
 
 /* ===========================================================================
@@ -178208,7 +191463,8 @@ const SECMELI_TEMA_KURALLARI = {
 // ==================== database.js ====================
 
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
-// Bu modül, 69 Meslek Alanı, 21 OGM Çizelgesi, DÖGM Çizelgeleri, 2.662 Seçmeli Dersi ve 47 Branş Matrisini yönetir.
+// Müfredat verisi js/*_db.js ve çizelge dosyalarından gelir; data/meb_master_db.json
+// 16.09.2026'da kaldırıldı (bozuk ve bayattı; bkz. loadDatabase).
 
 class MebDatabaseService {
     constructor() {
@@ -178218,57 +191474,15 @@ class MebDatabaseService {
     }
 
     async loadDatabase() {
-        // 1. Kullanıcının sonradan yüklediği güncel veri tabanı var mı?
-        const customDb = (typeof localStorage !== 'undefined') ? localStorage.getItem(this.STORAGE_KEY_DB) : null;
-        if (customDb) {
-            try {
-                this.masterData = JSON.parse(customDb);
-                this.isLoaded = true;
-                console.log("MEB Master DB localStorage üzerinden güncel versiyon ile yüklendi.");
-                return this.masterData;
-            } catch (e) {
-                // Kullanıcının yüklediği DB bozuk. Varsayılana dönmek DOĞRU
-                // davranış, ama sessiz değil: kullanıcı kendi yüklediği verinin
-                // etkin olduğunu sanmasın. (06.09.2026 sınıflandırması.)
-                console.warn("Kayıtlı özel DB okunamadı, varsayılanlara dönülüyor...", e);
-                try {
-                    if (typeof window !== "undefined" && window.dispatchEvent) {
-                        window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
-                            detail: {
-                                basarili: false,
-                                mesaj: "Yüklediğiniz özel veri tabanı okunamadı; "
-                                     + "uygulama varsayılan MEB verisiyle çalışıyor."
-                            }
-                        }));
-                    }
-                } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
-            }
-        }
-
-        // 2. Fetch ile meb_master_db.json yükle
-        try {
-            const response = await fetch('./data/meb_master_db.json');
-            if (response.ok) {
-                this.masterData = await response.json();
-                this.isLoaded = true;
-                console.log("MEB Master DB başarıyla yüklendi (fetch).");
-                return this.masterData;
-            }
-        } catch (e) {
-            // BİLİNÇLİ: file:// protokolünde ve çevrimdışı açılışta fetch zaten
-            // çalışmaz; gömülü veriye düşmek NORMAL yoldur, hata değil.
-            // Gömülü veri de yoksa aşağıdaki adım kendi hatasını üretir.
-            console.warn("Fetch üzerinden yüklenemedi, window.MEB_EMBEDDED_DATA kontrol ediliyor...", e);
-        }
-
-        // 3. Embedded Data Fallback (file:// protokolü ve offline çalışma için tam destek)
-        const embeddedData = (typeof window !== 'undefined' ? (window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA) : null);
-        if (embeddedData) {
-            this.masterData = embeddedData;
-            this.isLoaded = true;
-            console.log("MEB Master DB gömülü veri (embedded) üzerinden başarıyla yüklendi.");
-            return this.masterData;
-        }
+        // TEK KAYNAK (16.09.2026, Denetim Dalga 2 V-02/V-03/V-04; kullanıcı kararı):
+        // Eskiden önce data/meb_master_db.json (15,5 MB) çekiliyordu. Dosya bozuk ve
+        // bayattı (İlköğretim 7. sınıf sütunu kaymış, 9 mülga çizelge, 36 bozuk başlık,
+        // sahte bir alan kaydı) ve yalnızca MTAL alan listesi ile dal taraması için
+        // okunuyordu — ikisi de aşağıdaki temiz kaynakla aynı sonucu veriyor (ölçüldü:
+        // alan, dal, zorunlu ve seçmeli listeleri öncesi/sonrası birebir karşılaştırıldı).
+        // Kaldırılan yollar: dosyanın çekilmesi, tarayıcıda saklanan "özel veri tabanı"
+        // (onu yazan fonksiyonu hiçbir yer çağırmıyordu) ve hiç atanmayan gömülü veri.
+        // Dosya _ARSIV/eski_veritabani_yedekleri/ altında duruyor.
 
         // 4. Strict PDF Veritabanı Otomatik Sentezleyici (%100 Bağımsız file:// Çevrimdışı Modu)
         const strictDb = (typeof window !== 'undefined' && window.STRICT_PDF_CURRICULUM_DB) || (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined' ? STRICT_PDF_CURRICULUM_DB : null);
@@ -178292,35 +191506,7 @@ class MebDatabaseService {
 
         // NOT: Eskiden bu mesajda js/embedded_data.js de anılıyordu. O dosya 2026-08-22'de
         // ölü kod olarak arşivlendi (_arsiv_olu_dosyalar/); artık hiçbir yerden yüklenmiyor.
-        throw new Error("Master veri tabanı yüklenemedi. Lütfen data/meb_master_db.json dosyasını kontrol edin.");
-    }
-
-    /**
-     * Kullanıcının Gelecek Yıl Yeni MEB Veri Tabanı Yüklemesini Sağlar
-     * @param {string|object} newDbContent - Yüklenen JSON içeriği
-     */
-    updateDatabaseFromJSON(newDbContent) {
-        try {
-            const parsed = typeof newDbContent === "string" ? JSON.parse(newDbContent) : newDbContent;
-            if (!parsed.okul_turleri_ve_cizelgeler || !parsed.norm_ve_ders_yuku_hesaplama_motoru) {
-                throw new Error("Geçersiz MEB Veri Tabanı Formatı. Gerekli kök düğümler bulunamadı.");
-            }
-            this.masterData = parsed;
-            localStorage.setItem(this.STORAGE_KEY_DB, JSON.stringify(parsed));
-            this.isLoaded = true;
-            return true;
-        } catch (e) {
-            console.error("Veri tabanı güncelleme hatası:", e);
-            return false;
-        }
-    }
-
-    resetToDefaultDatabase() {
-        localStorage.removeItem(this.STORAGE_KEY_DB);
-        const embedded = window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA;
-        if (embedded) {
-            this.masterData = embedded;
-        }
+        throw new Error("Müfredat veri tabanı yüklenemedi: strict_pdf_curriculum_db.js pakette bulunamadı.");
     }
 
     getSchoolTypes() {
@@ -178792,27 +191978,6 @@ class MebDatabaseService {
 
     getAllBranchesList() {
         return this.getAllBranches();
-    }
-
-    /**
-     * Branş -> norma dâhil dersler matrisi.
-     *
-     * ⚠️ 2026-08-24: BU VERİ HİÇBİR HESABA GİRMİYOR. Tek çağıranı
-     * normEngine.setBranchMatrix() idi; o da veriyi saklayıp hiç
-     * okumuyordu. Ölü zincir kaldırıldı, bu okuyucu ileride gerçekten
-     * kullanılmak istenirse dursun diye bırakıldı.
-     *
-     * Kullanılacaksa ÖNCE kaynağı temizlenmeli: meb_master_db.json'daki
-     * 47 branşın bir kısmının ders listesi kirlidir (22 Ağustos 2026
-     * karşılaştırması). Branş ataması şu an
-     * curriculumEngine.getCanonicalCourseAndBranch() ile yapılıyor.
-     */
-    getBranchMatrix() {
-        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru?.meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi?.branslar || {};
-    }
-
-    getSpecialRules() {
-        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru || {};
     }
 
         getOfficialTargetHours(schoolType, gradeLevel, areaId, dalName) {
@@ -179930,6 +193095,23 @@ class MebCurriculumEngine {
 
             if (schedulesForGrade && schedulesForGrade.length > 0) {
                 let matchedSchedule = null;
+
+                // HAZIRLIK SÜTUNUNDAN ÜRETİLMİŞ KAYITLAR ATLANIR (Denetim Dalga 2, V-05).
+                // Hazırlık sınıfı olan protokol çizelgelerinde (ör. Havacılık ve Uzay
+                // Teknolojisi, s.19-21) üreteç aynı sayfadan iki kayıt çıkarmış: biri
+                // 9. SINIF sütunu, diğeri HAZIRLIK sütunu — ikisi de "9" anahtarı altında
+                // ve hazırlık olanı İLK sırada. Dal seçilmeyen şube bu yüzden hazırlık
+                // derslerini alıyordu (Yabancı Dil 24 saat, Fizik/Kimya/Tarih yok).
+                // Ayırt edici işaret: hazırlık kaydında meslek dersi toplamı YOKTUR, aynı
+                // sayfadaki kardeş kayıtta VARDIR. Tek kayıtlı sayfalar etkilenmez.
+                const hazirlikSutunuMu = (s) => {
+                    const t = (s && s.chartTotals) || {};
+                    if (t.meslek) return false;
+                    return schedulesForGrade.some(o => o !== s && o.page === s.page
+                        && ((o.chartTotals || {}).meslek || 0) > 0);
+                };
+                const gercekKayitlar = schedulesForGrade.filter(s => !hazirlikSutunuMu(s));
+                const secimListesi = gercekKayitlar.length ? gercekKayitlar : schedulesForGrade;
                 if (dalName) {
                     const normDal = this.normalizeName(dalName).toLowerCase();
                     const STOP_WORDS = new Set(["alani", "teknolojisi", "teknolojileri", "programi", "haftalik", "ders", "cizelgesi", "anadolu", "meslek", "teknik", "dali", "ve", "sistemleri", "bolumu"]);
@@ -179937,7 +193119,7 @@ class MebCurriculumEngine {
                     const isAmp = !schoolTypeStr.includes("teknik") && !schoolTypeStr.includes("atp");
 
                     let bestScore = -1;
-                    for (let s of schedulesForGrade) {
+                    for (let s of secimListesi) {
                         const normTitle = this.normalizeName(s.title || "").toLowerCase();
                         
                         // AMP / ATP Program filtreleme
@@ -179967,7 +193149,7 @@ class MebCurriculumEngine {
                     }
                 }
                 if (!matchedSchedule) {
-                    matchedSchedule = schedulesForGrade[0];
+                    matchedSchedule = secimListesi[0];
                 }
 
                 const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");
@@ -181517,8 +194699,19 @@ class NormEngine {
                 // branşa verdiyse yük oraya yazılır. (Rehber öğretmen normu bundan bağımsızdır;
                 // Md. 21 öğrenci sayısına göre hesaplanır.)
                 //
-                // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08; kullanıcı kararı
-                // 16.09.2026: "norm doğurmasın şimdilik, araştıralım"). Normal şubedeki
+                // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08).
+                //
+                // MEVZUAT TARAMASI (16.09.2026, resmî metin norm_kadro_yonetmeligi.txt):
+                // Md. 17 özel eğitim öğretmeni normunu "açılan her sınıf veya şube için"
+                // verir — DERS YÜKÜNE bağlamaz. Md. 18 ders yükünden norm verir ama
+                // "genel bilgi ve meslek dersleri öğretmeni" içindir. Md. 22/1-c alan ders
+                // yükünü tarif eder, özel eğitimden söz etmez. Yani normal şubedeki bir
+                // dersin özel eğitim öğretmenine yazılması hâlinde ne yapılacağına dair
+                // AÇIK HÜKÜM YOK. Kullanıcı kararı: "açık hüküm yoksa bu şekilde kalsın."
+                // Bugünkü davranış: saat Özel Eğitim satırında görünür (kaybolmaz), ayrıca
+                // Md. 18 normu doğurmaz ve Y7 ile dersin alanına taşınmaz.
+                //
+                // Eski not (kullanıcı kararı 16.09.2026: "norm doğurmasın şimdilik"). Normal şubedeki
                 // bir dersi özel eğitim öğretmenine yazan idarecinin seçimi korunur;
                 // saat Özel Eğitim satırında durur ve ayrıca Md. 18 normu üretmez.
                 // Y7 burada uygulansaydı saat dersin alanına (ör. Matematik) taşınır ve
@@ -190884,8 +204077,14 @@ class UIComponentManager {
         // YALNIZCA üretilmiş havuzu OLMAYAN okul türleri için. Havuzu olan tür
         // (12 lise türü) kendi çizelgesini 2. adımda aldı; burada yeniden
         // dolaşmak, başka okulların derslerini ve saatlerini geri getirirdi.
-        if (!turHavuzu && master.okul_turleri_ve_cizelgeler?.ortaogretim_genel_mudurlugu_ogm?.dosyalar) {
-            const files = master.okul_turleri_ve_cizelgeler.ortaogretim_genel_mudurlugu_ogm.dosyalar;
+        //
+        // 16.09.2026: kaynak meb_master_db.json'dan js/ogm_secmeli_eski_kaynak.js'e
+        // taşındı (aynı yapı, aynı sıra; dosya kaldırıldı). Doğruluğu ayrıca karar bekliyor.
+        const eskiOgmSecmeli = (typeof window !== 'undefined' && window.OGM_SECMELI_ESKI_KAYNAK)
+            ? window.OGM_SECMELI_ESKI_KAYNAK
+            : (typeof OGM_SECMELI_ESKI_KAYNAK !== 'undefined' ? OGM_SECMELI_ESKI_KAYNAK : null);
+        if (!turHavuzu && eskiOgmSecmeli) {
+            const files = eskiOgmSecmeli;
             for (let fKey in files) {
                 for (let s of (files[fKey]?.haftalik_ders_cizelgeleri || [])) {
                     for (let g of (s.secmeli_ders_gruplari || [])) {
@@ -196057,6 +209256,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
+    if (typeof OGM_SECMELI_ESKI_KAYNAK !== 'undefined') window.OGM_SECMELI_ESKI_KAYNAK = OGM_SECMELI_ESKI_KAYNAK;
     if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
     if (typeof HEDEF_TEMELLI !== 'undefined') window.HEDEF_TEMELLI = HEDEF_TEMELLI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;

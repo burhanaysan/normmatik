@@ -120,9 +120,12 @@ kontrol("ölçüm geçerli: sessiz blok sınıfı gerçekten var",
         /Oturum bilgisi bu tarayıcıya yazılamadı/.test(auth));
 
     const db = oku("database.js");
-    kontrol("özel veri tabanı okunamazsa kullanıcıya bildiriliyor",
-        /Yüklediğiniz özel veri tabanı okunamadı/.test(db),
-        "sessiz kalırsa kullanıcı kendi verisinin etkin olduğunu sanır");
+    // 16.09.2026: "özel veri tabanı" yolu kaldırıldı (onu yazan fonksiyonu hiçbir yer
+    // çağırmıyordu) ve bozuk meb_master_db.json devreden çıkarıldı. Sessiz kalan bir
+    // yol olmasın diye: eski dosyayı çeken ya da tarayıcıdan özel DB okuyan kod geri gelmemeli.
+    kontrol("bozuk meb_master_db.json çekilmiyor (tek kaynak: strict_pdf_curriculum_db)",
+        !/fetch\(['"]\.\/data\/meb_master_db\.json/.test(db) && !/getItem\(this\.STORAGE_KEY_DB\)/.test(db),
+        "eski yol geri gelirse bozuk ve bayat veri sessizce etkin olur");
 }
 
 /* ---- 3) ÇIKIŞTA YEREL YEDEK SİLİNMEMELİ -------------------------------- */

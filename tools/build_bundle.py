@@ -48,6 +48,7 @@ BUNDLE_FILES = [
     "mesem_curriculum_db.js",    # database.js ve curriculumEngine.js'ten ÖNCE
     "ortaogretim_cizelgeleri.js", # curriculumEngine.js'ten ÖNCE (üretilmiş tablo)
     "secmeli_havuzu.js",         # uiComponents.js'ten ÖNCE (üretilmiş seçmeli havuzu)
+    "ogm_secmeli_eski_kaynak.js", # uiComponents.js'ten ÖNCE (meb_master_db.json'dan taşınan seçmeli yapısı)
     "ozel_egitim_cizelgeleri.js", # curriculumEngine.js'ten ÖNCE (üretilmiş çizelge)
     "hedef_temelli_dersler.js",  # normEngine.js'ten ÖNCE (üretilmiş kapsam listesi)
     "ozel_program_temalari.js",  # curriculumEngine.js'ten ÖNCE (üretilmiş tema tablosu)
@@ -84,6 +85,7 @@ if (typeof window !== 'undefined') {
     if (typeof MESEM_CURRICULUM_DB !== 'undefined') window.MESEM_CURRICULUM_DB = MESEM_CURRICULUM_DB;
     if (typeof ORTAOGRETIM_CIZELGELERI !== 'undefined') window.ORTAOGRETIM_CIZELGELERI = ORTAOGRETIM_CIZELGELERI;
     if (typeof SECMELI_HAVUZU !== 'undefined') window.SECMELI_HAVUZU = SECMELI_HAVUZU;
+    if (typeof OGM_SECMELI_ESKI_KAYNAK !== 'undefined') window.OGM_SECMELI_ESKI_KAYNAK = OGM_SECMELI_ESKI_KAYNAK;
     if (typeof OZEL_EGITIM_CIZELGELERI !== 'undefined') window.OZEL_EGITIM_CIZELGELERI = OZEL_EGITIM_CIZELGELERI;
     if (typeof HEDEF_TEMELLI !== 'undefined') window.HEDEF_TEMELLI = HEDEF_TEMELLI;
     if (typeof OZEL_PROGRAM_TEMALARI !== 'undefined') window.OZEL_PROGRAM_TEMALARI = OZEL_PROGRAM_TEMALARI;

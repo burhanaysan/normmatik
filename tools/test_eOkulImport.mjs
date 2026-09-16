@@ -65,8 +65,9 @@ vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(path.join(KOK, "js", "xlsx.full.min.js"), "utf8"), ctx);
 vm.runInContext(fs.readFileSync(path.join(KOK, "js", "bundle.js"), "utf8"), ctx);
 
-w.dbService.masterData = JSON.parse(
-    fs.readFileSync(path.join(KOK, "data", "meb_master_db.json"), "utf8"));
+// data/meb_master_db.json 16.09.2026'da kaldırıldı; uygulamanın kendi yükleme
+// yolu kullanılır (veri strict_pdf_curriculum_db.js'ten kurulur).
+await w.dbService.loadDatabase();
 w.dbService.isLoaded = true;
 
 const IMP = vm.runInContext("EOkulImporter", ctx);

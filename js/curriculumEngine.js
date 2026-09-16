@@ -1066,6 +1066,23 @@ class MebCurriculumEngine {
 
             if (schedulesForGrade && schedulesForGrade.length > 0) {
                 let matchedSchedule = null;
+
+                // HAZIRLIK SÜTUNUNDAN ÜRETİLMİŞ KAYITLAR ATLANIR (Denetim Dalga 2, V-05).
+                // Hazırlık sınıfı olan protokol çizelgelerinde (ör. Havacılık ve Uzay
+                // Teknolojisi, s.19-21) üreteç aynı sayfadan iki kayıt çıkarmış: biri
+                // 9. SINIF sütunu, diğeri HAZIRLIK sütunu — ikisi de "9" anahtarı altında
+                // ve hazırlık olanı İLK sırada. Dal seçilmeyen şube bu yüzden hazırlık
+                // derslerini alıyordu (Yabancı Dil 24 saat, Fizik/Kimya/Tarih yok).
+                // Ayırt edici işaret: hazırlık kaydında meslek dersi toplamı YOKTUR, aynı
+                // sayfadaki kardeş kayıtta VARDIR. Tek kayıtlı sayfalar etkilenmez.
+                const hazirlikSutunuMu = (s) => {
+                    const t = (s && s.chartTotals) || {};
+                    if (t.meslek) return false;
+                    return schedulesForGrade.some(o => o !== s && o.page === s.page
+                        && ((o.chartTotals || {}).meslek || 0) > 0);
+                };
+                const gercekKayitlar = schedulesForGrade.filter(s => !hazirlikSutunuMu(s));
+                const secimListesi = gercekKayitlar.length ? gercekKayitlar : schedulesForGrade;
                 if (dalName) {
                     const normDal = this.normalizeName(dalName).toLowerCase();
                     const STOP_WORDS = new Set(["alani", "teknolojisi", "teknolojileri", "programi", "haftalik", "ders", "cizelgesi", "anadolu", "meslek", "teknik", "dali", "ve", "sistemleri", "bolumu"]);
@@ -1073,7 +1090,7 @@ class MebCurriculumEngine {
                     const isAmp = !schoolTypeStr.includes("teknik") && !schoolTypeStr.includes("atp");
 
                     let bestScore = -1;
-                    for (let s of schedulesForGrade) {
+                    for (let s of secimListesi) {
                         const normTitle = this.normalizeName(s.title || "").toLowerCase();
                         
                         // AMP / ATP Program filtreleme
@@ -1103,7 +1120,7 @@ class MebCurriculumEngine {
                     }
                 }
                 if (!matchedSchedule) {
-                    matchedSchedule = schedulesForGrade[0];
+                    matchedSchedule = secimListesi[0];
                 }
 
                 const areaCode = this.AREA_BRANCH_MAP[areaId] || (areaId ? areaId.replace(/_/g, ' ') : "Meslek");

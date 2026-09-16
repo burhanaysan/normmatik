@@ -40,14 +40,16 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.8",
+    surum: "2.1.9",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
         "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
+        "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",
         "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
         "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
         "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",

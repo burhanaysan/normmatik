@@ -1368,8 +1368,19 @@ export class NormEngine {
                 // branşa verdiyse yük oraya yazılır. (Rehber öğretmen normu bundan bağımsızdır;
                 // Md. 21 öğrenci sayısına göre hesaplanır.)
                 //
-                // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08; kullanıcı kararı
-                // 16.09.2026: "norm doğurmasın şimdilik, araştıralım"). Normal şubedeki
+                // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08).
+                //
+                // MEVZUAT TARAMASI (16.09.2026, resmî metin norm_kadro_yonetmeligi.txt):
+                // Md. 17 özel eğitim öğretmeni normunu "açılan her sınıf veya şube için"
+                // verir — DERS YÜKÜNE bağlamaz. Md. 18 ders yükünden norm verir ama
+                // "genel bilgi ve meslek dersleri öğretmeni" içindir. Md. 22/1-c alan ders
+                // yükünü tarif eder, özel eğitimden söz etmez. Yani normal şubedeki bir
+                // dersin özel eğitim öğretmenine yazılması hâlinde ne yapılacağına dair
+                // AÇIK HÜKÜM YOK. Kullanıcı kararı: "açık hüküm yoksa bu şekilde kalsın."
+                // Bugünkü davranış: saat Özel Eğitim satırında görünür (kaybolmaz), ayrıca
+                // Md. 18 normu doğurmaz ve Y7 ile dersin alanına taşınmaz.
+                //
+                // Eski not (kullanıcı kararı 16.09.2026: "norm doğurmasın şimdilik"). Normal şubedeki
                 // bir dersi özel eğitim öğretmenine yazan idarecinin seçimi korunur;
                 // saat Özel Eğitim satırında durur ve ayrıca Md. 18 normu üretmez.
                 // Y7 burada uygulansaydı saat dersin alanına (ör. Matematik) taşınır ve

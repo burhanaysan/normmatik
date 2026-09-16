@@ -744,6 +744,30 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
 }
 
 /* ======================================================================= */
+/* DALGA 2 V-05 — 9. sınıf anahtarındaki hazırlık kaydı seçilmez             */
+/* ======================================================================= */
+for (const tur of ["mesleki_ve_teknik_anadolu_lisesi", "anadolu_teknik_programi"]) {
+    const d9 = ce.getMandatoryCourses(tur, "9", "havacilik_ve_uzay_teknolojisi", null) || [];
+    kontrol(`V05 ${tur} havacılık 9. sınıf dersleri üretildi`, d9.length > 0, d9.length);
+    kontrol(`V05 ${tur} havacılık 9. sınıfta "Hazırlık Sınıfı" dersi YOK`,
+        !d9.some(x => /HAZIRLIK/i.test(x.ders || "")), d9.map(x => x.ders).join(" | "));
+    kontrol(`V05 ${tur} havacılık 9. sınıfta Fizik var (gerçek 9. sınıf çizelgesi)`,
+        d9.some(x => /Fizik/i.test(x.ders || "")), d9.map(x => x.ders).join(" | "));
+    const yd = d9.find(x => /Yabancı Dil/i.test(x.ders || ""));
+    kontrol(`V05 ${tur} havacılık 9. sınıf yabancı dil 24 saat değil`, !yd || (parseInt(yd.saat, 10) || 0) < 10, yd && yd.saat);
+    const dal = ce.getMandatoryCourses(tur, "9", "havacilik_ve_uzay_teknolojisi", "İtki Sistemleri") || [];
+    kontrol(`V05 ${tur} dal seçilince de hazırlık kaydı seçilmiyor`,
+        dal.length > 0 && !dal.some(x => /HAZIRLIK/i.test(x.ders || "")), dal.map(x => x.ders).join(" | "));
+}
+{
+    // Tek kayıtlı sayfalar etkilenmez: denizcilik ve gazetecilik 9. sınıf dolu kalır.
+    const den = ce.getMandatoryCourses("mesleki_ve_teknik_anadolu_lisesi", "9", "denizcilik", null) || [];
+    const gaz = ce.getMandatoryCourses("mesleki_ve_teknik_anadolu_lisesi", "9", "gazetecilik", null) || [];
+    kontrol("V05 denizcilik 9. sınıf etkilenmedi", den.length > 0 && !den.some(x => /HAZIRLIK/i.test(x.ders || "")), den.length);
+    kontrol("V05 gazetecilik 9. sınıf etkilenmedi", gaz.length === 14, gaz.length);
+}
+
+/* ======================================================================= */
 if (hatalar.length) {
     console.log(`❌ test_denetimDalga1: ${hatalar.length} hata, ${gecen} geçti`);
     hatalar.forEach(h => console.log("   - " + h));

@@ -65,8 +65,9 @@ w.licenseManager.licenseStatus = {
 
 // loadDatabase() fetch kullanır; Node'da göreli adres çalışmaz ve masterData
 // boş kalır. Boş kalırsa bütün havuzlar boşalır ve test körleşir.
-w.dbService.masterData = JSON.parse(
-    fs.readFileSync(path.join(KOK, "data", "meb_master_db.json"), "utf8"));
+// data/meb_master_db.json 16.09.2026'da kaldırıldı; uygulamanın kendi yükleme
+// yolu kullanılır (veri strict_pdf_curriculum_db.js'ten kurulur).
+await w.dbService.loadDatabase();
 w.dbService.isLoaded = true;
 if (!Object.keys(w.dbService.masterData.okul_turleri_ve_cizelgeler || {}).length)
     olumcul("master DB boş yüklendi.");

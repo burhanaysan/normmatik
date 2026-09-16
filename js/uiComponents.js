@@ -3673,8 +3673,14 @@ export class UIComponentManager {
         // YALNIZCA üretilmiş havuzu OLMAYAN okul türleri için. Havuzu olan tür
         // (12 lise türü) kendi çizelgesini 2. adımda aldı; burada yeniden
         // dolaşmak, başka okulların derslerini ve saatlerini geri getirirdi.
-        if (!turHavuzu && master.okul_turleri_ve_cizelgeler?.ortaogretim_genel_mudurlugu_ogm?.dosyalar) {
-            const files = master.okul_turleri_ve_cizelgeler.ortaogretim_genel_mudurlugu_ogm.dosyalar;
+        //
+        // 16.09.2026: kaynak meb_master_db.json'dan js/ogm_secmeli_eski_kaynak.js'e
+        // taşındı (aynı yapı, aynı sıra; dosya kaldırıldı). Doğruluğu ayrıca karar bekliyor.
+        const eskiOgmSecmeli = (typeof window !== 'undefined' && window.OGM_SECMELI_ESKI_KAYNAK)
+            ? window.OGM_SECMELI_ESKI_KAYNAK
+            : (typeof OGM_SECMELI_ESKI_KAYNAK !== 'undefined' ? OGM_SECMELI_ESKI_KAYNAK : null);
+        if (!turHavuzu && eskiOgmSecmeli) {
+            const files = eskiOgmSecmeli;
             for (let fKey in files) {
                 for (let s of (files[fKey]?.haftalik_ders_cizelgeleri || [])) {
                     for (let g of (s.secmeli_ders_gruplari || [])) {

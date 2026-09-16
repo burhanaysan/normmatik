@@ -1,7 +1,8 @@
 import { STRICT_PDF_CURRICULUM_DB } from './strict_pdf_curriculum_db.js';
 import { MESEM_CURRICULUM_DB } from './mesem_curriculum_db.js';
 // MEB Master Veri Tabanı Yükleyici ve Veri Köprüsü Modülü
-// Bu modül, 69 Meslek Alanı, 21 OGM Çizelgesi, DÖGM Çizelgeleri, 2.662 Seçmeli Dersi ve 47 Branş Matrisini yönetir.
+// Müfredat verisi js/*_db.js ve çizelge dosyalarından gelir; data/meb_master_db.json
+// 16.09.2026'da kaldırıldı (bozuk ve bayattı; bkz. loadDatabase).
 
 export class MebDatabaseService {
     constructor() {
@@ -11,57 +12,15 @@ export class MebDatabaseService {
     }
 
     async loadDatabase() {
-        // 1. Kullanıcının sonradan yüklediği güncel veri tabanı var mı?
-        const customDb = (typeof localStorage !== 'undefined') ? localStorage.getItem(this.STORAGE_KEY_DB) : null;
-        if (customDb) {
-            try {
-                this.masterData = JSON.parse(customDb);
-                this.isLoaded = true;
-                console.log("MEB Master DB localStorage üzerinden güncel versiyon ile yüklendi.");
-                return this.masterData;
-            } catch (e) {
-                // Kullanıcının yüklediği DB bozuk. Varsayılana dönmek DOĞRU
-                // davranış, ama sessiz değil: kullanıcı kendi yüklediği verinin
-                // etkin olduğunu sanmasın. (06.09.2026 sınıflandırması.)
-                console.warn("Kayıtlı özel DB okunamadı, varsayılanlara dönülüyor...", e);
-                try {
-                    if (typeof window !== "undefined" && window.dispatchEvent) {
-                        window.dispatchEvent(new CustomEvent("normmatik-yerel-durum", {
-                            detail: {
-                                basarili: false,
-                                mesaj: "Yüklediğiniz özel veri tabanı okunamadı; "
-                                     + "uygulama varsayılan MEB verisiyle çalışıyor."
-                            }
-                        }));
-                    }
-                } catch (e2) { /* olay yayınlanamazsa akış bozulmaz */ }
-            }
-        }
-
-        // 2. Fetch ile meb_master_db.json yükle
-        try {
-            const response = await fetch('./data/meb_master_db.json');
-            if (response.ok) {
-                this.masterData = await response.json();
-                this.isLoaded = true;
-                console.log("MEB Master DB başarıyla yüklendi (fetch).");
-                return this.masterData;
-            }
-        } catch (e) {
-            // BİLİNÇLİ: file:// protokolünde ve çevrimdışı açılışta fetch zaten
-            // çalışmaz; gömülü veriye düşmek NORMAL yoldur, hata değil.
-            // Gömülü veri de yoksa aşağıdaki adım kendi hatasını üretir.
-            console.warn("Fetch üzerinden yüklenemedi, window.MEB_EMBEDDED_DATA kontrol ediliyor...", e);
-        }
-
-        // 3. Embedded Data Fallback (file:// protokolü ve offline çalışma için tam destek)
-        const embeddedData = (typeof window !== 'undefined' ? (window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA) : null);
-        if (embeddedData) {
-            this.masterData = embeddedData;
-            this.isLoaded = true;
-            console.log("MEB Master DB gömülü veri (embedded) üzerinden başarıyla yüklendi.");
-            return this.masterData;
-        }
+        // TEK KAYNAK (16.09.2026, Denetim Dalga 2 V-02/V-03/V-04; kullanıcı kararı):
+        // Eskiden önce data/meb_master_db.json (15,5 MB) çekiliyordu. Dosya bozuk ve
+        // bayattı (İlköğretim 7. sınıf sütunu kaymış, 9 mülga çizelge, 36 bozuk başlık,
+        // sahte bir alan kaydı) ve yalnızca MTAL alan listesi ile dal taraması için
+        // okunuyordu — ikisi de aşağıdaki temiz kaynakla aynı sonucu veriyor (ölçüldü:
+        // alan, dal, zorunlu ve seçmeli listeleri öncesi/sonrası birebir karşılaştırıldı).
+        // Kaldırılan yollar: dosyanın çekilmesi, tarayıcıda saklanan "özel veri tabanı"
+        // (onu yazan fonksiyonu hiçbir yer çağırmıyordu) ve hiç atanmayan gömülü veri.
+        // Dosya _ARSIV/eski_veritabani_yedekleri/ altında duruyor.
 
         // 4. Strict PDF Veritabanı Otomatik Sentezleyici (%100 Bağımsız file:// Çevrimdışı Modu)
         const strictDb = (typeof window !== 'undefined' && window.STRICT_PDF_CURRICULUM_DB) || (typeof STRICT_PDF_CURRICULUM_DB !== 'undefined' ? STRICT_PDF_CURRICULUM_DB : null);
@@ -85,35 +44,7 @@ export class MebDatabaseService {
 
         // NOT: Eskiden bu mesajda js/embedded_data.js de anılıyordu. O dosya 2026-08-22'de
         // ölü kod olarak arşivlendi (_arsiv_olu_dosyalar/); artık hiçbir yerden yüklenmiyor.
-        throw new Error("Master veri tabanı yüklenemedi. Lütfen data/meb_master_db.json dosyasını kontrol edin.");
-    }
-
-    /**
-     * Kullanıcının Gelecek Yıl Yeni MEB Veri Tabanı Yüklemesini Sağlar
-     * @param {string|object} newDbContent - Yüklenen JSON içeriği
-     */
-    updateDatabaseFromJSON(newDbContent) {
-        try {
-            const parsed = typeof newDbContent === "string" ? JSON.parse(newDbContent) : newDbContent;
-            if (!parsed.okul_turleri_ve_cizelgeler || !parsed.norm_ve_ders_yuku_hesaplama_motoru) {
-                throw new Error("Geçersiz MEB Veri Tabanı Formatı. Gerekli kök düğümler bulunamadı.");
-            }
-            this.masterData = parsed;
-            localStorage.setItem(this.STORAGE_KEY_DB, JSON.stringify(parsed));
-            this.isLoaded = true;
-            return true;
-        } catch (e) {
-            console.error("Veri tabanı güncelleme hatası:", e);
-            return false;
-        }
-    }
-
-    resetToDefaultDatabase() {
-        localStorage.removeItem(this.STORAGE_KEY_DB);
-        const embedded = window.MEB_MASTER_DATABASE || window.MEB_EMBEDDED_DATA;
-        if (embedded) {
-            this.masterData = embedded;
-        }
+        throw new Error("Müfredat veri tabanı yüklenemedi: strict_pdf_curriculum_db.js pakette bulunamadı.");
     }
 
     getSchoolTypes() {
@@ -585,27 +516,6 @@ export class MebDatabaseService {
 
     getAllBranchesList() {
         return this.getAllBranches();
-    }
-
-    /**
-     * Branş -> norma dâhil dersler matrisi.
-     *
-     * ⚠️ 2026-08-24: BU VERİ HİÇBİR HESABA GİRMİYOR. Tek çağıranı
-     * normEngine.setBranchMatrix() idi; o da veriyi saklayıp hiç
-     * okumuyordu. Ölü zincir kaldırıldı, bu okuyucu ileride gerçekten
-     * kullanılmak istenirse dursun diye bırakıldı.
-     *
-     * Kullanılacaksa ÖNCE kaynağı temizlenmeli: meb_master_db.json'daki
-     * 47 branşın bir kısmının ders listesi kirlidir (22 Ağustos 2026
-     * karşılaştırması). Branş ataması şu an
-     * curriculumEngine.getCanonicalCourseAndBranch() ile yapılıyor.
-     */
-    getBranchMatrix() {
-        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru?.meb_norm_kadro_esas_dersler_ve_yan_alan_matrisi?.branslar || {};
-    }
-
-    getSpecialRules() {
-        return this.masterData?.norm_ve_ders_yuku_hesaplama_motoru || {};
     }
 
         getOfficialTargetHours(schoolType, gradeLevel, areaId, dalName) {
