@@ -349,13 +349,16 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.9",
+    surum: "2.2.0",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Özel eğitim: otizm ayrı engel türü oldu; otizmli öğrencilerin sınıfı her kademede 2 özel eğitim öğretmeni normu alıyor (Norm Kadro Yön. Md. 17/1-ç).",
+        "Özel eğitim sınıflarında Özel Eğitim Hizmetleri Yönetmeliği'nin sınıf mevcudu sınırları uygulanıyor (ör. otizmde en fazla 4, hafif zihinselde 10); sınır aşılınca kaç sınıf gerektiği ve sınıflar açılırsa normun kaç olacağı gösteriliyor.",
+        "Özel eğitim meslek okulu ve uygulama okulunda her şube özel eğitim şubesi sayılıyor; norm şube başına hesaplanıyor.",
         "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
         "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
         "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",
@@ -194117,10 +194120,8 @@ class NormEngine {
      * @returns {Map} "şubeKimliği##dersAdı[::pay]" ->
      *                { kimlik, temsilci, uyeler, ogrenci, kaynastirma, sinif }
      */
-    birlesikDersBilesenleri(subeler = []) {
-        const ozelMi = (sec) => sec.isSpecialEdu
-            || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
-            || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"));
+    birlesikDersBilesenleri(subeler = [], schoolType = "") {
+        const ozelMi = (sec) => this.ozelEgitimSubesiMi(sec, schoolType);
         const dersAnahtari = (c) => {
             const pay = c._bolunmusBrans || c._dagitilmisBrans || "";
             return (c.ders || c.ders_adi) + (pay ? "::" + pay : "");
@@ -194330,7 +194331,7 @@ class NormEngine {
      * @returns {{norm:number, dayanak:string}}
      */
     ozelEgitimSubeNormu(engelTuru, sinifSeviyesi) {
-        const tur = String(engelTuru || "hafif_zihinsel");
+        const T = this.ozelEgitimTuru(engelTuru);
         const ham = String(sinifSeviyesi == null ? "" : sinifSeviyesi).toLowerCase();
         const sayi = parseInt(ham, 10);
 
@@ -194342,20 +194343,169 @@ class NormEngine {
         const ortaokul = sayi >= 5 && sayi <= 8;
         const lise     = sayi >= 9 && sayi <= 12;
 
-        if (tur === "orta_agir_otizm") {
+        // Md. 17/1-ç: "... orta ve ağır düzeyde zihin engelliler ile OTİZMLİ ÖĞRENCİLER için açılan
+        // her sınıf veya şube için 2". Otizmde DÜZEY AYRIMI YOK ve "her derece ve türdeki eğitim
+        // kurumlarında" geçerli: hafif otizmli bir lise sınıfı da 2 norm alır (16.09.2026 düzeltmesi;
+        // eskiden bu sınıf "hafif zihinsel" girildiği için 17/1-e ile 1 norm alıyordu).
+        if (T.tur === "otizm") {
+            return { norm: 2, dayanak: "Md. 17/1-ç (otizmli öğrenciler — düzey ayrımı yok, her derece ve türde)" };
+        }
+        if (T.tur === "orta_agir_zihinsel_veya_otizm") {
             return { norm: 2, dayanak: "Md. 17/1-ç (orta/ağır zihinsel veya otizm)" };
         }
-        if (tur === "birden_fazla") {
+        if (T.tur === "zihinsel" && T.duzey === "orta_agir") {
+            return { norm: 2, dayanak: "Md. 17/1-ç (orta/ağır zihinsel)" };
+        }
+        if (T.tur === "birden_fazla") {
             return { norm: 2, dayanak: "Md. 17/1-f (birden fazla engel)" };
         }
-        if (tur === "gorme_isitme") {
+        if (T.tur === "gorme" || T.tur === "isitme" || T.tur === "gorme_isitme") {
             if (ilkokul) return { norm: 1, dayanak: "Md. 17/1-b (görme/işitme, ilkokul)" };
             return { norm: 2, dayanak: "Md. 17/1-b yalnızca ilkokulu düzenliyor; bu kademe için 2 varsayıldı — kontrol ediniz" };
         }
-        // hafif_zihinsel (varsayılan)
+        if (T.tur === "bedensel") {
+            return { norm: 2, dayanak: "Md. 17/1'de bedensel yetersizlik için bent yok; 2 varsayıldı — kontrol ediniz" };
+        }
+        // hafif zihinsel (varsayılan)
         if (lise) return { norm: 1, dayanak: "Md. 17/1-e (hafif zihinsel, lise kademesi)" };
         if (ilkokul || ortaokul) return { norm: 2, dayanak: "Md. 17/1-d (hafif zihinsel, ilkokul/ortaokul)" };
         return { norm: 2, dayanak: "Md. 17/1-d (kademe belirsiz, ilkokul/ortaokul varsayıldı)" };
+    }
+
+    /**
+     * ÖZEL EĞİTİM TÜRÜ (16.09.2026). Kayıttaki engelTuru değerini tür + düzeye çözer.
+     * Mevzuat (ÖEHY) sınıf mevcudunu ve uygulanacak programı TÜR ve DÜZEYE göre ayırıyor;
+     * eskiden otizm ayrı bir seçenek değildi. Eski değerler okunmaya devam eder:
+     *   orta_agir_otizm -> "orta/ağır zihinsel VEYA otizm" (eski tek seçenek; tür belirsiz)
+     *   gorme_isitme    -> "görme veya işitme"
+     */
+    ozelEgitimTuru(engelTuru) {
+        const TABLO = {
+            hafif_zihinsel:     { tur: "zihinsel", duzey: "hafif", ad: "Hafif düzeyde zihinsel yetersizlik" },
+            hafif_otizm:        { tur: "otizm", duzey: "hafif", ad: "Hafif düzeyde otizm" },
+            orta_agir_zihinsel: { tur: "zihinsel", duzey: "orta_agir", ad: "Orta / ağır düzeyde zihinsel yetersizlik" },
+            otizm_orta_agir:    { tur: "otizm", duzey: "orta_agir", ad: "Orta / ağır düzeyde otizm" },
+            gorme:              { tur: "gorme", duzey: null, ad: "Görme yetersizliği" },
+            isitme:             { tur: "isitme", duzey: null, ad: "İşitme yetersizliği" },
+            bedensel:           { tur: "bedensel", duzey: null, ad: "Bedensel yetersizlik" },
+            birden_fazla:       { tur: "birden_fazla", duzey: null, ad: "Birden fazla yetersizlik" },
+            orta_agir_otizm:    { tur: "orta_agir_zihinsel_veya_otizm", duzey: "orta_agir", ad: "Orta/ağır zihinsel veya otizm (eski kayıt — türü netleştirin)", eski: true },
+            gorme_isitme:       { tur: "gorme_isitme", duzey: null, ad: "Görme veya işitme (eski kayıt — türü netleştirin)", eski: true }
+        };
+        const kod = TABLO[String(engelTuru || "")] ? String(engelTuru) : "hafif_zihinsel";
+        return Object.assign({ kod }, TABLO[kod]);
+    }
+
+    /** e-Okul satırındaki metinden engel türünü bulur (e-Okul aktarımı kullanır). */
+    ozelEgitimTuruMetindenBul(metin) {
+        const u = String(metin || "").toLocaleUpperCase("tr");
+        const var_ = (...k) => k.some(x => u.includes(x));
+        const hafif = var_("HAFİF", "HAFIF");
+        if (var_("BİRDEN FAZLA", "BIRDEN FAZLA", "ÇOKLU", "COKLU")) return "birden_fazla";
+        if (var_("OTİZM", "OTIZM")) return hafif ? "hafif_otizm" : "otizm_orta_agir";
+        if (var_("İŞİTME", "ISITME")) return "isitme";
+        if (var_("GÖRME", "GORME")) return "gorme";
+        if (var_("BEDENSEL", "ORTOPEDİK", "ORTOPEDIK")) return "bedensel";
+        if (var_("ORTA", "AĞIR", "AGIR")) return "orta_agir_zihinsel";
+        return "hafif_zihinsel";
+    }
+
+    /** Şube özel eğitim şubesi mi? Özel eğitim OKUL türlerinde her şube özel eğitim şubesidir (Md. 17/1). */
+    ozelEgitimSubesiMi(sec, schoolType = "") {
+        if (!sec) return false;
+        return !!(sec.isSpecialEdu
+            || (sec.subeAdi && String(sec.subeAdi).includes("Özel Eğt"))
+            || (sec.dalAdi && String(sec.dalAdi).includes("Özel Eğit"))
+            || String(schoolType || "").includes("ozel_egitim"));
+    }
+
+    /** Kayıttaki engel türü; özel eğitim okul türlerinde işaretsiz şubeye okulun türüne uygun varsayılan. */
+    ozelEgitimKayitTuru(sec, schoolType = "") {
+        const kayit = sec && (sec.engelTuru || sec.specialEduType);
+        if (kayit) return kayit;
+        return String(schoolType || "").includes("uygulama") ? "orta_agir_zihinsel" : "hafif_zihinsel";
+    }
+
+    /**
+     * ÖZEL EĞİTİM SINIF MEVCUDU ÜST SINIRI — Özel Eğitim Hizmetleri Yönetmeliği (RG 07/07/2018-30471).
+     * Metinler 16.09.2026'da resmî metinden okundu:
+     *   27/3-c  ilköğretim programı uygulayan sınıf (ilk/ortaokul): en fazla 10, otizmde 4
+     *   28/1-b  özel eğitim programı uygulayan sınıf: izlenen programın okulundaki mevcut
+     *   28/1-ç  orta/ağır zihinsel-otizm: ilköğretimde uygulama okulu, ortaöğretimde III. kademe programı
+     *   28/1-d  ortaöğretimde görme/işitme/hafif zihinsel/hafif otizm: özel eğitim meslek okulu programı
+     *   31/1-d  özel eğitim ilkokulu/ortaokulu: 10, otizmde 4
+     *   31/2-b  uygulama okulu I-II. kademe: zihinselde 8, otizmde 4
+     *   32/3-b  özel eğitim meslek okulu: otizmde 4, diğer türlerde 10
+     *   32/4-c  uygulama okulu III. kademe: zihinselde 8, otizmde 4
+     *   13/1-c  birden fazla yetersizlik: 4
+     * Sınıf açmak Valilik Oluru ile olur (ÖEHY 26); bu fonksiyon SINIFI BÖLMEZ, sınırı söyler.
+     * @returns {{enFazla:number|null, dayanak:string, not:string}}
+     */
+    ozelEgitimSinifSiniri(sec, schoolType = "") {
+        const T = this.ozelEgitimTuru(this.ozelEgitimKayitTuru(sec, schoolType));
+        const tur = String(schoolType || "");
+        const sayi = parseInt(String(sec && sec.sinifSeviyesi), 10);
+        const lise = sayi >= 9 && sayi <= 12;
+        const ilkOrta = sayi >= 1 && sayi <= 8;
+        const otizm = T.tur === "otizm";
+        const sonuc = (enFazla, dayanak, not = "") => ({ enFazla, dayanak, not });
+
+        if (T.tur === "orta_agir_zihinsel_veya_otizm") {
+            return sonuc(null, "", "Eski kayıt: engel türü 'orta/ağır zihinsel veya otizm'. Sınıf mevcudu zihinselde 8, otizmde 4 (ÖEHY 31/2-b, 32/4-c) — şube penceresinden türü netleştirin.");
+        }
+        if (T.tur === "birden_fazla") return sonuc(4, "ÖEHY Md. 13/1-c");
+
+        if (tur.includes("ozel_egitim_meslek_okulu")) {
+            return otizm ? sonuc(4, "ÖEHY Md. 32/3-b") : sonuc(10, "ÖEHY Md. 32/3-b");
+        }
+        if (tur.includes("ozel_egitim_uygulama_okulu")) {
+            const madde = lise ? "ÖEHY Md. 32/4-c" : "ÖEHY Md. 31/2-b";
+            return otizm ? sonuc(4, madde) : sonuc(8, madde);
+        }
+
+        // Normal okul bünyesindeki özel eğitim sınıfı
+        if (ilkOrta) {
+            if (T.duzey === "orta_agir") {
+                return otizm ? sonuc(4, "ÖEHY Md. 28/1-b → 31/2-b") : sonuc(8, "ÖEHY Md. 28/1-b → 31/2-b");
+            }
+            if (otizm) return sonuc(4, "ÖEHY Md. 27/3-c");
+            if (T.tur === "zihinsel" || T.tur === "gorme" || T.tur === "isitme" || T.tur === "gorme_isitme") {
+                return sonuc(10, "ÖEHY Md. 27/3-c");
+            }
+            return sonuc(null, "", "Bu yetersizlik türü için ilköğretim kademesinde sınıf mevcudu hükmü bulunamadı — kontrol ediniz.");
+        }
+        if (lise) {
+            if (T.duzey === "orta_agir") {
+                return otizm ? sonuc(4, "ÖEHY Md. 28/1-ç → 32/4-c") : sonuc(8, "ÖEHY Md. 28/1-ç → 32/4-c");
+            }
+            if (otizm) return sonuc(4, "ÖEHY Md. 28/1-d → 32/3-b");
+            if (T.tur === "zihinsel" || T.tur === "gorme" || T.tur === "isitme" || T.tur === "gorme_isitme") {
+                return sonuc(10, "ÖEHY Md. 28/1-d → 32/3-b");
+            }
+            return sonuc(null, "", "Bu yetersizlik türü için ortaöğretimde sınıf mevcudu hükmü bulunamadı — kontrol ediniz.");
+        }
+        return sonuc(null, "", "Kademe belirlenemedi.");
+    }
+
+    /**
+     * Sınıf mevcudu sınırına göre GEREKEN sınıf sayısı ve sınıflar açılırsa oluşacak norm.
+     * Norm, AÇILMIŞ sınıfa verilir (Md. 17/1 "açılan her sınıf veya şube için"); bu yüzden hesap
+     * mevcut normu DEĞİŞTİRMEZ, yalnız uyarır.
+     */
+    ozelEgitimSinifIhtiyaci(sec, schoolType = "") {
+        const s = this.ozelEgitimSinifSiniri(sec, schoolType);
+        const ogrenci = Math.max(0, parseInt(sec && sec.ogrenciSayisi, 10) || 0);
+        const n = this.ozelEgitimSubeNormu(this.ozelEgitimKayitTuru(sec, schoolType), sec && sec.sinifSeviyesi).norm;
+        if (!s.enFazla) {
+            return { ogrenci, enFazla: null, dayanak: s.dayanak, not: s.not, gerekenSinif: null, sinirAsildi: false, normSube: n, olasiNorm: null, mesaj: s.not };
+        }
+        const gerekenSinif = Math.max(1, Math.ceil(ogrenci / s.enFazla));
+        const sinirAsildi = ogrenci > s.enFazla;
+        const mesaj = sinirAsildi
+            ? `${ogrenci} öğrenci; sınıf mevcudu en fazla ${s.enFazla} (${s.dayanak}) → en az ${gerekenSinif} sınıf gerekir. `
+              + `Sınıflar Valilik Oluru ile açılırsa özel eğitim öğretmeni normu ${gerekenSinif * n} olur (şube başına ${n}).`
+            : `${ogrenci} öğrenci; sınıf mevcudu en fazla ${s.enFazla} (${s.dayanak}) — uygun.`;
+        return { ogrenci, enFazla: s.enFazla, dayanak: s.dayanak, not: s.not, gerekenSinif, sinirAsildi, normSube: n, olasiNorm: gerekenSinif * n, mesaj };
     }
 
     /**
@@ -194539,9 +194689,7 @@ class NormEngine {
         const isMesemKurum = String(schoolType || "").includes("mesleki_egitim_merkezi")
                           || String(schoolType || "").includes("mesem");
         subeler.forEach(sec => {
-            const ozelMi = sec.isSpecialEdu
-                || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
-                || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"));
+            const ozelMi = this.ozelEgitimSubesiMi(sec, schoolType);
             [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])].forEach(c => {
                 const saat = parseInt(c.saat || c.ders_saati || 0, 10) || 0;
                 hamCizelgeSaati += saat;
@@ -194565,7 +194713,7 @@ class NormEngine {
         };
 
         // Birleştirilmiş dersler (Denetim N-03): bkz. birlesikDersBilesenleri
-        const birlesikBilgi = this.birlesikDersBilesenleri(subeler);
+        const birlesikBilgi = this.birlesikDersBilesenleri(subeler, schoolType);
 
         subeler.forEach(sec => {
             // ÖZEL EĞİTİM ŞUBELERİ BRANŞ YÜKÜNE YAZILMAZ.
@@ -194584,9 +194732,10 @@ class NormEngine {
             // Bu şubelerin saatleri aşağıdaki özel eğitim bloğunda ayrıca
             // toplanır; burada yalnızca branş bazlı Md. 18 birikiminden
             // çıkarılır.
-            if (sec.isSpecialEdu
-                || (sec.subeAdi && sec.subeAdi.includes("Özel Eğt"))
-                || (sec.dalAdi && sec.dalAdi.includes("Özel Eğit"))) {
+            // 16.09.2026: özel eğitim OKUL türlerinde her şube özel eğitim şubesidir (Md. 17/1
+            // "özel eğitim kurumları ile özel eğitim sınıflarında"); işaretsiz eklenen şube
+            // eskiden Md. 18/19 ile branş normu alıyordu.
+            if (this.ozelEgitimSubesiMi(sec, schoolType)) {
                 return;
             }
 
@@ -195005,7 +195154,9 @@ class NormEngine {
         // göre hesaplanır; eskiden burada sabit "şube x 2" vardı ve lise
         // kademesindeki hafif zihinsel şubeler (Md. 17/1-e: 1) iki katı
         // norm üretiyordu.
-        const specialEduSections = subeler.filter(s => s.isSpecialEdu || (s.subeAdi && s.subeAdi.includes("Özel Eğt")) || (s.dalAdi && s.dalAdi.includes("Özel Eğit")));
+        const specialEduSections = subeler.filter(s => this.ozelEgitimSubesiMi(s, schoolType));
+        // Sınıf mevcudu sınırı aşılan özel eğitim şubeleri (ÖEHY) — norm DEĞİŞMEZ, uyarılır.
+        let ozelEgitimUyarilari = [];
         const specialEduSectionCount = specialEduSections.length;
 
         if (specialEduSectionCount > 0) {
@@ -195023,12 +195174,20 @@ class NormEngine {
             // başlığı sessizce ayrışabilirdi (14.09.2026).
             const ozelDetay = specialEduSections.map(sec => {
                 const h = this.ozelEgitimSubeNormu(
-                    sec.engelTuru || sec.specialEduType, sec.sinifSeviyesi);
+                    this.ozelEgitimKayitTuru(sec, schoolType), sec.sinifSeviyesi);
+                const ih = this.ozelEgitimSinifIhtiyaci(sec, schoolType);
                 const dersSaati = [...(sec.zorunluDersler || []), ...(sec.secmeliDersler || [])]
                     .reduce((dsum, d) => dsum + parseInt(d.saat || d.ders_saati || 0, 10), 0);
                 return { subeId: sec.id, sube: sec.subeAdi, saat: dersSaati > 0 ? dersSaati : 30,
-                         norm: h.norm, dayanak: h.dayanak };
+                         norm: h.norm, dayanak: h.dayanak,
+                         engelTuru: this.ozelEgitimTuru(this.ozelEgitimKayitTuru(sec, schoolType)).ad,
+                         ogrenci: ih.ogrenci, enFazla: ih.enFazla, sinirDayanak: ih.dayanak,
+                         gerekenSinif: ih.gerekenSinif, sinirAsildi: ih.sinirAsildi,
+                         olasiNorm: ih.olasiNorm, mesaj: ih.mesaj, sinirNotu: ih.not };
             });
+            ozelEgitimUyarilari = ozelDetay.filter(x => x.sinirAsildi || (!x.enFazla && x.sinirNotu))
+                .map(x => ({ subeId: x.subeId, sube: x.sube, mesaj: x.mesaj || x.sinirNotu,
+                             gerekenSinif: x.gerekenSinif, olasiNorm: x.olasiNorm, sinirAsildi: x.sinirAsildi }));
             const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
             const specialEduHours = ozelDetay.reduce((a, x) => a + x.saat, 0);
             
@@ -195234,6 +195393,7 @@ class NormEngine {
         return {
             branchReport,
             totalHours: grandTotalHours,
+            ozelEgitimUyarilari,
             yukMutabakati,
             totalCalculatedNorm,
             totalCurrentTeachers,
@@ -200033,18 +200193,12 @@ class EOkulImporter {
             // "Otizm"...). Yakalanamazsa "hafif_zihinsel" varsayılır; bu
             // e-Okul dosyalarında en sık geçen tür ve kullanıcı şube düzenleme
             // ekranından değiştirebilir.
+            // 16.09.2026: otizm ayrı tür (ÖEHY sınıf mevcudu otizmde 4; Md. 17/1-ç otizmde düzey
+            // ayırmadan 2 norm). Eşleme tek yerde: normEngine.ozelEgitimTuruMetindenBul.
             if (isSpecialEdu) {
-                if (satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM")
-                    || satirUpper.includes("ORTA") || satirUpper.includes("AĞIR") || satirUpper.includes("AGIR")) {
-                    engelTuru = "orta_agir_otizm";
-                } else if (satirUpper.includes("İŞİTME") || satirUpper.includes("ISITME")
-                    || satirUpper.includes("GÖRME") || satirUpper.includes("GORME")) {
-                    engelTuru = "gorme_isitme";
-                } else if (satirUpper.includes("BİRDEN FAZLA") || satirUpper.includes("ÇOKLU")) {
-                    engelTuru = "birden_fazla";
-                } else {
-                    engelTuru = "hafif_zihinsel";
-                }
+                engelTuru = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimTuruMetindenBul)
+                    ? normEngine.ozelEgitimTuruMetindenBul(satirUpper)
+                    : "hafif_zihinsel";
             }
 
             // 4. Öğrenci Sayısı Tespiti
@@ -201612,10 +201766,16 @@ class UIComponentManager {
                             <div id="sec-engel-turu-kutu" style="margin-top: 0.6rem; ${sectionToEdit?.isSpecialEdu ? '' : 'display: none;'}">
                                 <label class="form-label" style="font-size: 0.75rem; font-weight: 700; color: #5b21b6;">Engel Türü *</label>
                                 <select id="sec-engel-turu" class="form-control" style="font-size: 0.85rem;">
-                                    <option value="hafif_zihinsel" ${(!sectionToEdit?.engelTuru || sectionToEdit?.engelTuru === 'hafif_zihinsel') ? 'selected' : ''}>Hafif düzeyde zihinsel engel</option>
-                                    <option value="orta_agir_otizm" ${sectionToEdit?.engelTuru === 'orta_agir_otizm' ? 'selected' : ''}>Orta / ağır düzeyde zihinsel engel veya otizm</option>
-                                    <option value="gorme_isitme" ${sectionToEdit?.engelTuru === 'gorme_isitme' ? 'selected' : ''}>Görme veya işitme engeli</option>
-                                    <option value="birden_fazla" ${sectionToEdit?.engelTuru === 'birden_fazla' ? 'selected' : ''}>Birden fazla engel</option>
+                                    <option value="hafif_zihinsel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'hafif_zihinsel' ? 'selected' : ''}>Hafif düzeyde zihinsel yetersizlik</option>
+                                    <option value="hafif_otizm" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'hafif_otizm' ? 'selected' : ''}>Hafif düzeyde otizm</option>
+                                    <option value="orta_agir_zihinsel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'orta_agir_zihinsel' ? 'selected' : ''}>Orta / ağır düzeyde zihinsel yetersizlik</option>
+                                    <option value="otizm_orta_agir" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'otizm_orta_agir' ? 'selected' : ''}>Orta / ağır düzeyde otizm</option>
+                                    <option value="gorme" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'gorme' ? 'selected' : ''}>Görme yetersizliği</option>
+                                    <option value="isitme" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'isitme' ? 'selected' : ''}>İşitme yetersizliği</option>
+                                    <option value="bedensel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'bedensel' ? 'selected' : ''}>Bedensel yetersizlik</option>
+                                    <option value="birden_fazla" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'birden_fazla' ? 'selected' : ''}>Birden fazla yetersizlik</option>
+                                    ${sectionToEdit?.engelTuru === 'orta_agir_otizm' ? `<option value="orta_agir_otizm" selected>Orta/ağır zihinsel veya otizm (eski kayıt — lütfen türü seçin)</option>` : ''}
+                                    ${sectionToEdit?.engelTuru === 'gorme_isitme' ? `<option value="gorme_isitme" selected>Görme veya işitme (eski kayıt — lütfen türü seçin)</option>` : ''}
                                 </select>
                                 <p id="sec-engel-turu-not" style="font-size: 0.73rem; color: #5b21b6; margin: 0.4rem 0 0; line-height: 1.4;"></p>
                             </div>
@@ -201666,9 +201826,26 @@ class UIComponentManager {
             const hesap = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSubeNormu)
                 ? normEngine.ozelEgitimSubeNormu(engelSecim.value, sinif)
                 : null;
-            engelNot.innerHTML = hesap
+            // SINIF MEVCUDU (ÖEHY, 16.09.2026): sınır aşılırsa kaç sınıf gerektiği ve sınıflar
+            // açılırsa normun kaç olacağı CANLI yazılır. Şube kendiliğinden bölünmez (ÖEHY 26).
+            const ogrKutu = document.getElementById("sec-students");
+            const ihtiyac = (hesap && normEngine.ozelEgitimSinifIhtiyaci)
+                ? normEngine.ozelEgitimSinifIhtiyaci({ isSpecialEdu: true, engelTuru: engelSecim.value,
+                    sinifSeviyesi: sinif, ogrenciSayisi: ogrKutu ? ogrKutu.value : 0 }, schoolType)
+                : null;
+            let notHtml = hesap
                 ? `Bu şube için <strong>${hesap.norm} özel eğitim öğretmeni normu</strong> — ${hesap.dayanak}`
                 : "";
+            if (ihtiyac && ihtiyac.enFazla) {
+                notHtml += `<br>Sınıf mevcudu en fazla <strong>${ihtiyac.enFazla}</strong> öğrenci (${ihtiyac.dayanak}).`;
+                if (ihtiyac.sinirAsildi) {
+                    notHtml += `<br><span style="color:#b91c1c;font-weight:700;">⚠️ ${ihtiyac.ogrenci} öğrenci için en az ${ihtiyac.gerekenSinif} sınıf gerekir; `
+                        + `sınıflar Valilik Oluru ile açılırsa norm ${ihtiyac.olasiNorm} olur.</span>`;
+                }
+            } else if (ihtiyac && ihtiyac.not) {
+                notHtml += `<br>${ihtiyac.not}`;
+            }
+            engelNot.innerHTML = notHtml;
         };
         const engelKutuTazele = () => {
             if (!engelKutu || !ozelKutu) return;
@@ -201678,6 +201855,7 @@ class UIComponentManager {
         ozelKutu?.addEventListener("change", engelKutuTazele);
         engelSecim?.addEventListener("change", engelNotYaz);
         gradeSelect?.addEventListener("change", engelNotYaz);
+        document.getElementById("sec-students")?.addEventListener("input", engelNotYaz);
         engelKutuTazele();
 
         const updateDynamicBranches = () => {
@@ -204827,7 +205005,9 @@ class UIComponentManager {
                             <td class="dd-ders">${x.sube}</td>
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — haftalık ${x.saat} saat">${x.saat}</span></td>
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
-                            <td class="dd-ozel-dayanak">${x.dayanak}</td>
+                            <td class="dd-ozel-dayanak">${x.dayanak}${x.sinirAsildi
+                                ? `<br><b style="color:#b91c1c;">⚠️ ${x.mesaj}</b>`
+                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}</td>
                             <td class="dd-toplam"></td>
                         </tr>`).join("");
                 return `
@@ -207993,7 +208173,12 @@ class MebNormApplication {
             
             let dalText = "";
             if (isSpecialEdu) {
-                dalText = "🟣 Özel Eğitim Sınıfı";
+                // ÖEHY sınıf mevcudu sınırı aşıldıysa kartta görünür (16.09.2026).
+                const ih = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSinifIhtiyaci)
+                    ? normEngine.ozelEgitimSinifIhtiyaci(s, appState.state.okulBilgisi.okulTuru) : null;
+                dalText = (ih && ih.sinirAsildi)
+                    ? `🟣 Özel Eğitim · ⚠️ en fazla ${ih.enFazla} öğrenci — ${ih.gerekenSinif} sınıf gerekir`
+                    : "🟣 Özel Eğitim Sınıfı";
             } else {
                 const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
                 const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";

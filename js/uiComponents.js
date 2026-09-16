@@ -1208,10 +1208,16 @@ export class UIComponentManager {
                             <div id="sec-engel-turu-kutu" style="margin-top: 0.6rem; ${sectionToEdit?.isSpecialEdu ? '' : 'display: none;'}">
                                 <label class="form-label" style="font-size: 0.75rem; font-weight: 700; color: #5b21b6;">Engel Türü *</label>
                                 <select id="sec-engel-turu" class="form-control" style="font-size: 0.85rem;">
-                                    <option value="hafif_zihinsel" ${(!sectionToEdit?.engelTuru || sectionToEdit?.engelTuru === 'hafif_zihinsel') ? 'selected' : ''}>Hafif düzeyde zihinsel engel</option>
-                                    <option value="orta_agir_otizm" ${sectionToEdit?.engelTuru === 'orta_agir_otizm' ? 'selected' : ''}>Orta / ağır düzeyde zihinsel engel veya otizm</option>
-                                    <option value="gorme_isitme" ${sectionToEdit?.engelTuru === 'gorme_isitme' ? 'selected' : ''}>Görme veya işitme engeli</option>
-                                    <option value="birden_fazla" ${sectionToEdit?.engelTuru === 'birden_fazla' ? 'selected' : ''}>Birden fazla engel</option>
+                                    <option value="hafif_zihinsel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'hafif_zihinsel' ? 'selected' : ''}>Hafif düzeyde zihinsel yetersizlik</option>
+                                    <option value="hafif_otizm" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'hafif_otizm' ? 'selected' : ''}>Hafif düzeyde otizm</option>
+                                    <option value="orta_agir_zihinsel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'orta_agir_zihinsel' ? 'selected' : ''}>Orta / ağır düzeyde zihinsel yetersizlik</option>
+                                    <option value="otizm_orta_agir" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'otizm_orta_agir' ? 'selected' : ''}>Orta / ağır düzeyde otizm</option>
+                                    <option value="gorme" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'gorme' ? 'selected' : ''}>Görme yetersizliği</option>
+                                    <option value="isitme" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'isitme' ? 'selected' : ''}>İşitme yetersizliği</option>
+                                    <option value="bedensel" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'bedensel' ? 'selected' : ''}>Bedensel yetersizlik</option>
+                                    <option value="birden_fazla" ${(sectionToEdit?.engelTuru || 'hafif_zihinsel') === 'birden_fazla' ? 'selected' : ''}>Birden fazla yetersizlik</option>
+                                    ${sectionToEdit?.engelTuru === 'orta_agir_otizm' ? `<option value="orta_agir_otizm" selected>Orta/ağır zihinsel veya otizm (eski kayıt — lütfen türü seçin)</option>` : ''}
+                                    ${sectionToEdit?.engelTuru === 'gorme_isitme' ? `<option value="gorme_isitme" selected>Görme veya işitme (eski kayıt — lütfen türü seçin)</option>` : ''}
                                 </select>
                                 <p id="sec-engel-turu-not" style="font-size: 0.73rem; color: #5b21b6; margin: 0.4rem 0 0; line-height: 1.4;"></p>
                             </div>
@@ -1262,9 +1268,26 @@ export class UIComponentManager {
             const hesap = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSubeNormu)
                 ? normEngine.ozelEgitimSubeNormu(engelSecim.value, sinif)
                 : null;
-            engelNot.innerHTML = hesap
+            // SINIF MEVCUDU (ÖEHY, 16.09.2026): sınır aşılırsa kaç sınıf gerektiği ve sınıflar
+            // açılırsa normun kaç olacağı CANLI yazılır. Şube kendiliğinden bölünmez (ÖEHY 26).
+            const ogrKutu = document.getElementById("sec-students");
+            const ihtiyac = (hesap && normEngine.ozelEgitimSinifIhtiyaci)
+                ? normEngine.ozelEgitimSinifIhtiyaci({ isSpecialEdu: true, engelTuru: engelSecim.value,
+                    sinifSeviyesi: sinif, ogrenciSayisi: ogrKutu ? ogrKutu.value : 0 }, schoolType)
+                : null;
+            let notHtml = hesap
                 ? `Bu şube için <strong>${hesap.norm} özel eğitim öğretmeni normu</strong> — ${hesap.dayanak}`
                 : "";
+            if (ihtiyac && ihtiyac.enFazla) {
+                notHtml += `<br>Sınıf mevcudu en fazla <strong>${ihtiyac.enFazla}</strong> öğrenci (${ihtiyac.dayanak}).`;
+                if (ihtiyac.sinirAsildi) {
+                    notHtml += `<br><span style="color:#b91c1c;font-weight:700;">⚠️ ${ihtiyac.ogrenci} öğrenci için en az ${ihtiyac.gerekenSinif} sınıf gerekir; `
+                        + `sınıflar Valilik Oluru ile açılırsa norm ${ihtiyac.olasiNorm} olur.</span>`;
+                }
+            } else if (ihtiyac && ihtiyac.not) {
+                notHtml += `<br>${ihtiyac.not}`;
+            }
+            engelNot.innerHTML = notHtml;
         };
         const engelKutuTazele = () => {
             if (!engelKutu || !ozelKutu) return;
@@ -1274,6 +1297,7 @@ export class UIComponentManager {
         ozelKutu?.addEventListener("change", engelKutuTazele);
         engelSecim?.addEventListener("change", engelNotYaz);
         gradeSelect?.addEventListener("change", engelNotYaz);
+        document.getElementById("sec-students")?.addEventListener("input", engelNotYaz);
         engelKutuTazele();
 
         const updateDynamicBranches = () => {
@@ -4423,7 +4447,9 @@ export class UIComponentManager {
                             <td class="dd-ders">${x.sube}</td>
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — haftalık ${x.saat} saat">${x.saat}</span></td>
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
-                            <td class="dd-ozel-dayanak">${x.dayanak}</td>
+                            <td class="dd-ozel-dayanak">${x.dayanak}${x.sinirAsildi
+                                ? `<br><b style="color:#b91c1c;">⚠️ ${x.mesaj}</b>`
+                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}</td>
                             <td class="dd-toplam"></td>
                         </tr>`).join("");
                 return `

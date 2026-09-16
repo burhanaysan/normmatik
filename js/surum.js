@@ -40,13 +40,16 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.9",
+    surum: "2.2.0",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Özel eğitim: otizm ayrı engel türü oldu; otizmli öğrencilerin sınıfı her kademede 2 özel eğitim öğretmeni normu alıyor (Norm Kadro Yön. Md. 17/1-ç).",
+        "Özel eğitim sınıflarında Özel Eğitim Hizmetleri Yönetmeliği'nin sınıf mevcudu sınırları uygulanıyor (ör. otizmde en fazla 4, hafif zihinselde 10); sınır aşılınca kaç sınıf gerektiği ve sınıflar açılırsa normun kaç olacağı gösteriliyor.",
+        "Özel eğitim meslek okulu ve uygulama okulunda her şube özel eğitim şubesi sayılıyor; norm şube başına hesaplanıyor.",
         "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
         "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
         "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",

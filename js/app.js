@@ -993,7 +993,12 @@ class MebNormApplication {
             
             let dalText = "";
             if (isSpecialEdu) {
-                dalText = "🟣 Özel Eğitim Sınıfı";
+                // ÖEHY sınıf mevcudu sınırı aşıldıysa kartta görünür (16.09.2026).
+                const ih = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimSinifIhtiyaci)
+                    ? normEngine.ozelEgitimSinifIhtiyaci(s, appState.state.okulBilgisi.okulTuru) : null;
+                dalText = (ih && ih.sinirAsildi)
+                    ? `🟣 Özel Eğitim · ⚠️ en fazla ${ih.enFazla} öğrenci — ${ih.gerekenSinif} sınıf gerekir`
+                    : "🟣 Özel Eğitim Sınıfı";
             } else {
                 const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
                 const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";

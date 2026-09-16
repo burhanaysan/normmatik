@@ -345,18 +345,12 @@ export class EOkulImporter {
             // "Otizm"...). Yakalanamazsa "hafif_zihinsel" varsayılır; bu
             // e-Okul dosyalarında en sık geçen tür ve kullanıcı şube düzenleme
             // ekranından değiştirebilir.
+            // 16.09.2026: otizm ayrı tür (ÖEHY sınıf mevcudu otizmde 4; Md. 17/1-ç otizmde düzey
+            // ayırmadan 2 norm). Eşleme tek yerde: normEngine.ozelEgitimTuruMetindenBul.
             if (isSpecialEdu) {
-                if (satirUpper.includes("OTİZM") || satirUpper.includes("OTIZM")
-                    || satirUpper.includes("ORTA") || satirUpper.includes("AĞIR") || satirUpper.includes("AGIR")) {
-                    engelTuru = "orta_agir_otizm";
-                } else if (satirUpper.includes("İŞİTME") || satirUpper.includes("ISITME")
-                    || satirUpper.includes("GÖRME") || satirUpper.includes("GORME")) {
-                    engelTuru = "gorme_isitme";
-                } else if (satirUpper.includes("BİRDEN FAZLA") || satirUpper.includes("ÇOKLU")) {
-                    engelTuru = "birden_fazla";
-                } else {
-                    engelTuru = "hafif_zihinsel";
-                }
+                engelTuru = (typeof normEngine !== 'undefined' && normEngine.ozelEgitimTuruMetindenBul)
+                    ? normEngine.ozelEgitimTuruMetindenBul(satirUpper)
+                    : "hafif_zihinsel";
             }
 
             // 4. Öğrenci Sayısı Tespiti
