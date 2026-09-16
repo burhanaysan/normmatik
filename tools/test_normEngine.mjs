@@ -200,7 +200,11 @@ const subeler = [{
     secmeliDersler: []
 }];
 
-const res = engine.calculateSchoolNorms(subeler, {}, "meslek_teknik");
+// Bu bölüm grup bölünmesini (Md. 22/1-ç) ve Md.18/19 kova ayrımını ölçer.
+// Alan şefliği varsayılanı (aktif alanda +10 saat; kullanıcı kararı 16.09.2026)
+// sayıları kaydırmasın diye AÇIKÇA kapatılır; varsayılan aşağıda ayrıca sınanır.
+const sefliksiz = { adminOptions: { alanSefleri: { "Makine Teknolojisi": 0 }, atolyeSefleri: {} } };
+const res = engine.calculateSchoolNorms(subeler, {}, "meslek_teknik", sefliksiz);
 const mat = res.branchReport.find(b => b.branchName === "Matematik");
 const mak = res.branchReport.find(b => b.branchName === "Makine Teknolojisi");
 
@@ -209,6 +213,14 @@ check("Matematik yükü GENEL kovasında", mat.generalHours, 4);
 check("Matematik atölye yükü 0", mat.workshopHours, 0);
 check("Atölye dersi 2 gruba bölündü ➔ 20s yük", mak.totalHours, 20);
 check("Atölye yükü ATÖLYE kovasında", mak.workshopHours, 20);
+
+// ŞEFLİK VARSAYILANI (OÖKY Md. 84/1; kullanıcı kararı 16.09.2026): okulda açık olan
+// alanda alan şefliği vardır -> hiçbir şey girilmeden branşa 10 saat eklenir.
+const resVars = engine.calculateSchoolNorms(subeler, {}, "meslek_teknik");
+const makVars = resVars.branchReport.find(b => b.branchName === "Makine Teknolojisi");
+check("Varsayılan alan şefliği atölye yüküne 10 saat ekler", makVars.workshopHours, 30);
+check("Varsayılan şeflik saati ayrıca raporlanıyor", makVars.seflikHours, 10);
+check("Varsayılan şeflik GENEL kovaya girmiyor", makVars.generalHours, 0);
 check("Atölye yükü Md.18'e sızmadı", mak.generalHours, 0);
 check("20s atölye -> 1 norm (Md.19: 15-40 ➔ 1)", mak.calculatedNorm, 1);
 
@@ -240,13 +252,17 @@ check("1201 çırak -> 4 Mdr. Yrd. (Md. 12/1-ç)", admMesem(1201), 4);
 section("MADDE 14 — İlave müdür yardımcısı normları ve tavan");
 
 check("Pansiyon +1 ilave (Md. 14/1-a)", adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal, 2);
-// Md. 6 kuralı ünvan kaldırıldığı için varsayılan olarak KAPALI
-// (normEngine.mudurBasyardimcisiUnvaniYururlukte = false).
-// Kural silinmedi; bu yüzden testi de silinmiyor. Bayrak geçici açılıp
-// kuralın hâlâ doğru işlediği doğrulanır, sonra tekrar kapatılır.
-engine.mudurBasyardimcisiUnvaniYururlukte = true;
-check("[bayrak AÇIK] Pansiyon -> 1 müdür başyardımcısı (Md. 6/1-a)",
+// YORUM DEFTERİ Y6 (kullanıcı kararı 16.09.2026): ünvan yeniden AÇILDI; norm
+// kurumun yatılı olmasından doğar, "görevi süren başyardımcı var" kutusundan değil.
+check("Y6 yatılı kurum (eski kayıt alanı) -> 1 müdür başyardımcısı (Md. 6/1-a)",
       adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 1);
+check("Y6 yatılı kurum (bugünkü alan) -> 1 müdür başyardımcısı",
+      adm(500, { isPansiyonluMdrYrd: true }).mudurBasyardimcisi, 1);
+check("Y6 yalnız 'görevi süren başyrd.' işaretli -> yine 1",
+      adm(500, { isPansiyonluBasyrd: true }).mudurBasyardimcisi, 1);
+check("Y6 yatılı olmayan kurumda başyardımcı normu 0",
+      adm(500).mudurBasyardimcisi, 0);
+check("Y6 arayüz bayrağı artık açık", adm(500).mudurBasyardimcisiAktif, true);
 check("Döner sermaye +1 (Md. 14/1-b)", adm(500, { hasDonerSermaye: true }).mudurYardimcisiTotal, 2);
 // Taşıma merkezi kutusu kaldırıldı (kullanıcı kararı, Denetim N-01): eski kayıtta
 // kalan alan hiçbir şey eklememeli.
@@ -258,20 +274,22 @@ const altiIlave = {
 };
 check("1000 öğrenci + 5 ilave -> tavan 6 (Md. 14/2)", adm(1000, altiIlave).mudurYardimcisiTotal, 6);
 check("1600 öğrenci + 5 ilave -> tavan 7 (Md. 14/2)", adm(1600, altiIlave).mudurYardimcisiTotal, 7);
-check("[bayrak AÇIK] 6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)",
+check("Y6 6 Mdr. Yrd. -> 1 müdür başyardımcısı (Md. 6/1-b)",
       adm(1000, altiIlave).mudurBasyardimcisi, 1);
-engine.mudurBasyardimcisiUnvaniYururlukte = false;
+check("Y6 yatılı kurumda toplam yöneticiye başyardımcı EKLENİR",
+      adm(500, { isPansiyonlu: true }).toplamYonetici,
+      adm(500, { isPansiyonlu: true }).mudur + 1
+      + adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal);
 
-// Ünvan kapalıyken, Md. 6 şartları OLUŞSA BİLE norm üretilmemeli.
+// Kural KAPATILABİLİR kalmalı: ünvan tekrar tartışılırsa tek bayrakla dönülür.
+engine.mudurBasyardimcisiUnvaniYururlukte = false;
 check("[bayrak KAPALI] Pansiyon -> başyardımcı normu 0",
       adm(500, { isPansiyonlu: true }).mudurBasyardimcisi, 0);
 check("[bayrak KAPALI] 6 Mdr. Yrd. -> başyardımcı normu 0",
       adm(1000, altiIlave).mudurBasyardimcisi, 0);
-check("[bayrak KAPALI] toplam yöneticiye başyardımcı eklenmiyor",
-      adm(500, { isPansiyonlu: true }).toplamYonetici,
-      adm(500, { isPansiyonlu: true }).mudur + adm(500, { isPansiyonlu: true }).mudurYardimcisiTotal);
 check("[bayrak KAPALI] arayüz bayrağı false geliyor",
       adm(500).mudurBasyardimcisiAktif, false);
+engine.mudurBasyardimcisiUnvaniYururlukte = true;
 
 section("MADDE 5/3, 5/5, 6/2, 22/1-a, 22/7 — Müdür normu verilmeyen kurumlar");
 

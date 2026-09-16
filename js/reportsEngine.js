@@ -186,7 +186,24 @@ class MebReportsEngine {
                 }
 
                 const cName = resolved.courseName;
-                const brans = resolved.branchName || c.varsayilanBrans || rawCName;
+                let brans = resolved.branchName || c.varsayilanBrans || rawCName;
+
+                // Y7 (16.09.2026): NORM motoru ders yükünü dersin RESMÎ ALANINA yazıyor.
+                // Matris de aynı kuralı kullanmazsa kartın başlığındaki saat (motordan)
+                // ile kartın içindeki ders satırları (buradan) ayrışır ve iki rapor
+                // birbiriyle çelişir. İstisnalar motordakiyle birebir aynı: idareci
+                // "Özel Eğitim" seçtiyse (N-08 kararı) ve bilinçli bölme/paylaştırma.
+                let fiiliBrans = "";
+                if (this.normEngine && this.normEngine.normDersinResmiAlaninaYazilir
+                    && typeof this.normEngine._resmiDersAlani === "function"
+                    && brans && brans !== "— Branş Atanmadı —" && brans !== "Özel Eğitim"
+                    && !c._bolunmusBrans && !c._dagitilmisBrans) {
+                    const resmiAlan = this.normEngine._resmiDersAlani(cName, sec, schoolType, c.kategori);
+                    if (resmiAlan && resmiAlan !== brans) {
+                        fiiliBrans = brans;
+                        brans = resmiAlan;
+                    }
+                }
 
                 const isVoc = (c.kategori || "").includes("MESLEK") || (c.kategori || "").includes("ALAN") || (c.kategori || "").includes("DAL") || !!c.isAtolye || !!c.isVocational || (this.db && this.db.getVocationalBranchesList && this.db.getVocationalBranchesList().includes(brans));
 
@@ -212,6 +229,8 @@ class MebReportsEngine {
                         // sebebi yazsın; yoksa "ders iki kez sayılmış" sanılır.
                         isBolunmus: !!(c._bolunmusBrans || c._dagitilmisBrans),
                         bolunmeParcasi: c._bolunmusBrans || c._dagitilmisBrans || null,
+                        // Y7: idarecinin seçtiği branş (norm dersin alanına yazıldıysa)
+                        fiiliBrans: fiiliBrans || null,
                         bolunmeSayisi: c._bolunmeSayisi || null,
                         sectionHours: {},
                         mergedSections: {},

@@ -349,13 +349,16 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.1.6",
+    surum: "2.1.7",
     yayinTarihi: "2026-09-15",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
+        "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
+        "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",
         "Kur'an-ı Kerim dersinin 25'ten fazla öğrencide iki gruba bölünmesi yalnızca imam hatip okullarında uygulanıyor; spor ve güzel sanatlar liselerinde seçmeli Kur'an-ı Kerim bölünmüyor.",
         "İmam hatip ortaokulunda Bireysel Çalgı Eğitimi öğrenci başına çoğaltılmıyor; Toplu Ses Eğitimi grup dersi olarak sayılıyor.",
         "Öğrenci sayısı 0 yapılan şube, grup hesabında artık 30 öğrencili sayılmıyor.",
@@ -180160,8 +180163,22 @@ class NormEngine {
     // Müdür başyardımcısı ünvanı yürürlükte mi? Ayrıntılı gerekçe
     // calculateAdminNorms() içinde, Madde 6 bölümünün başındadır.
     // false  -> norm üretilmez, arayüz ve raporlarda hiç görünmez
-    // true   -> Madde 6 kuralı aynen işler (kural silinmedi, kapatıldı)
-    mudurBasyardimcisiUnvaniYururlukte = false;
+    // true   -> Madde 6 kuralı aynen işler
+    //
+    // 16.09.2026 KULLANICI KARARI (Denetim yorum defteri Y6): ünvan yeniden AÇILDI.
+    // Gerekçe: Norm Kadro Yönetmeliği Md. 6 yürürlükte ve normu KURUMUN YATILI
+    // OLMASINA bağlıyor, kişiye değil. "Görevi süren başyardımcı var mı" sorusu
+    // normun değil MEVCUT kadronun sorusudur; norm 1 / mevcut 0 olduğunda ekran
+    // zaten "ihtiyaç" gösterir. Bu, 26.08.2026 kapatma kararını değiştirir.
+    mudurBasyardimcisiUnvaniYururlukte = true;
+
+    // Ders yükü DERSİN RESMÎ ALANINA mı, idarecinin seçtiği branşa mı yazılır?
+    // Y7 (kullanıcı kararı 16.09.2026): Md. 22/1-c-1 "O alan içinde ... okutulması
+    // gereken dersler birlikte dikkate alınır" -> norm dersin alanına yazılır;
+    // idarecinin fiilî dağılımı ders satırında ayrıca gösterilir. Bu, 27.08.2026
+    // tarihli "idareci hangi branşı seçerse o" kararını değiştirir.
+    // Geri almak için tek satır yeter: false.
+    normDersinResmiAlaninaYazilir = true;
 
     constructor() {
         this.rules = NORM_RULES_CONFIG;
@@ -180200,7 +180217,7 @@ class NormEngine {
      *
      * @returns {Object} { "Branş": { alanSefi, atolyeSefi, alanSaat, atolyeSaat, saat } }
      */
-    seflikSaatleri(adminOptions = {}, schoolType = "") {
+    seflikSaatleri(adminOptions = {}, schoolType = "", aktifAlanBranslari = []) {
         const kural = (this.rules && this.rules.seflikRules) || {};
         const alanBirim = Number.isFinite(kural.alanSefiSaat) ? kural.alanSefiSaat : 10;
         const atolyeBirim = Number.isFinite(kural.atolyeLabSefiSaat) ? kural.atolyeLabSefiSaat : 6;
@@ -180208,9 +180225,17 @@ class NormEngine {
         const mesem = tur.includes("mesleki_egitim_merkezi") || tur.includes("mesem");
         const alanlar = (adminOptions && adminOptions.alanSefleri) || {};
         const atolyeler = (adminOptions && adminOptions.atolyeSefleri) || {};
+        // VARSAYILAN: OKULDA AÇIK OLAN HER ALANDA ALAN ŞEFLİĞİ VARDIR (kullanıcı kararı,
+        // 16.09.2026). Dayanak OÖKY Md. 84/1: "açılan her alan/bölüm için bir alan/bölüm
+        // şefliği ... oluşturulur" — şeflik okulun tercihi değil, yönetmelik gereği.
+        // İdareci kutunun işaretini kaldırırsa kayda 0 yazılır ve saat eklenmez.
+        const aktifler = (aktifAlanBranslari || []).filter(Boolean);
         const sonuc = {};
-        for (const brans of new Set([...Object.keys(alanlar), ...Object.keys(atolyeler)])) {
-            const alanSefi = (!mesem && (parseInt(alanlar[brans], 10) || 0) > 0) ? 1 : 0;
+        for (const brans of new Set([...Object.keys(alanlar), ...Object.keys(atolyeler), ...aktifler])) {
+            const kayit = alanlar[brans];
+            const secilmemis = (kayit === undefined || kayit === null || kayit === "");
+            const alanVar = secilmemis ? aktifler.includes(brans) : (parseInt(kayit, 10) || 0) > 0;
+            const alanSefi = (!mesem && alanVar) ? 1 : 0;
             const atolyeSefi = Math.max(0, parseInt(atolyeler[brans], 10) || 0);
             const saat = alanSefi * alanBirim + atolyeSefi * atolyeBirim;
             if (saat > 0) {
@@ -180235,6 +180260,48 @@ class NormEngine {
         const saat = parseInt(haftalikSaat, 10) || 0;
         const ogrenci = Math.max(0, parseInt(ogrenciSayisi, 10) || 0);
         return saat + ilave * Math.floor(ogrenci / 2);
+    }
+
+    /**
+     * DERSİN RESMÎ ALANI (Y7). Kaynak sırası:
+     *   1) Okul türüne ve sınıfa duyarlı ÇİZELGE verisi (getMandatoryCourses).
+     *      Bu ayrım şarttır: "T.C. İnkılap Tarihi ve Atatürkçülük" ORTAOKULDA
+     *      Sosyal Bilgiler alanının, LİSEDE Tarih alanınındır. Elle yazılmış
+     *      ders->branş tablosu bu farkı bilmez; tek başına kullanılsaydı gerçek
+     *      bir ortaokulun doğru kaydını bozardı (16.09.2026 ölçümü).
+     *   2) Çizelgede bulunmayan ders (seçmeli vb.) için getCanonicalCourseAndBranch.
+     * Hiçbiri bulunamazsa null döner ve idarecinin seçimi korunur.
+     */
+    _resmiDersAlani(cName, sec, schoolType, kategori) {
+        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+            ? window.curriculumEngine
+            : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
+        if (!ce || !cName) return null;
+        const sinif = sec && sec.sinifSeviyesi;
+        const alanId = (sec && sec.alanId) || null;
+        const dal = (sec && sec.dalAdi) || null;
+        const anahtar = [schoolType, sinif, alanId, dal].join("|");
+        this._cizelgeBransBellegi = this._cizelgeBransBellegi || new Map();
+        let harita = this._cizelgeBransBellegi.get(anahtar);
+        if (!harita) {
+            harita = new Map();
+            try {
+                (ce.getMandatoryCourses(schoolType, sinif, alanId, dal) || []).forEach(d => {
+                    const ad = this.normalizeText(d.ders || d.ders_adi || "");
+                    const brans = String(d.atananBrans || "").trim();
+                    if (ad && brans) harita.set(ad, brans);
+                });
+            } catch (e) { /* çizelge üretilemedi: yedek yola düşülür */ }
+            this._cizelgeBransBellegi.set(anahtar, harita);
+        }
+        const cizelgeBrans = harita.get(this.normalizeText(cName));
+        if (cizelgeBrans) return cizelgeBrans;
+        try {
+            const r = ce.getCanonicalCourseAndBranch(cName, null, alanId, kategori || "ORTAK DERSLER");
+            const b = r && r.branchName;
+            if (b && b !== "— Branş Atanmadı —" && b !== "Diğer") return b;
+        } catch (e) { /* yok sayılır */ }
+        return null;
     }
 
     /**
@@ -181437,6 +181504,27 @@ class NormEngine {
                     assignedBranch = "Rehberlik";
                 }
 
+                // Y7 — NORM DERSİN RESMÎ ALANINA YAZILIR (kullanıcı kararı 16.09.2026).
+                // İdarecinin seçimi silinmez: ders satırında "fiilî dağılım" olarak
+                // görünür. Eğik çizgili ders parçaları (_bolunmusBrans) ve hedef
+                // temelli paylaştırma (_dagitilmisBrans) BİLİNÇLİ dağıtımlardır,
+                // dokunulmaz. "Branş Atanmadı" seçimi yukarıda zaten ayrılmıştır.
+                // İSTİSNA — "Özel Eğitim" seçimi (Denetim N-08; kullanıcı kararı
+                // 16.09.2026: "norm doğurmasın şimdilik, araştıralım"). Normal şubedeki
+                // bir dersi özel eğitim öğretmenine yazan idarecinin seçimi korunur;
+                // saat Özel Eğitim satırında durur ve ayrıca Md. 18 normu üretmez.
+                // Y7 burada uygulansaydı saat dersin alanına (ör. Matematik) taşınır ve
+                // kullanıcının bu sabah verdiği karar sessizce değişmiş olurdu.
+                let fiiliBrans = "";
+                if (this.normDersinResmiAlaninaYazilir
+                    && assignedBranch !== "Özel Eğitim"
+                    && !course._bolunmusBrans && !course._dagitilmisBrans) {
+                    const resmiAlan = this._resmiDersAlani(cName, sec, schoolType, course.kategori);
+                    if (resmiAlan && resmiAlan !== assignedBranch) {
+                        fiiliBrans = assignedBranch;
+                        assignedBranch = resmiAlan;
+                    }
+                }
 
                 // Grup / Çalgı / Atölye Katsayısı Hesabı (sınıf seviyesi Md. 22/1-ç için şart).
                 // Birleşik derste birleşik sınıfın mevcudu kullanılır (bkz. yukarıda).
@@ -181466,12 +181554,16 @@ class NormEngine {
                     branchLoadSplit[assignedBranch].genel += load;
                 }
 
+                const fiiliNot = fiiliBrans
+                    ? `İdareci bu dersi "${fiiliBrans}" branşına verdi; norm dersin alanına yazıldı (Md. 22/1-c-1).`
+                    : "";
                 branchCourseDetails[assignedBranch].push({
                     sectionName: sec.subeAdi,
                     courseName: cName,
                     baseHours: course.saat || course.ders_saati || 0,
                     calculatedLoad: load,
-                    note: haricNotu || ((birlesikNotu + (mult.note || "")).trim()),
+                    fiiliBrans: fiiliBrans || undefined,
+                    note: [haricNotu || ((birlesikNotu + (mult.note || "")).trim()), fiiliNot].filter(Boolean).join(" · "),
                     loadCategory: mult.loadCategory,
                     // Satır raporda GÖRÜNMEYE devam eder ama yükü 0'dır; okulun
                     // "bu saat nereye gitti?" sorusu cevapsız kalmasın.
@@ -181517,6 +181609,10 @@ class NormEngine {
                     const saat = parseInt(c.saat || c.ders_saati || 0, 10) || 0;
                     // Sınıf seviyeleri arasında saat farklıysa en yükseği esas
                     // alınır; barem alanın tamamı için TEK grup sayısı üretir.
+                    // YORUM DEFTERİ Y14 (kullanıcı kararı 16.09.2026: şimdilik dokunma,
+                    // not düş): ağırlıklı ortalama daha tutarlı olurdu. Bugün fark
+                    // üretmiyor — 768 işletme dersinin hepsi 32 saat. Çizelgelerde
+                    // sınıfa göre farklı saat çıkarsa bu seçim yeniden değerlendirilmeli.
                     if (saat > kayit.isletmeSaati) kayit.isletmeSaati = saat;
                     const b = String(c.atananBrans || "").trim();
                     if (b && b !== "— Branş Atanmadı —" && b !== "Diğer") subeBranslari.add(b);
@@ -181623,7 +181719,11 @@ class NormEngine {
         // olabilir (OÖKY Md. 84/A).
         const branchSeflikMap = {};
         if (isVocationalSchool) {
-            const sefler = this.seflikSaatleri(coordinatorHoursMap && coordinatorHoursMap.adminOptions, schoolType);
+            // Aktif alan branşı = okulda atölye/laboratuvar ders yükü olan meslek branşı.
+            const aktifAlanBranslari = Object.keys(branchLoadSplit)
+                .filter(b => ((branchLoadSplit[b] || {}).atolye || 0) > 0);
+            const sefler = this.seflikSaatleri(
+                coordinatorHoursMap && coordinatorHoursMap.adminOptions, schoolType, aktifAlanBranslari);
             Object.entries(sefler).forEach(([branchName, s]) => {
                 ensureBranch(branchName);
                 branchLoadMap[branchName] += s.saat;
@@ -182153,22 +182253,20 @@ class NormEngine {
         // Seçenek, ünvanın genel olarak kapalı olmasından BAĞIMSIZ çalışır:
         // genel kapatma varsayılandır, bu kutu ise okulun bildirdiği fiilî
         // durumdur.
-        const pansiyonBasyrd = !!options.isPansiyonluBasyrd;
+        // 16.09.2026 (Y6): norm artık KURUMUN YATILI OLMASINDAN doğuyor; "görevi süren
+        // başyardımcı var" kutusu norm üretmiyor, yalnız mevcut kadro sütununu açıyor.
+        // Eski kayıtlarda yalnız bu kutu işaretli olabilir; o kayıtlar da yatılı sayılır.
+        const pansiyonlu = this._pansiyonMdrYrd(options) || !!options.isPansiyonluBasyrd;
 
         let mudurBasYrd = 0;
-        if (pansiyonBasyrd && !isKampusIcinde && mudurNorm > 0) {
-            mudurBasYrd = 1;
-            explanations.push(
-                "Yatılı/Pansiyonlu Kurum — görevi süren müdür başyardımcısı bildirildi: "
-                + "1 Müdür Başyardımcısı normu (Md. 6/1-a).");
-        } else if (!basyrdAktif) {
+        if (!basyrdAktif) {
             // Ünvan kapalı: norm üretilmez, açıklama da yazılmaz (raporda
             // hiç görünmemesi isteniyor).
         } else if (isKampusIcinde) {
             explanations.push("Eğitim kampüsü içindeki kuruma müdür başyardımcısı normu verilmez (Md. 6/2).");
         } else if (mudurNorm === 0) {
             explanations.push("Müdür normu verilmeyen kuruma müdür başyardımcısı normu da verilmez (Md. 22/1-a).");
-        } else if (options.isPansiyonlu) {
+        } else if (pansiyonlu) {
             mudurBasYrd = 1;
             explanations.push("Yatılı/Pansiyonlu Kurum: 1 Müdür Başyardımcısı normu (Md. 6/1-a).");
         } else if (totalMdrYrd >= 6) {
@@ -182206,7 +182304,7 @@ class NormEngine {
             // "görevi süren başyardımcım var" dediyse satır GERİ GELMELİ:
             // aksi hâlde norm üretiliyor ama arayüzde ve raporda hiçbir
             // yerde görünmüyordu. (Kullanıcı bildirimi, 05.09.2026.)
-            mudurBasyardimcisiAktif: basyrdAktif || pansiyonBasyrd,
+            mudurBasyardimcisiAktif: basyrdAktif || pansiyonlu,
             mudurYardimcisiBase: baseMdrYrd,
             mudurYardimcisiExtra: extraMdrYrd,
             mudurYardimcisiTotal: totalMdrYrd,
@@ -182513,7 +182611,24 @@ class MebReportsEngine {
                 }
 
                 const cName = resolved.courseName;
-                const brans = resolved.branchName || c.varsayilanBrans || rawCName;
+                let brans = resolved.branchName || c.varsayilanBrans || rawCName;
+
+                // Y7 (16.09.2026): NORM motoru ders yükünü dersin RESMÎ ALANINA yazıyor.
+                // Matris de aynı kuralı kullanmazsa kartın başlığındaki saat (motordan)
+                // ile kartın içindeki ders satırları (buradan) ayrışır ve iki rapor
+                // birbiriyle çelişir. İstisnalar motordakiyle birebir aynı: idareci
+                // "Özel Eğitim" seçtiyse (N-08 kararı) ve bilinçli bölme/paylaştırma.
+                let fiiliBrans = "";
+                if (this.normEngine && this.normEngine.normDersinResmiAlaninaYazilir
+                    && typeof this.normEngine._resmiDersAlani === "function"
+                    && brans && brans !== "— Branş Atanmadı —" && brans !== "Özel Eğitim"
+                    && !c._bolunmusBrans && !c._dagitilmisBrans) {
+                    const resmiAlan = this.normEngine._resmiDersAlani(cName, sec, schoolType, c.kategori);
+                    if (resmiAlan && resmiAlan !== brans) {
+                        fiiliBrans = brans;
+                        brans = resmiAlan;
+                    }
+                }
 
                 const isVoc = (c.kategori || "").includes("MESLEK") || (c.kategori || "").includes("ALAN") || (c.kategori || "").includes("DAL") || !!c.isAtolye || !!c.isVocational || (this.db && this.db.getVocationalBranchesList && this.db.getVocationalBranchesList().includes(brans));
 
@@ -182539,6 +182654,8 @@ class MebReportsEngine {
                         // sebebi yazsın; yoksa "ders iki kez sayılmış" sanılır.
                         isBolunmus: !!(c._bolunmusBrans || c._dagitilmisBrans),
                         bolunmeParcasi: c._bolunmusBrans || c._dagitilmisBrans || null,
+                        // Y7: idarecinin seçtiği branş (norm dersin alanına yazıldıysa)
+                        fiiliBrans: fiiliBrans || null,
                         bolunmeSayisi: c._bolunmeSayisi || null,
                         sectionHours: {},
                         mergedSections: {},
@@ -189818,12 +189935,16 @@ class UIComponentManager {
             return a.localeCompare(b, 'tr');
         }) : [];
 
+        // Önizleme motorun hesabıyla aynı olmalı: aktif alanlarda alan şefliği
+        // varsayılan olarak VARDIR (OÖKY Md. 84/1; kullanıcı kararı 16.09.2026).
         const sefHesabi = isVocationalSchool
-            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType)
+            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType, [...activeVocBranchesSet])
             : {};
         const seflikRowsHtml = sortedVocBranches.map(bName => {
             const isActive = activeVocBranchesSet.has(bName);
-            const alanVar = (parseInt(alanSefleri[bName], 10) || 0) > 0;
+            const alanKayit = alanSefleri[bName];
+            const alanSecilmemis = (alanKayit === undefined || alanKayit === null || alanKayit === "");
+            const alanVar = alanSecilmemis ? isActive : (parseInt(alanKayit, 10) || 0) > 0;
             const atolyeSayi = Math.max(0, parseInt(atolyeSefleri[bName], 10) || 0);
             const saat = (sefHesabi[bName] || {}).saat || 0;
             const ad = NormGuvenlik.htmlKacis(bName);
@@ -189838,7 +189959,7 @@ class UIComponentManager {
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: nowrap; justify-content: flex-end; flex-shrink: 0;">
                         <label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : 'Alan / bölüm şefi: haftada 10 saat'}">
-                            <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
+                            <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" data-aktif="${isActive ? '1' : ''}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
                             Alan şefi
                         </label>
                         <input type="number" class="seflik-atolye-input" data-branch="${ad}" value="${atolyeSayi}" min="0" max="20" style="width: 58px; padding: 0.2rem 0.3rem; text-align: center; font-size: 0.82rem; font-weight: 800; color: #7e22ce; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: var(--radius-md); outline: none;" title="Atölye / laboratuvar şefi sayısı: her biri haftada 6 saat">
@@ -189949,8 +190070,8 @@ class UIComponentManager {
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-pansiyon-basyrd" ${adminOpts.isPansiyonluBasyrd ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
-                                        <strong>🧑‍💼 Yatılı/Pansiyonlu Kurum — Görevi Süren Müdür Başyardımcısı Var</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a). Ünvan kaldırıldığı için yalnızca görevi devam eden başyardımcısı bulunan yatılı/pansiyonlu kurumlar işaretler.</div>
+                                        <strong>🧑‍💼 Görevi Süren Müdür Başyardımcısı Var</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Mevcut kadro bilgisidir. Müdür başyardımcısı NORMU (Md. 6/1-a) kurumun yatılı olmasından doğar; üstteki yatılı kutusu işaretliyse norm zaten verilir. Bu kutu yalnızca "mevcut" sütununu açar.</div>
                                     </div>
                                 </label>
 
@@ -190381,7 +190502,11 @@ class UIComponentManager {
             // ŞEFLİKLER (15.09.2026): alan şefi (0/1) ve atölye/laboratuvar şefi sayısı
             const alanSefleri = {};
             document.querySelectorAll(".seflik-alan-input").forEach(input => {
-                if (input.checked && !input.disabled) alanSefleri[input.dataset.branch] = 1;
+                if (input.disabled) return;
+                if (input.checked) alanSefleri[input.dataset.branch] = 1;
+                // AKTİF alanda işaret kaldırıldıysa 0 AÇIKÇA yazılır: kayıtta değer
+                // yoksa motor varsayılanı (şeflik var) uygular ve seçim geri gelirdi.
+                else if (input.dataset.aktif) alanSefleri[input.dataset.branch] = 0;
             });
             const atolyeSefleri = {};
             document.querySelectorAll(".seflik-atolye-input").forEach(input => {
@@ -191545,6 +191670,7 @@ class UIComponentManager {
                                 ${c.isBaraj ? '<span class="dd-rozet baraj" title="Baraj / zorunlu ders">baraj</span>' : ""}
                                 ${c.isAtolye ? '<span class="dd-rozet atolye" title="Atölye / uygulama dersi">atölye</span>' : ""}
                                 ${c.isBolunmus ? `<span class="dd-rozet bolunmus" title="Bu ders branşlara bölünmüş; her öğretmen kendi grubuna tam saati okutur">${c.bolunmeParcasi || "bölünmüş"}</span>` : ""}
+                                ${c.fiiliBrans ? `<span class="dd-rozet bolunmus" title="İdareci bu dersi &quot;${NormGuvenlik.htmlKacis(c.fiiliBrans)}&quot; branşına verdi; norm dersin alanına yazıldı (Norm Kadro Yön. Md. 22/1-c-1).">fiilî: ${NormGuvenlik.htmlKacis(c.fiiliBrans)}</span>` : ""}
                             </td>
                             ${hucreler}
                             <td class="dd-toplam">${c.totalHours}</td>

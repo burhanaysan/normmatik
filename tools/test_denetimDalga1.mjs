@@ -308,6 +308,9 @@ function ikiAtolyeSubesi(sira) {
     }
     const ad = s.A.zorunluDersler.find(d => /ATÖLYE/i.test(d.ders)).ders;
     st.toggleCourseMerge(s.A.id, ad, s.B.id);
+    // Bu ölçüm BİRLEŞTİRMEYİ sınıyor. Şeflik varsayılanı (aktif alanda alan şefi
+    // +10 saat, kullanıcı kararı 16.09.2026) sayıyı kaydırmasın diye açıkça kapatılır.
+    st.setAdminOptions({ alanSefleri: { "Elektrik-Elektronik Teknolojisi": 0 }, atolyeSefleri: {} });
     const r = hesapla();
     return { b: brans(r, "Elektrik-Elektronik Teknolojisi") || { totalHours: 0 }, r };
 }
@@ -402,10 +405,24 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
     const sube = { id: "s12", subeAdi: "12-A", sinifSeviyesi: "12", ogrenciSayisi: 18, alanId: "bilisim",
         zorunluDersler: ce.getMandatoryCourses(MTAL, "12", "bilisim", null) || [], secmeliDersler: [] };
     kontrol("N11 ölçüm geçerli: 12. sınıf bilişim dersleri üretildi", sube.zorunluDersler.length > 0);
-    const sade = ne.calculateSchoolNorms([sube], {}, MTAL, {});
-    kontrol("N11 şeflik girilmeden 12. sınıfa ek saat YAZILMIYOR",
+    // KULLANICI KARARI 16.09.2026: okulda AÇIK olan her alanda alan şefliği vardır
+    // (OÖKY Md. 84/1) -> kutu varsayılan olarak işaretli gelir ve 10 saat yazılır.
+    // İdareci işareti kaldırırsa kayda 0 yazılır ve saat eklenmez.
+    const varsayilan = ne.calculateSchoolNorms([sube], {}, MTAL, {});
+    const bVars = brans(varsayilan, BT);
+    kontrol("N11 aktif alanda alan şefliği VARSAYILAN olarak 10 saat",
+        !!bVars && bVars.seflikHours === 10, bVars && bVars.seflikHours);
+    kontrol("N11 eski otomatik koordinatörlük kalemi yok (şeflik kalemi ayrı)",
+        varsayilan.branchReport.every(b => !b.coordinatorHours),
+        varsayilan.branchReport.filter(b => b.coordinatorHours).map(b => b.branchName).join(", "));
+    const sade = ne.calculateSchoolNorms([sube], {}, MTAL,
+        { adminOptions: { alanSefleri: { [BT]: 0 } } });
+    kontrol("N11 işaret kaldırılınca (0) hiçbir branşa ek saat yazılmıyor",
         sade.branchReport.every(b => !b.coordinatorHours && !b.seflikHours),
         sade.branchReport.filter(b => b.coordinatorHours || b.seflikHours).map(b => b.branchName).join(", "));
+    kontrol("N11 varsayılan 10 saat, kapatınca 0: fark tam 10",
+        !!bVars && !!brans(sade, BT) && bVars.totalHours === brans(sade, BT).totalHours + 10,
+        bVars && brans(sade, BT) && (brans(sade, BT).totalHours + " -> " + bVars.totalHours));
     kontrol("N11 motorda otomatik 12. sınıf kalemi kaldırıldı",
         !/branchesWithGrade12Vocational/.test(oku("js", "normEngine.js")));
 
@@ -427,6 +444,13 @@ for (const [n, g] of [[16, 1], [17, 2], [24, 2], [25, 3], [32, 3], [33, 4]]) {
 
     const cift = ne.seflikSaatleri({ alanSefleri: { [BT]: 3 } }, MTAL);
     kontrol("N11 bir alanda en çok 1 alan şefi (OÖKY Md. 84/2)", cift[BT] && cift[BT].saat === 10, JSON.stringify(cift));
+    kontrol("N11 MESEM'de VARSAYILAN alan şefliği de oluşmaz (OÖKY Md. 84/1)",
+        Object.keys(ne.seflikSaatleri({}, "mesleki_egitim_merkezi", [BT])).length === 0,
+        JSON.stringify(ne.seflikSaatleri({}, "mesleki_egitim_merkezi", [BT])));
+    kontrol("N11 meslekî olmayan okulda varsayılan şeflik yok",
+        Object.keys(ne.seflikSaatleri({}, "anadolu_lisesi", ["Matematik"])).length === 1
+        && ne.seflikSaatleri({}, "anadolu_lisesi", ["Matematik"]).Matematik.saat === 10,
+        "motor kapısı calculateSchoolNorms'ta: meslekî olmayan okulda blok hiç çalışmaz");
     const mesem = ne.seflikSaatleri({ alanSefleri: { [BT]: 1 }, atolyeSefleri: { [BT]: 1 } }, "mesleki_egitim_merkezi");
     kontrol("N11 MESEM'de alan şefi sayılmaz, atölye şefi sayılır",
         mesem[BT] && mesem[BT].alanSefi === 0 && mesem[BT].saat === 6, JSON.stringify(mesem));
@@ -598,6 +622,101 @@ for (const [ogr, sinif, k, beklenen] of [[24, "10", 2, 2], [34, "11", 3, 4], [20
         [20, "11", 2, 2], [20, "11", 3, 3], [40, "10", 8, 5], [31, "9", 1, 2], [31, "9", 5, 4]]) {
     const gm = ne.calculateWorkshopGroups(ogr, sinif, k);
     kontrol(`N14 ${sinif}. sınıf ${ogr} öğrenci, ${k} kaynaştırma -> ${beklenen} grup`, gm === beklenen, gm);
+}
+
+/* ======================================================================= */
+/* Y10 — grup oluşturma sayısının ALTINDAKİ şube (kullanıcı kararı: değişiklik yok) */
+/* ======================================================================= */
+// Md. 22/1-ç alt sınırı bir BÖLÜNME eşiğidir: 8'den (9. sınıfta 10'dan) az
+// öğrencili şube bölünmez ama dersi okutulur, yükü tek gruptur. Kullanıcı kararı
+// 16.09.2026: bugünkü davranış doğru, değiştirilmeyecek — teste bağlandı.
+for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
+    kontrol(`Y10 ${sinif}. sınıf ${ogr} öğrenci -> 1 grup (yük sıfırlanmaz)`,
+        ne.calculateWorkshopGroups(ogr, sinif) === 1, ne.calculateWorkshopGroups(ogr, sinif));
+}
+
+/* ======================================================================= */
+/* Y7 — norm dersin RESMÎ ALANINA yazılır, idarecinin seçimi satırda görünür  */
+/* ======================================================================= */
+{
+    // Ortaokulda "T.C. İnkılap Tarihi ve Atatürkçülük" SOSYAL BİLGİLER alanınındır
+    // (uygulamanın kendi çizelgesi de öyle diyor). İdareci Tarih seçse bile norm
+    // çizelgedeki alana yazılmalı. Elle yazılmış ders->branş tablosu burada "Tarih"
+    // der; okul türüne duyarlı çizelge kazanmazsa gerçek okullarda hata üretir.
+    const TUR = "ortaokul_temel_egitim";
+    const dersler = ce.getMandatoryCourses(TUR, "8", null, null) || [];
+    const ink = dersler.find(d => /İnkılap/i.test(d.ders || ""));
+    kontrol("Y7 ölçüm geçerli: 8. sınıf çizelgesinde İnkılap Tarihi var ve Sosyal Bilgiler'in",
+        !!ink && ink.atananBrans === "Sosyal Bilgiler", ink && ink.atananBrans);
+    if (ink) {
+        const zorunlu = JSON.parse(JSON.stringify(dersler))
+            .map(d => /İnkılap/i.test(d.ders || "") ? Object.assign({}, d, { atananBrans: "Tarih" }) : d);
+        const sube = { id: "y7a", subeAdi: "8-A", sinifSeviyesi: "8", ogrenciSayisi: 28,
+            zorunluDersler: zorunlu, secmeliDersler: [] };
+        const r = ne.calculateSchoolNorms([sube], {}, TUR, {});
+        const sb = brans(r, "Sosyal Bilgiler"), tar = brans(r, "Tarih");
+        const satir = sb && (sb.courses || []).find(c => /İnkılap/i.test(c.courseName || ""));
+        kontrol("Y7 norm dersin resmî alanına (Sosyal Bilgiler) yazılıyor", !!satir, sb && sb.totalHours);
+        kontrol("Y7 idarecinin seçtiği Tarih branşına yazılmıyor",
+            !tar || !(tar.courses || []).some(c => /İnkılap/i.test(c.courseName || "")),
+            tar && tar.totalHours);
+        kontrol("Y7 idarecinin seçimi ders satırında görünüyor",
+            !!satir && satir.fiiliBrans === "Tarih" && /İdareci/.test(satir.note || ""), satir && satir.note);
+        kontrol("Y7 okul toplam yükü değişmiyor (saat kaybolmaz)",
+            r.totalHours === zorunlu.reduce((t, d) => t + (parseInt(d.saat, 10) || 0), 0), r.totalHours);
+    }
+
+    // "Branş Atanmadı" seçimi Y7'den ETKİLENMEZ: ders hiçbir branşa yazılmaz.
+    const sube2 = { id: "y7b", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
+        zorunluDersler: [{ ders: "Matematik", saat: 6, atananBrans: ATANMADI }], secmeliDersler: [] };
+    const r2 = ne.calculateSchoolNorms([sube2], {}, "anadolu_lisesi", {});
+    kontrol("Y7 'Branş Atanmadı' korunur (norma yazılmaz)", !brans(r2, "Matematik"),
+        r2.branchReport.map(b => b.branchName).join(", "));
+    kontrol("Y7 atanmamış dersin saati okul toplamında kalır", r2.totalHours === 6, r2.totalHours);
+
+    // RAPOR TARAFI: matris de aynı kuralı kullanmalı; yoksa kart başlığı (motordan)
+    // ile ders satırları (rapordan) ayrışır ve iki rapor çelişir.
+    {
+        st.resetSchool(); st.setSchoolType("anadolu_lisesi");
+        const d9 = JSON.parse(JSON.stringify(ce.getMandatoryCourses("anadolu_lisesi", "9", null, null) || []));
+        const sy = st.addSection({ sinifSeviyesi: "9", subeAdi: "9-A", ogrenciSayisi: 30, zorunluDersler: d9, secmeliDersler: [] });
+        const sag = (sy.zorunluDersler || []).find(x => /Sağlık Bilgisi/i.test(x.ders || ""));
+        kontrol("Y7 rapor ölçümü geçerli: Sağlık Bilgisi dersi var", !!sag, sag && sag.atananBrans);
+        if (sag) {
+            st.updateCourseBranch(sy.id, sag.ders, "Biyoloji");
+            const RE = new w.MebReportsEngine(w.dbService, w.normEngine, w.curriculumEngine);
+            const grid = RE.generateMasterLoadGrid(st.state, "ALL");
+            const gruplar = grid.branchGroups || {};
+            const sagGrup = gruplar["Sağlık Hizmetleri"];
+            const satir = sagGrup && Object.values(sagGrup.courses || {})
+                .find(c => /Sağlık Bilgisi/i.test(c.courseName || ""));
+            kontrol("Y7 raporda ders dersin resmî alanı altında gruplanıyor", !!satir,
+                Object.keys(gruplar).join(", "));
+            kontrol("Y7 raporda idarecinin seçimi taşınıyor (fiiliBrans)",
+                !!satir && satir.fiiliBrans === "Biyoloji", satir && satir.fiiliBrans);
+            const bioGrup = gruplar["Biyoloji"];
+            kontrol("Y7 raporda ders idarecinin seçtiği branşın altında DEĞİL",
+                !bioGrup || !Object.values(bioGrup.courses || {}).some(c => /Sağlık Bilgisi/i.test(c.courseName || "")));
+        }
+        kontrol("Y7 ekranda 'fiilî' işareti çiziliyor",
+            /c\.fiiliBrans \?/.test(oku("js", "uiComponents.js"))
+            && /fiilî: \$\{NormGuvenlik\.htmlKacis\(c\.fiiliBrans\)\}/.test(oku("js", "uiComponents.js")));
+    }
+
+    // Bayrak kapatılabilir olmalı (27.08.2026 kararına dönüş tek satır).
+    if (ink) {
+        const zorunlu = JSON.parse(JSON.stringify(dersler))
+            .map(d => /İnkılap/i.test(d.ders || "") ? Object.assign({}, d, { atananBrans: "Tarih" }) : d);
+        const sube3 = { id: "y7c", subeAdi: "8-B", sinifSeviyesi: "8", ogrenciSayisi: 28,
+            zorunluDersler: zorunlu, secmeliDersler: [] };
+        ne.normDersinResmiAlaninaYazilir = false;
+        const rKapali = ne.calculateSchoolNorms([sube3], {}, TUR, {});
+        ne.normDersinResmiAlaninaYazilir = true;
+        const tarK = brans(rKapali, "Tarih");
+        kontrol("Y7 bayrak kapalıyken idarecinin seçimi geçerli (geri dönüş yolu açık)",
+            !!tarK && (tarK.courses || []).some(c => /İnkılap/i.test(c.courseName || "")),
+            tarK && tarK.totalHours);
+    }
 }
 
 /* ======================================================================= */

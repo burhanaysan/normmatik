@@ -2737,12 +2737,16 @@ export class UIComponentManager {
             return a.localeCompare(b, 'tr');
         }) : [];
 
+        // Önizleme motorun hesabıyla aynı olmalı: aktif alanlarda alan şefliği
+        // varsayılan olarak VARDIR (OÖKY Md. 84/1; kullanıcı kararı 16.09.2026).
         const sefHesabi = isVocationalSchool
-            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType)
+            ? this.normEngine.seflikSaatleri({ alanSefleri, atolyeSefleri }, schoolType, [...activeVocBranchesSet])
             : {};
         const seflikRowsHtml = sortedVocBranches.map(bName => {
             const isActive = activeVocBranchesSet.has(bName);
-            const alanVar = (parseInt(alanSefleri[bName], 10) || 0) > 0;
+            const alanKayit = alanSefleri[bName];
+            const alanSecilmemis = (alanKayit === undefined || alanKayit === null || alanKayit === "");
+            const alanVar = alanSecilmemis ? isActive : (parseInt(alanKayit, 10) || 0) > 0;
             const atolyeSayi = Math.max(0, parseInt(atolyeSefleri[bName], 10) || 0);
             const saat = (sefHesabi[bName] || {}).saat || 0;
             const ad = NormGuvenlik.htmlKacis(bName);
@@ -2757,7 +2761,7 @@ export class UIComponentManager {
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: nowrap; justify-content: flex-end; flex-shrink: 0;">
                         <label style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.74rem; font-weight: 700; color: var(--text-main); ${isMesemOkul ? 'opacity: 0.45;' : ''}" title="${isMesemOkul ? 'MESEM’de alan şefliği oluşturulmaz (OÖKY Md. 84/1)' : 'Alan / bölüm şefi: haftada 10 saat'}">
-                            <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
+                            <input type="checkbox" class="seflik-alan-input" data-branch="${ad}" data-aktif="${isActive ? '1' : ''}" ${alanVar && !isMesemOkul ? 'checked' : ''} ${isMesemOkul ? 'disabled' : ''}>
                             Alan şefi
                         </label>
                         <input type="number" class="seflik-atolye-input" data-branch="${ad}" value="${atolyeSayi}" min="0" max="20" style="width: 58px; padding: 0.2rem 0.3rem; text-align: center; font-size: 0.82rem; font-weight: 800; color: #7e22ce; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: var(--radius-md); outline: none;" title="Atölye / laboratuvar şefi sayısı: her biri haftada 6 saat">
@@ -2868,8 +2872,8 @@ export class UIComponentManager {
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-pansiyon-basyrd" ${adminOpts.isPansiyonluBasyrd ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
-                                        <strong>🧑‍💼 Yatılı/Pansiyonlu Kurum — Görevi Süren Müdür Başyardımcısı Var</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">+1 Müdür Başyardımcısı (Md. 6/1-a). Ünvan kaldırıldığı için yalnızca görevi devam eden başyardımcısı bulunan yatılı/pansiyonlu kurumlar işaretler.</div>
+                                        <strong>🧑‍💼 Görevi Süren Müdür Başyardımcısı Var</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">Mevcut kadro bilgisidir. Müdür başyardımcısı NORMU (Md. 6/1-a) kurumun yatılı olmasından doğar; üstteki yatılı kutusu işaretliyse norm zaten verilir. Bu kutu yalnızca "mevcut" sütununu açar.</div>
                                     </div>
                                 </label>
 
@@ -3300,7 +3304,11 @@ export class UIComponentManager {
             // ŞEFLİKLER (15.09.2026): alan şefi (0/1) ve atölye/laboratuvar şefi sayısı
             const alanSefleri = {};
             document.querySelectorAll(".seflik-alan-input").forEach(input => {
-                if (input.checked && !input.disabled) alanSefleri[input.dataset.branch] = 1;
+                if (input.disabled) return;
+                if (input.checked) alanSefleri[input.dataset.branch] = 1;
+                // AKTİF alanda işaret kaldırıldıysa 0 AÇIKÇA yazılır: kayıtta değer
+                // yoksa motor varsayılanı (şeflik var) uygular ve seçim geri gelirdi.
+                else if (input.dataset.aktif) alanSefleri[input.dataset.branch] = 0;
             });
             const atolyeSefleri = {};
             document.querySelectorAll(".seflik-atolye-input").forEach(input => {
@@ -4464,6 +4472,7 @@ export class UIComponentManager {
                                 ${c.isBaraj ? '<span class="dd-rozet baraj" title="Baraj / zorunlu ders">baraj</span>' : ""}
                                 ${c.isAtolye ? '<span class="dd-rozet atolye" title="Atölye / uygulama dersi">atölye</span>' : ""}
                                 ${c.isBolunmus ? `<span class="dd-rozet bolunmus" title="Bu ders branşlara bölünmüş; her öğretmen kendi grubuna tam saati okutur">${c.bolunmeParcasi || "bölünmüş"}</span>` : ""}
+                                ${c.fiiliBrans ? `<span class="dd-rozet bolunmus" title="İdareci bu dersi &quot;${NormGuvenlik.htmlKacis(c.fiiliBrans)}&quot; branşına verdi; norm dersin alanına yazıldı (Norm Kadro Yön. Md. 22/1-c-1).">fiilî: ${NormGuvenlik.htmlKacis(c.fiiliBrans)}</span>` : ""}
                             </td>
                             ${hucreler}
                             <td class="dd-toplam">${c.totalHours}</td>

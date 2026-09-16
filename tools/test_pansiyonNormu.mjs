@@ -76,8 +76,11 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
         a.mudurYardimcisiTotal === 1, String(a.mudurYardimcisiTotal));
     kontrol("rehber eşiğin altında 0 (ölçüm geçerli)",
         rehber({}).norm === 0, String(rehber({}).norm));
-    kontrol("başyardımcı ünvanı varsayılan olarak kapalı",
-        ne.mudurBasyardimcisiUnvaniYururlukte === false);
+    // YORUM DEFTERİ Y6 (kullanıcı kararı 16.09.2026): ünvan yeniden AÇILDI. Norm
+    // kurumun YATILI OLMASINDAN doğar (Md. 6/1-a); "görevi süren başyardımcı var"
+    // kutusu artık normu değil MEVCUT kadro sütununu belirler.
+    kontrol("başyardımcı ünvanı açık (Y6)",
+        ne.mudurBasyardimcisiUnvaniYururlukte === true);
 }
 
 /* ---- 1) Dört kombinasyon --------------------------------------------- */
@@ -91,8 +94,8 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
     kontrol("yalnız yatılı: müdür yardımcısı 2 olur (Md. 14/1-a)",
         yalnizYatili.mudurYardimcisiTotal === 2,
         String(yalnizYatili.mudurYardimcisiTotal));
-    kontrol("yalnız yatılı: başyardımcı VERİLMEZ",
-        yalnizYatili.mudurBasyardimcisi === 0,
+    kontrol("yalnız yatılı: başyardımcı normu 1 (Md. 6/1-a, Y6 kararı)",
+        yalnizYatili.mudurBasyardimcisi === 1,
         String(yalnizYatili.mudurBasyardimcisi));
     kontrol("yalnız yatılı: rehber öğretmen 1 (Md. 21/2-ç)",
         rehber({ isPansiyonluMdrYrd: true }).norm === 1,
@@ -117,18 +120,18 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
 }
 
 /* ---- 2) GERİYE DÖNÜK UYUM -------------------------------------------- */
-// Eski kayıtlarda yalnızca `isPansiyonlu` var. O okulların sayıları
-// DEĞİŞMEMELİ: müdür yardımcısı ve rehber tarafı aynen sürmeli, başyardımcı
-// ise bugün 0 ürettiği için 0 kalmalı. Aksi hâlde güncelleme, mevcut
-// okullara sessizce +1 norm eklerdi.
+// Eski kayıtlarda yalnızca `isPansiyonlu` var. Müdür yardımcısı ve rehber tarafı
+// aynen sürmeli. BAŞYARDIMCI: Y6 kararıyla (16.09.2026) artık 1 üretir — bu
+// BİLİNÇLİ bir değişikliktir, yatılı kurumlar +1 norm görür. Ölçüldü: 15.09
+// yedeğindeki 4 gerçek okuldan 2'sinde müdür başyardımcısı normu 0 -> 1 oldu.
 {
     const eski = idareci({ isPansiyonlu: true });
     kontrol("eski kayıt: müdür yardımcısı 2 (davranış korunuyor)",
         eski.mudurYardimcisiTotal === 2, String(eski.mudurYardimcisiTotal));
     kontrol("eski kayıt: rehber 1 (davranış korunuyor)",
         rehber({ isPansiyonlu: true }).norm === 1);
-    kontrol("eski kayıt: başyardımcı 0 (SESSİZ ARTIŞ YOK)",
-        eski.mudurBasyardimcisi === 0, String(eski.mudurBasyardimcisi));
+    kontrol("eski kayıt: başyardımcı 1 (Y6 kararı, bilinçli artış)",
+        eski.mudurBasyardimcisi === 1, String(eski.mudurBasyardimcisi));
 
     const eskiKapali = idareci({ isPansiyonlu: false });
     kontrol("eski kayıt kapalı: müdür yardımcısı 1",
@@ -160,11 +163,11 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
         mudursuz.mudurBasyardimcisi === 0, String(mudursuz.mudurBasyardimcisi));
 }
 
-/* ---- 3b) Norm üretiliyorsa arayüz/rapor satırı GÖRÜNMELİ -------------- */
-/* Ünvan genel olarak kapalı olduğu için arayüz ve raporlar başyardımcı
-   satırını `mudurBasyardimcisiAktif === false` bayrağına bakarak gizliyor.
-   Kutu işaretlendiğinde norm üretilip satır yine gizli kalırsa, okul
-   girdiği bilgiyi hiçbir yerde göremez. (Kullanıcı bildirimi, 05.09.2026.) */
+/* ---- 3b) Başyardımcı satırının görünürlüğü ---------------------------- */
+/* 05.09.2026'da ünvan kapalıydı ve satır `mudurBasyardimcisiAktif` bayrağıyla
+   gizleniyordu. Y6 kararıyla (16.09.2026) ünvan açıldı: norm kurumun yatılı
+   olmasından doğduğu için satır artık gizlenmiyor; okul normu ve mevcudu
+   yan yana görür (norm 1 / mevcut 0 -> "ihtiyaç"). */
 {
     const acik = idareci({ isPansiyonluBasyrd: true });
     kontrol("başyardımcı bildirildiğinde satır görünür oluyor",
@@ -173,9 +176,13 @@ const rehber = (o) => ne.calculateGuidanceCounselorNorm("anadolu_lisesi", 100, o
         acik.karsilastirma && acik.karsilastirma.mudurBasyardimcisi.norm === 1,
         JSON.stringify(acik.karsilastirma && acik.karsilastirma.mudurBasyardimcisi));
 
-    const kapali = idareci({ isPansiyonluMdrYrd: true });
-    kontrol("bildirilmediğinde satır yine gizli (ünvan kapalı)",
-        kapali.mudurBasyardimcisiAktif === false, String(kapali.mudurBasyardimcisiAktif));
+    const yatili = idareci({ isPansiyonluMdrYrd: true });
+    kontrol("yatılı kurumda satır görünür (Y6: ünvan açık)",
+        yatili.mudurBasyardimcisiAktif === true, String(yatili.mudurBasyardimcisiAktif));
+    kontrol("yatılı kurumda başyardımcı normu 1, mevcut 0 -> ihtiyaç görünür",
+        yatili.mudurBasyardimcisi === 1
+        && yatili.karsilastirma && yatili.karsilastirma.mudurBasyardimcisi.norm === 1,
+        JSON.stringify(yatili.karsilastirma && yatili.karsilastirma.mudurBasyardimcisi));
 }
 
 /* ---- 4) Arayüzde iki ayrı kutu var mı? ------------------------------- */

@@ -103,12 +103,21 @@ for (const [alanId, brans] of Object.entries(BEKLENEN)) {
     kontrol(`${alanId}: 12. sınıf dersleri üretildi`, sube.zorunluDersler.length > 0,
         String(sube.zorunluDersler.length));
 
+    // 16.09.2026 kullanıcı kararı: okulda açık olan alanda alan şefliği VARSAYILAN
+    // olarak vardır (OÖKY Md. 84/1). Saat, alanın GERÇEK branşına yazılmalı.
     const r0 = ne.calculateSchoolNorms([sube], {}, TUR, {});
     const otomatik = (r0.branchReport || [])
-        .filter(x => (parseInt(x.coordinatorHours, 10) || 0) > 0 || (parseInt(x.seflikHours, 10) || 0) > 0)
+        .filter(x => (parseInt(x.seflikHours, 10) || 0) > 0)
         .map(x => x.branchName);
-    kontrol(`${alanId}: şeflik girilmeden hiçbir branşa ek saat yazılmıyor`,
-        otomatik.length === 0, otomatik.join(", "));
+    kontrol(`${alanId}: varsayılan alan şefliği "${brans}" branşına yazılıyor`,
+        otomatik.length === 1 && otomatik[0] === brans, otomatik.join(", ") || "(şeflik yok)");
+    kontrol(`${alanId}: eski otomatik koordinatörlük kalemi yok`,
+        (r0.branchReport || []).every(x => !x.coordinatorHours));
+    const rKapali = ne.calculateSchoolNorms([sube], {}, TUR,
+        { adminOptions: { alanSefleri: { [brans]: 0 } } });
+    kontrol(`${alanId}: işaret kaldırılınca şeflik saati kalkıyor`,
+        (rKapali.branchReport || []).every(x => !x.seflikHours),
+        (rKapali.branchReport || []).filter(x => x.seflikHours).map(x => x.branchName).join(", "));
 
     // Müfredatın atadığı branş, ekranda işaretlenecek branşla aynı olmalı.
     const r = ne.calculateSchoolNorms([sube], {}, TUR,
