@@ -1,5 +1,11 @@
 // MEB Norm Kadro Uygulaması - UI Bileşenleri ve Modalları
 
+// MTAL SEÇMELİ DERSLER TABLOSU — KADEMELİ Mİ? (belirsizlik B-S1, 05_dokumantasyon/secmeli_dersler/1_ENVANTER.md)
+// TTKB 16/07/2026-62 KARAR metni tabloyu "2026-2027 eğitim ve öğretim yılından itibaren" uygular ve 2024-41'i
+// kaldırır; "kademeli" demez. Genel Müdürlüğün istek yazısı ise "hazırlık ve 9. sınıftan başlayarak kademeli"
+// ister. false: karar metni (tüm sınıflara 2026-62). true: hazırlık ve 9'a 2026-62, 10-12'ye 2024-41.
+const MTAL_SECMELI_KADEMELI = false;
+
 const TTKB_MAP = {
     'TÜRK DİLİ VE EDEBİYATI': 'Türk Dili ve Edebiyatı',
     'HAZIRLIK SINIFI TÜRK DİLİ VE EDEBİYATI': 'Türk Dili ve Edebiyatı',
@@ -1684,6 +1690,13 @@ export class UIComponentManager {
 
         const updateHeaderAndCommitBtn = () => {
             const statusEl = document.getElementById("elective-modal-status-badge");
+            // 6. adım: resmî seçmeli kuralları (yalnız uyarı; seçim silinmez)
+            const kuralEl = document.getElementById("elective-kural-uyari");
+            if (kuralEl) {
+                const uyarilar = this.secmeliKuralUyarilari(currentSec, Array.from(draftSelections.values()));
+                kuralEl.style.display = uyarilar.length ? "block" : "none";
+                kuralEl.innerHTML = uyarilar.map(u => "⚠️ " + NormGuvenlik.htmlKacis(u.mesaj)).join("<br>");
+            }
             const commitBtn = document.getElementById("btn-commit-electives");
             const { count, draftElectiveHours, totalHours, remaining } = getDraftStats();
 
@@ -1889,6 +1902,7 @@ export class UIComponentManager {
                             </div>
                         </div>
                         <div class="header-right-cluster">
+                            <div id="elective-kural-uyari" style="display: none; max-width: 420px; font-size: 0.72rem; line-height: 1.35; color: #b45309; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 0.3rem 0.5rem;"></div>
                             <div id="elective-modal-status-badge" class="elective-status-badge"></div>
                             <button class="header-close-btn" id="btn-close-elective-modal">✕</button>
                         </div>
@@ -3513,6 +3527,145 @@ export class UIComponentManager {
         return [];
     }
 
+    /**
+     * Seçmeli dersin önerilen öğretmen branşı.
+     * TTKB_MAP anahtarları Türkçe BÜYÜK harflidir; düz toUpperCase() "i"yi "I" yaptığı için
+     * "Seçmeli Matematik" hiç eşleşmiyordu ve ders ADI branş diye öneriliyordu (ölçüldü 17.09.2026:
+     * 4264 seçmeli kaydın 3128'i). Kayıtta bu ad "Branş Atanmadı"ya dönüşüyor, saat norma girmiyordu.
+     * Eşleşme yoksa ders adı değil açıkça "— Branş Atanmadı —" önerilir; idareci seçer.
+     */
+    secmeliDersBransi(ders, grup = "", schoolType = "", grade = "") {
+        // TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları (19.12.2025-129):
+        //   sıra 16 Din Kültürü ve Ahlâk Bilgisi: "Ortaokullarda ve Liselerde Okutulan Din, Ahlak ve Değer
+        //   alanındaki dersler"; sıra 38 İmam-Hatip Lisesi Meslek Dersleri aynı dersleri de okutur.
+        //   sıra 78 Tarih / sıra 76 Sosyal Bilgiler: İslam Kültür ve Medeniyeti, İslam Bilim Tarihi,
+        //   Türk Kültür ve Medeniyet Tarihi, Ortak Türk Tarihi.
+        const imamHatip = String(schoolType || "").includes("imam_hatip");
+        const k = String(ders || "").toLocaleLowerCase("tr").replace(/[’']/g, "'");
+        if (/din, ahlak ve değer/i.test(String(grup || "")) || /^(kur'an-ı kerim|peygamberimizin hayatı|temel dinî bilgiler|temel dini bilgiler)/.test(k)) {
+            return imamHatip ? "İHL Meslek Dersleri" : "Din Kültürü ve Ahlak Bilgisi";
+        }
+        if (/^(islam kültür ve medeniyeti|islam bilim tarihi|türk kültür ve medeniyet tarihi|ortak türk tarihi)$/.test(k.replace(/^i̇/, "i"))) {
+            return ["5", "6", "7", "8"].includes(String(grade)) ? "Sosyal Bilgiler" : "Tarih";
+        }
+        const t = TTKB_MAP[String(ders || "").toLocaleUpperCase("tr")] || TTKB_MAP[String(ders || "").toUpperCase()];
+        if (t) return t;
+        const ce = this.curriculum;
+        if (ce && typeof ce.getCanonicalCourseAndBranch === "function") {
+            const b = ce.getCanonicalCourseAndBranch(ders, null, null, "SEÇMELİ DERSLER").branchName;
+            if (b && (typeof ce.isKnownBranch !== "function" || ce.isKnownBranch(b))) return b;
+        }
+        return "— Branş Atanmadı —";
+    }
+
+    /**
+     * Meslekî kurumların seçmeli listesi resmî kaynaktan (js/secmeli_resmi.js, tools/uret_secmeli_resmi.py).
+     * Bu türler için null DEĞİL, dizi döner (özel eğitim okullarında boş dizi: çizelgelerinde seçmeli yok).
+     * Diğer türler için null döner ve eski akış sürer.
+     */
+    resmiSecmeliListesi(section, schoolType, grade) {
+        const R = (typeof window !== 'undefined' && window.SECMELI_RESMI)
+            || (typeof SECMELI_RESMI !== 'undefined' ? SECMELI_RESMI : null);
+        const tur = String(schoolType || "");
+        const mtal = tur === "mesleki_ve_teknik_anadolu_lisesi" || tur === "anadolu_teknik_programi";
+        const mesem = tur.includes("mesleki_egitim_merkezi");
+        const meslekOrtaokulu = tur === "meslek_ortaokulu";
+        const ozelEgitimOkulu = tur.startsWith("ozel_egitim");
+        if (!R || !(mtal || mesem || meslekOrtaokulu || ozelEgitimOkulu)) return null;
+        const g = String(grade);
+        const kultur = (d, kaynak) => ({
+            ders: d.ders,
+            grup: d.grup || "Seçmeli Dersler",
+            hoursOptions: d.saatler.slice(),
+            selectedHour: d.saatler[0],
+            defaultBranch: this.secmeliDersBransi(d.ders, d.grup, tur, g),
+            isVocational: false,
+            resmiKaynak: kaynak
+        });
+        if (ozelEgitimOkulu) return [];
+        if (meslekOrtaokulu) {
+            return (R.meslek_ortaokulu.siniflar[g] || []).map(d => kultur(d, R.meslek_ortaokulu.karar));
+        }
+        if (mesem) {
+            return (((R.mesem[section.alanId] || {})[g]) || []).map(d => kultur(d, "MESEM ÇÖP seçmeli dersler tablosu"));
+        }
+        const kararAdi = (MTAL_SECMELI_KADEMELI && !["hazirlik", "9"].includes(g)) ? "2024-41" : "2026-62";
+        const karar = R.mtal_kultur[kararAdi];
+        const liste = (karar.siniflar[g] || []).map(d => kultur(d, karar.karar));
+        const harita = (this.curriculum && this.curriculum.AREA_BRANCH_MAP) || {};
+        const alanBransi = harita[section.alanId] || "— Branş Atanmadı —";
+        (((R.mtal_meslek[section.alanId] || {})[g]) || []).forEach(d => {
+            liste.push({
+                ders: d.ders,
+                grup: "🟣 Seçmeli Meslek Dersi (" + d.seviye + ". Sınıf)",
+                hoursOptions: [d.saat],
+                selectedHour: d.saat,
+                defaultBranch: alanBransi,
+                isVocational: true,
+                isAtolye: true,
+                resmiKaynak: "Alanın çerçeve öğretim programı, seçmeli meslek dersleri tablosu"
+            });
+        });
+        return liste;
+    }
+
+    /**
+     * SEÇMELİ DERS KURALLARI — yalnız UYARI (6. adım, 17.09.2026)
+     * Resmî kaynağa bağlı kurumlarda seçilen dersleri denetler; hiçbir seçimi silmez.
+     *   - MTAL/ATP (TTKB 2026-62 açıklamaları): "tüm sınıf seviyelerinde seçmeli ders gruplarının her
+     *     birinden en az bir ders seçilmesi zorunludur. Hazırlık sınıfında ise seçmeli ders gruplarından
+     *     toplam 2 ders saati olacak şekilde ders/dersler seçilecektir."
+     *   - Meslek ortaokulu (ÇÖP 2025-74 açıklama 1): üç gruptan "her yıl birer ders seçmesi zorunludur".
+     *   - Her iki türde ve MESEM'de: seçilen ders o sınıfın resmî listesinde var mı, saati seçeneklerde mi.
+     * @param secimler [{ders, saat, isVocational}]
+     * @returns [{tur: "grup"|"liste"|"saat"|"hazirlik", mesaj}]
+     */
+    secmeliKuralUyarilari(section, secimler = []) {
+        const schoolType = this.state?.state?.okulBilgisi?.okulTuru || "";
+        const grade = String(section.sinifSeviyesi || "");
+        const liste = this.resmiSecmeliListesi(section, schoolType, grade);
+        if (!liste) return [];
+        const anahtar = (ad) => (this.state && typeof this.state._secmeliAnahtar === "function")
+            ? this.state._secmeliAnahtar(ad) : String(ad || "").toLocaleLowerCase("tr").trim();
+        const R = (typeof window !== 'undefined' && window.SECMELI_RESMI) || (typeof SECMELI_RESMI !== 'undefined' ? SECMELI_RESMI : null);
+        const sozluk = new Map(liste.map(d => [anahtar(d.ders), d]));
+        const uyarilar = [];
+        const secilenKultur = [];
+        (secimler || []).forEach(s => {
+            const d = sozluk.get(anahtar(s.ders));
+            if (!d) {
+                uyarilar.push({ tur: "liste", mesaj: `“${s.ders}” bu sınıfın resmî seçmeli ders listesinde yok.` });
+                return;
+            }
+            const saat = parseInt(s.saat, 10);
+            if (Array.isArray(d.hoursOptions) && d.hoursOptions.length && !d.hoursOptions.includes(saat)) {
+                uyarilar.push({ tur: "saat", mesaj: `“${d.ders}” için haftalık saat seçenekleri: ${d.hoursOptions.join(" / ")} (seçilen ${saat}).` });
+            }
+            if (!d.isVocational) secilenKultur.push({ d, saat: saat || 0 });
+        });
+        const tur = String(schoolType);
+        let gruplar = null, kaynak = "";
+        if (tur === "mesleki_ve_teknik_anadolu_lisesi" || tur === "anadolu_teknik_programi") {
+            gruplar = R ? R.mtal_kultur.gruplar : null;
+            kaynak = "TTKB 16/07/2026-62 açıklamaları";
+            if (grade === "hazirlik") {
+                const toplam = secilenKultur.reduce((t, x) => t + x.saat, 0);
+                if (toplam !== 2) uyarilar.push({ tur: "hazirlik", mesaj: `Hazırlık sınıfında seçmeli ders gruplarından toplam 2 ders saati seçilir; seçilen ${toplam} saat (${kaynak}).` });
+                gruplar = null;
+            }
+        } else if (tur === "meslek_ortaokulu") {
+            gruplar = [...new Set(liste.map(d => d.grup))];
+            kaynak = "Meslek Ortaokulu ÇÖP açıklama 1";
+        }
+        (gruplar || []).forEach(g => {
+            if (!liste.some(d => d.grup === g)) return;   // bu sınıfta o grupta ders yoksa kural aranmaz
+            if (!secilenKultur.some(x => x.d.grup === g)) {
+                uyarilar.push({ tur: "grup", mesaj: `“${g}” grubundan en az bir ders seçilmelidir (${kaynak}).` });
+            }
+        });
+        return uyarilar;
+    }
+
     getAvailableElectivesForSection(section) {
         const master = this.db.masterData;
         if (!master) return [];
@@ -3543,6 +3696,12 @@ export class UIComponentManager {
             .replace(/['’‘]/g, "")
             .replace(/\s+/g, " ")
             .trim();
+
+        // RESMÎ SEÇMELİ KAYNAĞI OLAN KURUMLAR (16.09.2026, 05_dokumantasyon/secmeli_dersler)
+        // Meslek lisesi, MESEM, meslek ortaokulu ve özel eğitim okulları aşağıdaki yedek
+        // kaynaklara (elle yazılmış liste, eski OGM dosyaları) HİÇ düşmez.
+        const resmiListe = this.resmiSecmeliListesi(section, schoolType, grade);
+        if (resmiListe) return resmiListe;
 
         const AREA_BRANCHES = {
             'adalet': 'Adalet',
@@ -3691,7 +3850,13 @@ export class UIComponentManager {
         const uretilmisHavuz = (typeof window !== 'undefined')
             ? (window.SECMELI_HAVUZU || null)
             : (typeof SECMELI_HAVUZU !== 'undefined' ? SECMELI_HAVUZU : null);
-        const turHavuzu = uretilmisHavuz ? uretilmisHavuz[schoolType] : null;
+        let turHavuzu = uretilmisHavuz ? uretilmisHavuz[schoolType] : null;
+        // Sosyal Bilimler Lisesi: hazırlık şubesi yoksa hazırlıksız çizelgenin seçmelileri
+        // (TTKB 2025/05 s.6; iki hücre farklı — bkz. tools/uret_secmeli_havuzu.py).
+        if (schoolType === "sosyal_bilimler_lisesi" && uretilmisHavuz && uretilmisHavuz.sosyal_bilimler_lisesi__hazirliksiz
+            && !((this.state && this.state.state && this.state.state.subeler) || []).some(s => String(s.sinifSeviyesi) === "hazirlik")) {
+            turHavuzu = uretilmisHavuz.sosyal_bilimler_lisesi__hazirliksiz;
+        }
 
         if (turHavuzu) {
             const imamHatipMi = schoolType.includes("imam_hatip");
@@ -3704,8 +3869,8 @@ export class UIComponentManager {
                     grup: d.grup || "Seçmeli Dersler",
                     hoursOptions: d.saatler.slice(),
                     selectedHour: d.saatler[0],
-                    defaultBranch: TTKB_MAP[String(d.ders).toUpperCase()]
-                        || (imamHatipMi ? "İHL Meslek Dersleri" : d.ders),
+                    defaultBranch: (imamHatipMi && !TTKB_MAP[String(d.ders).toLocaleUpperCase("tr")])
+                        ? "İHL Meslek Dersleri" : this.secmeliDersBransi(d.ders, d.grup, schoolType, grade),
                     isVocational: false
                 });
             }

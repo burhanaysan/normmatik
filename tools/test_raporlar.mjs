@@ -210,8 +210,11 @@ console.log("\nYerleşim koruması");
 // Bu rapor müdürlerce ilçeye/il'e gönderiliyor.
 //
 // Test İKİ YÖNLÜ: gösterim yerleri tr-TR kullanmalı, AMA anahtar/eşleştirme
-// yerleri KULLANMAMALI. TTKB_MAP anahtarları düz toUpperCase ile üretilmiştir;
-// biri onu da "düzeltirse" ders-branş eşleştirmesi sessizce bozulur.
+// yerleri KULLANMAMALI.
+// 17.09.2026 DÜZELTME: "TTKB_MAP anahtarları düz toUpperCase ile üretilmiştir" varsayımı ÖLÇÜLDÜ ve
+// YANLIŞ çıktı — 87 anahtarın 69'u Türkçe "İ" içeriyor; düz toUpperCase ile yalnız 18'i eşleşiyordu ve
+// seçmeli listesindeki 4264 kaydın 3128'inde ders ADI branş diye öneriliyordu. Eşleştirme artık
+// secmeliDersBransi() içinde önce tr büyük harf, sonra (geriye uyum) düz büyük harfle yapılır.
 {
     const ui = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
     const re = fs.readFileSync(path.join(KOK, "js", "reportsEngine.js"), "utf8");
@@ -234,11 +237,15 @@ console.log("\nYerleşim koruması");
             && re.includes("okulAdi.toLocaleUpperCase('tr-TR')")
             && !re.includes("okulAdi.toUpperCase()"));
 
-    // Ters yön: anahtar üretimi DEĞİŞMEMELİ.
-    const ttkbAnahtar = (ui.match(/TTKB_MAP\[String\(d\.ders\)\.toUpperCase\(\)\]/g) || []).length;
-    denetle("R14d TTKB ders-branş eşleştirmesi hâlâ düz toUpperCase ile anahtarlanıyor",
-            ttkbAnahtar >= 2,
-            "anahtar üretimi tr-TR'ye çevrilirse ders-branş eşleştirmesi sessizce bozulur (bulunan: " + ttkbAnahtar + ")");
+    // Ters yön: eşleştirme anahtarın kendi yazımıyla (Türkçe büyük harf) yapılmalı.
+    const tbas = ui.indexOf("const TTKB_MAP = {");
+    const TTKB = new Function(ui.slice(tbas, ui.indexOf("};", tbas) + 2) + ";return TTKB_MAP;")();
+    const anahtarlar = Object.keys(TTKB);
+    const baslik = (k) => k.toLocaleLowerCase("tr").replace(/(^|\s)\S/g, c => c.toLocaleUpperCase("tr"));
+    const trEslesen = anahtarlar.filter(k => TTKB[baslik(k).toLocaleUpperCase("tr")] !== undefined).length;
+    denetle("R14d TTKB ders-branş eşleştirmesi Türkçe büyük harfle yapılıyor ve her anahtar eşleşiyor",
+            /secmeliDersBransi\(ders[^)]*\) \{[\s\S]{0,2000}TTKB_MAP\[String\(ders \|\| ""\)\.toLocaleUpperCase\("tr"\)\]/.test(ui) && trEslesen === anahtarlar.length,
+            "eşleşen " + trEslesen + " / " + anahtarlar.length);
 
     denetle("R14e çalışma ortamı Türkçe büyük harf destekliyor",
             "Müzik".toLocaleUpperCase("tr-TR") === "MÜZİK"

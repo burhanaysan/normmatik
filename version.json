@@ -1,8 +1,8 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.3.0",
-  "releaseDate": "2026-09-16",
+  "version": "2.4.0",
+  "releaseDate": "2026-09-17",
   "minEngineVersion": "2.0.0",
   "distribution": {
     "channel": "stable",
@@ -10,6 +10,11 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Meslek lisesi, Anadolu Teknik Programı, MESEM ve meslek ortaokulunun seçmeli ders listeleri resmî kaynaklara bağlandı: TTKB 16/07/2026-62 seçmeli dersler tablosu ve alanların çerçeve öğretim programları. Eskiden bu okullarda resmî listede olmayan dersler ve yanlış saat seçenekleri görünüyordu; 11-12. sınıf seçmeli meslek dersleri 9-10. sınıfa da çıkıyordu.",
+    "Özel eğitim meslek okulu ve uygulama okulunda seçmeli ders listesi boş: bu okulların resmî çizelgelerinde seçmeli ders yok.",
+    "Seçmeli ders penceresinde kural uyarıları: meslek lisesi ve meslek ortaokulunda her seçmeli gruptan en az bir ders, meslek lisesi hazırlık sınıfında toplam 2 saat; resmî listede olmayan ya da saati seçenek dışında kalan ders. Seçimleriniz silinmez.",
+    "Seçmeli derslerde önerilen öğretmen branşı düzeldi: Türkçe büyük harf hatası yüzünden çoğu derste ders adı branş diye öneriliyordu. Din, Ahlak ve Değer grubundaki dersler imam hatip dışındaki okullarda Din Kültürü ve Ahlak Bilgisi'ne öneriliyor (Öğretmenlik Alanları Esasları).",
+    "Seçmeli derslerde idarecinin seçtiği branş korunuyor: bir seçmeliyi birden fazla alanın öğretmeni okutabildiği için (ör. Osmanlı Türkçesi), norm artık başka bir branşa taşınmıyor.",
     "Öğretmen branşları TTKB Öğretmenlik Alanları, Atama ve Ders Okutma Esasları'na göre düzeltildi: Mikromekanik alanının dersleri Makine ve Tasarım Teknolojisi, Basım Teknolojileri alanınınkiler Matbaa Teknolojisi, Yapay Zekâ alanınınkiler Bilişim Teknolojileri branşına yazılıyor. Esaslarda bulunmayan 'Basım Teknolojileri', 'Mikromekanik', 'Siber Güvenlik' ve 'Yapay Zekâ' branş satırları listeden kaldırıldı.",
     "Özel eğitim sınıflarında Din Kültürü ve Ahlak Bilgisi, Görsel Sanatlar, Müzik ve Beden Eğitimi derslerini (ilkokulda yalnız Din Kültürü) alan öğretmeni okutur; bu saatler artık ilgili branşın ders yüküne yazılıyor (ÖEHY 27/3-e, 28/1-ğ). Birleştirilmiş sınıfta ders sınıf başına bir kez sayılır.",
     "Özel eğitim sınıflarının meslek dersleri (İş Eğitimi ve Meslek Ahlakı, İş ve Beceri Uygulamaları) seçtiğiniz meslek branşına yazılıyor; 9. sınıfta İş Eğitimi ve Meslek Ahlakı okuldaki alanlara eşit dağıtılıyor (resmî çizelge açıklaması).",

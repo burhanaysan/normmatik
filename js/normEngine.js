@@ -220,8 +220,15 @@ export class NormEngine {
      *      Sosyal Bilgiler alanının, LİSEDE Tarih alanınındır. Elle yazılmış
      *      ders->branş tablosu bu farkı bilmez; tek başına kullanılsaydı gerçek
      *      bir ortaokulun doğru kaydını bozardı (16.09.2026 ölçümü).
-     *   2) Çizelgede bulunmayan ders (seçmeli vb.) için getCanonicalCourseAndBranch.
+     *   2) Çizelgede bulunmayan ders için getCanonicalCourseAndBranch.
      * Hiçbiri bulunamazsa null döner ve idarecinin seçimi korunur.
+     *
+     * SEÇMELİ DERS İSTİSNASI (17.09.2026): şubenin SEÇMELİ listesinde olup zorunlu çizelgesinde
+     * olmayan derste 2. adım UYGULANMAZ. Seçmeli derslerin resmî "tek alanı" yoktur; TTKB Öğretmenlik
+     * Alanları Esasları bir seçmeliyi çoğu kez birden fazla alana verir (Osmanlı Türkçesi: Din Kültürü
+     * sıra 16, Tarih 78, Türk Dili ve Edebiyatı 84). Elle yazılmış eşleme tablosu tek alan seçip
+     * idarecinin esaslara uygun seçimini eziyordu: Anadolu lisesinde Tarih öğretmenine verilen İslam
+     * Kültür ve Medeniyeti İHL Meslek Dersleri normuna taşınıyordu (esaslarda o satırda yok).
      */
     _resmiDersAlani(cName, sec, schoolType, kategori) {
         const ce = (typeof window !== 'undefined' && window.curriculumEngine)
@@ -247,6 +254,10 @@ export class NormEngine {
         }
         const cizelgeBrans = harita.get(this.normalizeText(cName));
         if (cizelgeBrans) return cizelgeBrans;
+        const adAnahtari = this.normalizeText(cName);
+        const secmeliMi = (sec && sec.secmeliDersler || []).some(d => this.normalizeText(d.ders || d.ders_adi || "") === adAnahtari)
+            && !(sec && sec.zorunluDersler || []).some(d => this.normalizeText(d.ders || d.ders_adi || "") === adAnahtari);
+        if (secmeliMi) return null;
         try {
             const r = ce.getCanonicalCourseAndBranch(cName, null, alanId, kategori || "ORTAK DERSLER");
             const b = r && r.branchName;

@@ -225,6 +225,13 @@ def havuzu_kur():
     hepsi = ([(t, ozel.get(t, d), "__OZEL__" if t in ozel else a)
               for t, d, a in TABLOLAR]
              + [(t, d, "__ORTAOKUL__") for t, d in ORTAOKUL_KAYNAKLARI])
+    # Sosyal Bilimler Lisesi tek okul türü; zorunlu çizelge hazırlıklı tablodan
+    # alınır (iki tabloda zorunlu dersler aynı). Seçmelilerde iki hücre farklı
+    # (TTKB 2025/05 s.6-7: 9. sınıf Seçmeli İkinci Yabancı Dil (1)(2)(4) / (2)(3)(4);
+    # 12. sınıf Metin Tahlilleri yok / (1)(2)). Hazırlık şubesi olmayan okul bu
+    # ayrı havuzu kullanır (uiComponents.getAvailableElectivesForSection).
+    hepsi.append(("sosyal_bilimler_lisesi__hazirliksiz",
+                  "ogm/sayi05_anadolu_fen_sosyalbilimler.json", "Sosyal Bilimler Lisesi"))
 
     for tur, dosya, tablo_adi in hepsi:
         if tablo_adi == "__AIHL__":
