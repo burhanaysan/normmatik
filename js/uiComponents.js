@@ -1320,6 +1320,10 @@ export class UIComponentManager {
             let notHtml = hesap
                 ? `Bu şube için <strong>${hesap.norm} özel eğitim öğretmeni normu</strong> — ${hesap.dayanak}`
                 : "";
+            // B-02/03/04 (22.09.2026): mevzuatın açık bent vermediği bileşimlerde iki okuma ve uyarı gösterilir.
+            if (hesap && hesap.belirsizlik) {
+                notHtml += `<br><span style="color:#b45309;">ℹ️ ${NormGuvenlik.htmlKacis(hesap.belirsizlik)}</span>`;
+            }
             if (ihtiyac && ihtiyac.enFazla) {
                 notHtml += `<br>Sınıf mevcudu en fazla <strong>${ihtiyac.enFazla}</strong> öğrenci (${ihtiyac.dayanak}).`;
                 if (ihtiyac.sinirAsildi) {
@@ -4848,7 +4852,7 @@ export class UIComponentManager {
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
                             <td class="dd-ozel-dayanak">${x.dayanak}${x.sinirAsildi
                                 ? `<br><b style="color:#b91c1c;">⚠️ ${x.mesaj}</b>`
-                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}${x.ortamUyarisi ? `<br><span style="color:#b91c1c;">⚠️ ${x.ortamUyarisi}</span>` : ""}</td>
+                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}${x.ortamUyarisi ? `<br><span style="color:#b91c1c;">⚠️ ${x.ortamUyarisi}</span>` : ""}${x.belirsizlik ? `<br><span style="color:#b45309;">ℹ️ ${NormGuvenlik.htmlKacis(x.belirsizlik)}</span>` : ""}</td>
                             <td class="dd-toplam"></td>
                         </tr>`).join("");
                 return `

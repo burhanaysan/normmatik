@@ -312,12 +312,12 @@ if (karsilastirma < 60)
     kontrol("Md. 17/1-f: birden fazla engel 2", N("birden_fazla", "8").norm, 2);
     kontrol("Md. 17/1-a: özel eğitim anasınıfı 1", N("hafif_zihinsel", "anasinifi").norm, 1);
 
-    // Yönetmeliğin düzenlemediği bileşimde sayı DÜŞÜRÜLMEZ ve bunun bir
-    // varsayım olduğu dayanak metninde yazar.
+    // Yönetmeliğin düzenlemediği bileşimde belirsizlik AÇIKÇA yazılır (sessiz sayı yok).
+    // B-03 KARARI (22.09.2026): görme/işitme LİSE / meslek okulu -> 17/1-e kıyasıyla 1 (eskiden dayanaksız 2).
     const belirsiz = N("gorme_isitme", "11");
-    kontrol("düzenlenmemiş bileşimde norm düşürülmüyor", belirsiz.norm, 2);
-    kontrol("düzenlenmemiş bileşimde varsayım olduğu yazıyor",
-        /varsayıldı|kontrol ediniz/.test(belirsiz.dayanak), true);
+    kontrol("düzenlenmemiş bileşimde (görme/işitme lise) norm 17/1-e kıyasıyla 1", belirsiz.norm, 1);
+    kontrol("düzenlenmemiş bileşimde yorum/varsayım olduğu yazıyor",
+        /YORUM|BELİRSİZ|varsayıldı|kontrol ediniz/.test(belirsiz.dayanak), true);
 
     // Her dönüş bir MADDE DAYANAĞI taşımalı: rapordaki sayı gerekçesiz kalmasın.
     for (const t of ["hafif_zihinsel", "orta_agir_otizm", "gorme_isitme", "birden_fazla"]) {

@@ -374,6 +374,57 @@ for (const TUR of ["mesleki_ve_teknik_anadolu_lisesi", "anadolu_teknik_programi"
 }
 
 /* ======================================================================= */
+/* ÖZEL EĞİTİM B-02 / B-03 / B-04 (kullanıcı kararı 22.09.2026: mevzuat     */
+/* ajanı önerileri uygulansın)                                             */
+/*   B-02 görme/işitme ORTAOKUL  -> 0 + bilgi notu; dersler alan branşlarına */
+/*   B-03 görme/işitme LİSE/meslek okulu -> 1 ("yorum" etiketli)            */
+/*   B-04 bedensel -> "belirsiz" gösterilir, kendiliğinden SIFIR üretilmez  */
+/* ======================================================================= */
+{
+    const H = (tur, sinif, engel) => {
+        st.resetSchool(); st.setSchoolType(tur);
+        const dersler = ce.getMandatoryCourses(tur, sinif, "ozel_egitim", "Özel Eğitim Sınıfı", engel) || [];
+        st.addSection({ sinifSeviyesi: sinif, subeAdi: sinif + "-Ö", ogrenciSayisi: 6, isSpecialEdu: true, engelTuru: engel,
+            specialEduType: engel, alanId: "ozel_egitim", dalAdi: "Özel Eğitim Sınıfı",
+            zorunluDersler: JSON.parse(JSON.stringify(dersler)), secmeliDersler: [] });
+        const r = ne.calculateSchoolNorms(st.state.subeler, {}, tur, { adminOptions: st.state.okulBilgisi.adminOptions || {} });
+        const oz = r.branchReport.find(b => b.branchName === "Özel Eğitim");
+        return { r, oz, detay: oz && oz.ozelEgitimDetay && oz.ozelEgitimDetay[0], toplamCizelge: dersler.reduce((a, c) => a + (+c.saat || 0), 0) };
+    };
+    // B-02
+    for (const [sinif, engel] of [["5", "gorme"], ["6", "isitme"], ["8", "gorme"]]) {
+        const x = H("ortaokul_temel_egitim", sinif, engel);
+        kontrol(`B02 ortaokul ${sinif}. sınıf ${engel}: özel eğitim öğretmeni normu 0`, x.detay && x.detay.norm === 0, x.detay && x.detay.norm);
+        kontrol(`B02 ${engel}: 'yorum' etiketli ve bilgi notu var`, x.detay && x.detay.kesinlik === "yorum" && /alan öğretmen/i.test(x.detay.belirsizlik || ""));
+        kontrol(`B02 ${engel}: hiçbir saat kaybolmadı (okul toplamı = çizelge ${x.toplamCizelge})`, x.r.totalHours === x.toplamCizelge, x.r.totalHours);
+        const turkce = x.r.branchReport.find(b => b.branchName === "Türkçe");
+        kontrol(`B02 ${engel}: Türkçe/Matematik gibi dersler alan branşına yazıldı (Özel Eğitim satırında kalan yük ≤ 1 saat rehberlik)`,
+            !!turkce && turkce.totalHours > 0 && x.oz.totalHours <= 1, `Türkçe ${turkce && turkce.totalHours}, Özel Eğitim ${x.oz.totalHours}`);
+    }
+    // B-03
+    for (const [tur, sinif, engel] of [["ozel_egitim_meslek_okulu", "9", "gorme"], ["mesleki_ve_teknik_anadolu_lisesi", "10", "isitme"]]) {
+        const x = H(tur, sinif, engel);
+        kontrol(`B03 ${tur} ${sinif}. sınıf ${engel}: norm 1, 'yorum' etiketli`, x.detay && x.detay.norm === 1 && x.detay.kesinlik === "yorum", JSON.stringify(x.detay && [x.detay.norm, x.detay.kesinlik]));
+        kontrol(`B03 ${engel}: Türkçe/Matematik gibi dersler özel eğitim öğretmeninde kalır (norm sıfırlanmadı, yük > 0)`, x.oz.totalHours > 0, x.oz.totalHours);
+    }
+    // B-04
+    for (const [tur, sinif] of [["ilkokul", "2"], ["ortaokul_temel_egitim", "5"], ["ortaokul_temel_egitim", "8"]]) {
+        const x = H(tur, sinif, "bedensel");
+        kontrol(`B04 ${tur} ${sinif}. sınıf bedensel: 'belirsiz' etiketli`, x.detay && x.detay.kesinlik === "belirsiz", x.detay && x.detay.kesinlik);
+        kontrol(`B04 ${sinif}. sınıf bedensel: kendiliğinden SIFIR üretilmiyor (norm ≥ 1)`, x.detay && x.detay.norm >= 1, x.detay && x.detay.norm);
+        kontrol(`B04 ${sinif}. sınıf bedensel: iki okuma (A ve B) notta yazıyor`, /Okuma A/.test(x.detay.belirsizlik || "") && /Okuma B/.test(x.detay.belirsizlik || ""));
+        kontrol(`B04 ${sinif}. sınıf bedensel: uyarı listesinde görünüyor`, (x.r.ozelEgitimUyarilari || []).some(u => u.kesinlik === "belirsiz"));
+    }
+    // Değişmeyenler: açık bendi olan durumlar 'kesin' kalır
+    const k = ne.ozelEgitimSubeNormu("gorme", "2");
+    kontrol("B0x görme ilkokul (Md. 17/1-b) hâlâ 1 ve 'kesin'", k.norm === 1 && k.kesinlik === "kesin");
+    kontrol("B0x otizm/orta-ağır zihinsel değişmedi (2)", ne.ozelEgitimSubeNormu("otizm_orta_agir", "10").norm === 2 && ne.ozelEgitimSubeNormu("orta_agir_zihinsel", "3").norm === 2);
+}
+// Ekran: rapor kartı ve şube penceresi belirsizlik notunu gösteriyor (KAYNAK DENETİMİ)
+kontrol("B0x rapor kartında belirsizlik notu basılıyor", ui.includes("x.belirsizlik ?") && ui.includes("ℹ️ ${NormGuvenlik.htmlKacis(x.belirsizlik)}"));
+kontrol("B0x şube penceresinde canlı belirsizlik notu", ui.includes("hesap && hesap.belirsizlik") && ui.includes("ℹ️ ${NormGuvenlik.htmlKacis(hesap.belirsizlik)}"));
+
+/* ======================================================================= */
 if (hatalar.length) {
     console.log(`❌ test_denetimDalga3: ${hatalar.length} hata, ${gecen} geçti`);
     hatalar.forEach(h => console.log("   - " + h));

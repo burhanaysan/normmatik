@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.4",
+    surum: "2.4.5",
     yayinTarihi: "2026-09-22",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Özel eğitim sınıflarında yönetmeliğin açık bent vermediği üç bileşim netleştirildi (eskiden üçü için dayanaksız \"2 norm\" gösteriliyordu): (1) görme/işitme ortaokul sınıfında özel eğitim öğretmeni normu 0; dersleri alan öğretmenleri okuttuğu için (ÖEHY 31/1-e) bütün saatler alan branşlarının yüküne yazılıyor, hiçbir saat kaybolmuyor; (2) görme/işitme lise ve özel eğitim meslek okulunda norm 1 (Md. 17/1-e kıyası); (3) bedensel yetersizlikte yönetmelik sessiz olduğu için norm \"belirsiz\" etiketiyle 1 gösteriliyor ve iki okuma (özel eğitim öğretmeni 0 ya da 1) şube penceresinde ve raporda yazıyor; uygulama bu durumda kendiliğinden sıfır üretmiyor. Kesin karar için il MEM / İKGM görüşü alınız.",
         "Meslek lisesi ve Anadolu Teknik Programında 10, 11 ve 12. sınıfların seçmeli ders listesinde TTKB'nin iki kararı birlikte sunuluyor (2026-62 ve 2024-41): karar metni tabloyu tüm sınıflara uyguluyor, Genel Müdürlüğün istek yazısı ise hazırlık ve 9. sınıftan başlayarak kademeli uygulama istiyor; hangisini uygulayacağınız sizin kararınızdır. İki tablo 10 ve 11. sınıflarda aynı; 12. sınıfta \"Çağdaş Türk ve Dünya Tarihi\" dersi için 2 saatin yanında 4 saat seçeneği de görünüyor, \"Hedef Temelli Destek Eğitimi\" listede duruyor. Hazırlık ve 9. sınıfta değişiklik yok.",
         "Meslek liselerinde tüm meslek dersleri artık aynı davranıyor: şubedeki öğrenci sayısı Md. 22/1-ç baremine göre grup gerektirdiğinde (9. sınıfta 21 ve üzeri, 10-12. sınıflarda 17 ve üzeri) her meslek dersinde \"1 Grup / 2 Grup\" kutusu görünüyor ve okulunuzun dersi kaç grupta okuttuğunu siz seçiyorsunuz. Eskiden adında \"Hukuk Dili\" ya da \"Terminoloji\" geçen üç ders (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) bilerek gruplanmıyor ve kutu çıkmıyordu; 21 öğrencili 9. sınıf Adalet şubesinde iki meslek dersi \"2 Grup\" alırken üçüncüsü almıyordu. Grup sayısını yönetmeliğin baremini aşacak biçimde artıramazsınız.",
         "Ders yükü yeniden idarecinin seçtiği branşa yazılıyor: bir dersi (ör. Fizik) başka bir branşa (ör. Kimya) verdiğinizde ders o branşın yüküne ve normuna eklenir; uygulama bir kısıtlama koymaz, hangi branşa verileceği idarecinin inisiyatif ve sorumluluğundadır. 2.1.7 sürümünde eklenen \"norm dersin resmî alanında kalır\" kuralı geri alındı — İslam Bilim Tarihi, Fen Bilimleri Uygulamaları gibi birden fazla branşın normuna girebilen dersler tek bir alana bağlanamıyordu.",
@@ -210063,11 +210064,40 @@ class NormEngine {
             return { norm: 2, dayanak: "Md. 17/1-f (birden fazla engel)" };
         }
         if (T.tur === "gorme" || T.tur === "isitme" || T.tur === "gorme_isitme") {
-            if (ilkokul) return { norm: 1, dayanak: "Md. 17/1-b (görme/işitme, ilkokul)" };
-            return { norm: 2, dayanak: "Md. 17/1-b yalnızca ilkokulu düzenliyor; bu kademe için 2 varsayıldı — kontrol ediniz" };
+            if (ilkokul) return { norm: 1, dayanak: "Md. 17/1-b (görme/işitme, ilkokul)", kesinlik: "kesin" };
+            // B-02 (kullanıcı kararı 22.09.2026, mevzuat ajanının önerisi): ORTAOKUL -> 0 + bilgi notu.
+            // Md. 17/1'de görme/işitme için yalnız ilkokul bendi (b) var; ÖEHY 31/1-e "ortaokullarda ise dersler
+            // alan öğretmenleri tarafından okutulur" der. Dersler alan öğretmenlerinin yüküne yazılır
+            // (ozelEgitimDersOkutani), norm o branşların Md. 18 hesabındadır. Eskiden burada dayanaksız "2" vardı.
+            if (ortaokul) {
+                return {
+                    norm: 0, kesinlik: "yorum",
+                    dayanak: "[YORUM] Md. 17/1'de görme/işitme için ortaokul bendi yok; ÖEHY 31/1-e: ortaokulda dersleri alan öğretmenleri okutur → özel eğitim öğretmeni normu 0",
+                    belirsizlik: "Dersler alan öğretmenlerinin yüküne yazıldı; norm o branşlarda Md. 18'e göre hesaplanır. ÖEHY 31/1-e'nin son cümlesi, alan öğretmeninin okuttuğu derslere özel eğitim öğretmeninin de destek olarak katılabileceğini söyler; bu destek için norm verilmiyor. Kesin karar için il MEM / İKGM görüşü alınız."
+                };
+            }
+            // B-03 (aynı karar): LİSE / özel eğitim meslek okulu -> 1. Md. 17/1'de görme/işitme lise bendi yok;
+            // 17/1-e (lise, meslek okulu programı) kıyasıyla 1. ÖEHY 32/3-c ve ORGM-08 bu okullarda Türkçe,
+            // Matematik, Sosyal Hayat ve Rehberlik'i özel eğitim öğretmenine verir; 0 vermek bu dersleri okutacak normu sıfırlardı.
+            if (lise) {
+                return {
+                    norm: 1, kesinlik: "yorum",
+                    dayanak: "[YORUM] Md. 17/1'de görme/işitme için lise bendi yok; 17/1-e (lise, meslek okulu programı) kıyasıyla 1",
+                    belirsizlik: "Mevzuatta açık bent yok, 17/1-e kıyasıyla 1 verildi. ÖEHY 32/3-c ve ORGM-08 açıklamaları bu okullarda Türkçe, Matematik, Sosyal Hayat ve Rehberlik derslerini özel eğitim öğretmenine verir. Kesin karar için il MEM / İKGM görüşü alınız."
+                };
+            }
+            return { norm: 1, kesinlik: "belirsiz", dayanak: "[BELİRSİZ] kademe belirlenemedi; görme/işitme için 1 varsayıldı — kontrol ediniz" };
         }
+        // B-04 (aynı karar): bedensel -> BELİRSİZ göster, kendiliğinden SIFIR üretme. Çalışma değeri 1.
+        // Eskiden "2" vardı ve mevzuat ajanının iki okumasından hiçbirine (0 ya da 1) uymuyordu.
         if (T.tur === "bedensel") {
-            return { norm: 2, dayanak: "Md. 17/1'de bedensel yetersizlik için bent yok; 2 varsayıldı — kontrol ediniz" };
+            return {
+                norm: 1, kesinlik: "belirsiz",
+                dayanak: "[BELİRSİZ] Md. 17/1'de bedensel yetersizlik için bent yok; çalışma değeri 1 (üst okuma)",
+                belirsizlik: "ÖEHY 31/1 bu okulları açar, sınıf mevcudu en fazla 10'dur (31/1-d); ama dersleri kimin okutacağını ve Md. 17 normunu düzenlemez. "
+                    + "Okuma A: ilkokulda sınıf öğretmeni (Md. 16/1), ortaokulda alan öğretmenleri (Md. 18); özel eğitim öğretmeni 0 (Md. 16/1 \"öğrenci sayısı 10'dan az olmamak\" şartı 1-9 öğrencili şubeyi dışarıda bırakır). "
+                    + "Okuma B: ilkokulda Md. 17/1-b kıyasıyla şube başına 1 özel eğitim öğretmeni. Uygulama sıfır üretmez, üst değer olan 1'i gösterir. Kesin karar için il MEM / İKGM görüşü alınız."
+            };
         }
         // hafif zihinsel (varsayılan)
         if (lise) return { norm: 1, dayanak: "Md. 17/1-e (hafif zihinsel, lise kademesi)" };
@@ -210234,6 +210264,12 @@ class NormEngine {
             return null;
         }
         if (kademe === "okuloncesi" || kademe === "diger") return null;
+        // B-02 (22.09.2026): görme/işitme ORTAOKUL sınıfında TÜM dersleri alan öğretmenleri okutur (ÖEHY 31/1-e);
+        // özel eğitim öğretmeni normu 0 olduğu için (ozelEgitimSubeNormu) saatler çizelgenin alan branşlarına yazılır.
+        // Branşı belirsiz ders (ör. "Özel Eğitim" ya da Rehberlik) özel eğitim satırında kalır.
+        if (kademe === "ortaokul" && ["gorme", "isitme", "gorme_isitme"].includes(T.tur) && gercekBrans(secilen)) {
+            return tek(secilen, "ÖEHY 31/1-e: görme/işitme ortaokul sınıfında dersleri alan öğretmenleri okutur (B-02: özel eğitim öğretmeni normu 0)");
+        }
         if (ad.includes("gorsel sanat")) return tek("Görsel Sanatlar", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: görsel sanatlar alan öğretmeni okutur");
         if (ad.includes("muzik")) return tek("Müzik", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: müzik alan öğretmeni okutur");
         if (ad.includes("beden egitimi")) return tek("Beden Eğitimi", "ÖEHY 27/3-e, 28/1-ğ, 32/3-c: beden eğitimi alan öğretmeni okutur");
@@ -211086,7 +211122,7 @@ class NormEngine {
                 // Alan öğretmeninin okuttuğu saat (ozelAlanSaati) ilgili branşa yazıldı; burada kalmaz.
                 const alanSaat = ozelAlanSaati[sec.id] || 0;
                 return { subeId: sec.id, sube: sec.subeAdi, saat: dersSaati > 0 ? dersSaati - alanSaat : (tumDersler.length ? 0 : 30), alanSaat,
-                         norm: h.norm, dayanak: h.dayanak,
+                         norm: h.norm, dayanak: h.dayanak, kesinlik: h.kesinlik || "kesin", belirsizlik: h.belirsizlik || null,
                          engelTuru: this.ozelEgitimTuru(this.ozelEgitimKayitTuru(sec, schoolType)).ad,
                          ogrenci: ih.ogrenci, enFazla: ih.enFazla, sinirDayanak: ih.dayanak,
                          gerekenSinif: ih.gerekenSinif, sinirAsildi: ih.sinirAsildi,
@@ -211129,9 +211165,9 @@ class NormEngine {
                 });
             });
 
-            ozelEgitimUyarilari = ozelDetay.filter(x => x.sinirAsildi || x.ortamUyarisi || (!x.birlesikSinif && !x.enFazla && x.sinirNotu))
-                .map(x => ({ subeId: x.subeId, sube: x.sube, ortamUyarisi: x.ortamUyarisi || undefined,
-                             mesaj: [x.ortamUyarisi, (x.sinirAsildi || !x.enFazla) ? (x.mesaj || x.sinirNotu) : null].filter(Boolean).join(" ") || x.mesaj,
+            ozelEgitimUyarilari = ozelDetay.filter(x => x.sinirAsildi || x.ortamUyarisi || x.belirsizlik || (!x.birlesikSinif && !x.enFazla && x.sinirNotu))
+                .map(x => ({ subeId: x.subeId, sube: x.sube, ortamUyarisi: x.ortamUyarisi || undefined, kesinlik: x.kesinlik,
+                             mesaj: [x.ortamUyarisi, x.belirsizlik, (x.sinirAsildi || !x.enFazla) ? (x.mesaj || x.sinirNotu) : null].filter(Boolean).join(" ") || x.mesaj,
                              gerekenSinif: x.gerekenSinif, olasiNorm: x.olasiNorm, sinirAsildi: x.sinirAsildi }));
             const specialEduNorm = ozelDetay.reduce((a, x) => a + x.norm, 0);
             const specialEduHours = ozelDetay.reduce((a, x) => a + x.saat, 0);
@@ -217883,6 +217919,10 @@ class UIComponentManager {
             let notHtml = hesap
                 ? `Bu şube için <strong>${hesap.norm} özel eğitim öğretmeni normu</strong> — ${hesap.dayanak}`
                 : "";
+            // B-02/03/04 (22.09.2026): mevzuatın açık bent vermediği bileşimlerde iki okuma ve uyarı gösterilir.
+            if (hesap && hesap.belirsizlik) {
+                notHtml += `<br><span style="color:#b45309;">ℹ️ ${NormGuvenlik.htmlKacis(hesap.belirsizlik)}</span>`;
+            }
             if (ihtiyac && ihtiyac.enFazla) {
                 notHtml += `<br>Sınıf mevcudu en fazla <strong>${ihtiyac.enFazla}</strong> öğrenci (${ihtiyac.dayanak}).`;
                 if (ihtiyac.sinirAsildi) {
@@ -221411,7 +221451,7 @@ class UIComponentManager {
                             <td class="dd-hucre"><span class="dd-cip" title="${x.sube} — şube normu ${x.norm}">${x.norm}</span></td>
                             <td class="dd-ozel-dayanak">${x.dayanak}${x.sinirAsildi
                                 ? `<br><b style="color:#b91c1c;">⚠️ ${x.mesaj}</b>`
-                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}${x.ortamUyarisi ? `<br><span style="color:#b91c1c;">⚠️ ${x.ortamUyarisi}</span>` : ""}</td>
+                                : (x.enFazla ? `<br><span style="color:var(--text-muted);">${x.ogrenci} öğrenci · en fazla ${x.enFazla} (${x.sinirDayanak})</span>` : (x.sinirNotu ? `<br><span style="color:#b45309;">${x.sinirNotu}</span>` : ""))}${x.ortamUyarisi ? `<br><span style="color:#b91c1c;">⚠️ ${x.ortamUyarisi}</span>` : ""}${x.belirsizlik ? `<br><span style="color:#b45309;">ℹ️ ${NormGuvenlik.htmlKacis(x.belirsizlik)}</span>` : ""}</td>
                             <td class="dd-toplam"></td>
                         </tr>`).join("");
                 return `
