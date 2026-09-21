@@ -101,8 +101,13 @@ const ESLEME = [
     ["fen_lisesi", "ogm/sayi05_anadolu_fen_sosyalbilimler.json", "Fen Lisesi"],
     ["hazirlik_fen_lisesi", "ogm/sayi05_anadolu_fen_sosyalbilimler.json",
         "Hazırlık Sınıfı Bulunan Fen Lisesi"],
+    // Sosyal Bilimler Lisesi tek tür, iki çizelge (TTKB 2025/05 s.6-7). 4. öğe: okulda
+    // hazırlık şubesi var mı. Hazırlık şubesi olmayan okul hazırlıksız çizelgeyi görür
+    // (7. adım denetim bulgusu F-1, 21.09.2026).
     ["sosyal_bilimler_lisesi", "ogm/sayi05_anadolu_fen_sosyalbilimler.json",
-        "Hazırlık Sınıfı Bulunan Sosyal Bilimler Lisesi"],
+        "Hazırlık Sınıfı Bulunan Sosyal Bilimler Lisesi", true],
+    ["sosyal_bilimler_lisesi", "ogm/sayi05_anadolu_fen_sosyalbilimler.json",
+        "Sosyal Bilimler Lisesi", false],
     ["guzel_sanatlar_gorsel", "ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json",
         "Güzel Sanatlar Lisesi - Görsel Sanatlar"],
     ["guzel_sanatlar_tiyatro", "ogm/sayi06_guzelsanatlar_gorsel_tiyatro.json",
@@ -173,7 +178,7 @@ function kaynaktanBeklenen(dosya, tabloAdi) {
 
 let toplamKarsilastirma = 0;
 
-for (const [tur, dosya, tabloAdi] of ESLEME) {
+for (const [tur, dosya, tabloAdi, hazirlikSubesi] of ESLEME) {
     kontrol(tur + ": üretilmiş havuzu var", !!HAVUZ[tur]);
     if (!HAVUZ[tur]) continue;
 
@@ -189,9 +194,10 @@ for (const [tur, dosya, tabloAdi] of ESLEME) {
 
         st.state = st.getDefaultState();
         st.state.okulBilgisi.okulTuru = tur;
+        if (hazirlikSubesi && sinif !== "hazirlik") st.addSection({ subeAdi: "HZ-A", sinifSeviyesi: "hazirlik", ogrenciSayisi: 30, zorunluDersler: [] });
         st.addSection({ subeAdi: sinif + "-A", sinifSeviyesi: sinif,
             ogrenciSayisi: 30, zorunluDersler: zorunlu });
-        const liste = ui.getAvailableElectivesForSection(st.state.subeler[0]) || [];
+        const liste = ui.getAvailableElectivesForSection(st.state.subeler.find(s => s.sinifSeviyesi === sinif)) || [];
         kontrol(tur + " " + sinif + ". sınıf: liste dolu", liste.length > 0);
 
         const sunulan = {};

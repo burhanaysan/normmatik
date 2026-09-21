@@ -1,5 +1,5 @@
 /**
- * MEB NORM KADRO SİSTEMİ - İSTEMCİ LİSANS VE GÜVENLİK YÖNETİCİSİ (Client License Manager)
+ * NORMMATİK NORM KADRO YAZILIMI - İSTEMCİ LİSANS VE GÜVENLİK YÖNETİCİSİ (Client License Manager)
  * Copyright (c) 2026 Burhan AYSAN. Tüm hakları saklıdır.
  */
 
@@ -246,10 +246,10 @@ class MebLicenseClientManager {
         }
 
         if (this.licenseStatus.isDemo) {
-            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)${this.surumEki()}`;
+            return `⚠️ NormMatik — DENEME VE İNCELEME SÜRÜMÜ (Resmî geçerliliği yoktur)${this.surumEki()}`;
         }
 
-        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
+        return `🏛️ Bu norm kadro ön çalışması [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] için lisanslı NormMatik ile hazırlanmıştır; karar destek amaçlıdır, resmî işlemlerde MEBBİS verileri esastır. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
     }
 }
 

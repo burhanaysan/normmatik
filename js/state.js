@@ -148,6 +148,12 @@ export class AppStateService {
         const antet = currentOkul.antet ? { ...currentOkul.antet } : null;
         
         this.state = this.getDefaultState();
+
+        // DEMO BAYRAĞI SIFIRLAMADA KORUNUR (Dalga 3 Y-12, 21.09.2026): bayrak düşünce demo,
+        // "ayrılmış kurum koduyla (123456) açılmış gerçek okul" gibi görünüyor, otomatik kayıt
+        // buluta yazmaya çalışıp iki kırmızı "VERİLER KAYDEDİLEMEDİ ... lütfen bildirin"
+        // bildirimi çıkarıyordu. Demo zaten buluta hiç yazılmaz (bkz. yereliKaydet/bulut kapıları).
+        if (currentOkul.isDemo) this.state.okulBilgisi.isDemo = true;
         
         // 🔒 KURUM KİMLİĞİ KALICI OLARAK KORUNUR (SIFIRLANAMAZ)
         if (currentOkul.kurumKodu) {

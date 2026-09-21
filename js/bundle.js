@@ -2,7 +2,7 @@
 // ==================== licenseClientManager.js ====================
 
 /**
- * MEB NORM KADRO SİSTEMİ - İSTEMCİ LİSANS VE GÜVENLİK YÖNETİCİSİ (Client License Manager)
+ * NORMMATİK NORM KADRO YAZILIMI - İSTEMCİ LİSANS VE GÜVENLİK YÖNETİCİSİ (Client License Manager)
  * Copyright (c) 2026 Burhan AYSAN. Tüm hakları saklıdır.
  */
 
@@ -249,10 +249,10 @@ class MebLicenseClientManager {
         }
 
         if (this.licenseStatus.isDemo) {
-            return `⚠️ MEB NORM KADRO SİSTEMİ - DENEME VE İNCELEME SÜRÜMÜ (Resmi Geçerliliği Yoktur)${this.surumEki()}`;
+            return `⚠️ NormMatik — DENEME VE İNCELEME SÜRÜMÜ (Resmî geçerliliği yoktur)${this.surumEki()}`;
         }
 
-        return `🏛️ Bu resmî norm kadro analizi MEB [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] adına lisanslanmıştır. Başka kurumlar için geçerliliği yoktur. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
+        return `🏛️ Bu norm kadro ön çalışması [${this.licenseStatus.kurumKodu} - ${this.licenseStatus.okulAdi}] için lisanslı NormMatik ile hazırlanmıştır; karar destek amaçlıdır, resmî işlemlerde MEBBİS verileri esastır. Doğrulama No: ${this.licenseStatus.kurumKodu}-${this.licenseStatus.payload?.sezon || '2026-2027'}${this.surumEki()}`;
     }
 }
 
@@ -349,14 +349,27 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.0",
-    yayinTarihi: "2026-09-17",
+    surum: "2.4.1",
+    yayinTarihi: "2026-09-21",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Okulda dersi kalmayan ama kadrosu olan bir branşın öğretmeni (ör. ikinci yabancı dil seçilmeyince Almanca öğretmeni, bir şube silinince Bilişim öğretmeni) mevcut kadro toplamından ve norm fazlası listesinden düşüyordu. Artık \"0 saat · norm 0 · mevcut 1 · +1 fazla\" olarak sağ panelde, Yönetici İcmalinde, Master Yük Matrisinde ve norm fazlası (atama/nakil) listesinde görünüyor. Hem dersi hem kadrosu olmayan branş eskisi gibi gizli kalıyor.",
+        "Şube düzenleme penceresi meslek lisesinde şubenin dalını boş getiriyordu; yalnız öğrenci sayısını değiştirip kaydeden idarecinin şubesi dalını kaybediyordu. Dal artık seçili geliyor ve kaydedildiğinde korunuyor.",
+        "Şube kaydederken girdi denetimi: öğrenci sayısı 0 ile 60 arasında (MESEM'de 450'ye kadar) bir tam sayı olmalı; şube adı boş bırakılamıyor ve başka bir şubenin adı verilemiyor. Eskiden -5 ya da 9999 sessizce kaydediliyor, 9999 raporda 20 rehber öğretmen açığı üretiyordu.",
+        "Çalışma alanı 1200 pikselden dar pencerelerde ve tablet/telefonda artık kesilmiyor: dar pencerede yatay kaydırılabiliyor, telefonda sayfa ekrana sığdırılıyor. Okullarda yaygın 1366x768 dizüstülerde (Windows %125 ölçekte) sağ paneldeki norm tablosuna ve Çıkış düğmesine ulaşılamıyordu.",
+        "Üst çubuk 1500 pikselden dar ekranlarda İndir, Yükle, Diğer ve Şifre düğmelerini yalnız simgeyle gösteriyor (tam adı fareyle üzerine gelince ve ekran okuyucuda duyuluyor); 1280 pikselde görünmeyen Çıkış düğmesi artık görünüyor.",
+        "Rehber öğretmen açığı ya da fazlası norm ihtiyaç/fazla raporunda ve Excel çıktısında ayrı bir satır olarak görünüyor (branş toplamlarına katılmıyor); eskiden yalnız Yönetici İcmalinde vardı.",
+        "Sağ paneldeki \"Toplam Okul Yükü\" ile branş satırlarının toplamı arasındaki fark artık tabloda yazıyor: hiçbir branşa verilmemiş Rehberlik ve Yönlendirme dersi ya da branşı atanmamış dersler toplam yüke dâhildir ama norm doğurmaz. Master Yük Matrisindeki Rehberlik kartı \"norm 0 · kadro tam\" yerine bunu açıkça söylüyor.",
+        "Metin düzeltmesi: üst çubuk, raporlar ve tanıtım turundaki \"MEB Norm Sistemi\", \"MEBBİS Norm Güncelleme Cetveli\", \"MEB Gerekçesi\", \"Resmî Eylem Cetveli\", \"Türkiye'nin ilk ve tek MEB norm platformu\" gibi Bakanlığa ait bir sistem izlenimi veren ifadeler kaldırıldı; raporlar karar destek amaçlı ön çalışma olduğunu ve resmî işlemlerde MEBBİS verilerinin esas alındığını belirtiyor.",
+        "Demoda \"Okulu Sıfırla\" düğmesi iki kırmızı \"VERİLER KAYDEDİLEMEDİ ... lütfen bildirin\" hata bildirimi çıkarıyordu; artık yalnız \"Okul sıfırlandı\" uyarısı çıkıyor (demo hiçbir zaman buluta yazılmaz).",
+        "Klavye ve ekran okuyucu desteği: şube kartları Tab ile seçilip Enter ile açılabiliyor (kart düğmeleri odaktayken görünüyor); ders satırlarındaki branş seçicileri, sezon, arama, Kadro ve Lisans pencerelerindeki alanlar ekran okuyucuya adlarıyla okunuyor; tüm pencereler açılınca odağı içeri alıyor, Esc ile kapanıyor ve odağı açan düğmeye geri veriyor. Tanıtım sayfasındaki giriş ve görsel büyütme pencereleri de aynı şekilde çalışıyor.",
+        "Okunabilirlik: norm panelindeki İHTİYAÇ/FAZLA etiketleri, yük ve şube sayısı rozetleri, KPI sayıları, ders saatleri, BARAJ etiketi ve e-Okul düğmesinin renkleri erişilebilirlik ölçütünün (WCAG AA, 4,5:1) altındaydı; ölçülüp koyulaştırıldı. Atölye grup tablosundaki \"Ögr\" yazımı düzeltildi; üst çubukta kesilen uzun okul adı fareyle üzerine gelince tam görünüyor.",
+        "Demo sürümünde kilitli bir şubede değişiklik denendiğinde \"kilitli\" uyarısıyla birlikte \"güncellendi\" bildirimi de çıkıyordu; artık yalnız kilit uyarısı çıkıyor ve seçim kutusu gerçek değere dönüyor.",
         "Meslek lisesi, Anadolu Teknik Programı, MESEM ve meslek ortaokulunun seçmeli ders listeleri resmî kaynaklara bağlandı: TTKB 16/07/2026-62 seçmeli dersler tablosu ve alanların çerçeve öğretim programları. Eskiden bu okullarda resmî listede olmayan dersler ve yanlış saat seçenekleri görünüyordu; 11-12. sınıf seçmeli meslek dersleri 9-10. sınıfa da çıkıyordu.",
+        "Hazırlık sınıfı olmayan Sosyal Bilimler Liselerinde seçmeli ders listesi kendi resmî çizelgesinden geliyor (9. sınıf İkinci Yabancı Dil 1/2/4 saat; 12. sınıfta Metin Tahlilleri yok).",
         "Özel eğitim meslek okulu ve uygulama okulunda seçmeli ders listesi boş: bu okulların resmî çizelgelerinde seçmeli ders yok.",
         "Seçmeli ders penceresinde kural uyarıları: meslek lisesi ve meslek ortaokulunda her seçmeli gruptan en az bir ders, meslek lisesi hazırlık sınıfında toplam 2 saat; resmî listede olmayan ya da saati seçenek dışında kalan ders. Seçimleriniz silinmez.",
         "Seçmeli derslerde önerilen öğretmen branşı düzeldi: Türkçe büyük harf hatası yüzünden çoğu derste ders adı branş diye öneriliyordu. Din, Ahlak ve Değer grubundaki dersler imam hatip dışındaki okullarda Din Kültürü ve Ahlak Bilgisi'ne öneriliyor (Öğretmenlik Alanları Esasları).",
@@ -211152,7 +211165,13 @@ class NormEngine {
             // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin.
             // Ancak yükü Md. 22/6 düşümüyle sıfırlanan branş listede KALIR; aksi hâlde
             // branş sessizce kaybolur ve normun neden düştüğü görünmez.
-            if (totalHours <= 0 && !branchAdminDeduction[branchName]) {
+            //
+            // KADROSU OLAN BRANŞ DE KALIR (Dalga 3 / Y-13, kullanıcı kararı 21.09.2026):
+            // gizleme yalnız "yük 0 VE kadro 0" içindir. Eskiden dersi kalmamış branşın
+            // öğretmeni (ör. seçilmeyen Almanca, şube silinince Bilişim) MEVCUT toplamından
+            // ve norm fazlası listesinden tamamen düşüyordu — oysa en kesin norm fazlası
+            // odur. Gerçek bir okulda (15.09 yedeği) Müzik öğretmeni böyle kayboluyordu.
+            if (totalHours <= 0 && !branchAdminDeduction[branchName] && currentTeachers <= 0) {
                 return;
             }
 
@@ -211249,8 +211268,10 @@ class NormEngine {
             "Rehberlik ve Psikolojik Danışmanlık",
             "Rehberlik / Psikolojik Danışmanlık"
         ];
+        let rehberlikBranssizSaat = 0;
         for (const ad of LISTEDEN_DUSULEN_BRANSLAR) {
             grandTotalHours += branchLoadMap[ad] || 0;
+            rehberlikBranssizSaat += branchLoadMap[ad] || 0;
         }
 
         // Branşı atanmamış dersler de çizelgede yer alır; toplam yüke eklenir.
@@ -211307,6 +211328,10 @@ class NormEngine {
         return {
             branchReport,
             totalHours: grandTotalHours,
+            // Toplama dâhil ama branş satırlarında görünmeyen saatler (Dalga 3 Y-05):
+            // panel "satırlar toplamı ≠ toplam yük" farkını bunlarla açıklar.
+            rehberlikBranssizSaat,
+            branssizSaat,
             ozelEgitimUyarilari,
             ozelEgitimBirlesikSiniflar,
             yukMutabakati,
@@ -211985,6 +212010,18 @@ class MebReportsEngine {
             }
         });
 
+        // DERSİ OLMAYAN AMA KADROSU OLAN BRANŞ (Dalga 3 Y-13, 21.09.2026): motor bu branşı
+        // "0 saat · norm 0 · kadro N · +N fazla" olarak raporluyor; ızgarada dersi olmadığı için
+        // kartı da çıkmıyordu, norm fazlası öğretmen matriste görünmüyordu. Boş kart eklenir.
+        (normResult.branchReport || []).forEach(b => {
+            if (!branchGroups[b.branchName] && !b.isSpecialEdu && (b.currentTeachers || 0) > 0) {
+                branchGroups[b.branchName] = {
+                    branchName: b.branchName, isVocational: false, areaCode: null,
+                    courses: {}, totalHours: b.totalHours || 0
+                };
+            }
+        });
+
         // Branşları alfabetik sırala (Önce Alan/Meslek Branşları, Sonra Genel Kültür Branşları)
         const sortedBranchNames = Object.keys(branchGroups).sort((a, b) => {
             const isVocA = branchGroups[a].isVocational;
@@ -212179,6 +212216,21 @@ class MebReportsEngine {
 
         const balancedList = normResult.branchReport.filter(b => b.diff === 0 && b.calculatedNorm > 0);
 
+        // REHBER ÖĞRETMEN (Dalga 3 Y-09, 21.09.2026): normu ders saatinden değil öğrenci
+        // sayısından hesaplanır (Md. 21) ve branş listesinde yer almaz. Eskiden Yönetici
+        // İcmali açığı gösterirken bu rapor ondan hiç söz etmiyordu; müdür talebi atlayabiliyordu.
+        // Branş listelerine ve toplamlarına KATILMAZ (İcmal'deki "net norm ihtiyacı/fazlası"
+        // yalnız branş öğretmenlerini sayar; iki rapor birebir tutmalı — test_tutarlilik B4c).
+        // Ayrı satır olarak yazılır.
+        const rehber = (normResult.guidanceNorms || {}).karsilastirma || null;
+        const rehberSatiri = (rehber && rehber.fark !== 0) ? {
+            norm: rehber.norm,
+            mevcut: rehber.mevcut,
+            ihtiyac: rehber.fark < 0 ? Math.abs(rehber.fark) : 0,
+            fazla: rehber.fark > 0 ? rehber.fark : 0,
+            gerekce: `Rehber öğretmen normu ders yükünden değil norma esas öğrenci sayısından hesaplanır (Md. 21/2, 21/3): norm ${rehber.norm}, mevcut ${rehber.mevcut}.`
+        } : null;
+
         return {
             reportType: "NORM_ACTION_REPORT",
             title: "Norm Kadro İhtiyaç ve Fazlalık Raporu",
@@ -212186,6 +212238,7 @@ class MebReportsEngine {
             schoolInfo: schoolInfo,
             totalNeeded: normResult.totalNeeded,
             totalSurplus: normResult.totalSurplus,
+            rehberSatiri,
             neededList: neededList,
             surplusList: surplusList,
             balancedList: balancedList
@@ -212619,7 +212672,7 @@ class MebReportsEngine {
         const actionData = this.generateNormActionReport(state);
         const wsActRows = [];
         wsActRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
+        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK ÖN ÇALIŞMASI`]);
         wsActRows.push([`Toplam Öğretmen İhtiyacı: ${actionData.totalNeeded}`, `Toplam Norm Fazlası: ${actionData.totalSurplus}`]);
         wsActRows.push([]);
 
@@ -212628,6 +212681,11 @@ class MebReportsEngine {
         actionData.neededList.forEach((n, nIdx) => {
             wsActRows.push([nIdx + 1, n.branchName, n.totalHours, n.calculatedNorm, n.currentTeachers, n.neededCount, n.reason]);
         });
+        if (actionData.rehberSatiri) {
+            const r = actionData.rehberSatiri;
+            wsActRows.push(["", "Rehber Öğretmen (Md. 21 — ayrı hesap)", "—", r.norm, r.mevcut,
+                r.ihtiyac ? `${r.ihtiyac} ihtiyaç` : `${r.fazla} fazla`, r.gerekce]);
+        }
         wsActRows.push([]);
 
         wsActRows.push(["--- 2. NORM KADRO FAZLASI OLAN BRANŞLAR (NORM FAZLASI TESPİTİ) ---"]);
@@ -213984,6 +214042,12 @@ class AppStateService {
         const antet = currentOkul.antet ? { ...currentOkul.antet } : null;
         
         this.state = this.getDefaultState();
+
+        // DEMO BAYRAĞI SIFIRLAMADA KORUNUR (Dalga 3 Y-12, 21.09.2026): bayrak düşünce demo,
+        // "ayrılmış kurum koduyla (123456) açılmış gerçek okul" gibi görünüyor, otomatik kayıt
+        // buluta yazmaya çalışıp iki kırmızı "VERİLER KAYDEDİLEMEDİ ... lütfen bildirin"
+        // bildirimi çıkarıyordu. Demo zaten buluta hiç yazılmaz (bkz. yereliKaydet/bulut kapıları).
+        if (currentOkul.isDemo) this.state.okulBilgisi.isDemo = true;
         
         // 🔒 KURUM KİMLİĞİ KALICI OLARAK KORUNUR (SIFIRLANAMAZ)
         if (currentOkul.kurumKodu) {
@@ -216756,6 +216820,18 @@ function getOfficialElectiveHoursOptions(courseName, rawHours, gradeLevel) {
 }
 
 class UIComponentManager {
+    /**
+     * Dal adını yazım farkından arındırır: "YAZILIM GELİŞTİRME DALI" ile
+     * "Yazılım Geliştirme" aynı anahtarı verir (Türkçe küçük harf, sondaki
+     * "dalı" eki ve harf/rakam dışı karakterler atılır). Dalga 3 Y-14.
+     */
+    static dalAnahtari(ad) {
+        return String(ad || "")
+            .toLocaleLowerCase("tr-TR")
+            .replace(/\s+dalı\s*$/u, "")
+            .replace(/[^\p{L}\p{N}]/gu, "");
+    }
+
     constructor(dbService, stateService, normEngine, curriculumEngine) {
         this.db = dbService;
         this.state = stateService;
@@ -216800,6 +216876,12 @@ class UIComponentManager {
             danger:  { sinif: "error",   ikon: "✕", bekle: 4300 }
         };
         const t = TURLER[type] || TURLER.success;
+        // Demo kilidi az önce işlemi reddettiyse aynı işlemin "başarılı" bildirimi
+        // gösterilmez (Dalga 3 A-12/Y-04): kilit uyarısıyla çelişiyordu.
+        if (t.sinif === "success" && typeof window !== 'undefined'
+            && Date.now() - (window.__sonDemoKilidi || 0) < 800) {
+            return;
+        }
         // Kutunun tam görünür kaldığı toplam süre: beliriş + bekleme.
         // Geri sayım çubuğu da bu süreyi gösterir.
         t.sure = GIR + t.bekle;
@@ -216868,9 +216950,9 @@ class UIComponentManager {
         let currentSlide = 0;
         const slides = [
             {
-                badge: "👑 TÜRKİYE'NİN İLK VE TEK MEB NORM PLATFORMU",
+                badge: "📐 NORM KADRO VE DERS YÜKÜ HESAPLAMA YAZILIMI",
                 title: "NormMatik™ Dünyasına Hoş Geldiniz!",
-                subtitle: "Günlerce süren karmaşık Excel tabloları, hesaplama hataları ve norm fazlası risklerine son!",
+                subtitle: "Excel tabloları ve elle hesap yerine: norm kadro ve ders yükü, dayandığı yönetmelik maddeleriyle birlikte tek ekranda.",
                 icon: "🚀",
                 contentHtml: `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.25rem 0;">
@@ -217533,6 +217615,9 @@ class UIComponentManager {
 
         document.getElementById("btn-confirm-reset-school").addEventListener("click", async () => {
             const kod = this.state.state.okulBilgisi?.kurumKodu;
+            // Demoda buluta hiç yazılmadığı için silinecek bulut kaydı da yoktur (Dalga 3 Y-12):
+            // eskiden "buluttaki kayıt silinemedi: Kurum kodu tanımlı değil" hatası çıkıyordu.
+            const demoMu = !!this.state.state.okulBilgisi?.isDemo;
 
             this.state.resetSchool();
             this.closeModal("reset-confirm-modal");
@@ -217550,7 +217635,7 @@ class UIComponentManager {
             //
             // Silme, veritabanı kuralının zaten izin verdiği yoldur
             // (".validate": "!newData.exists() || ...").
-            if (kod) {
+            if (kod && !demoMu) {
                 try { this.state.yereliSil(kod); } catch (e) { /* yerel yoksa sorun değil */ }
                 try {
                     const bulut = (typeof window !== "undefined") && window.cloudDbService;
@@ -217625,13 +217710,24 @@ class UIComponentManager {
         // Seçilen Alana ve Sınıf Seviyesine Ait Dallar (Dinamik Filtreleme)
         const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, schoolType, selectedGrade) : [];
         const selectedDal = sectionToEdit?.dalAdi || "";
+        // DAL EŞLEŞMESİ (Dalga 3 Y-14, 21.09.2026): liste "YAZILIM GELİŞTİRME DALI" biçiminde,
+        // e-Okul aktarımı ve demo ise "Yazılım Geliştirme" biçiminde saklıyor. Birebir karşılaştırma
+        // hiçbirini tutmadığından pencere dalı BOŞ açıyor, yalnız öğrenci sayısını değiştiren
+        // idareci kaydedince dal sessizce siliniyordu (gerçek bir meslek lisesinin 9 şubesi böyle).
+        // Artık yazım farkı yok sayılır; eşi listede yoksa kayıttaki dal ayrı seçenek olarak korunur.
+        const dalAnahtari = UIComponentManager.dalAnahtari;
+        const seciliDalAnahtari = dalAnahtari(selectedDal);
         let branchOptions = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
+        let dalListedeVar = false;
         if (currentBranches.length > 0) {
             currentBranches.forEach(b => {
-                branchOptions += `<option value="${b}" ${selectedDal === b ? 'selected' : ''}>${b}</option>`;
+                const esit = !!seciliDalAnahtari && dalAnahtari(b) === seciliDalAnahtari;
+                if (esit) dalListedeVar = true;
+                branchOptions += `<option value="${NormGuvenlik.htmlKacis(b)}" ${esit ? 'selected' : ''}>${NormGuvenlik.htmlKacis(b)}</option>`;
             });
-        } else if (selectedDal && selectedDal !== 'Özel Eğitim Sınıfı') {
-            branchOptions += `<option value="${selectedDal}" selected>${selectedDal}</option>`;
+        }
+        if (!dalListedeVar && selectedDal && selectedDal !== 'Özel Eğitim Sınıfı') {
+            branchOptions += `<option value="${NormGuvenlik.htmlKacis(selectedDal)}" selected>${NormGuvenlik.htmlKacis(selectedDal)}</option>`;
         }
 
         const modalHtml = `
@@ -217654,7 +217750,7 @@ class UIComponentManager {
                         </div>
                         <div class="form-group">
                             <label class="form-label">Öğrenci Mevcudu</label>
-                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi || 30}" min="1" max="60">
+                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi ?? 30}" min="0" max="${/mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60}" step="1">
                         </div>
                         
                         <div class="form-group" id="group-sec-area" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
@@ -217808,10 +217904,39 @@ class UIComponentManager {
             try {
                 const grade = document.getElementById("sec-grade").value;
                 const defaultPrefix = String(grade).toLowerCase() === 'hazirlik' ? 'Hazırlık' : grade;
-                const name = document.getElementById("sec-name").value.trim() || `${defaultPrefix}-A`;
-                const students = parseInt(document.getElementById("sec-students").value || 30, 10);
+                const name = document.getElementById("sec-name").value.trim();
+                const ogrenciHam = String(document.getElementById("sec-students").value ?? "").trim();
+                const ogrenciMetni = ogrenciHam === "" ? "30" : ogrenciHam;
+                const students = parseInt(ogrenciMetni, 10);
+
+                // GİRDİ DENETİMİ (Dalga 3 Y-02/Y-03, 21.09.2026): eskiden -5 ve 9999 sessizce
+                // kaydediliyordu (9999 icmalde 20 rehber öğretmen açığı üretti); boş ad başka bir
+                // şubenin adını ("9-A") alıyor, aynı ad ikinci kez verilebiliyordu.
+                // MESEM'de bir şubeye alanın bütün çırakları girilebildiği için üst sınır geniştir.
+                const ogrenciTavani = /mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60;
+                if (!/^\d+$/.test(ogrenciMetni) || students > ogrenciTavani) {
+                    this.showToast(`Öğrenci sayısı 0 ile ${ogrenciTavani} arasında bir tam sayı olmalı.`, "error");
+                    return;
+                }
+                if (!name) {
+                    this.showToast(`Şube adı boş olamaz (ör. ${defaultPrefix}-A).`, "error");
+                    return;
+                }
+                const adAnahtari = s => String(s || "").trim().toLocaleUpperCase("tr-TR").replace(/\s+/g, " ");
+                const ayniAdli = (this.state.state.subeler || []).find(s =>
+                    s && (!isEditing || s.id !== sectionToEdit.id) && adAnahtari(s.subeAdi) === adAnahtari(name));
+                if (ayniAdli) {
+                    this.showToast(`"${name}" adında bir şube zaten var; her şubenin adı farklı olmalı.`, "error");
+                    return;
+                }
                 const areaId = document.getElementById("sec-area")?.value || null;
-                const dalName = document.getElementById("sec-branch")?.value || null;
+                let dalName = document.getElementById("sec-branch")?.value || null;
+                // Aynı dal farklı yazımla seçili geldiyse kayıttaki yazım korunur; aksi hâlde
+                // "dal değişti" sayılıp müfredat boşuna yeniden çözülür (Y-14).
+                if (isEditing && dalName && sectionToEdit.dalAdi
+                    && UIComponentManager.dalAnahtari(dalName) === UIComponentManager.dalAnahtari(sectionToEdit.dalAdi)) {
+                    dalName = sectionToEdit.dalAdi;
+                }
                 const isSpecialEdu = document.getElementById("sec-is-special-edu")?.checked || false;
                 const engelTuru = isSpecialEdu
                     ? (document.getElementById("sec-engel-turu")?.value || "hafif_zihinsel")
@@ -219218,7 +219343,7 @@ class UIComponentManager {
                         ${hasStaff ? `<span style="font-size: 0.65rem; background: #dcfce7; color: #15803d; padding: 0.05rem 0.4rem; border-radius: 4px; font-weight: 800;">● ${count} Kadrolu</span>` : ''}
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <input type="number" class="form-control teacher-count-input" data-branch="${bName}" value="${count}" min="0" max="100" style="width: 72px; padding: 0.22rem 0.35rem; text-align: center; font-weight: 800; color: ${hasStaff ? '#15803d' : 'var(--text-main)'};">
+                        <input type="number" class="form-control teacher-count-input" data-branch="${bName}" aria-label="${NormGuvenlik.htmlKacis(bName)} — kadrolu öğretmen sayısı" value="${count}" min="0" max="100" style="width: 72px; padding: 0.22rem 0.35rem; text-align: center; font-weight: 800; color: ${hasStaff ? '#15803d' : 'var(--text-main)'};">
                         <span style="font-size: 0.72rem; color: var(--text-muted);">Öğr.</span>
                     </div>
                 </div>
@@ -219398,7 +219523,7 @@ class UIComponentManager {
                             </div>
 
                             <div style="margin-bottom: 0.75rem;">
-                                <input type="text" id="staff-branch-search" placeholder="🔍 Branş Ara (örn: Türk Dili, Matematik, Bilişim, Makine, Din Kültürü)..." class="form-control" style="width: 100%; padding: 0.45rem 0.75rem; font-size: 0.85rem; border-radius: 8px;">
+                                <input type="text" id="staff-branch-search" aria-label="Branş ara" placeholder="🔍 Branş Ara (örn: Türk Dili, Matematik, Bilişim, Makine, Din Kültürü)..." class="form-control" style="width: 100%; padding: 0.45rem 0.75rem; font-size: 0.85rem; border-radius: 8px;">
                             </div>
 
                             <div id="staff-branches-list-container" style="max-height: 44vh; overflow-y: auto; padding-right: 0.25rem;">
@@ -219970,6 +220095,32 @@ class UIComponentManager {
 
         const newModal = document.querySelector(".modal-overlay.active, .modal-backdrop.active");
         if (newModal) {
+            // PENCERE ERİŞİLEBİLİRLİĞİ (Dalga 3 A-10, 21.09.2026): pencere açılınca odak arkada
+            // kalıyor, Tab arka plana gidiyor, ekran okuyucu pencere olduğunu bilmiyordu. Tüm
+            // uygulama pencereleri bu tek yoldan çizildiği için düzeltme burada yapılır.
+            const acan = document.activeElement;
+            newModal.setAttribute("role", "dialog");
+            newModal.setAttribute("aria-modal", "true");
+            const baslik = newModal.querySelector("h1, h2, h3, .modal-title");
+            if (baslik) {
+                if (!baslik.id) baslik.id = "modal-baslik-" + Date.now();
+                newModal.setAttribute("aria-labelledby", baslik.id);
+            } else {
+                // Başlıksız pencere (ör. Raporlar merkezi): ekran okuyucu adsız "pencere" demesin.
+                const ilkMetin = (newModal.querySelector(".modal-header, [class*='header']") || newModal)
+                    .textContent.replace(/\s+/g, " ").trim().replace(/[✕×]/g, "").trim().slice(0, 60);
+                newModal.setAttribute("aria-label", ilkMetin || "Pencere");
+            }
+            newModal.querySelectorAll(".modal-close-btn, [id^='btn-close']").forEach(b => {
+                if (!b.getAttribute("aria-label")) b.setAttribute("aria-label", "Kapat");
+            });
+            const odaklanabilirler = () => [...newModal.querySelectorAll(
+                'a[href],button,input:not([type="hidden"]),select,textarea,[tabindex]:not([tabindex="-1"])')]
+                .filter(x => !x.disabled && x.offsetParent !== null);
+            const ilkOdak = newModal.querySelector('input:not([type="hidden"]):not([type="checkbox"]),select,textarea')
+                || odaklanabilirler()[0];
+            if (ilkOdak) ilkOdak.focus({ preventScroll: true });
+
             newModal.addEventListener("click", (e) => {
                 if (e.target === newModal) {
                     newModal.remove();
@@ -219978,10 +220129,24 @@ class UIComponentManager {
             const handleEsc = (e) => {
                 if (e.key === "Escape") {
                     newModal.remove();
-                    document.removeEventListener("keydown", handleEsc);
+                } else if (e.key === "Tab") {
+                    const l = odaklanabilirler();
+                    if (!l.length) return;
+                    if (!newModal.contains(document.activeElement)) { e.preventDefault(); l[0].focus(); }
+                    else if (e.shiftKey && document.activeElement === l[0]) { e.preventDefault(); l[l.length - 1].focus(); }
+                    else if (!e.shiftKey && document.activeElement === l[l.length - 1]) { e.preventDefault(); l[0].focus(); }
                 }
             };
             document.addEventListener("keydown", handleEsc);
+            // Pencere hangi yolla kapanırsa kapansın (Esc, ✕, dış tıklama, düğme): dinleyici temizlenir,
+            // odak açan öğeye döner.
+            const izleyici = new MutationObserver(() => {
+                if (document.body.contains(newModal)) return;
+                izleyici.disconnect();
+                document.removeEventListener("keydown", handleEsc);
+                if (acan && acan.isConnected && typeof acan.focus === "function") acan.focus({ preventScroll: true });
+            });
+            izleyici.observe(document.body, { childList: true });
         }
     }
 
@@ -221183,7 +221348,17 @@ class UIComponentManager {
         }).join("");
 
         const kartlar = branslar.map(b => {
-            const durum = b.fark < 0
+            // REHBERLİK KARTI (Dalga 3 Y-08, 21.09.2026): bu kart branşa VERİLMEMİŞ "Rehberlik ve
+            // Yönlendirme" ders saatidir; norm doğurmaz. Eskiden "norm 0 · kadro 0 · kadro tam"
+            // yazıyordu; Yönetici İcmali ise rehber öğretmen normunu 1/1 gösterdiği için müdür
+            // okulda rehber öğretmen normu olmadığını sanıyordu.
+            const rehberlikDersKarti = !b.motordan && /^Rehberlik/i.test(b.ad);
+            const olcuYazisi = rehberlikDersKarti
+                ? `haftalık <b>${b.yuk} saat</b> · branşa verilmemiş ders saati`
+                : `haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b>`;
+            const durum = rehberlikDersKarti
+                ? { s: "tam", t: "norm doğurmaz" }
+                : b.fark < 0
                 ? { s: "acik", t: Math.abs(b.fark) + " öğretmen açık" }
                 : (b.fark > 0 ? { s: "fazla", t: "+" + b.fark + " fazla" }
                               : { s: "tam", t: "kadro tam" });
@@ -221267,6 +221442,8 @@ class UIComponentManager {
             const kalanFark = bransFarki + b.dusum - b.koord - b.seflik + b.ozelEgitim + (b.ozelAlanDusum || 0);
 
             const dipnot = [];
+            if (rehberlikDersKarti) dipnot.push(`Bu saatler <b>hiçbir öğretmen branşına verilmemiş</b> Rehberlik ve Yönlendirme dersidir: okulun toplam ders yüküne dâhildir ama norm doğurmaz. `
+                + `Dersi bir branşa verirseniz saat o branşın yüküne yazılır. <b>Rehber öğretmen normu</b> ders saatinden değil öğrenci sayısından ayrıca hesaplanır (Md. 21) — Yönetici İcmali'ndeki "Rehberlik Servisi Normu" kutusuna bakın.`);
             if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
             if (b.koord) dipnot.push(`İşletmelerde meslek eğitimi yükü <b>+${b.koord}</b> saat eklendi (Md. 22/2).`);
             if (b.seflik) dipnot.push(`Alan / atölye şefliği (Planlama ve Bakım-Onarım Görevi) <b>+${b.seflik}</b> saat eklendi (Md. 22/1-c-2).`);
@@ -221295,7 +221472,7 @@ class UIComponentManager {
                                 <tr class="dd-bas">
                                     <th class="dd-ders">
                                         <span class="dd-ad">${b.ad}</span>
-                                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
+                                        <span class="dd-olcu">${olcuYazisi}</span>
                                     </th>
                                     ${sutunBasliklari}
                                     <th class="dd-toplam"><span class="dd-durum ${durum.s}">${durum.t}</span></th>
@@ -221981,7 +222158,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
-                        <div class="print-doc-title">NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ</div>
+                        <div class="print-doc-title">NORM KADRO İHTİYAÇ VE FAZLALIK ÖN ÇALIŞMASI</div>
                     </div>
                     <div class="print-meta-right">
                         <div><strong>Eğt. Sezonu:</strong> ${stateData.okulBilgisi.sezon || '2026-2027'}</div>
@@ -221993,7 +222170,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             <div class="report-page-header no-print">
                 <div class="report-page-title">${data.title}</div>
-                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • İl / İlçe Millî Eğitim Müdürlüğü MEBBİS Norm Güncelleme Cetveli</div>
+                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Norm İhtiyaç / Fazla Ön Çalışması (karar destek amaçlıdır; resmî işlemlerde MEBBİS verileri esastır)</div>
             </div>
 
             <!-- İhtiyaç Tablosu -->
@@ -222011,7 +222188,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 <th>NORM</th>
                                 <th>MEVCUT</th>
                                 <th>İHTİYAÇ</th>
-                                <th>MEB GEREKÇESİ</th>
+                                <th>GEREKÇE (YÖNETMELİK)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -222028,6 +222205,12 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         </tbody>
                     </table>
                 ` : `<div class="empty-state-notice">✅ Okulda norm kadro açığı / ihtiyacı olan branş bulunmamaktadır.</div>`}
+                ${data.rehberSatiri ? `
+                    <div class="empty-state-notice" style="margin-top:0.6rem; text-align:left; border-left:4px solid ${data.rehberSatiri.ihtiyac ? '#dc2626' : '#ea580c'};">
+                        🧭 <strong>Rehber öğretmen: ${data.rehberSatiri.ihtiyac ? data.rehberSatiri.ihtiyac + ' ihtiyaç' : data.rehberSatiri.fazla + ' fazla'}</strong>
+                        (norm ${data.rehberSatiri.norm}, mevcut ${data.rehberSatiri.mevcut}) — branş toplamlarına dâhil değildir.
+                        <span class="text-sm text-muted">${data.rehberSatiri.gerekce}</span>
+                    </div>` : ""}
             </div>
 
             <!-- Fazlalık Tablosu -->
@@ -222045,7 +222228,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 <th>NORM</th>
                                 <th>MEVCUT</th>
                                 <th>FAZLALIK</th>
-                                <th>MEB GEREKÇESİ</th>
+                                <th>GEREKÇE (YÖNETMELİK)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -222149,7 +222332,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         ${data.labCourses.map(item => `
                             <tr>
                                 <td class="font-medium">${item.sectionName}</td>
-                                <td>${item.studentCount} Ögr</td>
+                                <td>${item.studentCount} Öğr.</td>
                                 <td>${item.courseName}</td>
                                 <td>${item.branchName}</td>
                                 <td>${item.baseHours}s</td>
@@ -222466,7 +222649,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <span class="kvkk-law-badge">6698 SAYILI KANUN m. 10</span>
                             <span class="kvkk-date-badge">Son Güncelleme: 19 Ağustos 2026</span>
                         </div>
-                        <h3 class="kvkk-sec-title">MEB NORM KADRO VE DERS YÜKÜ YÖNETİM SİSTEMİ<br>KİŞİSEL VERİLERİN KORUNMASI VE BULUT GÜVENLİĞİ AYDINLATMA METNİ</h3>
+                        <h3 class="kvkk-sec-title">NORMMATİK — NORM KADRO VE DERS YÜKÜ HESAPLAMA YAZILIMI<br>KİŞİSEL VERİLERİN KORUNMASI VE BULUT GÜVENLİĞİ AYDINLATMA METNİ</h3>
                         
                         <div class="kvkk-alert-card info">
                             <div class="kvkk-alert-icon">🛡️</div>
@@ -223218,24 +223401,24 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             
                             <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.65rem; margin-bottom: 0.65rem;">
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
+                                    <label for="lic-inp-kurum-kodu" style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
                                     <input type="text" id="lic-inp-kurum-kodu" class="form-control" value="${okulInfo.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
+                                    <label for="lic-inp-okul-adi" style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
                                     <input type="text" id="lic-inp-okul-adi" class="form-control" value="${okulInfo.okulAdi || ''}" placeholder="Örn: Kadıköy Anadolu Lisesi" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul Türü *</label>
+                                    <label for="lic-inp-okul-turu" style="font-size: 0.72rem; font-weight: 700;">Okul Türü *</label>
                                     <select id="lic-inp-okul-turu" class="form-control" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                         ${typeOptionsHtml}
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
+                                    <label for="lic-inp-il-ilce" style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
                                     <input type="text" id="lic-inp-il-ilce" class="form-control" value="${okulInfo.il ? (okulInfo.il + (okulInfo.ilce ? ' / ' + okulInfo.ilce : '')) : ''}" placeholder="Örn: İSTANBUL / KADIKÖY" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>
@@ -223664,6 +223847,13 @@ class MebNormApplication {
                 let sonKilitUyarisi = 0;
                 window.addEventListener("normmatik:demo-kilit", (olay) => {
                     const simdi = Date.now();
+                    // Kilit reddi (Dalga 3 A-12/Y-04, 21.09.2026): arayüz, işlemi yapan kod
+                    // reddi bilmeden "güncellendi/kaldırıldı" başarı bildirimini de basıyordu;
+                    // seçim kutusu da reddedilen değeri gösteriyordu. showToast bu zamana
+                    // bakıp aynı andaki başarı bildirimini bastırır; ekran gerçek veriyle
+                    // yeniden çizilir.
+                    window.__sonDemoKilidi = simdi;
+                    setTimeout(() => { try { this.render(); } catch (e) { /* çizim hatası kilidi etkilemez */ } }, 0);
                     if (simdi - sonKilitUyarisi < 1500) return;
                     sonKilitUyarisi = simdi;
                     const mesaj = (olay.detail && olay.detail.mesaj) || "Bu işlem demo sürümünde kullanılamaz.";
@@ -224022,7 +224212,7 @@ class MebNormApplication {
                 <div class="logo-badge-executive">
                     <div class="logo-text-executive">
                         <span class="logo-brand-title">NormMatik™</span>
-                        <span class="logo-brand-sub">MEB NORM SİSTEMİ <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
+                        <span class="logo-brand-sub">NORM KADRO YAZILIMI <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
                     </div>
                 </div>
             </div>
@@ -224034,7 +224224,7 @@ class MebNormApplication {
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin">
+                        <span class="school-title-executive" id="btn-edit-school-name" title="${NormGuvenlik.htmlKacis(info.okulAdi || 'Okul adı belirtilmedi')} — tıklayıp okul bilgilerini düzenleyin">
                             <span style="font-size: 1.15rem;">🏫</span>
                             <span class="school-name-text">${info.okulAdi || 'Okul Adı Belirtilmedi'}</span>
                             ${info.kurumKodu ? '<span class="school-code-badge">' + info.kurumKodu + '</span>' : ''}
@@ -224044,7 +224234,7 @@ class MebNormApplication {
                     <div class="school-meta-pills">
                         <div class="season-pill-box" title="Eğitim-Öğretim Sezonu">
                             <span class="season-pill-icon">📅</span>
-                            <select class="season-pill-select" id="season-selector">
+                            <select class="season-pill-select" id="season-selector" aria-label="Eğitim-öğretim sezonu">
                                 ${seasonOptionsHtml}
                             </select>
                         </div>
@@ -224067,7 +224257,7 @@ class MebNormApplication {
                 <button class="btn btn-sm ${headerStaffClass} btn-header-elevated" id="btn-header-staff" title="${headerStaffTitle}">
                     ${headerStaffText}
                 </button>
-                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="MEB Norm Kadro Raporları">
+                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="Norm Kadro Raporları">
                     🖨️ Raporlar
                 </button>
             </div>
@@ -224077,11 +224267,11 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
-                        💾 İndir
+                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir" aria-label="Projeyi İndir">
+                        💾 <span class="hdr-yazi">İndir</span>
                     </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Proje Yükle">
-                        📂 Yükle
+                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Proje Yükle" aria-label="Proje Yükle">
+                        📂 <span class="hdr-yazi">Yükle</span>
                     </button>
                     <input type="file" id="file-import-json" accept=".json" style="display:none;">
                     <!--
@@ -224092,8 +224282,8 @@ class MebNormApplication {
                         kimlikleri (id) aynı kaldı, dolayısıyla işleyişleri de aynı.
                     -->
                     <div class="header-more-wrap">
-                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="${demoMu ? 'Diğer araçlar: Rehber, Geçmiş, KVKK' : 'Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK'}" aria-haspopup="true" aria-expanded="false">
-                            ⋯ Diğer
+                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="${demoMu ? 'Diğer araçlar: Rehber, Geçmiş, KVKK' : 'Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK'}" aria-haspopup="true" aria-expanded="false" aria-label="Diğer araçlar">
+                            ⋯ <span class="hdr-yazi">Diğer</span>
                         </button>
                         <div class="header-more-menu" id="header-more-menu" hidden>${menuLisansHtml}
                             <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
@@ -224107,12 +224297,12 @@ class MebNormApplication {
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
+                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla" aria-label="Okulu Sıfırla">
                         🔄
                     </button>
                     <!-- 🔑 PAROLA DEĞİŞTİRME (parolayı yalnızca okul bilir) -->
-                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir">
-                        🔑 Şifre
+                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir" aria-label="Şifremi Değiştir">
+                        🔑 <span class="hdr-yazi">Şifre</span>
                     </button>
                     <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
                     <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
@@ -224204,7 +224394,7 @@ class MebNormApplication {
                 document.addEventListener("click", (e) => {
                     const k = document.getElementById("header-more-menu");
                     if (k && !k.hidden && !k.contains(e.target)
-                        && e.target?.id !== "btn-header-more") kapatHepsi();
+                        && !e.target?.closest?.("#btn-header-more")) kapatHepsi();
                 });
                 document.addEventListener("keydown", (e) => {
                     if (e.key === "Escape") kapatHepsi();
@@ -224398,7 +224588,7 @@ class MebNormApplication {
                 : "";
 
             return `
-                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}">
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}" tabindex="0" role="group" aria-label="${NormGuvenlik.htmlKacis(s.subeAdi)} şubesi${isActive ? ' (seçili)' : ''}"${isActive ? ' aria-current="true"' : ''}>
                     <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
                     <div class="sec-card-top-row">
                         <div class="sec-identity-wrap">
@@ -224492,7 +224682,7 @@ class MebNormApplication {
                 <!-- 4. ARAMA KUTUSU -->
                 <div class="search-box-sleek">
                     <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input-sleek" id="section-search-input" placeholder="Şube, sınıf veya alan ara..." value="${this.searchQuery}">
+                    <input type="text" class="search-input-sleek" id="section-search-input" aria-label="Şube, sınıf veya alan ara" placeholder="Şube, sınıf veya alan ara..." value="${this.searchQuery}">
                 </div>
             </div>
             <div class="sections-list">
@@ -224543,6 +224733,15 @@ class MebNormApplication {
         });
 
         document.querySelectorAll(".section-card").forEach(card => {
+            // KLAVYE (Dalga 3 A-07, 21.09.2026): kartlar yalnız fareyle seçilebiliyordu; klavyeyle
+            // çalışan kullanıcı yalnız etkin şubeyle çalışabiliyordu. Kart Tab ile odak alır, Enter/Boşluk
+            // seçer. Seçim listeyi yeniden çizdiği için odak, çizimden sonra aynı karta geri verilir.
+            card.addEventListener("keydown", (e) => {
+                if (e.target !== card || (e.key !== "Enter" && e.key !== " ")) return;
+                e.preventDefault();
+                this._kartOdakId = card.dataset.id;
+                card.click();
+            });
             card.addEventListener("click", (e) => {
                 if (e.target.closest("button")) return;
                 const id = card.dataset.id;
@@ -224551,6 +224750,12 @@ class MebNormApplication {
                     this.lastSidebarScrollTop = newListEl.scrollTop;
                 }
                 appState.setActiveSection(id);
+                // Klavyeyle seçildiyse liste (eşzamanlı) yeniden çizildi: odak yeni karta verilir.
+                if (this._kartOdakId) {
+                    const yeniKart = [...document.querySelectorAll(".section-card")].find(k => k.dataset.id === this._kartOdakId);
+                    this._kartOdakId = null;
+                    if (yeniKart) yeniKart.focus({ preventScroll: true });
+                }
                 // Mobilde şube tıklandığında otomatik Orta Panel Dersler sekmesine geç
                 if (window.innerWidth <= 768) {
                     document.body.setAttribute('data-mobile-tab', 'courses');
@@ -225289,7 +225494,7 @@ class MebNormApplication {
                 <td class="course-branch-cell">
                     ${bolmeHtml || `
                     <div class="course-branch-wrapper">
-                        <select class="branch-select" data-course="${cName}">
+                        <select class="branch-select" data-course="${cName}" aria-label="${NormGuvenlik.htmlKacis(cName)} dersi — atanan branş">
                             ${branchOptionsHtml}
                         </select>
                     </div>`}
@@ -225328,6 +225533,9 @@ class MebNormApplication {
 
         const normResult = normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
 
+        // Satırlarda görünmeyen ama "Toplam Okul Yükü"ne dâhil saatler tabloda dipnot olarak
+        // yazılır (Dalga 3 Y-05, 21.09.2026): eskiden toplam 392 iken satırlar 382 topluyordu,
+        // aradaki 10 saat branşa verilmemiş Rehberlik ve Yönlendirme dersiydi.
         const rowsHtml = normResult.branchReport.map(b => {
             return `
                 <tr class="norm-row" data-branch="${NormGuvenlik.htmlKacis(b.branchName)}">
@@ -225414,6 +225622,15 @@ class MebNormApplication {
                     <tbody>
                         ${rowsHtml.length > 0 ? rowsHtml : '<tr><td colspan="4" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz ders yükü hesaplanmadı.</td></tr>'}
                     </tbody>
+                    ${(normResult.rehberlikBranssizSaat || 0) + (normResult.branssizSaat || 0) > 0 ? `
+                    <tfoot class="norm-dipnot">
+                        ${normResult.rehberlikBranssizSaat > 0 ? `<tr><td colspan="4" style="font-size:0.72rem; color: var(--text-muted); padding: 0.35rem 0.5rem;">
+                            + <b>${normResult.rehberlikBranssizSaat} saat</b> Rehberlik ve Yönlendirme dersi hiçbir branşa verilmemiş: toplam yüke dâhil, norm doğurmaz. Rehber öğretmen normu öğrenci sayısından ayrıca hesaplanır (Md. 21).
+                        </td></tr>` : ""}
+                        ${normResult.branssizSaat > 0 ? `<tr><td colspan="4" style="font-size:0.72rem; color: var(--text-muted); padding: 0.35rem 0.5rem;">
+                            + <b>${normResult.branssizSaat} saat</b> ders henüz bir branşa atanmamış: toplam yüke dâhil, norm doğurmaz.
+                        </td></tr>` : ""}
+                    </tfoot>` : ""}
                 </table>
             </div>
                         <div class="sidebar-right-disclaimer-distinct">
@@ -225426,7 +225643,7 @@ class MebNormApplication {
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
                     🛡️ <strong>KVKK & Gizlilik</strong>
                 </button>
-                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • NormMatik™ Ar-Ge Grubu">
+                <span class="dev-subtle-watermark" title="NormMatik — norm kadro ve ders yükü hesaplama yazılımı (bağımsız; MEB ile resmî bağı yoktur)">
                     ⚡ Mimari & Tasarım: <strong>normmatik</strong>
                 </span>
             </div>

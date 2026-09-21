@@ -283,6 +283,18 @@ class MebReportsEngine {
             }
         });
 
+        // DERSİ OLMAYAN AMA KADROSU OLAN BRANŞ (Dalga 3 Y-13, 21.09.2026): motor bu branşı
+        // "0 saat · norm 0 · kadro N · +N fazla" olarak raporluyor; ızgarada dersi olmadığı için
+        // kartı da çıkmıyordu, norm fazlası öğretmen matriste görünmüyordu. Boş kart eklenir.
+        (normResult.branchReport || []).forEach(b => {
+            if (!branchGroups[b.branchName] && !b.isSpecialEdu && (b.currentTeachers || 0) > 0) {
+                branchGroups[b.branchName] = {
+                    branchName: b.branchName, isVocational: false, areaCode: null,
+                    courses: {}, totalHours: b.totalHours || 0
+                };
+            }
+        });
+
         // Branşları alfabetik sırala (Önce Alan/Meslek Branşları, Sonra Genel Kültür Branşları)
         const sortedBranchNames = Object.keys(branchGroups).sort((a, b) => {
             const isVocA = branchGroups[a].isVocational;
@@ -477,6 +489,21 @@ class MebReportsEngine {
 
         const balancedList = normResult.branchReport.filter(b => b.diff === 0 && b.calculatedNorm > 0);
 
+        // REHBER ÖĞRETMEN (Dalga 3 Y-09, 21.09.2026): normu ders saatinden değil öğrenci
+        // sayısından hesaplanır (Md. 21) ve branş listesinde yer almaz. Eskiden Yönetici
+        // İcmali açığı gösterirken bu rapor ondan hiç söz etmiyordu; müdür talebi atlayabiliyordu.
+        // Branş listelerine ve toplamlarına KATILMAZ (İcmal'deki "net norm ihtiyacı/fazlası"
+        // yalnız branş öğretmenlerini sayar; iki rapor birebir tutmalı — test_tutarlilik B4c).
+        // Ayrı satır olarak yazılır.
+        const rehber = (normResult.guidanceNorms || {}).karsilastirma || null;
+        const rehberSatiri = (rehber && rehber.fark !== 0) ? {
+            norm: rehber.norm,
+            mevcut: rehber.mevcut,
+            ihtiyac: rehber.fark < 0 ? Math.abs(rehber.fark) : 0,
+            fazla: rehber.fark > 0 ? rehber.fark : 0,
+            gerekce: `Rehber öğretmen normu ders yükünden değil norma esas öğrenci sayısından hesaplanır (Md. 21/2, 21/3): norm ${rehber.norm}, mevcut ${rehber.mevcut}.`
+        } : null;
+
         return {
             reportType: "NORM_ACTION_REPORT",
             title: "Norm Kadro İhtiyaç ve Fazlalık Raporu",
@@ -484,6 +511,7 @@ class MebReportsEngine {
             schoolInfo: schoolInfo,
             totalNeeded: normResult.totalNeeded,
             totalSurplus: normResult.totalSurplus,
+            rehberSatiri,
             neededList: neededList,
             surplusList: surplusList,
             balancedList: balancedList
@@ -917,7 +945,7 @@ class MebReportsEngine {
         const actionData = this.generateNormActionReport(state);
         const wsActRows = [];
         wsActRows.push(["T.C. MİLLÎ EĞİTİM BAKANLIĞI"]);
-        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ`]);
+        wsActRows.push([`${okulAdi.toLocaleUpperCase('tr-TR')} - NORM KADRO İHTİYAÇ VE FAZLALIK ÖN ÇALIŞMASI`]);
         wsActRows.push([`Toplam Öğretmen İhtiyacı: ${actionData.totalNeeded}`, `Toplam Norm Fazlası: ${actionData.totalSurplus}`]);
         wsActRows.push([]);
 
@@ -926,6 +954,11 @@ class MebReportsEngine {
         actionData.neededList.forEach((n, nIdx) => {
             wsActRows.push([nIdx + 1, n.branchName, n.totalHours, n.calculatedNorm, n.currentTeachers, n.neededCount, n.reason]);
         });
+        if (actionData.rehberSatiri) {
+            const r = actionData.rehberSatiri;
+            wsActRows.push(["", "Rehber Öğretmen (Md. 21 — ayrı hesap)", "—", r.norm, r.mevcut,
+                r.ihtiyac ? `${r.ihtiyac} ihtiyaç` : `${r.fazla} fazla`, r.gerekce]);
+        }
         wsActRows.push([]);
 
         wsActRows.push(["--- 2. NORM KADRO FAZLASI OLAN BRANŞLAR (NORM FAZLASI TESPİTİ) ---"]);

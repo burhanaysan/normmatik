@@ -6,14 +6,18 @@
          Firebase uçlarını kullanabilir; veri başka bir adrese gönderilemez. Yeni bir dış
          adres eklenirse buraya da yazılmalı, yoksa tarayıcı sessizce engeller. -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://normmatik-85118-default-rtdb.europe-west1.firebasedatabase.app https://raw.githubusercontent.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Çalışma alanı masaüstü düzenidir (css/app.css: en az 1200px). Telefon ve tablette
+         `width=device-width` ile açılınca ekranın yalnız sol üçte biri görünüyor, norm paneli ve
+         pencereler ekran dışında kalıyordu (Dalga 3 A-05/Y-15). Görünüm alanı 1200px'e
+         sabitlenince tarayıcı sayfanın tamamını ekrana sığdırır; iki parmakla büyütülebilir. -->
+    <meta name="viewport" content="width=1200">
     <title>NormMatik™ — MEB Norm Kadro ve Ders Yükü Çalışma Alanı</title>
     <!-- Calisma ekrani arama sonuclarinda cikmamali: tanitim sayfasi
          index.html'dir. Guvenlik amacli degil, dogru sayfanin one
          cikmasi icin. yonetim.html'de de ayni etiket var. -->
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="MEB Norm Kadro ve Haftalık Ders Dağıtımı Çalışma Terminali">
-    <link rel="stylesheet" href="css/app.css?v=20260921_1726">
+    <link rel="stylesheet" href="css/app.css?v=20260921_2231">
     <!-- MARKA IKONU
          Google, arama sonucunda site adinin yanina bu ikonu koyar. Onceden
          burada bir `data:` URI (emoji) vardi; Google data URI favicon'lari
@@ -127,7 +131,7 @@
     <script src="js/xlsx.full.min.js"></script>
     
     <!-- ANA UYGULAMA PAKETİ -->
-    <script src="js/bundle.js?v=20260921_1726"></script>
+    <script src="js/bundle.js?v=20260921_2231"></script>
 
     <!-- GÜVENLİ OTURUM VE SAYFA YÖNETİCİSİ -->
     <script>

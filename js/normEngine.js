@@ -2262,7 +2262,13 @@ export class NormEngine {
             // Kullanıcı Talimatı: Ders yükü 0 olan branşlar sağ panel norm listesinde görünmesin.
             // Ancak yükü Md. 22/6 düşümüyle sıfırlanan branş listede KALIR; aksi hâlde
             // branş sessizce kaybolur ve normun neden düştüğü görünmez.
-            if (totalHours <= 0 && !branchAdminDeduction[branchName]) {
+            //
+            // KADROSU OLAN BRANŞ DE KALIR (Dalga 3 / Y-13, kullanıcı kararı 21.09.2026):
+            // gizleme yalnız "yük 0 VE kadro 0" içindir. Eskiden dersi kalmamış branşın
+            // öğretmeni (ör. seçilmeyen Almanca, şube silinince Bilişim) MEVCUT toplamından
+            // ve norm fazlası listesinden tamamen düşüyordu — oysa en kesin norm fazlası
+            // odur. Gerçek bir okulda (15.09 yedeği) Müzik öğretmeni böyle kayboluyordu.
+            if (totalHours <= 0 && !branchAdminDeduction[branchName] && currentTeachers <= 0) {
                 return;
             }
 
@@ -2359,8 +2365,10 @@ export class NormEngine {
             "Rehberlik ve Psikolojik Danışmanlık",
             "Rehberlik / Psikolojik Danışmanlık"
         ];
+        let rehberlikBranssizSaat = 0;
         for (const ad of LISTEDEN_DUSULEN_BRANSLAR) {
             grandTotalHours += branchLoadMap[ad] || 0;
+            rehberlikBranssizSaat += branchLoadMap[ad] || 0;
         }
 
         // Branşı atanmamış dersler de çizelgede yer alır; toplam yüke eklenir.
@@ -2417,6 +2425,10 @@ export class NormEngine {
         return {
             branchReport,
             totalHours: grandTotalHours,
+            // Toplama dâhil ama branş satırlarında görünmeyen saatler (Dalga 3 Y-05):
+            // panel "satırlar toplamı ≠ toplam yük" farkını bunlarla açıklar.
+            rehberlikBranssizSaat,
+            branssizSaat,
             ozelEgitimUyarilari,
             ozelEgitimBirlesikSiniflar,
             yukMutabakati,

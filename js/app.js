@@ -294,6 +294,13 @@ class MebNormApplication {
                 let sonKilitUyarisi = 0;
                 window.addEventListener("normmatik:demo-kilit", (olay) => {
                     const simdi = Date.now();
+                    // Kilit reddi (Dalga 3 A-12/Y-04, 21.09.2026): arayüz, işlemi yapan kod
+                    // reddi bilmeden "güncellendi/kaldırıldı" başarı bildirimini de basıyordu;
+                    // seçim kutusu da reddedilen değeri gösteriyordu. showToast bu zamana
+                    // bakıp aynı andaki başarı bildirimini bastırır; ekran gerçek veriyle
+                    // yeniden çizilir.
+                    window.__sonDemoKilidi = simdi;
+                    setTimeout(() => { try { this.render(); } catch (e) { /* çizim hatası kilidi etkilemez */ } }, 0);
                     if (simdi - sonKilitUyarisi < 1500) return;
                     sonKilitUyarisi = simdi;
                     const mesaj = (olay.detail && olay.detail.mesaj) || "Bu işlem demo sürümünde kullanılamaz.";
@@ -652,7 +659,7 @@ class MebNormApplication {
                 <div class="logo-badge-executive">
                     <div class="logo-text-executive">
                         <span class="logo-brand-title">NormMatik™</span>
-                        <span class="logo-brand-sub">MEB NORM SİSTEMİ <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
+                        <span class="logo-brand-sub">NORM KADRO YAZILIMI <span class="logo-surum" title="Yazılım sürümü — ${NORMMATIK_SURUM.yayinTarihi} yayını">· ${surumEtiketi}</span></span>
                     </div>
                 </div>
             </div>
@@ -664,7 +671,7 @@ class MebNormApplication {
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="Tıklayıp Okul Bilgilerini Düzenleyin">
+                        <span class="school-title-executive" id="btn-edit-school-name" title="${NormGuvenlik.htmlKacis(info.okulAdi || 'Okul adı belirtilmedi')} — tıklayıp okul bilgilerini düzenleyin">
                             <span style="font-size: 1.15rem;">🏫</span>
                             <span class="school-name-text">${info.okulAdi || 'Okul Adı Belirtilmedi'}</span>
                             ${info.kurumKodu ? '<span class="school-code-badge">' + info.kurumKodu + '</span>' : ''}
@@ -674,7 +681,7 @@ class MebNormApplication {
                     <div class="school-meta-pills">
                         <div class="season-pill-box" title="Eğitim-Öğretim Sezonu">
                             <span class="season-pill-icon">📅</span>
-                            <select class="season-pill-select" id="season-selector">
+                            <select class="season-pill-select" id="season-selector" aria-label="Eğitim-öğretim sezonu">
                                 ${seasonOptionsHtml}
                             </select>
                         </div>
@@ -697,7 +704,7 @@ class MebNormApplication {
                 <button class="btn btn-sm ${headerStaffClass} btn-header-elevated" id="btn-header-staff" title="${headerStaffTitle}">
                     ${headerStaffText}
                 </button>
-                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="MEB Norm Kadro Raporları">
+                <button class="btn btn-sm btn-primary-gradient btn-header-elevated" id="btn-open-reports" title="Norm Kadro Raporları">
                     🖨️ Raporlar
                 </button>
             </div>
@@ -707,11 +714,11 @@ class MebNormApplication {
             <!-- 4. BÖLÜM: SİSTEM ARAÇLARI (KOMPAKT VE ŞIK) -->
             <div class="header-section-module section-tools">
                 <div class="header-toolbar-group">
-                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir">
-                        💾 İndir
+                    <button class="btn btn-sm btn-header-tool" id="btn-export-json" title="Projeyi İndir" aria-label="Projeyi İndir">
+                        💾 <span class="hdr-yazi">İndir</span>
                     </button>
-                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Proje Yükle">
-                        📂 Yükle
+                    <button class="btn btn-sm btn-header-tool" id="btn-import-json" title="Proje Yükle" aria-label="Proje Yükle">
+                        📂 <span class="hdr-yazi">Yükle</span>
                     </button>
                     <input type="file" id="file-import-json" accept=".json" style="display:none;">
                     <!--
@@ -722,8 +729,8 @@ class MebNormApplication {
                         kimlikleri (id) aynı kaldı, dolayısıyla işleyişleri de aynı.
                     -->
                     <div class="header-more-wrap">
-                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="${demoMu ? 'Diğer araçlar: Rehber, Geçmiş, KVKK' : 'Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK'}" aria-haspopup="true" aria-expanded="false">
-                            ⋯ Diğer
+                        <button class="btn btn-sm btn-header-tool" id="btn-header-more" title="${demoMu ? 'Diğer araçlar: Rehber, Geçmiş, KVKK' : 'Diğer araçlar: Lisans, Rehber, Geçmiş, KVKK'}" aria-haspopup="true" aria-expanded="false" aria-label="Diğer araçlar">
+                            ⋯ <span class="hdr-yazi">Diğer</span>
                         </button>
                         <div class="header-more-menu" id="header-more-menu" hidden>${menuLisansHtml}
                             <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
@@ -737,12 +744,12 @@ class MebNormApplication {
                             </button>
                         </div>
                     </div>
-                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla">
+                    <button class="btn btn-sm btn-danger-outline" id="btn-reset-school" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;" title="Okulu Sıfırla" aria-label="Okulu Sıfırla">
                         🔄
                     </button>
                     <!-- 🔑 PAROLA DEĞİŞTİRME (parolayı yalnızca okul bilir) -->
-                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir">
-                        🔑 Şifre
+                    <button class="btn btn-sm btn-header-tool" id="btn-parola-degistir" title="Şifremi Değiştir" aria-label="Şifremi Değiştir">
+                        🔑 <span class="hdr-yazi">Şifre</span>
                     </button>
                     <!-- 🚪 GÜVENLİ ÇIKIŞ BUTONU -->
                     <button class="btn btn-sm btn-header-tool" id="btn-app-logout" style="background: rgba(239, 68, 68, 0.15); border-color: #ef4444; color: #f87171;" title="Oturumu Kapat ve Ana Sayfaya Dön">
@@ -834,7 +841,7 @@ class MebNormApplication {
                 document.addEventListener("click", (e) => {
                     const k = document.getElementById("header-more-menu");
                     if (k && !k.hidden && !k.contains(e.target)
-                        && e.target?.id !== "btn-header-more") kapatHepsi();
+                        && !e.target?.closest?.("#btn-header-more")) kapatHepsi();
                 });
                 document.addEventListener("keydown", (e) => {
                     if (e.key === "Escape") kapatHepsi();
@@ -1028,7 +1035,7 @@ class MebNormApplication {
                 : "";
 
             return `
-                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}">
+                <div class="section-card ${gradeClass} ${isActive ? 'active' : ''} ${kilitli ? 'sube-kilitli' : ''}" data-id="${NormGuvenlik.htmlKacis(s.id)}" tabindex="0" role="group" aria-label="${NormGuvenlik.htmlKacis(s.subeAdi)} şubesi${isActive ? ' (seçili)' : ''}"${isActive ? ' aria-current="true"' : ''}>
                     <!-- 1. ÜST SATIR: ŞUBE ADI + METRİKLER (ÖĞRENCİ & SAAT) + YÜZEN CAM AKSİYONLAR -->
                     <div class="sec-card-top-row">
                         <div class="sec-identity-wrap">
@@ -1122,7 +1129,7 @@ class MebNormApplication {
                 <!-- 4. ARAMA KUTUSU -->
                 <div class="search-box-sleek">
                     <span class="search-icon">🔍</span>
-                    <input type="text" class="search-input-sleek" id="section-search-input" placeholder="Şube, sınıf veya alan ara..." value="${this.searchQuery}">
+                    <input type="text" class="search-input-sleek" id="section-search-input" aria-label="Şube, sınıf veya alan ara" placeholder="Şube, sınıf veya alan ara..." value="${this.searchQuery}">
                 </div>
             </div>
             <div class="sections-list">
@@ -1173,6 +1180,15 @@ class MebNormApplication {
         });
 
         document.querySelectorAll(".section-card").forEach(card => {
+            // KLAVYE (Dalga 3 A-07, 21.09.2026): kartlar yalnız fareyle seçilebiliyordu; klavyeyle
+            // çalışan kullanıcı yalnız etkin şubeyle çalışabiliyordu. Kart Tab ile odak alır, Enter/Boşluk
+            // seçer. Seçim listeyi yeniden çizdiği için odak, çizimden sonra aynı karta geri verilir.
+            card.addEventListener("keydown", (e) => {
+                if (e.target !== card || (e.key !== "Enter" && e.key !== " ")) return;
+                e.preventDefault();
+                this._kartOdakId = card.dataset.id;
+                card.click();
+            });
             card.addEventListener("click", (e) => {
                 if (e.target.closest("button")) return;
                 const id = card.dataset.id;
@@ -1181,6 +1197,12 @@ class MebNormApplication {
                     this.lastSidebarScrollTop = newListEl.scrollTop;
                 }
                 appState.setActiveSection(id);
+                // Klavyeyle seçildiyse liste (eşzamanlı) yeniden çizildi: odak yeni karta verilir.
+                if (this._kartOdakId) {
+                    const yeniKart = [...document.querySelectorAll(".section-card")].find(k => k.dataset.id === this._kartOdakId);
+                    this._kartOdakId = null;
+                    if (yeniKart) yeniKart.focus({ preventScroll: true });
+                }
                 // Mobilde şube tıklandığında otomatik Orta Panel Dersler sekmesine geç
                 if (window.innerWidth <= 768) {
                     document.body.setAttribute('data-mobile-tab', 'courses');
@@ -1919,7 +1941,7 @@ class MebNormApplication {
                 <td class="course-branch-cell">
                     ${bolmeHtml || `
                     <div class="course-branch-wrapper">
-                        <select class="branch-select" data-course="${cName}">
+                        <select class="branch-select" data-course="${cName}" aria-label="${NormGuvenlik.htmlKacis(cName)} dersi — atanan branş">
                             ${branchOptionsHtml}
                         </select>
                     </div>`}
@@ -1958,6 +1980,9 @@ class MebNormApplication {
 
         const normResult = normEngine.calculateSchoolNorms(subeler, existingTeachers, schoolType, coordinatorMap);
 
+        // Satırlarda görünmeyen ama "Toplam Okul Yükü"ne dâhil saatler tabloda dipnot olarak
+        // yazılır (Dalga 3 Y-05, 21.09.2026): eskiden toplam 392 iken satırlar 382 topluyordu,
+        // aradaki 10 saat branşa verilmemiş Rehberlik ve Yönlendirme dersiydi.
         const rowsHtml = normResult.branchReport.map(b => {
             return `
                 <tr class="norm-row" data-branch="${NormGuvenlik.htmlKacis(b.branchName)}">
@@ -2044,6 +2069,15 @@ class MebNormApplication {
                     <tbody>
                         ${rowsHtml.length > 0 ? rowsHtml : '<tr><td colspan="4" style="text-align:center; padding: 2rem; color: var(--text-muted);">Henüz ders yükü hesaplanmadı.</td></tr>'}
                     </tbody>
+                    ${(normResult.rehberlikBranssizSaat || 0) + (normResult.branssizSaat || 0) > 0 ? `
+                    <tfoot class="norm-dipnot">
+                        ${normResult.rehberlikBranssizSaat > 0 ? `<tr><td colspan="4" style="font-size:0.72rem; color: var(--text-muted); padding: 0.35rem 0.5rem;">
+                            + <b>${normResult.rehberlikBranssizSaat} saat</b> Rehberlik ve Yönlendirme dersi hiçbir branşa verilmemiş: toplam yüke dâhil, norm doğurmaz. Rehber öğretmen normu öğrenci sayısından ayrıca hesaplanır (Md. 21).
+                        </td></tr>` : ""}
+                        ${normResult.branssizSaat > 0 ? `<tr><td colspan="4" style="font-size:0.72rem; color: var(--text-muted); padding: 0.35rem 0.5rem;">
+                            + <b>${normResult.branssizSaat} saat</b> ders henüz bir branşa atanmamış: toplam yüke dâhil, norm doğurmaz.
+                        </td></tr>` : ""}
+                    </tfoot>` : ""}
                 </table>
             </div>
                         <div class="sidebar-right-disclaimer-distinct">
@@ -2056,7 +2090,7 @@ class MebNormApplication {
                 <button class="btn-footer-kvkk" id="btn-footer-kvkk" title="6698 Sayılı KVKK Aydınlatma Metni ve Veri Güvenliği Taahhüdü">
                     🛡️ <strong>KVKK & Gizlilik</strong>
                 </button>
-                <span class="dev-subtle-watermark" title="NormMatik MEB Norm Kadro ve Ders Yükü Sistemi • NormMatik™ Ar-Ge Grubu">
+                <span class="dev-subtle-watermark" title="NormMatik — norm kadro ve ders yükü hesaplama yazılımı (bağımsız; MEB ile resmî bağı yoktur)">
                     ⚡ Mimari & Tasarım: <strong>normmatik</strong>
                 </span>
             </div>

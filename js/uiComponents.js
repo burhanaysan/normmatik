@@ -281,6 +281,18 @@ export function getOfficialElectiveHoursOptions(courseName, rawHours, gradeLevel
 }
 
 export class UIComponentManager {
+    /**
+     * Dal adını yazım farkından arındırır: "YAZILIM GELİŞTİRME DALI" ile
+     * "Yazılım Geliştirme" aynı anahtarı verir (Türkçe küçük harf, sondaki
+     * "dalı" eki ve harf/rakam dışı karakterler atılır). Dalga 3 Y-14.
+     */
+    static dalAnahtari(ad) {
+        return String(ad || "")
+            .toLocaleLowerCase("tr-TR")
+            .replace(/\s+dalı\s*$/u, "")
+            .replace(/[^\p{L}\p{N}]/gu, "");
+    }
+
     constructor(dbService, stateService, normEngine, curriculumEngine) {
         this.db = dbService;
         this.state = stateService;
@@ -325,6 +337,12 @@ export class UIComponentManager {
             danger:  { sinif: "error",   ikon: "✕", bekle: 4300 }
         };
         const t = TURLER[type] || TURLER.success;
+        // Demo kilidi az önce işlemi reddettiyse aynı işlemin "başarılı" bildirimi
+        // gösterilmez (Dalga 3 A-12/Y-04): kilit uyarısıyla çelişiyordu.
+        if (t.sinif === "success" && typeof window !== 'undefined'
+            && Date.now() - (window.__sonDemoKilidi || 0) < 800) {
+            return;
+        }
         // Kutunun tam görünür kaldığı toplam süre: beliriş + bekleme.
         // Geri sayım çubuğu da bu süreyi gösterir.
         t.sure = GIR + t.bekle;
@@ -393,9 +411,9 @@ export class UIComponentManager {
         let currentSlide = 0;
         const slides = [
             {
-                badge: "👑 TÜRKİYE'NİN İLK VE TEK MEB NORM PLATFORMU",
+                badge: "📐 NORM KADRO VE DERS YÜKÜ HESAPLAMA YAZILIMI",
                 title: "NormMatik™ Dünyasına Hoş Geldiniz!",
-                subtitle: "Günlerce süren karmaşık Excel tabloları, hesaplama hataları ve norm fazlası risklerine son!",
+                subtitle: "Excel tabloları ve elle hesap yerine: norm kadro ve ders yükü, dayandığı yönetmelik maddeleriyle birlikte tek ekranda.",
                 icon: "🚀",
                 contentHtml: `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.25rem 0;">
@@ -1058,6 +1076,9 @@ export class UIComponentManager {
 
         document.getElementById("btn-confirm-reset-school").addEventListener("click", async () => {
             const kod = this.state.state.okulBilgisi?.kurumKodu;
+            // Demoda buluta hiç yazılmadığı için silinecek bulut kaydı da yoktur (Dalga 3 Y-12):
+            // eskiden "buluttaki kayıt silinemedi: Kurum kodu tanımlı değil" hatası çıkıyordu.
+            const demoMu = !!this.state.state.okulBilgisi?.isDemo;
 
             this.state.resetSchool();
             this.closeModal("reset-confirm-modal");
@@ -1075,7 +1096,7 @@ export class UIComponentManager {
             //
             // Silme, veritabanı kuralının zaten izin verdiği yoldur
             // (".validate": "!newData.exists() || ...").
-            if (kod) {
+            if (kod && !demoMu) {
                 try { this.state.yereliSil(kod); } catch (e) { /* yerel yoksa sorun değil */ }
                 try {
                     const bulut = (typeof window !== "undefined") && window.cloudDbService;
@@ -1150,13 +1171,24 @@ export class UIComponentManager {
         // Seçilen Alana ve Sınıf Seviyesine Ait Dallar (Dinamik Filtreleme)
         const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, schoolType, selectedGrade) : [];
         const selectedDal = sectionToEdit?.dalAdi || "";
+        // DAL EŞLEŞMESİ (Dalga 3 Y-14, 21.09.2026): liste "YAZILIM GELİŞTİRME DALI" biçiminde,
+        // e-Okul aktarımı ve demo ise "Yazılım Geliştirme" biçiminde saklıyor. Birebir karşılaştırma
+        // hiçbirini tutmadığından pencere dalı BOŞ açıyor, yalnız öğrenci sayısını değiştiren
+        // idareci kaydedince dal sessizce siliniyordu (gerçek bir meslek lisesinin 9 şubesi böyle).
+        // Artık yazım farkı yok sayılır; eşi listede yoksa kayıttaki dal ayrı seçenek olarak korunur.
+        const dalAnahtari = UIComponentManager.dalAnahtari;
+        const seciliDalAnahtari = dalAnahtari(selectedDal);
         let branchOptions = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
+        let dalListedeVar = false;
         if (currentBranches.length > 0) {
             currentBranches.forEach(b => {
-                branchOptions += `<option value="${b}" ${selectedDal === b ? 'selected' : ''}>${b}</option>`;
+                const esit = !!seciliDalAnahtari && dalAnahtari(b) === seciliDalAnahtari;
+                if (esit) dalListedeVar = true;
+                branchOptions += `<option value="${NormGuvenlik.htmlKacis(b)}" ${esit ? 'selected' : ''}>${NormGuvenlik.htmlKacis(b)}</option>`;
             });
-        } else if (selectedDal && selectedDal !== 'Özel Eğitim Sınıfı') {
-            branchOptions += `<option value="${selectedDal}" selected>${selectedDal}</option>`;
+        }
+        if (!dalListedeVar && selectedDal && selectedDal !== 'Özel Eğitim Sınıfı') {
+            branchOptions += `<option value="${NormGuvenlik.htmlKacis(selectedDal)}" selected>${NormGuvenlik.htmlKacis(selectedDal)}</option>`;
         }
 
         const modalHtml = `
@@ -1179,7 +1211,7 @@ export class UIComponentManager {
                         </div>
                         <div class="form-group">
                             <label class="form-label">Öğrenci Mevcudu</label>
-                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi || 30}" min="1" max="60">
+                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi ?? 30}" min="0" max="${/mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60}" step="1">
                         </div>
                         
                         <div class="form-group" id="group-sec-area" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
@@ -1333,10 +1365,39 @@ export class UIComponentManager {
             try {
                 const grade = document.getElementById("sec-grade").value;
                 const defaultPrefix = String(grade).toLowerCase() === 'hazirlik' ? 'Hazırlık' : grade;
-                const name = document.getElementById("sec-name").value.trim() || `${defaultPrefix}-A`;
-                const students = parseInt(document.getElementById("sec-students").value || 30, 10);
+                const name = document.getElementById("sec-name").value.trim();
+                const ogrenciHam = String(document.getElementById("sec-students").value ?? "").trim();
+                const ogrenciMetni = ogrenciHam === "" ? "30" : ogrenciHam;
+                const students = parseInt(ogrenciMetni, 10);
+
+                // GİRDİ DENETİMİ (Dalga 3 Y-02/Y-03, 21.09.2026): eskiden -5 ve 9999 sessizce
+                // kaydediliyordu (9999 icmalde 20 rehber öğretmen açığı üretti); boş ad başka bir
+                // şubenin adını ("9-A") alıyor, aynı ad ikinci kez verilebiliyordu.
+                // MESEM'de bir şubeye alanın bütün çırakları girilebildiği için üst sınır geniştir.
+                const ogrenciTavani = /mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60;
+                if (!/^\d+$/.test(ogrenciMetni) || students > ogrenciTavani) {
+                    this.showToast(`Öğrenci sayısı 0 ile ${ogrenciTavani} arasında bir tam sayı olmalı.`, "error");
+                    return;
+                }
+                if (!name) {
+                    this.showToast(`Şube adı boş olamaz (ör. ${defaultPrefix}-A).`, "error");
+                    return;
+                }
+                const adAnahtari = s => String(s || "").trim().toLocaleUpperCase("tr-TR").replace(/\s+/g, " ");
+                const ayniAdli = (this.state.state.subeler || []).find(s =>
+                    s && (!isEditing || s.id !== sectionToEdit.id) && adAnahtari(s.subeAdi) === adAnahtari(name));
+                if (ayniAdli) {
+                    this.showToast(`"${name}" adında bir şube zaten var; her şubenin adı farklı olmalı.`, "error");
+                    return;
+                }
                 const areaId = document.getElementById("sec-area")?.value || null;
-                const dalName = document.getElementById("sec-branch")?.value || null;
+                let dalName = document.getElementById("sec-branch")?.value || null;
+                // Aynı dal farklı yazımla seçili geldiyse kayıttaki yazım korunur; aksi hâlde
+                // "dal değişti" sayılıp müfredat boşuna yeniden çözülür (Y-14).
+                if (isEditing && dalName && sectionToEdit.dalAdi
+                    && UIComponentManager.dalAnahtari(dalName) === UIComponentManager.dalAnahtari(sectionToEdit.dalAdi)) {
+                    dalName = sectionToEdit.dalAdi;
+                }
                 const isSpecialEdu = document.getElementById("sec-is-special-edu")?.checked || false;
                 const engelTuru = isSpecialEdu
                     ? (document.getElementById("sec-engel-turu")?.value || "hafif_zihinsel")
@@ -2743,7 +2804,7 @@ export class UIComponentManager {
                         ${hasStaff ? `<span style="font-size: 0.65rem; background: #dcfce7; color: #15803d; padding: 0.05rem 0.4rem; border-radius: 4px; font-weight: 800;">● ${count} Kadrolu</span>` : ''}
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.3rem;">
-                        <input type="number" class="form-control teacher-count-input" data-branch="${bName}" value="${count}" min="0" max="100" style="width: 72px; padding: 0.22rem 0.35rem; text-align: center; font-weight: 800; color: ${hasStaff ? '#15803d' : 'var(--text-main)'};">
+                        <input type="number" class="form-control teacher-count-input" data-branch="${bName}" aria-label="${NormGuvenlik.htmlKacis(bName)} — kadrolu öğretmen sayısı" value="${count}" min="0" max="100" style="width: 72px; padding: 0.22rem 0.35rem; text-align: center; font-weight: 800; color: ${hasStaff ? '#15803d' : 'var(--text-main)'};">
                         <span style="font-size: 0.72rem; color: var(--text-muted);">Öğr.</span>
                     </div>
                 </div>
@@ -2923,7 +2984,7 @@ export class UIComponentManager {
                             </div>
 
                             <div style="margin-bottom: 0.75rem;">
-                                <input type="text" id="staff-branch-search" placeholder="🔍 Branş Ara (örn: Türk Dili, Matematik, Bilişim, Makine, Din Kültürü)..." class="form-control" style="width: 100%; padding: 0.45rem 0.75rem; font-size: 0.85rem; border-radius: 8px;">
+                                <input type="text" id="staff-branch-search" aria-label="Branş ara" placeholder="🔍 Branş Ara (örn: Türk Dili, Matematik, Bilişim, Makine, Din Kültürü)..." class="form-control" style="width: 100%; padding: 0.45rem 0.75rem; font-size: 0.85rem; border-radius: 8px;">
                             </div>
 
                             <div id="staff-branches-list-container" style="max-height: 44vh; overflow-y: auto; padding-right: 0.25rem;">
@@ -3495,6 +3556,32 @@ export class UIComponentManager {
 
         const newModal = document.querySelector(".modal-overlay.active, .modal-backdrop.active");
         if (newModal) {
+            // PENCERE ERİŞİLEBİLİRLİĞİ (Dalga 3 A-10, 21.09.2026): pencere açılınca odak arkada
+            // kalıyor, Tab arka plana gidiyor, ekran okuyucu pencere olduğunu bilmiyordu. Tüm
+            // uygulama pencereleri bu tek yoldan çizildiği için düzeltme burada yapılır.
+            const acan = document.activeElement;
+            newModal.setAttribute("role", "dialog");
+            newModal.setAttribute("aria-modal", "true");
+            const baslik = newModal.querySelector("h1, h2, h3, .modal-title");
+            if (baslik) {
+                if (!baslik.id) baslik.id = "modal-baslik-" + Date.now();
+                newModal.setAttribute("aria-labelledby", baslik.id);
+            } else {
+                // Başlıksız pencere (ör. Raporlar merkezi): ekran okuyucu adsız "pencere" demesin.
+                const ilkMetin = (newModal.querySelector(".modal-header, [class*='header']") || newModal)
+                    .textContent.replace(/\s+/g, " ").trim().replace(/[✕×]/g, "").trim().slice(0, 60);
+                newModal.setAttribute("aria-label", ilkMetin || "Pencere");
+            }
+            newModal.querySelectorAll(".modal-close-btn, [id^='btn-close']").forEach(b => {
+                if (!b.getAttribute("aria-label")) b.setAttribute("aria-label", "Kapat");
+            });
+            const odaklanabilirler = () => [...newModal.querySelectorAll(
+                'a[href],button,input:not([type="hidden"]),select,textarea,[tabindex]:not([tabindex="-1"])')]
+                .filter(x => !x.disabled && x.offsetParent !== null);
+            const ilkOdak = newModal.querySelector('input:not([type="hidden"]):not([type="checkbox"]),select,textarea')
+                || odaklanabilirler()[0];
+            if (ilkOdak) ilkOdak.focus({ preventScroll: true });
+
             newModal.addEventListener("click", (e) => {
                 if (e.target === newModal) {
                     newModal.remove();
@@ -3503,10 +3590,24 @@ export class UIComponentManager {
             const handleEsc = (e) => {
                 if (e.key === "Escape") {
                     newModal.remove();
-                    document.removeEventListener("keydown", handleEsc);
+                } else if (e.key === "Tab") {
+                    const l = odaklanabilirler();
+                    if (!l.length) return;
+                    if (!newModal.contains(document.activeElement)) { e.preventDefault(); l[0].focus(); }
+                    else if (e.shiftKey && document.activeElement === l[0]) { e.preventDefault(); l[l.length - 1].focus(); }
+                    else if (!e.shiftKey && document.activeElement === l[l.length - 1]) { e.preventDefault(); l[0].focus(); }
                 }
             };
             document.addEventListener("keydown", handleEsc);
+            // Pencere hangi yolla kapanırsa kapansın (Esc, ✕, dış tıklama, düğme): dinleyici temizlenir,
+            // odak açan öğeye döner.
+            const izleyici = new MutationObserver(() => {
+                if (document.body.contains(newModal)) return;
+                izleyici.disconnect();
+                document.removeEventListener("keydown", handleEsc);
+                if (acan && acan.isConnected && typeof acan.focus === "function") acan.focus({ preventScroll: true });
+            });
+            izleyici.observe(document.body, { childList: true });
         }
     }
 
@@ -4708,7 +4809,17 @@ export class UIComponentManager {
         }).join("");
 
         const kartlar = branslar.map(b => {
-            const durum = b.fark < 0
+            // REHBERLİK KARTI (Dalga 3 Y-08, 21.09.2026): bu kart branşa VERİLMEMİŞ "Rehberlik ve
+            // Yönlendirme" ders saatidir; norm doğurmaz. Eskiden "norm 0 · kadro 0 · kadro tam"
+            // yazıyordu; Yönetici İcmali ise rehber öğretmen normunu 1/1 gösterdiği için müdür
+            // okulda rehber öğretmen normu olmadığını sanıyordu.
+            const rehberlikDersKarti = !b.motordan && /^Rehberlik/i.test(b.ad);
+            const olcuYazisi = rehberlikDersKarti
+                ? `haftalık <b>${b.yuk} saat</b> · branşa verilmemiş ders saati`
+                : `haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b>`;
+            const durum = rehberlikDersKarti
+                ? { s: "tam", t: "norm doğurmaz" }
+                : b.fark < 0
                 ? { s: "acik", t: Math.abs(b.fark) + " öğretmen açık" }
                 : (b.fark > 0 ? { s: "fazla", t: "+" + b.fark + " fazla" }
                               : { s: "tam", t: "kadro tam" });
@@ -4792,6 +4903,8 @@ export class UIComponentManager {
             const kalanFark = bransFarki + b.dusum - b.koord - b.seflik + b.ozelEgitim + (b.ozelAlanDusum || 0);
 
             const dipnot = [];
+            if (rehberlikDersKarti) dipnot.push(`Bu saatler <b>hiçbir öğretmen branşına verilmemiş</b> Rehberlik ve Yönlendirme dersidir: okulun toplam ders yüküne dâhildir ama norm doğurmaz. `
+                + `Dersi bir branşa verirseniz saat o branşın yüküne yazılır. <b>Rehber öğretmen normu</b> ders saatinden değil öğrenci sayısından ayrıca hesaplanır (Md. 21) — Yönetici İcmali'ndeki "Rehberlik Servisi Normu" kutusuna bakın.`);
             if (b.dusum) dipnot.push(`Yönetici ders saati <b>−${b.dusum}</b> saat düşüldü (Md. 22/6); norm bu düşümden sonra hesaplandı.`);
             if (b.koord) dipnot.push(`İşletmelerde meslek eğitimi yükü <b>+${b.koord}</b> saat eklendi (Md. 22/2).`);
             if (b.seflik) dipnot.push(`Alan / atölye şefliği (Planlama ve Bakım-Onarım Görevi) <b>+${b.seflik}</b> saat eklendi (Md. 22/1-c-2).`);
@@ -4820,7 +4933,7 @@ export class UIComponentManager {
                                 <tr class="dd-bas">
                                     <th class="dd-ders">
                                         <span class="dd-ad">${b.ad}</span>
-                                        <span class="dd-olcu">haftalık <b>${b.yuk} saat</b> · norm <b>${b.norm}</b> · kadro <b>${b.mevcut}</b></span>
+                                        <span class="dd-olcu">${olcuYazisi}</span>
                                     </th>
                                     ${sutunBasliklari}
                                     <th class="dd-toplam"><span class="dd-durum ${durum.s}">${durum.t}</span></th>
@@ -5506,7 +5619,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         <div class="print-antet-line-2">${(antet.ilValiligi || 'ANKARA VALİLİĞİ').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-3">${(antet.ilceMem || 'İlçe Millî Eğitim Müdürlüğü').toLocaleUpperCase('tr-TR')}</div>
                         <div class="print-antet-line-4">${(antet.resmiOkulAdi || stateData.okulBilgisi.okulAdi || 'OKUL MÜDÜRLÜĞÜ').toLocaleUpperCase('tr-TR')}</div>
-                        <div class="print-doc-title">NORM KADRO İHTİYAÇ VE FAZLALIK RESMÎ EYLEM CETVELİ</div>
+                        <div class="print-doc-title">NORM KADRO İHTİYAÇ VE FAZLALIK ÖN ÇALIŞMASI</div>
                     </div>
                     <div class="print-meta-right">
                         <div><strong>Eğt. Sezonu:</strong> ${stateData.okulBilgisi.sezon || '2026-2027'}</div>
@@ -5518,7 +5631,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
 
             <div class="report-page-header no-print">
                 <div class="report-page-title">${data.title}</div>
-                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • İl / İlçe Millî Eğitim Müdürlüğü MEBBİS Norm Güncelleme Cetveli</div>
+                <div class="report-page-subtitle">${data.schoolInfo.okulAdi || 'MEB Kurumu'} • Norm İhtiyaç / Fazla Ön Çalışması (karar destek amaçlıdır; resmî işlemlerde MEBBİS verileri esastır)</div>
             </div>
 
             <!-- İhtiyaç Tablosu -->
@@ -5536,7 +5649,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 <th>NORM</th>
                                 <th>MEVCUT</th>
                                 <th>İHTİYAÇ</th>
-                                <th>MEB GEREKÇESİ</th>
+                                <th>GEREKÇE (YÖNETMELİK)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -5553,6 +5666,12 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         </tbody>
                     </table>
                 ` : `<div class="empty-state-notice">✅ Okulda norm kadro açığı / ihtiyacı olan branş bulunmamaktadır.</div>`}
+                ${data.rehberSatiri ? `
+                    <div class="empty-state-notice" style="margin-top:0.6rem; text-align:left; border-left:4px solid ${data.rehberSatiri.ihtiyac ? '#dc2626' : '#ea580c'};">
+                        🧭 <strong>Rehber öğretmen: ${data.rehberSatiri.ihtiyac ? data.rehberSatiri.ihtiyac + ' ihtiyaç' : data.rehberSatiri.fazla + ' fazla'}</strong>
+                        (norm ${data.rehberSatiri.norm}, mevcut ${data.rehberSatiri.mevcut}) — branş toplamlarına dâhil değildir.
+                        <span class="text-sm text-muted">${data.rehberSatiri.gerekce}</span>
+                    </div>` : ""}
             </div>
 
             <!-- Fazlalık Tablosu -->
@@ -5570,7 +5689,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 <th>NORM</th>
                                 <th>MEVCUT</th>
                                 <th>FAZLALIK</th>
-                                <th>MEB GEREKÇESİ</th>
+                                <th>GEREKÇE (YÖNETMELİK)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -5674,7 +5793,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                         ${data.labCourses.map(item => `
                             <tr>
                                 <td class="font-medium">${item.sectionName}</td>
-                                <td>${item.studentCount} Ögr</td>
+                                <td>${item.studentCount} Öğr.</td>
                                 <td>${item.courseName}</td>
                                 <td>${item.branchName}</td>
                                 <td>${item.baseHours}s</td>
@@ -5991,7 +6110,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <span class="kvkk-law-badge">6698 SAYILI KANUN m. 10</span>
                             <span class="kvkk-date-badge">Son Güncelleme: 19 Ağustos 2026</span>
                         </div>
-                        <h3 class="kvkk-sec-title">MEB NORM KADRO VE DERS YÜKÜ YÖNETİM SİSTEMİ<br>KİŞİSEL VERİLERİN KORUNMASI VE BULUT GÜVENLİĞİ AYDINLATMA METNİ</h3>
+                        <h3 class="kvkk-sec-title">NORMMATİK — NORM KADRO VE DERS YÜKÜ HESAPLAMA YAZILIMI<br>KİŞİSEL VERİLERİN KORUNMASI VE BULUT GÜVENLİĞİ AYDINLATMA METNİ</h3>
                         
                         <div class="kvkk-alert-card info">
                             <div class="kvkk-alert-icon">🛡️</div>
@@ -6743,24 +6862,24 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             
                             <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.65rem; margin-bottom: 0.65rem;">
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
+                                    <label for="lic-inp-kurum-kodu" style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
                                     <input type="text" id="lic-inp-kurum-kodu" class="form-control" value="${okulInfo.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
+                                    <label for="lic-inp-okul-adi" style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
                                     <input type="text" id="lic-inp-okul-adi" class="form-control" value="${okulInfo.okulAdi || ''}" placeholder="Örn: Kadıköy Anadolu Lisesi" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">Okul Türü *</label>
+                                    <label for="lic-inp-okul-turu" style="font-size: 0.72rem; font-weight: 700;">Okul Türü *</label>
                                     <select id="lic-inp-okul-turu" class="form-control" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                         ${typeOptionsHtml}
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
-                                    <label style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
+                                    <label for="lic-inp-il-ilce" style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
                                     <input type="text" id="lic-inp-il-ilce" class="form-control" value="${okulInfo.il ? (okulInfo.il + (okulInfo.ilce ? ' / ' + okulInfo.ilce : '')) : ''}" placeholder="Örn: İSTANBUL / KADIKÖY" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>

@@ -961,7 +961,8 @@ body {
 }
 
 /* Mouse gelince akıcı açılış */
-.section-card:hover .sec-action-chips {
+.section-card:hover .sec-action-chips,
+.section-card:focus-within .sec-action-chips {
     opacity: 1;
     visibility: visible;
     transform: translateX(0) scale(1);
@@ -6168,6 +6169,16 @@ html, body {
     overflow: hidden;
 }
 
+/* Dar pencere (Dalga 3 A-05, 21.09.2026): düzen 1200px'ten dar olamaz; eskiden kök
+   `overflow: hidden` olduğu için 1200px'ten dar pencerede (ör. 1366x768 dizüstü + Windows
+   %125 ölçek ≈ 1093px) sağdaki Norm Kadro paneli ve Çıkış düğmesine ULAŞILAMIYORDU.
+   Artık yatay kaydırılabilir; dikey kaydırma paneller içinde kalır. Pencere 1200px ve
+   üzerindeyse kaydırma çubuğu hiç çıkmaz, görünüm değişmez. */
+html {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 .main-workspace {
     display: flex !important;
     flex-direction: row !important;
@@ -6811,6 +6822,22 @@ body.resizing .middle-canvas {
     display: none !important;
 }
 
+/* Dar ekranda üst çubuk (Dalga 3 A-06, 21.09.2026): 1280px'te başlık 81px taşıyor, kaydırma
+   çubuğu gizli olduğundan "Çıkış" hiç görünmüyordu; 1366px'te 12px'i kesikti. 1500px'in
+   altında İndir/Yükle/Diğer/Şifre yalnız simgeyle gösterilir (tam ad title + aria-label'da);
+   "Çıkış" yazısı her boyutta kalır. */
+@media screen and (max-width: 1499px) {
+    .app-header .hdr-yazi {
+        display: none !important;
+    }
+    /* Boşluklar da sıkılaşır: yalnız simgeyle bile 1200px'te (düzenin alt sınırı) demo başlığı
+       ~40px taşıyordu ("Lisans Al" düğmesi yalnız demoda var); ölçüldü, bu ikisiyle sığıyor. */
+    .app-header {
+        gap: 0.3rem !important;
+        padding: 0 0.6rem !important;
+    }
+}
+
 .logo-badge-executive {
     background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
     border: 1px solid #38bdf8 !important;
@@ -7125,4 +7152,28 @@ body.resizing .middle-canvas {
     opacity: 0.85 !important;
     font-variant-numeric: tabular-nums !important;
     white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   KONTRAST DÜZELTMESİ (Dalga 3 A-09, 21.09.2026)
+   Ölçüldü (WCAG AA normal metin >= 4.5): İHTİYAÇ çipi 3.57, FAZLA çipi 3.95, yük çipi 3.61,
+   "N Şube" rozeti 3.25, e-Okul düğmesi 3.77, KPI mavisi 4.10, mor 4.23, "5 Saat" 3.97-4.10,
+   BARAJ 4.41. İHTİYAÇ/FAZLA normun SONUCUDUR ve 9,4 px yazıyla gösteriliyordu. Marka rengi
+   (--primary #0284c7) her yerde değişmedi; yalnız ölçülen küçük metinler koyulaştırıldı.
+   ========================================================================== */
+.norm-status-chip.ihtiyac { color: #075985; }
+.norm-status-chip.fazla { color: #b91c1c; }
+.norm-chip-load { color: #075985; }
+.badge-total-sections { color: #075985 !important; }
+.kpi-chip-num.blue { color: #075985 !important; }
+.kpi-chip-num.purple { color: #6d28d9 !important; }
+.course-hours-value { color: #075985; }
+.baraj-pill { color: #b91c1c; }
+.btn-sec-eokul { background: #047857 !important; border-color: #065f46 !important; }
+.btn-sec-eokul:hover { background: #065f46 !important; }
+
+/* Klavye odağı (A-07): şube kartı Tab ile odak alınca görünür halka. */
+.section-card:focus-visible {
+    outline: 2px solid #0369a1;
+    outline-offset: 2px;
 }

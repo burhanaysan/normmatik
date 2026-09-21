@@ -1,8 +1,8 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.4.0",
-  "releaseDate": "2026-09-17",
+  "version": "2.4.1",
+  "releaseDate": "2026-09-21",
   "minEngineVersion": "2.0.0",
   "distribution": {
     "channel": "stable",
@@ -10,7 +10,20 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Okulda dersi kalmayan ama kadrosu olan bir branşın öğretmeni (ör. ikinci yabancı dil seçilmeyince Almanca öğretmeni, bir şube silinince Bilişim öğretmeni) mevcut kadro toplamından ve norm fazlası listesinden düşüyordu. Artık \"0 saat · norm 0 · mevcut 1 · +1 fazla\" olarak sağ panelde, Yönetici İcmalinde, Master Yük Matrisinde ve norm fazlası (atama/nakil) listesinde görünüyor. Hem dersi hem kadrosu olmayan branş eskisi gibi gizli kalıyor.",
+    "Şube düzenleme penceresi meslek lisesinde şubenin dalını boş getiriyordu; yalnız öğrenci sayısını değiştirip kaydeden idarecinin şubesi dalını kaybediyordu. Dal artık seçili geliyor ve kaydedildiğinde korunuyor.",
+    "Şube kaydederken girdi denetimi: öğrenci sayısı 0 ile 60 arasında (MESEM'de 450'ye kadar) bir tam sayı olmalı; şube adı boş bırakılamıyor ve başka bir şubenin adı verilemiyor. Eskiden -5 ya da 9999 sessizce kaydediliyor, 9999 raporda 20 rehber öğretmen açığı üretiyordu.",
+    "Çalışma alanı 1200 pikselden dar pencerelerde ve tablet/telefonda artık kesilmiyor: dar pencerede yatay kaydırılabiliyor, telefonda sayfa ekrana sığdırılıyor. Okullarda yaygın 1366x768 dizüstülerde (Windows %125 ölçekte) sağ paneldeki norm tablosuna ve Çıkış düğmesine ulaşılamıyordu.",
+    "Üst çubuk 1500 pikselden dar ekranlarda İndir, Yükle, Diğer ve Şifre düğmelerini yalnız simgeyle gösteriyor (tam adı fareyle üzerine gelince ve ekran okuyucuda duyuluyor); 1280 pikselde görünmeyen Çıkış düğmesi artık görünüyor.",
+    "Rehber öğretmen açığı ya da fazlası norm ihtiyaç/fazla raporunda ve Excel çıktısında ayrı bir satır olarak görünüyor (branş toplamlarına katılmıyor); eskiden yalnız Yönetici İcmalinde vardı.",
+    "Sağ paneldeki \"Toplam Okul Yükü\" ile branş satırlarının toplamı arasındaki fark artık tabloda yazıyor: hiçbir branşa verilmemiş Rehberlik ve Yönlendirme dersi ya da branşı atanmamış dersler toplam yüke dâhildir ama norm doğurmaz. Master Yük Matrisindeki Rehberlik kartı \"norm 0 · kadro tam\" yerine bunu açıkça söylüyor.",
+    "Metin düzeltmesi: üst çubuk, raporlar ve tanıtım turundaki \"MEB Norm Sistemi\", \"MEBBİS Norm Güncelleme Cetveli\", \"MEB Gerekçesi\", \"Resmî Eylem Cetveli\", \"Türkiye'nin ilk ve tek MEB norm platformu\" gibi Bakanlığa ait bir sistem izlenimi veren ifadeler kaldırıldı; raporlar karar destek amaçlı ön çalışma olduğunu ve resmî işlemlerde MEBBİS verilerinin esas alındığını belirtiyor.",
+    "Demoda \"Okulu Sıfırla\" düğmesi iki kırmızı \"VERİLER KAYDEDİLEMEDİ ... lütfen bildirin\" hata bildirimi çıkarıyordu; artık yalnız \"Okul sıfırlandı\" uyarısı çıkıyor (demo hiçbir zaman buluta yazılmaz).",
+    "Klavye ve ekran okuyucu desteği: şube kartları Tab ile seçilip Enter ile açılabiliyor (kart düğmeleri odaktayken görünüyor); ders satırlarındaki branş seçicileri, sezon, arama, Kadro ve Lisans pencerelerindeki alanlar ekran okuyucuya adlarıyla okunuyor; tüm pencereler açılınca odağı içeri alıyor, Esc ile kapanıyor ve odağı açan düğmeye geri veriyor. Tanıtım sayfasındaki giriş ve görsel büyütme pencereleri de aynı şekilde çalışıyor.",
+    "Okunabilirlik: norm panelindeki İHTİYAÇ/FAZLA etiketleri, yük ve şube sayısı rozetleri, KPI sayıları, ders saatleri, BARAJ etiketi ve e-Okul düğmesinin renkleri erişilebilirlik ölçütünün (WCAG AA, 4,5:1) altındaydı; ölçülüp koyulaştırıldı. Atölye grup tablosundaki \"Ögr\" yazımı düzeltildi; üst çubukta kesilen uzun okul adı fareyle üzerine gelince tam görünüyor.",
+    "Demo sürümünde kilitli bir şubede değişiklik denendiğinde \"kilitli\" uyarısıyla birlikte \"güncellendi\" bildirimi de çıkıyordu; artık yalnız kilit uyarısı çıkıyor ve seçim kutusu gerçek değere dönüyor.",
     "Meslek lisesi, Anadolu Teknik Programı, MESEM ve meslek ortaokulunun seçmeli ders listeleri resmî kaynaklara bağlandı: TTKB 16/07/2026-62 seçmeli dersler tablosu ve alanların çerçeve öğretim programları. Eskiden bu okullarda resmî listede olmayan dersler ve yanlış saat seçenekleri görünüyordu; 11-12. sınıf seçmeli meslek dersleri 9-10. sınıfa da çıkıyordu.",
+    "Hazırlık sınıfı olmayan Sosyal Bilimler Liselerinde seçmeli ders listesi kendi resmî çizelgesinden geliyor (9. sınıf İkinci Yabancı Dil 1/2/4 saat; 12. sınıfta Metin Tahlilleri yok).",
     "Özel eğitim meslek okulu ve uygulama okulunda seçmeli ders listesi boş: bu okulların resmî çizelgelerinde seçmeli ders yok.",
     "Seçmeli ders penceresinde kural uyarıları: meslek lisesi ve meslek ortaokulunda her seçmeli gruptan en az bir ders, meslek lisesi hazırlık sınıfında toplam 2 saat; resmî listede olmayan ya da saati seçenek dışında kalan ders. Seçimleriniz silinmez.",
     "Seçmeli derslerde önerilen öğretmen branşı düzeldi: Türkçe büyük harf hatası yüzünden çoğu derste ders adı branş diye öneriliyordu. Din, Ahlak ve Değer grubundaki dersler imam hatip dışındaki okullarda Din Kültürü ve Ahlak Bilgisi'ne öneriliyor (Öğretmenlik Alanları Esasları).",
