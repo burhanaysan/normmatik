@@ -115,16 +115,28 @@ export const NORM_RULES_CONFIG = {
             // seçmelileri (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları,
             // Fen Bilimleri Uygulamaları...) atölye (Md. 19) sayıyor, branş normunu
             // 1 eksik ya da fazla çıkarıyordu. Ölçüldü: adında "Uygulamaları" geçen
-            // 76 dersin 61 meslekî olanı çerçeve programın isAtolye işaretiyle zaten
-            // atölye sayılıyor; kalan 15'i genel lise/imam hatip/ortaokul dersi.
+            // 76 dersin 61 meslekî olanı zaten atölye sayılıyor; kalan 15'i genel
+            // lise/imam hatip/ortaokul dersi.
+            // DÜZELTME (22.09.2026): buradaki eski yorum "çerçeve programın isAtolye
+            // işareti" diyordu; BÖYLE BİR İŞARET YOK. Resmî çizelgede (MTEGM) yalnız
+            // kategori ve baraj bilgisi var; meslek dersinin atölyede mi sınıfta mı
+            // okutulduğu hiçbir resmî belgede yazmıyor. isAtolye, kategorisi "MESLEK"
+            // olan her ders için curriculumEngine'de kategoriden türetilir.
             "İŞLETMELERDE MESLEKİ EĞİTİM",
             "İŞLETMELERDE MESLEK EĞİTİMİ"
         ],
-        /** Yukarıdaki kalıplara uysa bile atölye SAYILMAYACAK dersler. */
-        courseNameExclusions: [
-            "HUKUK DİLİ",
-            "TERMİNOLOJİ"
-        ]
+        /** Yukarıdaki kalıplara uysa bile atölye SAYILMAYACAK dersler.
+         *
+         * BOŞALTILDI (kullanıcı kararı 22.09.2026): eskiden ["HUKUK DİLİ", "TERMİNOLOJİ"]
+         * idi ve yalnız üç meslek dersini (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji
+         * ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) atölye dışı tutuyordu; kaynağı
+         * belgelenmemişti ve diğer 690 meslek dersinden ayrı davranıyordu (9. sınıfta 21
+         * öğrencide iki meslek dersi "2 Grup" alırken üçüncüsü almıyordu, grup kutusu da
+         * çıkmıyordu). Meslek dersinin atölyede mi sınıfta mı okutulduğu okulun fiziki
+         * durumuna bağlıdır; grup kurup kurmamak MÜDÜRÜN kararıdır: her meslek dersi
+         * aynı davranır, şube barem gerektiriyorsa grup kutusu görünür ve müdür 1'e
+         * kadar indirebilir. */
+        courseNameExclusions: []
     },
 
     /* =====================================================================

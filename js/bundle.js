@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.2",
+    surum: "2.4.3",
     yayinTarihi: "2026-09-22",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Meslek liselerinde tüm meslek dersleri artık aynı davranıyor: şubedeki öğrenci sayısı Md. 22/1-ç baremine göre grup gerektirdiğinde (9. sınıfta 21 ve üzeri, 10-12. sınıflarda 17 ve üzeri) her meslek dersinde \"1 Grup / 2 Grup\" kutusu görünüyor ve okulunuzun dersi kaç grupta okuttuğunu siz seçiyorsunuz. Eskiden adında \"Hukuk Dili\" ya da \"Terminoloji\" geçen üç ders (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) bilerek gruplanmıyor ve kutu çıkmıyordu; 21 öğrencili 9. sınıf Adalet şubesinde iki meslek dersi \"2 Grup\" alırken üçüncüsü almıyordu. Grup sayısını yönetmeliğin baremini aşacak biçimde artıramazsınız.",
         "Ders yükü yeniden idarecinin seçtiği branşa yazılıyor: bir dersi (ör. Fizik) başka bir branşa (ör. Kimya) verdiğinizde ders o branşın yüküne ve normuna eklenir; uygulama bir kısıtlama koymaz, hangi branşa verileceği idarecinin inisiyatif ve sorumluluğundadır. 2.1.7 sürümünde eklenen \"norm dersin resmî alanında kalır\" kuralı geri alındı — İslam Bilim Tarihi, Fen Bilimleri Uygulamaları gibi birden fazla branşın normuna girebilen dersler tek bir alana bağlanamıyordu.",
         "Demoda \"Lisans Al\" düğmesinin üzerine gelince çıkan \"Deneme sürümü — 7 gün kaldı\" ipucu kaldırıldı: demoda süre sınırı yoktur, yalnız 3 şube ve filigran sınırı vardır.",
         "Okulda dersi kalmayan ama kadrosu olan bir branşın öğretmeni (ör. ikinci yabancı dil seçilmeyince Almanca öğretmeni, bir şube silinince Bilişim öğretmeni) mevcut kadro toplamından ve norm fazlası listesinden düşüyordu. Artık \"0 saat · norm 0 · mevcut 1 · +1 fazla\" olarak sağ panelde, Yönetici İcmalinde, Master Yük Matrisinde ve norm fazlası (atama/nakil) listesinde görünüyor. Hem dersi hem kadrosu olmayan branş eskisi gibi gizli kalıyor.",
@@ -784,16 +785,28 @@ const NORM_RULES_CONFIG = {
             // seçmelileri (Matematik Uygulamaları, Proje Tasarımı ve Uygulamaları,
             // Fen Bilimleri Uygulamaları...) atölye (Md. 19) sayıyor, branş normunu
             // 1 eksik ya da fazla çıkarıyordu. Ölçüldü: adında "Uygulamaları" geçen
-            // 76 dersin 61 meslekî olanı çerçeve programın isAtolye işaretiyle zaten
-            // atölye sayılıyor; kalan 15'i genel lise/imam hatip/ortaokul dersi.
+            // 76 dersin 61 meslekî olanı zaten atölye sayılıyor; kalan 15'i genel
+            // lise/imam hatip/ortaokul dersi.
+            // DÜZELTME (22.09.2026): buradaki eski yorum "çerçeve programın isAtolye
+            // işareti" diyordu; BÖYLE BİR İŞARET YOK. Resmî çizelgede (MTEGM) yalnız
+            // kategori ve baraj bilgisi var; meslek dersinin atölyede mi sınıfta mı
+            // okutulduğu hiçbir resmî belgede yazmıyor. isAtolye, kategorisi "MESLEK"
+            // olan her ders için curriculumEngine'de kategoriden türetilir.
             "İŞLETMELERDE MESLEKİ EĞİTİM",
             "İŞLETMELERDE MESLEK EĞİTİMİ"
         ],
-        /** Yukarıdaki kalıplara uysa bile atölye SAYILMAYACAK dersler. */
-        courseNameExclusions: [
-            "HUKUK DİLİ",
-            "TERMİNOLOJİ"
-        ]
+        /** Yukarıdaki kalıplara uysa bile atölye SAYILMAYACAK dersler.
+         *
+         * BOŞALTILDI (kullanıcı kararı 22.09.2026): eskiden ["HUKUK DİLİ", "TERMİNOLOJİ"]
+         * idi ve yalnız üç meslek dersini (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji
+         * ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) atölye dışı tutuyordu; kaynağı
+         * belgelenmemişti ve diğer 690 meslek dersinden ayrı davranıyordu (9. sınıfta 21
+         * öğrencide iki meslek dersi "2 Grup" alırken üçüncüsü almıyordu, grup kutusu da
+         * çıkmıyordu). Meslek dersinin atölyede mi sınıfta mı okutulduğu okulun fiziki
+         * durumuna bağlıdır; grup kurup kurmamak MÜDÜRÜN kararıdır: her meslek dersi
+         * aynı davranır, şube barem gerektiriyorsa grup kutusu görünür ve müdür 1'e
+         * kadar indirebilir. */
+        courseNameExclusions: []
     },
 
     /* =====================================================================

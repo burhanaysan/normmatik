@@ -325,6 +325,55 @@ kontrol("A03 ✕ düğmeleri 'Kapat' adlı", idx.includes('id="lightbox-close" a
 kontrol("Y16 demo 'Lisans Al' ipucunda süre ('gün kaldı') yok", !app.includes("Deneme sürümü — ${kalanGun}") && !/lisansIpucu =[^;]*gün kaldı/.test(app));
 
 /* ======================================================================= */
+/* MESLEK DERSİ GRUP KUTUSU (kullanıcı kararı 22.09.2026)                  */
+/* Her meslek dersi aynı davranır: şube barem gerektiriyorsa grup kutusu   */
+/* çıkar; grup kurup kurmamak müdürün kararıdır (1'e kadar indirebilir).   */
+/* Eskiden yalnız 3 ders ("Hukuk Dili ve Terminolojisi" vb.) ad kalıbıyla  */
+/* atölye dışıydı: 21 öğrencide biri "2 Grup" almıyor, kutu da çıkmıyordu. */
+/* ======================================================================= */
+kontrol("G1 ad kalıbı istisna listesi boş", ne.rules.workshopLabNorm.courseNameExclusions.length === 0,
+    JSON.stringify(ne.rules.workshopLabNorm.courseNameExclusions));
+for (const TUR of ["mesleki_ve_teknik_anadolu_lisesi", "anadolu_teknik_programi"]) {
+    let toplam = 0; const atolyeDegil = [];
+    const alanlar = w.dbService.getVocationalAreas(TUR);
+    for (const a of alanlar) for (const g of ["9", "10", "11", "12"]) {
+        const dallar = w.dbService.getBranchesForArea(a.id, TUR, g) || [];
+        for (const dal of (dallar.length ? dallar : [null])) {
+            let d = []; try { d = ce.getMandatoryCourses(TUR, g, a.id, dal) || []; } catch (e) { continue; }
+            for (const c of d) {
+                if (!/MESLEK/i.test(c.kategori || "")) continue;
+                toplam++;
+                if (!ne.isWorkshopLabCourse(c, TUR)) atolyeDegil.push(c.ders);
+            }
+        }
+    }
+    kontrol(`G1 ${TUR}: ${alanlar.length} alanda tarama geçerli (>1000 meslek dersi kaydı)`, toplam > 1000, toplam);
+    kontrol(`G1 ${TUR}: HER meslek dersi aynı davranır (atölye dışı kalan yok)`, atolyeDegil.length === 0,
+        [...new Set(atolyeDegil)].slice(0, 5).join(", "));
+}
+{
+    // Kullanıcının bildirdiği okul: 9. sınıf Adalet, 3 meslek dersi.
+    const TUR = "mesleki_ve_teknik_anadolu_lisesi";
+    const d9 = ce.getMandatoryCourses(TUR, "9", "adalet", null) || [];
+    const meslek = d9.filter(c => /MESLEK/i.test(c.kategori || ""));
+    kontrol("G1 senaryo geçerli: Adalet 9. sınıfta 3 meslek dersi (Hukuk Dili dâhil)",
+        meslek.length === 3 && meslek.some(c => /HUKUK D/i.test(c.ders)), meslek.map(c => c.ders).join(" | "));
+    const m = (c, ogr) => ne.evaluateCourseMultiplier(c, ogr, TUR, "9", 0);
+    kontrol("G1 20 öğrenci: hiçbir derste grup yok, kutu çıkmaz (üst sınır 1)",
+        meslek.every(c => m(c, 20).groupCount === 1 && (m(c, 20).otomatikGrup || 1) === 1));
+    kontrol("G1 21 öğrenci: üç ders de 2 grup, kutu çıkar (üst sınır 2)",
+        meslek.every(c => m(c, 21).groupCount === 2 && m(c, 21).otomatikGrup === 2 && m(c, 21).loadCategory === "ATOLYE"),
+        meslek.map(c => m(c, 21).groupCount + "/" + m(c, 21).otomatikGrup).join(","));
+    const hd = JSON.parse(JSON.stringify(meslek.find(c => /HUKUK D/i.test(c.ders))));
+    kontrol("G1 Hukuk Dili 21 öğrencide 2 grup x 5 saat = 10 saat", m(hd, 21).calculatedLoad === 10, m(hd, 21).calculatedLoad);
+    hd.grupSayisi = 1;
+    kontrol("G1 müdür grup kurmamayı seçebilir: 1 grup, 5 saat, elle işaretli",
+        m(hd, 21).groupCount === 1 && m(hd, 21).calculatedLoad === 5 && m(hd, 21).elleAyarlandi === true);
+    hd.grupSayisi = 9;
+    kontrol("G1 müdür barem üstüne çıkamaz (yönetmelik üst sınırı: 2)", m(hd, 21).groupCount === 2, m(hd, 21).groupCount);
+}
+
+/* ======================================================================= */
 if (hatalar.length) {
     console.log(`❌ test_denetimDalga3: ${hatalar.length} hata, ${gecen} geçti`);
     hatalar.forEach(h => console.log("   - " + h));
