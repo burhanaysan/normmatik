@@ -322,6 +322,8 @@ kontrol("A01 giriş penceresi: dialog rolü, Kapat adı, Esc ve Tab kapanı",
 kontrol("A02 ekran görüntüsü klavyeyle açılıyor", idx.includes("card.setAttribute('tabindex', '0')") && idx.includes("e.key === 'Enter' || e.key === ' '"));
 kontrol("A03 ✕ düğmeleri 'Kapat' adlı", idx.includes('id="lightbox-close" aria-label="Kapat"'));
 
+kontrol("Y16 demo 'Lisans Al' ipucunda süre ('gün kaldı') yok", !app.includes("Deneme sürümü — ${kalanGun}") && !/lisansIpucu =[^;]*gün kaldı/.test(app));
+
 /* ======================================================================= */
 if (hatalar.length) {
     console.log(`❌ test_denetimDalga3: ${hatalar.length} hata, ${gecen} geçti`);

@@ -1,8 +1,8 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.4.1",
-  "releaseDate": "2026-09-21",
+  "version": "2.4.2",
+  "releaseDate": "2026-09-22",
   "minEngineVersion": "2.0.0",
   "distribution": {
     "channel": "stable",
@@ -10,6 +10,8 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "Ders yükü yeniden idarecinin seçtiği branşa yazılıyor: bir dersi (ör. Fizik) başka bir branşa (ör. Kimya) verdiğinizde ders o branşın yüküne ve normuna eklenir; uygulama bir kısıtlama koymaz, hangi branşa verileceği idarecinin inisiyatif ve sorumluluğundadır. 2.1.7 sürümünde eklenen \"norm dersin resmî alanında kalır\" kuralı geri alındı — İslam Bilim Tarihi, Fen Bilimleri Uygulamaları gibi birden fazla branşın normuna girebilen dersler tek bir alana bağlanamıyordu.",
+    "Demoda \"Lisans Al\" düğmesinin üzerine gelince çıkan \"Deneme sürümü — 7 gün kaldı\" ipucu kaldırıldı: demoda süre sınırı yoktur, yalnız 3 şube ve filigran sınırı vardır.",
     "Okulda dersi kalmayan ama kadrosu olan bir branşın öğretmeni (ör. ikinci yabancı dil seçilmeyince Almanca öğretmeni, bir şube silinince Bilişim öğretmeni) mevcut kadro toplamından ve norm fazlası listesinden düşüyordu. Artık \"0 saat · norm 0 · mevcut 1 · +1 fazla\" olarak sağ panelde, Yönetici İcmalinde, Master Yük Matrisinde ve norm fazlası (atama/nakil) listesinde görünüyor. Hem dersi hem kadrosu olmayan branş eskisi gibi gizli kalıyor.",
     "Şube düzenleme penceresi meslek lisesinde şubenin dalını boş getiriyordu; yalnız öğrenci sayısını değiştirip kaydeden idarecinin şubesi dalını kaybediyordu. Dal artık seçili geliyor ve kaydedildiğinde korunuyor.",
     "Şube kaydederken girdi denetimi: öğrenci sayısı 0 ile 60 arasında (MESEM'de 450'ye kadar) bir tam sayı olmalı; şube adı boş bırakılamıyor ve başka bir şubenin adı verilemiyor. Eskiden -5 ya da 9999 sessizce kaydediliyor, 9999 raporda 20 rehber öğretmen açığı üretiyordu.",
@@ -41,9 +43,7 @@
     "Özel eğitim sınıflarında Özel Eğitim Hizmetleri Yönetmeliği'nin sınıf mevcudu sınırları uygulanıyor (ör. otizmde en fazla 4, hafif zihinselde 10); sınır aşılınca kaç sınıf gerektiği ve sınıflar açılırsa normun kaç olacağı gösteriliyor.",
     "Özel eğitim meslek okulu ve uygulama okulunda her şube özel eğitim şubesi sayılıyor; norm şube başına hesaplanıyor.",
     "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
-    "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
     "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",
-    "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
     "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
     "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",
     "Kur'an-ı Kerim dersinin 25'ten fazla öğrencide iki gruba bölünmesi yalnızca imam hatip okullarında uygulanıyor; spor ve güzel sanatlar liselerinde seçmeli Kur'an-ı Kerim bölünmüyor.",

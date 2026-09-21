@@ -635,10 +635,10 @@ class MebNormApplication {
             ? (window.licenseManager.licenseStatus || {})
             : {};
         const demoMu = !!(info.isDemo || lisansDurumu.isDemo);
-        const kalanGun = Number(lisansDurumu.daysRemaining);
-        const lisansIpucu = Number.isFinite(kalanGun) && kalanGun > 0
-            ? `Deneme sürümü — ${kalanGun} gün kaldı. Lisans almak ve tüm özellikleri açmak için tıklayın.`
-            : "Lisans almak ve tüm özellikleri açmak için tıklayın.";
+        // "Deneme sürümü — N gün kaldı" ipucu KALDIRILDI (Dalga 3 Y-16, kullanıcı kararı 21.09.2026):
+        // demoda süre sınırı yok, tanıtım sayfası da böyle bir söz vermiyor; müdür 7 gün sonra
+        // verisinin gideceğini sanabiliyordu.
+        const lisansIpucu = "Lisans almak ve tüm özellikleri açmak için tıklayın.";
         const lisansCtaHtml = demoMu ? `
             <div class="header-section-module section-lisans-cta">
                 <button class="btn btn-lisans-cta" id="btn-open-license" title="${lisansIpucu}">

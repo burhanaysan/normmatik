@@ -349,13 +349,15 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.1",
-    yayinTarihi: "2026-09-21",
+    surum: "2.4.2",
+    yayinTarihi: "2026-09-22",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Ders yükü yeniden idarecinin seçtiği branşa yazılıyor: bir dersi (ör. Fizik) başka bir branşa (ör. Kimya) verdiğinizde ders o branşın yüküne ve normuna eklenir; uygulama bir kısıtlama koymaz, hangi branşa verileceği idarecinin inisiyatif ve sorumluluğundadır. 2.1.7 sürümünde eklenen \"norm dersin resmî alanında kalır\" kuralı geri alındı — İslam Bilim Tarihi, Fen Bilimleri Uygulamaları gibi birden fazla branşın normuna girebilen dersler tek bir alana bağlanamıyordu.",
+        "Demoda \"Lisans Al\" düğmesinin üzerine gelince çıkan \"Deneme sürümü — 7 gün kaldı\" ipucu kaldırıldı: demoda süre sınırı yoktur, yalnız 3 şube ve filigran sınırı vardır.",
         "Okulda dersi kalmayan ama kadrosu olan bir branşın öğretmeni (ör. ikinci yabancı dil seçilmeyince Almanca öğretmeni, bir şube silinince Bilişim öğretmeni) mevcut kadro toplamından ve norm fazlası listesinden düşüyordu. Artık \"0 saat · norm 0 · mevcut 1 · +1 fazla\" olarak sağ panelde, Yönetici İcmalinde, Master Yük Matrisinde ve norm fazlası (atama/nakil) listesinde görünüyor. Hem dersi hem kadrosu olmayan branş eskisi gibi gizli kalıyor.",
         "Şube düzenleme penceresi meslek lisesinde şubenin dalını boş getiriyordu; yalnız öğrenci sayısını değiştirip kaydeden idarecinin şubesi dalını kaybediyordu. Dal artık seçili geliyor ve kaydedildiğinde korunuyor.",
         "Şube kaydederken girdi denetimi: öğrenci sayısı 0 ile 60 arasında (MESEM'de 450'ye kadar) bir tam sayı olmalı; şube adı boş bırakılamıyor ve başka bir şubenin adı verilemiyor. Eskiden -5 ya da 9999 sessizce kaydediliyor, 9999 raporda 20 rehber öğretmen açığı üretiyordu.",
@@ -387,9 +389,7 @@ const NORMMATIK_SURUM = {
         "Özel eğitim sınıflarında Özel Eğitim Hizmetleri Yönetmeliği'nin sınıf mevcudu sınırları uygulanıyor (ör. otizmde en fazla 4, hafif zihinselde 10); sınır aşılınca kaç sınıf gerektiği ve sınıflar açılırsa normun kaç olacağı gösteriliyor.",
         "Özel eğitim meslek okulu ve uygulama okulunda her şube özel eğitim şubesi sayılıyor; norm şube başına hesaplanıyor.",
         "Eski ve bozuk ana veri dosyası (15,5 MB) kaldırıldı; uygulama daha hızlı açılıyor. Alan, dal ve ders listeleri değişmedi.",
-        "Rehberlik ve Yönlendirme dersi hangi branşa verilirse o branşın ders yüküne ekleniyor; bu ders için 'dersin resmî alanı' kuralı uygulanmıyor.",
         "Havacılık ve Uzay Teknolojisi alanında 9. sınıf şubesine yanlışlıkla hazırlık sınıfının dersleri (24 saat yabancı dil) geliyordu; artık 9. sınıf çizelgesi geliyor.",
-        "Ders yükü artık dersin resmî alanına yazılıyor: bir dersi başka bir branşa verdiğinizde seçiminiz ekranda durur, norm ise dersin alanına işlenir ve ders satırında 'idareci şu branşa verdi' notu görünür (Norm Kadro Yön. Md. 22/1-c-1).",
         "Meslek liselerinde okulda açık olan her alanda alan şefliği varsayılan olarak işaretli geliyor (OÖKY Md. 84/1); şefliği olmayan alanda işareti kaldırmanız yeterli.",
         "Müdür başyardımcısı normu yeniden hesaplanıyor: yatılı/pansiyonlu kurumda ve müdür yardımcısı sayısı 6 ve üzeri olan okulda 1 norm (Md. 6). 'Görevi süren başyardımcı var' kutusu artık yalnızca mevcut kadro sütununu açıyor.",
         "Kur'an-ı Kerim dersinin 25'ten fazla öğrencide iki gruba bölünmesi yalnızca imam hatip okullarında uygulanıyor; spor ve güzel sanatlar liselerinde seçmeli Kur'an-ı Kerim bölünmüyor.",
@@ -208933,7 +208933,17 @@ class NormEngine {
     // idarecinin fiilî dağılımı ders satırında ayrıca gösterilir. Bu, 27.08.2026
     // tarihli "idareci hangi branşı seçerse o" kararını değiştirir.
     // Geri almak için tek satır yeter: false.
-    normDersinResmiAlaninaYazilir = true;
+    //
+    // 22.09.2026 KULLANICI KARARI — Y7 GERİ ALINDI (false): norm, İDARECİNİN SEÇTİĞİ
+    // branşa yazılır; 27.08.2026 kararı yeniden geçerlidir. Gerekçe (kullanıcı):
+    // bazı derslerin (İslam Bilim Tarihi, Fen Bilimleri Uygulamaları ve benzeri, yüzlerce
+    // olabilir) branşı tek değildir, birden fazla branşın normuna eklenebilir; "dersin
+    // resmî alanı" tek bir alana bağlanamaz. Hangi branşa verileceği müdürün inisiyatifi
+    // ve sorumluluğundadır; mevzuata aykırı bir dağıtım yapılsa bile (Fizik dersini Kimya
+    // branşına vermek gibi) uygulama kısıtlamaz, Kimya normu artar. Uygulama karar verici
+    // değil, karar destek aracıdır.
+    // Y7 kodu (_resmiDersAlani ve "fiilî" rozeti) bayrak kapalıyken hiç çalışmaz; silinmedi.
+    normDersinResmiAlaninaYazilir = false;
 
     constructor() {
         this.rules = NORM_RULES_CONFIG;
@@ -224188,10 +224198,10 @@ class MebNormApplication {
             ? (window.licenseManager.licenseStatus || {})
             : {};
         const demoMu = !!(info.isDemo || lisansDurumu.isDemo);
-        const kalanGun = Number(lisansDurumu.daysRemaining);
-        const lisansIpucu = Number.isFinite(kalanGun) && kalanGun > 0
-            ? `Deneme sürümü — ${kalanGun} gün kaldı. Lisans almak ve tüm özellikleri açmak için tıklayın.`
-            : "Lisans almak ve tüm özellikleri açmak için tıklayın.";
+        // "Deneme sürümü — N gün kaldı" ipucu KALDIRILDI (Dalga 3 Y-16, kullanıcı kararı 21.09.2026):
+        // demoda süre sınırı yok, tanıtım sayfası da böyle bir söz vermiyor; müdür 7 gün sonra
+        // verisinin gideceğini sanabiliyordu.
+        const lisansIpucu = "Lisans almak ve tüm özellikleri açmak için tıklayın.";
         const lisansCtaHtml = demoMu ? `
             <div class="header-section-module section-lisans-cta">
                 <button class="btn btn-lisans-cta" id="btn-open-license" title="${lisansIpucu}">

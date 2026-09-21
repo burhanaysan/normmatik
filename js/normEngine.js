@@ -30,7 +30,17 @@ export class NormEngine {
     // idarecinin fiilî dağılımı ders satırında ayrıca gösterilir. Bu, 27.08.2026
     // tarihli "idareci hangi branşı seçerse o" kararını değiştirir.
     // Geri almak için tek satır yeter: false.
-    normDersinResmiAlaninaYazilir = true;
+    //
+    // 22.09.2026 KULLANICI KARARI — Y7 GERİ ALINDI (false): norm, İDARECİNİN SEÇTİĞİ
+    // branşa yazılır; 27.08.2026 kararı yeniden geçerlidir. Gerekçe (kullanıcı):
+    // bazı derslerin (İslam Bilim Tarihi, Fen Bilimleri Uygulamaları ve benzeri, yüzlerce
+    // olabilir) branşı tek değildir, birden fazla branşın normuna eklenebilir; "dersin
+    // resmî alanı" tek bir alana bağlanamaz. Hangi branşa verileceği müdürün inisiyatifi
+    // ve sorumluluğundadır; mevzuata aykırı bir dağıtım yapılsa bile (Fizik dersini Kimya
+    // branşına vermek gibi) uygulama kısıtlamaz, Kimya normu artar. Uygulama karar verici
+    // değil, karar destek aracıdır.
+    // Y7 kodu (_resmiDersAlani ve "fiilî" rozeti) bayrak kapalıyken hiç çalışmaz; silinmedi.
+    normDersinResmiAlaninaYazilir = false;
 
     constructor() {
         this.rules = NORM_RULES_CONFIG;

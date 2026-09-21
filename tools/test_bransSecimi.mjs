@@ -15,12 +15,12 @@
  *    4 saat Biyoloji + 2 saat Matematik + 2 saat Sağlık Bilgisi olsa bile
  *    Biyoloji'nin ders yükü 4+2+2 = 8 saat yazacak."
  *
- * GÜNCELLEME — Y7 (kullanıcı kararı 16.09.2026): yukarıdaki ilke KAYIT ve EKRAN
- * tarafında aynen sürüyor (idarecinin seçimi silinmez, listede görünür), ama NORM
- * hesabı artık dersin RESMÎ ALANINA yazılıyor (Md. 22/1-c-1). Yani "Sağlık Bilgisi
- * dersini Biyoloji'ye yazdım" diyen idarecinin seçimi ekranda durur, normda ise
- * saat Sağlık Hizmetleri alanına gider ve ders satırında "idareci Biyoloji'ye verdi"
- * notu görünür. Geri dönüş: normEngine.normDersinResmiAlaninaYazilir = false.
+ * KARAR GEÇMİŞİ: 16.09.2026'da "Y7" bu ilkeyi norm tarafında değiştirmişti (norm dersin
+ * resmî alanına yazılır). 22.09.2026'da kullanıcı Y7'yi GERİ ALDI: bazı derslerin (İslam
+ * Bilim Tarihi, Fen Bilimleri Uygulamaları ve benzerleri, yüzlerce olabilir) branşı tek
+ * değildir; hangi branşa verileceği müdürün inisiyatif ve sorumluluğundadır, uygulama
+ * kısıtlamaz. Bu test 27.08.2026 hâline döndürüldü; normEngine.normDersinResmiAlaninaYazilir
+ * = false. Fizik dersini Kimya branşına vermek Kimya normunu artırır.
  *
  * Bu testin koruduğu üç davranış:
  *
@@ -147,17 +147,13 @@ console.log("── 2. İdarecinin branş seçimi yeniden yüklemede silinmez");
     kontrol("yeniden yüklemeden sonra seçim DURUYOR",
         yenidenYukleme?.atananBrans, "Biyoloji");
 
-    // NORM TARAFI (Y7, 16.09.2026): saat dersin resmî alanına yazılır.
-    // Sağlık Bilgisi ve Trafik Kültürü -> Sağlık Hizmetleri; Biyoloji kendi dersini alır.
+    // Saat gerçekten Biyoloji'nin yüküne eklenmiş mi?
     const rapor = raporla(w, st, {});
     const bio = rapor.find(b => b.branchName === "Biyoloji");
-    const sag = rapor.find(b => b.branchName === "Sağlık Hizmetleri");
-    // 3 şube x Biyoloji 2 saat = 6 (Sağlık Bilgisi saati artık burada değil)
-    kontrol("Biyoloji yalnız kendi dersinin yükünü taşıyor", bio?.totalHours, 6);
-    kontrol("Sağlık Bilgisi saati resmî alanına yazıldı (3 şube x 1 saat)",
-        sag?.totalHours, 3);
-    kontrol("ders satırında idarecinin seçimi yazılı",
-        (sag?.courses || []).some(c => c.fiiliBrans === "Biyoloji" && /İdareci/.test(c.note || "")), true);
+    // 3 şube x (Biyoloji 2 saat + Sağlık Bilgisi 1 saat) = 9
+    kontrol("saat Biyoloji yüküne eklendi", bio?.totalHours, 9);
+    kontrol("Sağlık Hizmetleri artık yük taşımıyor",
+        rapor.find(b => b.branchName === "Sağlık Hizmetleri"), undefined);
 }
 
 // ------------------------- 3. Kısıtlama yok: atanan ne olursa olsun yüke eklenir
@@ -196,18 +192,14 @@ console.log("── 3. Atanan ders ne olursa olsun yüke eklenir (kısıtlama yo
     kontrol("yeniden yüklemeden sonra da hepsi Biyoloji'de",
         konuDersleri().every(d => d.atananBrans === "Biyoloji"), true);
 
-    // NORM TARAFI (Y7): her ders kendi resmî alanına yazılır; idarecinin üçünü de
-    // Biyoloji'ye vermiş olması KAYITTA durur (yukarıda denetlendi), normda değil.
     const rapor = raporla(w, st, {});
     const bio = rapor.find(b => b.branchName === "Biyoloji");
-    const mat = rapor.find(b => b.branchName === "Matematik");
-    const sag = rapor.find(b => b.branchName === "Sağlık Hizmetleri");
-    kontrol("Biyoloji yalnız kendi 4 saatini taşıyor", bio?.totalHours, 4);
-    kontrol("4 saat -> 0 norm (Madde 18 barajı 6)", bio?.calculatedNorm, 0);
-    kontrol("Matematik kendi satırında 2 saat", mat?.totalHours, 2);
-    kontrol("Sağlık Hizmetleri kendi satırında 2 saat", sag?.totalHours, 2);
-    kontrol("hiçbir saat kaybolmadı (4+2+2)",
-        (bio?.totalHours || 0) + (mat?.totalHours || 0) + (sag?.totalHours || 0), 8);
+    kontrol("Biyoloji ders yükü 4+2+2 = 8", bio?.totalHours, 8);
+    kontrol("8 saat -> 1 norm (Madde 18 barajı 6)", bio?.calculatedNorm, 1);
+    kontrol("Matematik ayrı bir satır olarak sayılmıyor",
+        rapor.find(b => b.branchName === "Matematik"), undefined);
+    kontrol("Sağlık Hizmetleri ayrı bir satır olarak sayılmıyor",
+        rapor.find(b => b.branchName === "Sağlık Hizmetleri"), undefined);
 }
 
 // ---------------------- 4. Rehberlik dersinin branşı da değiştirilebilir
@@ -243,11 +235,7 @@ console.log("── 4. Rehberlik dersinin branşı değiştirilebilir ve kalıc�
     st.sanitizeExistingState();
     kontrol("temizlikten sonra da Biyoloji (asıl hata buydu)",
         reh()?.atananBrans, "Biyoloji");
-    // KULLANICI KARARI 16.09.2026 (Y7 istisnası): "Rehberlik ve Yönlendirme dersi, okul
-    // rehber öğretmeninin dışında her sınıfa verilen bir derstir; bütün branşlar girebilir
-    // ve o branşın normuna ilave edilir." Dersin tek bir resmî alanı olmadığı için Y7
-    // kuralı buna uygulanmaz; 27.08.2026 davranışı aynen sürer.
-    kontrol("saat Biyoloji'ye eklendi: 2 -> 3 (Y7 istisnası)", bioYuk(), 3);
+    kontrol("saat Biyoloji'ye eklendi: 2 -> 3", bioYuk(), 3);
 
     // Düzeltmenin diğer kuralları bozmadığı doğrulanır
     kontrol("ders adı hâlâ sabitleniyor", reh()?.ders, "Rehberlik ve Yönlendirme");

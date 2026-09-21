@@ -726,13 +726,16 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
 }
 
 /* ======================================================================= */
-/* Y7 — norm dersin RESMÎ ALANINA yazılır, idarecinin seçimi satırda görünür  */
+/* Y7 — GERİ ALINDI (kullanıcı kararı 22.09.2026): norm İDARECİNİN SEÇTİĞİ    */
+/* branşa yazılır. Gerekçe: bazı derslerin (İslam Bilim Tarihi, Fen Bilimleri */
+/* Uygulamaları ve benzerleri) branşı tek değildir; karar müdürün, uygulama   */
+/* kısıtlamaz. (16.09'da eklenen "resmî alana yaz" kuralı kapatıldı.)         */
 /* ======================================================================= */
 {
-    // Ortaokulda "T.C. İnkılap Tarihi ve Atatürkçülük" SOSYAL BİLGİLER alanınındır
-    // (uygulamanın kendi çizelgesi de öyle diyor). İdareci Tarih seçse bile norm
-    // çizelgedeki alana yazılmalı. Elle yazılmış ders->branş tablosu burada "Tarih"
-    // der; okul türüne duyarlı çizelge kazanmazsa gerçek okullarda hata üretir.
+    kontrol("Y7 geri alındı: normDersinResmiAlaninaYazilir bayrağı KAPALI", ne.normDersinResmiAlaninaYazilir === false,
+        String(ne.normDersinResmiAlaninaYazilir));
+
+    // Ortaokulda İnkılap Tarihi çizelgede Sosyal Bilgiler'in; idareci Tarih seçerse norm TARİH'e yazılır.
     const TUR = "ortaokul_temel_egitim";
     const dersler = ce.getMandatoryCourses(TUR, "8", null, null) || [];
     const ink = dersler.find(d => /İnkılap/i.test(d.ders || ""));
@@ -745,18 +748,31 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
             zorunluDersler: zorunlu, secmeliDersler: [] };
         const r = ne.calculateSchoolNorms([sube], {}, TUR, {});
         const sb = brans(r, "Sosyal Bilgiler"), tar = brans(r, "Tarih");
-        const satir = sb && (sb.courses || []).find(c => /İnkılap/i.test(c.courseName || ""));
-        kontrol("Y7 norm dersin resmî alanına (Sosyal Bilgiler) yazılıyor", !!satir, sb && sb.totalHours);
-        kontrol("Y7 idarecinin seçtiği Tarih branşına yazılmıyor",
-            !tar || !(tar.courses || []).some(c => /İnkılap/i.test(c.courseName || "")),
-            tar && tar.totalHours);
-        kontrol("Y7 idarecinin seçimi ders satırında görünüyor",
-            !!satir && satir.fiiliBrans === "Tarih" && /İdareci/.test(satir.note || ""), satir && satir.note);
+        kontrol("Y7 idarecinin seçtiği Tarih branşına yazılıyor",
+            !!tar && (tar.courses || []).some(c => /İnkılap/i.test(c.courseName || "")), tar && tar.totalHours);
+        kontrol("Y7 dersin çizelgedeki alanına (Sosyal Bilgiler) YAZILMIYOR",
+            !sb || !(sb.courses || []).some(c => /İnkılap/i.test(c.courseName || "")), sb && sb.totalHours);
+        const satir = tar && (tar.courses || []).find(c => /İnkılap/i.test(c.courseName || ""));
+        kontrol("Y7 'fiilî' notu üretilmiyor (seçim zaten asıl kayıt)", !!satir && !satir.fiiliBrans, satir && satir.fiiliBrans);
         kontrol("Y7 okul toplam yükü değişmiyor (saat kaybolmaz)",
             r.totalHours === zorunlu.reduce((t, d) => t + (parseInt(d.saat, 10) || 0), 0), r.totalHours);
     }
 
-    // "Branş Atanmadı" seçimi Y7'den ETKİLENMEZ: ders hiçbir branşa yazılmaz.
+    // Kullanıcının kendi örneği: Fizik dersini Kimya branşına veren müdür -> Kimya normu artar.
+    {
+        const iki = (atanan) => ({ id: "y7f", subeAdi: "10-A", sinifSeviyesi: "10", ogrenciSayisi: 30, secmeliDersler: [],
+            zorunluDersler: [
+                { ders: "Kimya", saat: 4, atananBrans: "Kimya", kategori: "ORTAK DERSLER" },
+                { ders: "Fizik", saat: 4, atananBrans: atanan, kategori: "ORTAK DERSLER" }] });
+        const normal = ne.calculateSchoolNorms([iki("Fizik")], {}, "anadolu_lisesi", {});
+        const verilen = ne.calculateSchoolNorms([iki("Kimya")], {}, "anadolu_lisesi", {});
+        kontrol("Y7 Fizik dersi Fizik'teyken Kimya 4 saat", (brans(normal, "Kimya") || {}).totalHours === 4);
+        kontrol("Y7 Fizik dersi Kimya'ya verilince Kimya yükü 8 saate çıkar (müdürün sorumluluğu)",
+            (brans(verilen, "Kimya") || {}).totalHours === 8, (brans(verilen, "Kimya") || {}).totalHours);
+        kontrol("Y7 Fizik satırı yükü kalmadığı için listeden çıkar", !brans(verilen, "Fizik"));
+    }
+
+    // "Branş Atanmadı" seçimi: ders hiçbir branşa yazılmaz.
     const sube2 = { id: "y7b", subeAdi: "9-A", sinifSeviyesi: "9", ogrenciSayisi: 30,
         zorunluDersler: [{ ders: "Matematik", saat: 6, atananBrans: ATANMADI }], secmeliDersler: [] };
     const r2 = ne.calculateSchoolNorms([sube2], {}, "anadolu_lisesi", {});
@@ -764,32 +780,24 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
         r2.branchReport.map(b => b.branchName).join(", "));
     kontrol("Y7 atanmamış dersin saati okul toplamında kalır", r2.totalHours === 6, r2.totalHours);
 
-    // İSTİSNA: Rehberlik ve Yönlendirme dersi (kullanıcı kararı 16.09.2026) — her branş
-    // girebilir, yük GİREN branşa yazılır; Y7 bu derse uygulanmaz.
+    // Rehberlik ve Yönlendirme dersi: giren branşın yüküne eklenir (her iki karar döneminde aynı).
     {
         st.resetSchool(); st.setSchoolType("anadolu_lisesi");
         const dr = JSON.parse(JSON.stringify(ce.getMandatoryCourses("anadolu_lisesi", "9", null, null) || []));
         const sr = st.addSection({ sinifSeviyesi: "9", subeAdi: "9-R", ogrenciSayisi: 30, zorunluDersler: dr, secmeliDersler: [] });
         const reh = (sr.zorunluDersler || []).find(x => /Rehberlik/i.test(x.ders || ""));
-        kontrol("Y7 istisna ölçümü geçerli: rehberlik dersi var", !!reh, reh && reh.atananBrans);
+        kontrol("Y7 rehberlik ölçümü geçerli: rehberlik dersi var", !!reh, reh && reh.atananBrans);
         if (reh) {
             const oncekiBio = brans(hesapla(), "Biyoloji");
             st.updateCourseBranch(sr.id, reh.ders, "Biyoloji");
             const sonrakiBio = brans(hesapla(), "Biyoloji");
-            kontrol("Y7 istisnası: rehberlik saati giren branşın yüküne ekleniyor",
+            kontrol("Y7 rehberlik saati giren branşın yüküne ekleniyor",
                 !!sonrakiBio && !!oncekiBio && sonrakiBio.totalHours === oncekiBio.totalHours + (parseInt(reh.saat, 10) || 1),
                 (oncekiBio && oncekiBio.totalHours) + " -> " + (sonrakiBio && sonrakiBio.totalHours));
-            const RE2 = new w.MebReportsEngine(w.dbService, w.normEngine, w.curriculumEngine);
-            const grid2 = RE2.generateMasterLoadGrid(st.state, "ALL");
-            const bioGrup2 = (grid2.branchGroups || {})["Biyoloji"];
-            kontrol("Y7 istisnası raporda da geçerli (ders Biyoloji kartında)",
-                !!bioGrup2 && Object.values(bioGrup2.courses || {}).some(c => /Rehberlik/i.test(c.courseName || "")),
-                Object.keys(grid2.branchGroups || {}).join(", "));
         }
     }
 
-    // RAPOR TARAFI: matris de aynı kuralı kullanmalı; yoksa kart başlığı (motordan)
-    // ile ders satırları (rapordan) ayrışır ve iki rapor çelişir.
+    // RAPOR TARAFI: matris de aynı kuralı izlemeli (kart başlığı motordan, satırlar rapordan gelir).
     {
         st.resetSchool(); st.setSchoolType("anadolu_lisesi");
         const d9 = JSON.parse(JSON.stringify(ce.getMandatoryCourses("anadolu_lisesi", "9", null, null) || []));
@@ -799,37 +807,15 @@ for (const [ogr, sinif] of [[7, "10"], [1, "11"], [9, "9"], [0, "12"]]) {
         if (sag) {
             st.updateCourseBranch(sy.id, sag.ders, "Biyoloji");
             const RE = new w.MebReportsEngine(w.dbService, w.normEngine, w.curriculumEngine);
-            const grid = RE.generateMasterLoadGrid(st.state, "ALL");
-            const gruplar = grid.branchGroups || {};
-            const sagGrup = gruplar["Sağlık Hizmetleri"];
-            const satir = sagGrup && Object.values(sagGrup.courses || {})
-                .find(c => /Sağlık Bilgisi/i.test(c.courseName || ""));
-            kontrol("Y7 raporda ders dersin resmî alanı altında gruplanıyor", !!satir,
-                Object.keys(gruplar).join(", "));
-            kontrol("Y7 raporda idarecinin seçimi taşınıyor (fiiliBrans)",
-                !!satir && satir.fiiliBrans === "Biyoloji", satir && satir.fiiliBrans);
+            const gruplar = (RE.generateMasterLoadGrid(st.state, "ALL").branchGroups) || {};
             const bioGrup = gruplar["Biyoloji"];
-            kontrol("Y7 raporda ders idarecinin seçtiği branşın altında DEĞİL",
-                !bioGrup || !Object.values(bioGrup.courses || {}).some(c => /Sağlık Bilgisi/i.test(c.courseName || "")));
+            kontrol("Y7 raporda ders idarecinin seçtiği branşın (Biyoloji) altında",
+                !!bioGrup && Object.values(bioGrup.courses || {}).some(c => /Sağlık Bilgisi/i.test(c.courseName || "")),
+                Object.keys(gruplar).join(", "));
+            const sagGrup = gruplar["Sağlık Hizmetleri"];
+            kontrol("Y7 raporda ders çizelgedeki alanının (Sağlık Hizmetleri) altında DEĞİL",
+                !sagGrup || !Object.values(sagGrup.courses || {}).some(c => /Sağlık Bilgisi/i.test(c.courseName || "")));
         }
-        kontrol("Y7 ekranda 'fiilî' işareti çiziliyor",
-            /c\.fiiliBrans \?/.test(oku("js", "uiComponents.js"))
-            && /fiilî: \$\{NormGuvenlik\.htmlKacis\(c\.fiiliBrans\)\}/.test(oku("js", "uiComponents.js")));
-    }
-
-    // Bayrak kapatılabilir olmalı (27.08.2026 kararına dönüş tek satır).
-    if (ink) {
-        const zorunlu = JSON.parse(JSON.stringify(dersler))
-            .map(d => /İnkılap/i.test(d.ders || "") ? Object.assign({}, d, { atananBrans: "Tarih" }) : d);
-        const sube3 = { id: "y7c", subeAdi: "8-B", sinifSeviyesi: "8", ogrenciSayisi: 28,
-            zorunluDersler: zorunlu, secmeliDersler: [] };
-        ne.normDersinResmiAlaninaYazilir = false;
-        const rKapali = ne.calculateSchoolNorms([sube3], {}, TUR, {});
-        ne.normDersinResmiAlaninaYazilir = true;
-        const tarK = brans(rKapali, "Tarih");
-        kontrol("Y7 bayrak kapalıyken idarecinin seçimi geçerli (geri dönüş yolu açık)",
-            !!tarK && (tarK.courses || []).some(c => /İnkılap/i.test(c.courseName || "")),
-            tarK && tarK.totalHours);
     }
 }
 
