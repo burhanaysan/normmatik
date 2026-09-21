@@ -40,13 +40,14 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.3",
+    surum: "2.4.4",
     yayinTarihi: "2026-09-22",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Meslek lisesi ve Anadolu Teknik Programında 10, 11 ve 12. sınıfların seçmeli ders listesinde TTKB'nin iki kararı birlikte sunuluyor (2026-62 ve 2024-41): karar metni tabloyu tüm sınıflara uyguluyor, Genel Müdürlüğün istek yazısı ise hazırlık ve 9. sınıftan başlayarak kademeli uygulama istiyor; hangisini uygulayacağınız sizin kararınızdır. İki tablo 10 ve 11. sınıflarda aynı; 12. sınıfta \"Çağdaş Türk ve Dünya Tarihi\" dersi için 2 saatin yanında 4 saat seçeneği de görünüyor, \"Hedef Temelli Destek Eğitimi\" listede duruyor. Hazırlık ve 9. sınıfta değişiklik yok.",
         "Meslek liselerinde tüm meslek dersleri artık aynı davranıyor: şubedeki öğrenci sayısı Md. 22/1-ç baremine göre grup gerektirdiğinde (9. sınıfta 21 ve üzeri, 10-12. sınıflarda 17 ve üzeri) her meslek dersinde \"1 Grup / 2 Grup\" kutusu görünüyor ve okulunuzun dersi kaç grupta okuttuğunu siz seçiyorsunuz. Eskiden adında \"Hukuk Dili\" ya da \"Terminoloji\" geçen üç ders (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) bilerek gruplanmıyor ve kutu çıkmıyordu; 21 öğrencili 9. sınıf Adalet şubesinde iki meslek dersi \"2 Grup\" alırken üçüncüsü almıyordu. Grup sayısını yönetmeliğin baremini aşacak biçimde artıramazsınız.",
         "Ders yükü yeniden idarecinin seçtiği branşa yazılıyor: bir dersi (ör. Fizik) başka bir branşa (ör. Kimya) verdiğinizde ders o branşın yüküne ve normuna eklenir; uygulama bir kısıtlama koymaz, hangi branşa verileceği idarecinin inisiyatif ve sorumluluğundadır. 2.1.7 sürümünde eklenen \"norm dersin resmî alanında kalır\" kuralı geri alındı — İslam Bilim Tarihi, Fen Bilimleri Uygulamaları gibi birden fazla branşın normuna girebilen dersler tek bir alana bağlanamıyordu.",
         "Demoda \"Lisans Al\" düğmesinin üzerine gelince çıkan \"Deneme sürümü — 7 gün kaldı\" ipucu kaldırıldı: demoda süre sınırı yoktur, yalnız 3 şube ve filigran sınırı vardır.",

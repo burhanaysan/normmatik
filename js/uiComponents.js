@@ -3,8 +3,12 @@
 // MTAL SEÇMELİ DERSLER TABLOSU — KADEMELİ Mİ? (belirsizlik B-S1, 05_dokumantasyon/secmeli_dersler/1_ENVANTER.md)
 // TTKB 16/07/2026-62 KARAR metni tabloyu "2026-2027 eğitim ve öğretim yılından itibaren" uygular ve 2024-41'i
 // kaldırır; "kademeli" demez. Genel Müdürlüğün istek yazısı ise "hazırlık ve 9. sınıftan başlayarak kademeli"
-// ister. false: karar metni (tüm sınıflara 2026-62). true: hazırlık ve 9'a 2026-62, 10-12'ye 2024-41.
-const MTAL_SECMELI_KADEMELI = false;
+// ister (10-12'ye 2024-41).
+// KARAR (kullanıcı, 22.09.2026): iki okuma da müdüre açık bırakılır, sorumluluk müdürdedir. Hazırlık ve 9. sınıfta
+// iki okuma da 2026-62 der (değişiklik yok). 10-12. sınıflarda İKİ TABLONUN DERSLERİ BİRLİKTE sunulur: ortak
+// derslerde saat seçenekleri birleşir. Ölçüldü: 10 ve 11'de iki tablo BİREBİR aynı; 12'de tek fark —
+// "Hedef Temelli Destek Eğitimi" yalnız 2026-62'de, "Çağdaş Türk ve Dünya Tarihi" için 4 saat seçeneği yalnız 2024-41'de.
+// (Eski ayar MTAL_SECMELI_KADEMELI kaldırıldı: seçim artık müdürün.)
 
 const TTKB_MAP = {
     'TÜRK DİLİ VE EDEBİYATI': 'Türk Dili ve Edebiyatı',
@@ -3690,9 +3694,22 @@ export class UIComponentManager {
         if (mesem) {
             return (((R.mesem[section.alanId] || {})[g]) || []).map(d => kultur(d, "MESEM ÇÖP seçmeli dersler tablosu"));
         }
-        const kararAdi = (MTAL_SECMELI_KADEMELI && !["hazirlik", "9"].includes(g)) ? "2024-41" : "2026-62";
-        const karar = R.mtal_kultur[kararAdi];
+        const karar = R.mtal_kultur["2026-62"];
         const liste = (karar.siniflar[g] || []).map(d => kultur(d, karar.karar));
+        // B-S1 (22.09.2026): 10-12'de eski tablo (2024-41) da sunulur; kademeli uygulayan okul onu seçebilir.
+        if (!["hazirlik", "9"].includes(g)) {
+            const eski = R.mtal_kultur["2024-41"];
+            const kayit = new Map(liste.map(d => [d.ders, d]));
+            (eski.siniflar[g] || []).forEach(d => {
+                const var_ = kayit.get(d.ders);
+                if (!var_) { liste.push(kultur(d, eski.karar + " (kademeli uygulama)")); return; }
+                const birlesik = [...new Set([...var_.hoursOptions, ...d.saatler])].sort((x, y) => x - y);
+                if (birlesik.length !== var_.hoursOptions.length) {
+                    var_.hoursOptions = birlesik;
+                    var_.resmiKaynak = karar.karar + " · " + eski.karar + " (kademeli uygulayan okullar için ek saat seçeneği)";
+                }
+            });
+        }
         const harita = (this.curriculum && this.curriculum.AREA_BRANCH_MAP) || {};
         const alanBransi = harita[section.alanId] || "— Branş Atanmadı —";
         (((R.mtal_meslek[section.alanId] || {})[g]) || []).forEach(d => {

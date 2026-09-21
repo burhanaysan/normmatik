@@ -92,8 +92,28 @@ kontrol("VERİ meslek ortaokulu 5:21, 6:27, 7:28, 8:22", ["5", "6", "7", "8"].ma
     liste("meslek_ortaokulu", "5").length === 21 && !ad(liste("meslek_ortaokulu", "5")).some(x => /Satranç/.test(x)));
   kontrol("BAĞLAMA özel eğitim meslek / uygulama okulunda seçmeli yok", liste("ozel_egitim_meslek_okulu", "10").length === 0 && liste("ozel_egitim_uygulama_okulu", "6").length === 0);
   kontrol("BAĞLAMA diğer türler eski akışta (Anadolu lisesi 11. sınıf havuzdan)", liste("anadolu_lisesi", "11").length > 30);
-  kontrol("BAĞLAMA kademeli ayarı varsayılan: karar metni (tüm sınıflara 2026-62)",
-    /const MTAL_SECMELI_KADEMELI = false;/.test(oku("js", "uiComponents.js")) && hucre({ x: liste(MTAL, "12", null).map(d => ({ ders: d.ders, saatler: d.hoursOptions })) }, "x", "Çağdaş Türk ve Dünya Tarihi") === "[2]");
+  // B-S1 KARARI (kullanıcı, 22.09.2026): 10-12'de iki tablo (2026-62 + 2024-41) BİRLİKTE sunulur; kademeli mi
+  // olmayacak mı müdürün kararı. Hazırlık ve 9'da iki okuma da 2026-62 der: değişiklik yok.
+  const saatOf = (sinif, ders) => (liste(MTAL, sinif, null).find(d => d.ders === ders) || {}).hoursOptions;
+  const dersSayisi = (sinif) => liste(MTAL, sinif, null).filter(d => !d.isVocational).length;
+  kontrol("B-S1 eski ayar kaldırıldı (sabit yok)", !/const MTAL_SECMELI_KADEMELI/.test(oku("js", "uiComponents.js")));
+  kontrol("B-S1 12. sınıf: Çağdaş Türk ve Dünya Tarihi hem 2 hem 4 saat (2026-62: [2], 2024-41: [2,4])",
+    JSON.stringify(saatOf("12", "Çağdaş Türk ve Dünya Tarihi")) === "[2,4]", JSON.stringify(saatOf("12", "Çağdaş Türk ve Dünya Tarihi")));
+  kontrol("B-S1 12. sınıf: yalnız 2026-62'de olan Hedef Temelli Destek Eğitimi listede",
+    liste(MTAL, "12", null).some(d => d.ders === "Hedef Temelli Destek Eğitimi"));
+  kontrol("B-S1 12. sınıf: ders sayısı 42 (birleşim, hiçbir ders çoğalmadı)", dersSayisi("12") === 42, dersSayisi("12"));
+  kontrol("B-S1 10. sınıf: iki tablo aynı, sayı 29 ve saatler değişmedi", dersSayisi("10") === 29 &&
+    liste(MTAL, "10", null).every(d => JSON.stringify(d.hoursOptions) === JSON.stringify((k62["10"].find(x => x.ders === d.ders) || {}).saatler)));
+  kontrol("B-S1 11. sınıf: iki tablo aynı, sayı 46 ve saatler değişmedi", dersSayisi("11") === 46 &&
+    liste(MTAL, "11", null).every(d => JSON.stringify(d.hoursOptions) === JSON.stringify((k62["11"].find(x => x.ders === d.ders) || {}).saatler)));
+  kontrol("B-S1 9. sınıf: yalnız 2026-62 (Sosyal Bilim Çalışmaları [2], eski [2,3] gelmiyor)",
+    JSON.stringify(saatOf("9", "Sosyal Bilim Çalışmaları")) === "[2]", JSON.stringify(saatOf("9", "Sosyal Bilim Çalışmaları")));
+  kontrol("B-S1 hazırlık: yalnız 2026-62 (13 ders)", dersSayisi("hazirlik") === 13, dersSayisi("hazirlik"));
+  kontrol("B-S1 varsayılan seçili saat 2026-62'nin ilki (2)",
+    (liste(MTAL, "12", null).find(d => d.ders === "Çağdaş Türk ve Dünya Tarihi") || {}).selectedHour === 2);
+  kontrol("B-S1 ek saat seçeneğinin kaynağı iki kararı da anıyor",
+    /2026-62/.test((liste(MTAL, "12", null).find(d => d.ders === "Çağdaş Türk ve Dünya Tarihi") || {}).resmiKaynak || "") &&
+    /2024-41/.test((liste(MTAL, "12", null).find(d => d.ders === "Çağdaş Türk ve Dünya Tarihi") || {}).resmiKaynak || ""));
 }
 
 // ---- 3) Önerilen branş
