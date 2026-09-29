@@ -939,6 +939,238 @@ class MebCurriculumEngine {
             if (IHO_CURRICULUM[gStr]) return IHO_CURRICULUM[gStr];
         }
 
+        // 1.05. SPOR ORTAOKULU (29.09.2026 — TTKB 23/09/2026-113, Temel Eğitim Genel Müdürlüğü,
+        // 2026-2027'den itibaren; YENİ okul türü). Sınav sonu geometrik PDF ayrıştırmasıyla
+        // doğrulandı: ORTAK DERS SAATİ TOPLAMI 27/27/27/26, SPOR ALAN DERS SAATİ TOPLAMI
+        // 10/10/10/11, ZORUNLU DERS SAATİ TOPLAMI 37/37/37/37 — dörtü de çizelgenin kendi
+        // toplam satırıyla birebir tutuyor.
+        // TAM/KESİN eşleşme gerektiği için önce, ilkokul/ortaokul substring kapılarından ÖNCE.
+        if (schoolTypeStr === "spor_ortaokulu") {
+            const SPOR_ORTAOKULU_CURRICULUM = {
+                "5": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    // SPOR ALAN DERSLERİ — Md. 22/4 UYGULANMAZ (yalnız spor/güzel sanatlar LİSELERİ
+                    // kapsar); bu dersler normal Md. 18 dersi gibi, çarpansız sayılır.
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "6": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "7": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "8": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ]
+            };
+            if (SPOR_ORTAOKULU_CURRICULUM[gStr]) return SPOR_ORTAOKULU_CURRICULUM[gStr];
+        }
+
+        // 1.06. GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026 — TTKB 23/09/2026-114,
+        // Temel Eğitim Genel Müdürlüğü, 2026-2027'den itibaren; YENİ okul türü, 1-8. sınıf TEK
+        // tür). Doğrulandı: ORTAK 25/27/27/29/27/27/27/27, MÜZİK ALAN 6/6/11/11/10/10/10/10,
+        // ZORUNLU 31/33/38/40/37/37/37/37 — çizelgenin kendi toplamlarıyla birebir.
+        // Md. 22/4 (bire bir/grup ilavesi) BURAYA UYGULANMAZ — yalnız LİSE kapsıyor (aynı
+        // gerekçe: normEngine.bireBirTurMu bu türü "ilkokul"/"ortaokul" içerdiği için elemiyor).
+        // Branş kararı (idareci değiştirebilir): "Beden Eğitimi, Oyun ve Müzik" ilkokulda
+        // (1-4) plain ilkokulun aynı dersleri gibi Sınıf Öğretmenliği'nde, ortaokulda (5-8)
+        // Beden Eğitimi'nde; müzik alan dersleri her kademede Müzik branşında.
+        if (schoolTypeStr === "guzel_sanatlar_muzik_ilkokulu_ortaokulu") {
+            const GSM_CURRICULUM = {
+                "1": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "2": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "3": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Müzik Kültürü", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "4": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Müzik Kültürü", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "5": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "6": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "7": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "8": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ]
+            };
+            if (GSM_CURRICULUM[gStr]) return GSM_CURRICULUM[gStr];
+        }
+
         if (schoolTypeStr.includes("ortaokul") && !schoolTypeStr.includes("imam_hatip")) {
             const ORTAOKUL_CURRICULUM = {
                 "5": [

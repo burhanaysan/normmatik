@@ -799,7 +799,14 @@ export class NormEngine {
         // İmam hatip ORTAOKULU ve spor lisesi çizelgelerinde bire bir ders tanımı
         // yok: İHO'da seçmeli "Bireysel Çalgı Eğitimi" 30 öğrencide 30 grup
         // sayılıyordu. Kapı yalnız bu iki kuralı sınırlar; atölye kuralı aynen.
-        const bireBirTurMu = sType.includes("guzel_sanatlar") || sType.includes("imam_hatip_lisesi");
+        //
+        // GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026, YENİ tür): yönetmeliğin
+        // kendi metni "Madde 22/4- Spor liseleri ve güzel sanatlar LİSELERİNİN..." der —
+        // ilkokul/ortaokul kademesini KAPSAMAZ. Bu okulun "Bireysel Çalgı Eğitimi" dersi
+        // adı aynı olsa da aynı gerekçeyle (İHO ile) normal Md. 18 dersi gibi sayılmalı;
+        // aksi hâlde bir şubede 20 öğrenci varsa Müzik normu 20 katına çıkardı.
+        const bireBirTurMu = (sType.includes("guzel_sanatlar") && !sType.includes("ilkokul") && !sType.includes("ortaokul"))
+            || sType.includes("imam_hatip_lisesi");
 
         // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (Madde 22/4-a)
         //
@@ -2525,7 +2532,12 @@ export class NormEngine {
         const sType = String(schoolType || "").toLowerCase();
         const isMesem = sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem");
         const isAnaokulu = sType.includes("anaokulu") || sType.includes("okul_oncesi");
-        const isIlkokul = sType.includes("ilkokul");
+        // GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026): TEK kurum, 1-8. sınıf birlikte;
+        // ID hem "ilkokul" hem "ortaokul" içeriyor. Md. 8/9'da (müdür yrd.) ve Md. 21/2-b'de
+        // (rehber öğretmen) ayrı eşikler var ama BİRLEŞİK kurum hükmü yok. Ortaokul (daha düşük,
+        // daha erken norm veren) eşiği esas alınır — sessizce eksik göstermek fazla göstermekten
+        // tehlikelidir. Yalnız "ilkokul" geçen, "ortaokul" geçmeyen tür etkilenmez.
+        const isIlkokul = sType.includes("ilkokul") && !sType.includes("ortaokul");
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isBirlestirilmis = !!options.isBirlestirilmis;
         const isKampusIcinde = !!options.isKampusIcinde;
@@ -2783,7 +2795,7 @@ export class NormEngine {
         // Sıralama önemli: "ozel_egitim_meslek_okulu" hem ozel_egitim hem meslek içerir.
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isMesem = !isOzelEgitim && (sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem"));
-        const isIlkokul = !isOzelEgitim && sType.includes("ilkokul");
+        const isIlkokul = !isOzelEgitim && sType.includes("ilkokul") && !sType.includes("ortaokul");
         const isOrtaokul = !isOzelEgitim && sType.includes("ortaokul");
         const isAnaokulu = !isOzelEgitim && (sType.includes("anaokulu") || sType.includes("okul_oncesi"));
 

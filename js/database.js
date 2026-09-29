@@ -87,6 +87,12 @@ export class MebDatabaseService {
             { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_turk_muzigi", name: "Güzel Sanatlar Lisesi (Türk Müziği)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "spor_lisesi", name: "Spor Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            // 29.09.2026 — TTKB 23/09/2026-113 ve 23/09/2026-114 (Temel Eğitim Genel Müdürlüğü, yeni okul
+            // türleri, 2026-2027'den itibaren). Lise değil, İLKOKUL/ORTAOKUL kademesi — Md. 22/4 (bire bir
+            // çalgı/grup ilavesi) yalnız "spor liseleri ve güzel sanatlar liseleri" der, bu ikisini kapsamaz
+            // (bkz. normEngine.js bireBirTurMu — İmam Hatip Ortaokulu'yla aynı gerekçe, N-07/16.09.2026).
+            { id: "spor_ortaokulu", name: "Spor Ortaokulu", category: "TEMEL_EGITIM", gradeLevels: ["5", "6", "7", "8"] },
+            { id: "guzel_sanatlar_muzik_ilkokulu_ortaokulu", name: "Güzel Sanatlar Müzik İlkokulu ve Ortaokulu", category: "TEMEL_EGITIM", gradeLevels: ["1", "2", "3", "4", "5", "6", "7", "8"] },
             { id: "anadolu_imam_hatip_lisesi", name: "Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["9", "10", "11", "12"], hasSpecialPrograms: true },
             { id: "hazirlik_imam_hatip_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasSpecialPrograms: true },
             { id: "imam_hatip_ortaokulu", name: "İmam Hatip Ortaokulu (İHO)", category: "DÖGM", gradeLevels: ["5", "6", "7", "8"] },
@@ -540,6 +546,19 @@ export class MebDatabaseService {
             const t = (ce && typeof ce.cizelgeToplamlari === "function")
                 ? ce.cizelgeToplamlari(schoolType, gradeLevel, areaId, dalName) : null;
             return (t && t.toplam) ? t.toplam : null;
+        }
+        // SPOR ORTAOKULU / GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026, YENİ türler):
+        // aşağıdaki genel "ortaokul" eşleşmesi Spor Ortaokulu'nu (gerçek toplam 37, hepsi) ve
+        // GSM'yi (gerçek toplam sınıfa göre 35/35/40/40/37/37/37/37) yanlışlıkla düz "35"e
+        // düşürürdü — ikisi de "ortaokul" alt dizesini içeriyor. Gerçek sayılar TTKB
+        // 23/09/2026-113 ve -114 kararlarının kendi alt toplam satırlarından alındı
+        // (bkz. curriculumEngine.js SPOR_ORTAOKULU_CURRICULUM / GSM_CURRICULUM).
+        if (sType === "spor_ortaokulu") {
+            return 37;
+        }
+        if (sType === "guzel_sanatlar_muzik_ilkokulu_ortaokulu") {
+            const GSM_HEDEF = { "1": 35, "2": 35, "3": 40, "4": 40, "5": 37, "6": 37, "7": 37, "8": 37 };
+            return GSM_HEDEF[gStr] || null;
         }
         if (sType.includes("ortaokul") && !sType.includes("imam_hatip")) {
             return 35;

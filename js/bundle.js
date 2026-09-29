@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.4.5",
-    yayinTarihi: "2026-09-22",
+    surum: "2.5.0",
+    yayinTarihi: "2026-09-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "İki yeni okul türü eklendi: Spor Ortaokulu ve Güzel Sanatlar Müzik İlkokulu ve Ortaokulu (Talim ve Terbiye Kurulunun 23.09.2026 tarihli 113 ve 114 sayılı kararları, 2026-2027 öğretim yılından itibaren geçerli). Her iki okul türünün ders listesi, saatleri, hedef haftalık ders saati ve seçmeli ders havuzu resmî karar metinlerinden işlendi. Güzel Sanatlar Müzik İlkokulu ve Ortaokulunda \"Bireysel Çalgı Eğitimi\" ve \"Bireysel Ses Eğitimi\" dersleri, yönetmeliğin bu ilaveyi yalnız spor ve güzel sanatlar LİSELERİNE tanıması nedeniyle normal ders gibi (öğrenci sayısıyla çarpılmadan) hesaplanıyor.",
         "Özel eğitim sınıflarında yönetmeliğin açık bent vermediği üç bileşim netleştirildi (eskiden üçü için dayanaksız \"2 norm\" gösteriliyordu): (1) görme/işitme ortaokul sınıfında özel eğitim öğretmeni normu 0; dersleri alan öğretmenleri okuttuğu için (ÖEHY 31/1-e) bütün saatler alan branşlarının yüküne yazılıyor, hiçbir saat kaybolmuyor; (2) görme/işitme lise ve özel eğitim meslek okulunda norm 1 (Md. 17/1-e kıyası); (3) bedensel yetersizlikte yönetmelik sessiz olduğu için norm \"belirsiz\" etiketiyle 1 gösteriliyor ve iki okuma (özel eğitim öğretmeni 0 ya da 1) şube penceresinde ve raporda yazıyor; uygulama bu durumda kendiliğinden sıfır üretmiyor. Kesin karar için il MEM / İKGM görüşü alınız.",
         "Meslek lisesi ve Anadolu Teknik Programında 10, 11 ve 12. sınıfların seçmeli ders listesinde TTKB'nin iki kararı birlikte sunuluyor (2026-62 ve 2024-41): karar metni tabloyu tüm sınıflara uyguluyor, Genel Müdürlüğün istek yazısı ise hazırlık ve 9. sınıftan başlayarak kademeli uygulama istiyor; hangisini uygulayacağınız sizin kararınızdır. İki tablo 10 ve 11. sınıflarda aynı; 12. sınıfta \"Çağdaş Türk ve Dünya Tarihi\" dersi için 2 saatin yanında 4 saat seçeneği de görünüyor, \"Hedef Temelli Destek Eğitimi\" listede duruyor. Hazırlık ve 9. sınıfta değişiklik yok.",
         "Meslek liselerinde tüm meslek dersleri artık aynı davranıyor: şubedeki öğrenci sayısı Md. 22/1-ç baremine göre grup gerektirdiğinde (9. sınıfta 21 ve üzeri, 10-12. sınıflarda 17 ve üzeri) her meslek dersinde \"1 Grup / 2 Grup\" kutusu görünüyor ve okulunuzun dersi kaç grupta okuttuğunu siz seçiyorsunuz. Eskiden adında \"Hukuk Dili\" ya da \"Terminoloji\" geçen üç ders (Hukuk Dili ve Terminolojisi, Mesleki Fizyoloji ve Terminoloji, Tıbbi Cihaz Üretim Terminolojisi) bilerek gruplanmıyor ve kutu çıkmıyordu; 21 öğrencili 9. sınıf Adalet şubesinde iki meslek dersi \"2 Grup\" alırken üçüncüsü almıyordu. Grup sayısını yönetmeliğin baremini aşacak biçimde artıramazsınız.",
@@ -177388,6 +177389,26 @@ const SECMELI_HAVUZU = {
     }
 };
 
+// 29.09.2026 — TTKB 23/09/2026-113 ve -114 (Spor Ortaokulu, Güzel Sanatlar Müzik İlkokulu ve
+// Ortaokulu): YENİ okul türleri, üreteç (tools/uret_secmeli_havuzu.py) henüz bunlar için
+// çalıştırılmadı. İkisinin de resmî kararında seçmeli ders havuzu "ortaokul_temel_egitim" ile
+// birebir aynı (aynı ders/grup listesi); tek fark, kararın açıklama metninde "seçmeli derslerin
+// haftada 1 ders saati olacak şekilde okutulması kararlaştırılmıştır" denmesi — normalde [1,2]
+// veya [2] olan saatler burada hep [1]'e sabitleniyor. Üreteç bu iki tür için güncellenene kadar
+// bu köprü kullanılır; aşağıdaki iki anahtar elle yazılmadı, ortaokul_temel_egitim kaynağından
+// programatik olarak türetildi (ELLE DÜZENLEMEYİN uyarısı bu yüzden bozulmuyor).
+(function () {
+    const kaynak = SECMELI_HAVUZU["ortaokul_temel_egitim"];
+    const tekSaateIndir = (liste) => liste.map((d) => Object.assign({}, d, { saatler: [1] }));
+    const yeniTurler = ["spor_ortaokulu", "guzel_sanatlar_muzik_ilkokulu_ortaokulu"];
+    yeniTurler.forEach((tur) => {
+        SECMELI_HAVUZU[tur] = {};
+        Object.keys(kaynak).forEach((sinif) => {
+            SECMELI_HAVUZU[tur][sinif] = tekSaateIndir(kaynak[sinif]);
+        });
+    });
+})();
+
 // ==================== secmeli_resmi.js ====================
 
 /* ===========================================================================
@@ -207065,6 +207086,12 @@ class MebDatabaseService {
             { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_turk_muzigi", name: "Güzel Sanatlar Lisesi (Türk Müziği)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "spor_lisesi", name: "Spor Lisesi", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
+            // 29.09.2026 — TTKB 23/09/2026-113 ve 23/09/2026-114 (Temel Eğitim Genel Müdürlüğü, yeni okul
+            // türleri, 2026-2027'den itibaren). Lise değil, İLKOKUL/ORTAOKUL kademesi — Md. 22/4 (bire bir
+            // çalgı/grup ilavesi) yalnız "spor liseleri ve güzel sanatlar liseleri" der, bu ikisini kapsamaz
+            // (bkz. normEngine.js bireBirTurMu — İmam Hatip Ortaokulu'yla aynı gerekçe, N-07/16.09.2026).
+            { id: "spor_ortaokulu", name: "Spor Ortaokulu", category: "TEMEL_EGITIM", gradeLevels: ["5", "6", "7", "8"] },
+            { id: "guzel_sanatlar_muzik_ilkokulu_ortaokulu", name: "Güzel Sanatlar Müzik İlkokulu ve Ortaokulu", category: "TEMEL_EGITIM", gradeLevels: ["1", "2", "3", "4", "5", "6", "7", "8"] },
             { id: "anadolu_imam_hatip_lisesi", name: "Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["9", "10", "11", "12"], hasSpecialPrograms: true },
             { id: "hazirlik_imam_hatip_lisesi", name: "Hazırlık Sınıfı Bulunan Anadolu İmam Hatip Lisesi", category: "DÖGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasSpecialPrograms: true },
             { id: "imam_hatip_ortaokulu", name: "İmam Hatip Ortaokulu (İHO)", category: "DÖGM", gradeLevels: ["5", "6", "7", "8"] },
@@ -207518,6 +207545,19 @@ class MebDatabaseService {
             const t = (ce && typeof ce.cizelgeToplamlari === "function")
                 ? ce.cizelgeToplamlari(schoolType, gradeLevel, areaId, dalName) : null;
             return (t && t.toplam) ? t.toplam : null;
+        }
+        // SPOR ORTAOKULU / GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026, YENİ türler):
+        // aşağıdaki genel "ortaokul" eşleşmesi Spor Ortaokulu'nu (gerçek toplam 37, hepsi) ve
+        // GSM'yi (gerçek toplam sınıfa göre 35/35/40/40/37/37/37/37) yanlışlıkla düz "35"e
+        // düşürürdü — ikisi de "ortaokul" alt dizesini içeriyor. Gerçek sayılar TTKB
+        // 23/09/2026-113 ve -114 kararlarının kendi alt toplam satırlarından alındı
+        // (bkz. curriculumEngine.js SPOR_ORTAOKULU_CURRICULUM / GSM_CURRICULUM).
+        if (sType === "spor_ortaokulu") {
+            return 37;
+        }
+        if (sType === "guzel_sanatlar_muzik_ilkokulu_ortaokulu") {
+            const GSM_HEDEF = { "1": 35, "2": 35, "3": 40, "4": 40, "5": 37, "6": 37, "7": 37, "8": 37 };
+            return GSM_HEDEF[gStr] || null;
         }
         if (sType.includes("ortaokul") && !sType.includes("imam_hatip")) {
             return 35;
@@ -208479,6 +208519,238 @@ class MebCurriculumEngine {
                 ]
             };
             if (IHO_CURRICULUM[gStr]) return IHO_CURRICULUM[gStr];
+        }
+
+        // 1.05. SPOR ORTAOKULU (29.09.2026 — TTKB 23/09/2026-113, Temel Eğitim Genel Müdürlüğü,
+        // 2026-2027'den itibaren; YENİ okul türü). Sınav sonu geometrik PDF ayrıştırmasıyla
+        // doğrulandı: ORTAK DERS SAATİ TOPLAMI 27/27/27/26, SPOR ALAN DERS SAATİ TOPLAMI
+        // 10/10/10/11, ZORUNLU DERS SAATİ TOPLAMI 37/37/37/37 — dörtü de çizelgenin kendi
+        // toplam satırıyla birebir tutuyor.
+        // TAM/KESİN eşleşme gerektiği için önce, ilkokul/ortaokul substring kapılarından ÖNCE.
+        if (schoolTypeStr === "spor_ortaokulu") {
+            const SPOR_ORTAOKULU_CURRICULUM = {
+                "5": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    // SPOR ALAN DERSLERİ — Md. 22/4 UYGULANMAZ (yalnız spor/güzel sanatlar LİSELERİ
+                    // kapsar); bu dersler normal Md. 18 dersi gibi, çarpansız sayılır.
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "6": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "7": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ],
+                "8": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Müzik", saat: 1, atananBrans: "Müzik", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Beden Eğitimi ve Sporun Temelleri", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Ritim Eğitimi ve Halk Oyunları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Oyun ve Taktiksel Farkındalık", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çocuklarda Atletik Performans Uygulamaları", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" },
+                    { ders: "Kapsamlı Spor Eğitimi", saat: 3, atananBrans: "Beden Eğitimi", kategori: "ALAN DERSLERİ" }
+                ]
+            };
+            if (SPOR_ORTAOKULU_CURRICULUM[gStr]) return SPOR_ORTAOKULU_CURRICULUM[gStr];
+        }
+
+        // 1.06. GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026 — TTKB 23/09/2026-114,
+        // Temel Eğitim Genel Müdürlüğü, 2026-2027'den itibaren; YENİ okul türü, 1-8. sınıf TEK
+        // tür). Doğrulandı: ORTAK 25/27/27/29/27/27/27/27, MÜZİK ALAN 6/6/11/11/10/10/10/10,
+        // ZORUNLU 31/33/38/40/37/37/37/37 — çizelgenin kendi toplamlarıyla birebir.
+        // Md. 22/4 (bire bir/grup ilavesi) BURAYA UYGULANMAZ — yalnız LİSE kapsıyor (aynı
+        // gerekçe: normEngine.bireBirTurMu bu türü "ilkokul"/"ortaokul" içerdiği için elemiyor).
+        // Branş kararı (idareci değiştirebilir): "Beden Eğitimi, Oyun ve Müzik" ilkokulda
+        // (1-4) plain ilkokulun aynı dersleri gibi Sınıf Öğretmenliği'nde, ortaokulda (5-8)
+        // Beden Eğitimi'nde; müzik alan dersleri her kademede Müzik branşında.
+        if (schoolTypeStr === "guzel_sanatlar_muzik_ilkokulu_ortaokulu") {
+            const GSM_CURRICULUM = {
+                "1": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "2": [
+                    { ders: "Türkçe", saat: 10, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 4, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "3": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Hayat Bilgisi", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Serbest Etkinlikler", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Müzik Kültürü", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "4": [
+                    { ders: "Türkçe", saat: 8, atananBrans: "Sınıf Öğretmenliği", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 3, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 2, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Trafik Güvenliği", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "İnsan Hakları, Vatandaşlık ve Demokrasi", saat: 2, atananBrans: "Sınıf Öğretmenliği", kategori: "ORTAK DERSLER" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Müzik Kültürü", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "5": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "6": [
+                    { ders: "Türkçe", saat: 6, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 3, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Bilişim Teknolojileri ve Yazılım", saat: 1, atananBrans: "Bilişim Teknolojileri", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "7": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "Sosyal Bilgiler", saat: 3, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 1, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ],
+                "8": [
+                    { ders: "Türkçe", saat: 5, atananBrans: "Türkçe", baraj_ders: true, kategori: "ORTAK DERSLER" },
+                    { ders: "Matematik", saat: 5, atananBrans: "Matematik", kategori: "ORTAK DERSLER" },
+                    { ders: "Fen Bilimleri", saat: 4, atananBrans: "Fen Bilimleri", kategori: "ORTAK DERSLER" },
+                    { ders: "T.C. İnkılap Tarihi ve Atatürkçülük", saat: 2, atananBrans: "Sosyal Bilgiler", kategori: "ORTAK DERSLER" },
+                    { ders: "Yabancı Dil (İngilizce)", saat: 4, atananBrans: "İngilizce", kategori: "ORTAK DERSLER" },
+                    { ders: "Din Kültürü ve Ahlak Bilgisi", saat: 2, atananBrans: "Din Kültürü ve Ahlak Bilgisi", kategori: "ORTAK DERSLER" },
+                    { ders: "Görsel Sanatlar", saat: 1, atananBrans: "Görsel Sanatlar", kategori: "ORTAK DERSLER" },
+                    { ders: "Beden Eğitimi, Oyun ve Müzik", saat: 2, atananBrans: "Beden Eğitimi", kategori: "ORTAK DERSLER" },
+                    { ders: "Teknoloji ve Tasarım", saat: 1, atananBrans: "Teknoloji ve Tasarım", kategori: "ORTAK DERSLER" },
+                    { ders: "Rehberlik ve Yönlendirme", saat: 1, atananBrans: "Rehberlik", kategori: "REHBERLİK" },
+                    { ders: "Müziksel İşitme, Okuma ve Yazma", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Türk Müziği Teori ve Uygulaması", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Koro ve Repertuvar", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Çalgı Eğitimi", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Bireysel Ses Eğitimi", saat: 1, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" },
+                    { ders: "Çalgı Toplulukları", saat: 2, atananBrans: "Müzik", kategori: "ALAN DERSLERİ" }
+                ]
+            };
+            if (GSM_CURRICULUM[gStr]) return GSM_CURRICULUM[gStr];
         }
 
         if (schoolTypeStr.includes("ortaokul") && !schoolTypeStr.includes("imam_hatip")) {
@@ -209717,7 +209989,14 @@ class NormEngine {
         // İmam hatip ORTAOKULU ve spor lisesi çizelgelerinde bire bir ders tanımı
         // yok: İHO'da seçmeli "Bireysel Çalgı Eğitimi" 30 öğrencide 30 grup
         // sayılıyordu. Kapı yalnız bu iki kuralı sınırlar; atölye kuralı aynen.
-        const bireBirTurMu = sType.includes("guzel_sanatlar") || sType.includes("imam_hatip_lisesi");
+        //
+        // GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026, YENİ tür): yönetmeliğin
+        // kendi metni "Madde 22/4- Spor liseleri ve güzel sanatlar LİSELERİNİN..." der —
+        // ilkokul/ortaokul kademesini KAPSAMAZ. Bu okulun "Bireysel Çalgı Eğitimi" dersi
+        // adı aynı olsa da aynı gerekçeyle (İHO ile) normal Md. 18 dersi gibi sayılmalı;
+        // aksi hâlde bir şubede 20 öğrenci varsa Müzik normu 20 katına çıkardı.
+        const bireBirTurMu = (sType.includes("guzel_sanatlar") && !sType.includes("ilkokul") && !sType.includes("ortaokul"))
+            || sType.includes("imam_hatip_lisesi");
 
         // 1. Güzel Sanatlar Bire Bir Çalgı Eğitimi (Madde 22/4-a)
         //
@@ -211443,7 +211722,12 @@ class NormEngine {
         const sType = String(schoolType || "").toLowerCase();
         const isMesem = sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem");
         const isAnaokulu = sType.includes("anaokulu") || sType.includes("okul_oncesi");
-        const isIlkokul = sType.includes("ilkokul");
+        // GÜZEL SANATLAR MÜZİK İLKOKULU VE ORTAOKULU (29.09.2026): TEK kurum, 1-8. sınıf birlikte;
+        // ID hem "ilkokul" hem "ortaokul" içeriyor. Md. 8/9'da (müdür yrd.) ve Md. 21/2-b'de
+        // (rehber öğretmen) ayrı eşikler var ama BİRLEŞİK kurum hükmü yok. Ortaokul (daha düşük,
+        // daha erken norm veren) eşiği esas alınır — sessizce eksik göstermek fazla göstermekten
+        // tehlikelidir. Yalnız "ilkokul" geçen, "ortaokul" geçmeyen tür etkilenmez.
+        const isIlkokul = sType.includes("ilkokul") && !sType.includes("ortaokul");
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isBirlestirilmis = !!options.isBirlestirilmis;
         const isKampusIcinde = !!options.isKampusIcinde;
@@ -211701,7 +211985,7 @@ class NormEngine {
         // Sıralama önemli: "ozel_egitim_meslek_okulu" hem ozel_egitim hem meslek içerir.
         const isOzelEgitim = sType.includes("ozel_egitim");
         const isMesem = !isOzelEgitim && (sType.includes("mesleki_egitim_merkezi") || sType.includes("mesem"));
-        const isIlkokul = !isOzelEgitim && sType.includes("ilkokul");
+        const isIlkokul = !isOzelEgitim && sType.includes("ilkokul") && !sType.includes("ortaokul");
         const isOrtaokul = !isOzelEgitim && sType.includes("ortaokul");
         const isAnaokulu = !isOzelEgitim && (sType.includes("anaokulu") || sType.includes("okul_oncesi"));
 

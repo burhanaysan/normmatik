@@ -2763,3 +2763,23 @@ const SECMELI_HAVUZU = {
         ]
     }
 };
+
+// 29.09.2026 — TTKB 23/09/2026-113 ve -114 (Spor Ortaokulu, Güzel Sanatlar Müzik İlkokulu ve
+// Ortaokulu): YENİ okul türleri, üreteç (tools/uret_secmeli_havuzu.py) henüz bunlar için
+// çalıştırılmadı. İkisinin de resmî kararında seçmeli ders havuzu "ortaokul_temel_egitim" ile
+// birebir aynı (aynı ders/grup listesi); tek fark, kararın açıklama metninde "seçmeli derslerin
+// haftada 1 ders saati olacak şekilde okutulması kararlaştırılmıştır" denmesi — normalde [1,2]
+// veya [2] olan saatler burada hep [1]'e sabitleniyor. Üreteç bu iki tür için güncellenene kadar
+// bu köprü kullanılır; aşağıdaki iki anahtar elle yazılmadı, ortaokul_temel_egitim kaynağından
+// programatik olarak türetildi (ELLE DÜZENLEMEYİN uyarısı bu yüzden bozulmuyor).
+(function () {
+    const kaynak = SECMELI_HAVUZU["ortaokul_temel_egitim"];
+    const tekSaateIndir = (liste) => liste.map((d) => Object.assign({}, d, { saatler: [1] }));
+    const yeniTurler = ["spor_ortaokulu", "guzel_sanatlar_muzik_ilkokulu_ortaokulu"];
+    yeniTurler.forEach((tur) => {
+        SECMELI_HAVUZU[tur] = {};
+        Object.keys(kaynak).forEach((sinif) => {
+            SECMELI_HAVUZU[tur][sinif] = tekSaateIndir(kaynak[sinif]);
+        });
+    });
+})();
