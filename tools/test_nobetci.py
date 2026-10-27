@@ -178,23 +178,47 @@ denetle("ara sertifika dosyasi duruyor", os.path.exists(bot.ARA_SERTIFIKALAR),
         bot.ARA_SERTIFIKALAR)
 
 if os.path.exists(bot.ARA_SERTIFIKALAR):
-    bilgi = ssl._ssl._test_decode_cert(bot.ARA_SERTIFIKALAR)
-    konu = dict(x[0] for x in bilgi["subject"])
-    veren = dict(x[0] for x in bilgi["issuer"])
-    denetle("dogru ara sertifika (GeoTrust TLS RSA CA G1)",
-            konu.get("commonName") == "GeoTrust TLS RSA CA G1",
-            str(konu))
-    denetle("koku DigiCert Global Root G2",
-            veren.get("commonName") == "DigiCert Global Root G2", str(veren))
+    import re
+    import tempfile
+    # Dosyada birden fazla halka var; _test_decode_cert yalniz ilkini okur,
+    # bu yuzden her blok ayri gecici dosyaya yazilip cozulur.
+    bloklar = re.findall(r"-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----",
+                         open(bot.ARA_SERTIFIKALAR, encoding="utf-8").read(), re.S)
+    halkalar = {}
+    for blok in bloklar:
+        with tempfile.NamedTemporaryFile("w", suffix=".pem", delete=False) as t:
+            t.write(blok + "\n")
+        try:
+            b = ssl._ssl._test_decode_cert(t.name)
+        finally:
+            os.unlink(t.name)
+        halkalar[dict(x[0] for x in b["subject"]).get("commonName")] = b
 
-    # Sertifikanin suresi dolarsa bot Resmi Gazete'yi yine okuyamaz hale
-    # gelir. Test, bitise 60 gunden az kalinca DUSER: sessizce bozulmak
-    # yerine onceden haber versin.
-    bitis = datetime.datetime.strptime(bilgi["notAfter"], "%b %d %H:%M:%S %Y %Z")
-    kalan = (bitis - datetime.datetime.utcnow()).days
-    denetle("ara sertifikanin omru bitmek uzere degil (>60 gun)", kalan > 60,
-            "kalan %d gun (bitis %s) -> yeni halkayi indir: "
-            "http://cacerts.geotrust.com/GeoTrustTLSRSACAG1.crt" % (kalan, bilgi["notAfter"]))
+    # (konu, veren, yenileme adresi) -- yeni halka eklenirse buraya da yazilir.
+    beklenen = (
+        ("GeoTrust TLS RSA CA G1", "DigiCert Global Root G2",
+         "http://cacerts.geotrust.com/GeoTrustTLSRSACAG1.crt"),               # resmigazete.gov.tr
+        ("GlobalSign GCC R46 OV TLS CA 2025", "GlobalSign Root R46",
+         "http://secure.globalsign.com/cacert/gsgccr46ovtlsca2025.crt"),     # *.meb.gov.tr (27.10.2026)
+    )
+    denetle("dosyada %d halka var" % len(beklenen), len(bloklar) == len(beklenen),
+            "bulunan %d" % len(bloklar))
+    for konu_adi, veren_adi, adres in beklenen:
+        bilgi = halkalar.get(konu_adi)
+        denetle("dogru ara sertifika (%s)" % konu_adi, bilgi is not None,
+                str(sorted(k for k in halkalar if k)))
+        if bilgi is None:
+            continue
+        veren = dict(x[0] for x in bilgi["issuer"])
+        denetle("%s: koku %s" % (konu_adi, veren_adi),
+                veren.get("commonName") == veren_adi, str(veren))
+        # Sertifikanin suresi dolarsa bot ilgili kaynaklari yine okuyamaz
+        # hale gelir. Test, bitise 60 gunden az kalinca DUSER: sessizce
+        # bozulmak yerine onceden haber versin.
+        bitis = datetime.datetime.strptime(bilgi["notAfter"], "%b %d %H:%M:%S %Y %Z")
+        kalan = (bitis - datetime.datetime.utcnow()).days
+        denetle("%s: omru bitmek uzere degil (>60 gun)" % konu_adi, kalan > 60,
+                "kalan %d gun (bitis %s) -> yeni halkayi indir: %s" % (kalan, bilgi["notAfter"], adres))
 
 denetle("bot ara sertifikayi SSL baglamina yukluyor",
         "load_verify_locations(cafile=ARA_SERTIFIKALAR)" in kaynak)
