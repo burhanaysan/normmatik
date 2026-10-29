@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.1",
+    surum: "2.6.2",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Bünyesinde MESEM programı bulunan meslek liseleri için \"Okulumda MESEM programı da var\" seçeneği, Kadro penceresinin İdareci sekmesinden alınıp üst çubukta okul adına tıklayınca açılan Okul Bilgileri penceresine taşındı (müdür yardımcısı normuyla ilgisi olmadığı halde o listede durması yanıltıcıydı). Seçenek müdür yardımcısı normunu değiştirmez; yalnız şube eklerken program (AMP / MESEM) seçmeyi açar. Meslek lisesinde şube eklerken seçeneğin yerini söyleyen bir ipucu gösteriliyor. Daha önce işaretlenmiş okullarda işaret aynen korunur.",
         "e-Okul aktarımı çok programlı okullarda şubenin programını satır başındaki \"AL -\" / \"AMP -\" / \"MESEM -\" ekinden okuyor (ek yoksa eskisi gibi alana bakıp varsayıyor ve uyarıyor). Özel eğitim şubesi de artık yanlışlıkla AL programına düşmüyor. Ayrıca e-Okul'da \"Otistik Hafif\" yazılan özel eğitim sınıfı hafif zihinsel sayılıyordu (norm 1); artık hafif otizm sayılıyor (Md. 17/1-ç, norm 2). Daha önce aktarılıp kaydedilmiş şubeler değişmez; sınıfı \"Şubeyi Düzenle\"den kontrol edebilirsiniz.",
         "Tek kurum kodu altında birden çok program yürüten okullar için yeni özellik: Çok Programlı Anadolu Lisesi (Anadolu + Anadolu Meslek Programı + MESEM) yeni bir okul türü olarak eklendi; bünyesinde MESEM bulunan Mesleki ve Teknik Anadolu Lisesi için Kadro penceresinin İdareci sekmesine \"Bünyesinde MESEM Programı Bulunan Meslek Lisesi\" seçeneği geldi. Bu okullarda şube eklerken ya da düzenlerken şubenin PROGRAMI seçilir (AL / AMP / MESEM); her şube kendi programının ders çizelgesi, hedef ders saati ve kurallarıyla hesaplanır (AMP'de Md. 22/1-ç grup baremi, MESEM'de Md. 22/2 çırak baremi). Programlar birbirinden bağımsız hesaplanıp branş bazında toplanır: MEBBİS'e elle girdiğiniz \"Toplam Ders Saati\" ile aynı yöntem (ör. AMP'de Elektrik 35 saat + MESEM'de 30 saat = 65). MESEM çırak sayısı yalnız MESEM şubelerinden sayılır; farklı programların şubeleri derste birleştirilemez ve birlikte gruplanmaz. Şeflik saatleri ve yönetici ders düşümü okul genelinde yalnız bir kez uygulanır. Müdür yardımcısı ve rehber öğretmen normu okulun toplam öğrenci sayısıyla hesaplanır. Mevcut okulların kayıtları ve sonuçları değişmedi. Önemli: çok programlı bir okulda bu hesabı kendi MEBBİS norm tablonuzla karşılaştırmanız önerilir.",
         "İki yeni okul türü eklendi: Spor Ortaokulu ve Güzel Sanatlar Müzik İlkokulu ve Ortaokulu (Talim ve Terbiye Kurulunun 23.09.2026 tarihli 113 ve 114 sayılı kararları, 2026-2027 öğretim yılından itibaren geçerli). Her iki okul türünün ders listesi, saatleri, hedef haftalık ders saati ve seçmeli ders havuzu resmî karar metinlerinden işlendi. Güzel Sanatlar Müzik İlkokulu ve Ortaokulunda \"Bireysel Çalgı Eğitimi\" ve \"Bireysel Ses Eğitimi\" dersleri, yönetmeliğin bu ilaveyi yalnız spor ve güzel sanatlar LİSELERİNE tanıması nedeniyle normal ders gibi (öğrenci sayısıyla çarpılmadan) hesaplanıyor.",
@@ -218058,6 +218059,15 @@ class UIComponentManager {
                                 </button>
                             `}
                         </div>
+
+                        ${(typeof PROGRAMLAR !== 'undefined' && info.okulTuru === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
+                        <label style="display: flex; align-items: flex-start; gap: 0.6rem; background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="chk-edit-school-mesem" ${PROGRAMLAR.mesemBunyesinde(info) ? 'checked' : ''} style="margin-top: 0.2rem;">
+                            <div>
+                                <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-main);">🧑‍🏭 Okulumda MESEM programı da var</div>
+                                <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">İşaretlenince şube eklerken program (AMP / MESEM) seçilir; MESEM şubeleri kendi kurallarıyla (Md. 22/2) ayrı hesaplanıp branş bazında toplanır. Müdür yardımcısı normunu değiştirmez. Kaydetmek için "Bilgileri Kaydet"e basın.</div>
+                            </div>
+                        </label>` : ''}
                     </div>
 
                     <div class="modal-footer" style="border-top: 1px solid var(--border); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
@@ -218075,8 +218085,23 @@ class UIComponentManager {
             const season = document.getElementById("edit-school-season")?.value;
 
             this.state.updateSchoolInfo(info.okulAdi, season, info.kurumKodu, il, ilce);
+            // "Okulumda MESEM programı da var" (yalnız meslek lisesinde görünür). MESEM programlı şube varken
+            // işaret kapatılamaz: şubeler programsız kalır ve MESEM kuralları sessizce düşerdi.
+            let mesemNotu = "";
+            const mesemKutu = document.getElementById("chk-edit-school-mesem");
+            if (mesemKutu) {
+                const mesemSubeVar = (this.state.state.subeler || []).some(x => x && x.program === "mesem");
+                const yeniIsaret = mesemKutu.checked || mesemSubeVar;
+                if (PROGRAMLAR.mesemBunyesinde(this.state.state.okulBilgisi) !== yeniIsaret) {
+                    this.state.setAdminOptions({ mesemBunyesinde: yeniIsaret });
+                    mesemNotu = yeniIsaret ? " Şube eklerken artık program (AMP / MESEM) seçebilirsiniz." : "";
+                }
+                if (!mesemKutu.checked && mesemSubeVar) {
+                    this.showToast("MESEM programlı şubeler varken bu seçenek kapatılamaz; önce o şubeleri silin.", "warning");
+                }
+            }
             this.closeModal("edit-school-modal");
-            this.showToast("İl/İlçe ve Sezon bilgileri güncellendi.", "success");
+            this.showToast("İl/İlçe ve Sezon bilgileri güncellendi." + mesemNotu, "success");
         });
 
         document.getElementById("btn-trigger-reset-school")?.addEventListener("click", () => {
@@ -218426,6 +218451,11 @@ class UIComponentManager {
                             <label class="form-label">Öğrenci Mevcudu</label>
                             <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi ?? 30}" min="0" max="${ogrenciUstSiniri()}" step="1">
                         </div>
+
+                        ${(!programSecilebilir && typeof PROGRAMLAR !== 'undefined' && schoolType === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
+                        <p style="font-size: 0.72rem; color: var(--text-muted); margin: -0.25rem 0 0.75rem;">
+                            ℹ️ Okulunuzda MESEM programı da varsa: üst çubukta <strong>okul adına tıklayın</strong> (Okul Bilgileri) ve "Okulumda MESEM programı da var" kutusunu işaretleyip kaydedin; bu pencerede Program seçimi açılır.
+                        </p>` : ''}
 
                         ${programSecilebilir ? `
                         <div class="form-group">
@@ -220339,15 +220369,6 @@ class UIComponentManager {
                                     </div>
                                 </label>
 
-                                ${(typeof PROGRAMLAR !== 'undefined' && schoolType === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
-                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
-                                    <input type="checkbox" id="chk-admin-mesem-bunyesi" ${adminOpts.mesemBunyesinde ? 'checked' : ''} style="margin-top: 0.15rem;">
-                                    <div>
-                                        <strong>🧑‍🏭 Bünyesinde MESEM Programı Bulunan Meslek Lisesi</strong>
-                                        <div style="font-size: 0.68rem; color: var(--text-muted);">İşaretlenince her şubeye program (AMP / MESEM) seçilir; MESEM şubeleri kendi kurallarıyla (Md. 22/2) ayrı hesaplanıp branş bazında toplanır.</div>
-                                    </div>
-                                </label>
-                                ` : ''}
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-birlestirilmis" ${adminOpts.isBirlestirilmis ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
@@ -220776,12 +220797,7 @@ class UIComponentManager {
                 isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                 isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                 isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
-                ...(document.getElementById("chk-admin-mesem-bunyesi") ? {
-                    // MESEM programlı şube varken işaret kapatılamaz (şubeler programsız kalırdı).
-                    mesemBunyesinde: !!document.getElementById("chk-admin-mesem-bunyesi").checked
-                        || (this.state.state.subeler || []).some(x => x && x.program === "mesem")
-                } : {}),
-                ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
+                                ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
                 isIlceEnKalabalikKurum: !!document.getElementById("chk-guidance-ilce")?.checked,
                 mevcutRehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0,
                 mevcutIdareciler: {
