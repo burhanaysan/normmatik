@@ -42,6 +42,7 @@ BUNDLE_FILES = [
     "iletisim.js",               # uiComponents.js'ten ONCE (whatsapp mesaji tek kaynak)
     "guvenlik.js",               # state.js/app.js/uiComponents.js'ten ONCE (guvenli metin, Denetim G-01)
     "normRulesConfig.js",        # normEngine.js'ten ÖNCE olmalı
+    "programlar.js",             # normEngine/state/uiComponents'ten ÖNCE (şube programı -> etkin okul türü)
     "liveUpdateSyncEngine.js",
     "strict_pdf_curriculum_db.js",
     "strict_elective_courses_db.js",
@@ -77,6 +78,8 @@ if (typeof window !== 'undefined') {
     if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
     if (typeof NormGuvenlik !== 'undefined') window.NormGuvenlik = NormGuvenlik;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
+    if (typeof PROGRAMLAR !== 'undefined') window.PROGRAMLAR = PROGRAMLAR;
+    if (typeof etkinOkulTuru !== 'undefined') window.etkinOkulTuru = etkinOkulTuru;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
         window.syncEngine = new LiveUpdateSyncEngine();

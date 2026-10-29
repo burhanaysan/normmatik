@@ -166,7 +166,15 @@ export class NormEngine {
      * için tek alan sayılır. Şeflik "her alana bir şef" kuralı bu listeyle çalışır.
      */
     acikAlanlar(subeler = [], schoolType = "") {
-        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+        // Karma programlı okulda MESEM şubeleri alan açmış sayılmaz: MESEM'de alan şefliği yoktur
+        // (OÖKY Md. 84/1; bkz. seflikSaatleri). Hesap bölümlerinde zaten böyledir; ekran ve rapor
+        // okul türünün kendisiyle çağırdığında aynı sonucu görsün diye burada da ayıklanır.
+        const Pk = this._programlar();
+        if (Pk && Pk.karmaMi(subeler, schoolType)) {
+            subeler = (subeler || []).filter(
+                s => !String(Pk.etkinTur(s, schoolType)).includes("mesleki_egitim_merkezi"));
+        }
+        const ce =(typeof window !== 'undefined' && window.curriculumEngine)
             ? window.curriculumEngine
             : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
         const harita = (ce && ce.AREA_BRANCH_MAP) || {};
@@ -933,6 +941,11 @@ export class NormEngine {
             else ebeveyn.set(ka, kb);
         };
 
+        // Farklı programların (AL / AMP / MESEM) şubeleri ASLA birleşmez; eski/bozuk bir bağ
+        // olsa bile yok sayılır. `program` alanı olmayan kayıtlarda koşul hiçbir şeyi engellemez.
+        const P = this._programlar();
+        const subeKimligi = new Map((subeler || []).filter(Boolean).map(s => [s.id, s]));
+
         const sahipler = {};    // dersAnahtari -> Map(subeKimligi -> şube)
         const ebeveynler = {};  // dersAnahtari -> Map(subeKimligi -> ebeveyn)
         (subeler || []).forEach(sec => {
@@ -947,7 +960,10 @@ export class NormEngine {
                     if (!bag.length) return;
                     const e = ebeveynler[k] = ebeveynler[k] || new Map();
                     bag.forEach(hedef => {
-                        if (hedef != null && hedef !== sec.id) birlestir(e, sec.id, hedef);
+                        if (hedef == null || hedef === sec.id) return;
+                        const hedefSube = subeKimligi.get(hedef);
+                        if (P && hedefSube && !P.ayniProgramMi(sec, hedefSube)) return;
+                        birlestir(e, sec.id, hedef);
                     });
                 });
         });
@@ -1631,7 +1647,19 @@ export class NormEngine {
      * @param {string} schoolType - Okul türü
      * @returns {Object} Detaylı norm analiz raporu
      */
-    calculateSchoolNorms(subeler = [], existingTeachers = {}, schoolType = "", coordinatorHoursMap = {}) {
+    // Şube programı yardımcısı (programlar.js). Tek tek ESM yüklenen testlerde tanımsız olabilir;
+    // o durumda null döner ve BÜTÜN okullar eski (tek program) yoldan hesaplanır.
+    _programlar() {
+        return (typeof PROGRAMLAR !== 'undefined') ? PROGRAMLAR
+            : ((typeof window !== 'undefined' && window.PROGRAMLAR) || null);
+    }
+
+    // ŞUBE YÜKLERİNİN TOPLANMASI (tek program) — calculateSchoolNorms'un ilk aşaması.
+    // 29.10.2026: çok programlı okul için ayrı metoda çıkarıldı; gövde AYNEN taşındı.
+    // `secenek.seflikYaz === false` yalnız karma okulda, şeflik saatleri okul genelinde TEK
+    // kez yazılsın diye verilir (varsayılan true = eski davranış).
+    _programYukleri(subeler = [], schoolType = "", coordinatorHoursMap = {}, secenek = {}) {
+        const seflikYaz = secenek.seflikYaz !== false;
         const branchLoadMap = {};
         // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
         const branchLoadSplit = {};
@@ -2097,7 +2125,7 @@ export class NormEngine {
         // Yük ATÖLYE kovasına yazılır: şef ancak atölye ve laboratuvar öğretmeni
         // olabilir (OÖKY Md. 84/A).
         const branchSeflikMap = {};
-        if (isVocationalSchool) {
+        if (isVocationalSchool && seflikYaz) {
             // Aktif alanlar = şubelerde seçilmiş alanlar; her alana bir şef (acikAlanlar).
             const aktifAlanBranslari = this.acikAlanlar(subeler, schoolType);
             const sefler = this.seflikSaatleri(
@@ -2122,6 +2150,82 @@ export class NormEngine {
                 });
             });
         }
+
+        return {
+            branchLoadMap, branchLoadSplit, branchCourseDetails,
+            branssizSaat, hamCizelgeSaati, ozelEgitimSaati, mesemHaricSaati,
+            islenmisYuk, birlesikSubeDusumu,
+            ozelAlanSaati, ozelAlanBrans, branchCoordinatorMap, branchSeflikMap
+        };
+    }
+
+    /**
+     * KARMA PROGRAMLI OKUL: şubeler ETKİN okul türüne göre bölümlenir, her bölüm kendi
+     * kurallarıyla (grup bölünmesi, MESEM Md. 22/2 çırak baremi, atölye) AYRI hesaplanır,
+     * sonra branş bazında toplanır — MEBBİS'e elle toplanarak girilen sayının aynısı.
+     * Şubeler bölümler arasında ASLA birleşmez/gruplanmaz: birlesikDersBilesenleri, MESEM
+     * alan çırak toplamı ve grup hesabı yalnız kendi bölümünün şubelerini görür.
+     */
+    _karmaYukler(subeler, schoolType, coordinatorHoursMap, P) {
+        const parcalar = P.parcala(subeler, schoolType);
+        if (!parcalar.length) return this._programYukleri([], schoolType, coordinatorHoursMap);
+        let seflikYazildi = false;
+        const yukler = parcalar.map(p => {
+            const seflikYaz = !seflikYazildi && this.isMeslekiKurum(p.tur, p.subeler);
+            if (seflikYaz) seflikYazildi = true;
+            const Y = this._programYukleri(p.subeler, p.tur, coordinatorHoursMap, { seflikYaz });
+            // Hangi programdan geldiği ders satırında izlenebilsin.
+            Object.values(Y.branchCourseDetails).forEach(l => l.forEach(d => { d.program = p.tur; }));
+            return Y;
+        });
+        return this._yukleriBirlestir(yukler);
+    }
+
+    _yukleriBirlestir(yukler) {
+        const B = {
+            branchLoadMap: {}, branchLoadSplit: {}, branchCourseDetails: {},
+            ozelAlanSaati: {}, ozelAlanBrans: {}, branchCoordinatorMap: {}, branchSeflikMap: {},
+            branssizSaat: 0, hamCizelgeSaati: 0, ozelEgitimSaati: 0, mesemHaricSaati: 0,
+            islenmisYuk: 0, birlesikSubeDusumu: 0
+        };
+        const topla = (hedef, kaynak) => Object.entries(kaynak).forEach(([k, v]) => {
+            hedef[k] = (hedef[k] || 0) + (v || 0);
+        });
+        yukler.forEach(Y => {
+            topla(B.branchLoadMap, Y.branchLoadMap);
+            Object.entries(Y.branchLoadSplit).forEach(([k, v]) => {
+                const s = B.branchLoadSplit[k] || (B.branchLoadSplit[k] = { genel: 0, atolye: 0 });
+                s.genel += v.genel; s.atolye += v.atolye;
+            });
+            Object.entries(Y.branchCourseDetails).forEach(([k, l]) => {
+                (B.branchCourseDetails[k] = B.branchCourseDetails[k] || []).push(...l);
+            });
+            topla(B.ozelAlanSaati, Y.ozelAlanSaati);
+            Object.entries(Y.ozelAlanBrans).forEach(([k, v]) => {
+                const o = B.ozelAlanBrans[k] || (B.ozelAlanBrans[k] = { ham: 0, yuk: 0 });
+                o.ham += v.ham; o.yuk += v.yuk;
+            });
+            topla(B.branchCoordinatorMap, Y.branchCoordinatorMap);
+            topla(B.branchSeflikMap, Y.branchSeflikMap);
+            ["branssizSaat", "hamCizelgeSaati", "ozelEgitimSaati", "mesemHaricSaati",
+             "islenmisYuk", "birlesikSubeDusumu"].forEach(a => { B[a] += Y[a]; });
+        });
+        return B;
+    }
+
+    calculateSchoolNorms(subeler = [], existingTeachers = {}, schoolType = "", coordinatorHoursMap = {}) {
+        // Karma programlı okul (çok programlı lise / bünyesinde MESEM olan meslek lisesi)
+        // bölümlere ayrılarak hesaplanır; diğer BÜTÜN okullarda tek bölüm = eski yol.
+        const P = this._programlar();
+        const Y = (P && P.karmaMi(subeler, schoolType))
+            ? this._karmaYukler(subeler, schoolType, coordinatorHoursMap, P)
+            : this._programYukleri(subeler, schoolType, coordinatorHoursMap);
+        const {
+            branchLoadMap, branchLoadSplit, branchCourseDetails,
+            branssizSaat, hamCizelgeSaati, ozelEgitimSaati, mesemHaricSaati,
+            islenmisYuk, birlesikSubeDusumu,
+            ozelAlanSaati, ozelAlanBrans, branchCoordinatorMap, branchSeflikMap
+        } = Y;
 
         // Madde 22/6: "Alanlara gore ogretmen norm kadrolari, YONETICILERIN GIRMIS
         // OLDUGU DERS SAATLERI ilgili alanin ders yukunden DUSULEREK belirlenir."

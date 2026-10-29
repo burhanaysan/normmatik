@@ -20,7 +20,7 @@
 // Çözüm: eşleştirmede { ignoreSearch: true } ve app.html'in listeye
 // eklenmesi. Ayrıca çalışma anında indirilen dosyalar da önbelleğe alınıyor.
 // ===================================================================
-const CACHE_NAME = "meb-normmatik-20261027_2313";
+const CACHE_NAME = "meb-normmatik-20261029_2030";
 
 const ASSETS_TO_CACHE = [
     "./",

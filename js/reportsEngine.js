@@ -542,7 +542,9 @@ class MebReportsEngine {
                 // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
                 // geçilmezse rapor, norm hesabından farklı grup sayısı üretir.
                 const inclusionCount = parseInt(sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10) || 0;
-                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount, schoolType, sec.sinifSeviyesi, inclusionCount);
+                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount,
+                    (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
+                    sec.sinifSeviyesi, inclusionCount);
                 grandBaseHours += baseH;
                 grandCalculatedHours += mult.calculatedLoad;
 
@@ -617,6 +619,8 @@ class MebReportsEngine {
         let kuralliSubeVar = false;
 
         const themeSections = subeler.map(sec => {
+            // Karma programlı okulda tema kuralı şubenin programının okul türüne göre bulunur.
+            const secTuru = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, okulTuru) : okulTuru;
             const electives = sec.secmeliDersler || [];
             const stats = bosKovalar();
             let totalElectiveHours = 0;
@@ -633,7 +637,7 @@ class MebReportsEngine {
 
                 // Tema ÖNCE havuzdan: sube kaydindaki `grup` eski kalabilir.
                 const kovaId = meslekMi ? "MESLEK"
-                    : (K ? K.temaCozOncelikli(okulTuru, cName, c.grup) : "BILINMIYOR");
+                    : (K ? K.temaCozOncelikli(secTuru, cName, c.grup) : "BILINMIYOR");
                 const kova = stats[kovaId] || stats.BILINMIYOR;
                 kova.count += 1;
                 kova.hours += h;
@@ -658,7 +662,7 @@ class MebReportsEngine {
             });
 
             // UYGUNLUK — yalnızca kaynağı gösterilebilen kural varsa
-            const kural = K ? K.kuralBul(okulTuru, sec.sinifSeviyesi) : null;
+            const kural = K ? K.kuralBul(secTuru, sec.sinifSeviyesi) : null;
             let uyum = null;
             if (kural) {
                 kuralliSubeVar = true;

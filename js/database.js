@@ -82,6 +82,11 @@ export class MebDatabaseService {
             { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            // 29.10.2026 — Tek kurum kodu altında Anadolu (AL) + Anadolu Meslek Programı (AMP) + MESEM.
+            // Şube başına PROGRAM seçilir (bkz. programlar.js); her şube kendi programının çizelgesini,
+            // grup kuralını ve MESEM çırak baremini kullanır, yükler branş bazında toplanır.
+            // hasAreas: AMP ve MESEM şubelerinde alan seçilir (AL şubesinde arayüz alanı gizler).
+            { id: "cok_programli_anadolu_lisesi", name: "Çok Programlı Anadolu Lisesi", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },

@@ -633,6 +633,12 @@ export class EOkulImporter {
             }
         } catch (e) { /* süzgeç kurulamazsa eski davranış sürer */ }
 
+        // KARMA PROGRAMLI OKUL (programlar.js): e-Okul şubenin programını (AL / AMP / MESEM) vermez.
+        // Alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir; MESEM şubeleri otomatik ayırt edilemez
+        // ve şube kartındaki uyarıyla kullanıcıdan "Şubeyi Düzenle"de programı seçmesi istenir.
+        const karmaOkul = typeof PROGRAMLAR !== 'undefined'
+            && PROGRAMLAR.programSecilebilir(effectiveSchoolType, stateService.state.okulBilgisi);
+
         parsedSections.forEach((sec, idx) => {
             const isSpecialEdu = !!sec.isSpecialEdu;
             let areaId = isSpecialEdu ? "ozel_egitim" : sec.matchedAreaId;
@@ -640,6 +646,11 @@ export class EOkulImporter {
                 areaId = null;
             }
             const dalAdi = isSpecialEdu ? "Özel Eğitim Sınıfı" : (sec.dalAdi || null);
+            const program = karmaOkul
+                ? ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
+                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType))
+                : null;
+            const subeTuru = karmaOkul ? PROGRAMLAR.etkinTur({ program }, effectiveSchoolType) : effectiveSchoolType;
 
             // Zorunlu Dersleri Çöz (Dal bilgisi varsa dal müfredatı otomatik çözülür)
             let mandatoryCourses = [];
@@ -647,7 +658,7 @@ export class EOkulImporter {
             if (this.curriculum && typeof this.curriculum.getMandatoryCourses === 'function') {
                 try {
                     mandatoryCourses = this.curriculum.getMandatoryCourses(
-                        effectiveSchoolType,
+                        subeTuru,
                         sec.grade,
                         areaId,
                         dalAdi,
@@ -667,7 +678,7 @@ export class EOkulImporter {
             // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
             let dalWarning = dersHatasi || null;
             if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
-                const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
+                const validGradeBranches = this.db.getBranchesForArea(areaId, subeTuru, sec.grade);
                 if (validGradeBranches.length > 0) {
                     const normDal = dalAdi.toLowerCase().replace(/[^a-z0-9]/g, '');
                     const isMatched = validGradeBranches.some(b => b.toLowerCase().replace(/[^a-z0-9]/g, '').includes(normDal) || normDal.includes(b.toLowerCase().replace(/[^a-z0-9]/g, '')));
@@ -691,7 +702,11 @@ export class EOkulImporter {
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
-                eOkulWarning: dalWarning
+                eOkulWarning: karmaOkul
+                    ? ([dalWarning, `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
+                        .filter(Boolean).join(" "))
+                    : dalWarning,
+                ...(karmaOkul ? { program } : {})
             };
 
             stateService.sanitizeSection(newSection);

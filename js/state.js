@@ -161,6 +161,12 @@ export class AppStateService {
             this.state.okulBilgisi.okulAdi = currentOkul.okulAdi;
             this.state.okulBilgisi.okulTuru = currentOkul.okulTuru;
             this.state.okulBilgisi.okulTuruKilitli = true;
+            // Bünyesinde MESEM olan meslek lisesi işareti kurum kimliğiyle birlikte kalıcıdır
+            // (adminOptions içinde durur; bkz. programlar.js mesemBunyesinde).
+            if (currentOkul.adminOptions && currentOkul.adminOptions.mesemBunyesinde) {
+                const ao = this.state.okulBilgisi.adminOptions || (this.state.okulBilgisi.adminOptions = {});
+                ao.mesemBunyesinde = true;
+            }
             this.state.okulBilgisi.il = currentOkul.il || "";
             this.state.okulBilgisi.ilce = currentOkul.ilce || "";
             this.state.okulBilgisi.sezon = currentOkul.sezon || "2026-2027";
@@ -611,7 +617,9 @@ export class AppStateService {
             // Yeni Sınıfın Resmi Zorunlu Ders Çizelgesini Otomatik Çöz
             let newCourses = sec.zorunluDersler || [];
             if (curEngine && typeof curEngine.getMandatoryCourses === 'function') {
-                newCourses = curEngine.getMandatoryCourses(schoolType, nextGrade, sec.alanId, sec.dalAdi, sec.engelTuru || null);
+                // Çok programlı okulda şubenin kendi programının çizelgesi (programlar.js)
+                const subeTuru = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType;
+                newCourses = curEngine.getMandatoryCourses(subeTuru, nextGrade, sec.alanId, sec.dalAdi, sec.engelTuru || null);
             }
 
             promotedSections.push({
@@ -680,6 +688,9 @@ export class AppStateService {
             secmeliDersler: sectionData.secmeliDersler || [],
             rehberlikVarMi: sectionData.rehberlikVarMi !== false && !isSpecialEdu
         };
+        // Şubenin programı (AL / AMP / MESEM) yalnız karma programlı okulda yazılır; diğer
+        // okullarda alan HİÇ oluşmaz (bkz. programlar.js — mevcut kayıtlar değişmez).
+        if (sectionData.program) section.program = sectionData.program;
         this.sanitizeSection(section);
         this.state.subeler.push(section);
         this.state.aktifSubeId = newId;
@@ -1068,7 +1079,8 @@ export class AppStateService {
                 ? this.state.okulBilgisi.okulTuru : null;
             if (motor && okulTuru && typeof motor.getMandatoryCourses === 'function') {
                 const referans = motor.getMandatoryCourses(
-                    okulTuru, sec.sinifSeviyesi, sec.alanId, sec.dalAdi, sec.engelTuru || null) || [];
+                    (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, okulTuru) : okulTuru,
+                    sec.sinifSeviyesi, sec.alanId, sec.dalAdi, sec.engelTuru || null) || [];
                 if (referans.length) {
                     const r = referans.find(
                         x => normalizeName(x.ders || "").includes("rehberlik"));
@@ -1410,6 +1422,17 @@ export class AppStateService {
         const secA = this.state.subeler.find(s => s.id === sectionId);
         const secB = this.state.subeler.find(s => s.id === targetSectionId);
         if (!secA || !secB) return;
+
+        // Farklı programların (AL / AMP / MESEM) şubeleri birleştirilemez. Eski kayıttan kalmış
+        // bir bağ varsa KALDIRILABİLİR; yalnız yeni bağ kurulması reddedilir.
+        if (typeof PROGRAMLAR !== 'undefined' && !PROGRAMLAR.ayniProgramMi(secA, secB)) {
+            const eskiBag = [...(secA.zorunluDersler || []), ...(secA.secmeliDersler || [])]
+                .some(d => Array.isArray(d.birlesikSubeler) && d.birlesikSubeler.includes(targetSectionId));
+            if (!eskiBag) {
+                return this._kilitUyar("Farklı programların (AL / AMP / MESEM) şubeleri derste birleştirilemez; "
+                    + "MESEM ile diğer programlar karıştırılmaz.");
+            }
+        }
 
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
@@ -1910,7 +1933,7 @@ export class AppStateService {
         let count = 0;
         (this.state.subeler || []).forEach(sec => {
             const newCourses = curriculumEngineInstance.getMandatoryCourses(
-                schoolType,
+                (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,

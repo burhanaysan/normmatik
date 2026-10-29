@@ -491,7 +491,7 @@ class MebNormApplication {
         let changed = false;
         (appState.state.subeler || []).forEach(sec => {
             const canonicalCourses = curriculumEngine.getMandatoryCourses(
-                schoolType,
+                (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,
@@ -952,8 +952,9 @@ class MebNormApplication {
         }
         // dalAdi da gönderilir: 12. sınıfta AMP/ATP çizelgelerinin toplamı
         // farklı olabiliyor (44 / 45 / 46), doğru çizelgeyi dal adı seçer.
-        return dbService.getOfficialTargetHours(schoolType, section?.sinifSeviyesi,
-            section?.alanId, section?.dalAdi);
+        return dbService.getOfficialTargetHours(
+            (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, schoolType) : schoolType,
+            section?.sinifSeviyesi, section?.alanId, section?.dalAdi);
     }
 
     // --- 2. SOL PANEL (ŞUBE LİSTESİ) RENDER ---
@@ -1010,7 +1011,12 @@ class MebNormApplication {
                     ? `🟣 Özel Eğitim · ⚠️ en fazla ${ih.enFazla} öğrenci — ${ih.gerekenSinif} sınıf gerekir`
                     : (ortam ? `🟣 Özel Eğitim · ⚠️ ${ortam.split(":")[0]} uyarısı` : "🟣 Özel Eğitim Sınıfı");
             } else {
-                const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
+                // Karma programlı okulda (şubede `program` var) alan adı şubenin programının
+                // listesinden bulunur; diğer okullarda eski çağrı AYNEN kalır.
+                const areaObj = s.alanId
+                    ? dbService.getVocationalAreas(s.program && typeof etkinOkulTuru === 'function'
+                        ? etkinOkulTuru(s, schoolType) : undefined).find(a => a.id === s.alanId)
+                    : null;
                 const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";
                 if (s.dalAdi && areaName) {
                     dalText = `${areaName} • ${s.dalAdi}`;
@@ -1021,6 +1027,12 @@ class MebNormApplication {
                 } else {
                     dalText = String(s.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık Sınıfı' : s.sinifSeviyesi + '. Sınıf (Genel)';
                 }
+            }
+
+            // Karma programlı okulda şubenin programı kartta görünür (AL / AMP / MESEM).
+            if (typeof PROGRAMLAR !== 'undefined' && PROGRAMLAR.programSecilebilir(schoolType, appState.state.okulBilgisi)) {
+                const prog = s.program || PROGRAMLAR.varsayilan(schoolType);
+                dalText = `${PROGRAMLAR.KISA[prog] || prog} · ${dalText}`;
             }
 
             const gradeClass = isSpecialEdu ? 'card-grade-special-edu' : ('card-grade-' + String(s.sinifSeviyesi || '').toLowerCase());
@@ -1472,6 +1484,7 @@ class MebNormApplication {
             'mesleki_ve_teknik_anadolu_lisesi': 'MTAL (AMP)',
             'anadolu_teknik_programi': 'ATP',
             'mesleki_egitim_merkezi': 'MESEM',
+            'cok_programli_anadolu_lisesi': 'ÇPAL',
             'ortaokul_temel_egitim': 'Ortaokul',
             'imam_hatip_ortaokulu': 'İmam Hatip Ortaokulu',
             'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu',
@@ -1518,6 +1531,9 @@ class MebNormApplication {
                             <!-- HİYERARŞİK KURUMSAL YOL (BREADCRUMB) -->
                             <div class="hero-hierarchy-path">
                                 <span class="path-badge school" title="Okul Türü">${schoolTypeShort}</span>
+                                ${(typeof PROGRAMLAR !== 'undefined' && PROGRAMLAR.programSecilebilir(schoolType, appState.state.okulBilgisi)) ? `
+                                <span class="path-divider">/</span>
+                                <span class="path-badge school" title="Şubenin programı">${PROGRAMLAR.KISA[activeSec.program || PROGRAMLAR.varsayilan(schoolType)] || ''}</span>` : ''}
                                 <span class="path-divider">/</span>
                                 <span class="path-badge grade">${gradeDisplay}</span>
                                 ${isSpecialEduSec ? `
@@ -1763,7 +1779,9 @@ class MebNormApplication {
         // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
         // geçilmezse ekranda görünen yük, norm hesabındaki yükten farklı çıkar.
         const sectionInclusionCount = parseInt(section.kaynastirmaOgrenciSayisi ?? section.kaynastirmaSayisi ?? 0, 10) || 0;
-        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section), schoolType, section.sinifSeviyesi, sectionInclusionCount);
+        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section),
+            (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, schoolType) : schoolType,
+            section.sinifSeviyesi, sectionInclusionCount);
         
         let loadInfoHtml = "";
         let badgeHtml = "";

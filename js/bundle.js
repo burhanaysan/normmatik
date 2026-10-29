@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.5.0",
-    yayinTarihi: "2026-09-30",
+    surum: "2.6.0",
+    yayinTarihi: "2026-10-29",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Tek kurum kodu altında birden çok program yürüten okullar için yeni özellik: Çok Programlı Anadolu Lisesi (Anadolu + Anadolu Meslek Programı + MESEM) yeni bir okul türü olarak eklendi; bünyesinde MESEM bulunan Mesleki ve Teknik Anadolu Lisesi için Kadro penceresinin İdareci sekmesine \"Bünyesinde MESEM Programı Bulunan Meslek Lisesi\" seçeneği geldi. Bu okullarda şube eklerken ya da düzenlerken şubenin PROGRAMI seçilir (AL / AMP / MESEM); her şube kendi programının ders çizelgesi, hedef ders saati ve kurallarıyla hesaplanır (AMP'de Md. 22/1-ç grup baremi, MESEM'de Md. 22/2 çırak baremi). Programlar birbirinden bağımsız hesaplanıp branş bazında toplanır: MEBBİS'e elle girdiğiniz \"Toplam Ders Saati\" ile aynı yöntem (ör. AMP'de Elektrik 35 saat + MESEM'de 30 saat = 65). MESEM çırak sayısı yalnız MESEM şubelerinden sayılır; farklı programların şubeleri derste birleştirilemez ve birlikte gruplanmaz. Şeflik saatleri ve yönetici ders düşümü okul genelinde yalnız bir kez uygulanır. Müdür yardımcısı ve rehber öğretmen normu okulun toplam öğrenci sayısıyla hesaplanır. Mevcut okulların kayıtları ve sonuçları değişmedi. Önemli: çok programlı bir okulda bu hesabı kendi MEBBİS norm tablonuzla karşılaştırmanız önerilir.",
         "İki yeni okul türü eklendi: Spor Ortaokulu ve Güzel Sanatlar Müzik İlkokulu ve Ortaokulu (Talim ve Terbiye Kurulunun 23.09.2026 tarihli 113 ve 114 sayılı kararları, 2026-2027 öğretim yılından itibaren geçerli). Her iki okul türünün ders listesi, saatleri, hedef haftalık ders saati ve seçmeli ders havuzu resmî karar metinlerinden işlendi. Güzel Sanatlar Müzik İlkokulu ve Ortaokulunda \"Bireysel Çalgı Eğitimi\" ve \"Bireysel Ses Eğitimi\" dersleri, yönetmeliğin bu ilaveyi yalnız spor ve güzel sanatlar LİSELERİNE tanıması nedeniyle normal ders gibi (öğrenci sayısıyla çarpılmadan) hesaplanıyor.",
         "Özel eğitim sınıflarında yönetmeliğin açık bent vermediği üç bileşim netleştirildi (eskiden üçü için dayanaksız \"2 norm\" gösteriliyordu): (1) görme/işitme ortaokul sınıfında özel eğitim öğretmeni normu 0; dersleri alan öğretmenleri okuttuğu için (ÖEHY 31/1-e) bütün saatler alan branşlarının yüküne yazılıyor, hiçbir saat kaybolmuyor; (2) görme/işitme lise ve özel eğitim meslek okulunda norm 1 (Md. 17/1-e kıyası); (3) bedensel yetersizlikte yönetmelik sessiz olduğu için norm \"belirsiz\" etiketiyle 1 gösteriliyor ve iki okuma (özel eğitim öğretmeni 0 ya da 1) şube penceresinde ve raporda yazıyor; uygulama bu durumda kendiliğinden sıfır üretmiyor. Kesin karar için il MEM / İKGM görüşü alınız.",
         "Meslek lisesi ve Anadolu Teknik Programında 10, 11 ve 12. sınıfların seçmeli ders listesinde TTKB'nin iki kararı birlikte sunuluyor (2026-62 ve 2024-41): karar metni tabloyu tüm sınıflara uyguluyor, Genel Müdürlüğün istek yazısı ise hazırlık ve 9. sınıftan başlayarak kademeli uygulama istiyor; hangisini uygulayacağınız sizin kararınızdır. İki tablo 10 ve 11. sınıflarda aynı; 12. sınıfta \"Çağdaş Türk ve Dünya Tarihi\" dersi için 2 saatin yanında 4 saat seçeneği de görünüyor, \"Hedef Temelli Destek Eğitimi\" listede duruyor. Hazırlık ve 9. sınıfta değişiklik yok.",
@@ -1096,6 +1097,154 @@ const NORM_RULES_CONFIG = {
 
 if (typeof window !== 'undefined') {
     window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
+}
+
+// ==================== programlar.js ====================
+
+/**
+ * NormMatik™ — ŞUBE PROGRAMI (29.10.2026)
+ *
+ * NEDEN VAR
+ * ---------
+ * Bazı okullarda TEK kurum kodu altında birden çok program yürür:
+ *   - Çok Programlı Anadolu Lisesi : Anadolu (AL) + Anadolu Meslek Programı (AMP) + MESEM
+ *   - Bünyesinde MESEM bulunan Mesleki ve Teknik Anadolu Lisesi : AMP + MESEM
+ * Okul türü kayıt başına TEK değerdir ve ders listesi, hedef saat, grup bölünmesi,
+ * MESEM çırak baremi okul türüne bakar. Bu yüzden bu okullar doğru hesaplanamıyordu.
+ *
+ * Müdür yardımcısı arkadaşın yöntemi (MEBBİS): AMP'yi kendi kurallarıyla, MESEM'i kendi
+ * kurallarıyla (müstakil MESEM imiş gibi) AYRI hesaplar, branş saatlerini toplayıp
+ * MEBBİS'e girer. Uygulama aynı işi yapar: şubenin `program` alanı hangi kuralların
+ * geçerli olduğunu söyler.
+ *
+ * DEĞİŞMEZ (mevcut müşteri kayıtları)
+ * -----------------------------------
+ * `program` alanı YALNIZ bu iki durumda okunur; başka her durumda okul türü aynen döner:
+ *   1) okul türü "cok_programli_anadolu_lisesi" (yeni tür; mevcut kayıtta yoktur)
+ *   2) okul türü Mesleki ve Teknik Anadolu Lisesi VE şubenin programı AÇIKÇA "mesem"
+ * Eski kayıtta şubede `program` yoktur -> okul türü değişmeden döner -> hesap bit bit aynı.
+ * (test_cokProgramli.mjs bunu eski bir kayıtla ölçer.)
+ */
+
+const PROGRAMLAR = {
+    // program kimliği -> motorun kural seçerken kullandığı ETKİN okul türü
+    OKUL_TURU: {
+        al: "anadolu_lisesi",
+        amp: "mesleki_ve_teknik_anadolu_lisesi",
+        mesem: "mesleki_egitim_merkezi"
+    },
+    AD: {
+        al: "Anadolu Lisesi",
+        amp: "Anadolu Meslek Programı (AMP)",
+        mesem: "MESEM"
+    },
+    KISA: {
+        al: "AL",
+        amp: "AMP",
+        mesem: "MESEM"
+    },
+    // Çok programlı okulun kendi okul türü kimliği
+    COK_PROGRAMLI: "cok_programli_anadolu_lisesi",
+    // Bünyesinde MESEM olabilen okul türü
+    MESEM_BUNYESI_OLABILEN: "mesleki_ve_teknik_anadolu_lisesi",
+
+    /**
+     * "Bünyesinde MESEM var" işareti. adminOptions içinde durur (okulBilgisi.adminOptions.mesemBunyesinde):
+     * bulut kuralları (08_bulut_yonetimi/database.rules.json) okul kaydında YENİ üst düzey alan kabul
+     * etmez ("$diger": false) ama adminOptions altındaki seçenekleri kabul eder — kural dağıtımı gerekmez.
+     */
+    mesemBunyesinde(okulBilgisi) {
+        return !!(okulBilgisi && okulBilgisi.adminOptions && okulBilgisi.adminOptions.mesemBunyesinde);
+    },
+
+    /** Bu okul türünde şubeye program seçilebilir mi? (arayüz bunu sorar) */
+    programSecilebilir(okulTuru, okulBilgisi) {
+        const t = String(okulTuru || "");
+        if (t === PROGRAMLAR.COK_PROGRAMLI) return true;
+        return t === PROGRAMLAR.MESEM_BUNYESI_OLABILEN && PROGRAMLAR.mesemBunyesinde(okulBilgisi);
+    },
+
+    /** Okul türüne göre seçilebilen program kimlikleri (sıralı). */
+    programlar(okulTuru) {
+        const t = String(okulTuru || "");
+        if (t === PROGRAMLAR.COK_PROGRAMLI) return ["al", "amp", "mesem"];
+        if (t === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) return ["amp", "mesem"];
+        return [];
+    },
+
+    /** Şubenin programı yazılmamışsa varsayılan. */
+    varsayilan(okulTuru) {
+        return String(okulTuru || "") === PROGRAMLAR.COK_PROGRAMLI ? "al" : "amp";
+    },
+
+    /**
+     * Şubenin kurallarının dayandığı ETKİN okul türü.
+     * Karma olmayan okulda ve programı olmayan (eski) şubede okul türünü AYNEN döndürür.
+     */
+    etkinTur(sec, okulTuru) {
+        const t = String(okulTuru || "");
+        if (t === PROGRAMLAR.COK_PROGRAMLI) {
+            const p = sec && sec.program;
+            return PROGRAMLAR.OKUL_TURU[p] || PROGRAMLAR.OKUL_TURU.al;
+        }
+        if (t === PROGRAMLAR.MESEM_BUNYESI_OLABILEN && sec && sec.program === "mesem") {
+            return PROGRAMLAR.OKUL_TURU.mesem;
+        }
+        return okulTuru;
+    },
+
+    /**
+     * Okul türü + şubeler karma programlı mı? (hesap yolunu seçer)
+     * Çok programlı okulda şubeler tek programda olsa bile karma yolu işler; böylece
+     * "çok programlı" türün sonucu, kendi programının müstakil okul hesabıyla aynıdır.
+     */
+    karmaMi(subeler, okulTuru) {
+        const t = String(okulTuru || "");
+        if (t === PROGRAMLAR.COK_PROGRAMLI) return true;
+        if (t === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) {
+            return (subeler || []).some(s => s && s.program === "mesem");
+        }
+        return false;
+    },
+
+    /**
+     * İki şube AYNI programda mı? Farklı programların şubeleri derste birleştirilemez ve
+     * birlikte gruplanamaz (MESEM ile diğer programlar KARIŞTIRILMAZ).
+     * `program` alanı olmayan şube (eski kayıt / varsayılan) MESEM dışındaki her programla
+     * uyumludur; iki programsız şube her zaman aynıdır — eski kayıtlarda bu kural hiçbir şeyi
+     * engellemez.
+     */
+    ayniProgramMi(a, b) {
+        const pa = (a && a.program) || "";
+        const pb = (b && b.program) || "";
+        if (pa === pb) return true;
+        if (pa === "mesem" || pb === "mesem") return false;
+        return pa === "" || pb === "";
+    },
+
+    /**
+     * Şubeleri ETKİN okul türüne göre bölümler: [{ tur, subeler }, ...]
+     * Sıra: önce MESEM dışı programlar (AL, AMP), sonra MESEM — şeflik gibi okul genelinde
+     * TEK kez yazılacak kalemler ilk parçada işlenir.
+     */
+    parcala(subeler, okulTuru) {
+        const harita = new Map();
+        (subeler || []).forEach(s => {
+            const tur = PROGRAMLAR.etkinTur(s, okulTuru);
+            if (!harita.has(tur)) harita.set(tur, []);
+            harita.get(tur).push(s);
+        });
+        const mesemMi = (t) => String(t).includes("mesleki_egitim_merkezi");
+        return [...harita.entries()]
+            .map(([tur, liste]) => ({ tur, subeler: liste }))
+            .sort((a, b) => (mesemMi(a.tur) ? 1 : 0) - (mesemMi(b.tur) ? 1 : 0));
+    }
+};
+
+// Kısayol: şubenin ETKİN okul türü. Karma olmayan okulda okul türünün kendisini döndürür.
+// (Tek tek ESM olarak yüklenen testlerde tanımsız olabilir; çağıranlar typeof ile korur.)
+function etkinOkulTuru(sec, okulTuru) {
+    return PROGRAMLAR.etkinTur(sec, okulTuru);
 }
 
 // ==================== liveUpdateSyncEngine.js ====================
@@ -207081,6 +207230,11 @@ class MebDatabaseService {
             { id: "mesleki_ve_teknik_anadolu_lisesi", name: "Mesleki ve Teknik Anadolu Lisesi (AMP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "anadolu_teknik_programi", name: "Anadolu Teknik Programı (ATP)", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "mesleki_egitim_merkezi", name: "Mesleki Eğitim Merkezi (MESEM - Çıraklık / Kalfalık / Ustalık)", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            // 29.10.2026 — Tek kurum kodu altında Anadolu (AL) + Anadolu Meslek Programı (AMP) + MESEM.
+            // Şube başına PROGRAM seçilir (bkz. programlar.js); her şube kendi programının çizelgesini,
+            // grup kuralını ve MESEM çırak baremini kullanır, yükler branş bazında toplanır.
+            // hasAreas: AMP ve MESEM şubelerinde alan seçilir (AL şubesinde arayüz alanı gizler).
+            { id: "cok_programli_anadolu_lisesi", name: "Çok Programlı Anadolu Lisesi", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
             { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
@@ -209356,7 +209510,15 @@ class NormEngine {
      * için tek alan sayılır. Şeflik "her alana bir şef" kuralı bu listeyle çalışır.
      */
     acikAlanlar(subeler = [], schoolType = "") {
-        const ce = (typeof window !== 'undefined' && window.curriculumEngine)
+        // Karma programlı okulda MESEM şubeleri alan açmış sayılmaz: MESEM'de alan şefliği yoktur
+        // (OÖKY Md. 84/1; bkz. seflikSaatleri). Hesap bölümlerinde zaten böyledir; ekran ve rapor
+        // okul türünün kendisiyle çağırdığında aynı sonucu görsün diye burada da ayıklanır.
+        const Pk = this._programlar();
+        if (Pk && Pk.karmaMi(subeler, schoolType)) {
+            subeler = (subeler || []).filter(
+                s => !String(Pk.etkinTur(s, schoolType)).includes("mesleki_egitim_merkezi"));
+        }
+        const ce =(typeof window !== 'undefined' && window.curriculumEngine)
             ? window.curriculumEngine
             : (typeof curriculumEngine !== 'undefined' ? curriculumEngine : null);
         const harita = (ce && ce.AREA_BRANCH_MAP) || {};
@@ -210123,6 +210285,11 @@ class NormEngine {
             else ebeveyn.set(ka, kb);
         };
 
+        // Farklı programların (AL / AMP / MESEM) şubeleri ASLA birleşmez; eski/bozuk bir bağ
+        // olsa bile yok sayılır. `program` alanı olmayan kayıtlarda koşul hiçbir şeyi engellemez.
+        const P = this._programlar();
+        const subeKimligi = new Map((subeler || []).filter(Boolean).map(s => [s.id, s]));
+
         const sahipler = {};    // dersAnahtari -> Map(subeKimligi -> şube)
         const ebeveynler = {};  // dersAnahtari -> Map(subeKimligi -> ebeveyn)
         (subeler || []).forEach(sec => {
@@ -210137,7 +210304,10 @@ class NormEngine {
                     if (!bag.length) return;
                     const e = ebeveynler[k] = ebeveynler[k] || new Map();
                     bag.forEach(hedef => {
-                        if (hedef != null && hedef !== sec.id) birlestir(e, sec.id, hedef);
+                        if (hedef == null || hedef === sec.id) return;
+                        const hedefSube = subeKimligi.get(hedef);
+                        if (P && hedefSube && !P.ayniProgramMi(sec, hedefSube)) return;
+                        birlestir(e, sec.id, hedef);
                     });
                 });
         });
@@ -210821,7 +210991,19 @@ class NormEngine {
      * @param {string} schoolType - Okul türü
      * @returns {Object} Detaylı norm analiz raporu
      */
-    calculateSchoolNorms(subeler = [], existingTeachers = {}, schoolType = "", coordinatorHoursMap = {}) {
+    // Şube programı yardımcısı (programlar.js). Tek tek ESM yüklenen testlerde tanımsız olabilir;
+    // o durumda null döner ve BÜTÜN okullar eski (tek program) yoldan hesaplanır.
+    _programlar() {
+        return (typeof PROGRAMLAR !== 'undefined') ? PROGRAMLAR
+            : ((typeof window !== 'undefined' && window.PROGRAMLAR) || null);
+    }
+
+    // ŞUBE YÜKLERİNİN TOPLANMASI (tek program) — calculateSchoolNorms'un ilk aşaması.
+    // 29.10.2026: çok programlı okul için ayrı metoda çıkarıldı; gövde AYNEN taşındı.
+    // `secenek.seflikYaz === false` yalnız karma okulda, şeflik saatleri okul genelinde TEK
+    // kez yazılsın diye verilir (varsayılan true = eski davranış).
+    _programYukleri(subeler = [], schoolType = "", coordinatorHoursMap = {}, secenek = {}) {
+        const seflikYaz = secenek.seflikYaz !== false;
         const branchLoadMap = {};
         // Madde 18 / Madde 19 ayrımı: her branşın yükü iki kovaya ayrılır.
         const branchLoadSplit = {};
@@ -211287,7 +211469,7 @@ class NormEngine {
         // Yük ATÖLYE kovasına yazılır: şef ancak atölye ve laboratuvar öğretmeni
         // olabilir (OÖKY Md. 84/A).
         const branchSeflikMap = {};
-        if (isVocationalSchool) {
+        if (isVocationalSchool && seflikYaz) {
             // Aktif alanlar = şubelerde seçilmiş alanlar; her alana bir şef (acikAlanlar).
             const aktifAlanBranslari = this.acikAlanlar(subeler, schoolType);
             const sefler = this.seflikSaatleri(
@@ -211312,6 +211494,82 @@ class NormEngine {
                 });
             });
         }
+
+        return {
+            branchLoadMap, branchLoadSplit, branchCourseDetails,
+            branssizSaat, hamCizelgeSaati, ozelEgitimSaati, mesemHaricSaati,
+            islenmisYuk, birlesikSubeDusumu,
+            ozelAlanSaati, ozelAlanBrans, branchCoordinatorMap, branchSeflikMap
+        };
+    }
+
+    /**
+     * KARMA PROGRAMLI OKUL: şubeler ETKİN okul türüne göre bölümlenir, her bölüm kendi
+     * kurallarıyla (grup bölünmesi, MESEM Md. 22/2 çırak baremi, atölye) AYRI hesaplanır,
+     * sonra branş bazında toplanır — MEBBİS'e elle toplanarak girilen sayının aynısı.
+     * Şubeler bölümler arasında ASLA birleşmez/gruplanmaz: birlesikDersBilesenleri, MESEM
+     * alan çırak toplamı ve grup hesabı yalnız kendi bölümünün şubelerini görür.
+     */
+    _karmaYukler(subeler, schoolType, coordinatorHoursMap, P) {
+        const parcalar = P.parcala(subeler, schoolType);
+        if (!parcalar.length) return this._programYukleri([], schoolType, coordinatorHoursMap);
+        let seflikYazildi = false;
+        const yukler = parcalar.map(p => {
+            const seflikYaz = !seflikYazildi && this.isMeslekiKurum(p.tur, p.subeler);
+            if (seflikYaz) seflikYazildi = true;
+            const Y = this._programYukleri(p.subeler, p.tur, coordinatorHoursMap, { seflikYaz });
+            // Hangi programdan geldiği ders satırında izlenebilsin.
+            Object.values(Y.branchCourseDetails).forEach(l => l.forEach(d => { d.program = p.tur; }));
+            return Y;
+        });
+        return this._yukleriBirlestir(yukler);
+    }
+
+    _yukleriBirlestir(yukler) {
+        const B = {
+            branchLoadMap: {}, branchLoadSplit: {}, branchCourseDetails: {},
+            ozelAlanSaati: {}, ozelAlanBrans: {}, branchCoordinatorMap: {}, branchSeflikMap: {},
+            branssizSaat: 0, hamCizelgeSaati: 0, ozelEgitimSaati: 0, mesemHaricSaati: 0,
+            islenmisYuk: 0, birlesikSubeDusumu: 0
+        };
+        const topla = (hedef, kaynak) => Object.entries(kaynak).forEach(([k, v]) => {
+            hedef[k] = (hedef[k] || 0) + (v || 0);
+        });
+        yukler.forEach(Y => {
+            topla(B.branchLoadMap, Y.branchLoadMap);
+            Object.entries(Y.branchLoadSplit).forEach(([k, v]) => {
+                const s = B.branchLoadSplit[k] || (B.branchLoadSplit[k] = { genel: 0, atolye: 0 });
+                s.genel += v.genel; s.atolye += v.atolye;
+            });
+            Object.entries(Y.branchCourseDetails).forEach(([k, l]) => {
+                (B.branchCourseDetails[k] = B.branchCourseDetails[k] || []).push(...l);
+            });
+            topla(B.ozelAlanSaati, Y.ozelAlanSaati);
+            Object.entries(Y.ozelAlanBrans).forEach(([k, v]) => {
+                const o = B.ozelAlanBrans[k] || (B.ozelAlanBrans[k] = { ham: 0, yuk: 0 });
+                o.ham += v.ham; o.yuk += v.yuk;
+            });
+            topla(B.branchCoordinatorMap, Y.branchCoordinatorMap);
+            topla(B.branchSeflikMap, Y.branchSeflikMap);
+            ["branssizSaat", "hamCizelgeSaati", "ozelEgitimSaati", "mesemHaricSaati",
+             "islenmisYuk", "birlesikSubeDusumu"].forEach(a => { B[a] += Y[a]; });
+        });
+        return B;
+    }
+
+    calculateSchoolNorms(subeler = [], existingTeachers = {}, schoolType = "", coordinatorHoursMap = {}) {
+        // Karma programlı okul (çok programlı lise / bünyesinde MESEM olan meslek lisesi)
+        // bölümlere ayrılarak hesaplanır; diğer BÜTÜN okullarda tek bölüm = eski yol.
+        const P = this._programlar();
+        const Y = (P && P.karmaMi(subeler, schoolType))
+            ? this._karmaYukler(subeler, schoolType, coordinatorHoursMap, P)
+            : this._programYukleri(subeler, schoolType, coordinatorHoursMap);
+        const {
+            branchLoadMap, branchLoadSplit, branchCourseDetails,
+            branssizSaat, hamCizelgeSaati, ozelEgitimSaati, mesemHaricSaati,
+            islenmisYuk, birlesikSubeDusumu,
+            ozelAlanSaati, ozelAlanBrans, branchCoordinatorMap, branchSeflikMap
+        } = Y;
 
         // Madde 22/6: "Alanlara gore ogretmen norm kadrolari, YONETICILERIN GIRMIS
         // OLDUGU DERS SAATLERI ilgili alanin ders yukunden DUSULEREK belirlenir."
@@ -212613,7 +212871,9 @@ class MebReportsEngine {
                 // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
                 // geçilmezse rapor, norm hesabından farklı grup sayısı üretir.
                 const inclusionCount = parseInt(sec.kaynastirmaOgrenciSayisi ?? sec.kaynastirmaSayisi ?? 0, 10) || 0;
-                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount, schoolType, sec.sinifSeviyesi, inclusionCount);
+                const mult = this.normEngine.evaluateCourseMultiplier(c, stdCount,
+                    (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
+                    sec.sinifSeviyesi, inclusionCount);
                 grandBaseHours += baseH;
                 grandCalculatedHours += mult.calculatedLoad;
 
@@ -212688,6 +212948,8 @@ class MebReportsEngine {
         let kuralliSubeVar = false;
 
         const themeSections = subeler.map(sec => {
+            // Karma programlı okulda tema kuralı şubenin programının okul türüne göre bulunur.
+            const secTuru = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, okulTuru) : okulTuru;
             const electives = sec.secmeliDersler || [];
             const stats = bosKovalar();
             let totalElectiveHours = 0;
@@ -212704,7 +212966,7 @@ class MebReportsEngine {
 
                 // Tema ÖNCE havuzdan: sube kaydindaki `grup` eski kalabilir.
                 const kovaId = meslekMi ? "MESLEK"
-                    : (K ? K.temaCozOncelikli(okulTuru, cName, c.grup) : "BILINMIYOR");
+                    : (K ? K.temaCozOncelikli(secTuru, cName, c.grup) : "BILINMIYOR");
                 const kova = stats[kovaId] || stats.BILINMIYOR;
                 kova.count += 1;
                 kova.hours += h;
@@ -212729,7 +212991,7 @@ class MebReportsEngine {
             });
 
             // UYGUNLUK — yalnızca kaynağı gösterilebilen kural varsa
-            const kural = K ? K.kuralBul(okulTuru, sec.sinifSeviyesi) : null;
+            const kural = K ? K.kuralBul(secTuru, sec.sinifSeviyesi) : null;
             let uyum = null;
             if (kural) {
                 kuralliSubeVar = true;
@@ -214399,6 +214661,12 @@ class AppStateService {
             this.state.okulBilgisi.okulAdi = currentOkul.okulAdi;
             this.state.okulBilgisi.okulTuru = currentOkul.okulTuru;
             this.state.okulBilgisi.okulTuruKilitli = true;
+            // Bünyesinde MESEM olan meslek lisesi işareti kurum kimliğiyle birlikte kalıcıdır
+            // (adminOptions içinde durur; bkz. programlar.js mesemBunyesinde).
+            if (currentOkul.adminOptions && currentOkul.adminOptions.mesemBunyesinde) {
+                const ao = this.state.okulBilgisi.adminOptions || (this.state.okulBilgisi.adminOptions = {});
+                ao.mesemBunyesinde = true;
+            }
             this.state.okulBilgisi.il = currentOkul.il || "";
             this.state.okulBilgisi.ilce = currentOkul.ilce || "";
             this.state.okulBilgisi.sezon = currentOkul.sezon || "2026-2027";
@@ -214849,7 +215117,9 @@ class AppStateService {
             // Yeni Sınıfın Resmi Zorunlu Ders Çizelgesini Otomatik Çöz
             let newCourses = sec.zorunluDersler || [];
             if (curEngine && typeof curEngine.getMandatoryCourses === 'function') {
-                newCourses = curEngine.getMandatoryCourses(schoolType, nextGrade, sec.alanId, sec.dalAdi, sec.engelTuru || null);
+                // Çok programlı okulda şubenin kendi programının çizelgesi (programlar.js)
+                const subeTuru = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType;
+                newCourses = curEngine.getMandatoryCourses(subeTuru, nextGrade, sec.alanId, sec.dalAdi, sec.engelTuru || null);
             }
 
             promotedSections.push({
@@ -214918,6 +215188,9 @@ class AppStateService {
             secmeliDersler: sectionData.secmeliDersler || [],
             rehberlikVarMi: sectionData.rehberlikVarMi !== false && !isSpecialEdu
         };
+        // Şubenin programı (AL / AMP / MESEM) yalnız karma programlı okulda yazılır; diğer
+        // okullarda alan HİÇ oluşmaz (bkz. programlar.js — mevcut kayıtlar değişmez).
+        if (sectionData.program) section.program = sectionData.program;
         this.sanitizeSection(section);
         this.state.subeler.push(section);
         this.state.aktifSubeId = newId;
@@ -215306,7 +215579,8 @@ class AppStateService {
                 ? this.state.okulBilgisi.okulTuru : null;
             if (motor && okulTuru && typeof motor.getMandatoryCourses === 'function') {
                 const referans = motor.getMandatoryCourses(
-                    okulTuru, sec.sinifSeviyesi, sec.alanId, sec.dalAdi, sec.engelTuru || null) || [];
+                    (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, okulTuru) : okulTuru,
+                    sec.sinifSeviyesi, sec.alanId, sec.dalAdi, sec.engelTuru || null) || [];
                 if (referans.length) {
                     const r = referans.find(
                         x => normalizeName(x.ders || "").includes("rehberlik"));
@@ -215648,6 +215922,17 @@ class AppStateService {
         const secA = this.state.subeler.find(s => s.id === sectionId);
         const secB = this.state.subeler.find(s => s.id === targetSectionId);
         if (!secA || !secB) return;
+
+        // Farklı programların (AL / AMP / MESEM) şubeleri birleştirilemez. Eski kayıttan kalmış
+        // bir bağ varsa KALDIRILABİLİR; yalnız yeni bağ kurulması reddedilir.
+        if (typeof PROGRAMLAR !== 'undefined' && !PROGRAMLAR.ayniProgramMi(secA, secB)) {
+            const eskiBag = [...(secA.zorunluDersler || []), ...(secA.secmeliDersler || [])]
+                .some(d => Array.isArray(d.birlesikSubeler) && d.birlesikSubeler.includes(targetSectionId));
+            if (!eskiBag) {
+                return this._kilitUyar("Farklı programların (AL / AMP / MESEM) şubeleri derste birleştirilemez; "
+                    + "MESEM ile diğer programlar karıştırılmaz.");
+            }
+        }
 
         const norm = String(courseName || "").trim().toLowerCase().replace(/[^a-z0-9]/g, '');
         this.pushHistory();
@@ -216148,7 +216433,7 @@ class AppStateService {
         let count = 0;
         (this.state.subeler || []).forEach(sec => {
             const newCourses = curriculumEngineInstance.getMandatoryCourses(
-                schoolType,
+                (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,
@@ -216805,6 +217090,12 @@ class EOkulImporter {
             }
         } catch (e) { /* süzgeç kurulamazsa eski davranış sürer */ }
 
+        // KARMA PROGRAMLI OKUL (programlar.js): e-Okul şubenin programını (AL / AMP / MESEM) vermez.
+        // Alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir; MESEM şubeleri otomatik ayırt edilemez
+        // ve şube kartındaki uyarıyla kullanıcıdan "Şubeyi Düzenle"de programı seçmesi istenir.
+        const karmaOkul = typeof PROGRAMLAR !== 'undefined'
+            && PROGRAMLAR.programSecilebilir(effectiveSchoolType, stateService.state.okulBilgisi);
+
         parsedSections.forEach((sec, idx) => {
             const isSpecialEdu = !!sec.isSpecialEdu;
             let areaId = isSpecialEdu ? "ozel_egitim" : sec.matchedAreaId;
@@ -216812,6 +217103,11 @@ class EOkulImporter {
                 areaId = null;
             }
             const dalAdi = isSpecialEdu ? "Özel Eğitim Sınıfı" : (sec.dalAdi || null);
+            const program = karmaOkul
+                ? ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
+                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType))
+                : null;
+            const subeTuru = karmaOkul ? PROGRAMLAR.etkinTur({ program }, effectiveSchoolType) : effectiveSchoolType;
 
             // Zorunlu Dersleri Çöz (Dal bilgisi varsa dal müfredatı otomatik çözülür)
             let mandatoryCourses = [];
@@ -216819,7 +217115,7 @@ class EOkulImporter {
             if (this.curriculum && typeof this.curriculum.getMandatoryCourses === 'function') {
                 try {
                     mandatoryCourses = this.curriculum.getMandatoryCourses(
-                        effectiveSchoolType,
+                        subeTuru,
                         sec.grade,
                         areaId,
                         dalAdi,
@@ -216839,7 +217135,7 @@ class EOkulImporter {
             // Dal Uyum Denetimi (MEB Kılavuzunda bu sınıfta bu dal var mı?)
             let dalWarning = dersHatasi || null;
             if (areaId && dalAdi && !isSpecialEdu && this.db && typeof this.db.getBranchesForArea === 'function') {
-                const validGradeBranches = this.db.getBranchesForArea(areaId, effectiveSchoolType, sec.grade);
+                const validGradeBranches = this.db.getBranchesForArea(areaId, subeTuru, sec.grade);
                 if (validGradeBranches.length > 0) {
                     const normDal = dalAdi.toLowerCase().replace(/[^a-z0-9]/g, '');
                     const isMatched = validGradeBranches.some(b => b.toLowerCase().replace(/[^a-z0-9]/g, '').includes(normDal) || normDal.includes(b.toLowerCase().replace(/[^a-z0-9]/g, '')));
@@ -216863,7 +217159,11 @@ class EOkulImporter {
                 zorunluDersler: JSON.parse(JSON.stringify(mandatoryCourses)),
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
-                eOkulWarning: dalWarning
+                eOkulWarning: karmaOkul
+                    ? ([dalWarning, `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
+                        .filter(Boolean).join(" "))
+                    : dalWarning,
+                ...(karmaOkul ? { program } : {})
             };
 
             stateService.sanitizeSection(newSection);
@@ -218032,7 +218332,18 @@ class UIComponentManager {
         // Okul türü GEÇİLMEK ZORUNDA: Özel Program liselerinde bu liste
         // meslek alanları değil, okulun TEMALARIDIR. Parametresiz çağrı
         // onlara meslek lisesi alanlarını gösterirdi.
-        const areas = this.db.getVocationalAreas(schoolType);
+        // KARMA PROGRAMLI OKUL (programlar.js): şubenin programı (AL / AMP / MESEM) seçilir; alan ve
+        // dal listesi, müfredat ve öğrenci üst sınırı o programın okul türüne göre gelir. Diğer
+        // okullarda aktifTur === schoolType olur ve akış eskisiyle birebir aynıdır.
+        const programSecilebilir = typeof PROGRAMLAR !== 'undefined'
+            && PROGRAMLAR.programSecilebilir(schoolType, this.state.state.okulBilgisi);
+        let secilenProgram = programSecilebilir
+            ? (sectionToEdit?.program || PROGRAMLAR.varsayilan(schoolType)) : null;
+        const programTuru = (p) => programSecilebilir ? etkinOkulTuru({ program: p }, schoolType) : schoolType;
+        let aktifTur = programTuru(secilenProgram);
+        const aktifTurBilgisi = () => types.find(t => t.id === aktifTur) || typeInfo;
+        const ogrenciUstSiniri = () => /mesleki_egitim_merkezi|mesem/i.test(String(aktifTur || "")) ? 450 : 60;
+        const areas = this.db.getVocationalAreas(aktifTur);
         const areaLabel = typeInfo.temaAdi || "Meslek / Uzmanlık Alanı";
         const areaEmptyLabel = typeInfo.temaAdi
             ? "-- Tema Seçilmedi --"
@@ -218056,7 +218367,7 @@ class UIComponentManager {
         `).join("");
 
         // Seçilen Alana ve Sınıf Seviyesine Ait Dallar (Dinamik Filtreleme)
-        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, schoolType, selectedGrade) : [];
+        const currentBranches = selectedAreaId ? this.db.getBranchesForArea(selectedAreaId, aktifTur, selectedGrade) : [];
         const selectedDal = sectionToEdit?.dalAdi || "";
         // DAL EŞLEŞMESİ (Dalga 3 Y-14, 21.09.2026): liste "YAZILIM GELİŞTİRME DALI" biçiminde,
         // e-Okul aktarımı ve demo ise "Yazılım Geliştirme" biçiminde saklıyor. Birebir karşılaştırma
@@ -218098,17 +218409,28 @@ class UIComponentManager {
                         </div>
                         <div class="form-group">
                             <label class="form-label">Öğrenci Mevcudu</label>
-                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi ?? 30}" min="0" max="${/mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60}" step="1">
+                            <input type="number" id="sec-students" class="form-control" value="${sectionToEdit?.ogrenciSayisi ?? 30}" min="0" max="${ogrenciUstSiniri()}" step="1">
                         </div>
-                        
-                        <div class="form-group" id="group-sec-area" style="${typeInfo.hasAreas ? '' : 'display:none;'}">
+
+                        ${programSecilebilir ? `
+                        <div class="form-group">
+                            <label class="form-label">Program</label>
+                            <select id="sec-program" class="form-control">
+                                ${PROGRAMLAR.programlar(schoolType).map(p => `<option value="${p}" ${secilenProgram === p ? 'selected' : ''}>${PROGRAMLAR.AD[p]}</option>`).join("")}
+                            </select>
+                            <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">
+                                * Şube kendi programının çizelgesi ve kurallarıyla hesaplanır; yükler branş bazında toplanır. MESEM şubeleri diğer programlarla birleştirilmez veya birlikte gruplanmaz.
+                            </p>
+                        </div>` : ''}
+
+                        <div class="form-group" id="group-sec-area" style="${aktifTurBilgisi().hasAreas ? '' : 'display:none;'}">
                             <label class="form-label">${areaLabel}</label>
                             <select id="sec-area" class="form-control">
                                 ${areaOptions}
                             </select>
                         </div>
 
-                        <div class="form-group" id="group-sec-branch" style="${typeInfo.hasAreas && !typeInfo.temaAdi ? '' : 'display:none;'}">
+                        <div class="form-group" id="group-sec-branch" style="${aktifTurBilgisi().hasAreas && !typeInfo.temaAdi ? '' : 'display:none;'}">
                             <label class="form-label">Meslek Dalı (Opsiyonel / Alana Göre Filtrelenir)</label>
                             <select id="sec-branch" class="form-control">
                                 ${branchOptions}
@@ -218237,7 +218559,7 @@ class UIComponentManager {
                 branchSelect.innerHTML = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
                 return;
             }
-            const branches = this.db.getBranchesForArea(areaId, schoolType, gradeVal);
+            const branches = this.db.getBranchesForArea(areaId, aktifTur, gradeVal);
             let bHtml = `<option value="">-- Dal Seçilmedi (Opsiyonel / Ortak Alan) --</option>`;
             if (branches.length > 0) {
                 branches.forEach(b => {
@@ -218252,6 +218574,26 @@ class UIComponentManager {
         areaSelect?.addEventListener("change", updateDynamicBranches);
         gradeSelect?.addEventListener("change", updateDynamicBranches);
 
+        // PROGRAM DEĞİŞİNCE: alan listesi, dal listesi ve öğrenci üst sınırı yeni programa göre
+        // yenilenir; önceki programın alanı yeni listede olmayabileceği için seçim sıfırlanır.
+        const programSecim = document.getElementById("sec-program");
+        programSecim?.addEventListener("change", () => {
+            secilenProgram = programSecim.value;
+            aktifTur = programTuru(secilenProgram);
+            const tb = aktifTurBilgisi();
+            if (areaSelect) {
+                areaSelect.innerHTML = `<option value="">${areaEmptyLabel}</option>`
+                    + this.db.getVocationalAreas(aktifTur).map(a => `<option value="${a.id}">${a.name}</option>`).join("");
+            }
+            const alanKutu = document.getElementById("group-sec-area");
+            const dalKutu = document.getElementById("group-sec-branch");
+            if (alanKutu) alanKutu.style.display = tb.hasAreas ? "" : "none";
+            if (dalKutu) dalKutu.style.display = (tb.hasAreas && !typeInfo.temaAdi) ? "" : "none";
+            const ogrKutu = document.getElementById("sec-students");
+            if (ogrKutu) ogrKutu.max = ogrenciUstSiniri();
+            updateDynamicBranches();
+        });
+
         document.getElementById("btn-save-single-section").addEventListener("click", () => {
             try {
                 const grade = document.getElementById("sec-grade").value;
@@ -218265,7 +218607,7 @@ class UIComponentManager {
                 // kaydediliyordu (9999 icmalde 20 rehber öğretmen açığı üretti); boş ad başka bir
                 // şubenin adını ("9-A") alıyor, aynı ad ikinci kez verilebiliyordu.
                 // MESEM'de bir şubeye alanın bütün çırakları girilebildiği için üst sınır geniştir.
-                const ogrenciTavani = /mesleki_egitim_merkezi|mesem/i.test(String(schoolType || "")) ? 450 : 60;
+                const ogrenciTavani = ogrenciUstSiniri();
                 if (!/^\d+$/.test(ogrenciMetni) || students > ogrenciTavani) {
                     this.showToast(`Öğrenci sayısı 0 ile ${ogrenciTavani} arasında bir tam sayı olmalı.`, "error");
                     return;
@@ -218281,8 +218623,11 @@ class UIComponentManager {
                     this.showToast(`"${name}" adında bir şube zaten var; her şubenin adı farklı olmalı.`, "error");
                     return;
                 }
-                const areaId = document.getElementById("sec-area")?.value || null;
-                let dalName = document.getElementById("sec-branch")?.value || null;
+                // AL programında alan seçimi yoktur; gizli kutuda eski seçim kalmış olsa da yazılmaz.
+                const areaId = (programSecilebilir && !aktifTurBilgisi().hasAreas)
+                    ? null : (document.getElementById("sec-area")?.value || null);
+                let dalName = (programSecilebilir && !aktifTurBilgisi().hasAreas)
+                    ? null : (document.getElementById("sec-branch")?.value || null);
                 // Aynı dal farklı yazımla seçili geldiyse kayıttaki yazım korunur; aksi hâlde
                 // "dal değişti" sayılıp müfredat boşuna yeniden çözülür (Y-14).
                 if (isEditing && dalName && sectionToEdit.dalAdi
@@ -218304,10 +218649,11 @@ class UIComponentManager {
                         sectionToEdit.dalAdi !== (isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName) ||
                         sectionToEdit.sinifSeviyesi !== grade || 
                         sectionToEdit.isSpecialEdu !== isSpecialEdu ||
+                        (programSecilebilir && (sectionToEdit.program || PROGRAMLAR.varsayilan(schoolType)) !== secilenProgram) ||
                         (isSpecialEdu && (sectionToEdit.engelTuru || null) !== engelTuru)) {
                         // Engel türü değişince çizelge de değişir (ORGM-01/02/03/04/05/06/07/08).
                         const tazeDersler = this.curriculum.getMandatoryCourses(
-                            schoolType, 
+                            aktifTur, 
                             grade, 
                             isSpecialEdu ? "ozel_egitim" : areaId, 
                             isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
@@ -218331,12 +218677,13 @@ class UIComponentManager {
                         specialEduType: engelTuru,
                         engelTuru: engelTuru,
                         zorunluDersler: updatedCourses,
-                        rehberlikVarMi: grade !== "12" && !isSpecialEdu
+                        rehberlikVarMi: grade !== "12" && !isSpecialEdu,
+                        ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
                     this.showToast("Şube başarıyla güncellendi.", "success");
                 } else {
                     const defaultCourses = this.curriculum.getMandatoryCourses(
-                        schoolType, 
+                        aktifTur, 
                         grade, 
                         isSpecialEdu ? "ozel_egitim" : areaId, 
                         isSpecialEdu ? "Özel Eğitim Sınıfı" : dalName,
@@ -218353,7 +218700,8 @@ class UIComponentManager {
                         engelTuru: engelTuru,
                         zorunluDersler: defaultCourses,
                         secmeliDersler: [],
-                        rehberlikVarMi: grade !== "12" && !isSpecialEdu
+                        rehberlikVarMi: grade !== "12" && !isSpecialEdu,
+                        ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
                     this.showToast(`${name} şubesi (${isSpecialEdu ? '🟣 Özel Eğitim' : (dalName || 'Genel')}) dersleriyle eklendi!`, "success");
                 }
@@ -219976,6 +220324,15 @@ class UIComponentManager {
                                     </div>
                                 </label>
 
+                                ${(typeof PROGRAMLAR !== 'undefined' && schoolType === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
+                                <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
+                                    <input type="checkbox" id="chk-admin-mesem-bunyesi" ${adminOpts.mesemBunyesinde ? 'checked' : ''} style="margin-top: 0.15rem;">
+                                    <div>
+                                        <strong>🧑‍🏭 Bünyesinde MESEM Programı Bulunan Meslek Lisesi</strong>
+                                        <div style="font-size: 0.68rem; color: var(--text-muted);">İşaretlenince her şubeye program (AMP / MESEM) seçilir; MESEM şubeleri kendi kurallarıyla (Md. 22/2) ayrı hesaplanıp branş bazında toplanır.</div>
+                                    </div>
+                                </label>
+                                ` : ''}
                                 <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.78rem; color: var(--text-main); cursor: pointer; background: var(--bg-card-subtle); padding: 0.45rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-subtle);">
                                     <input type="checkbox" id="chk-admin-birlestirilmis" ${adminOpts.isBirlestirilmis ? 'checked' : ''} style="margin-top: 0.15rem;">
                                     <div>
@@ -220404,6 +220761,11 @@ class UIComponentManager {
                 isKampusIcinde: !!document.getElementById("chk-admin-kampus")?.checked,
                 isAyniBinadaKucuk: !!document.getElementById("chk-admin-aynibina")?.checked,
                 isBirlestirilmis: !!document.getElementById("chk-admin-birlestirilmis")?.checked,
+                ...(document.getElementById("chk-admin-mesem-bunyesi") ? {
+                    // MESEM programlı şube varken işaret kapatılamaz (şubeler programsız kalırdı).
+                    mesemBunyesinde: !!document.getElementById("chk-admin-mesem-bunyesi").checked
+                        || (this.state.state.subeler || []).some(x => x && x.program === "mesem")
+                } : {}),
                 ekSinifOgrencileri: parseInt(document.getElementById("inp-admin-ek-ogrenci")?.value, 10) || 0,
                 isIlceEnKalabalikKurum: !!document.getElementById("chk-guidance-ilce")?.checked,
                 mevcutRehberOgretmeni: parseInt(document.getElementById("inp-mevcut-rehber")?.value, 10) || 0,
@@ -220512,7 +220874,9 @@ class UIComponentManager {
         if (!this.curriculum && typeof MebCurriculumEngine !== 'undefined') {
             this.curriculum = new MebCurriculumEngine(this.db);
         }
-        const schoolType = this.state?.state?.okulBilgisi?.okulTuru || "";
+        const okulTuruHam = this.state?.state?.okulBilgisi?.okulTuru || "";
+        // Programsız şube (toplu üretici) karma okulda varsayılan programın çizelgesini alır.
+        const schoolType = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru({}, okulTuruHam) : okulTuruHam;
         if (this.curriculum) {
             return this.curriculum.getMandatoryCourses(schoolType, grade, areaId, dalName);
         }
@@ -220626,7 +220990,9 @@ class UIComponentManager {
      * @returns [{tur: "grup"|"liste"|"saat"|"hazirlik", mesaj}]
      */
     secmeliKuralUyarilari(section, secimler = []) {
-        const schoolType = this.state?.state?.okulBilgisi?.okulTuru || "";
+        const okulTuruHam = this.state?.state?.okulBilgisi?.okulTuru || "";
+        // Karma programlı okulda şubenin programının okul türü (programlar.js); diğerlerinde aynı.
+        const schoolType = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : okulTuruHam;
         const grade = String(section.sinifSeviyesi || "");
         const liste = this.resmiSecmeliListesi(section, schoolType, grade);
         if (!liste) return [];
@@ -220676,7 +221042,9 @@ class UIComponentManager {
         if (!master) return [];
 
         const grade = String(section.sinifSeviyesi || "11");
-        const schoolType = this.state?.state?.okulBilgisi?.okulTuru || "";
+        const okulTuruHam = this.state?.state?.okulBilgisi?.okulTuru || "";
+        // Karma programlı okulda şubenin programının okul türü (programlar.js); diğerlerinde aynı.
+        const schoolType = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : okulTuruHam;
         let list = [];   // süzgeç sonunda yeniden atanabiliyor
         const seenNames = new Set();
 
@@ -224409,7 +224777,7 @@ class MebNormApplication {
         let changed = false;
         (appState.state.subeler || []).forEach(sec => {
             const canonicalCourses = curriculumEngine.getMandatoryCourses(
-                schoolType,
+                (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(sec, schoolType) : schoolType,
                 sec.sinifSeviyesi,
                 sec.isSpecialEdu ? "ozel_egitim" : sec.alanId,
                 sec.isSpecialEdu ? "Özel Eğitim Sınıfı" : sec.dalAdi,
@@ -224870,8 +225238,9 @@ class MebNormApplication {
         }
         // dalAdi da gönderilir: 12. sınıfta AMP/ATP çizelgelerinin toplamı
         // farklı olabiliyor (44 / 45 / 46), doğru çizelgeyi dal adı seçer.
-        return dbService.getOfficialTargetHours(schoolType, section?.sinifSeviyesi,
-            section?.alanId, section?.dalAdi);
+        return dbService.getOfficialTargetHours(
+            (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, schoolType) : schoolType,
+            section?.sinifSeviyesi, section?.alanId, section?.dalAdi);
     }
 
     // --- 2. SOL PANEL (ŞUBE LİSTESİ) RENDER ---
@@ -224928,7 +225297,12 @@ class MebNormApplication {
                     ? `🟣 Özel Eğitim · ⚠️ en fazla ${ih.enFazla} öğrenci — ${ih.gerekenSinif} sınıf gerekir`
                     : (ortam ? `🟣 Özel Eğitim · ⚠️ ${ortam.split(":")[0]} uyarısı` : "🟣 Özel Eğitim Sınıfı");
             } else {
-                const areaObj = s.alanId ? dbService.getVocationalAreas().find(a => a.id === s.alanId) : null;
+                // Karma programlı okulda (şubede `program` var) alan adı şubenin programının
+                // listesinden bulunur; diğer okullarda eski çağrı AYNEN kalır.
+                const areaObj = s.alanId
+                    ? dbService.getVocationalAreas(s.program && typeof etkinOkulTuru === 'function'
+                        ? etkinOkulTuru(s, schoolType) : undefined).find(a => a.id === s.alanId)
+                    : null;
                 const areaName = areaObj ? areaObj.name.replace(/ Alanı$/i, '') : "";
                 if (s.dalAdi && areaName) {
                     dalText = `${areaName} • ${s.dalAdi}`;
@@ -224939,6 +225313,12 @@ class MebNormApplication {
                 } else {
                     dalText = String(s.sinifSeviyesi).toLowerCase() === 'hazirlik' ? 'Hazırlık Sınıfı' : s.sinifSeviyesi + '. Sınıf (Genel)';
                 }
+            }
+
+            // Karma programlı okulda şubenin programı kartta görünür (AL / AMP / MESEM).
+            if (typeof PROGRAMLAR !== 'undefined' && PROGRAMLAR.programSecilebilir(schoolType, appState.state.okulBilgisi)) {
+                const prog = s.program || PROGRAMLAR.varsayilan(schoolType);
+                dalText = `${PROGRAMLAR.KISA[prog] || prog} · ${dalText}`;
             }
 
             const gradeClass = isSpecialEdu ? 'card-grade-special-edu' : ('card-grade-' + String(s.sinifSeviyesi || '').toLowerCase());
@@ -225390,6 +225770,7 @@ class MebNormApplication {
             'mesleki_ve_teknik_anadolu_lisesi': 'MTAL (AMP)',
             'anadolu_teknik_programi': 'ATP',
             'mesleki_egitim_merkezi': 'MESEM',
+            'cok_programli_anadolu_lisesi': 'ÇPAL',
             'ortaokul_temel_egitim': 'Ortaokul',
             'imam_hatip_ortaokulu': 'İmam Hatip Ortaokulu',
             'ozel_egitim_meslek_okulu': 'Özel Eğitim Meslek Okulu',
@@ -225436,6 +225817,9 @@ class MebNormApplication {
                             <!-- HİYERARŞİK KURUMSAL YOL (BREADCRUMB) -->
                             <div class="hero-hierarchy-path">
                                 <span class="path-badge school" title="Okul Türü">${schoolTypeShort}</span>
+                                ${(typeof PROGRAMLAR !== 'undefined' && PROGRAMLAR.programSecilebilir(schoolType, appState.state.okulBilgisi)) ? `
+                                <span class="path-divider">/</span>
+                                <span class="path-badge school" title="Şubenin programı">${PROGRAMLAR.KISA[activeSec.program || PROGRAMLAR.varsayilan(schoolType)] || ''}</span>` : ''}
                                 <span class="path-divider">/</span>
                                 <span class="path-badge grade">${gradeDisplay}</span>
                                 ${isSpecialEduSec ? `
@@ -225681,7 +226065,9 @@ class MebNormApplication {
         // Md. 22/1-ç grup bölünmesi SINIF SEVİYESİNE bağlıdır; sinifSeviyesi
         // geçilmezse ekranda görünen yük, norm hesabındaki yükten farklı çıkar.
         const sectionInclusionCount = parseInt(section.kaynastirmaOgrenciSayisi ?? section.kaynastirmaSayisi ?? 0, 10) || 0;
-        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section), schoolType, section.sinifSeviyesi, sectionInclusionCount);
+        const mult = normEngine.evaluateCourseMultiplier(course, normEngine.subeOgrenciSayisi(section),
+            (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, schoolType) : schoolType,
+            section.sinifSeviyesi, sectionInclusionCount);
         
         let loadInfoHtml = "";
         let badgeHtml = "";
@@ -226207,6 +226593,8 @@ if (typeof window !== 'undefined') {
     if (typeof NORMMATIK_FIYAT !== 'undefined') window.NORMMATIK_FIYAT = NORMMATIK_FIYAT;
     if (typeof NormGuvenlik !== 'undefined') window.NormGuvenlik = NormGuvenlik;
     if (typeof NORM_RULES_CONFIG !== 'undefined') window.NORM_RULES_CONFIG = NORM_RULES_CONFIG;
+    if (typeof PROGRAMLAR !== 'undefined') window.PROGRAMLAR = PROGRAMLAR;
+    if (typeof etkinOkulTuru !== 'undefined') window.etkinOkulTuru = etkinOkulTuru;
     if (typeof LiveUpdateSyncEngine !== 'undefined') window.LiveUpdateSyncEngine = LiveUpdateSyncEngine;
     if (typeof syncEngine === 'undefined' && typeof LiveUpdateSyncEngine !== 'undefined') {
         window.syncEngine = new LiveUpdateSyncEngine();
