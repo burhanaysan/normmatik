@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.2",
+    surum: "2.6.3",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Çok Programlı Anadolu Lisesinde şube eklerken sınıf listesi \"Hazırlık\"la başladığı için, sınıfı değiştirmeden eklenen şube hazırlık sınıfı olarak kaydediliyor ve Anadolu programının hazırlık çizelgesi olmadığından hiç ders gelmiyordu. Sınıf listesinden Hazırlık kaldırıldı (varsayılan artık 9. sınıf). Ayrıca çizelgesi bulunamayan bir sınıf/program bileşimi için şube eklenirken ya da düzenlenirken artık \"ders çizelgesi bulunamadı\" uyarısı çıkıyor; eskiden \"dersleriyle eklendi\" yazıp dersiz şube oluşturuluyordu. Hazırlık sınıfı olarak kaydedilmiş böyle bir şube varsa \"Şubeyi Düzenle\"den sınıfı değiştirmeniz yeter, dersler kendiliğinden yenilenir.",
         "Okul Bilgileri penceresi sadeleştirildi ve kolay bulunur hâle getirildi: kilitli bilgiler (kurum kodu, okul adı, okul türü) tek açıklamayla (\"Lisans kaydınızdan gelen bilgiler, değiştirilemez\") düz yazı olarak gösteriliyor; yalnız il, ilçe ve (meslek lisesinde) MESEM seçeneği düzenlenir. Pencerede sezon seçimi kaldırıldı: eğitim sezonu yalnız üst çubuktan değiştirilir (sınıf yükseltme orada yapılır; iki yerde aynı ayar tutarsızlık yaratabiliyordu). Pencere, üst çubukta okul adına tıklayınca ve Diğer menüsündeki yeni \"Okul Bilgileri\" satırından açılıyor; okul adı etiketinin yanında geniş ekranda \"Okul bilgileri\" yazısı görünüyor.",
         "Bünyesinde MESEM programı bulunan meslek liseleri için \"Okulumda MESEM programı da var\" seçeneği, Kadro penceresinin İdareci sekmesinden alınıp Okul Bilgileri penceresine taşındı (müdür yardımcısı normuyla ilgisi olmadığı halde o listede durması yanıltıcıydı). Seçenek müdür yardımcısı normunu değiştirmez; yalnız şube eklerken program (AMP / MESEM) seçmeyi açar. Meslek lisesinde şube eklerken seçeneğin yerini söyleyen bir ipucu gösteriliyor. Daha önce işaretlenmiş okullarda işaret aynen korunur.",
         "e-Okul aktarımı çok programlı okullarda şubenin programını satır başındaki \"AL -\" / \"AMP -\" / \"MESEM -\" ekinden okuyor (ek yoksa eskisi gibi alana bakıp varsayıyor ve uyarıyor). Özel eğitim şubesi de artık yanlışlıkla AL programına düşmüyor. Ayrıca e-Okul'da \"Otistik Hafif\" yazılan özel eğitim sınıfı hafif zihinsel sayılıyordu (norm 1); artık hafif otizm sayılıyor (Md. 17/1-ç, norm 2). Daha önce aktarılıp kaydedilmiş şubeler değişmez; sınıfı \"Şubeyi Düzenle\"den kontrol edebilirsiniz.",
@@ -207237,7 +207238,11 @@ class MebDatabaseService {
             // Şube başına PROGRAM seçilir (bkz. programlar.js); her şube kendi programının çizelgesini,
             // grup kuralını ve MESEM çırak baremini kullanır, yükler branş bazında toplanır.
             // hasAreas: AMP ve MESEM şubelerinde alan seçilir (AL şubesinde arayüz alanı gizler).
-            { id: "cok_programli_anadolu_lisesi", name: "Çok Programlı Anadolu Lisesi", category: "MTEGM", gradeLevels: ["hazirlik", "9", "10", "11", "12"], hasAreas: true },
+            { id: "cok_programli_anadolu_lisesi", name: "Çok Programlı Anadolu Lisesi", category: "MTEGM", gradeLevels: ["9", "10", "11", "12"], hasAreas: true },
+            // 30.10.2026: sınıf listesinde HAZIRLIK YOK. Şube penceresi ilk sınıfı varsayılan seçer; liste "Hazırlık"la
+            // başlayınca gerçek bir okulda 9. sınıf şubesi hazırlık olarak kaydedildi ve Anadolu (AL) programının
+            // hazırlık çizelgesi olmadığı için DERSSİZ kaldı. (Meslek lisesi hazırlığı AMP'de ayrı bir çizelge olarak var,
+            // ama çok programlı okulda AL/MESEM şubelerinin hazırlığı yoktur.)
             { id: "guzel_sanatlar_muzik", name: "Güzel Sanatlar Lisesi (Müzik)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_gorsel", name: "Güzel Sanatlar Lisesi (Görsel Sanatlar)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
             { id: "guzel_sanatlar_tiyatro", name: "Güzel Sanatlar Lisesi (Tiyatro)", category: "OGM", gradeLevels: ["9", "10", "11", "12"] },
@@ -218714,7 +218719,11 @@ class UIComponentManager {
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu,
                         ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
-                    this.showToast("Şube başarıyla güncellendi.", "success");
+                    if (!isSpecialEdu && (!updatedCourses || updatedCourses.length === 0)) {
+                        this.showToast(`Bu sınıf (${grade}) ve program için ders çizelgesi bulunamadı; şubenin dersleri boş. Sınıfı ve programı kontrol edin.`, "warning");
+                    } else {
+                        this.showToast("Şube başarıyla güncellendi.", "success");
+                    }
                 } else {
                     const defaultCourses = this.curriculum.getMandatoryCourses(
                         aktifTur, 
@@ -218737,7 +218746,13 @@ class UIComponentManager {
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu,
                         ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
-                    this.showToast(`${name} şubesi (${isSpecialEdu ? '🟣 Özel Eğitim' : (dalName || 'Genel')}) dersleriyle eklendi!`, "success");
+                    // Çizelgesi olmayan sınıf/program bileşimi (ör. hazırlık sınıfı olmayan bir programda Hazırlık) şubeyi
+                    // DERSSİZ ekler; "eklendi" demek yanıltıcı olur, kullanıcıya açıkça söylenir.
+                    if (!isSpecialEdu && (!defaultCourses || defaultCourses.length === 0)) {
+                        this.showToast(`${name} şubesi eklendi ama bu sınıf (${grade}) ve program için ders çizelgesi bulunamadı; dersleri boş. Sınıfı ve programı kontrol edin.`, "warning");
+                    } else {
+                        this.showToast(`${name} şubesi (${isSpecialEdu ? '🟣 Özel Eğitim' : (dalName || 'Genel')}) dersleriyle eklendi!`, "success");
+                    }
                 }
 
                 this.closeModal("section-modal");

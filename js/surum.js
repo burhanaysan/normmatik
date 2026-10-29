@@ -40,13 +40,14 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.2",
+    surum: "2.6.3",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Çok Programlı Anadolu Lisesinde şube eklerken sınıf listesi \"Hazırlık\"la başladığı için, sınıfı değiştirmeden eklenen şube hazırlık sınıfı olarak kaydediliyor ve Anadolu programının hazırlık çizelgesi olmadığından hiç ders gelmiyordu. Sınıf listesinden Hazırlık kaldırıldı (varsayılan artık 9. sınıf). Ayrıca çizelgesi bulunamayan bir sınıf/program bileşimi için şube eklenirken ya da düzenlenirken artık \"ders çizelgesi bulunamadı\" uyarısı çıkıyor; eskiden \"dersleriyle eklendi\" yazıp dersiz şube oluşturuluyordu. Hazırlık sınıfı olarak kaydedilmiş böyle bir şube varsa \"Şubeyi Düzenle\"den sınıfı değiştirmeniz yeter, dersler kendiliğinden yenilenir.",
         "Okul Bilgileri penceresi sadeleştirildi ve kolay bulunur hâle getirildi: kilitli bilgiler (kurum kodu, okul adı, okul türü) tek açıklamayla (\"Lisans kaydınızdan gelen bilgiler, değiştirilemez\") düz yazı olarak gösteriliyor; yalnız il, ilçe ve (meslek lisesinde) MESEM seçeneği düzenlenir. Pencerede sezon seçimi kaldırıldı: eğitim sezonu yalnız üst çubuktan değiştirilir (sınıf yükseltme orada yapılır; iki yerde aynı ayar tutarsızlık yaratabiliyordu). Pencere, üst çubukta okul adına tıklayınca ve Diğer menüsündeki yeni \"Okul Bilgileri\" satırından açılıyor; okul adı etiketinin yanında geniş ekranda \"Okul bilgileri\" yazısı görünüyor.",
         "Bünyesinde MESEM programı bulunan meslek liseleri için \"Okulumda MESEM programı da var\" seçeneği, Kadro penceresinin İdareci sekmesinden alınıp Okul Bilgileri penceresine taşındı (müdür yardımcısı normuyla ilgisi olmadığı halde o listede durması yanıltıcıydı). Seçenek müdür yardımcısı normunu değiştirmez; yalnız şube eklerken program (AMP / MESEM) seçmeyi açar. Meslek lisesinde şube eklerken seçeneğin yerini söyleyen bir ipucu gösteriliyor. Daha önce işaretlenmiş okullarda işaret aynen korunur.",
         "e-Okul aktarımı çok programlı okullarda şubenin programını satır başındaki \"AL -\" / \"AMP -\" / \"MESEM -\" ekinden okuyor (ek yoksa eskisi gibi alana bakıp varsayıyor ve uyarıyor). Özel eğitim şubesi de artık yanlışlıkla AL programına düşmüyor. Ayrıca e-Okul'da \"Otistik Hafif\" yazılan özel eğitim sınıfı hafif zihinsel sayılıyordu (norm 1); artık hafif otizm sayılıyor (Md. 17/1-ç, norm 2). Daha önce aktarılıp kaydedilmiş şubeler değişmez; sınıfı \"Şubeyi Düzenle\"den kontrol edebilirsiniz.",

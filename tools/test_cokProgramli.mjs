@@ -125,7 +125,10 @@ kontrol("ayniProgramMi: programsız-AMP uyumlu", P.ayniProgramMi({}, { program: 
 const tur = db.getSchoolTypes().find(t => t.id === CPL);
 kontrol("okul türü listesinde 'Çok Programlı Anadolu Lisesi' var", !!tur && tur.name === "Çok Programlı Anadolu Lisesi");
 kontrol("çok programlı tür alan/dal seçer (hasAreas)", !!(tur && tur.hasAreas));
-kontrol("çok programlı tür hazırlık + 9-12 sınıf kademeleri", !!tur && JSON.stringify(tur.gradeLevels) === '["hazirlik","9","10","11","12"]');
+kontrol("çok programlı tür 9-12 sınıf kademeleri; HAZIRLIK YOK (AL programının hazırlık çizelgesi olmadığı için dersiz şube doğuruyordu)",
+    !!tur && JSON.stringify(tur.gradeLevels) === '["9","10","11","12"]');
+kontrol("AL programında hazırlık çizelgesi yok (bu yüzden listede olmamalı)",
+    (ce.getMandatoryCourses("anadolu_lisesi", "hazirlik", null, null) || []).length === 0);
 kontrol("MESEM alan listesi AMP listesinden ayrı geliyor",
     db.getVocationalAreas(MESEM).length > 0 && db.getVocationalAreas(MESEM).length !== db.getVocationalAreas(MTAL).length);
 

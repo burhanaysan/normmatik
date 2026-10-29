@@ -1514,7 +1514,11 @@ export class UIComponentManager {
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu,
                         ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
-                    this.showToast("Şube başarıyla güncellendi.", "success");
+                    if (!isSpecialEdu && (!updatedCourses || updatedCourses.length === 0)) {
+                        this.showToast(`Bu sınıf (${grade}) ve program için ders çizelgesi bulunamadı; şubenin dersleri boş. Sınıfı ve programı kontrol edin.`, "warning");
+                    } else {
+                        this.showToast("Şube başarıyla güncellendi.", "success");
+                    }
                 } else {
                     const defaultCourses = this.curriculum.getMandatoryCourses(
                         aktifTur, 
@@ -1537,7 +1541,13 @@ export class UIComponentManager {
                         rehberlikVarMi: grade !== "12" && !isSpecialEdu,
                         ...(programSecilebilir ? { program: secilenProgram } : {})
                     });
-                    this.showToast(`${name} şubesi (${isSpecialEdu ? '🟣 Özel Eğitim' : (dalName || 'Genel')}) dersleriyle eklendi!`, "success");
+                    // Çizelgesi olmayan sınıf/program bileşimi (ör. hazırlık sınıfı olmayan bir programda Hazırlık) şubeyi
+                    // DERSSİZ ekler; "eklendi" demek yanıltıcı olur, kullanıcıya açıkça söylenir.
+                    if (!isSpecialEdu && (!defaultCourses || defaultCourses.length === 0)) {
+                        this.showToast(`${name} şubesi eklendi ama bu sınıf (${grade}) ve program için ders çizelgesi bulunamadı; dersleri boş. Sınıfı ve programı kontrol edin.`, "warning");
+                    } else {
+                        this.showToast(`${name} şubesi (${isSpecialEdu ? '🟣 Özel Eğitim' : (dalName || 'Genel')}) dersleriyle eklendi!`, "success");
+                    }
                 }
 
                 this.closeModal("section-modal");
