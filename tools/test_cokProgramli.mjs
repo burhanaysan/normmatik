@@ -395,6 +395,44 @@ kontrol("MTAL + MESEM bünyesi: yük mutabakatı tutuyor", rMK.yukMutabakati.tut
     st.state = st.getDefaultState();
 }
 
+// ---------------------------------------------------------------- 10c) E-OKUL SATIR EKİ ("AL -", "AMP -") ve OTİSTİK yazımı
+{
+    const imp = new w.EOkulImporter(db, ce);
+    const st = w.appState;
+    const satirlar = [
+        ["Sınıf/Şube (Alan)", "Erkek", "Kız", "Sınıf Toplamı"],
+        ["AL - 9. Sınıf / A Şubesi (ALANI YOK)", 10, 20, 30],
+        ["AMP - 9. Sınıf / A Şubesi (MUHASEBE VE FİNANSMAN ALANI)", 12, 13, 25],
+        ["AMP -  9. Sınıf-Otistik Hafif / A Şubesi (HAFİF OTİSTİK ENGELLİLER)", 2, 1, 3],
+        ["SINIF GENELİNDE TOPLAM:", 24, 34, 58],
+        ["TOPLAMLAR :", 24, 34, 58]
+    ];
+    const r = imp.processRawRows(satirlar);
+    kontrol("e-Okul: satır başındaki program eki okunuyor (AL / AMP / AMP)",
+        JSON.stringify(r.sections.map(x => x.programOnEki)) === '["AL","AMP","AMP"]', JSON.stringify(r.sections.map(x => x.programOnEki)));
+    const oe = r.sections.find(x => x.isSpecialEdu);
+    kontrol("e-Okul: 'Otistik Hafif' satırı hafif OTİZM sayılıyor (hafif zihinsel DEĞİL)", !!oe && oe.engelTuru === "hafif_otizm", oe && oe.engelTuru);
+    kontrol("normEngine: 'OTİSTİK' orta/ağır → otizm_orta_agir, hafif → hafif_otizm",
+        ne.ozelEgitimTuruMetindenBul("ORTA OTİSTİK") === "otizm_orta_agir" && ne.ozelEgitimTuruMetindenBul("HAFİF OTİSTİK ENGELLİLER") === "hafif_otizm");
+    kontrol("normEngine: eski yazımlar değişmedi (OTİZM, hafif zihinsel)",
+        ne.ozelEgitimTuruMetindenBul("HAFİF OTİZM") === "hafif_otizm" && ne.ozelEgitimTuruMetindenBul("HAFİF ZİHİNSEL") === "hafif_zihinsel");
+
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = CPL;
+    imp.applySectionsToState(st, r.sections, CPL, true);
+    const [al, amp, ozel] = st.state.subeler;
+    kontrol("e-Okul/ÇPAL: 'AL -' eki AL programı", al && al.program === "al");
+    kontrol("e-Okul/ÇPAL: 'AMP -' eki AMP programı", amp && amp.program === "amp");
+    kontrol("e-Okul/ÇPAL: 'AMP -' ekli özel eğitim şubesi AMP programında", ozel && ozel.program === "amp" && ozel.isSpecialEdu && ozel.engelTuru === "hafif_otizm");
+    kontrol("e-Okul/ÇPAL: program ekten geldiyse 'varsayıldı' uyarısı verilmez", al && !/varsayıldı/.test(al.eOkulWarning || "") && amp && !/varsayıldı/.test(amp.eOkulWarning || ""));
+    // Karma olmayan okulda ek yok sayılır; `program` oluşmaz
+    st.state = st.getDefaultState();
+    st.state.okulBilgisi.okulTuru = MTAL;
+    imp.applySectionsToState(st, imp.processRawRows(satirlar).sections, MTAL, true);
+    kontrol("e-Okul/MTAL (işaretsiz): satır eki şubeye 'program' yazmaz", st.state.subeler.every(x => !("program" in x)));
+    st.state = st.getDefaultState();
+}
+
 // ---------------------------------------------------------------- 11) BULUT KURALLARI: yeni üst düzey alan EKLENMEDİ
 {
     const kaynak = oku("js", "cloudDatabaseService.js");

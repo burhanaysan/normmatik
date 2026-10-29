@@ -1,8 +1,8 @@
 {
   "appName": "NormMatik™",
   "officialName": "NormMatik — MEB Norm Kadro ve Ders Yükü Hesaplama Yazılımı",
-  "version": "2.6.0",
-  "releaseDate": "2026-10-29",
+  "version": "2.6.1",
+  "releaseDate": "2026-10-30",
   "minEngineVersion": "2.0.0",
   "distribution": {
     "channel": "stable",
@@ -10,6 +10,7 @@
     "cdnRawUrl": "https://raw.githubusercontent.com/burhanaysan/normmatik/main/version.json"
   },
   "changelog": [
+    "e-Okul aktarımı çok programlı okullarda şubenin programını satır başındaki \"AL -\" / \"AMP -\" / \"MESEM -\" ekinden okuyor (ek yoksa eskisi gibi alana bakıp varsayıyor ve uyarıyor). Özel eğitim şubesi de artık yanlışlıkla AL programına düşmüyor. Ayrıca e-Okul'da \"Otistik Hafif\" yazılan özel eğitim sınıfı hafif zihinsel sayılıyordu (norm 1); artık hafif otizm sayılıyor (Md. 17/1-ç, norm 2). Daha önce aktarılıp kaydedilmiş şubeler değişmez; sınıfı \"Şubeyi Düzenle\"den kontrol edebilirsiniz.",
     "Tek kurum kodu altında birden çok program yürüten okullar için yeni özellik: Çok Programlı Anadolu Lisesi (Anadolu + Anadolu Meslek Programı + MESEM) yeni bir okul türü olarak eklendi; bünyesinde MESEM bulunan Mesleki ve Teknik Anadolu Lisesi için Kadro penceresinin İdareci sekmesine \"Bünyesinde MESEM Programı Bulunan Meslek Lisesi\" seçeneği geldi. Bu okullarda şube eklerken ya da düzenlerken şubenin PROGRAMI seçilir (AL / AMP / MESEM); her şube kendi programının ders çizelgesi, hedef ders saati ve kurallarıyla hesaplanır (AMP'de Md. 22/1-ç grup baremi, MESEM'de Md. 22/2 çırak baremi). Programlar birbirinden bağımsız hesaplanıp branş bazında toplanır: MEBBİS'e elle girdiğiniz \"Toplam Ders Saati\" ile aynı yöntem (ör. AMP'de Elektrik 35 saat + MESEM'de 30 saat = 65). MESEM çırak sayısı yalnız MESEM şubelerinden sayılır; farklı programların şubeleri derste birleştirilemez ve birlikte gruplanmaz. Şeflik saatleri ve yönetici ders düşümü okul genelinde yalnız bir kez uygulanır. Müdür yardımcısı ve rehber öğretmen normu okulun toplam öğrenci sayısıyla hesaplanır. Mevcut okulların kayıtları ve sonuçları değişmedi. Önemli: çok programlı bir okulda bu hesabı kendi MEBBİS norm tablonuzla karşılaştırmanız önerilir.",
     "İki yeni okul türü eklendi: Spor Ortaokulu ve Güzel Sanatlar Müzik İlkokulu ve Ortaokulu (Talim ve Terbiye Kurulunun 23.09.2026 tarihli 113 ve 114 sayılı kararları, 2026-2027 öğretim yılından itibaren geçerli). Her iki okul türünün ders listesi, saatleri, hedef haftalık ders saati ve seçmeli ders havuzu resmî karar metinlerinden işlendi. Güzel Sanatlar Müzik İlkokulu ve Ortaokulunda \"Bireysel Çalgı Eğitimi\" ve \"Bireysel Ses Eğitimi\" dersleri, yönetmeliğin bu ilaveyi yalnız spor ve güzel sanatlar LİSELERİNE tanıması nedeniyle normal ders gibi (öğrenci sayısıyla çarpılmadan) hesaplanıyor.",
     "Özel eğitim sınıflarında yönetmeliğin açık bent vermediği üç bileşim netleştirildi (eskiden üçü için dayanaksız \"2 norm\" gösteriliyordu): (1) görme/işitme ortaokul sınıfında özel eğitim öğretmeni normu 0; dersleri alan öğretmenleri okuttuğu için (ÖEHY 31/1-e) bütün saatler alan branşlarının yüküne yazılıyor, hiçbir saat kaybolmuyor; (2) görme/işitme lise ve özel eğitim meslek okulunda norm 1 (Md. 17/1-e kıyası); (3) bedensel yetersizlikte yönetmelik sessiz olduğu için norm \"belirsiz\" etiketiyle 1 gösteriliyor ve iki okuma (özel eğitim öğretmeni 0 ya da 1) şube penceresinde ve raporda yazıyor; uygulama bu durumda kendiliğinden sıfır üretmiyor. Kesin karar için il MEM / İKGM görüşü alınız.",

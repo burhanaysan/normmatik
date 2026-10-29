@@ -349,13 +349,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.0",
-    yayinTarihi: "2026-10-29",
+    surum: "2.6.1",
+    yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "e-Okul aktarımı çok programlı okullarda şubenin programını satır başındaki \"AL -\" / \"AMP -\" / \"MESEM -\" ekinden okuyor (ek yoksa eskisi gibi alana bakıp varsayıyor ve uyarıyor). Özel eğitim şubesi de artık yanlışlıkla AL programına düşmüyor. Ayrıca e-Okul'da \"Otistik Hafif\" yazılan özel eğitim sınıfı hafif zihinsel sayılıyordu (norm 1); artık hafif otizm sayılıyor (Md. 17/1-ç, norm 2). Daha önce aktarılıp kaydedilmiş şubeler değişmez; sınıfı \"Şubeyi Düzenle\"den kontrol edebilirsiniz.",
         "Tek kurum kodu altında birden çok program yürüten okullar için yeni özellik: Çok Programlı Anadolu Lisesi (Anadolu + Anadolu Meslek Programı + MESEM) yeni bir okul türü olarak eklendi; bünyesinde MESEM bulunan Mesleki ve Teknik Anadolu Lisesi için Kadro penceresinin İdareci sekmesine \"Bünyesinde MESEM Programı Bulunan Meslek Lisesi\" seçeneği geldi. Bu okullarda şube eklerken ya da düzenlerken şubenin PROGRAMI seçilir (AL / AMP / MESEM); her şube kendi programının ders çizelgesi, hedef ders saati ve kurallarıyla hesaplanır (AMP'de Md. 22/1-ç grup baremi, MESEM'de Md. 22/2 çırak baremi). Programlar birbirinden bağımsız hesaplanıp branş bazında toplanır: MEBBİS'e elle girdiğiniz \"Toplam Ders Saati\" ile aynı yöntem (ör. AMP'de Elektrik 35 saat + MESEM'de 30 saat = 65). MESEM çırak sayısı yalnız MESEM şubelerinden sayılır; farklı programların şubeleri derste birleştirilemez ve birlikte gruplanmaz. Şeflik saatleri ve yönetici ders düşümü okul genelinde yalnız bir kez uygulanır. Müdür yardımcısı ve rehber öğretmen normu okulun toplam öğrenci sayısıyla hesaplanır. Mevcut okulların kayıtları ve sonuçları değişmedi. Önemli: çok programlı bir okulda bu hesabı kendi MEBBİS norm tablonuzla karşılaştırmanız önerilir.",
         "İki yeni okul türü eklendi: Spor Ortaokulu ve Güzel Sanatlar Müzik İlkokulu ve Ortaokulu (Talim ve Terbiye Kurulunun 23.09.2026 tarihli 113 ve 114 sayılı kararları, 2026-2027 öğretim yılından itibaren geçerli). Her iki okul türünün ders listesi, saatleri, hedef haftalık ders saati ve seçmeli ders havuzu resmî karar metinlerinden işlendi. Güzel Sanatlar Müzik İlkokulu ve Ortaokulunda \"Bireysel Çalgı Eğitimi\" ve \"Bireysel Ses Eğitimi\" dersleri, yönetmeliğin bu ilaveyi yalnız spor ve güzel sanatlar LİSELERİNE tanıması nedeniyle normal ders gibi (öğrenci sayısıyla çarpılmadan) hesaplanıyor.",
         "Özel eğitim sınıflarında yönetmeliğin açık bent vermediği üç bileşim netleştirildi (eskiden üçü için dayanaksız \"2 norm\" gösteriliyordu): (1) görme/işitme ortaokul sınıfında özel eğitim öğretmeni normu 0; dersleri alan öğretmenleri okuttuğu için (ÖEHY 31/1-e) bütün saatler alan branşlarının yüküne yazılıyor, hiçbir saat kaybolmuyor; (2) görme/işitme lise ve özel eğitim meslek okulunda norm 1 (Md. 17/1-e kıyası); (3) bedensel yetersizlikte yönetmelik sessiz olduğu için norm \"belirsiz\" etiketiyle 1 gösteriliyor ve iki okuma (özel eğitim öğretmeni 0 ya da 1) şube penceresinde ve raporda yazıyor; uygulama bu durumda kendiliğinden sıfır üretmiyor. Kesin karar için il MEM / İKGM görüşü alınız.",
@@ -210584,7 +210585,9 @@ class NormEngine {
         const var_ = (...k) => k.some(x => u.includes(x));
         const hafif = var_("HAFİF", "HAFIF");
         if (var_("BİRDEN FAZLA", "BIRDEN FAZLA", "ÇOKLU", "COKLU")) return "birden_fazla";
-        if (var_("OTİZM", "OTIZM")) return hafif ? "hafif_otizm" : "otizm_orta_agir";
+        // "OTİSTİK" yazımı gerçek bir e-Okul listesinde geldi ("Otistik Hafif / A Şubesi (HAFİF OTİSTİK
+        // ENGELLİLER)", 29.10.2026); yalnız "OTİZM" aranınca hafif zihinsel sayılıp norm 1 çıkıyordu (otizm: 2).
+        if (var_("OTİZM", "OTIZM", "OTİSTİK", "OTISTIK")) return hafif ? "hafif_otizm" : "otizm_orta_agir";
         if (var_("İŞİTME", "ISITME")) return "isitme";
         if (var_("GÖRME", "GORME")) return "gorme";
         if (var_("BEDENSEL", "ORTOPEDİK", "ORTOPEDIK")) return "bedensel";
@@ -216745,6 +216748,11 @@ class EOkulImporter {
                 continue;
             }
 
+            // Satır başındaki program eki: "AL - 9. Sınıf / A Şubesi", "AMP - 10. Sınıf / ...".
+            // Çok programlı okulda şubenin programını e-Okul'un kendisi söyler (applySectionsToState).
+            const onekEsle = firstCell.match(/^\s*(AL|AMP|MESEM|ATP)\s*[-–]\s*/i);
+            const programOnEki = onekEsle ? onekEsle[1].toUpperCase() : null;
+
             // 1. Sınıf Seviyesi Tespiti
             let grade = null;
             if (upperFirst.includes("HAZIRLIK") || upperFirst.includes("HAZ.")) {
@@ -216887,7 +216895,8 @@ class EOkulImporter {
                 dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : null,
                 isSınavlı: isSınavlı,
                 isSpecialEdu: isSpecialEdu,
-                engelTuru: engelTuru
+                engelTuru: engelTuru,
+                programOnEki: programOnEki
             });
         }
 
@@ -217090,11 +217099,13 @@ class EOkulImporter {
             }
         } catch (e) { /* süzgeç kurulamazsa eski davranış sürer */ }
 
-        // KARMA PROGRAMLI OKUL (programlar.js): e-Okul şubenin programını (AL / AMP / MESEM) vermez.
-        // Alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir; MESEM şubeleri otomatik ayırt edilemez
-        // ve şube kartındaki uyarıyla kullanıcıdan "Şubeyi Düzenle"de programı seçmesi istenir.
+        // KARMA PROGRAMLI OKUL (programlar.js): şubenin programı (AL / AMP / MESEM) önce e-Okul satırının
+        // başındaki ekten okunur ("AL - 9. Sınıf / A Şubesi", "AMP - 10. Sınıf / ..."). Satırda ek yoksa
+        // alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir ve şube kartındaki uyarıyla kullanıcıdan
+        // "Şubeyi Düzenle"de programı doğrulaması istenir (MESEM şubesi eksiz satırdan ayırt edilemez).
         const karmaOkul = typeof PROGRAMLAR !== 'undefined'
             && PROGRAMLAR.programSecilebilir(effectiveSchoolType, stateService.state.okulBilgisi);
+        const ONEK_PROGRAM = { AL: "al", AMP: "amp", MESEM: "mesem" };
 
         parsedSections.forEach((sec, idx) => {
             const isSpecialEdu = !!sec.isSpecialEdu;
@@ -217103,9 +217114,12 @@ class EOkulImporter {
                 areaId = null;
             }
             const dalAdi = isSpecialEdu ? "Özel Eğitim Sınıfı" : (sec.dalAdi || null);
+            const onekProgram = karmaOkul && ONEK_PROGRAM[sec.programOnEki]
+                && PROGRAMLAR.programlar(effectiveSchoolType).includes(ONEK_PROGRAM[sec.programOnEki])
+                ? ONEK_PROGRAM[sec.programOnEki] : null;
             const program = karmaOkul
-                ? ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
-                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType))
+                ? (onekProgram || ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
+                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType)))
                 : null;
             const subeTuru = karmaOkul ? PROGRAMLAR.etkinTur({ program }, effectiveSchoolType) : effectiveSchoolType;
 
@@ -217160,8 +217174,9 @@ class EOkulImporter {
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
                 eOkulWarning: karmaOkul
-                    ? ([dalWarning, `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
-                        .filter(Boolean).join(" "))
+                    ? ([dalWarning, onekProgram ? null
+                        : `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
+                        .filter(Boolean).join(" ") || null)
                     : dalWarning,
                 ...(karmaOkul ? { program } : {})
             };

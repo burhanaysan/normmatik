@@ -288,6 +288,11 @@ export class EOkulImporter {
                 continue;
             }
 
+            // Satır başındaki program eki: "AL - 9. Sınıf / A Şubesi", "AMP - 10. Sınıf / ...".
+            // Çok programlı okulda şubenin programını e-Okul'un kendisi söyler (applySectionsToState).
+            const onekEsle = firstCell.match(/^\s*(AL|AMP|MESEM|ATP)\s*[-–]\s*/i);
+            const programOnEki = onekEsle ? onekEsle[1].toUpperCase() : null;
+
             // 1. Sınıf Seviyesi Tespiti
             let grade = null;
             if (upperFirst.includes("HAZIRLIK") || upperFirst.includes("HAZ.")) {
@@ -430,7 +435,8 @@ export class EOkulImporter {
                 dalAdi: isSpecialEdu ? "Özel Eğitim Sınıfı" : null,
                 isSınavlı: isSınavlı,
                 isSpecialEdu: isSpecialEdu,
-                engelTuru: engelTuru
+                engelTuru: engelTuru,
+                programOnEki: programOnEki
             });
         }
 
@@ -633,11 +639,13 @@ export class EOkulImporter {
             }
         } catch (e) { /* süzgeç kurulamazsa eski davranış sürer */ }
 
-        // KARMA PROGRAMLI OKUL (programlar.js): e-Okul şubenin programını (AL / AMP / MESEM) vermez.
-        // Alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir; MESEM şubeleri otomatik ayırt edilemez
-        // ve şube kartındaki uyarıyla kullanıcıdan "Şubeyi Düzenle"de programı seçmesi istenir.
+        // KARMA PROGRAMLI OKUL (programlar.js): şubenin programı (AL / AMP / MESEM) önce e-Okul satırının
+        // başındaki ekten okunur ("AL - 9. Sınıf / A Şubesi", "AMP - 10. Sınıf / ..."). Satırda ek yoksa
+        // alanı eşleşen şube AMP, eşleşmeyen AL kabul edilir ve şube kartındaki uyarıyla kullanıcıdan
+        // "Şubeyi Düzenle"de programı doğrulaması istenir (MESEM şubesi eksiz satırdan ayırt edilemez).
         const karmaOkul = typeof PROGRAMLAR !== 'undefined'
             && PROGRAMLAR.programSecilebilir(effectiveSchoolType, stateService.state.okulBilgisi);
+        const ONEK_PROGRAM = { AL: "al", AMP: "amp", MESEM: "mesem" };
 
         parsedSections.forEach((sec, idx) => {
             const isSpecialEdu = !!sec.isSpecialEdu;
@@ -646,9 +654,12 @@ export class EOkulImporter {
                 areaId = null;
             }
             const dalAdi = isSpecialEdu ? "Özel Eğitim Sınıfı" : (sec.dalAdi || null);
+            const onekProgram = karmaOkul && ONEK_PROGRAM[sec.programOnEki]
+                && PROGRAMLAR.programlar(effectiveSchoolType).includes(ONEK_PROGRAM[sec.programOnEki])
+                ? ONEK_PROGRAM[sec.programOnEki] : null;
             const program = karmaOkul
-                ? ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
-                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType))
+                ? (onekProgram || ((areaId && !isSpecialEdu && PROGRAMLAR.programlar(effectiveSchoolType).includes("amp"))
+                    ? "amp" : PROGRAMLAR.varsayilan(effectiveSchoolType)))
                 : null;
             const subeTuru = karmaOkul ? PROGRAMLAR.etkinTur({ program }, effectiveSchoolType) : effectiveSchoolType;
 
@@ -703,8 +714,9 @@ export class EOkulImporter {
                 secmeliDersler: [],
                 rehberlikVarMi: sec.grade !== "12" && !isSpecialEdu,
                 eOkulWarning: karmaOkul
-                    ? ([dalWarning, `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
-                        .filter(Boolean).join(" "))
+                    ? ([dalWarning, onekProgram ? null
+                        : `ℹ️ Program ${PROGRAMLAR.KISA[program]} olarak varsayıldı. Bu şube MESEM ise "Şubeyi Düzenle"den programı MESEM yapın.`]
+                        .filter(Boolean).join(" ") || null)
                     : dalWarning,
                 ...(karmaOkul ? { program } : {})
             };

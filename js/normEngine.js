@@ -1240,7 +1240,9 @@ export class NormEngine {
         const var_ = (...k) => k.some(x => u.includes(x));
         const hafif = var_("HAFİF", "HAFIF");
         if (var_("BİRDEN FAZLA", "BIRDEN FAZLA", "ÇOKLU", "COKLU")) return "birden_fazla";
-        if (var_("OTİZM", "OTIZM")) return hafif ? "hafif_otizm" : "otizm_orta_agir";
+        // "OTİSTİK" yazımı gerçek bir e-Okul listesinde geldi ("Otistik Hafif / A Şubesi (HAFİF OTİSTİK
+        // ENGELLİLER)", 29.10.2026); yalnız "OTİZM" aranınca hafif zihinsel sayılıp norm 1 çıkıyordu (otizm: 2).
+        if (var_("OTİZM", "OTIZM", "OTİSTİK", "OTISTIK")) return hafif ? "hafif_otizm" : "otizm_orta_agir";
         if (var_("İŞİTME", "ISITME")) return "isitme";
         if (var_("GÖRME", "GORME")) return "gorme";
         if (var_("BEDENSEL", "ORTOPEDİK", "ORTOPEDIK")) return "bedensel";
