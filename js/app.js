@@ -671,11 +671,12 @@ class MebNormApplication {
             <div class="header-section-module section-school-info">
                 <div class="school-executive-cluster">
                     <div class="school-title-row">
-                        <span class="school-title-executive" id="btn-edit-school-name" title="${NormGuvenlik.htmlKacis(info.okulAdi || 'Okul adı belirtilmedi')} — tıklayıp okul bilgilerini düzenleyin">
+                        <span class="school-title-executive" id="btn-edit-school-name" role="button" tabindex="0" aria-label="Okul bilgileri" title="${NormGuvenlik.htmlKacis(info.okulAdi || 'Okul adı belirtilmedi')} — Okul bilgileri için tıklayın">
                             <span style="font-size: 1.15rem;">🏫</span>
                             <span class="school-name-text">${info.okulAdi || 'Okul Adı Belirtilmedi'}</span>
                             ${info.kurumKodu ? '<span class="school-code-badge">' + info.kurumKodu + '</span>' : ''}
                             <span class="edit-pen-icon">✏️</span>
+                            <span class="hdr-yazi school-edit-label">Okul bilgileri</span>
                         </span>
                     </div>
                     <div class="school-meta-pills">
@@ -733,6 +734,9 @@ class MebNormApplication {
                             ⋯ <span class="hdr-yazi">Diğer</span>
                         </button>
                         <div class="header-more-menu" id="header-more-menu" hidden>${menuLisansHtml}
+                            <button class="btn btn-sm btn-header-tool" id="btn-open-school-info" title="Okul bilgileri">
+                                🏫 Okul Bilgileri
+                            </button>
                             <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
                                 ❓ Rehber
                             </button>
@@ -780,6 +784,17 @@ class MebNormApplication {
         });
 
         document.getElementById("btn-edit-school-name")?.addEventListener("click", () => {
+            this.ui.openEditSchoolInfoModal();
+        });
+        // Klavyeyle de açılır (Enter / Boşluk): etiket role="button" ve tabindex=0 taşır.
+        document.getElementById("btn-edit-school-name")?.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                this.ui.openEditSchoolInfoModal();
+            }
+        });
+        // "Diğer" menüsündeki Okul Bilgileri satırı: kalem simgesini fark etmeyenler için ikinci yol.
+        document.getElementById("btn-open-school-info")?.addEventListener("click", () => {
             this.ui.openEditSchoolInfoModal();
         });
 

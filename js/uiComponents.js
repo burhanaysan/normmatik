@@ -799,81 +799,69 @@ export class UIComponentManager {
         const types = this.db.getSchoolTypes();
         const currentType = types.find(t => t.id === info.okulTuru) || { name: "Belirtilmedi", category: "MEB" };
         const isLocked = (info.okulTuruKilitli && info.kurumKodu && info.kurumKodu !== "123456" && !info.isDemo);
+        const kacis = (v) => NormGuvenlik.htmlKacis(v == null ? "" : String(v));
+        const satir = (etiket, deger, mono) => `
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.4rem 0; border-top: 1px solid var(--border);">
+                                <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700; white-space: nowrap;">${etiket}</span>
+                                <span style="font-size: 0.86rem; font-weight: 800; text-align: right; ${mono ? 'font-family: monospace;' : ''}">${kacis(deger)}</span>
+                            </div>`;
 
+        // SADELEŞTİRİLDİ (30.10.2026): kilitli bilgiler TEK bir açıklamayla düz yazı olarak gösterilir
+        // (eskiden üç ayrı kilit etiketi ve devre dışı kutular vardı); düzenlenebilir olanlar (il, ilçe,
+        // MESEM seçeneği) ayrı blokta. Sezon burada YOK, bilerek: üst çubuktaki sezon seçici sınıf
+        // yükseltme (sezon geçişi) penceresini açar; buradaki kutu yalnız etiketi değiştirip şubeleri
+        // yükseltmediği için aynı ayarın iki yerde olması tutarsız sonuç verebilirdi.
         const modalHtml = `
             <div class="modal-overlay active" id="edit-school-modal" style="z-index: 99999;">
                 <div class="modal-box" style="max-width: 520px; padding: 1.75rem;">
                     <div class="modal-header" style="border-bottom: 1px solid var(--border); padding-bottom: 0.85rem; margin-bottom: 1.25rem;">
                         <div class="modal-title" style="font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
-                            <span>⚙️</span> Okul Bilgileri ve Yönetimi
+                            <span>🏫</span> Okul Bilgileri
                         </div>
                         <button class="modal-close-btn" onclick="document.getElementById('edit-school-modal').remove()">✕</button>
                     </div>
-                    
+
                     <div class="modal-body" style="padding: 0;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
-                            <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İl (Düzenlenebilir)</label>
-                                <input type="text" id="edit-school-il" class="form-control" value="${info.il || ''}" placeholder="Örn: KONYA">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">İlçe (Düzenlenebilir)</label>
-                                <input type="text" id="edit-school-ilce" class="form-control" value="${info.ilce || ''}" placeholder="Örn: AKŞEHİR">
-                            </div>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.75rem; margin-bottom: 0.75rem;">
-                            <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">MEB Kurum Kodu 🔒</label>
-                                <input type="text" id="edit-school-kurum-kodu" class="form-control" value="${info.kurumKodu || ''}" readonly disabled style="background: rgba(15, 23, 42, 0.4); cursor: not-allowed; opacity: 0.85; font-family: monospace; font-weight: 800;">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700;">Eğitim Sezonu</label>
-                                <select id="edit-school-season" class="form-control">
-                                    <option value="2026-2027" ${info.sezon === '2026-2027' ? 'selected' : ''}>2026-2027</option>
-                                    <option value="2025-2026" ${info.sezon === '2025-2026' ? 'selected' : ''}>2025-2026</option>
-                                    <option value="2027-2028" ${info.sezon === '2027-2028' ? 'selected' : ''}>2027-2028</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 1.25rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                                <label class="form-label" style="font-size: 0.75rem; font-weight: 700; margin-bottom: 0;">Okul / Kurum Resmî Adı 🔒</label>
-                                <span style="font-size: 0.7rem; color: #0284c7; font-weight: 800;">🔒 Lisansla Mühürlü</span>
-                            </div>
-                            <input type="text" id="edit-school-name" class="form-control" value="${info.okulAdi || ''}" readonly disabled style="background: rgba(15, 23, 42, 0.4); cursor: not-allowed; opacity: 0.85; font-weight: 800;">
-                        </div>
-
-                        <div style="background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
-                            <div>
-                                <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700;">MEVCUT OKUL TÜRÜ</div>
-                                <div style="font-size: 0.9rem; font-weight: 800; color: var(--primary);">📜 ${currentType.name}</div>
-                            </div>
-                            ${isLocked ? `
-                                <span style="background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #10b981; padding: 0.35rem 0.75rem; border-radius: 6px; font-weight: 800; font-size: 0.76rem;">
-                                    🔒 Mühürlü Lisans Türü
-                                </span>
-                            ` : `
+                        <div style="background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.25rem;">
+                            <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary);">${isLocked ? '🔒 Lisans kaydınızdan gelen bilgiler' : 'Okul bilgileri'}</div>
+                            ${isLocked ? '<div style="font-size: 0.74rem; color: var(--text-muted); margin: 0.1rem 0 0.5rem;">Bu bilgiler değiştirilemez.</div>' : '<div style="margin-bottom: 0.5rem;"></div>'}
+                            ${satir("Kurum kodu", info.kurumKodu || "—", true)}
+                            ${satir("Okul adı", info.okulAdi || "—")}
+                            ${satir("Okul türü", currentType.name)}
+                            ${isLocked ? '' : `
+                            <div style="padding-top: 0.6rem; border-top: 1px solid var(--border);">
                                 <button class="btn btn-sm btn-danger-outline" id="btn-trigger-reset-school" style="font-size: 0.78rem;">
                                     🔄 Okul Türünü Değiştir / Sıfırla
                                 </button>
-                            `}
+                            </div>`}
                         </div>
+
+                        <div style="font-size: 0.82rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Okul ayarları</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.4rem;">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label class="form-label" for="edit-school-il" style="font-size: 0.75rem; font-weight: 700;">İl</label>
+                                <input type="text" id="edit-school-il" class="form-control" value="${kacis(info.il || '')}" placeholder="Örn: KONYA">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label class="form-label" for="edit-school-ilce" style="font-size: 0.75rem; font-weight: 700;">İlçe</label>
+                                <input type="text" id="edit-school-ilce" class="form-control" value="${kacis(info.ilce || '')}" placeholder="Örn: AKŞEHİR">
+                            </div>
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1rem;">İl ve ilçe raporların resmî başlığında kullanılır. Eğitim sezonu üst çubuktan değiştirilir.</div>
 
                         ${(typeof PROGRAMLAR !== 'undefined' && info.okulTuru === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
                         <label style="display: flex; align-items: flex-start; gap: 0.6rem; background: var(--bg-card-subtle); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem; margin-bottom: 0.5rem; cursor: pointer;">
                             <input type="checkbox" id="chk-edit-school-mesem" ${PROGRAMLAR.mesemBunyesinde(info) ? 'checked' : ''} style="margin-top: 0.2rem;">
                             <div>
                                 <div style="font-size: 0.85rem; font-weight: 800; color: var(--text-main);">🧑‍🏭 Okulumda MESEM programı da var</div>
-                                <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">İşaretlenince şube eklerken program (AMP / MESEM) seçilir; MESEM şubeleri kendi kurallarıyla (Md. 22/2) ayrı hesaplanıp branş bazında toplanır. Müdür yardımcısı normunu değiştirmez. Kaydetmek için "Bilgileri Kaydet"e basın.</div>
+                                <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.4;">İşaretlenince şube eklerken program (AMP / MESEM) seçilir; MESEM şubeleri kendi kurallarıyla (Md. 22/2) ayrı hesaplanıp branş bazında toplanır. Müdür yardımcısı normunu değiştirmez.</div>
                             </div>
                         </label>` : ''}
                     </div>
 
                     <div class="modal-footer" style="border-top: 1px solid var(--border); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
                         <button class="btn btn-outline" onclick="document.getElementById('edit-school-modal').remove()">Kapat</button>
-                        <button class="btn btn-primary" id="btn-save-edited-school-info" style="font-weight: 800;">💾 Bilgileri Kaydet</button>
+                        <button class="btn btn-primary" id="btn-save-edited-school-info" style="font-weight: 800;">💾 Kaydet</button>
                     </div>
                 </div>
             </div>
@@ -883,9 +871,9 @@ export class UIComponentManager {
         document.getElementById("btn-save-edited-school-info")?.addEventListener("click", () => {
             const il = document.getElementById("edit-school-il")?.value.trim();
             const ilce = document.getElementById("edit-school-ilce")?.value.trim();
-            const season = document.getElementById("edit-school-season")?.value;
 
-            this.state.updateSchoolInfo(info.okulAdi, season, info.kurumKodu, il, ilce);
+            // Sezon bilerek geçilmez (undefined): üst çubuktaki sezon geçişi tek kaynaktır.
+            this.state.updateSchoolInfo(info.okulAdi, undefined, info.kurumKodu, il, ilce);
             // "Okulumda MESEM programı da var" (yalnız meslek lisesinde görünür). MESEM programlı şube varken
             // işaret kapatılamaz: şubeler programsız kalır ve MESEM kuralları sessizce düşerdi.
             let mesemNotu = "";
@@ -902,7 +890,7 @@ export class UIComponentManager {
                 }
             }
             this.closeModal("edit-school-modal");
-            this.showToast("İl/İlçe ve Sezon bilgileri güncellendi." + mesemNotu, "success");
+            this.showToast("Okul bilgileri güncellendi." + mesemNotu, "success");
         });
 
         document.getElementById("btn-trigger-reset-school")?.addEventListener("click", () => {
@@ -1255,7 +1243,7 @@ export class UIComponentManager {
 
                         ${(!programSecilebilir && typeof PROGRAMLAR !== 'undefined' && schoolType === PROGRAMLAR.MESEM_BUNYESI_OLABILEN) ? `
                         <p style="font-size: 0.72rem; color: var(--text-muted); margin: -0.25rem 0 0.75rem;">
-                            ℹ️ Okulunuzda MESEM programı da varsa: üst çubukta <strong>okul adına tıklayın</strong> (Okul Bilgileri) ve "Okulumda MESEM programı da var" kutusunu işaretleyip kaydedin; bu pencerede Program seçimi açılır.
+                            ℹ️ Okulunuzda MESEM programı da varsa: üst çubukta <strong>okul adına tıklayın</strong> (ya da Diğer → Okul Bilgileri) ve "Okulumda MESEM programı da var" kutusunu işaretleyip kaydedin; bu pencerede Program seçimi açılır.
                         </p>` : ''}
 
                         ${programSecilebilir ? `
