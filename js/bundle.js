@@ -134,6 +134,9 @@ class MebLicenseClientManager {
             // erişimi kesmiş olur; bu yalnızca ekranda doğru mesaj çıksın diye.
             const demo = this.initDemoState();
             demo.isExpired = true;
+            // Pencere "süreniz doldu" durumunu gösterebilsin (tarihler abonelik kaydından gelir).
+            demo.bitis = abonelik.bitis || '';
+            demo.baslangic = abonelik.baslangic || '';
             demo.reason = `Aboneliğiniz ${abonelik.bitis || ''} tarihinde sona erdi. Yenilemek için bizimle iletişime geçin.`;
             this.licenseStatus = demo;
             return demo;
@@ -157,6 +160,8 @@ class MebLicenseClientManager {
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
             bitis: abonelik.bitis || '',
+            // Lisansın başladığı gün (YYYY-AA-GG). Eski kayıtlarda olmayabilir; pencere yoksa göstermez.
+            baslangic: abonelik.baslangic || '',
             reason: null
         };
         return this.licenseStatus;
@@ -349,13 +354,15 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.3",
+    surum: "2.6.4",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Lisans penceresi yenilendi. Lisanslı okul artık fiyat ve \"Lisans Al\" düğmesi yerine kendi lisans durumunu görüyor: kalan gün (60 günden az kalınca turuncu, 30 günden az kalınca kırmızı uyarıyla), lisansın başlangıç ve bitiş tarihi, kapsamı ve süreyi uzatmak için okulun bilgilerini içeren hazır bir WhatsApp mesajı açan \"Süreyi Uzat\" düğmesi. Süresi dolmuş lisansta \"süresi doldu, verileriniz silinmez, yenilemeyle geri gelir\" yazıyor. Lisans almak isteyenlerin (demo) penceresinde ise okul bilgisi kutuları boş başlıyor; yazdığınız okul adı, kurum kodu, okul türü ve il/ilçe hazır WhatsApp mesajına eklenir (eskiden mesaj okul bilgisi taşımıyordu; demonun sahte bilgisi gönderilmesin diye form boş başlar). Lisans başlangıç tarihi yeni açılan okullara kendiliğinden yazılır; daha önce açılmış okullarda bu tarih yönetici aracıyla doldurulunca görünür.",
+        "\"Diğer\" menüsündeki \"Geçmiş\" düğmesi \"Kurtarma Noktaları\" oldu ve düzgün bir pencereye kavuştu: yanlışlıkla silinen ya da bozulan şubeleri geri getirmek için çalışmanızı eski bir hâline döndürebilirsiniz. Uygulama çalışırken bu bilgisayarda otomatik kurtarma noktaları biriktirir (en fazla 10 nokta, en az 30 dakika arayla; yalnız bu bilgisayardaki tarayıcıda saklanır). Eskiden düz bir kutuya sıra numarası yazdırılıyordu; artık her noktanın tarihi ve şube/öğrenci sayısı listelenir, yanında \"Bu hâle dön\" düğmesi bulunur. Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak kaydedilir.",
         "Çok Programlı Anadolu Lisesinde şube eklerken sınıf listesi \"Hazırlık\"la başladığı için, sınıfı değiştirmeden eklenen şube hazırlık sınıfı olarak kaydediliyor ve Anadolu programının hazırlık çizelgesi olmadığından hiç ders gelmiyordu. Sınıf listesinden Hazırlık kaldırıldı (varsayılan artık 9. sınıf). Ayrıca çizelgesi bulunamayan bir sınıf/program bileşimi için şube eklenirken ya da düzenlenirken artık \"ders çizelgesi bulunamadı\" uyarısı çıkıyor; eskiden \"dersleriyle eklendi\" yazıp dersiz şube oluşturuluyordu. Hazırlık sınıfı olarak kaydedilmiş böyle bir şube varsa \"Şubeyi Düzenle\"den sınıfı değiştirmeniz yeter, dersler kendiliğinden yenilenir.",
         "Okul Bilgileri penceresi sadeleştirildi ve kolay bulunur hâle getirildi: kilitli bilgiler (kurum kodu, okul adı, okul türü) tek açıklamayla (\"Lisans kaydınızdan gelen bilgiler, değiştirilemez\") düz yazı olarak gösteriliyor; yalnız il, ilçe ve (meslek lisesinde) MESEM seçeneği düzenlenir. Pencerede sezon seçimi kaldırıldı: eğitim sezonu yalnız üst çubuktan değiştirilir (sınıf yükseltme orada yapılır; iki yerde aynı ayar tutarsızlık yaratabiliyordu). Pencere, üst çubukta okul adına tıklayınca ve Diğer menüsündeki yeni \"Okul Bilgileri\" satırından açılıyor; okul adı etiketinin yanında geniş ekranda \"Okul bilgileri\" yazısı görünüyor.",
         "Bünyesinde MESEM programı bulunan meslek liseleri için \"Okulumda MESEM programı da var\" seçeneği, Kadro penceresinin İdareci sekmesinden alınıp Okul Bilgileri penceresine taşındı (müdür yardımcısı normuyla ilgisi olmadığı halde o listede durması yanıltıcıydı). Seçenek müdür yardımcısı normunu değiştirmez; yalnız şube eklerken program (AMP / MESEM) seçmeyi açar. Meslek lisesinde şube eklerken seçeneğin yerini söyleyen bir ipucu gösteriliyor. Daha önce işaretlenmiş okullarda işaret aynen korunur.",
@@ -496,12 +503,43 @@ function normmatikWhatsappBaglantisi(mesaj) {
         + "?text=" + encodeURIComponent(m);
 }
 
+/**
+ * Lisans talebi mesajı (30.10.2026). Formda YAZILAN bilgiler mesaja girer; yazılmamış alan boş şablon satırı olarak
+ * kalır (kişi WhatsApp'ta tamamlar). Hiç bilgi yazılmamışsa sonuç `lisansMesaji` ile BİREBİR aynıdır; yani
+ * karşılama sayfasındaki bağlantıyla aynı metin. Demoda form BOŞ başlar, sahte okul bilgisi mesaja girmez
+ * (13.09.2026 bulgusu); kişi kendi okulunu yazarsa satıcıya o gider.
+ */
+function normmatikLisansMesaji(bilgi) {
+    const b = bilgi || {};
+    const v = (x) => String(x == null ? "" : x).trim();
+    return "Merhaba, NormMatik lisansı hakkında bilgi almak istiyorum.\n"
+        + "Okul: " + v(b.okul) + "\n"
+        + "Kurum kodu: " + v(b.kurumKodu) + "\n"
+        + (v(b.okulTuru) ? "Okul türü: " + v(b.okulTuru) + "\n" : "")
+        + "İl/İlçe: " + v(b.ilIlce);
+}
+
+/**
+ * Lisans yenileme (süre uzatma) mesajı (30.10.2026). Lisanslı okulun gerçek bilgileri gider; satıcı hangi
+ * okulun hangi tarihte bittiğini mesajdan görür.
+ */
+function normmatikYenilemeMesaji(bilgi) {
+    const b = bilgi || {};
+    const v = (x) => String(x == null ? "" : x).trim();
+    return "Merhaba, NormMatik lisansımın süresini uzatmak istiyorum.\n"
+        + "Okul: " + v(b.okul) + "\n"
+        + "Kurum kodu: " + v(b.kurumKodu) + "\n"
+        + "Lisans bitiş tarihi: " + v(b.bitis);
+}
+
 if (typeof window !== 'undefined') {
     window.NORMMATIK_ILETISIM = NORMMATIK_ILETISIM;
     window.normmatikWhatsappBaglantisi = normmatikWhatsappBaglantisi;
+    window.normmatikLisansMesaji = normmatikLisansMesaji;
+    window.normmatikYenilemeMesaji = normmatikYenilemeMesaji;
 }
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { NORMMATIK_ILETISIM, normmatikWhatsappBaglantisi };
+    module.exports = { NORMMATIK_ILETISIM, normmatikWhatsappBaglantisi, normmatikLisansMesaji, normmatikYenilemeMesaji };
 }
 
 // ==================== guvenlik.js ====================
@@ -220899,6 +220937,76 @@ class UIComponentManager {
         }
     }
 
+    /**
+     * KURTARMA NOKTALARI (30.10.2026; eskiden "Sürüm Geçmişi" + düz yazı kutusuna numara yazdırma).
+     * Uygulama çalışırken bu bilgisayarda otomatik kurtarma noktaları biriktirir (state.js surumNoktasiKaydet);
+     * yanlışlıkla silinen şubeleri geri getirmenin tek yolu budur. Her nokta için "Bu hâle dön" düğmesi çıkar.
+     * @param {Function} geriDonulunce - dönüş başarılı olunca ekranı yenileyen işlev (app.render)
+     */
+    openRecoveryPointsModal(geriDonulunce) {
+        const liste = (this.state && typeof this.state.surumleriListele === "function") ? this.state.surumleriListele() : [];
+        const biçim = (zaman) => new Date(zaman).toLocaleString("tr-TR",
+            { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" });
+        const satirlar = liste.map((k, i) => `
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.6rem 0.2rem; border-top: 1px solid var(--border);">
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 800; color: var(--text-main);">${NormGuvenlik.htmlKacis(biçim(k.zaman))}${i === 0 ? ' <span style="font-size: 0.68rem; font-weight: 700; color: #16a34a;">· en yeni</span>' : ''}</div>
+                            <div style="font-size: 0.76rem; color: var(--text-muted);">${k.subeSayisi} şube · ${k.ogrenciSayisi} öğrenci</div>
+                        </div>
+                        <button class="btn btn-sm btn-outline btn-kurtarma-don" data-id="${NormGuvenlik.htmlKacis(k.id)}" style="white-space: nowrap;">Bu hâle dön</button>
+                    </div>`).join("");
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="recovery-modal" style="z-index: 99999;">
+                <div class="modal-box" style="max-width: 520px; padding: 1.75rem;">
+                    <div class="modal-header" style="border-bottom: 1px solid var(--border); padding-bottom: 0.85rem; margin-bottom: 1rem;">
+                        <div class="modal-title" style="font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🕘</span> Kurtarma Noktaları
+                        </div>
+                        <button class="modal-close-btn" onclick="document.getElementById('recovery-modal').remove()">✕</button>
+                    </div>
+                    <div class="modal-body" style="padding: 0;">
+                        <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 0.75rem;">
+                            Yanlışlıkla silinen ya da bozulan şubeleri geri getirmek için çalışmanızı eski bir hâline döndürebilirsiniz.
+                            Noktalar çalışırken <strong>otomatik</strong> alınır (en fazla 10 nokta, en az 30 dakika arayla) ve
+                            <strong>yalnız bu bilgisayardaki tarayıcıda</strong> saklanır.
+                        </p>
+                        ${liste.length ? `<div>${satirlar}</div>` : `
+                        <div style="padding: 1rem 0.2rem; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border);">
+                            Henüz kurtarma noktası yok. Çalıştıkça bu bilgisayarda otomatik olarak biriktirilir.
+                        </div>`}
+                        <p style="font-size: 0.72rem; color: var(--text-muted); margin: 0.75rem 0 0;">
+                            Geri dönmeden önce şu anki hâliniz de yeni bir kurtarma noktası olarak kaydedilir; vazgeçerseniz ona dönebilirsiniz.
+                        </p>
+                    </div>
+                    <div class="modal-footer" style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem; display: flex; justify-content: flex-end;">
+                        <button class="btn btn-outline" onclick="document.getElementById('recovery-modal').remove()">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+
+        document.querySelectorAll("#recovery-modal .btn-kurtarma-don").forEach(dugme => {
+            dugme.addEventListener("click", () => {
+                const hedef = liste.find(k => k.id === dugme.dataset.id);
+                if (!hedef) return;
+                if (!window.confirm(
+                    "Şu anki çalışmanız " + biçim(hedef.zaman) + " tarihli hâliyle DEĞİŞTİRİLECEK.\n\n"
+                    + hedef.subeSayisi + " şube, " + hedef.ogrenciSayisi + " öğrenci\n\n"
+                    + "Devam edilsin mi?")) return;
+                if (this.state.surumeDon(hedef.id)) {
+                    this.state.notify();
+                    this.closeModal("recovery-modal");
+                    if (typeof geriDonulunce === "function") geriDonulunce();
+                    this.showToast("🕘 " + biçim(hedef.zaman) + " tarihli hâle dönüldü.", "success");
+                } else {
+                    this.showToast("Bu hâle dönülemedi; kayıt okunamadı.", "error");
+                }
+            });
+        });
+    }
+
     closeModal(modalId) {
         const modal = document.getElementById(modalId);
         if (modal) modal.remove();
@@ -224071,6 +224179,151 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
     }
 
 
+    // --- LİSANS DURUMU PENCERESİ (30.10.2026) ---
+    // Lisanslı (ve süresi dolmuş) okul için: başlangıç, bitiş, kalan gün ve süre uzatma yönlendirmesi.
+    // Yönetici (master) için yalnız durum ve sürüm bilgisi.
+    openLicenseStatusModal(lic, okulInfo) {
+        const iletisim = (typeof NORMMATIK_ILETISIM !== 'undefined') ? NORMMATIK_ILETISIM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_ILETISIM) ? window.NORMMATIK_ILETISIM : null);
+        const telefonGosterim = iletisim ? iletisim.telefonGosterim : "";
+        const S = (typeof NORMMATIK_SURUM !== 'undefined') ? NORMMATIK_SURUM
+            : ((typeof window !== 'undefined' && window.NORMMATIK_SURUM) ? window.NORMMATIK_SURUM : null);
+        const surumEtiket = S ? ("v" + S.surum) : "—";
+        const surumTarih = S ? S.yayinTarihi : "—";
+        const surumListe = (S && Array.isArray(S.degisiklikler) && S.degisiklikler.length)
+            ? S.degisiklikler.map(d => `<li>${d}</li>`).join("") : "<li>Kayıt yok.</li>";
+        const kacis = (v) => NormGuvenlik.htmlKacis(v == null ? "" : String(v));
+        const types = this.db.getSchoolTypes();
+        const turAdi = (types.find(t => t.id === okulInfo.okulTuru) || {}).name || "";
+
+        const aktif = (typeof window !== 'undefined' && window.licenseManager && window.licenseManager.activeLicense) || {};
+        const tarihYaz = (iso) => {
+            const t = Date.parse(String(iso || "") + "T00:00:00");
+            return Number.isFinite(t)
+                ? new Date(t).toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" })
+                : String(iso || "");
+        };
+        const bitisYazi = tarihYaz(lic.bitis || aktif.bitis);
+        const baslangicIso = lic.baslangic || aktif.baslangic || "";
+        const baslangicYazi = baslangicIso ? tarihYaz(baslangicIso) : "";
+        const doldu = !!lic.isExpired;
+        const kalan = doldu ? 0 : Math.max(0, parseInt(lic.daysRemaining, 10) || 0);
+        const yonetici = !!lic.isMaster;
+
+        // Renk: 60 günden fazla yeşil, 31-60 turuncu, 30 ve altı / dolmuş kırmızı.
+        const renk = (doldu || kalan <= 30) ? "#dc2626" : (kalan <= 60 ? "#d97706" : "#16a34a");
+        const kutuRenk = (doldu || kalan <= 30) ? "rgba(220, 38, 38, 0.10)" : (kalan <= 60 ? "rgba(217, 119, 6, 0.10)" : "rgba(22, 163, 74, 0.10)");
+
+        // İlerleme çubuğu yalnız başlangıç tarihi biliniyorsa (uydurma süre göstermez).
+        let ilerlemeHtml = "";
+        const bitisMs = Number(aktif.bitisMs || 0);
+        const bas = Date.parse(baslangicIso + "T00:00:00");
+        if (!yonetici && !doldu && Number.isFinite(bas) && bitisMs > bas) {
+            const yuzde = Math.min(100, Math.max(0, Math.round(((Date.now() - bas) / (bitisMs - bas)) * 100)));
+            ilerlemeHtml = `
+                <div style="height: 8px; background: rgba(100, 116, 139, 0.25); border-radius: 9999px; overflow: hidden; margin-top: 0.75rem;" aria-hidden="true">
+                    <div style="width: ${yuzde}%; height: 100%; background: ${renk};"></div>
+                </div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">Lisans süresinin %${yuzde}'i geçti</div>`;
+        }
+
+        const satir = (etiket, deger) => `
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.45rem 0; border-top: 1px solid var(--border-main);">
+                <span style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">${etiket}</span>
+                <span style="font-size: 0.86rem; font-weight: 800; text-align: right;">${deger}</span>
+            </div>`;
+        const kapsam = (lic.maxSections === -1 || lic.isMaster ? "Sınırsız şube" : (lic.maxSections + " şube"))
+            + (lic.allowExport !== false ? " · Excel (.XLSX) çıktısı · filigransız yazdırma" : " · dışa aktarım kapalı");
+
+        const sayacHtml = yonetici ? `
+            <div style="font-size: 1.05rem; font-weight: 900; color: #7c3aed;">Geliştirici erişimi — sınırsız</div>`
+            : (doldu ? `
+            <div style="font-size: 1.4rem; font-weight: 900; color: ${renk};">Lisansınızın süresi doldu</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem;">${bitisYazi ? bitisYazi + " tarihinde sona erdi." : ""} Verilerinize erişim kapalıdır; verileriniz silinmez, yenilemeyle geri gelir.</div>`
+            : `
+            <div style="font-size: 1.7rem; font-weight: 900; color: ${renk}; line-height: 1.1;">${kalan} gün kaldı</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem;">Lisansınız <strong>${bitisYazi}</strong> tarihinde sona erecek.</div>`);
+
+        const uyariHtml = (!yonetici && !doldu && kalan <= 60) ? `
+            <div style="background: ${kutuRenk}; border: 1.5px solid ${renk}; color: var(--text-main); border-radius: 10px; padding: 0.7rem 0.9rem; font-size: 0.8rem; line-height: 1.5;">
+                ⏰ Lisansınızın bitmesine <strong>${kalan} gün</strong> kaldı. Çalışmanızda kesinti olmaması için süreyi şimdiden uzatmanızı öneririz.
+            </div>` : "";
+
+        const yenilemeHtml = yonetici ? "" : `
+            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <div style="font-size: 0.84rem; font-weight: 800; color: var(--text-main);">Lisans süresini uzatmak için</div>
+                <div style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.5;">
+                    Süre dolmadan bizimle iletişime geçin; lisansınız aynı kurum koduyla uzatılır. Aşağıdaki düğme, okulunuzun bilgilerini içeren hazır bir WhatsApp mesajı açar.
+                </div>
+                <button class="btn" id="btn-whatsapp-yenile" style="background: #16a34a; border: 1px solid #15803d; color: #fff; width: 100%; padding: 0.8rem; font-size: 0.92rem; font-weight: 800; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);">
+                    WhatsApp ile Süreyi Uzat  ·  ${telefonGosterim}
+                </button>
+            </div>`;
+
+        const modalHtml = `
+            <div class="modal-overlay active" id="license-modal">
+                <div class="modal-box" style="max-width: 600px; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; padding: 1rem 1.3rem;">
+                        <div class="modal-title" style="color: #fff; font-size: 1.1rem; font-weight: 800;">
+                            <div>NormMatik™ Lisansım</div>
+                            <div style="font-size: 0.72rem; color: #94a3b8; font-weight: 500;">Kuruma özel bulut lisansı</div>
+                        </div>
+                        <button class="modal-close-btn" id="btn-close-license-modal" style="color: #fff;">✕</button>
+                    </div>
+                    <div class="modal-body" style="padding: 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 1rem;">
+
+                        <div style="background: ${yonetici ? 'rgba(124, 58, 237, 0.08)' : kutuRenk}; border: 1.5px solid ${yonetici ? '#7c3aed' : renk}; border-radius: 12px; padding: 1rem 1.1rem;">
+                            ${sayacHtml}
+                            ${ilerlemeHtml}
+                        </div>
+
+                        ${uyariHtml}
+
+                        <div style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.8rem 1rem;">
+                            <div style="font-size: 0.82rem; font-weight: 800; color: var(--primary); margin-bottom: 0.2rem;">Lisans bilgileri</div>
+                            ${satir("Okul", kacis(okulInfo.okulAdi || "—"))}
+                            ${satir("Kurum kodu", `<span style="font-family: monospace;">${kacis(okulInfo.kurumKodu || "—")}</span>`)}
+                            ${turAdi ? satir("Okul türü", kacis(turAdi)) : ""}
+                            ${(!yonetici && baslangicYazi) ? satir("Lisans başlangıcı", baslangicYazi) : ""}
+                            ${(!yonetici && bitisYazi) ? satir("Lisans bitişi", bitisYazi) : ""}
+                            ${yonetici ? "" : satir("Kapsam", kacis(kapsam))}
+                        </div>
+
+                        ${yenilemeHtml}
+
+                        <details style="background: var(--bg-card-subtle); border: 1.5px solid var(--border-main); border-radius: 12px; padding: 0.7rem 0.9rem;">
+                            <summary style="cursor: pointer; font-size: 0.82rem; font-weight: 800; color: var(--text-main); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; list-style: revert;">
+                                <span>Yazılım Sürümü</span>
+                                <span style="font-family: ui-monospace, monospace; font-weight: 900; color: var(--primary);">${surumEtiket}</span>
+                            </summary>
+                            <div style="font-size: 0.73rem; color: var(--text-muted); margin: 0.5rem 0 0.4rem;">
+                                Yayın tarihi: <strong>${surumTarih}</strong>
+                            </div>
+                            <div style="font-size: 0.76rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.25rem;">Neler değişti</div>
+                            <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.74rem; color: var(--text-muted); line-height: 1.55; display: flex; flex-direction: column; gap: 0.2rem;">
+                                ${surumListe}
+                            </ul>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.renderModal(modalHtml);
+
+        document.getElementById("btn-close-license-modal")?.addEventListener("click", () => {
+            this.closeModal("license-modal");
+        });
+        document.getElementById("btn-whatsapp-yenile")?.addEventListener("click", () => {
+            const mesaj = (typeof normmatikYenilemeMesaji === "function")
+                ? normmatikYenilemeMesaji({ okul: okulInfo.okulAdi, kurumKodu: okulInfo.kurumKodu, bitis: bitisYazi })
+                : "Merhaba, NormMatik lisansımın süresini uzatmak istiyorum.";
+            const waUrl = (typeof normmatikWhatsappBaglantisi === "function")
+                ? normmatikWhatsappBaglantisi(mesaj)
+                : "https://wa.me/905062777049";
+            window.open(waUrl, "_blank");
+        });
+    }
+
     // --- LİSANS DOĞRULAMA VE AKTİVASYON MERKEZİ MODALI ---
     openLicenseModal() {
         // Fiyat TEK KAYNAKTAN gelir: js/fiyat.js. Daha once dort ayri yerde
@@ -224085,7 +224338,21 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
         const lic = (typeof window !== 'undefined' && window.licenseManager) ? window.licenseManager.licenseStatus : { isDemo: true, daysRemaining: 7, maxSections: 3 };
         const okulInfo = this.state.state.okulBilgisi || {};
         const types = this.db.getSchoolTypes();
-        const currentType = okulInfo.okulTuru || "";
+
+        // LİSANSLI / YÖNETİCİ / SÜRESİ DOLMUŞ okul satın alma formunu GÖRMEZ (30.10.2026): lisans durumu,
+        // başlangıç-bitiş tarihi, kalan gün ve süre uzatma yönlendirmesi gösterilir. (Eskiden lisanslı müşteriye de
+        // fiyat ve "WhatsApp ile Lisans Al" çıkıyordu; formdaki alanlara yazınca okul bilgisi de değişmeye çalışıyordu.)
+        const gercekOkulMu = !!(okulInfo.kurumKodu && !okulInfo.isDemo);
+        if (lic && (lic.isMaster || (lic.isAnnual && lic.isValid && !lic.isDemo)
+                    || (lic.isExpired && gercekOkulMu && lic.bitis))) {
+            return this.openLicenseStatusModal(lic, okulInfo);
+        }
+
+        // DEMOda form BOŞ başlar: demo okulun sahte bilgileri (kurum kodu 123457, "DEMO ...") kutulara dolmaz ve
+        // satıcıya giden mesaja girmez. Kişi kendi bilgisini yazarsa mesaja o girer (bkz. normmatikLisansMesaji).
+        const demoMu = !!(okulInfo.isDemo || (lic && lic.isDemo));
+        const ornekDeger = (v) => NormGuvenlik.htmlKacis(demoMu ? '' : (v || ''));
+        const currentType = demoMu ? "" : (okulInfo.okulTuru || "");
 
         // Okul türü seçenekleri
         const grouped = {};
@@ -224170,11 +224437,11 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                             <div style="display: grid; grid-template-columns: 1.2fr 2fr; gap: 0.65rem; margin-bottom: 0.65rem;">
                                 <div class="form-group" style="margin-bottom: 0;">
                                     <label for="lic-inp-kurum-kodu" style="font-size: 0.72rem; font-weight: 700;">MEB Kurum Kodu *</label>
-                                    <input type="text" id="lic-inp-kurum-kodu" class="form-control" value="${okulInfo.kurumKodu || ''}" placeholder="Örn: 754123" maxlength="10" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                    <input type="text" id="lic-inp-kurum-kodu" class="form-control" value="${ornekDeger(okulInfo.kurumKodu)}" placeholder="Örn: 754123" maxlength="10" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
                                     <label for="lic-inp-okul-adi" style="font-size: 0.72rem; font-weight: 700;">Okul / Kurum Adı *</label>
-                                    <input type="text" id="lic-inp-okul-adi" class="form-control" value="${okulInfo.okulAdi || ''}" placeholder="Örn: Kadıköy Anadolu Lisesi" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                    <input type="text" id="lic-inp-okul-adi" class="form-control" value="${ornekDeger(okulInfo.okulAdi)}" placeholder="Örn: Kadıköy Anadolu Lisesi" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>
 
@@ -224187,7 +224454,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 </div>
                                 <div class="form-group" style="margin-bottom: 0;">
                                     <label for="lic-inp-il-ilce" style="font-size: 0.72rem; font-weight: 700;">İl / İlçe (Opsiyonel)</label>
-                                    <input type="text" id="lic-inp-il-ilce" class="form-control" value="${okulInfo.il ? (okulInfo.il + (okulInfo.ilce ? ' / ' + okulInfo.ilce : '')) : ''}" placeholder="Örn: İSTANBUL / KADIKÖY" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
+                                    <input type="text" id="lic-inp-il-ilce" class="form-control" value="${ornekDeger(okulInfo.il ? (okulInfo.il + (okulInfo.ilce ? ' / ' + okulInfo.ilce : '')) : '')}" placeholder="Örn: İSTANBUL / KADIKÖY" style="font-size: 0.82rem; padding: 0.4rem 0.6rem;">
                                 </div>
                             </div>
 
@@ -224203,7 +224470,7 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
                                 WhatsApp ile Lisans Al  ·  ${iletisimBilgi.telefon}
                             </button>
                             <div style="font-size: 0.72rem; text-align: center; color: var(--text-muted);">
-                                Tıkladığınızda hazır bir WhatsApp mesajı açılır; okul bilgilerinizi yazıp gönderin, FAST/IBAN ile lisansınız tanımlanır.
+                                Yukarıya yazdığınız okul bilgileri hazır WhatsApp mesajına eklenir; eksik kalanları mesajda tamamlayıp gönderin, FAST/IBAN ile lisansınız tanımlanır.
                             </div>
                         </div>
 
@@ -224296,8 +224563,16 @@ ${data.adminNorms.mudurBasyardimcisiAktif === false ? '' : `
             // gidiyordu. Artık karşılama sayfasındaki kısa şablonun AYNISI
             // kullanılıyor; kişi kendi okul bilgisini kendisi yazıyor.
             // Şablon: js/iletisim.js
-            const waUrl = (typeof normmatikWhatsappBaglantisi === "function")
-                ? normmatikWhatsappBaglantisi()
+            // 30.10.2026: formda YAZILAN bilgiler mesaja girer (demoda form boş başladığı için sahte veri gitmez).
+            const formOkulTuru = document.getElementById("lic-inp-okul-turu")?.value || "";
+            const waBilgi = {
+                okul: document.getElementById("lic-inp-okul-adi")?.value || "",
+                kurumKodu: document.getElementById("lic-inp-kurum-kodu")?.value || "",
+                okulTuru: (types.find(t => t.id === formOkulTuru) || {}).name || "",
+                ilIlce: document.getElementById("lic-inp-il-ilce")?.value || ""
+            };
+            const waUrl = (typeof normmatikWhatsappBaglantisi === "function" && typeof normmatikLisansMesaji === "function")
+                ? normmatikWhatsappBaglantisi(normmatikLisansMesaji(waBilgi))
                 : "https://wa.me/905062777049";
             window.open(waUrl, "_blank");
         });
@@ -225061,8 +225336,8 @@ class MebNormApplication {
                             <button class="btn btn-sm btn-header-tool" id="btn-open-onboarding" style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; color: #10b981;" title="Tanıtım Turu">
                                 ❓ Rehber
                             </button>
-                            <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Sürüm Geçmişi — önceki bir hâle geri dön">
-                                🕘 Geçmiş
+                            <button class="btn btn-sm btn-header-tool" id="btn-surum-gecmisi" title="Kurtarma noktaları — yanlışlıkla silinen şubeleri geri getirir">
+                                🕘 Kurtarma Noktaları
                             </button>
                             <button class="btn btn-sm btn-header-tool" id="btn-open-kvkk" title="KVKK ve Yasal Bilgilendirme">
                                 ⚖️ KVKK
@@ -225202,52 +225477,12 @@ class MebNormApplication {
             }
         });
 
-        // SÜRÜM GEÇMİŞİ
-        // Yerel kurtarma noktaları (state.js surumNoktasiKaydet) yalnızca
-        // saklanıyordu; kullanıcının onlara ULAŞABİLMESİ gerek, yoksa özellik
-        // yok sayılır. (Kullanıcı isteği, 06.09.2026: "dün akşamki hâline dön".)
+        // KURTARMA NOKTALARI (eski adı "Sürüm Geçmişi")
+        // Yerel kurtarma noktaları (state.js surumNoktasiKaydet) yalnızca saklanıyordu; kullanıcının onlara
+        // ULAŞABİLMESİ gerek. (Kullanıcı isteği, 06.09.2026: "dün akşamki hâline dön".) 30.10.2026: düz yazı
+        // kutusuna numara yazdırmak yerine her nokta için "Bu hâle dön" düğmeli pencere (uiComponents).
         document.getElementById("btn-surum-gecmisi")?.addEventListener("click", () => {
-            const liste = appState.surumleriListele();
-            if (!liste.length) {
-                this.ui.showToast(
-                    "Henüz kurtarma noktası yok. Çalıştıkça bu bilgisayarda "
-                    + "otomatik olarak biriktirilir.", "info");
-                return;
-            }
-            const satirlar = liste.map((k, i) => {
-                const t = new Date(k.zaman);
-                const etiket = t.toLocaleString("tr-TR");
-                return `${i + 1}) ${etiket}  —  ${k.subeSayisi} şube, ${k.ogrenciSayisi} öğrenci`;
-            }).join("\n");
-
-            const secim = window.prompt(
-                "SÜRÜM GEÇMİŞİ — bu bilgisayarda saklanan kurtarma noktaları\n\n"
-                + satirlar
-                + "\n\nGeri dönmek istediğiniz noktanın SIRA NUMARASINI yazın.\n"
-                + "(Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak "
-                + "kaydedilir; vazgeçerseniz ona dönebilirsiniz.)");
-            if (secim === null) return;
-
-            const n = parseInt(String(secim).trim(), 10);
-            if (!Number.isFinite(n) || n < 1 || n > liste.length) {
-                this.ui.showToast("Geçersiz sıra numarası.", "error");
-                return;
-            }
-            const hedef = liste[n - 1];
-            if (!window.confirm(
-                "Şu anki çalışmanız " + new Date(hedef.zaman).toLocaleString("tr-TR")
-                + " tarihli hâliyle DEĞİŞTİRİLECEK.\n\n"
-                + hedef.subeSayisi + " şube, " + hedef.ogrenciSayisi + " öğrenci\n\n"
-                + "Devam edilsin mi?")) return;
-
-            if (appState.surumeDon(hedef.id)) {
-                appState.notify();
-                this.render();
-                this.ui.showToast("🕘 " + new Date(hedef.zaman).toLocaleString("tr-TR")
-                    + " tarihli sürüme dönüldü.", "success");
-            } else {
-                this.ui.showToast("Sürüme dönülemedi; kayıt okunamadı.", "error");
-            }
+            this.ui.openRecoveryPointsModal(() => this.render());
         });
 
         document.getElementById("btn-export-json")?.addEventListener("click", () => {

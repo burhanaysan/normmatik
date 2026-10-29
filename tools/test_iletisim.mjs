@@ -53,9 +53,11 @@ kontrol("paket listesinde iletisim.js var",
 kontrol("HTML tarafını hizalayan kod var",
     /def whatsapp_senkronize\(\)/.test(oku("tools", "build_bundle.py")));
 
-/* ---- 2) Lisans penceresi okul bilgisi GÖMMÜYOR ------------------------ */
+/* ---- 2) Lisans penceresi SAHTE okul bilgisi GÖMMÜYOR ------------------ */
+// 30.10.2026: pencere, formda YAZILAN bilgileri mesaja katar; ama hâlâ TEK KAYNAKTAN (iletisim.js) üretir ve
+// hiçbir bilgi yazılmamışsa metin karşılama sayfasıyla BİREBİR aynıdır (bkz. test_lisansPenceresi.mjs).
 kontrol("lisans penceresi tek kaynaktan bağlantı üretiyor",
-    /normmatikWhatsappBaglantisi\(\)/.test(uiJs));
+    /normmatikWhatsappBaglantisi\(normmatikLisansMesaji\(/.test(uiJs));
 kontrol("mesaja 'MEB Kurum Kodu' gömülmüyor",
     !/OKUL LİSANSI TALEBİ[\s\S]{0,200}MEB Kurum Kodu: \$\{/.test(uiJs));
 kontrol("mesaja okul adı gömülmüyor",

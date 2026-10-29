@@ -468,8 +468,12 @@ const okulKur = (S, kurumKodu, isDemo = false) => {
     // Arayüzden erişilebilir olmalı; yoksa özellik yok sayılır.
     const APP = fs.readFileSync(path.join(KOK, "js", "app.js"), "utf8");
     kontrol("S17 başlıkta sürüm geçmişi düğmesi var", /id="btn-surum-gecmisi"/.test(APP));
-    kontrol("S18 düğme listeleme ve dönüş işlevlerine bağlı",
-        /appState\.surumleriListele\(\)/.test(APP) && /appState\.surumeDon\(/.test(APP));
+    // 30.10.2026: "Sürüm Geçmişi" düz yazı kutusu yerine "Kurtarma Noktaları" penceresi oldu (uiComponents);
+    // düğme pencereyi açar, pencere listeleme ve dönüş işlevlerine bağlıdır.
+    const UIC = fs.readFileSync(path.join(KOK, "js", "uiComponents.js"), "utf8");
+    kontrol("S18 düğme kurtarma noktaları penceresini açıyor; pencere listeleme ve dönüş işlevlerine bağlı",
+        /openRecoveryPointsModal\(/.test(APP)
+        && /this\.state\.surumleriListele\(\)/.test(UIC) && /this\.state\.surumeDon\(/.test(UIC));
 }
 
 /* ---- sonuç ------------------------------------------------------------ */

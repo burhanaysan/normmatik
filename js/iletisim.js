@@ -45,10 +45,41 @@ function normmatikWhatsappBaglantisi(mesaj) {
         + "?text=" + encodeURIComponent(m);
 }
 
+/**
+ * Lisans talebi mesajı (30.10.2026). Formda YAZILAN bilgiler mesaja girer; yazılmamış alan boş şablon satırı olarak
+ * kalır (kişi WhatsApp'ta tamamlar). Hiç bilgi yazılmamışsa sonuç `lisansMesaji` ile BİREBİR aynıdır; yani
+ * karşılama sayfasındaki bağlantıyla aynı metin. Demoda form BOŞ başlar, sahte okul bilgisi mesaja girmez
+ * (13.09.2026 bulgusu); kişi kendi okulunu yazarsa satıcıya o gider.
+ */
+function normmatikLisansMesaji(bilgi) {
+    const b = bilgi || {};
+    const v = (x) => String(x == null ? "" : x).trim();
+    return "Merhaba, NormMatik lisansı hakkında bilgi almak istiyorum.\n"
+        + "Okul: " + v(b.okul) + "\n"
+        + "Kurum kodu: " + v(b.kurumKodu) + "\n"
+        + (v(b.okulTuru) ? "Okul türü: " + v(b.okulTuru) + "\n" : "")
+        + "İl/İlçe: " + v(b.ilIlce);
+}
+
+/**
+ * Lisans yenileme (süre uzatma) mesajı (30.10.2026). Lisanslı okulun gerçek bilgileri gider; satıcı hangi
+ * okulun hangi tarihte bittiğini mesajdan görür.
+ */
+function normmatikYenilemeMesaji(bilgi) {
+    const b = bilgi || {};
+    const v = (x) => String(x == null ? "" : x).trim();
+    return "Merhaba, NormMatik lisansımın süresini uzatmak istiyorum.\n"
+        + "Okul: " + v(b.okul) + "\n"
+        + "Kurum kodu: " + v(b.kurumKodu) + "\n"
+        + "Lisans bitiş tarihi: " + v(b.bitis);
+}
+
 if (typeof window !== 'undefined') {
     window.NORMMATIK_ILETISIM = NORMMATIK_ILETISIM;
     window.normmatikWhatsappBaglantisi = normmatikWhatsappBaglantisi;
+    window.normmatikLisansMesaji = normmatikLisansMesaji;
+    window.normmatikYenilemeMesaji = normmatikYenilemeMesaji;
 }
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { NORMMATIK_ILETISIM, normmatikWhatsappBaglantisi };
+    module.exports = { NORMMATIK_ILETISIM, normmatikWhatsappBaglantisi, normmatikLisansMesaji, normmatikYenilemeMesaji };
 }

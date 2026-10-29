@@ -131,6 +131,9 @@ class MebLicenseClientManager {
             // erişimi kesmiş olur; bu yalnızca ekranda doğru mesaj çıksın diye.
             const demo = this.initDemoState();
             demo.isExpired = true;
+            // Pencere "süreniz doldu" durumunu gösterebilsin (tarihler abonelik kaydından gelir).
+            demo.bitis = abonelik.bitis || '';
+            demo.baslangic = abonelik.baslangic || '';
             demo.reason = `Aboneliğiniz ${abonelik.bitis || ''} tarihinde sona erdi. Yenilemek için bizimle iletişime geçin.`;
             this.licenseStatus = demo;
             return demo;
@@ -154,6 +157,8 @@ class MebLicenseClientManager {
             okulAdi: kimlik.okulAdi || '',
             okulTuru: kimlik.okulTuru || '',
             bitis: abonelik.bitis || '',
+            // Lisansın başladığı gün (YYYY-AA-GG). Eski kayıtlarda olmayabilir; pencere yoksa göstermez.
+            baslangic: abonelik.baslangic || '',
             reason: null
         };
         return this.licenseStatus;
