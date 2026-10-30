@@ -40,13 +40,14 @@
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.4",
+    surum: "2.6.5",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Kurtarma noktaları artık resmî antet logosunu içermiyor: logo 300-400 KB'lık bir metindir ve her noktada yinelenince tarayıcı kotasını dolduruyor, ekranda kırmızı \"Sürüm geçmişi bu tarayıcıya sığmadı ve temizlendi\" uyarısına yol açıyordu (çalışmanızın kendisi bundan etkilenmiyordu). Noktalar yaklaşık 10 kat küçüldü; daha önce kaydedilmiş noktalar da bir sonraki kayıtta küçülür. Noktaya geri dönünce şubeleriniz geri gelir, şu anki logonuz korunur.",
         "Lisans penceresi yenilendi. Lisanslı okul artık fiyat ve \"Lisans Al\" düğmesi yerine kendi lisans durumunu görüyor: kalan gün (60 günden az kalınca turuncu, 30 günden az kalınca kırmızı uyarıyla), lisansın başlangıç ve bitiş tarihi, kapsamı ve süreyi uzatmak için okulun bilgilerini içeren hazır bir WhatsApp mesajı açan \"Süreyi Uzat\" düğmesi. Süresi dolmuş lisansta \"süresi doldu, verileriniz silinmez, yenilemeyle geri gelir\" yazıyor. Lisans almak isteyenlerin (demo) penceresinde ise okul bilgisi kutuları boş başlıyor; yazdığınız okul adı, kurum kodu, okul türü ve il/ilçe hazır WhatsApp mesajına eklenir (eskiden mesaj okul bilgisi taşımıyordu; demonun sahte bilgisi gönderilmesin diye form boş başlar). Lisans başlangıç tarihi yeni açılan okullara kendiliğinden yazılır; daha önce açılmış okullarda bu tarih yönetici aracıyla doldurulunca görünür.",
         "\"Diğer\" menüsündeki \"Geçmiş\" düğmesi \"Kurtarma Noktaları\" oldu ve düzgün bir pencereye kavuştu: yanlışlıkla silinen ya da bozulan şubeleri geri getirmek için çalışmanızı eski bir hâline döndürebilirsiniz. Uygulama çalışırken bu bilgisayarda otomatik kurtarma noktaları biriktirir (en fazla 10 nokta, en az 30 dakika arayla; yalnız bu bilgisayardaki tarayıcıda saklanır). Eskiden düz bir kutuya sıra numarası yazdırılıyordu; artık her noktanın tarihi ve şube/öğrenci sayısı listelenir, yanında \"Bu hâle dön\" düğmesi bulunur. Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak kaydedilir.",
         "Çok Programlı Anadolu Lisesinde şube eklerken sınıf listesi \"Hazırlık\"la başladığı için, sınıfı değiştirmeden eklenen şube hazırlık sınıfı olarak kaydediliyor ve Anadolu programının hazırlık çizelgesi olmadığından hiç ders gelmiyordu. Sınıf listesinden Hazırlık kaldırıldı (varsayılan artık 9. sınıf). Ayrıca çizelgesi bulunamayan bir sınıf/program bileşimi için şube eklenirken ya da düzenlenirken artık \"ders çizelgesi bulunamadı\" uyarısı çıkıyor; eskiden \"dersleriyle eklendi\" yazıp dersiz şube oluşturuluyordu. Hazırlık sınıfı olarak kaydedilmiş böyle bir şube varsa \"Şubeyi Düzenle\"den sınıfı değiştirmeniz yeter, dersler kendiliğinden yenilenir.",

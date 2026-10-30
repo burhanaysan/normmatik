@@ -1659,10 +1659,18 @@ export class AppStateService {
             }
         }
 
+        // LOGO NOKTAYA KONMAZ (30.10.2026): resmî antet logosu 300-400 KB'lık base64 metindir ve her noktada
+        // yinelenince 10 nokta 4 MB'ı buluyor, tarayıcı kotasını (≈5 MB, tüm okullar için ortak) dolduruyordu;
+        // "Sürüm geçmişi bu tarayıcıya sığmadı" uyarısının asıl sebebi buydu. Logo kurtarma noktasının konusu
+        // değildir (şubeler ve ayarlar geri getirilir); geri dönüşte MEVCUT logo korunur (bkz. surumeDon).
+        // Daha önce kaydedilmiş noktalardan da çıkarılır, böylece yer hemen açılır.
+        const yeniVeri = JSON.parse(JSON.stringify(this.state));
+        this._surumNoktasindanLogoyuCikar(yeniVeri);
+        liste.forEach(k => this._surumNoktasindanLogoyuCikar(k.veri));
         liste.unshift({
             id: "s" + simdi,
             zaman: new Date(simdi).toISOString(),
-            veri: JSON.parse(JSON.stringify(this.state))
+            veri: yeniVeri
         });
 
         // Adet ve boyut sınırı: en eskiler düşer.
@@ -1712,7 +1720,21 @@ export class AppStateService {
         const nokta = liste.find(k => k.id === id);
         if (!nokta) return false;
         this.surumNoktasiKaydet(true);
-        return this.yereliUygula(nokta.veri);
+        // Noktada logo yoktur (bkz. surumNoktasiKaydet); geri dönüşte şu anki logo korunur.
+        const mevcutLogo = this.state && this.state.okulBilgisi && this.state.okulBilgisi.antet
+            ? this.state.okulBilgisi.antet.logoBase64 : null;
+        const ok = this.yereliUygula(nokta.veri);
+        if (ok && mevcutLogo && this.state && this.state.okulBilgisi) {
+            const antet = this.state.okulBilgisi.antet || (this.state.okulBilgisi.antet = {});
+            if (!antet.logoBase64) antet.logoBase64 = mevcutLogo;
+        }
+        return ok;
+    }
+
+    /** Kurtarma noktasından antet logosunu (büyük base64 metin) çıkarır; yerinde değiştirir. */
+    _surumNoktasindanLogoyuCikar(veri) {
+        const antet = veri && veri.okulBilgisi && veri.okulBilgisi.antet;
+        if (antet && antet.logoBase64) delete antet.logoBase64;
     }
 
     /** Sürüm geçmişini siler (okul değişiminde). */

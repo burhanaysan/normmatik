@@ -122,7 +122,8 @@ kontrol("satın alma düğmesi artık boş şablonu elle kurmuyor", !/normmatikW
     kontrol("okul yeniden kurulursa eski başlangıç KORUNUR", /eski_abonelik\.get\("baslangic"\)/.test(admin));
     const doldur = fs.readFileSync(path.join(PROJE, "08_bulut_yonetimi", "baslangic_doldur.py"), "utf8");
     kontrol("başlangıç doldurma betiği varsayılan olarak YAZMAZ", /uygula = "--uygula" in sys\.argv/.test(doldur));
-    kontrol("betik yalnız baslangic alanına yazar", !/abonelik\/%s\/(bitis|plan|bitisMs)/.test(doldur));
+    kontrol("betik yalnız baslangic alanına YAZAR (okuma serbest)", !/_toplu_yaz\(\{"abonelik\/%s\/(?!baslangic)/.test(doldur));
+    kontrol("elle bildirilen tarih var olan başlangıcı EZMEZ", /EZILMEDI/.test(doldur) && /--elle/.test(doldur));
 }
 
 /* ---- sonuç ------------------------------------------------------------ */

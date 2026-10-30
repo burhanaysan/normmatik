@@ -354,13 +354,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.4",
+    surum: "2.6.5",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Kurtarma noktaları artık resmî antet logosunu içermiyor: logo 300-400 KB'lık bir metindir ve her noktada yinelenince tarayıcı kotasını dolduruyor, ekranda kırmızı \"Sürüm geçmişi bu tarayıcıya sığmadı ve temizlendi\" uyarısına yol açıyordu (çalışmanızın kendisi bundan etkilenmiyordu). Noktalar yaklaşık 10 kat küçüldü; daha önce kaydedilmiş noktalar da bir sonraki kayıtta küçülür. Noktaya geri dönünce şubeleriniz geri gelir, şu anki logonuz korunur.",
         "Lisans penceresi yenilendi. Lisanslı okul artık fiyat ve \"Lisans Al\" düğmesi yerine kendi lisans durumunu görüyor: kalan gün (60 günden az kalınca turuncu, 30 günden az kalınca kırmızı uyarıyla), lisansın başlangıç ve bitiş tarihi, kapsamı ve süreyi uzatmak için okulun bilgilerini içeren hazır bir WhatsApp mesajı açan \"Süreyi Uzat\" düğmesi. Süresi dolmuş lisansta \"süresi doldu, verileriniz silinmez, yenilemeyle geri gelir\" yazıyor. Lisans almak isteyenlerin (demo) penceresinde ise okul bilgisi kutuları boş başlıyor; yazdığınız okul adı, kurum kodu, okul türü ve il/ilçe hazır WhatsApp mesajına eklenir (eskiden mesaj okul bilgisi taşımıyordu; demonun sahte bilgisi gönderilmesin diye form boş başlar). Lisans başlangıç tarihi yeni açılan okullara kendiliğinden yazılır; daha önce açılmış okullarda bu tarih yönetici aracıyla doldurulunca görünür.",
         "\"Diğer\" menüsündeki \"Geçmiş\" düğmesi \"Kurtarma Noktaları\" oldu ve düzgün bir pencereye kavuştu: yanlışlıkla silinen ya da bozulan şubeleri geri getirmek için çalışmanızı eski bir hâline döndürebilirsiniz. Uygulama çalışırken bu bilgisayarda otomatik kurtarma noktaları biriktirir (en fazla 10 nokta, en az 30 dakika arayla; yalnız bu bilgisayardaki tarayıcıda saklanır). Eskiden düz bir kutuya sıra numarası yazdırılıyordu; artık her noktanın tarihi ve şube/öğrenci sayısı listelenir, yanında \"Bu hâle dön\" düğmesi bulunur. Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak kaydedilir.",
         "Çok Programlı Anadolu Lisesinde şube eklerken sınıf listesi \"Hazırlık\"la başladığı için, sınıfı değiştirmeden eklenen şube hazırlık sınıfı olarak kaydediliyor ve Anadolu programının hazırlık çizelgesi olmadığından hiç ders gelmiyordu. Sınıf listesinden Hazırlık kaldırıldı (varsayılan artık 9. sınıf). Ayrıca çizelgesi bulunamayan bir sınıf/program bileşimi için şube eklenirken ya da düzenlenirken artık \"ders çizelgesi bulunamadı\" uyarısı çıkıyor; eskiden \"dersleriyle eklendi\" yazıp dersiz şube oluşturuluyordu. Hazırlık sınıfı olarak kaydedilmiş böyle bir şube varsa \"Şubeyi Düzenle\"den sınıfı değiştirmeniz yeter, dersler kendiliğinden yenilenir.",
@@ -216207,10 +216208,18 @@ class AppStateService {
             }
         }
 
+        // LOGO NOKTAYA KONMAZ (30.10.2026): resmî antet logosu 300-400 KB'lık base64 metindir ve her noktada
+        // yinelenince 10 nokta 4 MB'ı buluyor, tarayıcı kotasını (≈5 MB, tüm okullar için ortak) dolduruyordu;
+        // "Sürüm geçmişi bu tarayıcıya sığmadı" uyarısının asıl sebebi buydu. Logo kurtarma noktasının konusu
+        // değildir (şubeler ve ayarlar geri getirilir); geri dönüşte MEVCUT logo korunur (bkz. surumeDon).
+        // Daha önce kaydedilmiş noktalardan da çıkarılır, böylece yer hemen açılır.
+        const yeniVeri = JSON.parse(JSON.stringify(this.state));
+        this._surumNoktasindanLogoyuCikar(yeniVeri);
+        liste.forEach(k => this._surumNoktasindanLogoyuCikar(k.veri));
         liste.unshift({
             id: "s" + simdi,
             zaman: new Date(simdi).toISOString(),
-            veri: JSON.parse(JSON.stringify(this.state))
+            veri: yeniVeri
         });
 
         // Adet ve boyut sınırı: en eskiler düşer.
@@ -216260,7 +216269,21 @@ class AppStateService {
         const nokta = liste.find(k => k.id === id);
         if (!nokta) return false;
         this.surumNoktasiKaydet(true);
-        return this.yereliUygula(nokta.veri);
+        // Noktada logo yoktur (bkz. surumNoktasiKaydet); geri dönüşte şu anki logo korunur.
+        const mevcutLogo = this.state && this.state.okulBilgisi && this.state.okulBilgisi.antet
+            ? this.state.okulBilgisi.antet.logoBase64 : null;
+        const ok = this.yereliUygula(nokta.veri);
+        if (ok && mevcutLogo && this.state && this.state.okulBilgisi) {
+            const antet = this.state.okulBilgisi.antet || (this.state.okulBilgisi.antet = {});
+            if (!antet.logoBase64) antet.logoBase64 = mevcutLogo;
+        }
+        return ok;
+    }
+
+    /** Kurtarma noktasından antet logosunu (büyük base64 metin) çıkarır; yerinde değiştirir. */
+    _surumNoktasindanLogoyuCikar(veri) {
+        const antet = veri && veri.okulBilgisi && veri.okulBilgisi.antet;
+        if (antet && antet.logoBase64) delete antet.logoBase64;
     }
 
     /** Sürüm geçmişini siler (okul değişiminde). */
