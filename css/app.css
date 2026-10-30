@@ -7195,3 +7195,17 @@ body.resizing .middle-canvas {
     outline: 2px solid #f59e0b;
     outline-offset: 2px;
 }
+
+/* Çok programlı okulda seçmeli satırının kaynak etiketi (30.10.2026): AL · AMP · MESEM */
+.row-pool-tags {
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.4rem;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    white-space: nowrap;
+}

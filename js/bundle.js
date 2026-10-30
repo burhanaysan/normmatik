@@ -354,13 +354,14 @@ if (typeof module !== 'undefined' && module.exports) {
  * çalıştırın. version.json'a ELLE DOKUNMAYIN — üzerine yazılır.
  */
 const NORMMATIK_SURUM = {
-    surum: "2.6.5",
+    surum: "2.6.6",
     yayinTarihi: "2026-10-30",
 
     // Kullanıcıya gösterilen değişiklik listesi. Lisans penceresinde
     // "Neler değişti" başlığı altında çıkar ve version.json'a yazılır.
     // KURAL: buraya teknik değil, OKULUN ANLAYACAĞI dille yazılır.
     degisiklikler: [
+        "Çok Programlı Anadolu Lisesinde seçmeli ders listesi artık üç programın havuzunu birlikte gösteriyor: şube hangi programda olursa olsun Anadolu Lisesi seçmelileri, AMP seçmelileri (kültür dersleri ve şubenin alanının seçmeli meslek dersleri) ve MESEM seçmelileri (şubenin alanı) tek listede çıkıyor. Birden çok programda bulunan ders tek satırdır ve saat seçenekleri birleşir; her satırın yanında dersin hangi programların listesinde olduğu (AL · AMP · MESEM) yazıyor. Bir ders şubenin kendi programının TTKB seçmeli tablosunda yoksa (örneğin AMP şubesinde Anadolu havuzundaki \"Girişimcilik\") seçince bilgi notu çıkıyor; seçim engellenmez. AMP şubelerine e-Okul'un AMP seçmeli ders listesinde bulunan \"Proje Hazırlama\" (1-2 saat, İnsan-Toplum-Bilim) dersi eklendi; \"Blok Zincir\" dersinin adı e-Okul'daki gibi \"Blok Zinciri\" yapıldı. Diğer okul türlerinin listeleri aynen duruyor. Ders yükü ve norm hesabı değişmedi: seçilen ders şubenin kendi kaydına yazılır ve şube kendi programının kuralıyla hesaplanır.",
         "Kurtarma noktaları artık resmî antet logosunu içermiyor: logo 300-400 KB'lık bir metindir ve her noktada yinelenince tarayıcı kotasını dolduruyor, ekranda kırmızı \"Sürüm geçmişi bu tarayıcıya sığmadı ve temizlendi\" uyarısına yol açıyordu (çalışmanızın kendisi bundan etkilenmiyordu). Noktalar yaklaşık 10 kat küçüldü; daha önce kaydedilmiş noktalar da bir sonraki kayıtta küçülür. Noktaya geri dönünce şubeleriniz geri gelir, şu anki logonuz korunur.",
         "Lisans penceresi yenilendi. Lisanslı okul artık fiyat ve \"Lisans Al\" düğmesi yerine kendi lisans durumunu görüyor: kalan gün (60 günden az kalınca turuncu, 30 günden az kalınca kırmızı uyarıyla), lisansın başlangıç ve bitiş tarihi, kapsamı ve süreyi uzatmak için okulun bilgilerini içeren hazır bir WhatsApp mesajı açan \"Süreyi Uzat\" düğmesi. Süresi dolmuş lisansta \"süresi doldu, verileriniz silinmez, yenilemeyle geri gelir\" yazıyor. Lisans almak isteyenlerin (demo) penceresinde ise okul bilgisi kutuları boş başlıyor; yazdığınız okul adı, kurum kodu, okul türü ve il/ilçe hazır WhatsApp mesajına eklenir (eskiden mesaj okul bilgisi taşımıyordu; demonun sahte bilgisi gönderilmesin diye form boş başlar). Lisans başlangıç tarihi yeni açılan okullara kendiliğinden yazılır; daha önce açılmış okullarda bu tarih yönetici aracıyla doldurulunca görünür.",
         "\"Diğer\" menüsündeki \"Geçmiş\" düğmesi \"Kurtarma Noktaları\" oldu ve düzgün bir pencereye kavuştu: yanlışlıkla silinen ya da bozulan şubeleri geri getirmek için çalışmanızı eski bir hâline döndürebilirsiniz. Uygulama çalışırken bu bilgisayarda otomatik kurtarma noktaları biriktirir (en fazla 10 nokta, en az 30 dakika arayla; yalnız bu bilgisayardaki tarayıcıda saklanır). Eskiden düz bir kutuya sıra numarası yazdırılıyordu; artık her noktanın tarihi ve şube/öğrenci sayısı listelenir, yanında \"Bu hâle dön\" düğmesi bulunur. Geri dönmeden önce şu anki hâliniz de yeni bir nokta olarak kaydedilir.",
@@ -219105,7 +219106,7 @@ class UIComponentManager {
             if (kuralEl) {
                 const uyarilar = this.secmeliKuralUyarilari(currentSec, Array.from(draftSelections.values()));
                 kuralEl.style.display = uyarilar.length ? "block" : "none";
-                kuralEl.innerHTML = uyarilar.map(u => "⚠️ " + NormGuvenlik.htmlKacis(u.mesaj)).join("<br>");
+                kuralEl.innerHTML = uyarilar.map(u => (u.tur === "havuz" ? "ℹ️ " : "⚠️ ") + NormGuvenlik.htmlKacis(u.mesaj)).join("<br>");
             }
             const commitBtn = document.getElementById("btn-commit-electives");
             const { count, draftElectiveHours, totalHours, remaining } = getDraftStats();
@@ -219217,6 +219218,7 @@ class UIComponentManager {
                                         <div class="row-selection-indicator"></div>
                                         <div class="row-info-col">
                                             <span class="row-course-title">${item.ders}</span>
+                                            ${Array.isArray(item.havuzlar) ? `<span class="row-pool-tags" title="Bu ders hangi programların seçmeli listesinde">${item.havuzlar.join(" · ")}</span>` : ""}
                                         </div>
                                         <div class="row-action-col">
                                             <div class="row-hours-group">
@@ -221160,12 +221162,18 @@ class UIComponentManager {
         // Karma programlı okulda şubenin programının okul türü (programlar.js); diğerlerinde aynı.
         const schoolType = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : okulTuruHam;
         const grade = String(section.sinifSeviyesi || "");
-        const liste = this.resmiSecmeliListesi(section, schoolType, grade);
+        // Çok programlı okulda liste üç havuzun birleşimidir (bkz. cokProgramliSecmeliListesi); başka havuzdan
+        // seçilen ders "resmî listede yok" diye uyarılmaz, yalnızca hangi havuzdan geldiği bilgi olarak söylenir.
+        const cokProgramli = okulTuruHam === "cok_programli_anadolu_lisesi";
+        const liste = cokProgramli ? this.getAvailableElectivesForSection(section)
+            : this.resmiSecmeliListesi(section, schoolType, grade);
         if (!liste) return [];
         const anahtar = (ad) => (this.state && typeof this.state._secmeliAnahtar === "function")
             ? this.state._secmeliAnahtar(ad) : String(ad || "").toLocaleLowerCase("tr").trim();
         const R = (typeof window !== 'undefined' && window.SECMELI_RESMI) || (typeof SECMELI_RESMI !== 'undefined' ? SECMELI_RESMI : null);
         const sozluk = new Map(liste.map(d => [anahtar(d.ders), d]));
+        // Eski adla kayıtlı seçmeli (ör. "Blok Zincir") yeni adın (e-Okul'daki "Blok Zinciri") karşılığıdır.
+        liste.forEach(d => { if (d.eskiAd) sozluk.set(anahtar(d.eskiAd), d); });
         const uyarilar = [];
         const secilenKultur = [];
         (secimler || []).forEach(s => {
@@ -221179,6 +221187,10 @@ class UIComponentManager {
                 uyarilar.push({ tur: "saat", mesaj: `“${d.ders}” için haftalık saat seçenekleri: ${d.hoursOptions.join(" / ")} (seçilen ${saat}).` });
             }
             if (!d.isVocational) secilenKultur.push({ d, saat: saat || 0 });
+            if (cokProgramli && d.kendiHavuzdaYok) {
+                const kisa = { anadolu_lisesi: "AL", mesleki_ve_teknik_anadolu_lisesi: "AMP", mesleki_egitim_merkezi: "MESEM" }[String(schoolType)] || "bu";
+                uyarilar.push({ tur: "havuz", mesaj: `“${d.ders}” bu şubenin programının (${kisa}) TTKB seçmeli tablosunda yok; ${(d.havuzlar || []).join(" / ")} listesinden alındı. e-Okul'daki seçmeli ders listenizde bu ders varsa seçebilirsiniz.` });
+            }
         });
         const tur = String(schoolType);
         let gruplar = null, kaynak = "";
@@ -221203,14 +221215,89 @@ class UIComponentManager {
         return uyarilar;
     }
 
-    getAvailableElectivesForSection(section) {
+    /**
+     * ÇOK PROGRAMLI OKUL: şubenin seçmeli listesi üç havuzun BİRLEŞİMİDİR (30.10.2026).
+     *
+     * Müşteri (çok programlı Anadolu lisesi) AMP 12. sınıfta okulun e-Okul'da tanımladığı "Girişimcilik"
+     * dersini listede bulamadı: o ders Anadolu Lisesi havuzunda var, AMP'nin resmî tablosunda yok. Karar:
+     * çok programlı okulda şube hangi programdaysa olsun, Anadolu havuzu + AMP (kültür + o alanın seçmeli
+     * meslek dersleri) + MESEM (o alanın listesi) birlikte gösterilir. Ortak dersler TEK satırdır.
+     *
+     * Kurallar:
+     *  - Şubenin KENDİ programının havuzu önce gelir; ortak dersin grubu, varsayılan saati ve branşı oradan alınır.
+     *  - Saat seçenekleri havuzların birleşimidir.
+     *  - Alan bilgisi olmayan şubede (AL) alana bağlı listeler (seçmeli meslek, MESEM) boş gelir; Anadolu havuzu
+     *    ise alan YOKSAYILARAK çağrılır (aksi halde eski yol alanın katı seçmeli meslek listesini de katardı).
+     *  - Hiçbir şey hesaplanmaz: seçilen ders şubenin kendi kaydına yazılır, şube kendi programının kuralıyla
+     *    hesaplanır; MESEM ile diğer programlar yine ayrı bölümlerde kalır.
+     *  - `havuzlar` her satırın hangi programların listesinde olduğunu söyler (ekranda küçük etiket).
+     */
+    cokProgramliSecmeliListesi(section) {
+        const okulTuruHam = this.state?.state?.okulBilgisi?.okulTuru || "";
+        const kendi = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : "anadolu_lisesi";
+        const SIRA = ["anadolu_lisesi", "mesleki_ve_teknik_anadolu_lisesi", "mesleki_egitim_merkezi"];
+        const KISA = { anadolu_lisesi: "AL", mesleki_ve_teknik_anadolu_lisesi: "AMP", mesleki_egitim_merkezi: "MESEM" };
+        const turler = [kendi, ...SIRA.filter(t => t !== kendi)].filter(t => KISA[t]);
+        const anahtar = (ad) => (this.state && typeof this.state._secmeliAnahtar === "function")
+            ? this.state._secmeliAnahtar(ad) : String(ad || "").toLocaleLowerCase("tr").trim();
+
+        // e-Okul'daki yazımıyla farklı olan ders adları (anahtar -> e-Okul adı). Düzeltme BİRLEŞİMDEN ÖNCE yapılır:
+        // MTAL listesi "Blok Zincir" (çerçeve programın yazımı), MESEM listesi "Blok Zinciri" yazıyor; ad
+        // eşitlenmezse aynı ders iki satır görünür. Yalnız bu okul türünün listesi değişir; MTAL/MESEM okullarının
+        // kendi listeleri ve kayıtlı seçmeli adları aynen durur.
+        const AD_DUZELTME = { "blok zincir": "Blok Zinciri" };
+
+        const birlesik = new Map();
+        turler.forEach(tur => {
+            // Anadolu havuzu alandan bağımsızdır: alan bilgisi verilirse eski yol katı meslek listesini de ekler.
+            const bolum = tur === "anadolu_lisesi" ? { ...section, alanId: null, alanAdi: null } : section;
+            const liste = this.getAvailableElectivesForSection(bolum, tur) || [];
+            liste.forEach(d0 => {
+                const yeniAd = AD_DUZELTME[anahtar(d0.ders)];
+                const d = yeniAd ? { ...d0, ders: yeniAd, eskiAd: d0.ders } : d0;
+                const k = anahtar(d.ders);
+                const var_ = birlesik.get(k);
+                if (!var_) {
+                    birlesik.set(k, { ...d, hoursOptions: (d.hoursOptions || []).slice(), havuzlar: [KISA[tur]] });
+                    return;
+                }
+                if (!var_.havuzlar.includes(KISA[tur])) var_.havuzlar.push(KISA[tur]);
+                var_.hoursOptions = [...new Set([...var_.hoursOptions, ...(d.hoursOptions || [])])].sort((x, y) => x - y);
+            });
+        });
+        // e-Okul'un AMP seçmeli ders kataloğunda olup TTKB'nin güncel tablolarında bulunmayan dersler (çok programlı
+        // okul müşterisinin e-Okul ekranı, 30.10.2026). "Proje Hazırlama": 2018 ÖGM seçmeli dersler tablosunda var
+        // (1-2 saat), e-Okul'da 2 saat ve "İnsan, Toplum ve Bilim" grubunda. Yalnız AMP şubesine eklenir; branşı idareci seçer.
+        const grade = String(section.sinifSeviyesi || "11");
+        const EK_DERSLER = [
+            { ders: "Proje Hazırlama", grup: "İnsan, Toplum ve Bilim", saatler: [1, 2], varsayilanSaat: 2, siniflar: ["9", "10", "11", "12"] }
+        ];
+        if (kendi === "mesleki_ve_teknik_anadolu_lisesi") {
+            EK_DERSLER.filter(e => e.siniflar.includes(grade) && !birlesik.has(anahtar(e.ders))).forEach(e => {
+                birlesik.set(anahtar(e.ders), {
+                    ders: e.ders, grup: e.grup, hoursOptions: e.saatler.slice(), selectedHour: e.varsayilanSaat,
+                    defaultBranch: this.secmeliDersBransi(e.ders, e.grup, kendi, grade), isVocational: false,
+                    resmiKaynak: "e-Okul AMP seçmeli ders kataloğu; 2018 ÖGM seçmeli dersler tablosu",
+                    havuzlar: ["e-Okul"]
+                });
+            });
+        }
+
+        const sonuc = Array.from(birlesik.values());
+        sonuc.forEach(d => { d.kendiHavuzdaYok = !d.havuzlar.includes(KISA[kendi]); });
+        return sonuc;
+    }
+
+    getAvailableElectivesForSection(section, turZorla) {
         const master = this.db.masterData;
         if (!master) return [];
 
         const grade = String(section.sinifSeviyesi || "11");
         const okulTuruHam = this.state?.state?.okulBilgisi?.okulTuru || "";
+        // Çok programlı okulda liste üç programın havuzunun birleşimidir; turZorla tek bir havuzu ister (birleştirici çağırır).
+        if (!turZorla && okulTuruHam === "cok_programli_anadolu_lisesi") return this.cokProgramliSecmeliListesi(section);
         // Karma programlı okulda şubenin programının okul türü (programlar.js); diğerlerinde aynı.
-        const schoolType = (typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : okulTuruHam;
+        const schoolType = turZorla || ((typeof etkinOkulTuru === 'function') ? etkinOkulTuru(section, okulTuruHam) : okulTuruHam);
         let list = [];   // süzgeç sonunda yeniden atanabiliyor
         const seenNames = new Set();
 
