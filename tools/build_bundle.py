@@ -263,7 +263,8 @@ def whatsapp_senkronize():
 
     hedefler = ["index.html", "ders-yuku-hesaplama.html",
                 "norm-kadro-hesaplama.html", "meslek-lisesi-norm-kadro.html",
-                "mesem-norm-hesaplama.html", "norm-hesaplama-tablosu.html"]
+                "mesem-norm-hesaplama.html", "norm-hesaplama-tablosu.html",
+                "cok-programli-lise-norm-hesaplama.html"]
     sonuc = []
     for ad in hedefler:
         yol = os.path.join(BASE_DIR, ad)
@@ -375,7 +376,8 @@ def surum_damgala():
                        os.path.join(BASE_DIR, "norm-kadro-hesaplama.html"),
                        os.path.join(BASE_DIR, "meslek-lisesi-norm-kadro.html"),
                        os.path.join(BASE_DIR, "mesem-norm-hesaplama.html"),
-                       os.path.join(BASE_DIR, "norm-hesaplama-tablosu.html")]
+                       os.path.join(BASE_DIR, "norm-hesaplama-tablosu.html"),
+                       os.path.join(BASE_DIR, "cok-programli-lise-norm-hesaplama.html")]
 
     for yol, desen, yeni, ad in [
             (APP_HTML, r'(js/bundle\.js\?v=)[^"\']+', r'\g<1>' + damga,
