@@ -78,7 +78,8 @@ kontrol("wa.me adresi artık elle kurulmuyor",
 
     // Karşılama ve SEO sayfalarındaki LİSANS bağlantıları
     const sayfalar = ["index.html", "ders-yuku-hesaplama.html",
-                      "norm-kadro-hesaplama.html", "meslek-lisesi-norm-kadro.html"];
+                      "norm-kadro-hesaplama.html", "meslek-lisesi-norm-kadro.html",
+                      "mesem-norm-hesaplama.html"];
     let bulunan = 0;
     const sapan = [];
     for (const ad of sayfalar) {
@@ -91,7 +92,7 @@ kontrol("wa.me adresi artık elle kurulmuyor",
             if (adres !== uygulamaUrl) sapan.push(ad + ": " + adres.slice(0, 60));
         }
     }
-    kontrol("lisans bağlantıları bulundu", bulunan >= 4, String(bulunan));
+    kontrol("lisans bağlantıları bulundu", bulunan >= 5, String(bulunan));
     kontrol("HTML bağlantıları uygulamayla BİREBİR aynı", sapan.length === 0,
         sapan.slice(0, 2).join(" | "));
 

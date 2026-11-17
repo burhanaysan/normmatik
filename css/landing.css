@@ -687,6 +687,7 @@ img { max-width: 100%; height: auto; display: block; }
     .bolum-basi h2 { font-size: 1.7rem; }
 
     .izgara { grid-template-columns: repeat(3, 1fr); }
+    .izgara.izgara-4 { grid-template-columns: repeat(4, 1fr); }
     .kademe-liste { grid-template-columns: repeat(3, 1fr); }
     .galeri { grid-template-columns: repeat(3, 1fr); }
 }

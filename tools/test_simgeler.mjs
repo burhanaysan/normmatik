@@ -69,7 +69,7 @@ for (const i of manifest.icons || []) {
 {
     const sayfalar = ["index.html", "app.html", "sifre.html", "yonetim.html",
                       "ders-yuku-hesaplama.html", "norm-kadro-hesaplama.html",
-                      "meslek-lisesi-norm-kadro.html"];
+                      "meslek-lisesi-norm-kadro.html", "mesem-norm-hesaplama.html"];
     const kirik = [];
     for (const s of sayfalar) {
         if (!varMi(s)) continue;
